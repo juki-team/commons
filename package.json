@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "author": "juki-team",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
@@ -11,11 +11,10 @@
   ],
   "repository": "https://github.com/juki-team/commons.git",
   "scripts": {
-    "publish:git": "yarn publish --patch && git push origin main",
-    "prepack": "yarn build",
-    "build": "rollup -c",
+    "docs": "typedoc src/index.ts",
     "watch": "rollup -cw",
-    "docs": "typedoc src/index.ts"
+    "build": "rm -rf docs && rm -rf dist && rollup -c && yarn docs",
+    "push": "yarn build && yarn publish --patch && git push origin main"
   },
   "devDependencies": {
     "rollup": "^2.70.2",
