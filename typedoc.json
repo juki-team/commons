@@ -1,0 +1,12 @@
+{
+  "entryPoints": [
+    "src/index.ts"
+  ],
+  "out": "docs",
+  "darkHighlightTheme": "dark-plus",
+  "customCss": "./juki-theme/style.css",
+  "includeVersion": true,
+  "categorizeByGroup": false,
+  "hideGenerator": true,
+  "disableSources": true
+}
