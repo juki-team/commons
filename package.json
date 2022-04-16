@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "author": "juki-team",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
@@ -11,7 +11,7 @@
   ],
   "repository": "https://github.com/juki-team/commons.git",
   "scripts": {
-    "publish:git": "yarn build && yarn publish --patch",
+    "publish:git": "yarn publish --patch",
     "prepack": "yarn build",
     "build": "rollup -c",
     "watch": "rollup -cw",
