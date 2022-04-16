@@ -1,0 +1,38 @@
+export enum Judge {
+  JUKI_JUDGE = 'JUKI_JUDGE',
+  CODEFORCES = 'CODEFORCES',
+  UVA_ONLINE_JUDGE = 'UVA_ONLINE_JUDGE',
+  AT_CODER = 'AT_CODER',
+  CODECHEF = 'CODECHEF'
+}
+
+export enum ProblemVerdict {
+  NONE = 'NONE', // No judge
+  PENDING = 'PENDING', // Pending
+  HIDDEN = 'HIDDEN', // Hidden
+  CE = 'CE', // Compilation Error
+  RE = 'RE', // Runtime Error
+  TLE = 'TLE', // Time Limit Exceded
+  MLE = 'MLE', // Memory Limit Exceded
+  WA = 'WA', // Wrong Answer
+  PE = 'PE', // Presentation Error
+  PA = 'PA', // Partial Accepted
+  AC = 'AC', // Accepted
+}
+
+export enum SubmissionRunStatus {
+  NONE = 'NONE',
+  RECEIVED = 'RECEIVED',
+  COMPILING = 'COMPILING',
+  COMPILED = 'COMPILED',
+  COMPILATION_ERROR = 'COMPILATION_ERROR',
+  RUNNING_TEST_CASE = 'RUNNING_TEST_CASE',
+  RUNNING_TEST_CASES = 'RUNNING_TEST_CASES',
+  RUNNING_SAMPLE_TEST_CASES = 'RUNNING_SAMPLE_TEST_CASES',
+  EXECUTED_TEST_CASE = 'EXECUTED_TEST_CASE',
+  FAILED_TEST_CASE = 'FAILED_TEST_CASE',
+  JUDGING_TEST_CASE = 'JUDGING_TEST_CASE',
+  GRADING = 'GRADING',
+  FAILED = 'FAILED',
+  COMPLETED = 'COMPLETED',
+}
