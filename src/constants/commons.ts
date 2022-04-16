@@ -1,19 +1,19 @@
 import { Language, ProgrammingLanguage, Theme } from '../types';
 
-export const LANGUAGE: { [key in Language]: { value: Language, print: string } } = {
-  [Language.EN]: { value: Language.EN, print: 'english' },
-  [Language.ES]: { value: Language.ES, print: 'español' },
+export const LANGUAGE: { [key in Language]: { value: Language, label: string } } = {
+  [Language.EN]: { value: Language.EN, label: 'english' },
+  [Language.ES]: { value: Language.ES, label: 'español' },
 };
 
-export const THEME: { [key in Theme]: { value: Theme, print: string } } = {
-  [Theme.LIGHT]: { value: Theme.LIGHT, print: 'light' },
-  [Theme.DARK]: { value: Theme.DARK, print: 'dark' },
+export const THEME: { [key in Theme]: { value: Theme, label: string } } = {
+  [Theme.LIGHT]: { value: Theme.LIGHT, label: 'light' },
+  [Theme.DARK]: { value: Theme.DARK, label: 'dark' },
 };
 
 // Languages to monaco https://monaco-react.surenatoyan.com/
 export type ProgrammingLanguageMeta = {
   value: ProgrammingLanguage,
-  name: string,
+  label: string,
   mime: string,
   fileExtension: Array<string>,
   monacoKey: string,
@@ -27,7 +27,7 @@ export type ProgrammingLanguageMeta = {
 export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLanguageMeta } = {
   [ProgrammingLanguage.C]: {
     value: ProgrammingLanguage.C,
-    name: 'C',
+    label: 'C',
     mime: 'text/x-csrc',
     fileExtension: ['c'],
     monacoKey: 'c',
@@ -40,7 +40,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.CPP]: {
     value: ProgrammingLanguage.CPP,
-    name: 'C++',
+    label: 'C++',
     mime: 'text/x-c++src',
     fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
     monacoKey: 'cpp',
@@ -54,7 +54,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.CPP11]: {
     value: ProgrammingLanguage.CPP11,
-    name: 'C++ 11',
+    label: 'C++ 11',
     mime: 'text/x-c++src',
     fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
     monacoKey: 'cpp',
@@ -69,7 +69,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.CPP14]: {
     value: ProgrammingLanguage.CPP14,
-    name: 'C++ 14',
+    label: 'C++ 14',
     mime: 'text/x-c++src',
     fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
     monacoKey: 'cpp',
@@ -85,7 +85,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.CPP17]: {
     value: ProgrammingLanguage.CPP17,
-    name: 'C++ 17',
+    label: 'C++ 17',
     mime: 'text/x-c++src',
     fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
     monacoKey: 'cpp',
@@ -100,7 +100,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.JAVA]: {
     value: ProgrammingLanguage.JAVA,
-    name: 'Java',
+    label: 'Java',
     mime: 'text/x-java',
     fileExtension: ['java'],
     monacoKey: 'java',
@@ -116,7 +116,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.PYTHON]: {
     value: ProgrammingLanguage.PYTHON,
-    name: 'Python',
+    label: 'Python',
     mime: 'text/x-python',
     fileExtension: ['py'],
     monacoKey: 'python',
@@ -128,7 +128,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.PYTHON3]: {
     value: ProgrammingLanguage.PYTHON3,
-    name: 'Python 3',
+    label: 'Python 3',
     mime: 'text/x-python',
     fileExtension: ['py'],
     monacoKey: 'python',
@@ -140,7 +140,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.JAVASCRIPT]: {
     value: ProgrammingLanguage.JAVASCRIPT,
-    name: 'Node.JS',
+    label: 'Node.JS',
     mime: 'application/x-javascript',
     fileExtension: ['js'],
     monacoKey: 'javascript',
@@ -152,7 +152,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.JSON]: {
     value: ProgrammingLanguage.JSON,
-    name: 'Json',
+    label: 'JSON',
     mime: 'application/json',
     fileExtension: ['json'],
     monacoKey: 'json',
@@ -164,7 +164,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.TEXT]: {
     value: ProgrammingLanguage.TEXT,
-    name: 'Plane text',
+    label: 'Plane text',
     mime: 'text/plain',
     fileExtension: ['txt', 'text'],
     monacoKey: 'text',
@@ -176,7 +176,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   }, // asc txt text diff pot
   [ProgrammingLanguage.MARKDOWN]: {
     value: ProgrammingLanguage.MARKDOWN,
-    name: 'Markdown',
+    label: 'Markdown',
     mime: 'text/plain',
     fileExtension: ['md'],
     monacoKey: 'markdown',
@@ -188,7 +188,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.ARDUINO]: {
     value: ProgrammingLanguage.ARDUINO,
-    name: 'Arduino',
+    label: 'Arduino',
     mime: 'text/plain',
     fileExtension: ['c', 'cpp', 'pde', 'h', 'ino'],
     monacoKey: 'c',

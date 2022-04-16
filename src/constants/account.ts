@@ -1,7 +1,7 @@
 import { UserStatus } from '../types';
 
-export const USER_STATUS: { [key in UserStatus]: { value: UserStatus, print: string } } = {
-  [UserStatus.ACTIVE]: { value: UserStatus.ACTIVE, print: 'active' },
-  [UserStatus.REPORTED]: { value: UserStatus.REPORTED, print: 'reported' },
-  [UserStatus.ARCHIVED]: { value: UserStatus.ARCHIVED, print: 'archived' },
+export const USER_STATUS: { [key in UserStatus]: { value: UserStatus, label: string } } = {
+  [UserStatus.ACTIVE]: { value: UserStatus.ACTIVE, label: 'active' },
+  [UserStatus.REPORTED]: { value: UserStatus.REPORTED, label: 'reported' },
+  [UserStatus.ARCHIVED]: { value: UserStatus.ARCHIVED, label: 'archived' },
 };

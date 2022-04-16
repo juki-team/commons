@@ -1,6 +1,6 @@
 import { ContestStatus } from '../types';
 
-export const CONTEST_STATUS: { [key in ContestStatus]: { value: ContestStatus, print: string } } = {
-  [ContestStatus.ACTIVE]: { value: ContestStatus.ACTIVE, print: 'Active' },
-  [ContestStatus.ARCHIVED]: { value: ContestStatus.ARCHIVED, print: 'Archived' }
+export const CONTEST_STATUS: { [key in ContestStatus]: { value: ContestStatus, label: string } } = {
+  [ContestStatus.ACTIVE]: { value: ContestStatus.ACTIVE, label: 'active' },
+  [ContestStatus.ARCHIVED]: { value: ContestStatus.ARCHIVED, label: 'archived' }
 };

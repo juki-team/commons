@@ -3,7 +3,8 @@ export enum Judge {
   CODEFORCES = 'CODEFORCES',
   UVA_ONLINE_JUDGE = 'UVA_ONLINE_JUDGE',
   AT_CODER = 'AT_CODER',
-  CODECHEF = 'CODECHEF'
+  CODECHEF = 'CODECHEF',
+  TOPCODER = 'TOPCODER',
 }
 
 export enum ProblemVerdict {
