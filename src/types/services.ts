@@ -1,5 +1,3 @@
-import { ERROR } from '../constants/services';
-
 export enum ErrorCode {
   // General errors
   ERR400 = 'ERR400',
@@ -97,4 +95,12 @@ export enum LogLevel {
   INFO = 'INFO',
   DEBUG = 'DEBUG',
   TRACE = 'TRACE',
+}
+
+export enum HTTPMethod {
+  POST = 'POST',
+  GET = 'GET',
+  PUT = 'PUT',
+  PATCH = 'PATCH',
+  DELETE = 'DELETE',
 }
