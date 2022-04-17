@@ -4,7 +4,7 @@ export interface SubmissionResponseDTO {
   submitId: string,
   timestamp: number,
   language: ProgrammingLanguage,
-  memoryUser: number,
+  memoryUsed: number,
   timeUsed: number,
   verdict: ProblemVerdict,
   verdictByGroups: { [key: number]: VerdictByGroupType },
