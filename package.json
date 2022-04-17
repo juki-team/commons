@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "author": "juki-team",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
@@ -14,7 +14,7 @@
     "docs": "typedoc src/index.ts",
     "watch": "rollup -cw",
     "build": "rm -rf docs && rm -rf dist && rollup -c && yarn docs",
-    "push": "yarn build && yarn publish --patch && git add . && node -p \"require('./package.json').version\" | git commit -F - ; git push origin main"
+    "push": "yarn build && yarn publish --patch && git add . && node -p \"require('./package.json').version\" | git commit -F - ; git push origin main && node -p \"require('./package.json').version\""
   },
   "devDependencies": {
     "rollup": "^2.70.2",
