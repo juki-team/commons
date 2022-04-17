@@ -164,7 +164,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.TEXT]: {
     value: ProgrammingLanguage.TEXT,
-    label: 'Plane text',
+    label: 'plain text',
     mime: 'text/plain',
     fileExtension: ['txt', 'text'],
     monacoKey: 'text',
