@@ -29,13 +29,13 @@ export enum ProblemStatus {
 }
 
 export enum ProblemType {
-  STANDARD = 'STANDARD', // The output is evaluated by the judge
-  DYNAMIC = 'DYNAMIC', // The output is evaluated other file
-  INTERACTIVE = 'INTERACTIVE', // The input interact with the output of other file
+  STANDARD = 'STANDARD', // The output is evaluated by the judge // Supported
+  DYNAMIC = 'DYNAMIC', // The output is evaluated other file // TODO
+  INTERACTIVE = 'INTERACTIVE', // The input interact with the output of other file // TODO
 }
 
 export enum ProblemMode {
-  SUBTASK = 'SUBTASK', // by groups
-  TOTAL = 'TOTAL', // one group
-  PARTIAL = 'PARTIAL', // each testcase +0.1pnts
+  SUBTASK = 'SUBTASK', // by groups // Supported
+  TOTAL = 'TOTAL', // one group // Supported
+  PARTIAL = 'PARTIAL', // each testcase +0.1pnts // TODO
 }
