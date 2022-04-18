@@ -22,7 +22,8 @@ export interface SubmissionResponseDTO {
   userImageUrl: string, // foreign
   userNickname: string, // foreign
   // contest data or empty string
-  contestProblemIndex: string,
   contestId: string,
+  contestName: string, // foreign
+  contestProblemIndex: string,
   submitPoints: number, // default: 0
 }
