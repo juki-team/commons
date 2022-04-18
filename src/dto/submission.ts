@@ -1,4 +1,12 @@
-import { ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, SubmissionRunStatus, VerdictByGroupType } from '../types';
+import {
+  ProblemMode,
+  ProblemType,
+  ProblemVerdict,
+  ProgrammingLanguage,
+  SubmissionRunStatus,
+  VerdictByGroupType,
+  VerdictType,
+} from '../types';
 
 export interface SubmissionResponseDTO {
   submitId: string,
@@ -30,6 +38,6 @@ export interface SubmissionResponseDTO {
 
 export interface SubmitResponseDTO extends SubmissionResponseDTO{
   sourceCode: string,
-  sampleTestCaseResults: [],
-  testCaseResults: [],
+  sampleTestCaseResults: VerdictType[],
+  testCaseResults: VerdictType[],
 }
