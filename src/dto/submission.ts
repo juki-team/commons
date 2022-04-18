@@ -13,6 +13,7 @@ export interface SubmissionResponseDTO {
   // permissions
   canViewSourceCode: boolean, // foreign
   // problem
+  problemName: string, // foreign
   problemMode: ProblemMode, // foreign
   problemType: ProblemType, // foreign
   problemTimeLimit: number, // foreign
@@ -23,5 +24,5 @@ export interface SubmissionResponseDTO {
   // contest data or empty string
   contestProblemIndex: string,
   contestId: string,
-  submitPoints: number, // default: 1, on problems
+  submitPoints: number, // default: 0
 }
