@@ -38,6 +38,5 @@ export interface SubmissionResponseDTO {
 
 export interface SubmitResponseDTO extends SubmissionResponseDTO{
   sourceCode: string,
-  sampleTestCaseResults: VerdictType[],
   testCaseResults: VerdictType[],
 }
