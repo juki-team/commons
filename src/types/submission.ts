@@ -1,10 +1,14 @@
 import { ProblemVerdict } from './judge';
 
-export type VerdictByGroupType = {
+export type VerdictType = {
   timeUsed: number,
   memoryUsed: number,
-  points: number,
-  verdict: ProblemVerdict,
-  err: string,
   log: string,
+  err: string,
+  verdict: ProblemVerdict,
+  group: number,
+}
+
+export type VerdictByGroupType = VerdictType & {
+  points: number,
 }

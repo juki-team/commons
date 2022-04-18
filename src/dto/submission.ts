@@ -27,3 +27,9 @@ export interface SubmissionResponseDTO {
   contestProblemIndex: string,
   submitPoints: number, // default: 0
 }
+
+export interface SubmitResponseDTO extends SubmissionResponseDTO{
+  sourceCode: string,
+  sampleTestCaseResults: [],
+  testCaseResults: [],
+}
