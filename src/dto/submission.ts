@@ -5,7 +5,7 @@ import {
   ProgrammingLanguage,
   SubmissionRunStatus,
   VerdictByGroupType,
-  VerdictType,
+  TestCaseRunResultType, CompilationResultType,
 } from '../types';
 
 export interface SubmissionResponseDTO {
@@ -38,5 +38,6 @@ export interface SubmissionResponseDTO {
 
 export interface SubmitResponseDTO extends SubmissionResponseDTO{
   sourceCode: string,
-  testCaseResults: VerdictType[],
+  testCaseResults: TestCaseRunResultType[],
+  compilationResult: CompilationResultType,
 }
