@@ -7,7 +7,7 @@ export type RunResult = {
   err: string,
   out: string
 }
-export type CompilationResultType = RunResult;
+export type CompilationRunResultType = RunResult;
 
 export type TestCaseRunResultType = Omit<RunResult, 'out'> & {
   verdict: ProblemVerdict,
@@ -15,4 +15,4 @@ export type TestCaseRunResultType = Omit<RunResult, 'out'> & {
   points: number, // Used by PARTIAL mode problems
 }
 
-export type VerdictByGroupType = TestCaseRunResultType;
+export type TestCaseRunResultByGroupType = TestCaseRunResultType;

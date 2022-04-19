@@ -4,8 +4,8 @@ import {
   ProblemVerdict,
   ProgrammingLanguage,
   SubmissionRunStatus,
-  VerdictByGroupType,
-  TestCaseRunResultType, CompilationResultType,
+  TestCaseRunResultByGroupType,
+  TestCaseRunResultType, CompilationRunResultType,
 } from '../types';
 
 export interface SubmissionResponseDTO {
@@ -15,7 +15,7 @@ export interface SubmissionResponseDTO {
   memoryUsed: number,
   timeUsed: number,
   verdict: ProblemVerdict,
-  verdictByGroups: { [key: number]: VerdictByGroupType },
+  verdictByGroups: { [key: number]: TestCaseRunResultByGroupType },
   status: SubmissionRunStatus,
   problemKey: number,
   // permissions
@@ -39,5 +39,5 @@ export interface SubmissionResponseDTO {
 export interface SubmitResponseDTO extends SubmissionResponseDTO{
   sourceCode: string,
   testCaseResults: TestCaseRunResultType[],
-  compilationResult: CompilationResultType,
+  compilationResult: CompilationRunResultType,
 }
