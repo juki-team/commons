@@ -3,6 +3,7 @@ import { ProblemVerdict } from './judge';
 export type RunResult = {
   timeUsed: number,
   memoryUsed: number,
+  exitCode: number,
   log: string,
   err: string,
   out: string
