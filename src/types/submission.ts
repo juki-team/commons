@@ -12,7 +12,9 @@ export type RunResult = DataLogType & {
   out: string
 }
 
-export type CompilationRunResultType = RunResult;
+export type CompilationRunResultType = RunResult & {
+  success: boolean,
+};
 
 export type TestCaseRunResultType = Omit<RunResult, 'out'> & {
   verdict: ProblemVerdict,
