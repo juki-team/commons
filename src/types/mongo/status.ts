@@ -1,37 +1,16 @@
-import { ProgrammingLanguage } from '../commons';
-import { ProblemVerdict } from '../judge';
-import { RunResult } from '../submission';
+import { ProblemVerdict, SubmissionRunStatus } from '../judge';
+import { CaseResultGroupType } from './submit';
 
-export type CaseResultType = Omit<RunResult, 'out'> & {
+export interface StatusBaseDocument {
+  submitId: string,
+  problemId: string, // To search
+  contestId: string, // To search
+  userId: string, // To search
   verdict: ProblemVerdict,
-  caseKey: string,
-  group: number,
+  memoryUsed: number,
+  timeUsed: number,
   points: number,
-}
-
-export type CaseResultGroupType = Omit<RunResult, 'out'> & {
-  verdict: ProblemVerdict,
-  group: number,
-  points: number,
-}
-
-export type CompilationRunResultType = RunResult & {
-  success: boolean,
-};
-
-export interface SubmitBaseDocument {
-  userId: string,
-  problemId: string,
-  timestamp: number,
-  source: string,
-  language: ProgrammingLanguage,
-  message: string,
-  compilationRunResult: CompilationRunResultType,
-  evaluatorCompilationRunResult: CompilationRunResultType,
-  sampleCaseResults: CaseResultType[],
-  testCaseResults: CaseResultType[],
-  sampleCasesSuccess: boolean,
-  // contest data:
-  contestId?: string,
-  problemIndex?: string,
+  manualJudged: boolean,
+  verdictByGroups: { [key: number]: CaseResultGroupType },
+  status: SubmissionRunStatus,
 }
