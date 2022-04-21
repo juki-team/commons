@@ -23,3 +23,12 @@ export type TestCaseRunResultType = Omit<RunResult, 'out'> & {
 }
 
 export type TestCaseRunResultByGroupType = TestCaseRunResultType;
+
+export type VerdictByGroupsType = {
+  [key: number]: DataLogType & {
+    err: string
+    verdict: ProblemVerdict,
+    group: number,
+    points: number, // Used by PARTIAL mode problems
+  }
+};

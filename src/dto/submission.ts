@@ -6,7 +6,7 @@ import {
   ProgrammingLanguage,
   SubmissionRunStatus,
   TestCaseRunResultByGroupType,
-  TestCaseRunResultType,
+  TestCaseRunResultType, VerdictByGroupsType,
 } from '../types';
 
 export interface SubmissionResponseDTO {
@@ -35,8 +35,6 @@ export interface SubmissionResponseDTO {
   contestName: string, // foreign
   contestProblemIndex: string,
 }
-
-export type VerdictByGroupsType = { [key: number]: Omit<TestCaseRunResultByGroupType, 'log'> };
 
 export interface SubmitResponseDTO extends SubmissionResponseDTO {
   sourceCode: string,
