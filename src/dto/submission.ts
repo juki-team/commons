@@ -1,11 +1,12 @@
 import {
+  CompilationRunResultType,
   ProblemMode,
   ProblemType,
   ProblemVerdict,
   ProgrammingLanguage,
   SubmissionRunStatus,
   TestCaseRunResultByGroupType,
-  TestCaseRunResultType, CompilationRunResultType,
+  TestCaseRunResultType,
 } from '../types';
 
 export interface SubmissionResponseDTO {
@@ -35,9 +36,11 @@ export interface SubmissionResponseDTO {
   contestProblemIndex: string,
 }
 
-export interface SubmitResponseDTO extends SubmissionResponseDTO{
+export type VerdictByGroupsType = { [key: number]: Omit<TestCaseRunResultByGroupType, 'log'> };
+
+export interface SubmitResponseDTO extends SubmissionResponseDTO {
   sourceCode: string,
-  verdictByGroups: { [key: number]: TestCaseRunResultByGroupType },
+  verdictByGroups: VerdictByGroupsType,
   testCaseResults: TestCaseRunResultType[],
   compilationResult: CompilationRunResultType,
 }
