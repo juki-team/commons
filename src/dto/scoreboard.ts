@@ -5,6 +5,7 @@ export interface ScoreboardResponseDTO {
   userImageUrl: string,
   totalPenalty: number,
   totalPoints: number,
+  position: number,
   problems: {
     attempts: number,
     points: number,
