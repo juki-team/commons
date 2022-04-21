@@ -6,6 +6,7 @@ export interface StatusBaseDocument {
   problemId: string, // To search
   contestId: string, // To search
   userId: string, // To search
+  timestamp: number, // to sort
   verdict: ProblemVerdict,
   memoryUsed: number,
   timeUsed: number,
