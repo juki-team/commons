@@ -1,13 +1,4 @@
-import {
-  CompilationRunResultType,
-  ProblemMode,
-  ProblemType,
-  ProblemVerdict,
-  ProgrammingLanguage,
-  SubmissionRunStatus,
-  TestCaseRunResultByGroupType,
-  TestCaseRunResultType, VerdictByGroupsType,
-} from '../types';
+import { DataLogType, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, SubmissionRunStatus } from '../types';
 
 export interface SubmissionResponseDTO {
   submitId: string,
@@ -36,9 +27,25 @@ export interface SubmissionResponseDTO {
   contestProblemIndex: string,
 }
 
+export type TestCaseResultType = DataLogType & {
+  err: string
+  verdict: ProblemVerdict,
+  group: number,
+  points: number, // Used by PARTIAL mode problems
+}
+
+export type VerdictByGroupsType = {
+  [key: number]: TestCaseResultType
+};
+
+export type CompilationResultType = DataLogType & {
+  err: string,
+  success: boolean,
+};
+
 export interface SubmitResponseDTO extends SubmissionResponseDTO {
   sourceCode: string,
   verdictByGroups: VerdictByGroupsType,
-  testCaseResults: TestCaseRunResultType[],
-  compilationResult: CompilationRunResultType,
+  testCaseResults: TestCaseResultType[],
+  compilationResult: CompilationResultType,
 }
