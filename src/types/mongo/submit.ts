@@ -9,6 +9,12 @@ export type CaseResultType = Omit<RunResult, 'out'> & {
   points: number,
 }
 
+export type CaseResultGroupType = Omit<RunResult, 'out'> & {
+  verdict: ProblemVerdict,
+  group: number,
+  points: number,
+}
+
 export type CompilationRunResultType = RunResult & {
   success: boolean,
 };
