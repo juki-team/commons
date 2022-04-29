@@ -1,3 +1,14 @@
+export type ScoreboardProblemType = {
+  attempts: number,
+  points: number,
+  success: boolean,
+  penalty: number,
+}
+
+export type ScoreboardProblemsType = {
+  [key: string]: ScoreboardProblemType
+}
+
 export interface ScoreboardResponseDTO {
   userNickname: string,
   userFamilyName: string,
@@ -6,12 +17,5 @@ export interface ScoreboardResponseDTO {
   totalPenalty: number,
   totalPoints: number,
   position: number,
-  problems: {
-    [key: string]: {
-      attempts: number,
-      points: number,
-      success: boolean,
-      penalty: number,
-    }
-  }
+  problems: ScoreboardProblemsType,
 }
