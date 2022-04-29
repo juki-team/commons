@@ -7,9 +7,11 @@ export interface ScoreboardResponseDTO {
   totalPoints: number,
   position: number,
   problems: {
-    attempts: number,
-    points: number,
-    success: boolean,
-    penalty: number,
-  }[],
+    [key: string]: {
+      attempts: number,
+      points: number,
+      success: boolean,
+      penalty: number,
+    }
+  }
 }
