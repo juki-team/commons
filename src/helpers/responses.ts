@@ -5,7 +5,8 @@ export const toJkError = (err: any): JkError => {
   if (err instanceof JkError) {
     return err;
   }
-  return new JkError(err?.code || ErrorCode.ERR500, { message: err?.message || '', stack: err?.stack || '' });
+  const error = new Error();
+  return new JkError(err?.code || ErrorCode.ERR500, { message: err?.message || error.message, stack: err?.stack || error.stack });
 };
 
 export const errorsResponse = (message: string, ...errors: JkError[]): ErrorResponseType => ({
