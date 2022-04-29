@@ -33,11 +33,12 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   // Contest Errors ERR02XX
   [ErrorCode.ERR0200]: { value: ErrorCode.ERR0200, message: 'internal server error on contests service', status: 500 },
   [ErrorCode.ERR0201]: { value: ErrorCode.ERR0201, message: 'contest not found', status: 400 },
-  [ErrorCode.ERR0230]: { value: ErrorCode.ERR0201, message: 'scoreboard not created', status: 500 },
-  [ErrorCode.ERR0231]: { value: ErrorCode.ERR0201, message: 'scoreboard not found', status: 500 },
-  [ErrorCode.ERR0232]: { value: ErrorCode.ERR0201, message: 'scoreboard not updated', status: 500 },
-  [ErrorCode.ERR0233]: { value: ErrorCode.ERR0201, message: 'scoreboard not deleted', status: 500 },
-  [ErrorCode.ERR0234]: { value: ErrorCode.ERR0201, message: 'not allowed to view the scoreboard', status: 400 },
+  [ErrorCode.ERR0230]: { value: ErrorCode.ERR0230, message: 'scoreboard not created', status: 500 },
+  [ErrorCode.ERR0231]: { value: ErrorCode.ERR0231, message: 'scoreboard not found', status: 500 },
+  [ErrorCode.ERR0232]: { value: ErrorCode.ERR0232, message: 'scoreboard not updated', status: 500 },
+  [ErrorCode.ERR0233]: { value: ErrorCode.ERR0233, message: 'scoreboard not deleted', status: 500 },
+  [ErrorCode.ERR0234]: { value: ErrorCode.ERR0234, message: 'not allowed to view the scoreboard', status: 400 },
+  [ErrorCode.ERR0235]: { value: ErrorCode.ERR0235, message: 'not allowed to update the scoreboard', status: 400 },
   // Submission Errors ERR03XXX
   [ErrorCode.ERR0300]: { value: ErrorCode.ERR0300, message: 'internal server error on submissions service', status: 500 },
   [ErrorCode.ERR0301]: { value: ErrorCode.ERR0301, message: 'submission not found', status: 500 },

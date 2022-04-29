@@ -36,6 +36,7 @@ export enum ErrorCode {
   ERR0232 = 'ERR0232',
   ERR0233 = 'ERR0233',
   ERR0234 = 'ERR0234',
+  ERR0235 = 'ERR0235',
   // Submission Errors ERR03XXX',
   ERR0300 = 'ERR0300',
   ERR0301 = 'ERR0301',
