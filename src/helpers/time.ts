@@ -28,5 +28,12 @@ export const splitTime = (timeRemaining: number): Array<{ remaining: number, lab
   const remainingMilliseconds = Math.floor(timeRemaining % aSecondMilliseconds);
   remaining.push({ remaining: remainingMilliseconds, label: 'milliseconds' });
   
+  while (remaining[0].remaining <= 0) {
+    remaining.shift();
+    if (remaining.length === 3) {
+      break;
+    }
+  }
+  
   return remaining;
 };
