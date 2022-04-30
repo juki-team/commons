@@ -3,13 +3,17 @@ type SplitTime = { remaining: number, label: string, milliseconds: number };
 export const splitTime = (timeRemaining: number): Array<SplitTime> => {
   const remaining: Array<SplitTime> = [];
   
-  const aYearMilliseconds = 1000 * 60 * 60 * 24 * 365;
-  const remainingYears = Math.floor(timeRemaining / aYearMilliseconds);
-  remaining.push({ remaining: remainingYears, label: 'years', milliseconds: aYearMilliseconds });
+  // const aYearMilliseconds = 1000 * 60 * 60 * 24 * 365;
+  // const remainingYears = Math.floor(timeRemaining / aYearMilliseconds);
+  // remaining.push({ remaining: remainingYears, label: 'years', milliseconds: aYearMilliseconds });
+  
+  // const aWeekMilliseconds = 1000 * 60 * 60 * 24 * 7;
+  // const remainingWeeks = Math.floor((timeRemaining % aYearMilliseconds) / aWeekMilliseconds);
+  // remaining.push({ remaining: remainingWeeks, label: 'weeks', milliseconds: aWeekMilliseconds });
   
   const aWeekMilliseconds = 1000 * 60 * 60 * 24 * 7;
-  const remainingWeeks = Math.floor((timeRemaining % aYearMilliseconds) / aWeekMilliseconds);
-  remaining.push({ remaining: remainingWeeks, label: 'weeks', milliseconds: aWeekMilliseconds });
+  const remainingYears = Math.floor(timeRemaining / aWeekMilliseconds);
+  remaining.push({ remaining: remainingYears, label: 'weeks', milliseconds: aWeekMilliseconds });
   
   const aDayMilliseconds = 1000 * 60 * 60 * 24;
   const remainingDays = Math.floor((timeRemaining % aWeekMilliseconds) / aDayMilliseconds);
@@ -30,12 +34,12 @@ export const splitTime = (timeRemaining: number): Array<SplitTime> => {
   const remainingMilliseconds = Math.floor(timeRemaining % aSecondMilliseconds);
   remaining.push({ remaining: remainingMilliseconds, label: 'milliseconds', milliseconds: 1 });
   
-  while (remaining[0].remaining <= 0) {
-    remaining.shift();
-    if (remaining.length === 3) {
-      break;
-    }
-  }
+  // while (remaining[0].remaining <= 0) {
+  //   remaining.shift();
+  //   if (remaining.length === 3) {
+  //     break;
+  //   }
+  // }
   
   return remaining;
 };
