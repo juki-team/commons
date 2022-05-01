@@ -1,5 +1,33 @@
 import { ContestStatus, Judge, ProblemMode, ProblemType, ProgrammingLanguage } from '../types';
 
+export type ContestProblemType = {
+  // problem
+  key: string,
+  name: string,
+  statementDescription: string,
+  statementInput: string,
+  statementOutput: string,
+  judge: Judge,
+  url: string,
+  sampleCases: { input: string, output: string }[],
+  pointsByGroups: { [key: number]: number },
+  memoryLimit: number,
+  timeLimit: number,
+  mode: ProblemMode,
+  type: ProblemType,
+  // contest problem
+  color: string,
+  index: string,
+  startTimestamp: number,
+  endTimestamp: number,
+  // Submissions
+  successRate: number,
+  attempts: number,
+  points: number,
+  success: boolean,
+  penalty: number,
+}
+
 export interface ContestResponseDTO {
   key: string,
   name: string,
@@ -16,35 +44,7 @@ export interface ContestResponseDTO {
   judgesForManualJudging: number,
   languages: ProgrammingLanguage[],
   clarifications: boolean,
-  problems: {
-    [key: string]: {
-      // problem
-      key: string,
-      name: string,
-      statementDescription: string,
-      statementInput: string,
-      statementOutput: string,
-      judge: Judge,
-      url: string,
-      sampleCases: { input: string, output: string }[],
-      pointsByGroups: { [key: number]: number },
-      memoryLimit: number,
-      timeLimit: number,
-      mode: ProblemMode,
-      type: ProblemType,
-      // contest problem
-      color: string,
-      index: string,
-      startTimestamp: number,
-      endTimestamp: number,
-      // Submissions
-      successRate: number,
-      attempts: number,
-      points: number,
-      success: boolean,
-      penalty: number,
-    }
-  }
+  problems: { [key: string]: ContestProblemType },
   // Data Calculated
   totalContestants: number,
   // Data calculated
