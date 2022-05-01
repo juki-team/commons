@@ -12,27 +12,39 @@ export const splitTime = (timeRemaining: number): Array<SplitTime> => {
   // remaining.push({ remaining: remainingWeeks, label: 'weeks', milliseconds: aWeekMilliseconds });
   
   const aWeekMilliseconds = 1000 * 60 * 60 * 24 * 7;
-  const remainingYears = Math.floor(timeRemaining / aWeekMilliseconds);
-  remaining.push({ remaining: remainingYears, label: 'weeks', milliseconds: aWeekMilliseconds });
+  const remainingWeeks = Math.floor(timeRemaining / aWeekMilliseconds);
+  remaining.push({ remaining: remainingWeeks, label: remainingWeeks === 1 ? 'week' : 'weeks', milliseconds: aWeekMilliseconds });
   
   const aDayMilliseconds = 1000 * 60 * 60 * 24;
   const remainingDays = Math.floor((timeRemaining % aWeekMilliseconds) / aDayMilliseconds);
-  remaining.push({ remaining: remainingDays, label: 'days', milliseconds: aDayMilliseconds });
+  remaining.push({ remaining: remainingDays, label: remainingDays === 1 ? 'day' : 'days', milliseconds: aDayMilliseconds });
   
   const aHourMilliseconds = 1000 * 60 * 60;
   const remainingHours = Math.floor((timeRemaining % aDayMilliseconds) / aHourMilliseconds);
-  remaining.push({ remaining: remainingHours, label: 'hours', milliseconds: aHourMilliseconds });
+  remaining.push({ remaining: remainingHours, label: remainingHours === 1 ? 'hour' : 'hours', milliseconds: aHourMilliseconds });
   
   const aMinuteMilliseconds = 1000 * 60;
   const remainingMinutes = Math.floor((timeRemaining % aHourMilliseconds) / aMinuteMilliseconds);
-  remaining.push({ remaining: remainingMinutes, label: 'minutes', milliseconds: aMinuteMilliseconds });
+  remaining.push({
+    remaining: remainingMinutes,
+    label: remainingMinutes === 1 ? 'minute' : 'minutes',
+    milliseconds: aMinuteMilliseconds,
+  });
   
   const aSecondMilliseconds = 1000;
   const remainingSeconds = Math.floor((timeRemaining % aMinuteMilliseconds) / aSecondMilliseconds);
-  remaining.push({ remaining: remainingSeconds, label: 'seconds', milliseconds: aSecondMilliseconds });
+  remaining.push({
+    remaining: remainingSeconds,
+    label: remainingSeconds === 1 ? 'second' : 'seconds',
+    milliseconds: aSecondMilliseconds,
+  });
   
   const remainingMilliseconds = Math.floor(timeRemaining % aSecondMilliseconds);
-  remaining.push({ remaining: remainingMilliseconds, label: 'milliseconds', milliseconds: 1 });
+  remaining.push({
+    remaining: remainingMilliseconds,
+    label: remainingMilliseconds === 1 ? 'millisecond' : 'milliseconds',
+    milliseconds: 1,
+  });
   
   // while (remaining[0].remaining <= 0) {
   //   remaining.shift();
