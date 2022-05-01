@@ -1,6 +1,8 @@
 import { ContestStatus, Judge, ProblemMode, ProblemType, ProgrammingLanguage } from '../types';
 
-export type PointsByGroupsType = { [key: number]: { points: number, partial: number } }
+export type PointsByGroupsType = { [key: number]: { points: number, partial: number } };
+
+export type ProblemLanguages = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
 
 export type ContestProblemType = {
   // problem
@@ -17,6 +19,7 @@ export type ContestProblemType = {
   timeLimit: number,
   mode: ProblemMode,
   type: ProblemType,
+  languages: ProblemLanguages,
   // contest problem
   color: string,
   index: string,
@@ -28,7 +31,7 @@ export type ContestProblemType = {
   points: number,
   success: boolean,
   penalty: number,
-}
+};
 
 export interface ContestResponseDTO {
   key: string,
