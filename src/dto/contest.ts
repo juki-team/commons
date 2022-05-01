@@ -1,5 +1,7 @@
 import { ContestStatus, Judge, ProblemMode, ProblemType, ProgrammingLanguage } from '../types';
 
+export type pointsByGroupsType = { [key: number]: { points: number, partial: number } }
+
 export type ContestProblemType = {
   // problem
   key: string,
@@ -10,7 +12,7 @@ export type ContestProblemType = {
   judge: Judge,
   url: string,
   sampleCases: { input: string, output: string }[],
-  pointsByGroups: { [key: number]: number },
+  pointsByGroups: pointsByGroupsType,
   memoryLimit: number,
   timeLimit: number,
   mode: ProblemMode,
