@@ -11,7 +11,7 @@ export interface ContestResponseDTO {
   quietTimestamp: number,
   endTimestamp: number,
   penalty: number,
-  minutesToSolve: number,
+  timeToSolve: number,
   isJudgedManual: boolean,
   judgesForManualJudging: number,
   languages: ProgrammingLanguage[],
@@ -58,8 +58,8 @@ export interface ContestResponseDTO {
   isQuietTime: boolean,
   // Data calculated with the user
   isAdmin: boolean,
-  isContestant: boolean,
   isJudge: boolean,
+  isContestant: boolean,
   isGuest: boolean,
   isSpectator: boolean,
 }
