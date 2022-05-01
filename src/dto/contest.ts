@@ -15,8 +15,6 @@ export type ContestProblemType = {
   url: string,
   sampleCases: { input: string, output: string }[],
   pointsByGroups: PointsByGroupsType,
-  memoryLimit: number,
-  timeLimit: number,
   mode: ProblemMode,
   type: ProblemType,
   languages: ProblemLanguages,
