@@ -30,13 +30,26 @@ export enum ErrorCode {
   ERR0113 = 'ERR0113',
   // Contest Errors ERR02XX',
   ERR0200 = 'ERR0200',
-  ERR0201 = 'ERR0201',
+  // CRUD contest
+  ERR0210 = 'ERR0210',
+  ERR0211 = 'ERR0211',
+  ERR0212 = 'ERR0212',
+  ERR0213 = 'ERR0213',
+  // permissions contest
+  ERR0214 = 'ERR0214',
+  ERR0215 = 'ERR0215',
+  ERR0216 = 'ERR0216',
+  ERR0217 = 'ERR0217',
+  // CRUD scoreboard
   ERR0230 = 'ERR0230',
   ERR0231 = 'ERR0231',
   ERR0232 = 'ERR0232',
   ERR0233 = 'ERR0233',
+  // permissions scoreboard
   ERR0234 = 'ERR0234',
   ERR0235 = 'ERR0235',
+  ERR0236 = 'ERR0236',
+  ERR0237 = 'ERR0237',
   // Submission Errors ERR03XXX',
   ERR0300 = 'ERR0300',
   ERR0301 = 'ERR0301',
