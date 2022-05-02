@@ -1,4 +1,4 @@
-import { ContestStatus, Judge, ProblemMode, ProblemType, ProgrammingLanguage } from '../types';
+import { ContestStatus, Judge, ProblemMode, ProblemStatus, ProblemType, ProgrammingLanguage } from '../types';
 
 export type PointsByGroupsType = { [key: number]: { points: number, partial: number } };
 
@@ -20,6 +20,7 @@ export interface ProblemResponseDTO {
   pointsByGroups: PointsByGroupsType,
   ownerNickname: string,
   tags: string[],
+  status: ProblemStatus,
 }
 
 export type ContestProblemType = ProblemResponseDTO & {
