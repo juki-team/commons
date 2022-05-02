@@ -4,22 +4,28 @@ export type PointsByGroupsType = { [key: number]: { points: number, partial: num
 
 export type ProblemLanguages = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
 
-export type ContestProblemType = {
-  // problem
+export interface ProblemResponseDTO {
   key: string,
   name: string,
+  author: string,
   statement: {
     description: string,
     input: string,
     output: string,
-  }
-  judge: Judge,
-  url: string,
-  sampleCases: { input: string, output: string }[],
-  pointsByGroups: PointsByGroupsType,
+  },
   mode: ProblemMode,
   type: ProblemType,
   languages: ProblemLanguages,
+  sampleCases: { input: string, output: string }[],
+  pointsByGroups: PointsByGroupsType,
+  ownerNickname: string,
+  tags: string[],
+}
+
+export type ContestProblemType = ProblemResponseDTO & {
+  // problem
+  judge: Judge,
+  url: string,
   // contest problem
   color: string,
   index: string,
