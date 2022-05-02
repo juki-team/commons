@@ -8,9 +8,11 @@ export type ContestProblemType = {
   // problem
   key: string,
   name: string,
-  statementDescription: string,
-  statementInput: string,
-  statementOutput: string,
+  statement: {
+    description: string,
+    input: string,
+    output: string,
+  }
   judge: Judge,
   url: string,
   sampleCases: { input: string, output: string }[],
