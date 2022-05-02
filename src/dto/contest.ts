@@ -2,7 +2,7 @@ import { ContestStatus, Judge, ProblemMode, ProblemStatus, ProblemType, Programm
 
 export type PointsByGroupsType = { [key: number]: { points: number, partial: number } };
 
-export type ProblemLanguages = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
+export type ProblemLanguagesType = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
 
 export interface ProblemResponseDTO {
   key: string,
@@ -15,7 +15,7 @@ export interface ProblemResponseDTO {
   },
   mode: ProblemMode,
   type: ProblemType,
-  languages: ProblemLanguages,
+  languages: ProblemLanguagesType,
   sampleCases: { input: string, output: string }[],
   pointsByGroups: PointsByGroupsType,
   ownerNickname: string,
