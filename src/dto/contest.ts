@@ -64,7 +64,6 @@ export interface ContestResponseDTO {
   isLive: boolean,
   isPast: boolean,
   isFuture: boolean,
-  isRegistrationOpen: boolean,
   isFrozenTime: boolean,
   isQuietTime: boolean,
   // Data calculated with the user
