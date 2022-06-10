@@ -52,6 +52,10 @@ declare global {
     
     endOfMinute(): Date;
     
+    startOfSecond(): Date;
+    
+    endOfSecond(): Date;
+    
     isSameYear(date: Date): boolean;
     
     isSameMonth(date: Date): boolean;
@@ -253,6 +257,18 @@ Date.prototype.startOfMinute = function () {
 Date.prototype.endOfMinute = function () {
   const newDate = new Date(this);
   newDate.setSeconds(59, 999);
+  return newDate;
+};
+
+Date.prototype.startOfSecond = function () {
+  const newDate = new Date(this);
+  newDate.setMilliseconds(0);
+  return newDate;
+};
+
+Date.prototype.endOfSecond = function () {
+  const newDate = new Date(this);
+  newDate.setMilliseconds(999);
   return newDate;
 };
 
