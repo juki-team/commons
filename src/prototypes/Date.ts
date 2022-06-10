@@ -44,6 +44,14 @@ declare global {
     
     endOfDay(): Date;
     
+    startOfHour(): Date;
+    
+    endOfHour(): Date;
+    
+    startOfMinute(): Date;
+    
+    endOfMinute(): Date;
+    
     isSameYear(date: Date): boolean;
     
     isSameMonth(date: Date): boolean;
@@ -176,8 +184,8 @@ Date.prototype.decreaseDay = function () {
 
 Date.prototype.startOfYear = function () {
   const newDate = new Date(this);
-  newDate.setMonth(0, 1);
-  return newDate.startOfDay();
+  newDate.setMonth(0);
+  return newDate.startOfMonth();
 };
 
 Date.prototype.endOfYear = function () {
@@ -221,6 +229,30 @@ Date.prototype.startOfDay = function () {
 Date.prototype.endOfDay = function () {
   const newDate = new Date(this);
   newDate.setHours(23, 59, 59, 999);
+  return newDate;
+};
+
+Date.prototype.startOfHour = function () {
+  const newDate = new Date(this);
+  newDate.setMinutes(0, 0, 0);
+  return newDate;
+};
+
+Date.prototype.endOfHour = function () {
+  const newDate = new Date(this);
+  newDate.setMinutes(59, 59, 999);
+  return newDate;
+};
+
+Date.prototype.startOfMinute = function () {
+  const newDate = new Date(this);
+  newDate.setSeconds(0, 0);
+  return newDate;
+};
+
+Date.prototype.endOfMinute = function () {
+  const newDate = new Date(this);
+  newDate.setSeconds(59, 999);
   return newDate;
 };
 
