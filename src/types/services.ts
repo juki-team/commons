@@ -79,6 +79,7 @@ export enum ErrorCode {
 export type ErrorType = {
   code: ErrorCode,
   detail: string,
+  message: string,
 }
 
 export type ErrorResponseType = {
