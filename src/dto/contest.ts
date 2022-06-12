@@ -39,7 +39,7 @@ export type ContestProblemType = ProblemResponseDTO & ContestProblemBasicType & 
   totalAttempts: number, // successRate: number,
   myAttempts: number,
   myPoints: number,
-  mySuccess: number,
+  mySuccess: boolean,
   myPenalty: number,
 };
 
