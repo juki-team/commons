@@ -6,6 +6,7 @@ export type ProblemLanguagesType = { [key: string]: { language: ProgrammingLangu
 
 export interface ProblemResponseDTO {
   key: string,
+  judge: Judge,
   name: string,
   author: string,
   statement: {
@@ -23,42 +24,55 @@ export interface ProblemResponseDTO {
   status: ProblemStatus,
 }
 
-export type ContestProblemType = ProblemResponseDTO & {
-  // problem
+export type ContestProblemBasicType = {
+  key: string,
   judge: Judge,
-  url: string,
-  // contest problem
-  color: string,
   index: string,
+  points: number,
+  color: string,
   startTimestamp: number,
   endTimestamp: number,
-  // Submissions
-  successRate: number,
-  attempts: number,
-  points: number,
-  success: boolean,
-  penalty: number,
+}
+
+export type ContestProblemType = ProblemResponseDTO & ContestProblemBasicType & {
+  totalSuccess: number,
+  totalAttempts: number, // successRate: number,
+  myAttempts: number,
+  myPoints: number,
+  mySuccess: number,
+  myPenalty: number,
 };
 
-export interface ContestResponseDTO {
+export type ContestSettingsBasicType = {
+  clarifications: boolean,
+  numberJudgeValidations: number,
+  languages: ProgrammingLanguage[],
+  penalty: number,
+  timeToSolve: number,
+  startTimestamp: number,
+  frozenTimestamp: number,
+  quietTimestamp: number,
+  endTimestamp: number,
+}
+
+export interface CreateContestDTO {
   key: string,
   name: string,
   description: string,
-  status: ContestStatus,
+  settings: ContestSettingsBasicType,
+  problems: { [key: string]: ContestProblemBasicType },
+  members: { administrators: string[], judges: string[], guests: string[], spectators: string[] },
   tags: string[],
-  settings: {
-    scoreboardLocked: boolean, // unfrozen
-    clarifications: boolean,
-    numberJudgeValidations: number,
-    languages: ProgrammingLanguage[],
-    penalty: number,
-    timeToSolve: number,
-    startTimestamp: number,
-    frozenTimestamp: number,
-    quietTimestamp: number,
-    endTimestamp: number,
-  },
+}
+
+export interface ContestResponseDTO {
+  status: ContestStatus,
+  key: string,
+  name: string,
+  description: string,
+  settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
   problems: { [key: string]: ContestProblemType },
+  tags: string[],
   // Data Calculated
   totalContestants: number,
   isLive: boolean,
@@ -67,9 +81,11 @@ export interface ContestResponseDTO {
   isFrozenTime: boolean,
   isQuietTime: boolean,
   // Data calculated with the user
-  isAdmin: boolean,
-  isJudge: boolean,
-  isContestant: boolean,
-  isGuest: boolean,
-  isSpectator: boolean,
+  user: {
+    isAdmin: boolean,
+    isJudge: boolean,
+    isContestant: boolean,
+    isGuest: boolean,
+    isSpectator: boolean,
+  }
 }
