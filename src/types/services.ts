@@ -40,6 +40,7 @@ export enum ErrorCode {
   ERR0215 = 'ERR0215',
   ERR0216 = 'ERR0216',
   ERR0217 = 'ERR0217',
+  ERR0220 = 'ERR0220',
   // CRUD scoreboard
   ERR0230 = 'ERR0230',
   ERR0231 = 'ERR0231',
