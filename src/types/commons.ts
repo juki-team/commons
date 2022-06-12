@@ -29,14 +29,13 @@ export enum Status {
 }
 
 export enum EntityType {
-  PRIVATE = 'PRIVATE',
-  PUBLIC = 'PUBLIC',
-  CLOSED = 'CLOSED'
+  PUBLIC = 'PUBLIC', // For all users
+  PRIVATE = 'PRIVATE', // For invited users
 }
 
 export enum EntityStatus {
-  RESERVED = 'RESERVED',
-  ACTIVE = 'ACTIVE',
-  ARCHIVED = 'ARCHIVED',
+  ACTIVE = 'ACTIVE', // Active for the users
+  RESERVED = 'RESERVED', // On preparation
   REPORTED = 'REPORTED',
+  ARCHIVED = 'ARCHIVED',
 }
