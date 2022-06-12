@@ -32,15 +32,19 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0113]: { value: ErrorCode.ERR0113, message: 'problem memory limit must be number', status: 500 },
   // Contest Errors ERR02XX
   [ErrorCode.ERR0200]: { value: ErrorCode.ERR0200, message: 'internal server error on contests service', status: 500 },
+  
   [ErrorCode.ERR0210]: { value: ErrorCode.ERR0210, message: 'contest not created', status: 500 },
   [ErrorCode.ERR0211]: { value: ErrorCode.ERR0211, message: 'contest not found', status: 500 },
   [ErrorCode.ERR0212]: { value: ErrorCode.ERR0212, message: 'contest not updated', status: 500 },
   [ErrorCode.ERR0213]: { value: ErrorCode.ERR0213, message: 'contest not deleted', status: 500 },
+  
   [ErrorCode.ERR0214]: { value: ErrorCode.ERR0214, message: 'not allowed to create the contest', status: 400 },
   [ErrorCode.ERR0215]: { value: ErrorCode.ERR0215, message: 'not allowed to view the contest', status: 400 },
   [ErrorCode.ERR0216]: { value: ErrorCode.ERR0216, message: 'not allowed to updated the contest', status: 400 },
   [ErrorCode.ERR0217]: { value: ErrorCode.ERR0217, message: 'not allowed to deleted the contest', status: 400 },
+  
   [ErrorCode.ERR0220]: { value: ErrorCode.ERR0220, message: 'not allowed to view contests', status: 400 },
+  
   [ErrorCode.ERR0230]: { value: ErrorCode.ERR0230, message: 'scoreboard not created', status: 500 },
   [ErrorCode.ERR0231]: { value: ErrorCode.ERR0231, message: 'scoreboard not found', status: 500 },
   [ErrorCode.ERR0232]: { value: ErrorCode.ERR0232, message: 'scoreboard not updated', status: 500 },

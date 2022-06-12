@@ -1,6 +1,6 @@
 import { UserStatus } from '../types';
 
-export interface UserSummaryResponseDTO {
+export interface UserSummaryListResponseDTO {
   aboutMe: string,
   city: string,
   country: string,

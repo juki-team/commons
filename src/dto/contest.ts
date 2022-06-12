@@ -72,13 +72,24 @@ export interface CreateContestDTO {
   tags: string[],
 }
 
-export interface ContestResponseDTO {
+export type ContestUserType = {
+  isAdmin: boolean,
+  isJudge: boolean,
+  isContestant: boolean,
+  isGuest: boolean,
+  isSpectator: boolean,
+}
+
+export interface ContestSummaryListResponseDTO {
   status: ContestStatus,
-  key: string,
+  type: ContestType,
   name: string,
-  description: string,
-  settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
-  problems: { [key: string]: ContestProblemType },
+  key: string,
+  user: ContestUserType,
+  settings: {
+    startTimestamp: number,
+    endTimestamp: number,
+  }
   tags: string[],
   // Data Calculated
   totalContestants: number,
@@ -87,12 +98,11 @@ export interface ContestResponseDTO {
   isFuture: boolean,
   isFrozenTime: boolean,
   isQuietTime: boolean,
-  // Data calculated with the user
-  user: {
-    isAdmin: boolean,
-    isJudge: boolean,
-    isContestant: boolean,
-    isGuest: boolean,
-    isSpectator: boolean,
-  }
+}
+
+export interface ContestResponseDTO extends ContestSummaryListResponseDTO {
+  description: string,
+  settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
+  problems: { [key: string]: ContestProblemType },
+  user: ContestUserType,
 }
