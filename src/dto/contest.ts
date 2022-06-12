@@ -1,4 +1,4 @@
-import { ContestStatus, Judge, ProblemMode, ProblemStatus, ProblemType, ProgrammingLanguage } from '../types';
+import { ContestStatus, ContestType, Judge, ProblemMode, ProblemStatus, ProblemType, ProgrammingLanguage } from '../types';
 
 export type PointsByGroupsType = { [key: number]: { points: number, partial: number } };
 
@@ -62,6 +62,7 @@ export type ContestMembersBasicType = {
 }
 
 export interface CreateContestDTO {
+  type: ContestType,
   key: string,
   name: string,
   description: string,
