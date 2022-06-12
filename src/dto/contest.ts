@@ -54,6 +54,12 @@ export type ContestSettingsBasicType = {
   quietTimestamp: number,
   endTimestamp: number,
 }
+export type ContestMembersBasicType = {
+  administrators: string[],
+  judges: string[],
+  guests: string[],
+  spectators: string[],
+}
 
 export interface CreateContestDTO {
   key: string,
@@ -61,7 +67,7 @@ export interface CreateContestDTO {
   description: string,
   settings: ContestSettingsBasicType,
   problems: { [key: string]: ContestProblemBasicType },
-  members: { administrators: string[], judges: string[], guests: string[], spectators: string[] },
+  members: ContestMembersBasicType,
   tags: string[],
 }
 
