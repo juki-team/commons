@@ -1,3 +1,5 @@
+import { UPPERCASE_LETTERS } from '../constants';
+
 export const isStringJson = (str: string): boolean => {
   try {
     return (JSON.parse(str) && !!str);
@@ -68,4 +70,30 @@ export const objectsUpdate = (base: any, ...objects: any[]): { [key: string]: an
 
 export const consoleWarn = (warn: any): void => {
   console.warn({ date: new Date(), warn });
+};
+
+export const indexToLetters = (index: number): string => {
+  const d = Math.ceil(index / 26);
+  if (d === 1) {
+    return UPPERCASE_LETTERS.charAt(index - 1);
+  }
+  return UPPERCASE_LETTERS.charAt(d - 2) + UPPERCASE_LETTERS.charAt(index - (26 * (d - 1)) - 1);
+};
+
+export const lettersToIndex = (index: string): number => {
+  if (index.length) {
+    if (index.length === 1) {
+      const d = UPPERCASE_LETTERS.indexOf(index);
+      if (d !== -1) {
+        return d + 1;
+      }
+    } else if (index.length === 2) {
+      const a = index.charAt(0);
+      const b = index.charAt(1);
+      const numA = lettersToIndex(a);
+      const numB = lettersToIndex(b);
+      return numA * 26 + numB;
+    }
+  }
+  return 0;
 };
