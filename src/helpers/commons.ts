@@ -1,4 +1,5 @@
 import { UPPERCASE_LETTERS } from '../constants';
+import { Judge } from '../types';
 
 export const isStringJson = (str: string): boolean => {
   try {
@@ -96,4 +97,8 @@ export const lettersToIndex = (index: string): number => {
     }
   }
   return 0;
+};
+
+export const getProblemKey = (judge: Judge, key: string) => {
+  return `${judge}:${key}`;
 };
