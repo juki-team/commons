@@ -1,5 +1,5 @@
 import { ProgrammingLanguage } from '../commons';
-import { ProblemVerdict } from '../judge';
+import { Judge, ProblemVerdict } from '../judge';
 import { RunResult } from '../submission';
 
 export type CaseResultType = Omit<RunResult, 'out'> & {
@@ -22,6 +22,7 @@ export type CompilationRunResultType = RunResult & {
 export interface SubmitBaseDocument {
   userId: string,
   problemId: string,
+  judge: Judge,
   timestamp: number,
   source: string,
   language: ProgrammingLanguage,
@@ -33,5 +34,4 @@ export interface SubmitBaseDocument {
   sampleCasesSuccess: boolean,
   // contest data:
   contestId?: string,
-  problemIndex?: string,
 }
