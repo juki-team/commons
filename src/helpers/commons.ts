@@ -99,6 +99,16 @@ export const lettersToIndex = (index: string): number => {
   return 0;
 };
 
-export const getProblemKey = (judge: Judge, key: string) => {
+export const getProblemJudgeKey = (judge: Judge, key: string) => {
   return `${judge}:${key}`;
+};
+
+export const getJudgeKeyOfProblemJudgeKey = (problemJudgeKey: string): { judge: Judge, key: string } => {
+  const params = problemJudgeKey.split(':');
+  const judge = params[0] as Judge;
+  const key = params.splice(1).join(':');
+  return {
+    judge,
+    key,
+  };
 };
