@@ -3,7 +3,6 @@ import { CaseResultGroupType } from './submit';
 
 export interface StatusBaseDocument {
   submitId: string,
-  judge: Judge,
   problemId: string, // To search
   contestId: string, // To search
   userId: string, // To search
