@@ -89,7 +89,7 @@ export interface ContestSummaryListResponseDTO {
   settings: {
     startTimestamp: number,
     endTimestamp: number,
-  }
+  },
   tags: string[],
   // Data Calculated
   totalContestants: number,
@@ -100,9 +100,23 @@ export interface ContestSummaryListResponseDTO {
   isQuietTime: boolean,
 }
 
+export type ContestMembersType = ContestMembersBasicType & { contestants: string[] };
+
+export type ContestClarificationType = {
+  problemKey: string,
+  question: string,
+  answer: string,
+  questionUserNickname: string,
+  answerTimestamp: number,
+  questionTimestamp: number,
+  public: boolean,
+}
+
 export interface ContestResponseDTO extends ContestSummaryListResponseDTO {
   description: string,
   settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
   problems: { [key: string]: ContestProblemType },
   user: ContestUserType,
+  members: ContestMembersType,
+  clarifications: ContestClarificationType[]
 }
