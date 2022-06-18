@@ -1,4 +1,4 @@
-import { DataLogType, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, SubmissionRunStatus } from '../types';
+import { DataLogType, Judge, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, SubmissionRunStatus } from '../types';
 
 export interface SubmissionResponseDTO {
   submitId: string,
@@ -13,6 +13,7 @@ export interface SubmissionResponseDTO {
   canViewSourceCode: boolean, // foreign
   // problem
   problemKey: number,
+  problemJudge: Judge,
   problemName: string, // foreign
   problemMode: ProblemMode, // foreign
   problemType: ProblemType, // foreign
