@@ -43,6 +43,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0216]: { value: ErrorCode.ERR0216, message: 'not allowed to updated the contest', status: 400 },
   [ErrorCode.ERR0217]: { value: ErrorCode.ERR0217, message: 'not allowed to deleted the contest', status: 400 },
   [ErrorCode.ERR0218]: { value: ErrorCode.ERR0218, message: 'not allowed to register to the contest', status: 400 },
+  [ErrorCode.ERR0219]: { value: ErrorCode.ERR0219, message: 'not allowed to submit a clarification on the contest', status: 400 },
   
   [ErrorCode.ERR0220]: { value: ErrorCode.ERR0220, message: 'not allowed to view contests', status: 400 },
   
