@@ -3,7 +3,11 @@ import { ContentResponseType, ContentsMetaType, ContentsResponseType, ErrorCode,
 
 export const toJkError = (err: any): JkError => {
   const error = new Error();
-  return new JkError(err?.code || ErrorCode.ERR500, { message: err?.message || error.message, stack: err?.stack || error.stack });
+  let code = err?.code;
+  if (!(code in ErrorCode)) {
+    code = ErrorCode.ERR500;
+  }
+  return new JkError(code, { message: err?.message || error.message, stack: err?.stack || error.stack });
 };
 
 export const errorsResponse = (message: string, ...errors: JkError[]): ErrorResponseType => ({
