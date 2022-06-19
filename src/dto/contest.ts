@@ -105,10 +105,11 @@ export type ContestMembersType = ContestMembersBasicType & { contestants: string
 export type ContestClarificationType = {
   problemJudgeKey: string,
   question: string,
-  answer: string,
-  questionUserNickname: string,
-  answerTimestamp: number,
   questionTimestamp: number,
+  questionUserNickname: string,
+  answer: string,
+  answerTimestamp: number,
+  answerUserNickname: string,
   public: boolean,
 }
 
