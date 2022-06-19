@@ -43,7 +43,6 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0216]: { value: ErrorCode.ERR0216, message: 'not allowed to updated the contest', status: 400 },
   [ErrorCode.ERR0217]: { value: ErrorCode.ERR0217, message: 'not allowed to deleted the contest', status: 400 },
   [ErrorCode.ERR0218]: { value: ErrorCode.ERR0218, message: 'not allowed to register to the contest', status: 400 },
-  [ErrorCode.ERR0219]: { value: ErrorCode.ERR0219, message: 'not allowed to submit a clarification on the contest', status: 400 },
   
   [ErrorCode.ERR0220]: { value: ErrorCode.ERR0220, message: 'not allowed to view contests', status: 400 },
   
@@ -55,6 +54,16 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0235]: { value: ErrorCode.ERR0235, message: 'not allowed to view the scoreboard', status: 400 },
   [ErrorCode.ERR0236]: { value: ErrorCode.ERR0236, message: 'not allowed to update the scoreboard', status: 400 },
   [ErrorCode.ERR0237]: { value: ErrorCode.ERR0237, message: 'not allowed to delete the scoreboard', status: 400 },
+  
+  [ErrorCode.ERR0240]: { value: ErrorCode.ERR0240, message: 'clarification not created', status: 500 },
+  [ErrorCode.ERR0241]: { value: ErrorCode.ERR0241, message: 'clarification not found', status: 500 },
+  [ErrorCode.ERR0242]: { value: ErrorCode.ERR0242, message: 'clarification not updated', status: 500 },
+  [ErrorCode.ERR0243]: { value: ErrorCode.ERR0243, message: 'clarification not deleted', status: 500 },
+  [ErrorCode.ERR0244]: { value: ErrorCode.ERR0244, message: 'not allowed to submit clarification', status: 400 },
+  [ErrorCode.ERR0245]: { value: ErrorCode.ERR0245, message: 'not allowed to view clarification', status: 400 },
+  [ErrorCode.ERR0246]: { value: ErrorCode.ERR0246, message: 'not allowed to update clarification', status: 400 },
+  [ErrorCode.ERR0247]: { value: ErrorCode.ERR0247, message: 'not allowed to delete clarification', status: 400 },
+  
   // Submission Errors ERR03XXX
   [ErrorCode.ERR0300]: { value: ErrorCode.ERR0300, message: 'internal server error on submissions service', status: 500 },
   [ErrorCode.ERR0301]: { value: ErrorCode.ERR0301, message: 'submission not found', status: 500 },

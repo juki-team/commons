@@ -41,7 +41,6 @@ export enum ErrorCode {
   ERR0216 = 'ERR0216',
   ERR0217 = 'ERR0217',
   ERR0218 = 'ERR0218',
-  ERR0219 = 'ERR0219',
   ERR0220 = 'ERR0220',
   // CRUD scoreboard
   ERR0230 = 'ERR0230',
@@ -53,6 +52,15 @@ export enum ErrorCode {
   ERR0235 = 'ERR0235',
   ERR0236 = 'ERR0236',
   ERR0237 = 'ERR0237',
+  
+  ERR0240 = 'ERR0240',
+  ERR0241 = 'ERR0241',
+  ERR0242 = 'ERR0242',
+  ERR0243 = 'ERR0243',
+  ERR0244 = 'ERR0244',
+  ERR0245 = 'ERR0245',
+  ERR0246 = 'ERR0246',
+  ERR0247 = 'ERR0247',
   // Submission Errors ERR03XXX',
   ERR0300 = 'ERR0300',
   ERR0301 = 'ERR0301',
