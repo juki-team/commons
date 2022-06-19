@@ -2,9 +2,6 @@ import { JkError } from '../prototypes';
 import { ContentResponseType, ContentsMetaType, ContentsResponseType, ErrorCode, ErrorResponseType } from '../types';
 
 export const toJkError = (err: any): JkError => {
-  if (err instanceof JkError) {
-    return err;
-  }
   const error = new Error();
   return new JkError(err?.code || ErrorCode.ERR500, { message: err?.message || error.message, stack: err?.stack || error.stack });
 };
