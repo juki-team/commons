@@ -103,7 +103,7 @@ export interface ContestSummaryListResponseDTO {
 export type ContestMembersType = ContestMembersBasicType & { contestants: string[] };
 
 export type ContestClarificationType = {
-  problemKey: string,
+  problemJudgeKey: string,
   question: string,
   answer: string,
   questionUserNickname: string,
