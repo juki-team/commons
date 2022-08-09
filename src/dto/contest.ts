@@ -103,13 +103,16 @@ export interface ContestSummaryListResponseDTO {
 export type ContestMembersType = ContestMembersBasicType & { contestants: string[] };
 
 export type ContestClarificationType = {
+  key: string,
   problemJudgeKey: string,
   question: string,
   questionTimestamp: number,
   questionUserNickname: string,
+  questionUserImageUrl: string,
   answer: string,
   answerTimestamp: number,
   answerUserNickname: string,
+  answerUserImageUrl: string,
   public: boolean,
 }
 
