@@ -68,6 +68,13 @@ export type ContestMembersBasicType = {
   spectators: { [key: string]: ContestUserData },
 }
 
+export type CreateContestMembersBasicType = {
+  administrators: string[]
+  judges: string[],
+  guests: string[],
+  spectators: string[],
+}
+
 export interface CreateContestDTO {
   type: ContestType,
   key: string,
@@ -75,7 +82,7 @@ export interface CreateContestDTO {
   description: string,
   settings: ContestSettingsBasicType,
   problems: { [key: string]: ContestProblemBasicType },
-  members: ContestMembersBasicType,
+  members: CreateContestMembersBasicType,
   tags: string[],
 }
 
@@ -123,11 +130,19 @@ export type ContestClarificationType = {
   public: boolean,
 }
 
+export interface ContestMembersResponseDTO {
+  administrators: { [key: string]: { userId: string, } },
+  judges: { [key: string]: { userId: string, } },
+  guests: { [key: string]: { userId: string, } },
+  spectators: { [key: string]: { userId: string, } },
+  contestants: { [key: string]: { userId: string, } },
+}
+
 export interface ContestResponseDTO extends ContestSummaryListResponseDTO {
   description: string,
   settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
   problems: { [key: string]: ContestProblemType },
   user: ContestUserType,
-  members: ContestMembersType,
+  members: ContestMembersResponseDTO,
   clarifications: ContestClarificationType[]
 }
