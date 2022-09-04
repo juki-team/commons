@@ -54,11 +54,18 @@ export type ContestSettingsBasicType = {
   quietTimestamp: number,
   endTimestamp: number,
 }
+
+export type ContestUserData = {
+  userId: string,
+  lastVisit: Date | null,
+  joinedAt: Date,
+}
+
 export type ContestMembersBasicType = {
-  administrators: string[],
-  judges: string[],
-  guests: string[],
-  spectators: string[],
+  administrators: { [key: string]: ContestUserData },
+  judges: { [key: string]: ContestUserData },
+  guests: { [key: string]: ContestUserData },
+  spectators: { [key: string]: ContestUserData },
 }
 
 export interface CreateContestDTO {
@@ -100,7 +107,7 @@ export interface ContestSummaryListResponseDTO {
   isQuietTime: boolean,
 }
 
-export type ContestMembersType = ContestMembersBasicType & { contestants: string[] };
+export type ContestMembersType = ContestMembersBasicType & { contestants: { [key: string]: ContestUserData } };
 
 export type ContestClarificationType = {
   key: string,
