@@ -139,16 +139,12 @@ export type ContestClarificationType = {
   public: boolean,
 }
 
-export interface UserResponse extends UserBasicInfoInterface {
-  userId: string,
-}
-
 export interface ContestMembersResponseDTO {
-  administrators: { [key: string]: UserResponse },
-  judges: { [key: string]: UserResponse },
-  guests: { [key: string]: UserResponse },
-  spectators: { [key: string]: UserResponse },
-  contestants: { [key: string]: UserResponse },
+  administrators: { [key: string]: UserBasicInfoInterface },
+  judges: { [key: string]: UserBasicInfoInterface },
+  guests: { [key: string]: UserBasicInfoInterface },
+  spectators: { [key: string]: UserBasicInfoInterface },
+  contestants: { [key: string]: UserBasicInfoInterface },
 }
 
 export interface ContestResponseDTO extends ContestSummaryListResponseDTO {
