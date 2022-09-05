@@ -1,10 +1,13 @@
 import { CourseRole, Language, TeamRole, Theme, UserRole, UserStatus } from './prisma';
 
-export interface UserBasicInterface {
-  givenName: string,
-  familyName: string,
+export interface UserBasicInfoInterface {
   nickname: string,
   imageUrl: string,
+}
+
+export interface UserBasicInterface extends UserBasicInfoInterface {
+  givenName: string,
+  familyName: string,
   email: string,
 }
 

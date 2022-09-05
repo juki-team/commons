@@ -1,4 +1,13 @@
-import { ContestStatus, ContestType, Judge, ProblemMode, ProblemStatus, ProblemType, ProgrammingLanguage } from '../types';
+import {
+  ContestStatus,
+  ContestType,
+  Judge,
+  ProblemMode,
+  ProblemStatus,
+  ProblemType,
+  ProgrammingLanguage,
+  UserBasicInfoInterface,
+} from '../types';
 
 export type PointsByGroupsType = { [key: number]: { points: number, partial: number } };
 
@@ -130,12 +139,16 @@ export type ContestClarificationType = {
   public: boolean,
 }
 
+export interface UserResponse extends UserBasicInfoInterface {
+  userId: string,
+}
+
 export interface ContestMembersResponseDTO {
-  administrators: { [key: string]: { userId: string, } },
-  judges: { [key: string]: { userId: string, } },
-  guests: { [key: string]: { userId: string, } },
-  spectators: { [key: string]: { userId: string, } },
-  contestants: { [key: string]: { userId: string, } },
+  administrators: { [key: string]: UserResponse },
+  judges: { [key: string]: UserResponse },
+  guests: { [key: string]: UserResponse },
+  spectators: { [key: string]: UserResponse },
+  contestants: { [key: string]: UserResponse },
 }
 
 export interface ContestResponseDTO extends ContestSummaryListResponseDTO {
