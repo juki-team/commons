@@ -25,4 +25,7 @@ export interface UserResponseDTO {
   country: string,
   city: string,
   handles: { [key: string]: string },
+  // proceded
+  canEditProfileData: boolean,
+  canUpdatePassword: boolean,
 }
