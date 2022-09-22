@@ -27,5 +27,8 @@ export interface UserResponseDTO {
   handles: { [key: string]: string },
   // proceded
   canEditProfileData: boolean,
+  canEditSettingsData: boolean,
+  canEditPermissionsData: boolean,
   canUpdatePassword: boolean,
+  canResetPassword: boolean,
 }
