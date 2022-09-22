@@ -12,3 +12,17 @@ export interface UserSummaryListResponseDTO {
   nickname: string,
   status: UserStatus,
 }
+
+export interface UserResponseDTO {
+  givenName: string,
+  familyName: string,
+  nickname: string,
+  email: string,
+  status: UserStatus,
+  imageUrl: string,
+  aboutMe: string,
+  institution: string,
+  country: string,
+  city: string,
+  handles: { [key: string]: string },
+}
