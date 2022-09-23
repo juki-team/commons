@@ -39,8 +39,5 @@ export interface UserPingResponseDTO extends UserBasicResponseDTO {
   canCreateUser: boolean,
   canViewUsersManagement: boolean,
   canViewSubmissionsManagement: boolean,
-}
-
-export interface UserSignInResponseDTO extends UserPingResponseDTO {
   sessionId: string,
 }
