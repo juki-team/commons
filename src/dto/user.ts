@@ -1,34 +1,38 @@
-import { UserStatus } from '../types';
+import { Language, Theme, UserStatus } from '../types';
 
 export interface UserSummaryListResponseDTO {
-  aboutMe: string,
-  city: string,
-  country: string,
   email: string,
   familyName: string,
   givenName: string,
   imageUrl: string,
-  institution: string,
   nickname: string,
   status: UserStatus,
 }
 
-export interface UserResponseDTO {
-  givenName: string,
-  familyName: string,
-  nickname: string,
-  email: string,
-  status: UserStatus,
-  imageUrl: string,
+export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
   aboutMe: string,
-  institution: string,
-  country: string,
   city: string,
+  country: string,
+  institution: string,
   handles: { [key: string]: string },
-  // proceded
+}
+
+export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canEditProfileData: boolean,
   canEditSettingsData: boolean,
   canEditPermissionsData: boolean,
   canUpdatePassword: boolean,
   canResetPassword: boolean,
+}
+
+export interface UserPingResponseDTO extends UserBasicResponseDTO {
+  settings: {
+    preferredLanguage: Language,
+    preferredTheme: Theme,
+  },
+  canCreateProblem: boolean,
+  canCreateContest: boolean,
+  canCreateUser: boolean,
+  canViewUsersManagement: boolean,
+  canViewSubmissionsManagement: boolean,
 }
