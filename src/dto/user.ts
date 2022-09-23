@@ -38,5 +38,5 @@ export interface UserPingResponseDTO extends UserBasicResponseDTO {
 }
 
 export interface UserSignInResponseDTO extends UserPingResponseDTO {
-  token: string,
+  sessionId: string,
 }
