@@ -9,12 +9,14 @@ export interface UserSummaryListResponseDTO {
   status: UserStatus,
 }
 
+export type UserHandlesType = { [key: string]: string };
+
 export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
   aboutMe: string,
   city: string,
   country: string,
   institution: string,
-  handles: { [key: string]: string },
+  handles: UserHandlesType,
 }
 
 export interface UserProfileResponseDTO extends UserBasicResponseDTO {
@@ -25,11 +27,13 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canResetPassword: boolean,
 }
 
+export type UserSettingsType = {
+  preferredLanguage: Language,
+  preferredTheme: Theme,
+}
+
 export interface UserPingResponseDTO extends UserBasicResponseDTO {
-  settings: {
-    preferredLanguage: Language,
-    preferredTheme: Theme,
-  },
+  settings: UserSettingsType,
   canCreateProblem: boolean,
   canCreateContest: boolean,
   canCreateUser: boolean,
