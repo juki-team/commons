@@ -15,6 +15,7 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
     input: string,
     output: string,
   },
+  editorial: string,
   settings: Omit<ProblemSettingsType, 'evaluatorSource'>,
   sampleCases: { input: string, output: string }[],
   ownerNickname: string,
