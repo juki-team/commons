@@ -19,6 +19,13 @@ export interface UserProfileInterface extends UserBasicInterface {
   telegramUsername: string,
 }
 
+export type UserHandlesType = { [key: string]: string };
+
+export type UserSettingsType = {
+  preferredLanguage: Language,
+  preferredTheme: Theme,
+}
+
 export interface UserInterface extends UserProfileInterface {
   preferredLanguage: Language,
   preferredTheme: Theme,

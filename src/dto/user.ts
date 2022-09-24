@@ -1,4 +1,4 @@
-import { Language, Theme, UserStatus } from '../types';
+import { CourseRole, TeamRole, UserHandlesType, UserRole, UserSettingsType, UserStatus } from '../types';
 
 export interface UserSummaryListResponseDTO {
   email: string,
@@ -9,7 +9,14 @@ export interface UserSummaryListResponseDTO {
   status: UserStatus,
 }
 
-export type UserHandlesType = { [key: string]: string };
+export interface UserManagementResponseDTO extends UserSummaryListResponseDTO {
+  city: string,
+  country: string,
+  institution: string,
+  userRole: UserRole,
+  teamRole: TeamRole,
+  courseRole: CourseRole,
+}
 
 export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
   aboutMe: string,
@@ -25,11 +32,6 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canEditPermissionsData: boolean,
   canUpdatePassword: boolean,
   canResetPassword: boolean,
-}
-
-export type UserSettingsType = {
-  preferredLanguage: Language,
-  preferredTheme: Theme,
 }
 
 export interface UserPingResponseDTO extends UserBasicResponseDTO {
