@@ -1,3 +1,5 @@
+import { EntityStatus } from './commons';
+
 export interface TestCase {
   id: string,
   group: number,
@@ -22,10 +24,10 @@ export enum ProblemOutput {
 }
 
 export enum ProblemStatus {
-  ARCHIVED = 'ARCHIVED',
-  PRIVATE = 'PRIVATE',
-  RESERVED = 'RESERVED',
-  PUBLIC = 'PUBLIC',
+  PUBLIC = EntityStatus.PUBLIC,
+  RESERVED = EntityStatus.RESERVED,
+  PRIVATE = EntityStatus.PRIVATE,
+  ARCHIVED = EntityStatus.ARCHIVED,
 }
 
 export enum ProblemType {

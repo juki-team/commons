@@ -1,16 +1,10 @@
-import { EntityStatus, EntityType } from './commons';
+import { EntityStatus } from './commons';
 import { Judge } from './judge';
 
 export enum ContestStatus {
-  ACTIVE = EntityStatus.ACTIVE,
+  PUBLIC = EntityStatus.PUBLIC,
   RESERVED = EntityStatus.RESERVED,
   ARCHIVED = EntityStatus.ARCHIVED,
-  REPORTED = EntityStatus.REPORTED,
-}
-
-export enum ContestType {
-  PUBLIC = EntityType.PUBLIC,
-  PRIVATE = EntityType.PRIVATE,
 }
 
 export enum ContestTimeStatus {

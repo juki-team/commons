@@ -34,8 +34,8 @@ export enum EntityType {
 }
 
 export enum EntityStatus {
-  ACTIVE = 'ACTIVE', // Active for the users
+  PUBLIC = 'PUBLIC', // Active for the users
   RESERVED = 'RESERVED', // On preparation
-  REPORTED = 'REPORTED',
+  PRIVATE = 'PRIVATE',
   ARCHIVED = 'ARCHIVED',
 }

@@ -1,6 +1,5 @@
 import {
   ContestStatus,
-  ContestType,
   Judge,
   ProblemMode,
   ProblemStatus,
@@ -85,7 +84,6 @@ export type CreateContestMembersBasicType = {
 }
 
 export interface CreateContestDTO {
-  type: ContestType,
   key: string,
   name: string,
   description: string,
@@ -105,7 +103,6 @@ export type ContestUserType = {
 
 export interface ContestSummaryListResponseDTO {
   status: ContestStatus,
-  type: ContestType,
   name: string,
   key: string,
   user: ContestUserType,
