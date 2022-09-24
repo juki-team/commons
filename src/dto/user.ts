@@ -1,6 +1,6 @@
-import { CourseRole, TeamRole, UserHandlesType, UserRole, UserSettingsType, UserStatus } from '../types';
+import { ContestRole, CourseRole, ProblemRole, TeamRole, UserHandlesType, UserRole, UserSettingsType, UserStatus } from '../types';
 
-export interface UserSummaryListResponseDTO {
+export interface UserSummaryResponseDTO {
   email: string,
   familyName: string,
   givenName: string,
@@ -9,16 +9,18 @@ export interface UserSummaryListResponseDTO {
   status: UserStatus,
 }
 
-export interface UserManagementResponseDTO extends UserSummaryListResponseDTO {
+export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   city: string,
   country: string,
   institution: string,
   userRole: UserRole,
+  contestRole: ContestRole,
+  problemRole: ProblemRole,
   teamRole: TeamRole,
   courseRole: CourseRole,
 }
 
-export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
+export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
   aboutMe: string,
   city: string,
   country: string,

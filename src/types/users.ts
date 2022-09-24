@@ -34,3 +34,52 @@ export interface UserInterface extends UserProfileInterface {
   teamRole: TeamRole,
   courseRole: CourseRole,
 }
+
+export enum Role {
+  SUPER_ADMIN = 'SUPER_ADMIN',
+  ADMIN = 'ADMIN',
+  MASTER = 'MASTER',
+  MANAGER = 'MANAGER',
+  REGULAR = 'REGULAR',
+  LIMITED = 'LIMITED',
+  GUEST = 'GUEST',
+  RESTRICTED = 'RESTRICTED',
+}
+
+export const ProblemRole: {
+  RESTRICTED: 'RESTRICTED',
+  GUEST: 'GUEST',
+  REGULAR: 'REGULAR',
+  MANAGER: 'MANAGER',
+  MASTER: 'MASTER',
+  ADMIN: 'ADMIN',
+  SUPER_ADMIN: 'SUPER_ADMIN'
+} = {
+  RESTRICTED: 'RESTRICTED',
+  GUEST: 'GUEST',
+  REGULAR: 'REGULAR',
+  MANAGER: 'MANAGER',
+  MASTER: 'MASTER',
+  ADMIN: 'ADMIN',
+  SUPER_ADMIN: 'SUPER_ADMIN',
+};
+
+export type ProblemRole = (typeof ProblemRole)[keyof typeof ProblemRole]
+
+export const ContestRole: {
+  RESTRICTED: 'RESTRICTED',
+  GUEST: 'GUEST',
+  REGULAR: 'REGULAR',
+  MANAGER: 'MANAGER',
+  ADMIN: 'ADMIN',
+  SUPER_ADMIN: 'SUPER_ADMIN'
+} = {
+  RESTRICTED: 'RESTRICTED',
+  GUEST: 'GUEST',
+  REGULAR: 'REGULAR',
+  MANAGER: 'MANAGER',
+  ADMIN: 'ADMIN',
+  SUPER_ADMIN: 'SUPER_ADMIN',
+};
+
+export type ContestRole = (typeof ContestRole)[keyof typeof ContestRole]
