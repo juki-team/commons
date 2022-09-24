@@ -1,4 +1,5 @@
-import { EntityStatus } from './commons';
+import { PointsByGroupsType, ByProgrammingLanguageType } from '../dto';
+import { EntityStatus, ProgrammingLanguage } from './commons';
 
 export interface TestCase {
   id: string,
@@ -40,4 +41,16 @@ export enum ProblemMode {
   SUBTASK = 'SUBTASK', // by groups // Supported
   TOTAL = 'TOTAL', // one group // Supported
   PARTIAL = 'PARTIAL', // each testcase +0.1pnts // TODO
+}
+
+export type ProblemSettingsType = {
+  timeLimit: number,
+  memoryLimit: number,
+  withPE: boolean,
+  type: ProblemType,
+  mode: ProblemMode,
+  languages: ProgrammingLanguage[],
+  byProgrammingLanguage: ByProgrammingLanguageType,
+  evaluatorSource: '',
+  pointsByGroups: PointsByGroupsType,
 }

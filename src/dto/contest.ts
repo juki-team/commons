@@ -1,36 +1,9 @@
-import {
-  ContestStatus,
-  Judge,
-  ProblemMode,
-  ProblemStatus,
-  ProblemType,
-  ProgrammingLanguage,
-  UserBasicInfoInterface,
-} from '../types';
+import { ContestStatus, Judge, ProgrammingLanguage, UserBasicInfoInterface } from '../types';
+import { ProblemResponseDTO } from './problem';
 
 export type PointsByGroupsType = { [key: number]: { points: number, partial: number } };
 
-export type ProblemLanguagesType = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
-
-export interface ProblemResponseDTO {
-  key: string,
-  judge: Judge,
-  name: string,
-  author: string,
-  statement: {
-    description: string,
-    input: string,
-    output: string,
-  },
-  mode: ProblemMode,
-  type: ProblemType,
-  languages: ProblemLanguagesType,
-  sampleCases: { input: string, output: string }[],
-  pointsByGroups: PointsByGroupsType,
-  ownerNickname: string,
-  tags: string[],
-  status: ProblemStatus,
-}
+export type ByProgrammingLanguageType = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
 
 export type ContestProblemBasicType = {
   key: string,
