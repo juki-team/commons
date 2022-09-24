@@ -1,4 +1,4 @@
-import { ProblemInput, ProblemMode, ProblemOutput, ProblemStatus, ProblemType } from '../types';
+import { ProblemInput, ProblemMode, ProblemOutput, ProblemRole, ProblemStatus, ProblemType } from '../types';
 
 export const PROBLEM_STATUS: { [key in ProblemStatus]: { value: ProblemStatus, label: string } } = {
   [ProblemStatus.ARCHIVED]: { value: ProblemStatus.ARCHIVED, label: 'archived' },
@@ -30,4 +30,14 @@ export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType, label: 
   [ProblemType.STANDARD]: { value: ProblemType.STANDARD, label: 'standard' },
   [ProblemType.INTERACTIVE]: { value: ProblemType.INTERACTIVE, label: 'interactive' },
   [ProblemType.DYNAMIC]: { value: ProblemType.DYNAMIC, label: 'dynamic' },
+};
+
+export const PROBLEM_ROLE: { [key in ProblemRole]: { value: ProblemRole, label: string, level: number } } = {
+  [ProblemRole.RESTRICTED]: { value: ProblemRole.RESTRICTED, label: 'restricted', level: 6 },
+  [ProblemRole.GUEST]: { value: ProblemRole.GUEST, label: 'guest', level: 5 },
+  [ProblemRole.REGULAR]: { value: ProblemRole.REGULAR, label: 'regular', level: 4 },
+  [ProblemRole.MANAGER]: { value: ProblemRole.MANAGER, label: 'manager', level: 3 },
+  [ProblemRole.MASTER]: { value: ProblemRole.MASTER, label: 'master', level: 2 },
+  [ProblemRole.ADMIN]: { value: ProblemRole.ADMIN, label: 'admin', level: 1 },
+  [ProblemRole.SUPER_ADMIN]: { value: ProblemRole.SUPER_ADMIN, label: 'super admin', level: 0 },
 };

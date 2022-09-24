@@ -1,6 +1,7 @@
 export * from './account';
 export * from './commons';
 export * from './contest';
+export * from './course';
 export * from './date';
 export * from './judge';
 export * from './problem';
