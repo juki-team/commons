@@ -82,6 +82,10 @@ export interface ContestSummaryListResponseDTO {
   settings: {
     startTimestamp: number,
     endTimestamp: number,
+    // To get the contest template
+    frozenTimestamp: number,
+    quietTimestamp: number,
+    penalty: number,
   },
   tags: string[],
   // Data Calculated
