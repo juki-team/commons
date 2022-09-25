@@ -9,7 +9,7 @@ export const CONTEST_STATUS: { [key in ContestStatus]: { value: ContestStatus, l
   [ContestStatus.RESERVED]: {
     value: ContestStatus.RESERVED,
     label: 'reserved',
-    description: 'the contest will not appear in the list of contests and the users will have access according to their roles',
+    description: 'the contest will appear in the contest list only to contest members and the users will have access according to their roles',
   },
   [ContestStatus.ARCHIVED]: {
     value: ContestStatus.ARCHIVED,
