@@ -64,6 +64,7 @@ export interface CreateContestDTO {
   problems: { [key: string]: ContestProblemBasicType },
   members: CreateContestMembersBasicType,
   tags: string[],
+  status: ContestStatus,
 }
 
 export type ContestUserType = {
