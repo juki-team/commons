@@ -53,6 +53,7 @@ export type ContestMembersBasicType = {
 export type CreateContestMembersBasicType = {
   administrators: string[]
   judges: string[],
+  contestants: string[],
   guests: string[],
   spectators: string[],
 }
