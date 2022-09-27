@@ -1,5 +1,14 @@
-import { Judge, ProblemSettingsType, ProblemStatus } from '../types';
-import { ContestUserType } from './contest';
+import { Judge, ProblemSampleCasesType, ProblemSettingsType, ProblemStatementType, ProblemStatus, ProblemUserType } from '../types';
+
+export interface CreateProblemDTO {
+  status: ProblemStatus,
+  name: string,
+  author: string,
+  settings: ProblemSettingsType,
+  tags: string[],
+  sampleCases: ProblemSampleCasesType,
+  statement: ProblemStatementType,
+}
 
 export interface ProblemSummaryListResponseDTO {
   judge: Judge,
@@ -9,20 +18,12 @@ export interface ProblemSummaryListResponseDTO {
   status: ProblemStatus,
 }
 
-export type ProblemUserType = {
-  isEditor: boolean,
-}
-
 export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   author: string,
-  statement: {
-    description: string,
-    input: string,
-    output: string,
-  },
+  statement: ProblemStatementType,
   editorial: string,
   settings: Omit<ProblemSettingsType, 'evaluatorSource'>,
-  sampleCases: { input: string, output: string }[],
+  sampleCases: ProblemSampleCasesType,
   ownerNickname: string,
   user: ProblemUserType,
 }

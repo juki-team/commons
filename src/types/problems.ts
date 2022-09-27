@@ -1,4 +1,3 @@
-import { PointsByGroupsType, ByProgrammingLanguageType } from '../dto';
 import { EntityStatus, ProgrammingLanguage } from './commons';
 
 export interface TestCase {
@@ -43,6 +42,18 @@ export enum ProblemMode {
   PARTIAL = 'PARTIAL', // each testcase +0.1pnts // TODO
 }
 
+export type ProblemSettingsPointsByGroupsType = { [key: number]: { points: number, partial: number } };
+
+export type ProblemSettingsByProgrammingLanguageType = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
+
+export type ProblemSampleCasesType = { input: string, output: string }[];
+
+export type ProblemStatementType = {
+  description: string,
+  input: string,
+  output: string,
+};
+
 export type ProblemSettingsType = {
   timeLimit: number,
   memoryLimit: number,
@@ -50,7 +61,11 @@ export type ProblemSettingsType = {
   type: ProblemType,
   mode: ProblemMode,
   languages: ProgrammingLanguage[],
-  byProgrammingLanguage: ByProgrammingLanguageType,
+  byProgrammingLanguage: ProblemSettingsByProgrammingLanguageType,
   evaluatorSource: '',
-  pointsByGroups: PointsByGroupsType,
+  pointsByGroups: ProblemSettingsPointsByGroupsType,
+}
+
+export type ProblemUserType = {
+  isEditor: boolean,
 }
