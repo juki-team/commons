@@ -34,6 +34,7 @@ export type ContestSettingsBasicType = {
   frozenTimestamp: number,
   quietTimestamp: number,
   endTimestamp: number,
+  problemEditorials: boolean,
 }
 
 export type ContestUserData = {

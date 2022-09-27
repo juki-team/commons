@@ -1,4 +1,5 @@
 import { Judge, ProblemSettingsType, ProblemStatus } from '../types';
+import { ContestUserType } from './contest';
 
 export interface ProblemSummaryListResponseDTO {
   judge: Judge,
@@ -6,6 +7,10 @@ export interface ProblemSummaryListResponseDTO {
   name: string,
   tags: string[],
   status: ProblemStatus,
+}
+
+export type ProblemUserType = {
+  isEditor: boolean,
 }
 
 export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
@@ -19,4 +24,5 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   settings: Omit<ProblemSettingsType, 'evaluatorSource'>,
   sampleCases: { input: string, output: string }[],
   ownerNickname: string,
+  user: ProblemUserType,
 }
