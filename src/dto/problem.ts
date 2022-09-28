@@ -1,4 +1,12 @@
-import { Judge, ProblemSampleCasesType, ProblemSettingsType, ProblemStatementType, ProblemStatus, ProblemUserType } from '../types';
+import {
+  Judge,
+  Language,
+  ProblemSampleCasesType,
+  ProblemSettingsType,
+  ProblemStatementType,
+  ProblemStatus,
+  ProblemUserType, TextLanguageType,
+} from '../types';
 
 export interface CreateProblemDTO {
   status: ProblemStatus,
@@ -8,6 +16,7 @@ export interface CreateProblemDTO {
   tags: string[],
   sampleCases: ProblemSampleCasesType,
   statement: ProblemStatementType,
+  editorial: TextLanguageType,
 }
 
 export interface ProblemSummaryListResponseDTO {
@@ -21,7 +30,7 @@ export interface ProblemSummaryListResponseDTO {
 export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   author: string,
   statement: ProblemStatementType,
-  editorial: string,
+  editorial: TextLanguageType,
   settings: Omit<ProblemSettingsType, 'evaluatorSource'>,
   sampleCases: ProblemSampleCasesType,
   ownerNickname: string,

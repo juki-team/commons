@@ -1,4 +1,4 @@
-import { EntityStatus, ProgrammingLanguage } from './commons';
+import { EntityStatus, ProgrammingLanguage, TextLanguageType } from './commons';
 
 export interface TestCase {
   id: string,
@@ -49,7 +49,7 @@ export type ProblemSettingsByProgrammingLanguageType = { [key: string]: { langua
 export type ProblemSampleCasesType = { input: string, output: string }[];
 
 export type ProblemStatementType = {
-  description: string,
+  description: TextLanguageType,
   input: string,
   output: string,
 };

@@ -1,3 +1,5 @@
+import { Language } from './prisma';
+
 export enum ProgrammingLanguage {
   C = 'C',
   CPP = 'CPP',
@@ -39,3 +41,5 @@ export enum EntityStatus {
   PRIVATE = 'PRIVATE',
   ARCHIVED = 'ARCHIVED',
 }
+
+export type TextLanguageType = { [key in Language]: string };
