@@ -31,7 +31,7 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   author: string,
   statement: ProblemStatementType,
   editorial: TextLanguageType,
-  settings: Omit<ProblemSettingsType, 'evaluatorSource'>,
+  settings: ProblemSettingsType,
   sampleCases: ProblemSampleCasesType,
   ownerNickname: string,
   user: ProblemUserType,
