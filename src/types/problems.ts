@@ -42,7 +42,7 @@ export enum ProblemMode {
   PARTIAL = 'PARTIAL', // each testcase +0.1pnts // TODO
 }
 
-export type ProblemSettingsPointsByGroupsType = { [key: number]: { points: number, partial: number } };
+export type ProblemSettingsPointsByGroupsType = { [key: number]: { points: number, partial: number, group: number } };
 
 export type ProblemSettingsByProgrammingLanguageType = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
 
