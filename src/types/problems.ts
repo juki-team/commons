@@ -62,7 +62,7 @@ export type ProblemSettingsType = {
   mode: ProblemMode,
   languages: ProgrammingLanguage[],
   byProgrammingLanguage: ProblemSettingsByProgrammingLanguageType,
-  evaluatorSource: '',
+  evaluatorSource: string,
   pointsByGroups: ProblemSettingsPointsByGroupsType,
 }
 
