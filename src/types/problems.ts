@@ -50,8 +50,8 @@ export type ProblemSampleCasesType = { input: string, output: string }[];
 
 export type ProblemStatementType = {
   description: TextLanguageType,
-  input: string,
-  output: string,
+  input: TextLanguageType,
+  output: TextLanguageType,
 };
 
 export type ProblemSettingsType = {
