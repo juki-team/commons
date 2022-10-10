@@ -28,7 +28,7 @@ export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
   handles: UserHandlesType,
 }
 
-export interface UserManagementSessionResponseDTO extends UserSummaryResponseDTO {
+export interface UserManagementSessionResponseDTO {
   id: string,
   userId: string,
   validUntil: Date,
