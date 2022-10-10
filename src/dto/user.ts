@@ -20,6 +20,15 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   courseRole: CourseRole,
 }
 
+export interface UserManagementSessionResponseDTO extends UserSummaryResponseDTO {
+  id: string,
+  userId: string,
+  validUntil: Date,
+  createdAt: Date,
+  updatedAt: Date,
+  user: UserBasicResponseDTO,
+}
+
 export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
   aboutMe: string,
   city: string,
