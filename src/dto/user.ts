@@ -50,7 +50,10 @@ export interface UserPingResponseDTO extends UserBasicResponseDTO {
   canCreateProblem: boolean,
   canCreateContest: boolean,
   canCreateUser: boolean,
+  
   canViewUsersManagement: boolean,
   canViewSubmissionsManagement: boolean,
+  canViewFilesManagement: boolean,
+  
   sessionId: string,
 }
