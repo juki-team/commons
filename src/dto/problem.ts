@@ -1,11 +1,11 @@
 import {
   Judge,
-  Language,
   ProblemSampleCasesType,
   ProblemSettingsType,
   ProblemStatementType,
   ProblemStatus,
-  ProblemUserType, TextLanguageType,
+  ProblemUserType,
+  TextLanguageType,
 } from '../types';
 
 export interface CreateProblemDTO {
@@ -36,3 +36,12 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   ownerNickname: string,
   user: ProblemUserType,
 }
+
+export interface ProblemTestCaseResponse {
+  testCaseId?: number,
+  testCaseKey?: string,
+  group: number,
+}
+
+export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {}
+
