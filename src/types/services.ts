@@ -45,6 +45,7 @@ export enum ErrorCode {
   ERR0119 = 'ERR0119',
   ERR0120 = 'ERR0120',
   ERR0121 = 'ERR0121',
+  ERR0122 = 'ERR0122',
   // Contest Errors ERR02XX',
   ERR0200 = 'ERR0200',
   // CRUD contest

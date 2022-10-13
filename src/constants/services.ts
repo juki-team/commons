@@ -54,6 +54,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0119]: { value: ErrorCode.ERR0119, message: 'problem type not supported', status: 500 },
   [ErrorCode.ERR0120]: { value: ErrorCode.ERR0120, message: 'problem time limit must be a number', status: 500 },
   [ErrorCode.ERR0121]: { value: ErrorCode.ERR0121, message: 'problem memory limit must be number', status: 500 },
+  [ErrorCode.ERR0122]: { value: ErrorCode.ERR0122, message: 'test case file empty', status: 400 },
   
   // Contest Errors ERR02XX
   [ErrorCode.ERR0200]: { value: ErrorCode.ERR0200, message: 'internal server error on contests service', status: 500 },
