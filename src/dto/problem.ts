@@ -38,8 +38,7 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
 }
 
 export interface ProblemTestCaseResponse {
-  testCaseId?: number,
-  testCaseKey?: string,
+  testCaseKey: string,
   groups: number[],
   inputFileSize: number,
   outputFileSize: number,
