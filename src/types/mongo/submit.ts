@@ -5,13 +5,13 @@ import { RunResult } from '../submission';
 export type CaseResultType = Omit<RunResult, 'out'> & {
   verdict: ProblemVerdict,
   caseKey: string,
-  group: number,
+  groups: number,
   points: number,
 }
 
 export type CaseResultGroupType = Omit<RunResult, 'out'> & {
   verdict: ProblemVerdict,
-  group: number,
+  groups: number,
   points: number,
 }
 
