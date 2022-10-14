@@ -31,7 +31,7 @@ export interface SubmissionResponseDTO {
 export type TestCaseResultType = DataLogType & {
   err: string
   verdict: ProblemVerdict,
-  groups: number,
+  group: number,
   points: number, // Used by PARTIAL mode problems
 }
 
