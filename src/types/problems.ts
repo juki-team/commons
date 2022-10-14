@@ -2,7 +2,7 @@ import { EntityStatus, ProgrammingLanguage, TextLanguageType } from './commons';
 
 export interface TestCase {
   id: string,
-  groups: number,
+  group: number,
   input: boolean,
   output: boolean,
 }
