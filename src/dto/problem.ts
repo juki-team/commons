@@ -41,7 +41,9 @@ export interface ProblemTestCaseResponse {
   testCaseKey: string,
   groups: number[],
   inputFileSize: number,
+  inputFileLastModified: Date,
   outputFileSize: number,
+  outputFileLastModified: Date,
 }
 
 export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {}
