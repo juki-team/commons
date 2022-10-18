@@ -49,9 +49,10 @@ export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType, label: 
 };
 
 export const PROBLEM_ROLE: { [key in ProblemRole]: { value: ProblemRole, label: string, level: number } } = {
-  [ProblemRole.RESTRICTED]: { value: ProblemRole.RESTRICTED, label: 'restricted', level: 6 },
-  [ProblemRole.GUEST]: { value: ProblemRole.GUEST, label: 'guest', level: 5 },
-  [ProblemRole.REGULAR]: { value: ProblemRole.REGULAR, label: 'regular', level: 4 },
+  [ProblemRole.RESTRICTED]: { value: ProblemRole.RESTRICTED, label: 'restricted', level: 7 },
+  [ProblemRole.GUEST]: { value: ProblemRole.GUEST, label: 'guest', level: 6 },
+  [ProblemRole.REGULAR]: { value: ProblemRole.REGULAR, label: 'regular', level: 5 },
+  [ProblemRole.CREATOR]: { value: ProblemRole.CREATOR, label: 'creator', level: 4 },
   [ProblemRole.MANAGER]: { value: ProblemRole.MANAGER, label: 'manager', level: 3 },
   [ProblemRole.MASTER]: { value: ProblemRole.MASTER, label: 'master', level: 2 },
   [ProblemRole.ADMIN]: { value: ProblemRole.ADMIN, label: 'admin', level: 1 },
