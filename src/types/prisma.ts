@@ -351,6 +351,24 @@ export const UserRole: {
 
 export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
+export const SystemRole: {
+  GUEST: 'GUEST',
+  REGULAR: 'REGULAR',
+  MANAGER: 'MANAGER',
+  MASTER: 'MASTER',
+  ADMIN: 'ADMIN',
+  SUPER_ADMIN: 'SUPER_ADMIN'
+} = {
+  GUEST: 'GUEST',
+  REGULAR: 'REGULAR',
+  MANAGER: 'MANAGER',
+  MASTER: 'MASTER',
+  ADMIN: 'ADMIN',
+  SUPER_ADMIN: 'SUPER_ADMIN',
+};
+
+export type SystemRole = (typeof SystemRole)[keyof typeof SystemRole]
+
 export const TeamRole: {
   RESTRICTED: 'RESTRICTED',
   GUEST: 'GUEST',
