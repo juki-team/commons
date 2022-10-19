@@ -29,6 +29,7 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   problemRole: ProblemRole,
   teamRole: TeamRole,
   courseRole: CourseRole,
+  canEditPermissionsData: boolean,
 }
 
 export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
