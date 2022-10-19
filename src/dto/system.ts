@@ -10,3 +10,12 @@ export interface TaskResponseDTO {
   desiredStatus: string,
   lastStatus: string,
 }
+
+export interface TaskDefinitionResponseDTO {
+  family: string,
+  taskDefinitionArn: string,
+  revision: number,
+  cpu: string,
+  memory: string,
+  registeredAt: Date,
+}
