@@ -30,6 +30,7 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   teamRole: TeamRole,
   courseRole: CourseRole,
   canEditPermissionsData: boolean,
+  canResetPassword: boolean,
 }
 
 export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
