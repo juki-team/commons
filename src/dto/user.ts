@@ -1,4 +1,14 @@
-import { ContestRole, CourseRole, ProblemRole, TeamRole, UserHandlesType, UserRole, UserSettingsType, UserStatus } from '../types';
+import {
+  ContestRole,
+  CourseRole,
+  ProblemRole,
+  SystemRole,
+  TeamRole,
+  UserHandlesType,
+  UserRole,
+  UserSettingsType,
+  UserStatus,
+} from '../types';
 
 export interface UserSummaryResponseDTO {
   email: string,
@@ -13,6 +23,7 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   city: string,
   country: string,
   institution: string,
+  systemRole: SystemRole,
   userRole: UserRole,
   contestRole: ContestRole,
   problemRole: ProblemRole,
