@@ -19,3 +19,27 @@ export interface TaskDefinitionResponseDTO {
   memory: string,
   registeredAt: Date,
 }
+
+export type SqsPropertiesType = {
+  QueueArn: string,
+  ApproximateNumberOfMessages: string,
+  ApproximateNumberOfMessagesNotVisible: string,
+  ApproximateNumberOfMessagesDelayed: string,
+  CreatedTimestamp: string,
+  LastModifiedTimestamp: string,
+  VisibilityTimeout: string,
+  MaximumMessageSize: string,
+  MessageRetentionPeriod: string,
+  DelaySeconds: string,
+  ReceiveMessageWaitTimeSeconds: string,
+  SqsManagedSseEnabled: string,
+  FifoQueue: string,
+  DeduplicationScope: string,
+  FifoThroughputLimit: string,
+  ContentBasedDeduplication: string,
+}
+
+export interface SqsPropertiesResponseDTO {
+  sqsJukiHighRunnerFifo: SqsPropertiesType,
+  sqsJukiLowRunnerFifo: SqsPropertiesType,
+}
