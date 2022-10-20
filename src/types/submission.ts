@@ -4,8 +4,3 @@ export type DataLogType = {
   exitCode: number,
 }
 
-export type RunResult = DataLogType & {
-  log: string,
-  err: string,
-  out: string
-}

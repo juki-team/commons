@@ -1,4 +1,3 @@
-export * from './mongo';
 export * from './account';
 export * from './commons';
 export * from './contest';
