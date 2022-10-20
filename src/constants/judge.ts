@@ -43,6 +43,7 @@ export const JUDGE: { [key in Judge]: { value: Judge, label: string, logo: strin
 export const RUNNER_ACCEPTED_PROBLEM_MODES: ProblemMode[] = [
   ProblemMode.TOTAL,
   ProblemMode.SUBTASK,
+  ProblemMode.PARTIAL,
 ];
 
 export const RUNNER_ACCEPTED_PROBLEM_TYPES: ProblemType[] = [
