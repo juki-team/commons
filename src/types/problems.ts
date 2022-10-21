@@ -68,4 +68,6 @@ export type ProblemSettingsType = {
 
 export type ProblemUserType = {
   isEditor: boolean,
+  solved: boolean,
+  tried: boolean,
 }

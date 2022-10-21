@@ -25,6 +25,7 @@ export interface ProblemSummaryListResponseDTO {
   name: string,
   tags: string[],
   status: ProblemStatus,
+  user: ProblemUserType,
 }
 
 export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
@@ -34,7 +35,6 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   settings: ProblemSettingsType,
   sampleCases: ProblemSampleCasesType,
   ownerNickname: string,
-  user: ProblemUserType,
 }
 
 export interface ProblemTestCaseResponse {
@@ -47,4 +47,3 @@ export interface ProblemTestCaseResponse {
 }
 
 export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {}
-
