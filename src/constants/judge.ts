@@ -107,9 +107,13 @@ export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: Sub
   [SubmissionRunStatus.COMPILING]: { value: SubmissionRunStatus.COMPILING, label: 'compiling' }, // state
   [SubmissionRunStatus.COMPILED]: { value: SubmissionRunStatus.COMPILED, label: 'compiled' },  // status
   [SubmissionRunStatus.COMPILATION_ERROR]: { value: SubmissionRunStatus.COMPILATION_ERROR, label: 'compilation error' },  // status
+  [SubmissionRunStatus.FETCHING_TEST_CASES]: { value: SubmissionRunStatus.FETCHING_TEST_CASES, label: 'fetching test cases' }, // state
   [SubmissionRunStatus.RUNNING_TEST_CASE]: { value: SubmissionRunStatus.RUNNING_TEST_CASE, label: 'running test case' }, // state
   [SubmissionRunStatus.RUNNING_TEST_CASES]: { value: SubmissionRunStatus.RUNNING_TEST_CASES, label: 'running test cases' }, // state
-  [SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES]: { value: SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES, label: 'running sample test cases' }, // state
+  [SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES]: {
+    value: SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES,
+    label: 'running sample test cases',
+  }, // state
   [SubmissionRunStatus.EXECUTED_TEST_CASE]: { value: SubmissionRunStatus.EXECUTED_TEST_CASE, label: 'executed test case' }, // status
   [SubmissionRunStatus.FAILED_TEST_CASE]: { value: SubmissionRunStatus.FAILED_TEST_CASE, label: 'failed test case' }, // status
   [SubmissionRunStatus.JUDGING_TEST_CASE]: { value: SubmissionRunStatus.JUDGING_TEST_CASE, label: 'judging test case' }, // state
