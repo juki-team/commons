@@ -4,38 +4,38 @@ export const JUDGE: { [key in Judge]: { value: Judge, label: string, logo: strin
   [Judge.JUKI_JUDGE]: {
     value: Judge.JUKI_JUDGE,
     label: 'Juki Judge',
-    logo: 'https://i.ibb.co/gvC4twc/juki.png',
+    logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
     url: 'https://jukijudge.com',
   },
   [Judge.CODEFORCES]: {
     value: Judge.CODEFORCES,
     label: 'Codeforces',
-    logo: 'https://vjudge.net/static/images/remote_oj/CodeForces_favicon.png',
+    logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     url: 'https://codeforces.com',
     
   },
   [Judge.UVA_ONLINE_JUDGE]: {
     value: Judge.UVA_ONLINE_JUDGE,
     label: 'Uva Online Judge',
-    logo: 'https://vjudge.net/static/images/remote_oj/UVA_favicon.ico',
+    logo: 'https://images.juki.pub/c/uva-online-judge-logo-color.png',
     url: 'https://onlinejudge.org',
   },
   [Judge.AT_CODER]: {
     value: Judge.AT_CODER,
     label: 'AtCoder',
-    logo: 'https://bira37.github.io/a93aa273c58de43a48942a1f6b14418d.svg',
+    logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
     url: 'https://atcoder.jp',
   },
   [Judge.CODECHEF]: {
     value: Judge.CODECHEF,
     label: 'Codechef',
-    logo: 'https://bira37.github.io/7559bdeef5edfc8d20cd19a499105d71.svg',
+    logo: 'https://images.juki.pub/c/codechef-logo-color.svg',
     url: 'https://www.codechef.com',
   },
   [Judge.TOPCODER]: {
     value: Judge.TOPCODER,
     label: 'Topcoder',
-    logo: 'https://www.topcoder.com/i/reskin/logo_topcoder.svg',
+    logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
     url: 'https://www.topcoder.com',
   },
 };
