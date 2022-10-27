@@ -35,7 +35,7 @@ export const JUDGE: { [key in Judge]: { value: Judge, label: string, logo: strin
   [Judge.TOPCODER]: {
     value: Judge.TOPCODER,
     label: 'Topcoder',
-    logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
+    logo: 'https://images.juki.pub/c/topcoder-logo-color.png',
     url: 'https://www.topcoder.com',
   },
 };
