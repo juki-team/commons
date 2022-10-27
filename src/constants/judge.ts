@@ -1,41 +1,46 @@
 import { Judge, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, SubmissionRunStatus } from '../types';
 
-export const JUDGE: { [key in Judge]: { value: Judge, label: string, logo: string, url: string } } = {
+export const JUDGE: { [key in Judge]: { value: Judge, label: string, logo: string, logoSize: [number, number], url: string } } = {
   [Judge.JUKI_JUDGE]: {
     value: Judge.JUKI_JUDGE,
     label: 'Juki Judge',
     logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
+    logoSize: [883.991, 435],
     url: 'https://jukijudge.com',
   },
   [Judge.CODEFORCES]: {
     value: Judge.CODEFORCES,
     label: 'Codeforces',
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
+    logoSize: [1232.75, 145.12],
     url: 'https://codeforces.com',
-    
   },
   [Judge.UVA_ONLINE_JUDGE]: {
     value: Judge.UVA_ONLINE_JUDGE,
     label: 'Uva Online Judge',
     logo: 'https://images.juki.pub/c/uva-online-judge-logo-color.png',
+    logoSize: [150, 135.994],
     url: 'https://onlinejudge.org',
   },
   [Judge.AT_CODER]: {
     value: Judge.AT_CODER,
     label: 'AtCoder',
     logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
+    logoSize: [762.997, 675],
     url: 'https://atcoder.jp',
   },
   [Judge.CODECHEF]: {
     value: Judge.CODECHEF,
     label: 'Codechef',
     logo: 'https://images.juki.pub/c/codechef-logo-color.svg',
+    logoSize: [1207.7, 453.17],
     url: 'https://www.codechef.com',
   },
   [Judge.TOPCODER]: {
     value: Judge.TOPCODER,
     label: 'Topcoder',
     logo: 'https://images.juki.pub/c/topcoder-logo-color.png',
+    logoSize: [971.99, 415.99],
     url: 'https://www.topcoder.com',
   },
 };
