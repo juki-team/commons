@@ -5,6 +5,7 @@ export * from './judge';
 export * from './prisma';
 export * from './problems';
 export * from './services';
+export * from './socket';
 export * from './submission';
 export * from './teams';
 export * from './users';
