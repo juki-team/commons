@@ -1,3 +1,4 @@
+import { UserPingResponseDTO } from '../dto';
 import { CourseRole, Language, TeamRole, Theme, UserRole, UserStatus } from './prisma';
 
 export interface UserBasicInfoInterface {
@@ -85,3 +86,7 @@ export const ContestRole: {
 };
 
 export type ContestRole = (typeof ContestRole)[keyof typeof ContestRole]
+
+export interface UserState extends UserPingResponseDTO {
+  isLogged: boolean,
+}
