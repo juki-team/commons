@@ -1,5 +1,5 @@
 export enum SocketEvent {
-  RUN_ASYNC = 'run-async',
+  RUN = 'run',
   SIGN_IN = 'socket-sign-in',
   SIGN_OUT = 'socket-sign-out',
 }
