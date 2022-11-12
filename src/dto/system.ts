@@ -9,6 +9,8 @@ export interface TaskResponseDTO {
   startedAt: Date,
   desiredStatus: string,
   lastStatus: string,
+  isLowRunnerGroup: boolean,
+  isHighRunnerGroup: boolean,
 }
 
 export interface TaskDefinitionResponseDTO {
