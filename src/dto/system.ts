@@ -18,6 +18,8 @@ export interface TaskDefinitionResponseDTO {
   cpu: string,
   memory: string,
   registeredAt: Date,
+  isLowRunner: boolean,
+  isHighRunner: boolean,
 }
 
 export type SqsPropertiesType = {
