@@ -38,3 +38,8 @@ export enum SubmissionRunStatus {
   FAILED = 'FAILED',
   COMPLETED = 'COMPLETED',
 }
+
+export enum RunnerType {
+  HIGH_PERFORMANCE = 'HIGH_PERFORMANCE',
+  LOW_PERFORMANCE = 'LOW_PERFORMANCE',
+}

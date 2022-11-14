@@ -1,4 +1,4 @@
-import { Judge, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, SubmissionRunStatus } from '../types';
+import { Judge, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, RunnerType, SubmissionRunStatus } from '../types';
 
 export const JUDGE: { [key in Judge]: { value: Judge, label: string, logo: string, logoSize: [number, number], url: string } } = {
   [Judge.JUKI_JUDGE]: {
@@ -125,4 +125,9 @@ export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: Sub
   [SubmissionRunStatus.GRADING]: { value: SubmissionRunStatus.GRADING, label: 'grading' }, // status
   [SubmissionRunStatus.FAILED]: { value: SubmissionRunStatus.FAILED, label: 'failed' },  // status
   [SubmissionRunStatus.COMPLETED]: { value: SubmissionRunStatus.COMPLETED, label: 'completed' },  // status
+};
+
+export const RUNNER_TYPE: { [key in RunnerType]: { value: RunnerType, label: string } } = {
+  [RunnerType.HIGH_PERFORMANCE]: { value: RunnerType.HIGH_PERFORMANCE, label: 'high performance' },
+  [RunnerType.LOW_PERFORMANCE]: { value: RunnerType.LOW_PERFORMANCE, label: 'low performance' },
 };
