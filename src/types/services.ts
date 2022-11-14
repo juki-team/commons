@@ -104,6 +104,11 @@ export enum ErrorCode {
   ERR0602 = 'ERR0602',
   ERR0603 = 'ERR0603',
   // Course Errors ERR07XXX',
+  ERR9900 = 'ERR9900',
+  ERR9910 = 'ERR9910',
+  ERR9911 = 'ERR9911',
+  ERR9912 = 'ERR9912',
+  ERR9913 = 'ERR9913',
 }
 
 export type ErrorType = {
