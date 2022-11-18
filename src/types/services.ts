@@ -159,3 +159,9 @@ export enum HTTPMethod {
   PATCH = 'PATCH',
   DELETE = 'DELETE',
 }
+
+type RunnerNextRequest = { type: 'request', body: string, method: HTTPMethod, url: string }
+
+type RunnerNextQueue = { type: 'queue', messageBody: string, messageGroupId: string, messageDeduplicationId: string };
+
+type RunnerBodyType = { commandLine: string, inputFilePath: string, outputFilePath: string, errorFilePath: string, logFilePath: string, folderPath: string, timeLimit: number, memoryLimit: number, lockFilePath?: string, endFilePath?: string, next: RunnerNextQueue | RunnerNextRequest };
