@@ -195,6 +195,7 @@ export type JudgingProblemDataType = {
 }
 
 export type JudgingType = {
+  companyId: string,
   sessionId: string,
   submitId: string,
   runId: string,
