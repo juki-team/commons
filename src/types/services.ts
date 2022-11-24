@@ -1,3 +1,6 @@
+import { ProgrammingLanguage } from './commons';
+import { ProblemMode, ProblemSettingsPointsByGroupsType, ProblemType } from './problems';
+
 export enum ErrorCode {
   // General errors
   ERR400 = 'ERR400',
@@ -166,4 +169,47 @@ export type RunnerNextQueueType = { type: 'queue', messageBody: string, messageG
 
 export type RunCommandType = { commandLine: string, inputFilePath: string, outputFilePath: string, errorFilePath: string, logFilePath: string, folderPath: string, timeLimit: number, memoryLimit: number, lockFilePath?: string, endFilePath?: string };
 
-export type RunnerBodyType = RunCommandType & { next: RunnerNextQueueType | RunnerNextRequestType };
+export type RunnerSQSMessageBodyType = RunCommandType & { next: RunnerNextQueueType | RunnerNextRequestType };
+
+export enum JudgingState {
+  COMPILED = 'COMPILED',
+  TEST_CASE_COMPLETED = 'TEST_CASE_COMPLETED',
+}
+
+export type CaseType = { caseKey: string, groups: number[] };
+
+export type ProblemTestCaseType = { testCaseKey: string, groups: number[] };
+export type ProblemSampleCaseType = { input: string, output: string };
+
+export type JudgingProblemDataType = {
+  problemId: string,
+  problemType: ProblemType,
+  problemTimeLimit: number,
+  problemMemoryLimit: number,
+  problemWithPE: boolean,
+  problemMode: ProblemMode,
+  problemPointsByGroups: ProblemSettingsPointsByGroupsType,
+  problemSampleCases: ProblemSampleCaseType[],
+  problemTestCases: ProblemTestCaseType[],
+  problemEvaluatorSource: string,
+}
+
+export type JudgingTestCaseCompletedBodyType = JudgingProblemDataType & {
+  runId: string,
+  key: string,
+  clusterChunkCases: CaseType[][],
+  chunkIndex: number,
+  sampleCase: boolean,
+  isSampleCasesEmpty: boolean,
+  language: ProgrammingLanguage,
+}
+
+export type JudgingCompiledBodyType = JudgingProblemDataType & {
+  sourceFileName: string,
+  runId: string,
+  language: ProgrammingLanguage,
+};
+
+export type RunnerOutSQSMessageBodyType =
+  (JudgingCompiledBodyType & { state: JudgingState.COMPILED, sessionId: string })
+  | (JudgingTestCaseCompletedBodyType & { state: JudgingState.TEST_CASE_COMPLETED, sessionId: string });
