@@ -23,7 +23,7 @@ export const USER_GUEST: UserState = {
   nickname: '',
   status: UserStatus.ACTIVE,
   aboutMe: '',
-  imageUrl: 'https://i.ibb.co/gvC4twc/juki.png',
+  imageUrl: 'https://images.juki.pub/c/juki-image-profile.svg',
   city: '',
   country: '',
   institution: '',
