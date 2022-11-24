@@ -210,6 +210,10 @@ export type JudgingCompiledBodyType = JudgingProblemDataType & {
   language: ProgrammingLanguage,
 };
 
-export type RunnerCompletedSQSMessageBodyType =
-  (JudgingCompiledBodyType & { state: JudgingState.COMPILED, sessionId: string })
-  | (JudgingTestCaseCompletedBodyType & { state: JudgingState.TEST_CASE_COMPLETED, sessionId: string });
+export type RunnerCompiledSQSMessageBodyType = JudgingCompiledBodyType & { state: JudgingState.COMPILED, sessionId: string };
+
+export type RunnerTestCaseCompletedSQSMessageBodyType =
+  JudgingTestCaseCompletedBodyType
+  & { state: JudgingState.TEST_CASE_COMPLETED, sessionId: string };
+
+export type RunnerCompletedSQSMessageBodyType = RunnerCompiledSQSMessageBodyType | RunnerTestCaseCompletedSQSMessageBodyType;
