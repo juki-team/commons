@@ -195,6 +195,9 @@ export type JudgingProblemDataType = {
 }
 
 export type JudgingTestCaseCompletedBodyType = JudgingProblemDataType & {
+  state: JudgingState.TEST_CASE_COMPLETED,
+  sessionId: string,
+  submitId: string,
   runId: string,
   key: string,
   clusterChunkCases: CaseType[][],
@@ -205,15 +208,12 @@ export type JudgingTestCaseCompletedBodyType = JudgingProblemDataType & {
 }
 
 export type JudgingCompiledBodyType = JudgingProblemDataType & {
+  state: JudgingState.COMPILED,
+  sessionId: string,
+  submitId: string,
   sourceFileName: string,
   runId: string,
   language: ProgrammingLanguage,
 };
 
-export type RunnerCompiledSQSMessageBodyType = JudgingCompiledBodyType & { state: JudgingState.COMPILED, sessionId: string };
-
-export type RunnerTestCaseCompletedSQSMessageBodyType =
-  JudgingTestCaseCompletedBodyType
-  & { state: JudgingState.TEST_CASE_COMPLETED, sessionId: string };
-
-export type RunnerCompletedSQSMessageBodyType = RunnerCompiledSQSMessageBodyType | RunnerTestCaseCompletedSQSMessageBodyType;
+export type RunnerCompletedSQSMessageBodyType = JudgingCompiledBodyType | JudgingTestCaseCompletedBodyType;
