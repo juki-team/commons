@@ -194,26 +194,25 @@ export type JudgingProblemDataType = {
   problemEvaluatorSource: string,
 }
 
-export type JudgingTestCaseCompletedBodyType = JudgingProblemDataType & {
-  state: JudgingState.TEST_CASE_COMPLETED,
+export type JudgingType = {
   sessionId: string,
   submitId: string,
   runId: string,
+  language: ProgrammingLanguage,
+}
+
+export type JudgingTestCaseCompletedBodyType = JudgingType & JudgingProblemDataType & {
+  state: JudgingState.TEST_CASE_COMPLETED,
   key: string,
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
   sampleCase: boolean,
   isSampleCasesEmpty: boolean,
-  language: ProgrammingLanguage,
 }
 
-export type JudgingCompiledBodyType = JudgingProblemDataType & {
+export type JudgingCompiledBodyType = JudgingType & JudgingProblemDataType & {
   state: JudgingState.COMPILED,
-  sessionId: string,
-  submitId: string,
   sourceFileName: string,
-  runId: string,
-  language: ProgrammingLanguage,
 };
 
 export type RunnerCompletedSQSMessageBodyType = JudgingCompiledBodyType | JudgingTestCaseCompletedBodyType;
