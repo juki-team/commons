@@ -2,6 +2,7 @@ export interface TaskResponseDTO {
   taskArn: string,
   taskDefinitionArn: string,
   group: string,
+  version: number,
   cpu: string,
   memory: string,
   launchType: string,
