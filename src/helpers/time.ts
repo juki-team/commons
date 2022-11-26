@@ -1,6 +1,6 @@
-type SplitTime = { remaining: number, label: string, milliseconds: number };
+import { SplitTime } from '../types';
 
-export const splitTime = (timeRemaining: number): Array<SplitTime> => {
+export function splitTime(timeRemaining: number): Array<SplitTime> {
   const remaining: Array<SplitTime> = [];
   
   // const aYearMilliseconds = 1000 * 60 * 60 * 24 * 365;
@@ -54,4 +54,4 @@ export const splitTime = (timeRemaining: number): Array<SplitTime> => {
   // }
   
   return remaining;
-};
+}

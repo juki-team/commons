@@ -43,3 +43,5 @@ export enum EntityStatus {
 }
 
 export type TextLanguageType = { [key in Language]: string };
+
+export type SplitTime = { remaining: number, label: string, milliseconds: number };
