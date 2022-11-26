@@ -145,11 +145,15 @@ export function humanFileSize(bytes: number, si = false, dp = 1) {
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-export function stringToArrayBuffer(s: string) {
-  const buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+export function stringToArrayBuffer(str: string) {
+  const buf = new ArrayBuffer(str.length); //convert str to arrayBuffer
   const view = new Uint8Array(buf);  //create uint8array as viewer
-  for (let i = 0; i < s.length; i++) {
-    view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+  for (let i = 0; i < str.length; i++) {
+    view[i] = str.charCodeAt(i) & 0xFF; //convert to octet
   }
   return buf;
+}
+
+function chunkString(str: string, length: number) {
+  return str.match(new RegExp('.{1,' + length + '}', 'g'));
 }
