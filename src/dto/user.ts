@@ -1,4 +1,14 @@
-import { ContestRole, CourseRole, ProblemRole, SystemRole, TeamRole, UserHandlesType, UserRole, UserSettingsType, UserStatus } from '../types';
+import {
+  ContestRole,
+  CourseRole,
+  ProblemRole,
+  SystemRole,
+  TeamRole,
+  UserHandlesType,
+  UserRole,
+  UserSettingsType,
+  UserStatus,
+} from '../types';
 
 export interface UserSummaryResponseDTO {
   email: string,
@@ -23,13 +33,7 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   canResetPassword: boolean,
 }
 
-export interface UserBasicSummaryResponseDTO extends UserSummaryResponseDTO {
-  city: string,
-  country: string,
-  institution: string,
-}
-
-export interface UserBasicResponseDTO extends UserBasicSummaryResponseDTO {
+export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
   aboutMe: string,
   city: string,
   country: string,
