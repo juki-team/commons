@@ -82,5 +82,5 @@ export interface UserRankResponseDTO {
   country: string,
   institution: string,
   problemPoints: number,
-  contestPoints: number,
+  competitionPoints: number,
 }
