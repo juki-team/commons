@@ -73,3 +73,14 @@ export interface UserPingResponseDTO extends UserBasicResponseDTO {
   
   sessionId: string,
 }
+
+export interface UserRankResponseDTO {
+  imageUrl: string,
+  nickname: string,
+  status: UserStatus,
+  city: string,
+  country: string,
+  institution: string,
+  problemPoints: number,
+  contestPoints: number,
+}

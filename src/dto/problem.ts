@@ -26,6 +26,7 @@ export interface ProblemSummaryListResponseDTO {
   tags: string[],
   status: ProblemStatus,
   user: ProblemUserType,
+  ownerUserNickname: string,
 }
 
 export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
