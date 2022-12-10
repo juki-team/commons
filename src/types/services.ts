@@ -173,7 +173,8 @@ export type RunnerSQSMessageBodyType = RunCommandType & { next: RunnerNextQueueT
 
 export enum JudgingState {
   COMPILED = 'COMPILED',
-  TEST_CASE_COMPLETED = 'TEST_CASE_COMPLETED',
+  TEST_CASE_EXECUTED = 'TEST_CASE_EXECUTED',
+  TEST_CASE_EVALUATED = 'TEST_CASE_EVALUATED',
 }
 
 export type CaseType = { caseKey: string, groups: number[] };
@@ -202,19 +203,13 @@ export type JudgingType = {
   language: ProgrammingLanguage,
 }
 
-export enum ExecutionType {
-  RUN_TEST_CASE = 'RUN_JUDGE_INPUT',
-  EVALUATE_TEST_CASE = 'EVALUATE_TEST_CASE',
-}
-
 export type JudgingTestCaseCompletedBodyType = JudgingType & JudgingProblemDataType & {
-  state: JudgingState.TEST_CASE_COMPLETED,
+  state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED,
   key: string,
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
   sampleCase: boolean,
   isSampleCasesEmpty: boolean,
-  executionType: ExecutionType,
 }
 
 export type JudgingCompiledBodyType = JudgingType & JudgingProblemDataType & {
