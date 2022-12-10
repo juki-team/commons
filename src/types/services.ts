@@ -202,6 +202,11 @@ export type JudgingType = {
   language: ProgrammingLanguage,
 }
 
+export enum ExecutionType {
+  RUN_TEST_CASE = 'RUN_JUDGE_INPUT',
+  EVALUATE_TEST_CASE = 'EVALUATE_TEST_CASE',
+}
+
 export type JudgingTestCaseCompletedBodyType = JudgingType & JudgingProblemDataType & {
   state: JudgingState.TEST_CASE_COMPLETED,
   key: string,
@@ -209,6 +214,7 @@ export type JudgingTestCaseCompletedBodyType = JudgingType & JudgingProblemDataT
   chunkIndex: number,
   sampleCase: boolean,
   isSampleCasesEmpty: boolean,
+  executionType: ExecutionType,
 }
 
 export type JudgingCompiledBodyType = JudgingType & JudgingProblemDataType & {
