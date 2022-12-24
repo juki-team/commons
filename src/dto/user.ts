@@ -67,7 +67,7 @@ export interface UserPingResponseDTO extends UserBasicResponseDTO {
   canViewUsersManagement: boolean,
   canViewSubmissionsManagement: boolean,
   canViewFilesManagement: boolean,
-  canViewECSManagement: boolean,
+  canViewJudgersManagement: boolean,
   canViewSQSManagement: boolean,
   canViewEmailManagement: boolean,
   
