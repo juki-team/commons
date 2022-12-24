@@ -40,7 +40,6 @@ export const USER_GUEST: UserState = {
   canViewUsersManagement: false,
   canViewFilesManagement: false,
   canViewJudgersManagement: false,
-  canViewSQSManagement: false,
   canViewEmailManagement: false,
   isLogged: false,
   sessionId: '',
