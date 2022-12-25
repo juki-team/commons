@@ -48,3 +48,9 @@ export interface SqsPropertiesResponseDTO {
   sqsJukiHighRunnerFifo: SqsPropertiesType,
   sqsJukiLowRunnerFifo: SqsPropertiesType,
 }
+
+export interface EmailDataResponseDTO {
+  emailTemplate: string,
+  contactEmails: string[],
+  mainEmail: string,
+}
