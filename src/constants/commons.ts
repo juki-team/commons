@@ -198,6 +198,18 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '',
     hasBuildFile: false,
   },
+  [ProgrammingLanguage.HTML]: {
+    value: ProgrammingLanguage.HTML,
+    label: 'HTML',
+    mime: 'text/HTML',
+    fileExtension: ['html'],
+    monacoKey: 'html',
+    codeMirrorKey: 'html',
+    compilePattern: '',
+    runPattern: '',
+    templateSourceCode: '',
+    hasBuildFile: false,
+  },
 };
 
 export const PAGE_SIZES = ['32', '64', '128', '256', '512'];

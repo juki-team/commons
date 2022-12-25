@@ -13,7 +13,8 @@ export enum ProgrammingLanguage {
   JSON = 'JSON',
   TEXT = 'TEXT',
   MARKDOWN = 'MARKDOWN',
-  ARDUINO = 'ARDUINO'
+  ARDUINO = 'ARDUINO',
+  HTML = 'HTML',
 }
 
 export enum ScopeData {
