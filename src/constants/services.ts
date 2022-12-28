@@ -1,4 +1,4 @@
-import { ErrorCode } from '../types/services';
+import { ErrorCode } from '../types';
 
 export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, status: 500 | 400 | 401 | 403 | 404 | 405 } } = {
   // Http Errors

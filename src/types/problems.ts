@@ -32,14 +32,14 @@ export enum ProblemStatus {
 
 export enum ProblemType {
   STANDARD = 'STANDARD', // The output is evaluated by the judge // Supported
-  DYNAMIC = 'DYNAMIC', // The output is evaluated other file // TODO
+  DYNAMIC = 'DYNAMIC', // The output is evaluated other file // Supported
   INTERACTIVE = 'INTERACTIVE', // The input interact with the output of other file // TODO
 }
 
 export enum ProblemMode {
   SUBTASK = 'SUBTASK', // by groups // Supported
   TOTAL = 'TOTAL', // one group // Supported
-  PARTIAL = 'PARTIAL', // each testcase +0.1pnts // TODO
+  PARTIAL = 'PARTIAL', // each testcase +0.1 points // Supported
 }
 
 export type ProblemSettingsPointsByGroupsType = { [key: number]: { points: number, partial: number, group: number } };

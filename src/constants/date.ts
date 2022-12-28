@@ -1,4 +1,4 @@
-import { range } from '../helpers/commons';
+import { range } from '../helpers';
 
 export const YEARS = range(1970, 2100);
 export const MONTH_NAMES = [

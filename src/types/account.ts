@@ -1,5 +1,3 @@
-import { EntityStatus } from './commons';
-
 export enum ProfileSettingOptions {
   NOTIFICATION = 'emailNotification',
   TALKS = 'newTalk',

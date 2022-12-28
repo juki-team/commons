@@ -25,8 +25,8 @@ export type MetaProblemSearcher = {
 };
 
 export type BaseClarification = {
-  answer: string, // si es judge o admi
-  publicVisible: boolean// si es judge o admi
+  answer: string, // if the user is judge or admin
+  publicVisible: boolean, // if the user is judge or admin
 }
 
 export interface NewClarification extends BaseClarification {

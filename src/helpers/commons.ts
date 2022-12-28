@@ -147,7 +147,7 @@ export function humanFileSize(bytes: number, si = false, dp = 1) {
 
 export function stringToArrayBuffer(str: string) {
   const buf = new ArrayBuffer(str.length); //convert str to arrayBuffer
-  const view = new Uint8Array(buf);  //create uint8array as viewer
+  const view = new Uint8Array(buf);  //create Uint8Array as viewer
   for (let i = 0; i < str.length; i++) {
     view[i] = str.charCodeAt(i) & 0xFF; //convert to octet
   }
