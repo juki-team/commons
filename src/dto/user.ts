@@ -58,19 +58,30 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canResetPassword: boolean,
 }
 
-export interface UserPingResponseDTO extends UserBasicResponseDTO {
-  settings: UserSettingsType,
-  canCreateProblem: boolean,
-  canCreateContest: boolean,
-  canCreateUser: boolean,
-  
-  canViewUsersManagement: boolean,
-  canViewSubmissionsManagement: boolean,
-  canViewFilesManagement: boolean,
-  canViewJudgersManagement: boolean,
-  canViewEmailManagement: boolean,
-  
-  sessionId: string,
+export interface PingResponseDTO {
+  user: {
+    nickname: string,
+    imageUrl: string,
+    status: UserStatus,
+    settings: UserSettingsType,
+    
+    canCreateProblem: boolean,
+    canCreateContest: boolean,
+    canCreateUser: boolean,
+    
+    canViewUsersManagement: boolean,
+    canViewSubmissionsManagement: boolean,
+    canViewFilesManagement: boolean,
+    canViewJudgersManagement: boolean,
+    canViewEmailManagement: boolean,
+    
+    sessionId: string,
+  },
+  company: {
+    emailContact: string,
+    imageUrl: string,
+    name: string,
+  },
 }
 
 export interface UserRankResponseDTO {
