@@ -63,6 +63,7 @@ export type UserPingType = {
   imageUrl: string,
   status: UserStatus,
   settings: UserSettingsType,
+  isLogged: boolean,
   
   canCreateProblem: boolean,
   canCreateContest: boolean,
