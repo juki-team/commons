@@ -39,6 +39,7 @@ export interface ContestSummaryListResponseDTO {
   isLive: boolean,
   isPast: boolean,
   isFuture: boolean,
+  isEndless: boolean,
   isFrozenTime: boolean,
   isQuietTime: boolean,
 }
