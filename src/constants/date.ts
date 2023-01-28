@@ -20,3 +20,5 @@ export const HOURS = range(0, 24);
 export const MINUTES = range(0, 60);
 export const SECONDS = range(0, 60);
 export const MILLISECONDS = range(0, 1000);
+export const MAX_DATE = new Date(8640000000000000);
+export const MIN_DATE = new Date(0);
