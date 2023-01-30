@@ -33,6 +33,7 @@ export const USER_GUEST: UserState = {
     [ProfileSetting.THEME]: Theme.LIGHT,
     [ProfileSetting.DATA_VIEW_MODE]: DataViewMode.ROWS,
     [ProfileSetting.MENU_VIEW_MODE]: MenuViewMode.VERTICAL,
+    [ProfileSetting.NEWSLETTER_SUBSCRIPTION]: true,
   },
   handles: {},
   canCreateUser: false,

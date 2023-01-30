@@ -1,9 +1,5 @@
 export enum ProfileSetting {
-  NOTIFICATION = 'emailNotification',
-  TALKS = 'newTalk',
-  LOW_RATE = 'lowRate',
-  SOCIAL = 'socialDis',
-  DIAGNOSTIC = 'diagnostic',
+  NEWSLETTER_SUBSCRIPTION = 'newsletterSubscription',
   LANGUAGE = 'preferredLanguage',
   THEME = 'preferredTheme',
   DATA_VIEW_MODE = 'preferredDataViewMode',

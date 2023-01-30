@@ -38,6 +38,7 @@ export type UserSettingsType = {
   [ProfileSetting.THEME]: Theme,
   [ProfileSetting.DATA_VIEW_MODE]: DataViewMode,
   [ProfileSetting.MENU_VIEW_MODE]: MenuViewMode,
+  [ProfileSetting.NEWSLETTER_SUBSCRIPTION]: boolean,
 }
 
 export enum Role {
