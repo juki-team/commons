@@ -22,9 +22,21 @@ export interface UserProfileInterface extends UserBasicInterface {
 
 export type UserHandlesType = { [key: string]: string };
 
+export enum DataViewMode {
+  CARDS = 'CARDS',
+  LIST = 'LIST',
+}
+
+export enum MenuViewMode {
+  HORIZONTAL = 'HORIZONTAL',
+  VERTICAL = 'VERTICAL',
+}
+
 export type UserSettingsType = {
   preferredLanguage: Language,
   preferredTheme: Theme,
+  preferredDataView: DataViewMode,
+  preferredMenuView: MenuViewMode,
 }
 
 export interface UserInterface extends UserProfileInterface {
