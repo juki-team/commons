@@ -31,7 +31,7 @@ export const USER_GUEST: UserState = {
   settings: {
     [ProfileSetting.LANGUAGE]: Language.ES,
     [ProfileSetting.THEME]: Theme.LIGHT,
-    [ProfileSetting.DATA_VIEW_MODE]: DataViewMode.LIST,
+    [ProfileSetting.DATA_VIEW_MODE]: DataViewMode.ROWS,
     [ProfileSetting.MENU_VIEW_MODE]: MenuViewMode.VERTICAL,
   },
   handles: {},

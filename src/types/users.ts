@@ -25,7 +25,7 @@ export type UserHandlesType = { [key: string]: string };
 
 export enum DataViewMode {
   CARDS = 'CARDS',
-  LIST = 'LIST',
+  ROWS = 'ROWS',
 }
 
 export enum MenuViewMode {
