@@ -1,3 +1,5 @@
+import { ProfileSetting } from './account';
+
 /**
  * Model Course
  *
@@ -156,8 +158,8 @@ export type User = {
   topcoderHandle: string
   atCoderHandle: string
   codeChefHandle: string
-  preferredLanguage: Language
-  preferredTheme: Theme
+  [ProfileSetting.LANGUAGE]: Language
+  [ProfileSetting.THEME]: Theme
   emailSubscription: EmailSubscription
   emailValidationState: EmailValidationState
   emailValidationToken: string

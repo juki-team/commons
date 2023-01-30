@@ -1,4 +1,4 @@
-import { DataViewMode, Language, MenuViewMode, Theme, UserRole, UserState, UserStatus } from '../types';
+import { DataViewMode, Language, MenuViewMode, ProfileSetting, Theme, UserRole, UserState, UserStatus } from '../types';
 
 export const USER_STATUS: { [key in UserStatus]: { value: UserStatus, label: string } } = {
   [UserStatus.ACTIVE]: { value: UserStatus.ACTIVE, label: 'active' },
@@ -29,10 +29,10 @@ export const USER_GUEST: UserState = {
   institution: '',
   // telegramUsername: '',
   settings: {
-    preferredLanguage: Language.ES,
-    preferredTheme: Theme.LIGHT,
-    preferredDataView: DataViewMode.LIST,
-    preferredMenuView: MenuViewMode.VERTICAL,
+    [ProfileSetting.LANGUAGE]: Language.ES,
+    [ProfileSetting.THEME]: Theme.LIGHT,
+    [ProfileSetting.DATA_VIEW_MODE]: DataViewMode.LIST,
+    [ProfileSetting.MENU_VIEW_MODE]: MenuViewMode.VERTICAL,
   },
   handles: {},
   canCreateUser: false,

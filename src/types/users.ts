@@ -1,5 +1,6 @@
 import { UserBasicResponseDTO } from '../dto';
-import { CourseRole, Language, TeamRole, Theme, UserRole, UserStatus } from './prisma';
+import { ProfileSetting } from './account';
+import { Language, Theme } from './prisma';
 
 export interface UserBasicInfoInterface {
   nickname: string,
@@ -33,19 +34,10 @@ export enum MenuViewMode {
 }
 
 export type UserSettingsType = {
-  preferredLanguage: Language,
-  preferredTheme: Theme,
-  preferredDataView: DataViewMode,
-  preferredMenuView: MenuViewMode,
-}
-
-export interface UserInterface extends UserProfileInterface {
-  preferredLanguage: Language,
-  preferredTheme: Theme,
-  status: UserStatus,
-  userRole: UserRole,
-  teamRole: TeamRole,
-  courseRole: CourseRole,
+  [ProfileSetting.LANGUAGE]: Language,
+  [ProfileSetting.THEME]: Theme,
+  [ProfileSetting.DATA_VIEW_MODE]: DataViewMode,
+  [ProfileSetting.MENU_VIEW_MODE]: MenuViewMode,
 }
 
 export enum Role {
