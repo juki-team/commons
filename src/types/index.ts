@@ -1,7 +1,6 @@
 export * from './account';
 export * from './commons';
 export * from './contest';
-export * from './courses';
 export * from './judge';
 export * from './prisma';
 export * from './problems';
