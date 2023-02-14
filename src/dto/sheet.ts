@@ -1,54 +1,22 @@
-import {
-  ContestClarificationType,
-  ContestMembersResponseType,
-  ContestProblemBasicType,
-  ContestProblemType,
-  ContestSettingsBasicType,
-  ContestStatus,
-  ContestUserType,
-  CreateContestMembersBasicType,
-} from '../types';
+import { SheetType } from '../types';
 
-export interface CreateContestDTO {
-  key: string,
-  name: string,
+export interface CreateSheetDTO {
+  title: string,
   description: string,
-  settings: ContestSettingsBasicType,
-  problems: { [key: string]: ContestProblemBasicType },
-  members: CreateContestMembersBasicType,
-  tags: string[],
-  status: ContestStatus,
+  body: SheetType[],
 }
 
-export interface ContestSummaryListResponseDTO {
-  status: ContestStatus,
-  name: string,
+export interface SheetSummaryListResponseDTO {
   key: string,
-  user: ContestUserType,
-  settings: {
-    startTimestamp: number,
-    endTimestamp: number,
-    // To get the contest template
-    frozenTimestamp: number,
-    quietTimestamp: number,
-    penalty: number,
+  updatedAt: Date,
+  title: string,
+  description: string,
+  ownerUserNickname: string,
+  user: {
+    isEditor: boolean,
   },
-  tags: string[],
-  // Data Calculated
-  totalContestants: number,
-  isLive: boolean,
-  isPast: boolean,
-  isFuture: boolean,
-  isEndless: boolean,
-  isFrozenTime: boolean,
-  isQuietTime: boolean,
 }
 
-export interface ContestResponseDTO extends ContestSummaryListResponseDTO {
-  description: string,
-  settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
-  problems: { [key: string]: ContestProblemType },
-  user: ContestUserType,
-  members: ContestMembersResponseType,
-  clarifications: ContestClarificationType[]
+export interface SheetResponseDTO extends SheetSummaryListResponseDTO {
+  body: SheetType[],
 }
