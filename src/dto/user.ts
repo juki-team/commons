@@ -68,7 +68,8 @@ export type UserPingType = {
   canCreateProblem: boolean,
   canCreateContest: boolean,
   canCreateUser: boolean,
-  canCreateSheet: boolean,
+  canCreatePublicSheet: boolean,
+  canCreatePrivateSheet: boolean,
   
   canViewUsersManagement: boolean,
   canViewSubmissionsManagement: boolean,
