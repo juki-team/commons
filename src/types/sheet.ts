@@ -37,3 +37,11 @@ export type CodeEditorSheetType = {
 }
 
 export type BodySheetType = JkmdSheetType | CodeEditorSheetType;
+
+export enum SheetRole {
+  RESTRICTED = 'RESTRICTED',
+  GUEST = 'GUEST',
+  REGULAR = 'REGULAR',
+  MANAGER = 'MANAGER',
+  SUPER_ADMIN = 'SUPER_ADMIN'
+}
