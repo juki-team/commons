@@ -36,4 +36,4 @@ export type CodeEditorSheetType = {
   languages: ProgrammingLanguage[],
 }
 
-export type SheetType = JkmdSheetType | CodeEditorSheetType;
+export type BodySheetType = JkmdSheetType | CodeEditorSheetType;
