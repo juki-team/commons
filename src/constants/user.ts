@@ -39,6 +39,7 @@ export const USER_GUEST: UserState = {
   canCreateUser: false,
   canCreateProblem: false,
   canCreateContest: false,
+  canCreateSheet: false,
   canViewSubmissionsManagement: false,
   canViewUsersManagement: false,
   canViewFilesManagement: false,
