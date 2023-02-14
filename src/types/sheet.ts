@@ -1,5 +1,11 @@
-import { ProgrammingLanguage } from './commons';
+import { EntityStatus, ProgrammingLanguage } from './commons';
 import { SubmissionRunStatus } from './judge';
+
+export enum SheetStatus {
+  PUBLIC = EntityStatus.PUBLIC,
+  PRIVATE = EntityStatus.PRIVATE,
+  ARCHIVED = EntityStatus.ARCHIVED,
+}
 
 export type JkmdSheetType = {
   type: 'jkmd',
