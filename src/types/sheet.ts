@@ -34,6 +34,7 @@ export type CodeEditorSheetType = {
   sourceCode: SourceCodeType,
   testCases: CodeEditorTestCasesType,
   languages: ProgrammingLanguage[],
+  height: 'auto' | number,
 }
 
 export type BodySheetType = JkmdSheetType | CodeEditorSheetType;
