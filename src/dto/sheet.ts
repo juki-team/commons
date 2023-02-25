@@ -1,14 +1,14 @@
-import { SheetStatus, BodySheetType } from '../types';
+import { BodySheetType, FileStatus } from '../types';
 
 export interface CreateSheetDTO {
-  status: SheetStatus,
+  status: FileStatus,
   title: string,
   description: string,
   body: BodySheetType[],
 }
 
 export interface SheetSummaryListResponseDTO {
-  status: SheetStatus,
+  status: FileStatus,
   key: string,
   updatedAt: Date,
   title: string,
@@ -20,6 +20,6 @@ export interface SheetSummaryListResponseDTO {
 }
 
 export interface SheetResponseDTO extends SheetSummaryListResponseDTO {
-  status: SheetStatus,
+  status: FileStatus,
   body: BodySheetType[],
 }

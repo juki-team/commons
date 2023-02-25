@@ -1,11 +1,5 @@
-import { EntityStatus, ProgrammingLanguage } from './commons';
+import { ProgrammingLanguage } from './commons';
 import { SubmissionRunStatus } from './judge';
-
-export enum SheetStatus {
-  PUBLIC = EntityStatus.PUBLIC,
-  PRIVATE = EntityStatus.PRIVATE,
-  ARCHIVED = EntityStatus.ARCHIVED,
-}
 
 export type JkmdSheetType = {
   type: 'jkmd',
@@ -38,11 +32,3 @@ export type CodeEditorSheetType = {
 }
 
 export type BodySheetType = JkmdSheetType | CodeEditorSheetType;
-
-export enum SheetRole {
-  RESTRICTED = 'RESTRICTED',
-  GUEST = 'GUEST',
-  REGULAR = 'REGULAR',
-  MANAGER = 'MANAGER',
-  SUPER_ADMIN = 'SUPER_ADMIN'
-}

@@ -1,8 +1,8 @@
 import {
   ContestRole,
   CourseRole,
+  FileRole,
   ProblemRole,
-  SheetRole,
   SystemRole,
   TeamRole,
   UserHandlesType,
@@ -28,7 +28,7 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   userRole: UserRole,
   contestRole: ContestRole,
   problemRole: ProblemRole,
-  sheetRole: SheetRole,
+  fileRole: FileRole,
   teamRole: TeamRole,
   courseRole: CourseRole,
   canEditPermissionsData: boolean,

@@ -6,7 +6,7 @@ export * from './judge';
 export * from './problem';
 export * from './routing';
 export * from './services';
-export * from './sheet';
+export * from './file';
 export * from './system';
 export * from './teams';
 export * from './user';
