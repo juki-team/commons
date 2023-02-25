@@ -102,8 +102,8 @@ export type ContestSettingsBasicType = {
 
 export type MemberUserData = {
   userId: string,
-  lastVisit: Date | null,
-  joinedAt: Date,
+  lastVisitTimestamp: number | null,
+  joinedAtTimestamp: number,
 };
 
 export type ContestMembersBasicType = {
