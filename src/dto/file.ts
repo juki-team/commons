@@ -18,10 +18,19 @@ export interface FileSummaryListResponseDTO {
   content: SummaryFileContentType,
   user: {
     isEditor: boolean,
-    isViewer: boolean,
+    isGuest: boolean,
   },
 }
 
 export interface FileResponseDTO extends FileSummaryListResponseDTO {
   content: FileContentType,
+}
+
+export interface FolderResponseDTO {
+  files: FileSummaryListResponseDTO[],
+  user: {
+    isEditor: boolean,
+    isGuest: boolean,
+  }
+  ancestorFolderIds: { name: string, key: string }[],
 }
