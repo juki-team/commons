@@ -97,8 +97,6 @@ export interface UserState extends UserBasicResponseDTO {
   canCreateProblem: boolean,
   canCreateContest: boolean,
   canCreateUser: boolean,
-  canCreatePublicSheet: boolean,
-  canCreatePrivateSheet: boolean,
   
   canViewUsersManagement: boolean,
   canViewSubmissionsManagement: boolean,
