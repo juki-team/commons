@@ -100,17 +100,17 @@ export type ContestSettingsBasicType = {
   problemEditorials: boolean,
 };
 
-export type ContestUserData = {
+export type MemberUserData = {
   userId: string,
   lastVisit: Date | null,
   joinedAt: Date,
 };
 
 export type ContestMembersBasicType = {
-  administrators: { [key: string]: ContestUserData },
-  judges: { [key: string]: ContestUserData },
-  guests: { [key: string]: ContestUserData },
-  spectators: { [key: string]: ContestUserData },
+  administrators: { [key: string]: MemberUserData },
+  judges: { [key: string]: MemberUserData },
+  guests: { [key: string]: MemberUserData },
+  spectators: { [key: string]: MemberUserData },
 };
 
 export type CreateContestMembersBasicType = {
@@ -130,7 +130,7 @@ export type ContestProblemType = ProblemResponseDTO & ContestProblemBasicType & 
   myPenalty: number,
 };
 
-export type ContestMembersType = ContestMembersBasicType & { contestants: { [key: string]: ContestUserData } };
+export type ContestMembersType = ContestMembersBasicType & { contestants: { [key: string]: MemberUserData } };
 
 export type ContestMembersResponseType = {
   administrators: { [key: string]: UserBasicInfoInterface },
