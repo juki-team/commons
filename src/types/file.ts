@@ -1,4 +1,4 @@
-import { EntityStatus } from '../types/commons';
+import { BodySheetType, EntityStatus } from '../types';
 
 export enum FileStatus {
   PUBLIC = EntityStatus.PUBLIC,
@@ -15,3 +15,17 @@ export enum FileRole {
   ADMIN = 'ADMIN',
   SUPER_ADMIN = 'SUPER_ADMIN'
 }
+
+export enum FileType {
+  SHEET = 'sheet',
+  FOLDER = 'folder',
+  FILE = 'file',
+}
+
+export type FolderFileContentType = { type: FileType.FOLDER };
+export type SheetFileContentType = { type: FileType.SHEET, body: BodySheetType[] };
+export type FileFileContentType = { type: FileType.FILE, mime: string }
+
+export type FileContentType = FolderFileContentType | SheetFileContentType | FileFileContentType;
+
+export type SummaryFileContentType = FolderFileContentType | Omit<SheetFileContentType, 'body'> | FileFileContentType;
