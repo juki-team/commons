@@ -24,7 +24,7 @@ export enum FileType {
 
 export type FolderFileContentType = { type: FileType.FOLDER };
 export type SheetFileContentType = { type: FileType.SHEET, body: BodySheetType[] };
-export type FileFileContentType = { type: FileType.FILE, mime: string }
+export type FileFileContentType = { type: FileType.FILE, mime: string,  }
 
 export type FileContentType = FolderFileContentType | SheetFileContentType | FileFileContentType;
 
