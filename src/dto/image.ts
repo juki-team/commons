@@ -1,6 +1,6 @@
 export interface ImageSummaryResponseDTO {
   imageUrl: string,
   imageThumbnailUrl: string
-  lastModified: Date,
+  lastModified: Date | undefined,
   size: number,
 }
