@@ -32,5 +32,5 @@ export interface FolderResponseDTO {
     isEditor: boolean,
     isGuest: boolean,
   }
-  ancestorFolderIds: { name: string, key: string }[],
+  ancestorFolder: { name: string, key: string }[],
 }
