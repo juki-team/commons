@@ -74,7 +74,7 @@ export type UserPingType = {
   canViewUsersManagement: boolean,
   canViewSubmissionsManagement: boolean,
   canViewFilesManagement: boolean,
-  canViewJudgersManagement: boolean,
+  canViewRunnersManagement: boolean,
   canViewEmailManagement: boolean,
   
   sessionId: string,

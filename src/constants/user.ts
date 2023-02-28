@@ -42,7 +42,7 @@ export const USER_GUEST: UserState = {
   canViewSubmissionsManagement: false,
   canViewUsersManagement: false,
   canViewFilesManagement: false,
-  canViewJudgersManagement: false,
+  canViewRunnersManagement: false,
   canViewEmailManagement: false,
   isLogged: false,
   sessionId: '',

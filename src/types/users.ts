@@ -101,7 +101,7 @@ export interface UserState extends UserBasicResponseDTO {
   canViewUsersManagement: boolean,
   canViewSubmissionsManagement: boolean,
   canViewFilesManagement: boolean,
-  canViewJudgersManagement: boolean,
+  canViewRunnersManagement: boolean,
   canViewEmailManagement: boolean,
   
   sessionId: string,
