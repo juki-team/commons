@@ -13,7 +13,6 @@
   "scripts": {
     "docs": "typedoc src/index.ts",
     "watch": "rollup -cw",
-    "tst": "echo ${0}",
     "build": "rm -rf docs && rm -rf dist && rollup -c && yarn docs",
     "git-push": "git add . && echo ${0} | git commit -F - && yarn publish --patch --no-git-tag-version && version=\"v$(node -p \"require('./package.json').version\")\"  && git add . && echo $version | git commit -F - ; git push origin main && echo $version | git tag -a $(echo $version) -F - && git push origin --tags",
     "push": "yarn build && yarn git-push"
