@@ -15,8 +15,8 @@
     "watch": "rollup -cw",
     "test": "f() { echo ${1}; echo $message; }; f",
     "build": "rm -rf docs && rm -rf dist && rollup -c && yarn docs",
-    "git-push": "echo $message && git add . && echo \"Adding changes for \" | git commit -F - && yarn publish --patch --no-git-tag-version && version=\"v$(node -p \"require('./package.json').version\")\"  && git add . && echo $version | git commit -F - ; git push origin main && echo $version | git tag -a $(echo $version) -F - && git push origin --tags ; echo ",
-    "push": "f() { message=${1}; yarn build; yarn git-push; }; f"
+    "git-push": "message=${1} && echo $message && git add . && echo \"Adding changes for \" | git commit -F - && yarn publish --patch --no-git-tag-version && version=\"v$(node -p \"require('./package.json').version\")\"  && git add . && echo $version | git commit -F - ; git push origin main && echo $version | git tag -a $(echo $version) -F - && git push origin --tags ; echo ",
+    "push": "f() { message=${1}; echo $message; yarn build; yarn git-push ${1}; }; f"
   },
   "devDependencies": {
     "rollup": "^2.70.2",
