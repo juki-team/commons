@@ -125,6 +125,8 @@ export enum ErrorCode {
   ERR0816 = 'ERR0865',
   ERR0817 = 'ERR0817',
   ERR0818 = 'ERR0818',
+  ERR0819 = 'ERR0819',
+  ERR0820 = 'ERR0820',
   // Company Errors ERR99XXX',
   ERR9900 = 'ERR9900',
   ERR9910 = 'ERR9910',

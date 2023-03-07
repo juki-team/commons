@@ -136,18 +136,20 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0618]: { value: ErrorCode.ERR0618, message: 'team is reported', status: 400 },
   [ErrorCode.ERR0619]: { value: ErrorCode.ERR0619, message: 'team is archived', status: 400 },
   
-  // SHEETS ERRORS ERR06XX
-  [ErrorCode.ERR0800]: { value: ErrorCode.ERR0800, message: 'internal server error on sheets service', status: 500 },
-  // Sheets server errors
-  [ErrorCode.ERR0810]: { value: ErrorCode.ERR0810, message: 'sheet not created', status: 400 },
-  [ErrorCode.ERR0811]: { value: ErrorCode.ERR0811, message: 'sheet not found', status: 400 },
-  [ErrorCode.ERR0812]: { value: ErrorCode.ERR0812, message: 'sheet not updated', status: 400 },
-  [ErrorCode.ERR0813]: { value: ErrorCode.ERR0813, message: 'sheet not deleted', status: 400 },
-  // Sheets user permission error
-  [ErrorCode.ERR0814]: { value: ErrorCode.ERR0814, message: 'not allowed to create the sheet', status: 400 },
-  [ErrorCode.ERR0815]: { value: ErrorCode.ERR0815, message: 'not allowed to view the sheet', status: 400 },
-  [ErrorCode.ERR0816]: { value: ErrorCode.ERR0816, message: 'not allowed to updated the sheet', status: 400 },
-  [ErrorCode.ERR0817]: { value: ErrorCode.ERR0817, message: 'not allowed to deleted the sheet', status: 400 },
-  // Sheets status permission error
-  [ErrorCode.ERR0818]: { value: ErrorCode.ERR0818, message: 'sheet is private', status: 400 },
+  // FILES ERRORS ERR08XX
+  [ErrorCode.ERR0800]: { value: ErrorCode.ERR0800, message: 'internal server error on files service', status: 500 },
+  // Files server errors
+  [ErrorCode.ERR0810]: { value: ErrorCode.ERR0810, message: 'file not created', status: 400 },
+  [ErrorCode.ERR0811]: { value: ErrorCode.ERR0811, message: 'file not found', status: 400 },
+  [ErrorCode.ERR0812]: { value: ErrorCode.ERR0812, message: 'file not updated', status: 400 },
+  [ErrorCode.ERR0813]: { value: ErrorCode.ERR0813, message: 'file not deleted', status: 400 },
+  // Files user permission error
+  [ErrorCode.ERR0814]: { value: ErrorCode.ERR0814, message: 'not allowed to create the file', status: 400 },
+  [ErrorCode.ERR0815]: { value: ErrorCode.ERR0815, message: 'not allowed to view the file', status: 400 },
+  [ErrorCode.ERR0816]: { value: ErrorCode.ERR0816, message: 'not allowed to updated the file', status: 400 },
+  [ErrorCode.ERR0817]: { value: ErrorCode.ERR0817, message: 'not allowed to deleted the file', status: 400 },
+  // Files status permission error
+  [ErrorCode.ERR0818]: { value: ErrorCode.ERR0818, message: 'file is reserved', status: 400 },
+  [ErrorCode.ERR0819]: { value: ErrorCode.ERR0819, message: 'file is private', status: 400 },
+  [ErrorCode.ERR0820]: { value: ErrorCode.ERR0820, message: 'file is archived', status: 400 },
 };
