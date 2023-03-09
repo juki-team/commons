@@ -1,3 +1,7 @@
+type Container = {
+  runtimeId?: string,
+}
+
 export interface TaskResponseDTO {
   taskArn: string,
   taskDefinitionArn: string,
@@ -12,6 +16,7 @@ export interface TaskResponseDTO {
   lastStatus: string,
   isLowRunnerGroup: boolean,
   isHighRunnerGroup: boolean,
+  containers?: Container[];
 }
 
 export interface TaskDefinitionResponseDTO {
