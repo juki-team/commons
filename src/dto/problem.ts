@@ -14,7 +14,6 @@ export interface CreateProblemDTO {
   author: string,
   settings: ProblemSettingsType,
   tags: string[],
-  sampleCases: ProblemSampleCasesType,
   statement: ProblemStatementType,
   editorial: TextLanguageType,
 }
@@ -34,8 +33,8 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   statement: ProblemStatementType,
   editorial: TextLanguageType,
   settings: ProblemSettingsType,
-  sampleCases: ProblemSampleCasesType,
   ownerNickname: string,
+  htmlStatement: string,
 }
 
 export interface ProblemTestCaseResponse {

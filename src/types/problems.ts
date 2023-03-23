@@ -52,6 +52,7 @@ export type ProblemStatementType = {
   description: TextLanguageType,
   input: TextLanguageType,
   output: TextLanguageType,
+  sampleCases: ProblemSampleCasesType,
 };
 
 export type ProblemSettingsType = {
