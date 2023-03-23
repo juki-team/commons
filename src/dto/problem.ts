@@ -1,9 +1,10 @@
 import {
   Judge,
-  ProblemSampleCasesType,
+  ProblemMode,
   ProblemSettingsType,
   ProblemStatementType,
   ProblemStatus,
+  ProblemType,
   ProblemUserType,
   TextLanguageType,
 } from '../types';
@@ -26,6 +27,10 @@ export interface ProblemSummaryListResponseDTO {
   status: ProblemStatus,
   user: ProblemUserType,
   ownerUserNickname: string,
+  settings: {
+    mode: ProblemMode,
+    type: ProblemType,
+  }
 }
 
 export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
