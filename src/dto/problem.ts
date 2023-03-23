@@ -34,7 +34,6 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   editorial: TextLanguageType,
   settings: ProblemSettingsType,
   ownerNickname: string,
-  htmlStatement: string,
 }
 
 export interface ProblemTestCaseResponse {
