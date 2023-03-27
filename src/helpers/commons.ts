@@ -100,13 +100,13 @@ export function lettersToIndex(index: string): number {
 }
 
 export function getProblemJudgeKey(judge: Judge, key: string) {
-  return `${judge}:${key}`;
+  return `${judge}-${key}`;
 }
 
 export function getJudgeKeyOfProblemJudgeKey(problemJudgeKey: string): { judge: Judge, key: string } {
-  const params = problemJudgeKey.split(':');
+  const params = problemJudgeKey.split('-');
   const judge = params[0] as Judge;
-  const key = params.splice(1).join(':');
+  const key = params.splice(1).join('-');
   return {
     judge,
     key,
