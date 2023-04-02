@@ -1,4 +1,12 @@
-import { DataLogType, Judge, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, SubmissionRunStatus } from '../types';
+import {
+  DataLogType,
+  Judge,
+  ProblemMode,
+  ProblemType,
+  ProblemVerdict,
+  ProgrammingLanguage,
+  SubmissionRunStatus,
+} from '../types';
 
 export interface SubmissionResponseDTO {
   submitId: string,
@@ -26,6 +34,7 @@ export interface SubmissionResponseDTO {
   contestKey: string,
   contestName: string, // foreign
   contestProblemIndex: string,
+  contestProblemColor: string,
 }
 
 export type TestCaseResultType = DataLogType & {
