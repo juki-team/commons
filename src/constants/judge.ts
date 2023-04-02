@@ -1,47 +1,83 @@
-import { Judge, ProblemMode, ProblemType, ProblemVerdict, ProgrammingLanguage, RunnerType, SubmissionRunStatus } from '../types';
+import {
+  Judge,
+  ProblemMode,
+  ProblemType,
+  ProblemVerdict,
+  ProgrammingLanguage,
+  RunnerType,
+  SubmissionRunStatus,
+} from '../types';
 
-export const JUDGE: { [key in Judge]: { value: Judge, label: string, logo: string, logoSize: [number, number], url: string } } = {
+type JudgeType = {
+  [key in Judge]: {
+    value: Judge,
+    label: string,
+    logo: string,
+    logoSize: [ number, number ],
+    url: string,
+    getProblemUrl: (key: string) => string
+  }
+}
+
+export const JUDGE: JudgeType = {
   [Judge.JUKI_JUDGE]: {
     value: Judge.JUKI_JUDGE,
     label: 'Juki Judge',
     logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
-    logoSize: [883.991, 435],
+    logoSize: [ 883.991, 435 ],
     url: 'https://jukijudge.com',
+    getProblemUrl: (key: string) => `https://jukijudge.com/problem/view/${key}`,
   },
   [Judge.CODEFORCES]: {
     value: Judge.CODEFORCES,
     label: 'Codeforces',
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
-    logoSize: [1232.75, 145.12],
+    logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
+    getProblemUrl: (key: string) => {
+      const [ contestId, index ] = key.split('-');
+      return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
+    },
+  },
+  [Judge.CODEFORCES_GYM]: {
+    value: Judge.CODEFORCES_GYM,
+    label: 'Codeforces',
+    logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
+    logoSize: [ 1232.75, 145.12 ],
+    url: 'https://codeforces.com',
+    getProblemUrl: () => '',
   },
   [Judge.UVA_ONLINE_JUDGE]: {
     value: Judge.UVA_ONLINE_JUDGE,
     label: 'Uva Online Judge',
     logo: 'https://images.juki.pub/c/uva-online-judge-logo-color.png',
-    logoSize: [150, 135.994],
+    logoSize: [ 150, 135.994 ],
     url: 'https://onlinejudge.org',
+    getProblemUrl: () => '',
   },
   [Judge.AT_CODER]: {
     value: Judge.AT_CODER,
     label: 'AtCoder',
     logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
-    logoSize: [762.997, 675],
+    logoSize: [ 762.997, 675 ],
     url: 'https://atcoder.jp',
+    getProblemUrl: () => '',
   },
   [Judge.CODECHEF]: {
     value: Judge.CODECHEF,
     label: 'Codechef',
     logo: 'https://images.juki.pub/c/codechef-logo-color.svg',
-    logoSize: [1207.7, 453.17],
+    logoSize: [ 1207.7, 453.17 ],
     url: 'https://www.codechef.com',
+    getProblemUrl: () => '',
   },
   [Judge.TOPCODER]: {
     value: Judge.TOPCODER,
     label: 'Topcoder',
     logo: 'https://images.juki.pub/c/topcoder-logo-color.png',
-    logoSize: [971.99, 415.99],
+    logoSize: [ 971.99, 415.99 ],
     url: 'https://www.topcoder.com',
+    getProblemUrl: () => '',
   },
 };
 
@@ -112,14 +148,23 @@ export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: Sub
   [SubmissionRunStatus.COMPILING]: { value: SubmissionRunStatus.COMPILING, label: 'compiling' }, // state
   [SubmissionRunStatus.COMPILED]: { value: SubmissionRunStatus.COMPILED, label: 'compiled' },  // status
   [SubmissionRunStatus.COMPILATION_ERROR]: { value: SubmissionRunStatus.COMPILATION_ERROR, label: 'compilation error' },  // status
-  [SubmissionRunStatus.FETCHING_TEST_CASES]: { value: SubmissionRunStatus.FETCHING_TEST_CASES, label: 'fetching test cases' }, // state
+  [SubmissionRunStatus.FETCHING_TEST_CASES]: {
+    value: SubmissionRunStatus.FETCHING_TEST_CASES,
+    label: 'fetching test cases',
+  }, // state
   [SubmissionRunStatus.RUNNING_TEST_CASE]: { value: SubmissionRunStatus.RUNNING_TEST_CASE, label: 'running test case' }, // state
-  [SubmissionRunStatus.RUNNING_TEST_CASES]: { value: SubmissionRunStatus.RUNNING_TEST_CASES, label: 'running test cases' }, // state
+  [SubmissionRunStatus.RUNNING_TEST_CASES]: {
+    value: SubmissionRunStatus.RUNNING_TEST_CASES,
+    label: 'running test cases',
+  }, // state
   [SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES]: {
     value: SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES,
     label: 'running sample test cases',
   }, // state
-  [SubmissionRunStatus.EXECUTED_TEST_CASE]: { value: SubmissionRunStatus.EXECUTED_TEST_CASE, label: 'executed test case' }, // status
+  [SubmissionRunStatus.EXECUTED_TEST_CASE]: {
+    value: SubmissionRunStatus.EXECUTED_TEST_CASE,
+    label: 'executed test case',
+  }, // status
   [SubmissionRunStatus.FAILED_TEST_CASE]: { value: SubmissionRunStatus.FAILED_TEST_CASE, label: 'failed test case' }, // status
   [SubmissionRunStatus.JUDGING_TEST_CASE]: { value: SubmissionRunStatus.JUDGING_TEST_CASE, label: 'judging test case' }, // state
   [SubmissionRunStatus.GRADING]: { value: SubmissionRunStatus.GRADING, label: 'grading' }, // status
