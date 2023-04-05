@@ -15,10 +15,10 @@ type JudgeType = {
     logo: string,
     logoSize: [ number, number ],
     url: string,
-    getProblemUrl: (key: string) => string
+    getProblemUrl: (problemKey: string) => string
     getLoginUrl: () => string,
     getSubmitUrl: () => string,
-    getSubmissionUrl: () => string,
+    getSubmissionUrl: (problemKey: string, submissionId: string) => string,
   }
 }
 
@@ -42,9 +42,12 @@ export const JUDGE: JudgeType = {
     url: 'https://codeforces.com',
     getLoginUrl: () => 'https://codeforces.com/enter',
     getSubmitUrl: () => 'https://codeforces.com/problemset/submit',
-    getSubmissionUrl: () => 'https://codeforces.com/problemset/submission',
-    getProblemUrl: (key: string) => {
-      const [ contestId, index ] = key.split('-');
+    getSubmissionUrl: (problemKey: string, submissionId: string) => {
+      const [ contestId, index ] = problemKey.split('-');
+      return `https://codeforces.com/problemset/submission/${problemKey}/${submissionId}`;
+    },
+    getProblemUrl: (problemKey: string) => {
+      const [ contestId, index ] = problemKey.split('-');
       return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
     },
   },
