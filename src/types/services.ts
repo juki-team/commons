@@ -221,6 +221,7 @@ export type ProblemSampleCaseType = { input: string, output: string };
 
 export type JudgingProblemDataType = {
   problemId: string,
+  problemKey: string,
   problemType: ProblemType,
   problemTimeLimit: number,
   problemMemoryLimit: number,
@@ -237,12 +238,19 @@ export type JudgingUserDataType = {
   userNickname: string,
 }
 
+export type JudgingCompanyDataType = {
+  companyId: string,
+  highPerformanceRunnerTaskDefinition: string,
+  highPerformanceRunnerMinTasks: number,
+  lowPerformanceRunnerTaskDefinition: string,
+  lowPerformanceRunnerMinTasks: number,
+}
+
 export type JudgingContestDataType = {
   contestId: string,
 }
 
 export type JudgingType = {
-  companyId: string,
   sessionId: string,
   submitId: string,
   runId: string,
@@ -253,12 +261,14 @@ export type JudgingType = {
 
 export type JudgingTestCaseCompletedBodyType =
   JudgingType
+  & JudgingCompanyDataType
+  & JudgingUserDataType
   & JudgingProblemDataType
   & JudgingContestDataType
-  & JudgingUserDataType
   & {
   state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED,
   key: string,
+  
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
   sampleCase: boolean,
@@ -267,9 +277,10 @@ export type JudgingTestCaseCompletedBodyType =
 
 export type JudgingCompiledBodyType =
   JudgingType
+  & JudgingCompanyDataType
+  & JudgingUserDataType
   & JudgingProblemDataType
   & JudgingContestDataType
-  & JudgingUserDataType
   & {
   state: JudgingState.COMPILED,
 };
