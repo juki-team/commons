@@ -240,10 +240,10 @@ export type JudgingUserDataType = {
 
 export type JudgingCompanyDataType = {
   companyId: string,
-  highPerformanceRunnerTaskDefinition: string,
-  highPerformanceRunnerMinTasks: number,
-  lowPerformanceRunnerTaskDefinition: string,
-  lowPerformanceRunnerMinTasks: number,
+  companyHighPerformanceRunnerTaskDefinition: string,
+  companyHighPerformanceRunnerMinTasks: number,
+  companyLowPerformanceRunnerTaskDefinition: string,
+  companyLowPerformanceRunnerMinTasks: number,
 }
 
 export type JudgingContestDataType = {
