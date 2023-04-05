@@ -16,6 +16,9 @@ type JudgeType = {
     logoSize: [ number, number ],
     url: string,
     getProblemUrl: (key: string) => string
+    getLoginUrl: () => string,
+    getSubmitUrl: () => string,
+    getSubmissionUrl: () => string,
   }
 }
 
@@ -26,6 +29,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
     logoSize: [ 883.991, 435 ],
     url: 'https://jukijudge.com',
+    getLoginUrl: () => '',
+    getSubmitUrl: () => '',
+    getSubmissionUrl: () => '',
     getProblemUrl: (key: string) => `https://jukijudge.com/problem/view/${key}`,
   },
   [Judge.CODEFORCES]: {
@@ -34,6 +40,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
+    getLoginUrl: () => 'https://codeforces.com/enter',
+    getSubmitUrl: () => 'https://codeforces.com/problemset/submit',
+    getSubmissionUrl: () => 'https://codeforces.com/problemset/submission',
     getProblemUrl: (key: string) => {
       const [ contestId, index ] = key.split('-');
       return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
@@ -45,6 +54,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
+    getLoginUrl: () => '',
+    getSubmitUrl: () => '',
+    getSubmissionUrl: () => '',
     getProblemUrl: () => '',
   },
   [Judge.UVA_ONLINE_JUDGE]: {
@@ -53,6 +65,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/uva-online-judge-logo-color.png',
     logoSize: [ 150, 135.994 ],
     url: 'https://onlinejudge.org',
+    getLoginUrl: () => '',
+    getSubmitUrl: () => '',
+    getSubmissionUrl: () => '',
     getProblemUrl: () => '',
   },
   [Judge.AT_CODER]: {
@@ -61,6 +76,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
     logoSize: [ 762.997, 675 ],
     url: 'https://atcoder.jp',
+    getLoginUrl: () => '',
+    getSubmitUrl: () => '',
+    getSubmissionUrl: () => '',
     getProblemUrl: () => '',
   },
   [Judge.CODECHEF]: {
@@ -69,6 +87,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codechef-logo-color.svg',
     logoSize: [ 1207.7, 453.17 ],
     url: 'https://www.codechef.com',
+    getLoginUrl: () => '',
+    getSubmitUrl: () => '',
+    getSubmissionUrl: () => '',
     getProblemUrl: () => '',
   },
   [Judge.TOPCODER]: {
@@ -77,6 +98,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/topcoder-logo-color.png',
     logoSize: [ 971.99, 415.99 ],
     url: 'https://www.topcoder.com',
+    getLoginUrl: () => '',
+    getSubmitUrl: () => '',
+    getSubmissionUrl: () => '',
     getProblemUrl: () => '',
   },
 };
