@@ -186,9 +186,25 @@ export enum HTTPMethod {
 
 export type RunnerNextRequestType = { type: 'request', body: string, method: HTTPMethod, url: string }
 
-export type RunnerNextQueueType = { type: 'queue', messageBody: string, messageGroupId: string, messageDeduplicationId: string };
+export type RunnerNextQueueType = {
+  type: 'queue',
+  messageBody: string,
+  messageGroupId: string,
+  messageDeduplicationId: string
+};
 
-export type RunCommandType = { commandLine: string, inputFilePath: string, outputFilePath: string, errorFilePath: string, logFilePath: string, folderPath: string, timeLimit: number, memoryLimit: number, lockFilePath?: string, endFilePath?: string };
+export type RunCommandType = {
+  commandLine: string,
+  inputFilePath: string,
+  outputFilePath: string,
+  errorFilePath: string,
+  logFilePath: string,
+  folderPath: string,
+  timeLimit: number,
+  memoryLimit: number,
+  lockFilePath?: string,
+  endFilePath?: string
+};
 
 export type RunnerSQSMessageBodyType = RunCommandType & { next: RunnerNextQueueType | RunnerNextRequestType };
 
@@ -216,15 +232,31 @@ export type JudgingProblemDataType = {
   problemEvaluatorSource: string,
 }
 
+export type JudgingUserDataType = {
+  userId: string,
+  userNickname: string,
+}
+
+export type JudgingContestDataType = {
+  contestId: string,
+}
+
 export type JudgingType = {
   companyId: string,
   sessionId: string,
   submitId: string,
   runId: string,
+  timestamp: number,
   language: ProgrammingLanguage,
+  sourceFileName: string,
 }
 
-export type JudgingTestCaseCompletedBodyType = JudgingType & JudgingProblemDataType & {
+export type JudgingTestCaseCompletedBodyType =
+  JudgingType
+  & JudgingProblemDataType
+  & JudgingContestDataType
+  & JudgingUserDataType
+  & {
   state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED,
   key: string,
   clusterChunkCases: CaseType[][],
@@ -233,9 +265,13 @@ export type JudgingTestCaseCompletedBodyType = JudgingType & JudgingProblemDataT
   isSampleCasesEmpty: boolean,
 }
 
-export type JudgingCompiledBodyType = JudgingType & JudgingProblemDataType & {
+export type JudgingCompiledBodyType =
+  JudgingType
+  & JudgingProblemDataType
+  & JudgingContestDataType
+  & JudgingUserDataType
+  & {
   state: JudgingState.COMPILED,
-  sourceFileName: string,
 };
 
 export type RunnerCompletedSQSMessageBodyType = JudgingCompiledBodyType | JudgingTestCaseCompletedBodyType;
