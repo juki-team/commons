@@ -1,4 +1,4 @@
-import { UserBasicResponseDTO } from '../dto';
+import { UserBasicResponseDTO, UserPermissions } from '../dto';
 import { ProfileSetting } from './account';
 import { Language, Theme } from './prisma';
 
@@ -92,19 +92,8 @@ export const ContestRole: {
 
 export type ContestRole = (typeof ContestRole)[keyof typeof ContestRole]
 
-export interface UserState extends UserBasicResponseDTO {
+export interface UserState extends UserBasicResponseDTO, UserPermissions {
   settings: UserSettingsType,
-  canCreateProblem: boolean,
-  canCreateContest: boolean,
-  canCreateUser: boolean,
-  
-  canViewUsersManagement: boolean,
-  canViewSubmissionsManagement: boolean,
-  canViewFilesManagement: boolean,
-  canViewRunnersManagement: boolean,
-  canViewEmailManagement: boolean,
-  
   sessionId: string,
-  
   isLogged: boolean,
 }

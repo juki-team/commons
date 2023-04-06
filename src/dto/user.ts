@@ -60,13 +60,7 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canResetPassword: boolean,
 }
 
-export type UserPingType = {
-  nickname: string,
-  imageUrl: string,
-  status: UserStatus,
-  settings: UserSettingsType,
-  isLogged: boolean,
-  
+export type UserPermissions = {
   canCreateProblem: boolean,
   canCreateContest: boolean,
   canCreateUser: boolean,
@@ -76,7 +70,16 @@ export type UserPingType = {
   canViewFilesManagement: boolean,
   canViewRunnersManagement: boolean,
   canViewEmailManagement: boolean,
-  
+  canViewJudgesManagement: boolean,
+  canViewSettings: boolean,
+}
+
+export type UserPingType = UserPermissions & {
+  nickname: string,
+  imageUrl: string,
+  status: UserStatus,
+  settings: UserSettingsType,
+  isLogged: boolean,
   sessionId: string,
 }
 
