@@ -1,3 +1,4 @@
+export * from './company';
 export * from './contest';
 export * from './courses';
 export * from './file';
