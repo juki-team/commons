@@ -71,7 +71,7 @@ export type UserPermissions = {
   canViewRunnersManagement: boolean,
   canViewEmailManagement: boolean,
   canViewJudgesManagement: boolean,
-  canViewSettings: boolean,
+  canViewSettingsManagement: boolean,
 }
 
 export type UserPingType = UserPermissions & {
