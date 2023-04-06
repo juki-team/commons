@@ -44,6 +44,8 @@ export const USER_GUEST: UserState = {
   canViewFilesManagement: false,
   canViewRunnersManagement: false,
   canViewEmailManagement: false,
+  canViewJudgesManagement: false,
+  canViewSettingsManagement: false,
   isLogged: false,
   sessionId: '',
 };
