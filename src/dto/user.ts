@@ -12,6 +12,7 @@ import {
 } from '../types';
 
 export interface UserSummaryResponseDTO {
+  id: string,
   email: string,
   familyName: string,
   givenName: string,
