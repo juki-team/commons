@@ -1,6 +1,6 @@
 export * from './company';
 export * from './contest';
-export * from './courses';
+export * from './course';
 export * from './file';
 export * from './image';
 export * from './problem';
