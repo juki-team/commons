@@ -9,3 +9,4 @@ export * from './scoreboard';
 export * from './submission';
 export * from './system';
 export * from './user';
+export * from './virtual-user';

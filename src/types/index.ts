@@ -11,3 +11,4 @@ export * from './socket';
 export * from './submission';
 export * from './teams';
 export * from './users';
+export * from './virtual-user';
