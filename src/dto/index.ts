@@ -3,6 +3,7 @@ export * from './contest';
 export * from './course';
 export * from './file';
 export * from './image';
+export * from './judge';
 export * from './problem';
 export * from './scoreboard';
 export * from './submission';
