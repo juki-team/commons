@@ -65,14 +65,14 @@ export type UserPermissions = {
   canCreateProblem: boolean,
   canCreateContest: boolean,
   canCreateUser: boolean,
+  canCreateTeam: boolean,
+  canSendEmail: boolean,
   
-  canViewUsersManagement: boolean,
-  canViewSubmissionsManagement: boolean,
-  canViewFilesManagement: boolean,
-  canViewRunnersManagement: boolean,
-  canViewEmailManagement: boolean,
-  canViewJudgesManagement: boolean,
-  canViewSettingsManagement: boolean,
+  canHandleUsers: boolean,
+  canHandleServices: boolean,
+  canHandleJudges: boolean,
+  canHandleSettings: boolean,
+  canViewSubmissionsManagement: boolean, // TODO: Check this permission
 }
 
 export type UserPingType = UserPermissions & {
