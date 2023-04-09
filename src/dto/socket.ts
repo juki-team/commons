@@ -6,5 +6,5 @@ export interface SocketEventRunResponseDTO {
   runId: string,
   messageTimestamp: number,
   status: SubmissionRunStatus,
-  log?: InfoLogCaseStatus
+  log: InfoLogCaseStatus
 }
