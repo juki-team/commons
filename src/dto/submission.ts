@@ -56,6 +56,7 @@ export type CompilationResultType = DataLogType & {
 };
 
 export interface SubmitResponseDTO extends SubmissionResponseDTO {
+  judgmentTime: number,
   sourceCode: string,
   verdictByGroups: VerdictByGroupsType,
   testCaseResults: TestCaseResultType[],
