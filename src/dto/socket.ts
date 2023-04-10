@@ -20,5 +20,6 @@ export interface SocketEventSubmissionResponseDTO {
   messageTimestamp: number,
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,
+  points: number,
   testInfo?: TestInfoType,
 }
