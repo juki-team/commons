@@ -20,6 +20,7 @@ export interface SubmissionResponseDTO {
   // permissions
   canViewSourceCode: boolean, // foreign
   // problem
+  isProblemEditor: boolean,
   problemKey: string,
   problemJudge: Judge,
   problemName: string, // foreign
