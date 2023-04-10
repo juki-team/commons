@@ -42,6 +42,7 @@ export type TestCaseResultType = DataLogType & {
   verdict: ProblemVerdict,
   group: number,
   points: number, // Used by PARTIAL mode problems
+  testCaseKey: string,
 }
 
 export type VerdictByGroupsType = {
