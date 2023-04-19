@@ -44,7 +44,7 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => 'https://codeforces.com/problemset/submit',
     getSubmissionUrl: (problemKey: string, submissionId: string) => {
       const [ contestId, index ] = problemKey.split('-');
-      return `https://codeforces.com/problemset/submission/${problemKey}/${submissionId}`;
+      return `https://codeforces.com/problemset/submission/${contestId}/${submissionId}`;
     },
     getProblemUrl: (problemKey: string) => {
       const [ contestId, index ] = problemKey.split('-');
