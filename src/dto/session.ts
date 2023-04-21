@@ -1,6 +1,7 @@
 import { UserBasicResponseDTO } from './user';
 
 export interface SessionBasicResponseDTO {
+  id: string,
   deviceName: string,
   osName: string,
   validUntil: Date,
@@ -9,7 +10,6 @@ export interface SessionBasicResponseDTO {
 }
 
 export interface SessionResponseDTO extends SessionBasicResponseDTO {
-  id: string,
   userId: string,
   user: UserBasicResponseDTO,
 }
