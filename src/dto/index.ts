@@ -6,6 +6,7 @@ export * from './image';
 export * from './judge';
 export * from './problem';
 export * from './scoreboard';
+export * from './session';
 export * from './socket';
 export * from './submission';
 export * from './system';
