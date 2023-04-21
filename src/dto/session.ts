@@ -2,6 +2,7 @@ import { UserBasicResponseDTO } from './user';
 
 export interface SessionBasicResponseDTO {
   deviceName: string,
+  osName: string,
   validUntil: Date,
   createdAt: Date,
   updatedAt: Date,
