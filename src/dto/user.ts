@@ -44,15 +44,6 @@ export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
   handles: UserHandlesType,
 }
 
-export interface UserManagementSessionResponseDTO {
-  id: string,
-  userId: string,
-  validUntil: Date,
-  createdAt: Date,
-  updatedAt: Date,
-  user: UserBasicResponseDTO,
-}
-
 export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canEditProfileData: boolean,
   canEditSettingsData: boolean,
