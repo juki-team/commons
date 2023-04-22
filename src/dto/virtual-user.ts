@@ -8,4 +8,5 @@ export interface VirtualUserResponseDTO {
   attempts: number,
   workingIn: WorkingIn,
   updatedAt: Date,
+  judgeSubmissionId: string,
 }
