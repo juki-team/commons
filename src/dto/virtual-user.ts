@@ -3,7 +3,7 @@ import { WorkingIn } from '../types';
 export interface VirtualUserResponseDTO {
   id: string,
   email: string,
-  user: string,
+  username: string,
   password: string,
   submitId: string,
   attempts: number,
