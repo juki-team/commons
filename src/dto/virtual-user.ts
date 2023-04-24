@@ -1,7 +1,8 @@
-import { WorkingIn } from '../types';
+import { Judge, WorkingIn } from '../types';
 
 export interface VirtualUserResponseDTO {
   id: string,
+  judge: Judge,
   email: string,
   username: string,
   password: string,
