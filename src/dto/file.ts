@@ -1,4 +1,4 @@
-import { FileContentType, FileStatus, SummaryFileContentType, UserBasicInfoInterface } from '../types';
+import { FileContentType, FileStatus, SummaryFileContentType, UserBasicInterface } from '../types';
 
 export interface CreateFileDTO {
   name: string,
@@ -27,8 +27,8 @@ export interface FileResponseDTO extends FileSummaryListResponseDTO {
 }
 
 export type FolderMembersResponseType = {
-  editors: { [key: string]: UserBasicInfoInterface },
-  viewers: { [key: string]: UserBasicInfoInterface },
+  editors: { [key: string]: UserBasicInterface },
+  viewers: { [key: string]: UserBasicInterface },
 }
 
 export interface FolderDataResponseDTO {
