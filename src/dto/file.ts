@@ -28,7 +28,6 @@ export interface FileResponseDTO extends FileSummaryListResponseDTO {
 
 export type FolderMembersResponseType = {
   editors: { [key: string]: UserBasicInfoInterface },
-  guests: { [key: string]: UserBasicInfoInterface },
   viewers: { [key: string]: UserBasicInfoInterface },
 }
 
