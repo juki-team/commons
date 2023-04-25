@@ -32,12 +32,11 @@ export type FolderMembersResponseType = {
   viewers: { [key: string]: UserBasicInfoInterface },
 }
 
-export interface FolderResponseDTO {
+export interface FolderDataResponseDTO {
   name: string,
   description: string,
   status: FileStatus,
   members: FolderMembersResponseType,
-  files: FileSummaryListResponseDTO[],
   user: {
     isEditor: boolean,
     isGuest: boolean,
