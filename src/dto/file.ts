@@ -1,19 +1,20 @@
-import { FileContentType, FileState, SummaryFileContentType, UserBasicInterface } from '../types';
+import { FileAccess, FileContentType, FileState, SummaryFileContentType, UserBasicInterface } from '../types';
 
-export interface CreateFileDTO {
+export interface FileBasic {
   name: string,
   description: string,
-  status: FileState,
+  state: FileState,
+  access: FileAccess,
+}
+
+export interface CreateFileDTO extends FileBasic {
   folderId: string,
   content: FileContentType
 }
 
-export interface FileSummaryListResponseDTO {
-  status: FileState,
+export interface FileSummaryListResponseDTO extends FileBasic {
   key: string,
   updatedAt: Date,
-  name: string,
-  description: string,
   ownerUserNickname: string,
   content: SummaryFileContentType,
   user: {
@@ -32,10 +33,7 @@ export type FolderMembersResponseType = {
   owner: UserBasicInterface,
 }
 
-export interface FolderDataResponseDTO {
-  name: string,
-  description: string,
-  status: FileState,
+export interface FolderDataResponseDTO extends FileBasic {
   members: FolderMembersResponseType,
   user: {
     isEditor: boolean,
