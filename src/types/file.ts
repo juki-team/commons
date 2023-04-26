@@ -23,9 +23,9 @@ export enum FileRole {
 }
 
 export enum FileType {
-  WORKSHEET = 'worksheet',
-  NOTE_SHEET = 'note-sheet',
   FOLDER = 'folder',
+  NOTE_SHEET = 'note-sheet',
+  WORKSHEET = 'worksheet',
   FILE = 'file',
 }
 
@@ -44,7 +44,7 @@ export type SummaryFileContentType =
   FolderFileContentType
   | Omit<NoteSheetFileContentType, 'body'>
   | Omit<WorksheetFileContentType, 'body'>
-  | FileFileContentType;
+  | Omit<FileFileContentType, 'key'>;
 
 export type FileUserResponseType = {
   isEditor: boolean,
