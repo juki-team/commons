@@ -41,7 +41,7 @@ export const FILE_ACCESS_TYPE: {
   },
   [FileAccess.RESTRICTED]: {
     value: FileAccess.RESTRICTED,
-    label: 'private',
+    label: 'restricted',
     description: 'the record will be viewable and editable for the owner, the record will be viewable for viewers and editable for editors',
   },
   [FileAccess.PUBLIC]: {
