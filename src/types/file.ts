@@ -1,4 +1,4 @@
-import { BodySheetType, EntityAccess, EntityState } from '../types';
+import { BodyNoteSheetType, EntityAccess, EntityState, UserBasicInterface } from '../types';
 
 export enum FileState {
   ACTIVE = EntityState.ACTIVE,
@@ -23,15 +23,37 @@ export enum FileRole {
 }
 
 export enum FileType {
-  SHEET = 'sheet',
+  WORKSHEET = 'worksheet',
+  NOTE_SHEET = 'note-sheet',
   FOLDER = 'folder',
   FILE = 'file',
 }
 
 export type FolderFileContentType = { type: FileType.FOLDER };
-export type SheetFileContentType = { type: FileType.SHEET, body: BodySheetType[] };
-export type FileFileContentType = { type: FileType.FILE, mime: string, }
+export type NoteSheetFileContentType = { type: FileType.NOTE_SHEET, body: BodyNoteSheetType[] };
+export type WorksheetFileContentType = { type: FileType.WORKSHEET, body: [] };
+export type FileFileContentType = { type: FileType.FILE, mime: string, key: string }
 
-export type FileContentType = FolderFileContentType | SheetFileContentType | FileFileContentType;
+export type FileContentType =
+  FolderFileContentType
+  | NoteSheetFileContentType
+  | WorksheetFileContentType
+  | FileFileContentType;
 
-export type SummaryFileContentType = FolderFileContentType | Omit<SheetFileContentType, 'body'> | FileFileContentType;
+export type SummaryFileContentType =
+  FolderFileContentType
+  | Omit<NoteSheetFileContentType, 'body'>
+  | Omit<WorksheetFileContentType, 'body'>
+  | FileFileContentType;
+
+export type FileUserResponseType = {
+  isEditor: boolean,
+  isViewer: boolean,
+  isOwner: boolean,
+}
+
+export type FileMembersResponseType = {
+  editors: { [key: string]: UserBasicInterface },
+  viewers: { [key: string]: UserBasicInterface },
+  owner: UserBasicInterface,
+}

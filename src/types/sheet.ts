@@ -31,4 +31,4 @@ export type CodeEditorSheetType = {
   height: 'auto' | number,
 }
 
-export type BodySheetType = JkmdSheetType | CodeEditorSheetType;
+export type BodyNoteSheetType = JkmdSheetType | CodeEditorSheetType;
