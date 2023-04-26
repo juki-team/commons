@@ -1,15 +1,15 @@
-import { FileContentType, FileStatus, SummaryFileContentType, UserBasicInterface } from '../types';
+import { FileContentType, FileState, SummaryFileContentType, UserBasicInterface } from '../types';
 
 export interface CreateFileDTO {
   name: string,
   description: string,
-  status: FileStatus,
+  status: FileState,
   folderId: string,
   content: FileContentType
 }
 
 export interface FileSummaryListResponseDTO {
-  status: FileStatus,
+  status: FileState,
   key: string,
   updatedAt: Date,
   name: string,
@@ -35,7 +35,7 @@ export type FolderMembersResponseType = {
 export interface FolderDataResponseDTO {
   name: string,
   description: string,
-  status: FileStatus,
+  status: FileState,
   members: FolderMembersResponseType,
   user: {
     isEditor: boolean,

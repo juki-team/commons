@@ -43,6 +43,19 @@ export enum EntityStatus {
   ARCHIVED = 'ARCHIVED',
 }
 
+export enum EntityState {
+  ACTIVE = 'ACTIVE', // Active for the users
+  DRAFT = 'DRAFT', // On preparation
+  ARCHIVED = 'ARCHIVED',
+}
+
+export enum EntityAccess {
+  PRIVATE = 'PRIVATE',
+  RESTRICTED = 'RESTRICTED',
+  PUBLIC = 'PUBLIC',
+  EXPOSED = 'EXPOSED',
+}
+
 export type TextLanguageType = { [key in Language]: string };
 
 export type SplitTime = { remaining: number, label: string, milliseconds: number };

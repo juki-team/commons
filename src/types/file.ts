@@ -1,10 +1,16 @@
-import { BodySheetType, EntityStatus } from '../types';
+import { BodySheetType, EntityAccess, EntityState } from '../types';
 
-export enum FileStatus {
-  PUBLIC = EntityStatus.PUBLIC,
-  RESERVED = EntityStatus.RESERVED,
-  PRIVATE = EntityStatus.PRIVATE,
-  ARCHIVED = EntityStatus.ARCHIVED,
+export enum FileState {
+  ACTIVE = EntityState.ACTIVE,
+  DRAFT = EntityState.DRAFT,
+  ARCHIVED = EntityState.ARCHIVED,
+}
+
+export enum FileAccessType {
+  PRIVATE = EntityAccess.PRIVATE,
+  RESTRICTED = EntityAccess.RESTRICTED,
+  PUBLIC = EntityAccess.PUBLIC,
+  EXPOSED = EntityAccess.EXPOSED,
 }
 
 export enum FileRole {
@@ -24,7 +30,7 @@ export enum FileType {
 
 export type FolderFileContentType = { type: FileType.FOLDER };
 export type SheetFileContentType = { type: FileType.SHEET, body: BodySheetType[] };
-export type FileFileContentType = { type: FileType.FILE, mime: string,  }
+export type FileFileContentType = { type: FileType.FILE, mime: string, }
 
 export type FileContentType = FolderFileContentType | SheetFileContentType | FileFileContentType;
 
