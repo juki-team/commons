@@ -1,4 +1,4 @@
-import { FileAccessType, FileRole, FileState } from '../types';
+import { FileAccess, FileRole, FileState } from '../types';
 
 export const FILE_ROLE: { [key in FileRole]: { value: FileRole, label: string, level: number } } = {
   [FileRole.RESTRICTED]: { value: FileRole.RESTRICTED, label: 'restricted', level: 5 },
@@ -28,29 +28,29 @@ export const FILE_STATE: { [key in FileState]: { value: FileState, label: string
 };
 
 export const FILE_ACCESS_TYPE: {
-  [key in FileAccessType]: {
-    value: FileAccessType,
+  [key in FileAccess]: {
+    value: FileAccess,
     label: string,
     description: string
   }
 } = {
-  [FileAccessType.PRIVATE]: {
-    value: FileAccessType.PRIVATE,
+  [FileAccess.PRIVATE]: {
+    value: FileAccess.PRIVATE,
     label: 'private',
     description: 'the record will be viewable and editable only for you',
   },
-  [FileAccessType.RESTRICTED]: {
-    value: FileAccessType.RESTRICTED,
+  [FileAccess.RESTRICTED]: {
+    value: FileAccess.RESTRICTED,
     label: 'private',
     description: 'the record will be viewable and editable for the owner, the record will be viewable for viewers and editable for editors',
   },
-  [FileAccessType.PUBLIC]: {
-    value: FileAccessType.PUBLIC,
+  [FileAccess.PUBLIC]: {
+    value: FileAccess.PUBLIC,
     label: 'public',
     description: 'the record will be viewable and editable for the owner, the record will be viewable for anyone',
   },
-  [FileAccessType.EXPOSED]: {
-    value: FileAccessType.EXPOSED,
+  [FileAccess.EXPOSED]: {
+    value: FileAccess.EXPOSED,
     label: 'exposed',
     description: 'the record will be viewable and editable for the owner, the record will be viewable and editable for anyone',
   },

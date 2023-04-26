@@ -6,7 +6,7 @@ export enum FileState {
   ARCHIVED = EntityState.ARCHIVED,
 }
 
-export enum FileAccessType {
+export enum FileAccess {
   PRIVATE = EntityAccess.PRIVATE,
   RESTRICTED = EntityAccess.RESTRICTED,
   PUBLIC = EntityAccess.PUBLIC,
