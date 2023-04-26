@@ -12,15 +12,18 @@ export interface CreateFileDTO extends FileBasic {
   content: FileContentType
 }
 
+export type FileUserResponseType = {
+  isEditor: boolean,
+  isViewer: boolean,
+  isOwner: boolean,
+}
+
 export interface FileSummaryListResponseDTO extends FileBasic {
   key: string,
   updatedAt: Date,
   ownerUserNickname: string,
   content: SummaryFileContentType,
-  user: {
-    isEditor: boolean,
-    isGuest: boolean,
-  },
+  user: FileUserResponseType,
 }
 
 export interface FileResponseDTO extends FileSummaryListResponseDTO {
@@ -35,9 +38,6 @@ export type FolderMembersResponseType = {
 
 export interface FolderDataResponseDTO extends FileBasic {
   members: FolderMembersResponseType,
-  user: {
-    isEditor: boolean,
-    isGuest: boolean,
-  }
+  user: FileUserResponseType,
   parentFolders: { name: string, key: string }[],
 }
