@@ -23,10 +23,10 @@ export enum FileRole {
 }
 
 export enum FileType {
-  FOLDER = 'folder',
-  NOTE_SHEET = 'note-sheet',
-  WORKSHEET = 'worksheet',
-  FILE = 'file',
+  FOLDER = 'FOLDER',
+  NOTE_SHEET = 'NOTE_SHEET',
+  WORKSHEET = 'WORKSHEET',
+  FILE = 'FILE',
 }
 
 export type FolderFileContentType = { type: FileType.FOLDER };
