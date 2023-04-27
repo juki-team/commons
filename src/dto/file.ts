@@ -5,6 +5,7 @@ import {
   FileState,
   FileUserResponseType,
   SummaryFileContentType,
+  UserBasicInterface,
 } from '../types';
 
 export interface FileBasic {
@@ -24,6 +25,7 @@ export interface FileSummaryListResponseDTO extends FileBasic {
   updatedAt: Date,
   content: SummaryFileContentType,
   user: FileUserResponseType,
+  owner: UserBasicInterface,
 }
 
 export interface FileDataResponseDTO extends FileSummaryListResponseDTO {

@@ -55,5 +55,4 @@ export type FileUserResponseType = {
 export type FileMembersResponseType = {
   editors: { [key: string]: UserBasicInterface },
   viewers: { [key: string]: UserBasicInterface },
-  owner: UserBasicInterface,
 }
