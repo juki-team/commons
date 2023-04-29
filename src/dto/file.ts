@@ -17,7 +17,8 @@ export interface FileBasic {
 
 export interface CreateFileDTO extends FileBasic {
   folderId: string,
-  content: FileContentType
+  content: FileContentType,
+  members: FileMembersDTO,
 }
 
 export interface FileSummaryListResponseDTO extends FileBasic {
