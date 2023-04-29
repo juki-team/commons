@@ -33,3 +33,7 @@ export interface FileDataResponseDTO extends FileSummaryListResponseDTO {
   content: FileContentType,
   parentFolders: { name: string, key: string }[],
 }
+
+export interface FileMembersDTO {
+  [key: string]: 'viewer' | 'editor';
+}
