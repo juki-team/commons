@@ -53,7 +53,7 @@ export const JUDGE: JudgeType = {
   },
   [Judge.CODEFORCES_GYM]: {
     value: Judge.CODEFORCES_GYM,
-    label: 'Codeforces',
+    label: 'Codeforces Gym',
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',

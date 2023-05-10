@@ -1,35 +1,35 @@
 Arguments: 
-  /home/oscargauss/.nvm/versions/node/v16.14.0/bin/node /usr/share/yarn/bin/yarn.js login
+  /home/oscargauss/.nvm/versions/node/v18.16.0/bin/node /mnt/c/Program Files/nodejs/node_modules/yarn/bin/yarn.js publish --patch --no-git-tag-version
 
 PATH: 
-  /home/oscargauss/bin:/home/oscargauss/.amplify/bin:/home/oscargauss/.nvm/versions/node/v16.14.0/bin:/home/oscargauss/.amplify/bin:/home/oscargauss/.ebcli-virtual-env/executables:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin:/opt/mssql-tools/bin:/home/oscargauss/.local/share/JetBrains/Toolbox/scripts:/home/oscargauss/Documents/JUKI/v1/commons/node_modules/.bin:/opt/mssql-tools/bin:/home/oscargauss/Documents/JUKI/sonarqube/sonar-scanner-4.6.2.2472-linux/bin
+  /tmp/yarn--1683759837668-0.720700354125781:/home/oscargauss/JUKI/commons/node_modules/.bin:/home/oscargauss/.config/yarn/link/node_modules/.bin:/home/oscargauss/.nvm/versions/node/v18.16.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/oscargauss/.nvm/versions/node/v18.16.0/lib/node_modules/npm/bin/node-gyp-bin:/home/oscargauss/.nvm/versions/node/v18.16.0/bin/node_modules/npm/bin/node-gyp-bin:/tmp/yarn--1683759828792-0.5166703767983796:/home/oscargauss/JUKI/commons/node_modules/.bin:/home/oscargauss/.config/yarn/link/node_modules/.bin:/home/oscargauss/.yarn/bin:/home/oscargauss/.nvm/versions/node/v18.16.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/oscargauss/.nvm/versions/node/v18.16.0/lib/node_modules/npm/bin/node-gyp-bin:/home/oscargauss/.nvm/versions/node/v18.16.0/bin/node_modules/npm/bin/node-gyp-bin:/home/oscargauss/.nvm/versions/node/v18.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Oscar/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Oscar/AppData/Local/JetBrains/Toolbox/scripts:/mnt/c/Users/Oscar/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Oscar/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/home/oscargauss/JUKI/commons/node_modules/.bin
 
 Yarn version: 
-  1.22.18
+  1.22.19
 
 Node version: 
-  16.14.0
+  18.16.0
 
 Platform: 
   linux x64
 
 Trace: 
   Error: canceled
-      at Interface.<anonymous> (/usr/share/yarn/lib/cli.js:137143:13)
-      at Interface.emit (node:events:520:28)
-      at Interface._ttyWrite (node:readline:1081:16)
-      at ReadStream.onkeypress (node:readline:288:10)
-      at ReadStream.emit (node:events:520:28)
-      at emitKeys (node:internal/readline/utils:358:14)
+      at Interface.<anonymous> (/mnt/c/Users/Oscar/AppData/Roaming/nvm/v18.16.0/node_modules/yarn/lib/cli.js:137150:13)
+      at Interface.emit (node:events:513:28)
+      at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1131:18)
+      at ReadStream.onkeypress (node:internal/readline/interface:270:20)
+      at ReadStream.emit (node:events:513:28)
+      at emitKeys (node:internal/readline/utils:357:14)
       at emitKeys.next (<anonymous>)
-      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
-      at ReadStream.emit (node:events:520:28)
-      at addChunk (node:internal/streams/readable:315:12)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+      at ReadStream.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
 
 npm manifest: 
   {
     "name": "@juki-team/commons",
-    "version": "0.0.108",
+    "version": "0.0.332",
     "author": "juki-team",
     "license": "MIT",
     "main": "./dist/cjs/index.js",
@@ -43,7 +43,8 @@ npm manifest:
       "docs": "typedoc src/index.ts",
       "watch": "rollup -cw",
       "build": "rm -rf docs && rm -rf dist && rollup -c && yarn docs",
-      "push": "yarn build && yarn publish --patch && git add . && node -p \"require('./package.json').version\" | git commit -F - ; git push origin main && node -p \"require('./package.json').version\""
+      "git-push": "f() { param=${1}; message=${param:-chore}; echo ${message}; git add .; echo $message | git commit -F -; yarn publish --patch --no-git-tag-version; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin main; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
+      "push": "f() { yarn build; yarn git-push \"${1}\"; }; f"
     },
     "devDependencies": {
       "rollup": "^2.70.2",
