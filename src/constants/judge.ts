@@ -23,16 +23,27 @@ type JudgeType = {
 }
 
 export const JUDGE: JudgeType = {
+  [Judge.CUSTOMER]: {
+    value: Judge.CUSTOMER,
+    label: '',
+    logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
+    logoSize: [ 883.991, 435 ],
+    url: '',
+    getLoginUrl: () => '',
+    getSubmitUrl: () => '',
+    getSubmissionUrl: () => '',
+    getProblemUrl: (key: string) => `/problem/view/${key}`,
+  },
   [Judge.JUKI_JUDGE]: {
     value: Judge.JUKI_JUDGE,
     label: 'Juki Judge',
     logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
     logoSize: [ 883.991, 435 ],
-    url: 'https://jukijudge.com',
+    url: 'https://judge.juki.app',
     getLoginUrl: () => '',
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
-    getProblemUrl: (key: string) => `https://jukijudge.com/problem/view/${key}`,
+    getProblemUrl: (key: string) => `https://judge.juki.app/problem/view/${key}`,
   },
   [Judge.CODEFORCES]: {
     value: Judge.CODEFORCES,
