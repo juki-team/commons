@@ -76,6 +76,7 @@ export type UserPingType = UserPermissions & {
 }
 
 export type CompanyPingType = {
+  key: string,
   emailContact: string,
   imageUrl: string,
   name: string,
