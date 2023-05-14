@@ -1,3 +1,5 @@
+import { CompanyPlan } from '../types/company';
+
 export const JUKI_APP_COMPANY_KEY = 'juki-app';
 
 export const COMPANY_PLAN: { [key in CompanyPlan]: { value: CompanyPlan, label: string, description: string } } = {
