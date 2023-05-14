@@ -8,3 +8,16 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   managerUserId: string,
   managerUserNickname: string,
 }
+
+export interface CompanyResourceSpecificationsResponseDTO {
+  highPerformanceRunner: {
+    taskDefinition: string,
+    minimum: number,
+    maximum: number,
+  },
+  lowPerformanceRunner: {
+    taskDefinition: string,
+    minimum: number,
+    maximum: number,
+  },
+}
