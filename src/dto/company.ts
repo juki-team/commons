@@ -1,3 +1,4 @@
+import { CompanyPlan } from '../types';
 import { EmailDataResponseDTO } from './system';
 
 export interface CompanyResponseDTO extends EmailDataResponseDTO {
@@ -7,6 +8,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   imageUrl: string,
   managerUserId: string,
   managerUserNickname: string,
+  plan: CompanyPlan,
 }
 
 export interface CompanyResourceSpecificationsResponseDTO {

@@ -1,5 +1,6 @@
 export * from './account';
 export * from './commons';
+export * from './company';
 export * from './contest';
 export * from './file';
 export * from './judge';
