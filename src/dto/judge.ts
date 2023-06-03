@@ -1,4 +1,6 @@
+import { Judge } from '../types';
+
 export interface JudgeResponseDTO {
-  key: string
+  key: Judge
   languages: { value: string, label: string, enabled: boolean }[],
 }
