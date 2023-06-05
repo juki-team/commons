@@ -17,8 +17,8 @@ type JudgeType = {
     url: string,
     getProblemUrl: (problemKey: string) => string
     getLoginUrl: () => string,
-    getSubmitUrl: () => string,
-    getSubmissionUrl: (problemKey: string, submissionId: string) => string,
+    getSubmitUrl: (problemKey: string) => string,
+    getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => string,
   }
 }
 
@@ -72,6 +72,34 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
+  },
+  [Judge.JV_UMSA]: {
+    value: Judge.JV_UMSA,
+    label: 'Juez Virtual UMSA',
+    logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
+    logoSize: [ 1232.75, 145.12 ],
+    url: 'https://jv.umsa.bo',
+    getLoginUrl: () => 'https://jv.umsa.bo/loginpage.php',
+    getSubmitUrl: (problemKey: string) => {
+      // single problem: '1019'
+      // cib problem: '1019-A'
+      const isContestProblem = problemKey.includes('-');
+      // A -> 0, B -> 1, C -> 2, D -> 3, E -> 4, F -> 5, G -> 6, H -> 7, I -> 8, J -> 9
+      const params = problemKey.split('-');
+      return isContestProblem
+        ? `https://jv.umsa.bo/submitpage.php?cid=${params[0]}&pid=${params[1].charCodeAt(0) - 65}`
+        : `https://jv.umsa.bo/submitpage.php?id=${problemKey}`;
+    },
+    getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => {
+      return `https://jv.umsa.bo/status.php?problem_id=&user_id=${username}&language=-1&jresult=-1`;
+    },
+    getProblemUrl: (problemKey: string) => {
+      const isContestProblem = problemKey.includes('-');
+      const params = problemKey.split('-');
+      return isContestProblem
+        ? `https://jv.umsa.bo/problem.php?cid=${params[0]}&pid=${params[1].charCodeAt(0) - 65}`
+        : `https://jv.umsa.bo/problem.php?id=${problemKey}`;
+    },
   },
   [Judge.UVA_ONLINE_JUDGE]: {
     value: Judge.UVA_ONLINE_JUDGE,
