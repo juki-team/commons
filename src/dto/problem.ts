@@ -11,7 +11,7 @@ import {
 
 export interface CreateProblemDTO {
   status: ProblemStatus,
-  name: string,
+  name: TextLanguageType,
   author: string,
   settings: ProblemSettingsType,
   tags: string[],
@@ -22,7 +22,7 @@ export interface CreateProblemDTO {
 export interface ProblemSummaryListResponseDTO {
   judge: Judge,
   key: string,
-  name: string,
+  name: TextLanguageType,
   tags: string[],
   status: ProblemStatus,
   user: ProblemUserType,
@@ -50,4 +50,5 @@ export interface ProblemTestCaseResponse {
   outputFileLastModified: Date,
 }
 
-export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {}
+export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {
+}
