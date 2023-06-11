@@ -11,7 +11,7 @@ import {
 
 export interface CreateProblemDTO {
   status: ProblemStatus,
-  name: TextLanguageType,
+  name: string,
   author: string,
   settings: ProblemSettingsType,
   tags: string[],
@@ -22,7 +22,7 @@ export interface CreateProblemDTO {
 export interface ProblemSummaryListResponseDTO {
   judge: Judge,
   key: string,
-  name: TextLanguageType,
+  name: string,
   tags: string[],
   status: ProblemStatus,
   user: ProblemUserType,
