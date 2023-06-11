@@ -62,7 +62,6 @@ export type ProblemSettingsType = {
   withPE: boolean,
   type: ProblemType,
   mode: ProblemMode,
-  languages: ProgrammingLanguage[],
   byProgrammingLanguage: ProblemSettingsByProgrammingLanguageType,
   evaluatorSource: string,
   pointsByGroups: ProblemSettingsPointsByGroupsType,
