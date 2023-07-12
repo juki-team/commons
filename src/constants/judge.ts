@@ -91,7 +91,8 @@ export const JUDGE: JudgeType = {
         : `https://jv.umsa.bo/submitpage.php?id=${problemKey}`;
     },
     getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => {
-      return `https://jv.umsa.bo/status.php?problem_id=&user_id=${username}&language=-1&jresult=-1`;
+      // return `https://jv.umsa.bo/status.php?problem_id=&user_id=${username}&language=-1&jresult=-1`;
+      return `https://jv.umsa.bo/showsource.php?id=${submissionId}`;
     },
     getProblemUrl: (problemKey: string) => {
       const isContestProblem = problemKey.includes('-');
