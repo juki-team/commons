@@ -42,9 +42,13 @@ export enum ProblemMode {
   PARTIAL = 'PARTIAL', // each testcase +0.1 points // Supported
 }
 
-export type ProblemSettingsPointsByGroupsType = { [key: number]: { points: number, partial: number, group: number } };
+export type ProblemSettingsPointsByGroupsType = {
+  [key: number]: { points: number, partial: number, group: number, description: TextLanguageType, }
+};
 
-export type ProblemSettingsByProgrammingLanguageType = { [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number } };
+export type ProblemSettingsByProgrammingLanguageType = {
+  [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number }
+};
 
 export type ProblemSampleCasesType = { input: string, output: string }[];
 
@@ -53,6 +57,7 @@ export type ProblemStatementType = {
   input: TextLanguageType,
   output: TextLanguageType,
   sampleCases: ProblemSampleCasesType,
+  note: TextLanguageType,
   html: TextLanguageType,
 };
 
