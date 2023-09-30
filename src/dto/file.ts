@@ -1,6 +1,6 @@
 import {
   FileAccess,
-  FileContentType,
+  FileContentType, FileMemberRole,
   FileMembersResponseType,
   FileState,
   FileUserResponseType,
@@ -36,5 +36,5 @@ export interface FileDataResponseDTO extends FileSummaryListResponseDTO {
 }
 
 export interface FileMembersDTO {
-  [key: string]: 'viewer' | 'editor';
+  [key: string]: FileMemberRole;
 }
