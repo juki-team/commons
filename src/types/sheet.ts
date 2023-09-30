@@ -36,8 +36,8 @@ export type ListSheetType = {
   type: 'list',
   title: string,
   description: string,
-  content: BodyNoteSheetType,
-  children: BodyNoteSheetType[],
+  content: (JkmdSheetType | CodeEditorSheetType)[],
+  children: ListSheetType[],
 }
 
 export type BodyNoteSheetType = JkmdSheetType | CodeEditorSheetType | ListSheetType;
