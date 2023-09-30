@@ -33,6 +33,7 @@ export type CodeEditorSheetType = {
 }
 
 export type ListSheetType = {
+  type: 'list',
   title: string,
   description: string,
   content: BodyNoteSheetType,
