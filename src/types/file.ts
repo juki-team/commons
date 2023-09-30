@@ -22,6 +22,11 @@ export enum FileRole {
   SUPER_ADMIN = 'SUPER_ADMIN'
 }
 
+export enum FileMemberRole {
+  VIEWER = 'VIEWER',
+  EDITOR = 'EDITOR',
+}
+
 export enum FileType {
   FOLDER = 'FOLDER',
   NOTE_SHEET = 'NOTE_SHEET',
