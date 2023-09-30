@@ -54,11 +54,11 @@ export const FILE_ACCESS_TYPE: {
   [FileAccess.PUBLIC]: {
     value: FileAccess.PUBLIC,
     label: 'public',
-    description: 'the record will be viewable and editable for the owner, the record will be viewable for anyone',
+    description: 'the record will be viewable and editable for the owner, the record will be viewable for anyone and editable for editors',
   },
   [FileAccess.EXPOSED]: {
     value: FileAccess.EXPOSED,
     label: 'exposed',
-    description: 'the record will be viewable and editable for the owner, the record will be viewable and editable for anyone',
+    description: 'the record will be viewable and editable for anyone',
   },
 };
