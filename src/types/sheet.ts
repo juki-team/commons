@@ -5,6 +5,7 @@ export type JkmdSheetType = {
   type: 'jkmd',
   content: string,
 }
+
 export type SubmissionTestCaseType = {
   out: string,
   err: string,
@@ -31,4 +32,11 @@ export type CodeEditorSheetType = {
   height: 'auto' | number,
 }
 
-export type BodyNoteSheetType = JkmdSheetType | CodeEditorSheetType;
+export type ListSheetType = {
+  title: string,
+  description: string,
+  content: BodyNoteSheetType,
+  children: BodyNoteSheetType[],
+}
+
+export type BodyNoteSheetType = JkmdSheetType | CodeEditorSheetType | ListSheetType;
