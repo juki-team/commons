@@ -381,4 +381,5 @@ Date.prototype.isWithinInterval = function ({ start, end }, cmp = '[]') {
   return (cmp.charAt(0) === '[' ? this.isEqual(start) || this.isAfter(start) : this.isAfter(start)) &&
     (cmp.charAt(1) === '[' ? this.isEqual(end) || this.isBefore(end) : this.isBefore(end));
 };
+
 export {};
