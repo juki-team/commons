@@ -34,8 +34,7 @@ export type CodeEditorSheetType = {
 
 export type ListSheetType = {
   type: 'list',
-  title: string,
-  description: string,
+  header: string,
   content: (JkmdSheetType | CodeEditorSheetType)[],
   children: ListSheetType[],
 }
