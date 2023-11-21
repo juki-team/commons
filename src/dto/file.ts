@@ -1,6 +1,7 @@
 import {
   FileAccess,
-  FileContentType, FileMemberRole,
+  FileContentType,
+  FileMemberRole,
   FileMembersResponseType,
   FileState,
   FileUserResponseType,

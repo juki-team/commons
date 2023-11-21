@@ -1,4 +1,4 @@
-import { ERROR } from '../constants';
+import { ERROR } from '../constants/services';
 import { ErrorCode } from '../types';
 
 export class JkError extends Error {

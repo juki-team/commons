@@ -1,4 +1,4 @@
-import { UPPERCASE_LETTERS } from '../constants';
+import { UPPERCASE_LETTERS } from '../constants/commons';
 import { Judge } from '../types';
 
 export function isStringJson(str: string): boolean {

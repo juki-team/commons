@@ -8,7 +8,7 @@ import {
   SubmissionRunStatus,
 } from '../types';
 
-type JudgeType = {
+export type JudgeType = {
   [key in Judge]: {
     value: Judge,
     label: string,
