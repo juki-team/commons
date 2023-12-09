@@ -46,9 +46,7 @@ export const USER_GUEST: UserState = {
   canHandleUsers: false,
   canHandleServices: false,
   canHandleJudges: false,
-  canManageJudges: false,
   canHandleSettings: false,
-  canManageSettings: false,
   canViewSubmissionsManagement: false,
   
   isLogged: false,
