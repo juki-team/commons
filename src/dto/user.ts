@@ -32,7 +32,6 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   fileRole: FileRole,
   teamRole: TeamRole,
   courseRole: CourseRole,
-  canEditPermissionsData: boolean,
   canResetPassword: boolean,
 }
 
