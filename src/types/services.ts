@@ -133,6 +133,10 @@ export enum ErrorCode {
   ERR9911 = 'ERR9911',
   ERR9912 = 'ERR9912',
   ERR9913 = 'ERR9913',
+  ERR9914 = 'ERR9914',
+  ERR9915 = 'ERR9915',
+  ERR9916 = 'ERR9916',
+  ERR9917 = 'ERR9917',
 }
 
 export type ErrorType = {
