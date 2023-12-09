@@ -62,7 +62,9 @@ export type UserPermissions = {
   canHandleUsers: boolean,
   canHandleServices: boolean,
   canHandleJudges: boolean,
+  canManageJudges: boolean,
   canHandleSettings: boolean,
+  canManageSettings: boolean,
   canViewSubmissionsManagement: boolean, // TODO: Check this permission
 }
 
