@@ -5,7 +5,7 @@ export enum CompanyPlan {
   CUSTOM = 'CUSTOM', // X dedicated runner, X dedicated compiler + extra hours billed, X cpu, X ram
 }
 
-export enum CompanyLogoTypes {
+export enum CompanyLogoType {
   HORIZONTAL_WHITE = 'horizontal-white',
   HORIZONTAL_COLOR = 'horizontal-color',
   VERTICAL_WHITE = 'vertical-white',
