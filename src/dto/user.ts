@@ -57,8 +57,8 @@ export type UserPermissions = {
   canCreateContest: boolean,
   canCreateUser: boolean,
   canCreateTeam: boolean,
-  canSendEmail: boolean,
   
+  canHandleEmail: boolean,
   canHandleUsers: boolean,
   canHandleServices: boolean,
   canHandleJudges: boolean,

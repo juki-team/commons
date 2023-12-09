@@ -42,7 +42,7 @@ export const USER_GUEST: UserState = {
   canCreateContest: false,
   canCreateUser: false,
   canCreateTeam: false,
-  canSendEmail: false,
+  canHandleEmail: false,
   canHandleUsers: false,
   canHandleServices: false,
   canHandleJudges: false,
