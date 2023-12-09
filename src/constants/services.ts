@@ -22,10 +22,10 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR9912]: { value: ErrorCode.ERR9912, message: 'company not updated', status: 500 },
   [ErrorCode.ERR9913]: { value: ErrorCode.ERR9913, message: 'company not deleted', status: 500 },
   // Company user permission error
-  [ErrorCode.ERR9914]: { value: ErrorCode.ERR9914, message: 'not allowed to create the user', status: 400 },
-  [ErrorCode.ERR9915]: { value: ErrorCode.ERR9915, message: 'not allowed to view the user', status: 400 },
-  [ErrorCode.ERR9916]: { value: ErrorCode.ERR9916, message: 'not allowed to updated the user', status: 400 },
-  [ErrorCode.ERR9917]: { value: ErrorCode.ERR9917, message: 'not allowed to deleted the user', status: 400 },
+  [ErrorCode.ERR9914]: { value: ErrorCode.ERR9914, message: 'not allowed to create the company', status: 400 },
+  [ErrorCode.ERR9915]: { value: ErrorCode.ERR9915, message: 'not allowed to view the company', status: 400 },
+  [ErrorCode.ERR9916]: { value: ErrorCode.ERR9916, message: 'not allowed to updated the company', status: 400 },
+  [ErrorCode.ERR9917]: { value: ErrorCode.ERR9917, message: 'not allowed to deleted the company', status: 400 },
   
   // USER ERRORS ERR00XX
   [ErrorCode.ERR0000]: { value: ErrorCode.ERR0000, message: 'internal server error on users service', status: 500 },
