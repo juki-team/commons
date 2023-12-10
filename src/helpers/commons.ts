@@ -69,16 +69,16 @@ export function objectsUpdate(base: any, ...objects: any[]): { [key: string]: an
   return newObject;
 }
 
-export function consoleWarn(warn: any): void {
-  console.warn(Date.now(), warn);
+export function consoleWarn(...warn: any): void {
+  console.warn(Date.now(), ...warn);
 }
 
-export function consoleInfo(info: any): void {
-  console.warn(Date.now(), info);
+export function consoleInfo(...info: any): void {
+  console.warn(Date.now(), ...info);
 }
 
-export function consoleError(error: any): void {
-  console.warn(Date.now(), error);
+export function consoleError(...error: any): void {
+  console.warn(Date.now(), ...error);
 }
 
 export function indexToLetters(index: number): string {
