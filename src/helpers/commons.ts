@@ -74,11 +74,11 @@ export function consoleWarn(...warn: any): void {
 }
 
 export function consoleInfo(...info: any): void {
-  console.warn(Date.now(), ...info);
+  console.info(Date.now(), ...info);
 }
 
 export function consoleError(...error: any): void {
-  console.warn(Date.now(), ...error);
+  console.error(Date.now(), ...error);
 }
 
 export function indexToLetters(index: number): string {
