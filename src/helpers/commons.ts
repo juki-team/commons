@@ -47,7 +47,7 @@ export function objectUpdate(base: any, update: any): any {
     return base;
   }
   if (base !== null && update !== null && !Array.isArray(base) && typeof base === 'object' && typeof update === 'object') {
-    const mergeKeys = new Set([...Object.keys(base), ...Object.keys(update)]);
+    const mergeKeys = new Set([ ...Object.keys(base), ...Object.keys(update) ]);
     Array.from(mergeKeys).forEach(key => {
       if (update[key] !== null && update[key] !== undefined && base[key] !== update[key]) {
         base[key] = objectUpdate(base[key], update[key]);
@@ -70,7 +70,15 @@ export function objectsUpdate(base: any, ...objects: any[]): { [key: string]: an
 }
 
 export function consoleWarn(warn: any): void {
-  console.warn({ date: new Date(), warn });
+  console.warn(Date.now(), warn);
+}
+
+export function consoleInfo(info: any): void {
+  console.warn(Date.now(), info);
+}
+
+export function consoleError(error: any): void {
+  console.warn(Date.now(), error);
 }
 
 export function indexToLetters(index: number): string {
@@ -132,8 +140,8 @@ export function humanFileSize(bytes: number, si = false, dp = 1) {
   }
   
   const units = si
-    ? ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+    ? [ 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB' ]
+    : [ 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB' ];
   let u = -1;
   const r = 10 ** dp;
   
