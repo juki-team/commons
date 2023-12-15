@@ -54,7 +54,7 @@ export const JUDGE: JudgeType = {
     getLoginUrl: () => 'https://codeforces.com/enter',
     getSubmitUrl: () => 'https://codeforces.com/problemset/submit',
     getSubmissionUrl: (problemKey: string, submissionId: string) => {
-      const [ contestId, index ] = problemKey.split('-');
+      const [ contestId ] = problemKey.split('-');
       return `https://codeforces.com/problemset/submission/${contestId}/${submissionId}`;
     },
     getProblemUrl: (problemKey: string) => {
@@ -68,10 +68,19 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
-    getLoginUrl: () => '',
-    getSubmitUrl: () => '',
-    getSubmissionUrl: () => '',
-    getProblemUrl: () => '',
+    getLoginUrl: () => 'https://codeforces.com/enter',
+    getSubmitUrl: (problemKey: string) => {
+      const [ gymContestId, index ] = problemKey.split('-');
+      return `https://codeforces.com/gym/${gymContestId}/submit`;
+    },
+    getSubmissionUrl: (problemKey: string, submissionId: string) => {
+      const [ gymContestId ] = problemKey.split('-');
+      return `https://codeforces.com/gym/${gymContestId}/submission/${submissionId}`;
+    },
+    getProblemUrl: (problemKey: string) => {
+      const [ gymContestId, index ] = problemKey.split('-');
+      return `https://codeforces.com/gym/${gymContestId}/problem/${index}`;
+    },
   },
   [Judge.JV_UMSA]: {
     value: Judge.JV_UMSA,
