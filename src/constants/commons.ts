@@ -27,7 +27,7 @@ export type ProgrammingLanguageMeta = {
 export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLanguageMeta } = {
   [ProgrammingLanguage.ICPC_C]: {
     value: ProgrammingLanguage.C,
-    label: 'C',
+    label: 'ICPC C',
     mime: 'text/x-csrc',
     fileExtension: [ 'c' ],
     monacoKey: 'c',
@@ -53,7 +53,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.ICPC_CPP]: {
     value: ProgrammingLanguage.ICPC_CPP,
-    label: 'C++',
+    label: 'ICPC C++',
     mime: 'text/x-c++src',
     fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
@@ -143,7 +143,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.ICPC_PYTHON]: {
     value: ProgrammingLanguage.ICPC_PYTHON,
-    label: 'Python',
+    label: 'ICPC Python',
     mime: 'text/x-python',
     fileExtension: [ 'py' ],
     monacoKey: 'python',
