@@ -25,11 +25,24 @@ export type ProgrammingLanguageMeta = {
 };
 
 export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLanguageMeta } = {
+  [ProgrammingLanguage.ICPC_C]: {
+    value: ProgrammingLanguage.C,
+    label: 'C',
+    mime: 'text/x-csrc',
+    fileExtension: [ 'c' ],
+    monacoKey: 'c',
+    codeMirrorKey: 'c',
+    compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
+    runPattern: '{{folder_path}}/{{compiled_file_name}}',
+    templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
+    hasBuildFile: true,
+  },
   [ProgrammingLanguage.C]: {
     value: ProgrammingLanguage.C,
     label: 'C',
     mime: 'text/x-csrc',
-    fileExtension: ['c'],
+    fileExtension: [ 'c' ],
     monacoKey: 'c',
     codeMirrorKey: 'c',
     compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
@@ -38,11 +51,25 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
     hasBuildFile: true,
   },
+  [ProgrammingLanguage.ICPC_CPP]: {
+    value: ProgrammingLanguage.CPP,
+    label: 'C++',
+    mime: 'text/x-c++src',
+    fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
+    monacoKey: 'cpp',
+    codeMirrorKey: 'cpp',
+    compilePattern: 'g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
+    runPattern: '{{folder_path}}/{{compiled_file_name}}',
+    templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
+      'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
+    hasBuildFile: true,
+  },
   [ProgrammingLanguage.CPP]: {
     value: ProgrammingLanguage.CPP,
     label: 'C++',
     mime: 'text/x-c++src',
-    fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
+    fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
     compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -o ' +
@@ -56,7 +83,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.CPP11,
     label: 'C++ 11',
     mime: 'text/x-c++src',
-    fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
+    fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
     compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++11 -o ' +
@@ -71,7 +98,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.CPP14,
     label: 'C++ 14',
     mime: 'text/x-c++src',
-    fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
+    fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++14 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}} -lm',
@@ -87,7 +114,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.CPP17,
     label: 'C++ 17',
     mime: 'text/x-c++src',
-    fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
+    fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++17 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}} -lm',
@@ -102,7 +129,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.JAVA,
     label: 'Java',
     mime: 'text/x-java',
-    fileExtension: ['java'],
+    fileExtension: [ 'java' ],
     monacoKey: 'java',
     codeMirrorKey: 'java',
     compilePattern: 'javac -cp \'.;*\' {{folder_path}}/{{source_file_name}}',
@@ -114,11 +141,23 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
       '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
   },
+  [ProgrammingLanguage.ICPC_PYTHON]: {
+    value: ProgrammingLanguage.ICPC_PYTHON,
+    label: 'Python',
+    mime: 'text/x-python',
+    fileExtension: [ 'py' ],
+    monacoKey: 'python',
+    codeMirrorKey: 'python',
+    compilePattern: 'pypy3 -m py_compile {{folder_path}}/{{source_file_name}}',
+    runPattern: 'python {{folder_path}}/{{source_file_name}}',
+    templateSourceCode: 'print("Hello World\\n")',
+    hasBuildFile: false,
+  },
   [ProgrammingLanguage.PYTHON]: {
     value: ProgrammingLanguage.PYTHON,
     label: 'Python',
     mime: 'text/x-python',
-    fileExtension: ['py'],
+    fileExtension: [ 'py' ],
     monacoKey: 'python',
     codeMirrorKey: 'python',
     compilePattern: 'python -m py_compile {{folder_path}}/{{source_file_name}}',
@@ -130,7 +169,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.PYTHON3,
     label: 'Python 3',
     mime: 'text/x-python',
-    fileExtension: ['py'],
+    fileExtension: [ 'py' ],
     monacoKey: 'python',
     codeMirrorKey: 'python',
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_file_name}}',
@@ -142,7 +181,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.JAVASCRIPT,
     label: 'Node.JS',
     mime: 'application/x-javascript',
-    fileExtension: ['js'],
+    fileExtension: [ 'js' ],
     monacoKey: 'javascript',
     codeMirrorKey: 'javascript',
     compilePattern: '',
@@ -154,7 +193,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.JSON,
     label: 'JSON',
     mime: 'application/json',
-    fileExtension: ['json'],
+    fileExtension: [ 'json' ],
     monacoKey: 'json',
     codeMirrorKey: 'javascript',
     compilePattern: '',
@@ -166,7 +205,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.TEXT,
     label: 'plain text',
     mime: 'text/plain',
-    fileExtension: ['txt', 'text'],
+    fileExtension: [ 'txt', 'text' ],
     monacoKey: 'text',
     codeMirrorKey: 'text',
     compilePattern: '',
@@ -178,7 +217,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.MARKDOWN,
     label: 'Markdown',
     mime: 'text/plain',
-    fileExtension: ['md'],
+    fileExtension: [ 'md' ],
     monacoKey: 'markdown',
     codeMirrorKey: 'markdown',
     compilePattern: '',
@@ -190,7 +229,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.ARDUINO,
     label: 'Arduino',
     mime: 'text/plain',
-    fileExtension: ['c', 'cpp', 'pde', 'h', 'ino'],
+    fileExtension: [ 'c', 'cpp', 'pde', 'h', 'ino' ],
     monacoKey: 'c',
     codeMirrorKey: 'c',
     compilePattern: '',
@@ -202,7 +241,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     value: ProgrammingLanguage.HTML,
     label: 'HTML',
     mime: 'text/HTML',
-    fileExtension: ['html'],
+    fileExtension: [ 'html' ],
     monacoKey: 'html',
     codeMirrorKey: 'html',
     compilePattern: '',
@@ -212,7 +251,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
 };
 
-export const PAGE_SIZES = ['32', '64', '128', '256', '512'];
+export const PAGE_SIZES = [ '32', '64', '128', '256', '512' ];
 
 export const PALLETE = {
   VIVOS: [

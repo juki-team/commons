@@ -1,12 +1,15 @@
 import { Language } from './prisma';
 
 export enum ProgrammingLanguage {
+  ICPC_C = 'ICPC_C',
   C = 'C',
   CPP = 'CPP',
+  ICPC_CPP = 'ICPC_CPP',
   CPP11 = 'CPP11',
   CPP14 = 'CPP14',
   CPP17 = 'CPP17',
   JAVA = 'JAVA',
+  ICPC_PYTHON = 'ICPC_PYTHON',
   PYTHON = 'PYTHON',
   PYTHON3 = 'PYTHON3',
   JAVASCRIPT = 'JAVASCRIPT',
