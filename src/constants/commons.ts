@@ -26,7 +26,7 @@ export type ProgrammingLanguageMeta = {
 
 export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLanguageMeta } = {
   [ProgrammingLanguage.ICPC_C]: {
-    value: ProgrammingLanguage.C,
+    value: ProgrammingLanguage.ICPC_C,
     label: 'ICPC C',
     mime: 'text/x-csrc',
     fileExtension: [ 'c' ],
