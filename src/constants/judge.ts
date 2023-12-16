@@ -184,12 +184,15 @@ export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
 ];
 
 export const ACCEPTED_PROGRAMMING_LANGUAGES = [
+  ProgrammingLanguage.ICPC_C,
   ProgrammingLanguage.C,
+  ProgrammingLanguage.ICPC_CPP,
   ProgrammingLanguage.CPP11,
   ProgrammingLanguage.CPP14,
   ProgrammingLanguage.CPP17,
   ProgrammingLanguage.JAVA,
   ProgrammingLanguage.JAVASCRIPT,
+  ProgrammingLanguage.ICPC_PYTHON,
   ProgrammingLanguage.PYTHON,
   ProgrammingLanguage.PYTHON3,
 ];

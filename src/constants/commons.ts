@@ -52,7 +52,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     hasBuildFile: true,
   },
   [ProgrammingLanguage.ICPC_CPP]: {
-    value: ProgrammingLanguage.CPP,
+    value: ProgrammingLanguage.ICPC_CPP,
     label: 'C++',
     mime: 'text/x-c++src',
     fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
