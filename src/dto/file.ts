@@ -36,9 +36,10 @@ export interface FileDataResponseDTO extends FileSummaryListResponseDTO {
   parentFolders: {
     name: string,
     key: string,
-    isOwner: boolean,
-    isViewer: boolean,
-    isEditor: boolean,
+    isInOwnerFolder: boolean,
+    isInEditorFolder: boolean,
+    isInViewerFolder: boolean,
+    isInArchivedFolder: boolean,
   }[]
 }
 
