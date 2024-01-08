@@ -33,7 +33,13 @@ export interface FileSummaryListResponseDTO extends FileBasic {
 export interface FileDataResponseDTO extends FileSummaryListResponseDTO {
   members: FileMembersResponseType,
   content: FileContentType,
-  parentFolders: { name: string, key: string }[],
+  parentFolders: {
+    name: string,
+    key: string,
+    isOwner: boolean,
+    isViewer: boolean,
+    isEditor: boolean,
+  }[]
 }
 
 export interface FileMembersDTO {
