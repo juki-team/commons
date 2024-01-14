@@ -1,8 +1,15 @@
 import { ProgrammingLanguage } from './commons';
 import { SubmissionRunStatus } from './judge';
 
+export enum SheetType {
+  JK_MD = 'JK_MD',
+  CODE_EDITOR = 'CODE_EDITOR',
+  LIST = 'LIST',
+  GRAPH = 'GRAPH',
+}
+
 export type JkmdSheetType = {
-  type: 'jkmd',
+  type: SheetType.JK_MD,
   content: string,
 }
 
@@ -25,7 +32,7 @@ export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
 export type SourceCodeType = { [key in ProgrammingLanguage]: string };
 
 export type CodeEditorSheetType = {
-  type: 'code-editor',
+  type: SheetType.CODE_EDITOR,
   sourceCode: SourceCodeType,
   testCases: CodeEditorTestCasesType,
   languages: ProgrammingLanguage[],
@@ -33,10 +40,15 @@ export type CodeEditorSheetType = {
 }
 
 export type ListSheetType = {
-  type: 'list',
+  type: SheetType.LIST,
   header: string,
   content: (JkmdSheetType | CodeEditorSheetType)[],
   children: ListSheetType[],
 }
 
-export type BodyNoteSheetType = JkmdSheetType | CodeEditorSheetType | ListSheetType;
+export type GraphSheetType = {
+  type: SheetType.GRAPH,
+  dots: string[],
+}
+
+export type BodyNoteSheetType = JkmdSheetType | CodeEditorSheetType | ListSheetType | GraphSheetType;
