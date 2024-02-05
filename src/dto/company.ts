@@ -21,6 +21,9 @@ export interface CompanyUserPermissionsResponseDTO extends EmailDataResponseDTO 
   managerUserNickname: string,
   plan: CompanyPlan,
   userPermissions: UserPermissions,
+  contactEmail: string,
+  contactCellPhoneNumber: string,
+  contactTelegram: string,
 }
 
 export interface CompanyResourceSpecificationsResponseDTO {
