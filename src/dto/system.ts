@@ -16,7 +16,7 @@ export interface TaskResponseDTO {
   lastStatus: string,
   isLowRunnerGroup: boolean,
   isHighRunnerGroup: boolean,
-  isRunnerListener: boolean,
+  isRunnerListenerGroup: boolean,
   containers?: TaskResponseDTOContainer[];
 }
 
