@@ -27,6 +27,11 @@ export interface CompanyUserPermissionsResponseDTO extends EmailDataResponseDTO 
 }
 
 export interface CompanyResourceSpecificationsResponseDTO {
+  runnerListener: {
+    taskDefinition: string,
+    minimum: number,
+    maximum: number,
+  },
   highPerformanceRunner: {
     taskDefinition: string,
     minimum: number,
