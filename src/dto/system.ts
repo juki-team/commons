@@ -28,6 +28,7 @@ export interface TaskDefinitionResponseDTO {
   registeredAt: Date,
   isLowRunner: boolean,
   isHighRunner: boolean,
+  isRunnerListener: boolean,
 }
 
 export type SqsPropertiesType = {
