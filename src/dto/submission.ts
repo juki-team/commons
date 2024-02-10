@@ -36,6 +36,16 @@ export interface SubmissionResponseDTO {
   contestName: string, // foreign
   contestProblemIndex: string,
   contestProblemColor: string,
+  processedCases: {
+    samples: {
+      total: number,
+      processed: number
+    },
+    tests: {
+      total: number,
+      processed: number
+    }
+  }
 }
 
 export type TestCaseResultType = DataLogType & {
