@@ -48,7 +48,7 @@ export const PROBLEM_MODE: { [key in ProblemMode]: { value: ProblemMode, label: 
     value: ProblemMode.SUBTASK,
     label: 'subtask',
     description: 'the test cases are grouped and each group is assigned a score, '
-      + 'all test cases in the group must be AC to obtain the score assigned to the group.',
+      + 'all test cases in the group must be AC to get the score assigned to the group.',
   },
   [ProblemMode.PARTIAL]: {
     value: ProblemMode.PARTIAL,
@@ -58,7 +58,7 @@ export const PROBLEM_MODE: { [key in ProblemMode]: { value: ProblemMode, label: 
   },
 };
 
-export const PROBLEM_TYPES = [ ProblemType.STANDARD, ProblemType.DYNAMIC ];
+export const PROBLEM_TYPES = [ ProblemType.STANDARD, ProblemType.DYNAMIC, ProblemType.INTERACTIVE ];
 
 export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType, label: string, description: string } } = {
   [ProblemType.STANDARD]: {
