@@ -1,25 +1,31 @@
 import { ProblemInput, ProblemMode, ProblemOutput, ProblemRole, ProblemStatus, ProblemType } from '../types';
 
-export const PROBLEM_STATUS: { [key in ProblemStatus]: { value: ProblemStatus, label: string, description: string } } = {
+export const PROBLEM_STATUS: {
+  [key in ProblemStatus]: {
+    value: ProblemStatus,
+    label: string,
+    description: string
+  }
+} = {
   [ProblemStatus.ARCHIVED]: {
     value: ProblemStatus.ARCHIVED,
     label: 'archived',
-    description: 'the problem will not appear for anyone, contact the administrator to see it again',
+    description: 'the problem will not appear for anyone, contact the administrator to see it again.',
   },
   [ProblemStatus.PRIVATE]: {
     value: ProblemStatus.PRIVATE,
     label: 'private',
-    description: 'the problem will appear in the problem list only for you and problem administrators and users will have access according to their roles',
+    description: 'the problem will appear in the problem list only for you and problem administrators and users will have access according to their roles.',
   },
   [ProblemStatus.RESERVED]: {
     value: ProblemStatus.RESERVED,
     label: 'reserved',
-    description: 'the problem will appear in the problem list only for problem editors and users will have access according to their roles',
+    description: 'the problem will appear in the problem list only for problem editors and users will have access according to their roles.',
   },
   [ProblemStatus.PUBLIC]: {
     value: ProblemStatus.PUBLIC,
     label: 'public',
-    description: 'the problem will appear in the problem list and users will be able to solve it',
+    description: 'the problem will appear in the problem list and users will be able to solve it.',
   },
 };
 
@@ -34,18 +40,49 @@ export const PROBLEM_OUTPUT: { [key in ProblemOutput]: { value: ProblemOutput, l
   [ProblemOutput.INTERACTIVE]: { value: ProblemOutput.INTERACTIVE, label: 'interactive' },
 };
 
-export const PROBLEM_MODES = [ProblemMode.TOTAL, ProblemMode.SUBTASK, ProblemMode.PARTIAL];
+export const PROBLEM_MODES = [ ProblemMode.TOTAL, ProblemMode.SUBTASK, ProblemMode.PARTIAL ];
 
-export const PROBLEM_MODE: { [key in ProblemMode]: { value: ProblemMode, label: string } } = {
-  [ProblemMode.TOTAL]: { value: ProblemMode.TOTAL, label: 'total' },
-  [ProblemMode.SUBTASK]: { value: ProblemMode.SUBTASK, label: 'subtask' },
-  [ProblemMode.PARTIAL]: { value: ProblemMode.PARTIAL, label: 'partial' },
+export const PROBLEM_MODE: { [key in ProblemMode]: { value: ProblemMode, label: string, description: string } } = {
+  [ProblemMode.TOTAL]: { value: ProblemMode.TOTAL, label: 'total', description: 'all test cases must be AC.' },
+  [ProblemMode.SUBTASK]: {
+    value: ProblemMode.SUBTASK,
+    label: 'subtask',
+    description: 'the test cases are grouped and each group is assigned a score, '
+      + 'all test cases in the group must be AC to obtain the score assigned to the group.',
+  },
+  [ProblemMode.PARTIAL]: {
+    value: ProblemMode.PARTIAL,
+    label: 'partial',
+    description: 'the test cases are grouped and each group is associated with X points, '
+      + 'and each test case in a group scores X points ',
+  },
 };
 
-export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType, label: string } } = {
-  [ProblemType.STANDARD]: { value: ProblemType.STANDARD, label: 'standard' },
-  [ProblemType.INTERACTIVE]: { value: ProblemType.INTERACTIVE, label: 'interactive' },
-  [ProblemType.DYNAMIC]: { value: ProblemType.DYNAMIC, label: 'dynamic' },
+export const PROBLEM_TYPES = [ ProblemType.STANDARD, ProblemType.DYNAMIC ];
+
+export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType, label: string, description: string } } = {
+  [ProblemType.STANDARD]: {
+    value: ProblemType.STANDARD,
+    label: 'standard',
+    description: 'The contestant submit a single source code in one of the allowed programming languages. '
+      + 'The source code is either standalone or to be compiled. '
+      + 'The resulting user\'s executable does I/O standard input and output. '
+      + 'The output produced by the contestant\'s program is then compared to the correct output using a simple diff algorithm.',
+  },
+  [ProblemType.INTERACTIVE]: {
+    value: ProblemType.INTERACTIVE, label: 'interactive', description: 'developing..',
+  },
+  [ProblemType.DYNAMIC]: {
+    value: ProblemType.DYNAMIC,
+    label: 'dynamic',
+    description: 'The contestant submit a single source code in one of the allowed programming languages. '
+      + 'The user\'s source code is either standalone or to be compiled. '
+      + 'The resulting user\'s executable does I/O standard input and output. '
+      + 'The output produced by the contestant\'s program is saved. '
+      + 'The problem editor save a single source code in C++ 17. '
+      + 'The editor\'s source code can read judge input filepath argv[1], judge output filepath argv[2], user\'s output filepath argv[3], user\'s error filepath argv[4], user\'s log filepath argv[5], user\'s source filepath argv[6] and submission information filepath argv[7] (companyId, submitId, runId, userId, contestId, problemId, language, userNickname, timestamp). '
+      + 'The resulting editor\'s executable should be "AC" or a number between 1 and 100 for partial accepted',
+  },
 };
 
 export const PROBLEM_ROLE: { [key in ProblemRole]: { value: ProblemRole, label: string, level: number } } = {
