@@ -43,12 +43,20 @@ export const PROBLEM_OUTPUT: { [key in ProblemOutput]: { value: ProblemOutput, l
 export const PROBLEM_MODES = [ ProblemMode.TOTAL, ProblemMode.SUBTASK, ProblemMode.PARTIAL ];
 
 export const PROBLEM_MODE: { [key in ProblemMode]: { value: ProblemMode, label: string, description: string } } = {
-  [ProblemMode.TOTAL]: { value: ProblemMode.TOTAL, label: 'total', description: 'all test cases must be AC.' },
+  [ProblemMode.TOTAL]: {
+    value: ProblemMode.TOTAL,
+    label: 'total',
+    description: 'if all test cases are Accepted the result is Accepted '
+      + 'otherwise it will be Runtime Error, Time Limited Exceeded, Memory Limited Exceeded, Wrong Answer or Presentation Error in that order.',
+  },
   [ProblemMode.SUBTASK]: {
     value: ProblemMode.SUBTASK,
     label: 'subtask',
-    description: 'the test cases are grouped and each group is assigned a score, '
-      + 'all test cases in the group must be AC to get the score assigned to the group.',
+    description: 'the test cases are grouped and each group of test cases is assigned a score, '
+      + 'if all test cases in a group are Accepted then the score assigned to that group of test cases is added to total score, '
+      + 'if total score is equal to the sum of the assigned scores of all groups of test cases then the result is Accepted, '
+      + 'otherwise if the total score is greater than zero the result is Partial Accepted with the total accumulated score, '
+      + 'otherwise it will be Runtime Error, Time Limited Exceeded, Memory Limited Exceeded, Wrong Answer or Presentation Error in that order.',
   },
   [ProblemMode.PARTIAL]: {
     value: ProblemMode.PARTIAL,
