@@ -207,7 +207,8 @@ export type RunCommandType = {
   timeLimit: number,
   memoryLimit: number,
   lockFilePath?: string,
-  endFilePath?: string
+  endFilePath?: string,
+  rawExecution?: boolean,
 };
 
 export type RunnerSQSMessageBodyType = RunCommandType & { next: RunnerNextQueueType | RunnerNextRequestType };
