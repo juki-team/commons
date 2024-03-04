@@ -196,7 +196,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'psc' ],
     monacoKey: 'text',
     codeMirrorKey: 'pseudocode-pseint',
-    compilePattern: 'jk-pseint {{folder_path}}/{{source_file_name}} --norun && jk-pseint {{folder_path}}/{{source_file_name}} --draw {{folder_path}}/{{source_file_name}}.psd'
+    compilePattern: 'jk-pseint {{folder_path}}/{{source_file_name}} --norun --nouser && jk-pseint {{folder_path}}/{{source_file_name}} --draw {{folder_path}}/{{source_file_name}}.psd'
       + ' && jk-psexport {{folder_path}}/{{source_file_name}}.psd {{folder_path}}/{{source_file_name}}.cpp --lang=cpp'
       + ' && g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}.cpp',
