@@ -181,6 +181,7 @@ export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
   ProgrammingLanguage.ICPC_PYTHON,
   ProgrammingLanguage.PYTHON,
   ProgrammingLanguage.PYTHON3,
+  ProgrammingLanguage.PSEUDOCODE_PSEINT,
 ];
 
 export const ACCEPTED_PROGRAMMING_LANGUAGES = [
@@ -195,6 +196,7 @@ export const ACCEPTED_PROGRAMMING_LANGUAGES = [
   ProgrammingLanguage.ICPC_PYTHON,
   ProgrammingLanguage.PYTHON,
   ProgrammingLanguage.PYTHON3,
+  ProgrammingLanguage.PSEUDOCODE_PSEINT,
 ];
 
 export const PROBLEM_VERDICT: { [key in ProblemVerdict]: { value: ProblemVerdict, label: string, color: string } } = {

@@ -189,6 +189,21 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: 'console.log("Hello World\\n")',
     hasBuildFile: false,
   },
+  [ProgrammingLanguage.PSEUDOCODE_PSEINT]: {
+    value: ProgrammingLanguage.PSEUDOCODE_PSEINT,
+    label: 'Pseudo-código (PSeInt)',
+    mime: 'text/plain',
+    fileExtension: [ 'psc' ],
+    monacoKey: 'text',
+    codeMirrorKey: 'pseudocode-pseint',
+    compilePattern: 'pseint {{folder_path}}/{{source_file_name}} --draw {{folder_path}}/{{source_file_name}}.psd'
+      + ' && psexport {{folder_path}}/{{source_file_name}}.psd {{folder_path}}/{{source_file_name}}.cpp --lang=cpp'
+      + ' && g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}.cpp',
+    runPattern: '{{folder_path}}/{{compiled_file_name}}',
+    templateSourceCode: 'Algoritmo HOLA_MUNDO\n\tImprimir "Hello World"\nFinAlgoritmo\n',
+    hasBuildFile: false,
+  },
   [ProgrammingLanguage.JSON]: {
     value: ProgrammingLanguage.JSON,
     label: 'JSON',
