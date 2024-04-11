@@ -42,7 +42,7 @@ export type CodeEditorSheetType = {
 export type ListSheetType = {
   type: SheetType.LIST,
   header: string,
-  content: (JkmdSheetType | CodeEditorSheetType)[],
+  content: (JkmdSheetType | CodeEditorSheetType | GraphSheetType)[],
   children: ListSheetType[],
 }
 
