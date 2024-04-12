@@ -22,7 +22,28 @@ export type ProgrammingLanguageMeta = {
   runPattern: string,
   templateSourceCode: string,
   hasBuildFile: boolean,
+  executable: string,
+  version: string,
 };
+
+const GCC_VERSION = `gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE`;
+
+const GPP_VERSION = `g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.`;
+
+const JAVAC_VERSION = `javac 17.0.9`;
+
+const NODE_VERSION = `v16.20.2`;
+
+const PYTHON3_VERSION = 'Python 3.10.12';
+
+const PYPY3_VERSION = `Python 3.9.18 (7.3.15+dfsg-1~ppa1~ubuntu22.04, Jan 18 2024, 17:27:41)
+[PyPy 7.3.15 with GCC 11.4.0]`;
 
 export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLanguageMeta } = {
   [ProgrammingLanguage.ICPC_C]: {
@@ -37,6 +58,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
     hasBuildFile: true,
+    executable: 'gcc',
+    version: GCC_VERSION,
   },
   [ProgrammingLanguage.C]: {
     value: ProgrammingLanguage.C,
@@ -50,6 +73,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
     hasBuildFile: true,
+    executable: 'gcc',
+    version: GCC_VERSION,
   },
   [ProgrammingLanguage.ICPC_CPP]: {
     value: ProgrammingLanguage.ICPC_CPP,
@@ -64,6 +89,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
+    executable: 'g++',
+    version: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP]: {
     value: ProgrammingLanguage.CPP,
@@ -78,6 +105,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
+    executable: 'g++',
+    version: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP11]: {
     value: ProgrammingLanguage.CPP11,
@@ -93,6 +122,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
+    executable: 'g++',
+    version: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP14]: {
     value: ProgrammingLanguage.CPP14,
@@ -107,8 +138,9 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
-    
     hasBuildFile: true,
+    executable: 'g++',
+    version: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP17]: {
     value: ProgrammingLanguage.CPP17,
@@ -124,6 +156,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
+    executable: 'g++',
+    version: GPP_VERSION,
   },
   [ProgrammingLanguage.JAVA]: {
     value: ProgrammingLanguage.JAVA,
@@ -140,6 +174,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: 'class Main {\n  public static void main (String[] args) {' +
       '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
+    executable: 'javac',
+    version: JAVAC_VERSION,
   },
   [ProgrammingLanguage.ICPC_PYTHON]: {
     value: ProgrammingLanguage.ICPC_PYTHON,
@@ -152,6 +188,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: 'python {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
+    executable: 'pypy3',
+    version: PYPY3_VERSION,
   },
   [ProgrammingLanguage.PYTHON]: {
     value: ProgrammingLanguage.PYTHON,
@@ -164,6 +202,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: 'python {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
+    executable: 'python',
+    version: '',
   },
   [ProgrammingLanguage.PYTHON3]: {
     value: ProgrammingLanguage.PYTHON3,
@@ -176,6 +216,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: 'python3 {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
+    executable: 'python3',
+    version: PYTHON3_VERSION,
   },
   [ProgrammingLanguage.JAVASCRIPT]: {
     value: ProgrammingLanguage.JAVASCRIPT,
@@ -188,6 +230,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: 'node {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
     hasBuildFile: false,
+    executable: 'node',
+    version: NODE_VERSION,
   },
   [ProgrammingLanguage.PSEUDOCODE_PSEINT]: {
     value: ProgrammingLanguage.PSEUDOCODE_PSEINT,
@@ -204,6 +248,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: 'Algoritmo HOLA_MUNDO\n\tImprimir "Hello World"\nFinAlgoritmo\n',
     hasBuildFile: false,
+    executable: '',
+    version: '',
   },
   [ProgrammingLanguage.JSON]: {
     value: ProgrammingLanguage.JSON,
@@ -216,6 +262,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '',
     templateSourceCode: '{\n  \n}',
     hasBuildFile: false,
+    executable: '',
+    version: '',
   },
   [ProgrammingLanguage.TEXT]: {
     value: ProgrammingLanguage.TEXT,
@@ -228,6 +276,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '',
     templateSourceCode: '',
     hasBuildFile: false,
+    executable: '',
+    version: '',
   }, // asc txt text diff pot
   [ProgrammingLanguage.MARKDOWN]: {
     value: ProgrammingLanguage.MARKDOWN,
@@ -240,6 +290,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '',
     templateSourceCode: '# Hello World\n',
     hasBuildFile: false,
+    executable: '',
+    version: '',
   },
   [ProgrammingLanguage.ARDUINO]: {
     value: ProgrammingLanguage.ARDUINO,
@@ -252,6 +304,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '',
     templateSourceCode: '',
     hasBuildFile: false,
+    executable: '',
+    version: '',
   },
   [ProgrammingLanguage.HTML]: {
     value: ProgrammingLanguage.HTML,
@@ -264,6 +318,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     runPattern: '',
     templateSourceCode: '',
     hasBuildFile: false,
+    executable: '',
+    version: '',
   },
 };
 
