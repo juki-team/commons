@@ -19,6 +19,7 @@ export interface SubmissionResponseDTO {
   status: SubmissionRunStatus,
   // permissions
   canViewSourceCode: boolean, // foreign
+  canViewOutputDiff: boolean, // foreign
   // problem
   isProblemEditor: boolean,
   problemKey: string,
