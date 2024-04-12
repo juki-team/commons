@@ -44,14 +44,6 @@ export type CodeEditorSheetType = {
   height: 'auto' | number,
 }
 
-export type ListSheetType = {
-  id: string,
-  type: SheetType.LIST,
-  header: string,
-  content: (JkmdSheetType | CodeEditorSheetType | GraphSheetType)[],
-  children: ListSheetType[],
-}
-
 export type GraphSheetType = {
   id: string,
   type: SheetType.GRAPH,
@@ -83,6 +75,14 @@ export type QuizOptionsSheetType = {
   options: { label: string, correct: boolean }[],
   multiple: boolean,
 };
+
+export type ListSheetType = {
+  id: string,
+  type: SheetType.LIST,
+  header: string,
+  content: (JkmdSheetType | CodeEditorSheetType | GraphSheetType | QuizProblemSheetType | QuizTextSheetType | QuizOptionsSheetType)[],
+  children: ListSheetType[],
+}
 
 export type BodyNoteSheetType =
   JkmdSheetType
