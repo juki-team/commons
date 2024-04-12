@@ -59,7 +59,7 @@ export type TestCaseResultType = DataLogType & {
 }
 
 export type VerdictByGroupsType = {
-  [key: number]: TestCaseResultType
+  [key: number]: Omit<TestCaseResultType, 'err' | 'diff'>
 };
 
 export type CompilationResultType = DataLogType & {
