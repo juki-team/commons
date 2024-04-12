@@ -27,7 +27,9 @@ export type SubmissionTestCaseType = {
 export interface CodeEditorTestCaseType extends SubmissionTestCaseType {
   key: string,
   in: string,
+  testOut: string,
   sample: boolean,
+  hidden: boolean,
   index: number,
 }
 
