@@ -23,7 +23,7 @@ export type ProgrammingLanguageMeta = {
   templateSourceCode: string,
   hasBuildFile: boolean,
   executable: string,
-  version: string,
+  executableVersion: string,
 };
 
 const GCC_VERSION = `gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
@@ -59,7 +59,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
     hasBuildFile: true,
     executable: 'gcc',
-    version: GCC_VERSION,
+    executableVersion: GCC_VERSION,
   },
   [ProgrammingLanguage.C]: {
     value: ProgrammingLanguage.C,
@@ -74,7 +74,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
     hasBuildFile: true,
     executable: 'gcc',
-    version: GCC_VERSION,
+    executableVersion: GCC_VERSION,
   },
   [ProgrammingLanguage.ICPC_CPP]: {
     value: ProgrammingLanguage.ICPC_CPP,
@@ -90,7 +90,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
     executable: 'g++',
-    version: GPP_VERSION,
+    executableVersion: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP]: {
     value: ProgrammingLanguage.CPP,
@@ -106,7 +106,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
     executable: 'g++',
-    version: GPP_VERSION,
+    executableVersion: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP11]: {
     value: ProgrammingLanguage.CPP11,
@@ -123,7 +123,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
     executable: 'g++',
-    version: GPP_VERSION,
+    executableVersion: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP14]: {
     value: ProgrammingLanguage.CPP14,
@@ -140,7 +140,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
     executable: 'g++',
-    version: GPP_VERSION,
+    executableVersion: GPP_VERSION,
   },
   [ProgrammingLanguage.CPP17]: {
     value: ProgrammingLanguage.CPP17,
@@ -157,7 +157,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
       'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
     hasBuildFile: true,
     executable: 'g++',
-    version: GPP_VERSION,
+    executableVersion: GPP_VERSION,
   },
   [ProgrammingLanguage.JAVA]: {
     value: ProgrammingLanguage.JAVA,
@@ -175,7 +175,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
       '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
     executable: 'javac',
-    version: JAVAC_VERSION,
+    executableVersion: JAVAC_VERSION,
   },
   [ProgrammingLanguage.ICPC_PYTHON]: {
     value: ProgrammingLanguage.ICPC_PYTHON,
@@ -189,7 +189,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'pypy3',
-    version: PYPY3_VERSION,
+    executableVersion: PYPY3_VERSION,
   },
   [ProgrammingLanguage.PYTHON]: {
     value: ProgrammingLanguage.PYTHON,
@@ -203,7 +203,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python',
-    version: '',
+    executableVersion: '',
   },
   [ProgrammingLanguage.PYTHON3]: {
     value: ProgrammingLanguage.PYTHON3,
@@ -217,7 +217,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python3',
-    version: PYTHON3_VERSION,
+    executableVersion: PYTHON3_VERSION,
   },
   [ProgrammingLanguage.JAVASCRIPT]: {
     value: ProgrammingLanguage.JAVASCRIPT,
@@ -231,7 +231,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: 'console.log("Hello World\\n")',
     hasBuildFile: false,
     executable: 'node',
-    version: NODE_VERSION,
+    executableVersion: NODE_VERSION,
   },
   [ProgrammingLanguage.PSEUDOCODE_PSEINT]: {
     value: ProgrammingLanguage.PSEUDOCODE_PSEINT,
@@ -249,7 +249,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: 'Algoritmo HOLA_MUNDO\n\tImprimir "Hello World"\nFinAlgoritmo\n',
     hasBuildFile: false,
     executable: '',
-    version: '',
+    executableVersion: '',
   },
   [ProgrammingLanguage.JSON]: {
     value: ProgrammingLanguage.JSON,
@@ -263,7 +263,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '{\n  \n}',
     hasBuildFile: false,
     executable: '',
-    version: '',
+    executableVersion: '',
   },
   [ProgrammingLanguage.TEXT]: {
     value: ProgrammingLanguage.TEXT,
@@ -277,7 +277,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '',
     hasBuildFile: false,
     executable: '',
-    version: '',
+    executableVersion: '',
   }, // asc txt text diff pot
   [ProgrammingLanguage.MARKDOWN]: {
     value: ProgrammingLanguage.MARKDOWN,
@@ -291,7 +291,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '# Hello World\n',
     hasBuildFile: false,
     executable: '',
-    version: '',
+    executableVersion: '',
   },
   [ProgrammingLanguage.ARDUINO]: {
     value: ProgrammingLanguage.ARDUINO,
@@ -305,7 +305,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '',
     hasBuildFile: false,
     executable: '',
-    version: '',
+    executableVersion: '',
   },
   [ProgrammingLanguage.HTML]: {
     value: ProgrammingLanguage.HTML,
@@ -319,7 +319,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     templateSourceCode: '',
     hasBuildFile: false,
     executable: '',
-    version: '',
+    executableVersion: '',
   },
 };
 
