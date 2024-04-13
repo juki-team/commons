@@ -28,6 +28,7 @@ export interface CodeEditorTestCaseType extends SubmissionTestCaseType {
   key: string,
   in: string,
   testOut: string,
+  withPE: boolean,
   sample: boolean,
   hidden: boolean,
   index: number,
