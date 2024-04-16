@@ -35,7 +35,7 @@ export enum FileType {
 }
 
 export type FolderFileContentType = { type: FileType.FOLDER };
-export type NoteSheetFileContentType = { type: FileType.NOTE_SHEET, body: BodyNoteSheetType[] };
+export type NoteSheetFileContentType = { type: FileType.NOTE_SHEET, body: BodyNoteSheetType[], isSolvable: boolean };
 export type WorksheetFileContentType = { type: FileType.WORKSHEET, body: [] };
 export type FileFileContentType = { type: FileType.FILE, mime: string, key: string }
 
