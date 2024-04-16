@@ -47,7 +47,7 @@ export type FileContentType =
 
 export type SummaryFileContentType =
   FolderFileContentType
-  | Omit<NoteSheetFileContentType, 'body'>
+  | Omit<NoteSheetFileContentType, 'body' | 'isSolvable'>
   | Omit<WorksheetFileContentType, 'body'>
   | Omit<FileFileContentType, 'key'>;
 
