@@ -1,3 +1,5 @@
+import { DataLogType } from './submission';
+
 export enum Judge {
   CUSTOMER = 'CUSTOMER',
   JUKI_JUDGE = 'JUKI_JUDGE',
@@ -46,3 +48,5 @@ export enum RunnerType {
   HIGH_PERFORMANCE = 'HIGH_PERFORMANCE',
   LOW_PERFORMANCE = 'LOW_PERFORMANCE',
 }
+
+export type TestCaseVerdict = DataLogType & { verdict: ProblemVerdict };

@@ -1,4 +1,4 @@
-import { CodeEditorTestCaseType, DataLogType, ProblemVerdict, SubmissionTestCaseType } from '../types';
+import { CodeEditorTestCaseType, ProblemVerdict, SubmissionTestCaseType, TestCaseVerdict } from '../types';
 
 export const getDataOfTestCase = (testCase: SubmissionTestCaseType, timeLimit: number, memoryLimit: number) => {
   
@@ -54,8 +54,6 @@ export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCaseType, ti
   };
 }
 
-type TestCaseVerdict = DataLogType & { verdict: ProblemVerdict };
-
 export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) => {
   
   let verdict = first.verdict;
@@ -95,11 +93,9 @@ export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) =
     verdict = ProblemVerdict.AC;
   }
   return {
-    maxTimeUsed: Math.max(first.timeUsed, second.timeUsed),
-    maxMemoryUsed: Math.max(first.memoryUsed, second.memoryUsed),
+    timeUsed: Math.max(first.timeUsed, second.timeUsed),
+    memoryUsed: Math.max(first.memoryUsed, second.memoryUsed),
     exitCode: first.exitCode || second.exitCode,
-    totalTimeUsed: first.timeUsed + second.timeUsed,
-    totalMemoryUsed: first.memoryUsed + second.memoryUsed,
     verdict,
   }
 }
