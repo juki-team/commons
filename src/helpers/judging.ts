@@ -7,8 +7,8 @@ export const getDataOfTestCase = (testCase: SubmissionTestCaseType, timeLimit: n
   const timeLimitExceeded = timeUsed > timeLimit;
   const memoryUsed = +dataLogs?.[1];
   const memoryLimitExceeded = memoryUsed > memoryLimit;
-  const exitCode = dataLogs?.[2];
-  const runtimeError = exitCode !== '0';
+  const exitCode = +dataLogs?.[2];
+  const runtimeError = exitCode !== 0;
   
   return {
     timeUsed,
@@ -25,7 +25,7 @@ export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCaseType, ti
   verdict: ProblemVerdict,
   timeUsed: number,
   memoryUsed: number,
-  exitCode: string,
+  exitCode: number,
 } => {
   const {
     timeLimitExceeded,
