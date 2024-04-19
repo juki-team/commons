@@ -9,6 +9,7 @@ export enum SheetType {
   QUIZ_PROBLEM = 'QUIZ_PROBLEM',
   QUIZ_TEXT = 'QUIZ_TEXT',
   QUIZ_OPTIONS = 'QUIZ_OPTIONS',
+  PAGE_DIVIDER = 'PAGE_DIVIDER',
 }
 
 export type JkmdSheetType = {
@@ -61,6 +62,8 @@ export type QuizProblemSheetType = {
   testCases: { [key: string]: CodeEditorTestCaseType & { hidden: boolean } };
   languages: ProgrammingLanguage[];
   height: 'auto' | number;
+  points: number,
+  scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
 export type QuizTextSheetType = {
@@ -69,6 +72,7 @@ export type QuizTextSheetType = {
   description: string,
   answer: string;
   inputType: 'text' | 'number' | 'textarea';
+  points: number,
 };
 
 export type QuizOptionsSheetType = {
@@ -77,6 +81,8 @@ export type QuizOptionsSheetType = {
   description: string,
   options: { label: string, correct: boolean }[],
   multiple: boolean,
+  points: number,
+  scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
 export type ListSheetType = {
@@ -87,6 +93,11 @@ export type ListSheetType = {
   children: ListSheetType[],
 }
 
+export type PageDividerSheetType = {
+  id: string,
+  type: SheetType.PAGE_DIVIDER,
+}
+
 export type BodyNoteSheetType =
   JkmdSheetType
   | CodeEditorSheetType
@@ -94,4 +105,5 @@ export type BodyNoteSheetType =
   | GraphSheetType
   | QuizProblemSheetType
   | QuizTextSheetType
-  | QuizOptionsSheetType;
+  | QuizOptionsSheetType
+  | PageDividerSheetType;
