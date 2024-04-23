@@ -9,7 +9,7 @@ export enum SheetType {
   QUIZ_PROBLEM = 'QUIZ_PROBLEM',
   QUIZ_TEXT = 'QUIZ_TEXT',
   QUIZ_OPTIONS = 'QUIZ_OPTIONS',
-  PAGE_DIVIDER = 'PAGE_DIVIDER',
+  NEW_PAGE = 'NEW_PAGE',
 }
 
 export type JkmdSheetType = {
@@ -93,9 +93,10 @@ export type ListSheetType = {
   children: ListSheetType[],
 }
 
-export type PageDividerSheetType = {
+export type NewPageSheetType = {
   id: string,
-  type: SheetType.PAGE_DIVIDER,
+  type: SheetType.NEW_PAGE,
+  title: string,
 }
 
 export type BodyNoteSheetType =
@@ -106,4 +107,4 @@ export type BodyNoteSheetType =
   | QuizProblemSheetType
   | QuizTextSheetType
   | QuizOptionsSheetType
-  | PageDividerSheetType;
+  | NewPageSheetType;
