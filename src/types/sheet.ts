@@ -14,7 +14,7 @@ export enum SheetType {
 
 type BasicSheetType = {
   id: string,
-  type: SheetType.JK_MD,
+  type: SheetType,
   title: string,
 }
 
