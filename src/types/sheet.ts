@@ -12,8 +12,13 @@ export enum SheetType {
   NEW_PAGE = 'NEW_PAGE',
 }
 
-export type JkmdSheetType = {
+type BasicSheetType = {
   id: string,
+  type: SheetType.JK_MD,
+  title: string,
+}
+
+export type JkmdSheetType = BasicSheetType & {
   type: SheetType.JK_MD,
   content: string,
 }
@@ -39,8 +44,7 @@ export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
 
 export type SourceCodeType = { [key in ProgrammingLanguage]: string };
 
-export type CodeEditorSheetType = {
-  id: string,
+export type CodeEditorSheetType = BasicSheetType & {
   type: SheetType.CODE_EDITOR,
   sourceCode: SourceCodeType,
   testCases: CodeEditorTestCasesType,
@@ -48,14 +52,12 @@ export type CodeEditorSheetType = {
   height: 'auto' | number,
 }
 
-export type GraphSheetType = {
-  id: string,
+export type GraphSheetType = BasicSheetType & {
   type: SheetType.GRAPH,
   dots: string[],
 }
 
-export type QuizProblemSheetType = {
-  id: string,
+export type QuizProblemSheetType = BasicSheetType & {
   type: SheetType.QUIZ_PROBLEM;
   description: string,
   solutionSourceCode: SourceCodeType;
@@ -66,8 +68,7 @@ export type QuizProblemSheetType = {
   scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
-export type QuizTextSheetType = {
-  id: string,
+export type QuizTextSheetType = BasicSheetType & {
   type: SheetType.QUIZ_TEXT;
   description: string,
   answer: string;
@@ -75,8 +76,7 @@ export type QuizTextSheetType = {
   points: number,
 };
 
-export type QuizOptionsSheetType = {
-  id: string,
+export type QuizOptionsSheetType = BasicSheetType & {
   type: SheetType.QUIZ_OPTIONS;
   description: string,
   options: { label: string, correct: boolean }[],
@@ -85,18 +85,15 @@ export type QuizOptionsSheetType = {
   scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
-export type ListSheetType = {
-  id: string,
+export type ListSheetType = BasicSheetType & {
   type: SheetType.LIST,
   header: string,
   content: (JkmdSheetType | CodeEditorSheetType | GraphSheetType | QuizProblemSheetType | QuizTextSheetType | QuizOptionsSheetType)[],
   children: ListSheetType[],
 }
 
-export type NewPageSheetType = {
-  id: string,
+export type NewPageSheetType = BasicSheetType & {
   type: SheetType.NEW_PAGE,
-  title: string,
 }
 
 export type BodyNoteSheetType =
