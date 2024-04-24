@@ -1,7 +1,5 @@
-import { CodeEditorSheetType, JkmdSheetType, SheetType } from './sheet';
+import { JkmdSheetType, QuizProblemSheetType } from './sheet';
 
-export type QuizProblemSheetStatusType = Omit<CodeEditorSheetType, 'height' | 'languages' | 'type'> & {
-  type: SheetType.QUIZ_PROBLEM
-};
+export type QuizProblemSheetStatusType = Omit<QuizProblemSheetType, 'height' | 'languages' | 'title' | 'description' | 'solutionSourceCode' | 'points' | 'scoringMode'>;
 
-export type JkmdSheetStatusType = Omit<JkmdSheetType, 'content'> & { read: boolean };
+export type JkmdSheetStatusType = Omit<JkmdSheetType, 'content' | 'title'> & { read: boolean };
