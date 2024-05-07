@@ -1,10 +1,10 @@
-import { JkmdSheetStatusType, QuizProblemSheetStatusType, UserBasicInterface } from '../types';
+import { JkmdSheetStatusType, QuizProblemSheetStatusProcessedType, UserBasicInterface } from '../types';
 
 export type NoteSheetStatusResponseDTO = {
   [key: string]: {
     userId: string,
     worksheetId: string,
-    content: { [key: string]: QuizProblemSheetStatusType | JkmdSheetStatusType },
+    content: { [key: string]: QuizProblemSheetStatusProcessedType | JkmdSheetStatusType },
     user: UserBasicInterface
   }
 };
