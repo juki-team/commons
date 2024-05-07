@@ -16,6 +16,7 @@ type BasicSheetType = {
   id: string,
   type: SheetType,
   title: string,
+  points: number,
 }
 
 export type JkmdSheetType = BasicSheetType & {
@@ -64,7 +65,6 @@ export type QuizProblemSheetType = BasicSheetType & {
   testCases: { [key: string]: CodeEditorTestCaseType & { hidden: boolean } };
   languages: ProgrammingLanguage[];
   height: 'auto' | number;
-  points: number,
   scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
@@ -73,7 +73,6 @@ export type QuizTextSheetType = BasicSheetType & {
   description: string,
   answer: string;
   inputType: 'text' | 'number' | 'textarea';
-  points: number,
 };
 
 export type QuizOptionsSheetType = BasicSheetType & {
@@ -81,7 +80,6 @@ export type QuizOptionsSheetType = BasicSheetType & {
   description: string,
   options: { label: string, correct: boolean }[],
   multiple: boolean,
-  points: number,
   scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
