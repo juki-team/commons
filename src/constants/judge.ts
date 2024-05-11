@@ -20,6 +20,7 @@ export type JudgeType = {
     getProfileUrl: (username: string) => string,
     getSubmitUrl: (problemKey: string) => string,
     getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => string,
+    getUserSubmissionsUrl: (username: string) => string,
   }
 }
 
@@ -35,6 +36,7 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: (key: string) => `/problem/view/${key}`,
+    getUserSubmissionsUrl: () => '',
   },
   [Judge.JUKI_JUDGE]: {
     value: Judge.JUKI_JUDGE,
@@ -47,6 +49,7 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: (key: string) => `https://judge.juki.app/problem/view/${key}`,
+    getUserSubmissionsUrl: () => '',
   },
   [Judge.CODEFORCES]: {
     value: Judge.CODEFORCES,
@@ -65,6 +68,7 @@ export const JUDGE: JudgeType = {
       const [ contestId, index ] = problemKey.split('-');
       return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
     },
+    getUserSubmissionsUrl: () => '',
   },
   [Judge.CODEFORCES_GYM]: {
     value: Judge.CODEFORCES_GYM,
@@ -86,6 +90,7 @@ export const JUDGE: JudgeType = {
       const [ gymContestId, index ] = problemKey.split('-');
       return `https://codeforces.com/gym/${gymContestId}/problem/${index}`;
     },
+    getUserSubmissionsUrl: () => '',
   },
   [Judge.JV_UMSA]: {
     value: Judge.JV_UMSA,
@@ -116,6 +121,7 @@ export const JUDGE: JudgeType = {
         ? `https://jv.umsa.bo/oj/problem.php?cid=${params[0]}&pid=${params[1].charCodeAt(0) - 65}`
         : `https://jv.umsa.bo/oj/problem.php?id=${problemKey}`;
     },
+    getUserSubmissionsUrl: (username: string) => `https://jv.umsa.bo/oj/status.php?user_id=${username}`,
   },
   [Judge.UVA_ONLINE_JUDGE]: {
     value: Judge.UVA_ONLINE_JUDGE,
@@ -128,6 +134,7 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
+    getUserSubmissionsUrl: () => '',
   },
   [Judge.AT_CODER]: {
     value: Judge.AT_CODER,
@@ -140,6 +147,7 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
+    getUserSubmissionsUrl: () => '',
   },
   [Judge.CODECHEF]: {
     value: Judge.CODECHEF,
@@ -152,6 +160,7 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
+    getUserSubmissionsUrl: () => '',
   },
   [Judge.TOPCODER]: {
     value: Judge.TOPCODER,
@@ -164,6 +173,7 @@ export const JUDGE: JudgeType = {
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
+    getUserSubmissionsUrl: () => '',
   },
 };
 
