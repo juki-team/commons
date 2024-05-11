@@ -17,6 +17,7 @@ export type JudgeType = {
     url: string,
     getProblemUrl: (problemKey: string) => string
     getLoginUrl: () => string,
+    getProfileUrl: (username: string) => string,
     getSubmitUrl: (problemKey: string) => string,
     getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => string,
   }
@@ -30,6 +31,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 883.991, 435 ],
     url: '',
     getLoginUrl: () => '',
+    getProfileUrl: () => '',
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: (key: string) => `/problem/view/${key}`,
@@ -41,6 +43,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 883.991, 435 ],
     url: 'https://judge.juki.app',
     getLoginUrl: () => '',
+    getProfileUrl: () => '',
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: (key: string) => `https://judge.juki.app/problem/view/${key}`,
@@ -52,6 +55,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
     getLoginUrl: () => 'https://codeforces.com/enter',
+    getProfileUrl: () => '',
     getSubmitUrl: () => 'https://codeforces.com/problemset/submit',
     getSubmissionUrl: (problemKey: string, submissionId: string) => {
       const [ contestId ] = problemKey.split('-');
@@ -69,6 +73,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
     getLoginUrl: () => 'https://codeforces.com/enter',
+    getProfileUrl: () => '',
     getSubmitUrl: (problemKey: string) => {
       const [ gymContestId, index ] = problemKey.split('-');
       return `https://codeforces.com/gym/${gymContestId}/submit`;
@@ -89,6 +94,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://jv.umsa.bo',
     getLoginUrl: () => 'https://jv.umsa.bo/oj/login.php',
+    getProfileUrl: () => 'https://jv.umsa.bo/oj/userInfo.php',
     getSubmitUrl: (problemKey: string) => {
       // single problem: '1019'
       // cib problem: '1019-A'
@@ -118,6 +124,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 150, 135.994 ],
     url: 'https://onlinejudge.org',
     getLoginUrl: () => '',
+    getProfileUrl: () => '',
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
@@ -129,6 +136,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 762.997, 675 ],
     url: 'https://atcoder.jp',
     getLoginUrl: () => '',
+    getProfileUrl: () => '',
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
@@ -140,6 +148,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 1207.7, 453.17 ],
     url: 'https://www.codechef.com',
     getLoginUrl: () => '',
+    getProfileUrl: () => '',
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
@@ -151,6 +160,7 @@ export const JUDGE: JudgeType = {
     logoSize: [ 971.99, 415.99 ],
     url: 'https://www.topcoder.com',
     getLoginUrl: () => '',
+    getProfileUrl: () => '',
     getSubmitUrl: () => '',
     getSubmissionUrl: () => '',
     getProblemUrl: () => '',
