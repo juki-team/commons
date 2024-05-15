@@ -28,7 +28,7 @@ export interface CourseResponseDTO {
   ownerUserNickname: string,
   user: CourseUserType,
   topics: {
-    workSheetId: string,
+    worksheetId: string,
     userProgress: {
       content: WorkSheetStatusContent,
       progress: number,
