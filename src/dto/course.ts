@@ -1,4 +1,5 @@
 import { CourseStatus, CourseType } from '../types/prisma';
+import { WorkSheetStatusContent } from './status';
 
 export interface CreateCourseDTO {
   key: string,
@@ -9,6 +10,13 @@ export interface CreateCourseDTO {
   type: CourseType,
 }
 
+export type CourseUserType = {
+  isOwner: boolean,
+  isEditor: boolean,
+  isEnrolled: boolean,
+  isGuest: boolean,
+};
+
 export interface CourseResponseDTO {
   key: string,
   title: string,
@@ -18,6 +26,14 @@ export interface CourseResponseDTO {
   type: CourseType,
   status: CourseStatus,
   ownerUserNickname: string,
+  user: CourseUserType,
+  topics: {
+    workSheetId: string,
+    userProgress: {
+      content: WorkSheetStatusContent,
+      progress: number,
+    }
+  }[],
 }
 
 export interface CourseSummaryListResponseDTO {
@@ -29,7 +45,5 @@ export interface CourseSummaryListResponseDTO {
   type: CourseType,
   status: CourseStatus,
   ownerUserNickname: string,
-  user: {
-    isEditor: boolean,
-  }
+  user: CourseUserType,
 }
