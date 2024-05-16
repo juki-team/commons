@@ -1,10 +1,4 @@
-import { BodyNoteSheetType, EntityAccess, EntityState, UserBasicInterface } from '../types';
-
-export enum FileState {
-  ACTIVE = EntityState.ACTIVE,
-  DRAFT = EntityState.DRAFT,
-  ARCHIVED = EntityState.ARCHIVED,
-}
+import { BodyNoteSheetType, EntityAccess, UserBasicInterface } from '../types';
 
 export enum FileAccess {
   PRIVATE = EntityAccess.PRIVATE,

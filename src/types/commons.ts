@@ -47,12 +47,6 @@ export enum EntityStatus {
   ARCHIVED = 'ARCHIVED',
 }
 
-export enum EntityState {
-  ACTIVE = 'ACTIVE', // Active for the users
-  DRAFT = 'DRAFT', // On preparation
-  ARCHIVED = 'ARCHIVED',
-}
-
 export enum EntityAccess {
   PRIVATE = 'PRIVATE',
   RESTRICTED = 'RESTRICTED',

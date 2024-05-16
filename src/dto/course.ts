@@ -8,6 +8,9 @@ export interface CreateCourseDTO {
   description: string,
   coverImageUrl: string,
   type: CourseType,
+  topics: {
+    worksheetId: string,
+  }[],
 }
 
 export type CourseUserType = {
