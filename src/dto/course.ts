@@ -1,3 +1,4 @@
+import { EntityState, UserBasicInterface } from '../types';
 import { CourseStatus, CourseType } from '../types/prisma';
 import { WorkSheetStatusContent } from './status';
 
@@ -27,8 +28,8 @@ export interface CourseResponseDTO {
   description: string,
   coverImageUrl: string,
   type: CourseType,
-  status: CourseStatus,
-  ownerUserNickname: string,
+  state: EntityState,
+  ownerUser: UserBasicInterface,
   user: CourseUserType,
   topics: {
     worksheetId: string,
@@ -46,7 +47,7 @@ export interface CourseSummaryListResponseDTO {
   description: string,
   coverImageUrl: string,
   type: CourseType,
-  status: CourseStatus,
-  ownerUserNickname: string,
+  state: EntityState,
+  ownerUser: UserBasicInterface,
   user: CourseUserType,
 }
