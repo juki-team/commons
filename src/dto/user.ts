@@ -21,6 +21,7 @@ export interface UserSummaryResponseDTO {
 }
 
 export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
+  id: string,
   city: string,
   country: string,
   institution: string,
