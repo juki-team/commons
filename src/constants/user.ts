@@ -17,7 +17,6 @@ export const USER_ROLE: { [key in UserRole]: { value: UserRole, label: string, l
 };
 
 export const USER_GUEST: UserState = {
-  id: '',
   givenName: 'Guest',
   familyName: 'Guest',
   email: 'GUEST',
