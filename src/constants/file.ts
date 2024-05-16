@@ -17,14 +17,14 @@ export const FILE_ROLE: { [key in FileRole]: { value: FileRole, label: string, l
 };
 
 export const FILE_STATE: { [key in FileState]: { value: FileState, label: string, description: string } } = {
-  [FileState.ACTIVE]: {
-    value: FileState.ACTIVE,
-    label: 'active',
+  [FileState.RELEASED]: {
+    value: FileState.RELEASED,
+    label: 'released',
     description: 'the record is active, the record will be viewable for viewers and editable for editors',
   },
-  [FileState.DRAFT]: {
-    value: FileState.DRAFT,
-    label: 'draft',
+  [FileState.IN_DRAFT]: {
+    value: FileState.IN_DRAFT,
+    label: 'in draft',
     description: 'the record is not active, the record will be viewable and editable only for the owner',
   },
   [FileState.ARCHIVED]: {
