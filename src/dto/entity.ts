@@ -14,9 +14,14 @@ export interface EntityMembersDTO {
 }
 
 export type EntityMembersResponseDTO = {
+  allAdministrators: boolean,
   administrators: { [key: string]: UserBasicInfoResponseDTO },
+  allManagers: boolean,
   managers: { [key: string]: UserBasicInfoResponseDTO },
+  allGuests: boolean,
   guests: { [key: string]: UserBasicInfoResponseDTO },
+  allSpectators: boolean,
   spectators: { [key: string]: UserBasicInfoResponseDTO },
+  allParticipants: boolean,
   participants: { [key: string]: UserBasicInfoResponseDTO },
 }
