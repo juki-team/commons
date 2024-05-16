@@ -27,7 +27,7 @@ export interface EntityMembersDocument {
 }
 
 export interface EntityStateDocument {
-  status: EntityState,
+  state: EntityState,
 }
 
 export interface EntityOwnerDocument {
