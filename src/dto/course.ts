@@ -65,9 +65,9 @@ export interface CourseSummaryListResponseDTO {
   user: CourseUserType,
 }
 
-interface PostCourseDTO extends CourseBaseDocument, EntityStateDocument {
+export interface PostCourseDTO extends CourseBaseDocument, EntityStateDocument {
   members: EntityMembersDTO,
 }
 
-interface PutCourseDTO extends PostCourseDTO {
+export interface PutCourseDTO extends PostCourseDTO {
 }
