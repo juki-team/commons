@@ -10,7 +10,7 @@ export interface CourseBaseDocument {
   description: string,
   coverImageUrl: string,
   type: CourseType,
-  topics: {
+  lessons: {
     worksheetId: string,
   }[],
 }
@@ -22,7 +22,7 @@ export interface CreateCourseDTO {
   description: string,
   coverImageUrl: string,
   type: CourseType,
-  topics: {
+  lessons: {
     worksheetId: string,
   }[],
 }
@@ -44,7 +44,7 @@ export interface CourseResponseDTO {
   state: EntityState,
   ownerUser: UserBasicInterface,
   user: CourseUserType,
-  topics: {
+  lessons: {
     worksheetId: string,
     userProgress: {
       content: WorkSheetStatusContent,
