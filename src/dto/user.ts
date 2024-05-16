@@ -11,12 +11,15 @@ import {
   UserStatus,
 } from '../types';
 
-export interface UserSummaryResponseDTO {
+export interface UserBasicInfoResponseDTO {
+  nickname: string,
+  imageUrl: string,
+}
+
+export interface UserSummaryResponseDTO extends UserBasicInfoResponseDTO {
   email: string,
   familyName: string,
   givenName: string,
-  imageUrl: string,
-  nickname: string,
   status: UserStatus,
 }
 
