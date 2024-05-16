@@ -1,6 +1,19 @@
-import { EntityState, UserBasicInterface } from '../types';
-import { CourseStatus, CourseType } from '../types/prisma';
+import { EntityState, EntityStateDocument, UserBasicInterface } from '../types';
+import { CourseType } from '../types/prisma';
+import { EntityMembersDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
+
+export interface CourseBaseDocument {
+  key: string,
+  title: string,
+  abstract: string,
+  description: string,
+  coverImageUrl: string,
+  type: CourseType,
+  topics: {
+    worksheetId: string,
+  }[],
+}
 
 export interface CreateCourseDTO {
   key: string,
@@ -50,4 +63,11 @@ export interface CourseSummaryListResponseDTO {
   state: EntityState,
   ownerUser: UserBasicInterface,
   user: CourseUserType,
+}
+
+interface PostCourseDTO extends CourseBaseDocument, EntityStateDocument {
+  members: EntityMembersDTO,
+}
+
+interface PutCourseDTO extends PostCourseDTO {
 }
