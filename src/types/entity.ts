@@ -17,16 +17,16 @@ export declare type EntityUsersMemberUserData = {
   joinedAtTimestamp: number;
 };
 
-export interface EntityMembersDocument {
-  allAdministrators: boolean,
+export interface EntityMembers {
+  rankAdministrators: EntityMembersRank,
   administrators: { [key: string]: EntityUsersMemberUserData },
-  allManagers: boolean,
+  rankManagers: EntityMembersRank,
   managers: { [key: string]: EntityUsersMemberUserData },
-  allGuests: boolean,
+  rankGuests: EntityMembersRank,
   guests: { [key: string]: EntityUsersMemberUserData },
-  allSpectators: boolean,
+  rankSpectators: EntityMembersRank,
   spectators: { [key: string]: EntityUsersMemberUserData },
-  allParticipants: boolean,
+  rankParticipants: EntityMembersRank,
   participants: { [key: string]: EntityUsersMemberUserData },
 }
 
