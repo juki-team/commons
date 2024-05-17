@@ -20,12 +20,12 @@ export const FILE_STATE: { [key in FileState]: { value: FileState, label: string
   [FileState.RELEASED]: {
     value: FileState.RELEASED,
     label: 'released',
-    description: 'the record is active, the record will be viewable for viewers and editable for editors',
+    description: 'the record is released, the record will be viewable for viewers and editable for editors',
   },
   [FileState.IN_DRAFT]: {
     value: FileState.IN_DRAFT,
     label: 'in draft',
-    description: 'the record is not active, the record will be viewable and editable only for the owner',
+    description: 'the record is in draft, the record will be viewable for viewers and editable for editors',
   },
   [FileState.ARCHIVED]: {
     value: FileState.ARCHIVED,
@@ -44,7 +44,7 @@ export const FILE_ACCESS_TYPE: {
   [FileAccess.PRIVATE]: {
     value: FileAccess.PRIVATE,
     label: 'private',
-    description: 'the record will be viewable and editable only for you',
+    description: 'the record will be viewable and editable only for the owner',
   },
   [FileAccess.RESTRICTED]: {
     value: FileAccess.RESTRICTED,
