@@ -1,27 +1,28 @@
+import { EntityMembersRank } from '../types';
 import { UserBasicInfoResponseDTO } from './user';
 
 export interface EntityMembersDTO {
-  allAdministrators?: boolean,
+  rankAdministrators?: EntityMembersRank,
   administrators?: string[],
-  allManagers?: boolean,
+  rankManagers?: EntityMembersRank,
   managers?: string[],
-  allGuests?: boolean,
+  rankGuests?: EntityMembersRank,
   guests?: string[],
-  allSpectators?: boolean,
+  rankSpectators?: EntityMembersRank,
   spectators?: string[],
-  allParticipants?: boolean,
+  rankParticipants?: EntityMembersRank,
   participants?: string[],
 }
 
 export type EntityMembersResponseDTO = {
-  allAdministrators: boolean,
+  rankAdministrators: EntityMembersRank,
   administrators: { [key: string]: UserBasicInfoResponseDTO },
-  allManagers: boolean,
+  rankManagers: EntityMembersRank,
   managers: { [key: string]: UserBasicInfoResponseDTO },
-  allGuests: boolean,
+  rankGuests: EntityMembersRank,
   guests: { [key: string]: UserBasicInfoResponseDTO },
-  allSpectators: boolean,
+  rankSpectators: EntityMembersRank,
   spectators: { [key: string]: UserBasicInfoResponseDTO },
-  allParticipants: boolean,
+  rankParticipants: EntityMembersRank,
   participants: { [key: string]: UserBasicInfoResponseDTO },
 }

@@ -1,4 +1,8 @@
-type ObjectId = null;
+export enum EntityMembersRank {
+  NONE = 'NONE',
+  CLOSE = 'CLOSE',
+  OPEN = 'OPEN',
+}
 
 export enum EntityState {
   RELEASED = 'RELEASED',
@@ -8,7 +12,7 @@ export enum EntityState {
 }
 
 export declare type EntityUsersMemberUserData = {
-  userId: ObjectId;
+  userId: string;
   lastVisitTimestamp: number | null;
   joinedAtTimestamp: number;
 };
@@ -31,11 +35,11 @@ export interface EntityStateDocument {
 }
 
 export interface EntityOwnerDocument {
-  ownerUserId: ObjectId,
+  ownerUserId: string,
 }
 
 export interface EntityCompanyDocument {
-  companyId: ObjectId,
+  companyId: string,
 }
 
 export interface EntityTimestampsDocument {
