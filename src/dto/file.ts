@@ -1,5 +1,4 @@
 import {
-  FileAccess,
   FileContentType,
   FileMemberRole,
   FileMembersResponseType,
@@ -13,7 +12,6 @@ export interface FileBasic {
   name: string,
   description: string,
   state: FileState,
-  access: FileAccess,
 }
 
 export interface CreateFileDTO extends FileBasic {

@@ -1,16 +1,9 @@
-import { BodyNoteSheetType, EntityAccess, EntityState, UserBasicInterface } from '../types';
+import { EntityState, UserBasicInterface } from '../types';
 
 export enum FileState {
   RELEASED = EntityState.RELEASED,
   IN_DRAFT = EntityState.IN_DRAFT,
   ARCHIVED = EntityState.ARCHIVED,
-}
-
-export enum FileAccess {
-  PRIVATE = EntityAccess.PRIVATE,
-  RESTRICTED = EntityAccess.RESTRICTED,
-  PUBLIC = EntityAccess.PUBLIC,
-  EXPOSED = EntityAccess.EXPOSED,
 }
 
 export enum FileRole {
@@ -29,26 +22,18 @@ export enum FileMemberRole {
 
 export enum FileType {
   FOLDER = 'FOLDER',
-  NOTE_SHEET = 'NOTE_SHEET',
-  WORKSHEET = 'WORKSHEET',
   FILE = 'FILE',
 }
 
 export type FolderFileContentType = { type: FileType.FOLDER };
-export type NoteSheetFileContentType = { type: FileType.NOTE_SHEET, body: BodyNoteSheetType[], isSolvable: boolean };
-export type WorksheetFileContentType = { type: FileType.WORKSHEET, body: [] };
 export type FileFileContentType = { type: FileType.FILE, mime: string, key: string }
 
 export type FileContentType =
   FolderFileContentType
-  | NoteSheetFileContentType
-  | WorksheetFileContentType
   | FileFileContentType;
 
 export type SummaryFileContentType =
   FolderFileContentType
-  | Omit<NoteSheetFileContentType, 'body' | 'isSolvable'>
-  | Omit<WorksheetFileContentType, 'body'>
   | Omit<FileFileContentType, 'key'>;
 
 export type FileUserResponseType = {

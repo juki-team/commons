@@ -35,11 +35,6 @@ export enum Status {
   NONE = 'NONE'
 }
 
-export enum EntityType {
-  PUBLIC = 'PUBLIC', // For all users
-  PRIVATE = 'PRIVATE', // For invited users
-}
-
 export enum EntityStatus {
   PUBLIC = 'PUBLIC', // Active for the users
   RESERVED = 'RESERVED', // On preparation
