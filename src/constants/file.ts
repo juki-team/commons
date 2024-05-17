@@ -3,8 +3,6 @@ import { FileRole, FileState, FileType, EntityAccess } from '../types';
 export const FILE_TYPE: { [key in FileType]: { value: FileType, label: string } } = {
   [FileType.FILE]: { value: FileType.FILE, label: 'file' },
   [FileType.FOLDER]: { value: FileType.FOLDER, label: 'folder' },
-  [FileType.NOTE_SHEET]: { value: FileType.NOTE_SHEET, label: 'note sheet' },
-  [FileType.WORKSHEET]: { value: FileType.WORKSHEET, label: 'worksheet' },
 };
 
 export const FILE_ROLE: { [key in FileRole]: { value: FileRole, label: string, level: number } } = {
