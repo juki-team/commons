@@ -1,23 +1,23 @@
-import { CourseRole, CourseStatus } from '../types';
+import { CourseRole, EntityState } from '../types';
 
-export const COURSE_STATUS: { [key in CourseStatus]: { value: CourseStatus, label: string, description: string } } = {
-  [CourseStatus.RELEASED]: {
-    value: CourseStatus.RELEASED,
+export const COURSE_STATUS: { [key in EntityState]: { value: EntityState, label: string, description: string } } = {
+  [EntityState.RELEASED]: {
+    value: EntityState.RELEASED,
     label: 'released',
     description: 'the course can now be taken',
   },
-  [CourseStatus.IN_REVIEW]: {
-    value: CourseStatus.IN_REVIEW,
+  [EntityState.IN_REVIEW]: {
+    value: EntityState.IN_REVIEW,
     label: 'in review',
     description: 'the course is under review',
   },
-  [CourseStatus.IN_DRAFT]: {
-    value: CourseStatus.IN_DRAFT,
+  [EntityState.IN_DRAFT]: {
+    value: EntityState.IN_DRAFT,
     label: 'in draft',
     description: 'the course is in draft',
   },
-  [CourseStatus.ARCHIVED]: {
-    value: CourseStatus.ARCHIVED,
+  [EntityState.ARCHIVED]: {
+    value: EntityState.ARCHIVED,
     label: 'archived',
     description: 'the course will not appear for anyone, contact the administrator to see it again',
   },
