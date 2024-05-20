@@ -1,4 +1,4 @@
-import { EntityMembersRank } from '../types';
+import { EntityAccess, EntityMembersRank } from '../types';
 import { UserBasicInfoResponseDTO } from './user';
 
 export interface EntityMembersDTO {
@@ -14,7 +14,7 @@ export interface EntityMembersDTO {
   participants?: string[],
 }
 
-export type EntityMembersResponseDTO = {
+export interface EntityMembersResponseDTO {
   rankAdministrators: EntityMembersRank,
   administrators: { [key: string]: UserBasicInfoResponseDTO },
   rankManagers: EntityMembersRank,
@@ -25,4 +25,22 @@ export type EntityMembersResponseDTO = {
   spectators: { [key: string]: UserBasicInfoResponseDTO },
   rankParticipants: EntityMembersRank,
   participants: { [key: string]: UserBasicInfoResponseDTO },
+}
+
+export interface DocumentUserResponseDTO {
+  isOwner: boolean,
+  isManager: boolean,
+  isSpectator: boolean,
+}
+
+export interface DocumentMembersDTO {
+  access: EntityAccess,
+  managers?: string[],
+  spectators?: string[],
+}
+
+export interface DocumentMembersResponseDTO {
+  access: EntityAccess,
+  managers: { [key: string]: UserBasicInfoResponseDTO },
+  spectators: { [key: string]: UserBasicInfoResponseDTO },
 }

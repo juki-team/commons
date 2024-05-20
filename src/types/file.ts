@@ -41,8 +41,3 @@ export type FileUserResponseType = {
   isViewer: boolean,
   isOwner: boolean,
 }
-
-export type FileMembersResponseType = {
-  editors: { [key: string]: UserBasicInterface },
-  viewers: { [key: string]: UserBasicInterface },
-}
