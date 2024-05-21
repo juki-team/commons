@@ -1,4 +1,4 @@
-import { EntityState, UserBasicInterface } from '../types';
+import { EntityState } from '../types';
 
 export enum FileState {
   RELEASED = EntityState.RELEASED,
@@ -35,9 +35,3 @@ export type FileContentType =
 export type SummaryFileContentType =
   FolderFileContentType
   | Omit<FileFileContentType, 'key'>;
-
-export type FileUserResponseType = {
-  isEditor: boolean,
-  isViewer: boolean,
-  isOwner: boolean,
-}

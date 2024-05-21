@@ -46,3 +46,7 @@ export interface EntityTimestampsDocument {
   createdAt: Date,
   updatedAt: Date,
 }
+
+export type NewEntityDocument<T> = T & EntityCompanyDocument & EntityOwnerDocument & EntityTimestampsDocument;
+
+export type CreateEntityDocument<T> = T;

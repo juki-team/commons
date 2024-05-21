@@ -1,4 +1,5 @@
-import { EntityState, EntityStateDocument, UserBasicInterface } from '../types';
+import { UserBasicInterface } from '../types';
+import { CourseState } from '../types/course';
 import { CourseType } from '../types/prisma';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
@@ -28,8 +29,7 @@ export interface CourseSummaryListResponseDTO {
   abstract: string,
   description: string,
   coverImageUrl: string,
-  type: CourseType,
-  state: EntityState,
+  state: CourseState,
   ownerUser: UserBasicInterface,
   user: CourseUserType,
 }
@@ -45,7 +45,8 @@ export interface CourseResponseDTO extends CourseSummaryListResponseDTO {
   members: EntityMembersResponseDTO,
 }
 
-export interface PostCourseDTO extends CourseBaseDocument, EntityStateDocument {
+export interface PostCourseDTO extends CourseBaseDocument {
+  state: CourseState,
   members: EntityMembersDTO,
 }
 

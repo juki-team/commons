@@ -1,13 +1,9 @@
-import { BodyNoteSheetType, FileState } from '../types';
-import { DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity';
+import { BodyNoteSheetType, WorksheetBaseDocument } from '../types';
+import { DocumentMembersDTO, DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity';
 import { UserBasicInfoResponseDTO } from './user';
 
-export interface WorksheetSummaryListResponseDTO {
-  name: string,
-  description: string,
-  state: FileState,
+export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocument, 'folderId' | 'content' | 'members'> {
   key: string,
-  isSolvable: boolean,
   updatedAt: Date,
   user: DocumentUserResponseDTO,
   owner: UserBasicInfoResponseDTO,
@@ -17,3 +13,9 @@ export interface WorksheetDataResponseDTO extends WorksheetSummaryListResponseDT
   content: BodyNoteSheetType[],
   members: DocumentMembersResponseDTO,
 }
+
+export interface PostWorksheetDTO extends Omit<WorksheetBaseDocument, 'members'> {
+  members: DocumentMembersDTO,
+}
+
+export interface PutWorksheetDTO extends PostWorksheetDTO {}
