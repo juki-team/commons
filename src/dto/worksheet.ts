@@ -18,4 +18,6 @@ export interface PostWorksheetDTO extends Omit<WorksheetBaseDocument, 'members'>
   members: DocumentMembersDTO,
 }
 
-export interface PutWorksheetDTO extends PostWorksheetDTO {}
+export interface PutWorksheetDTO extends PostWorksheetDTO {
+  key: string,
+}
