@@ -3,6 +3,7 @@ export * from './commons';
 export * from './company';
 export * from './contest';
 export * from './entity';
+export * from './group';
 export * from './file';
 export * from './judge';
 export * from './prisma';

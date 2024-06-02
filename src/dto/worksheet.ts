@@ -14,13 +14,6 @@ export interface WorksheetDataResponseDTO extends WorksheetSummaryListResponseDT
   members: DocumentMembersResponseDTO,
 }
 
-export interface PostWorksheetDTO extends Omit<WorksheetBaseDocument, 'members'> {
+export interface UpsertWorksheetDTO extends Omit<WorksheetBaseDocument, 'members'> {
   members: DocumentMembersDTO,
-}
-
-export interface PutWorksheetDTO extends PostWorksheetDTO {
-  key: string,
-}
-
-export interface UpsertWorksheetDTO extends PostWorksheetDTO, PutWorksheetDTO {
 }
