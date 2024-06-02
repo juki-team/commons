@@ -1,4 +1,4 @@
-import { EntityState } from '../types';
+import { EntityState } from './entity';
 
 export enum FileState {
   RELEASED = EntityState.RELEASED,
