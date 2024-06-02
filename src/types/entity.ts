@@ -45,6 +45,6 @@ export interface EntityTimestampsDocument {
 
 export type NewEntityDocument<T> = T & EntityCompanyDocument & EntityOwnerDocument & EntityTimestampsDocument;
 
-export type CreateEntityDocument<T> = T;
+export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>;
 
-export type UpdateEntityDocument<T> = Partial<Omit<T, 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>>;
+export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>>;
