@@ -30,10 +30,6 @@ export interface EntityMembers {
   participants: { [key: string]: EntityUsersMemberUserData },
 }
 
-export interface EntityStateDocument {
-  state: EntityState,
-}
-
 export interface EntityOwnerDocument {
   ownerUserId: string,
 }
@@ -50,3 +46,5 @@ export interface EntityTimestampsDocument {
 export type NewEntityDocument<T> = T & EntityCompanyDocument & EntityOwnerDocument & EntityTimestampsDocument;
 
 export type CreateEntityDocument<T> = T;
+
+export type UpdateEntityDocument<T> = Partial<Omit<T, 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>>;
