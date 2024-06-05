@@ -1,6 +1,6 @@
-import { UserBasicInterface } from '../types/users';
 import { CourseBaseDocument, CourseState } from '../types/course';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
+import { UserBasicInterface } from '../types/users';
+import { DocumentMembersDTO, EntityMembersResponseDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
 
 export type CourseUserType = {
@@ -32,10 +32,6 @@ export interface CourseResponseDTO extends CourseSummaryListResponseDTO {
   members: EntityMembersResponseDTO,
 }
 
-export interface PostCourseDTO extends CourseBaseDocument {
-  state: CourseState,
-  members: EntityMembersDTO,
-}
-
-export interface PutCourseDTO extends PostCourseDTO {
+export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members'> {
+  members: DocumentMembersDTO,
 }
