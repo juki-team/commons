@@ -10,6 +10,7 @@ export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocum
 }
 
 export interface WorksheetDataResponseDTO extends WorksheetSummaryListResponseDTO {
+  folderId: string,
   content: BodyNoteSheetType[],
   members: DocumentMembersResponseDTO,
 }
