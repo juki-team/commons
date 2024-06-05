@@ -1,20 +1,7 @@
-import { UserBasicInterface } from '../types';
-import { CourseState } from '../types/course';
-import { CourseType } from '../types/prisma';
+import { UserBasicInterface } from '../types/users';
+import { CourseBaseDocument, CourseState } from '../types/course';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
-
-export interface CourseBaseDocument {
-  key: string,
-  title: string,
-  abstract: string,
-  description: string,
-  coverImageUrl: string,
-  type: CourseType,
-  lessons: {
-    worksheetId: string,
-  }[],
-}
 
 export type CourseUserType = {
   isOwner: boolean,
