@@ -3,6 +3,7 @@ import { FileState } from './file';
 import { BodyNoteSheetType } from './sheet';
 
 export interface WorksheetBaseDocument {
+  key: string,
   folderId: string,
   name: string,
   description: string,
