@@ -32,6 +32,6 @@ export interface CourseResponseDTO extends CourseSummaryListResponseDTO {
   members: EntityMembersResponseDTO,
 }
 
-export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members'> {
+export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key'> {
   members: DocumentMembersDTO,
 }
