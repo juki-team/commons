@@ -14,6 +14,6 @@ export interface WorksheetDataResponseDTO extends WorksheetSummaryListResponseDT
   members: DocumentMembersResponseDTO,
 }
 
-export interface UpsertWorksheetDTO extends Omit<WorksheetBaseDocument, 'members'> {
+export interface UpsertWorksheetDTO extends Omit<WorksheetBaseDocument, 'members' | 'key'> {
   members: DocumentMembersDTO,
 }
