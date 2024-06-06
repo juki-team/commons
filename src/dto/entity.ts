@@ -35,12 +35,18 @@ export interface DocumentUserResponseDTO {
 
 export interface DocumentMembersDTO {
   access: EntityAccess,
-  managers?: string[],
-  spectators?: string[],
+  administrators: string[],
+  managers: string[],
+  participants: string[],
+  guests: string[],
+  spectators: string[],
 }
 
 export interface DocumentMembersResponseDTO {
   access: EntityAccess,
+  administrators: { [key: string]: UserBasicInfoResponseDTO },
   managers: { [key: string]: UserBasicInfoResponseDTO },
+  participants: { [key: string]: UserBasicInfoResponseDTO },
+  guests: { [key: string]: UserBasicInfoResponseDTO },
   spectators: { [key: string]: UserBasicInfoResponseDTO },
 }
