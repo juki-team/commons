@@ -42,21 +42,21 @@ export const ENTITY_ACCESS: {
   [EntityAccess.PRIVATE]: {
     value: EntityAccess.PRIVATE,
     label: 'private',
-    description: 'the record will be visible and editable only for the owner',
+    description: 'the record will be visible and editable only to the owner',
   },
   [EntityAccess.RESTRICTED]: {
     value: EntityAccess.RESTRICTED,
     label: 'restricted',
-    description: 'the record will be visible and editable for the owner, the record will be visible for viewers and editable for editors',
+    description: 'the record will be visible to viewers and the owner and editable to editors and the owner',
   },
   [EntityAccess.PUBLIC]: {
     value: EntityAccess.PUBLIC,
     label: 'public',
-    description: 'the record will be visible to anyone and editable by editors and the owner',
+    description: 'the record will be visible to anyone and editable to editors and the owner',
   },
   [EntityAccess.EXPOSED]: {
     value: EntityAccess.EXPOSED,
     label: 'exposed',
-    description: 'the record will be visible and editable for anyone',
+    description: 'the record will be visible and editable to anyone',
   },
 };
