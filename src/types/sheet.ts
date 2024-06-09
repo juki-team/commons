@@ -62,7 +62,7 @@ export type QuizProblemSheetType = BasicSheetType & {
   type: SheetType.QUIZ_PROBLEM;
   description: string,
   solutionSourceCode: SourceCodeType;
-  testCases: { [key: string]: CodeEditorTestCaseType & { hidden: boolean } };
+  testCases: { [key: string]: CodeEditorTestCaseType };
   languages: ProgrammingLanguage[];
   height: number;
   scoringMode: 'TOTAL' | 'PARTIAL',
