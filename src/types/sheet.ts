@@ -50,7 +50,7 @@ export type CodeEditorSheetType = BasicSheetType & {
   sourceCode: SourceCodeType,
   testCases: CodeEditorTestCasesType,
   languages: ProgrammingLanguage[],
-  height: 'auto' | number,
+  height: number,
 }
 
 export type GraphSheetType = BasicSheetType & {
@@ -64,7 +64,7 @@ export type QuizProblemSheetType = BasicSheetType & {
   solutionSourceCode: SourceCodeType;
   testCases: { [key: string]: CodeEditorTestCaseType & { hidden: boolean } };
   languages: ProgrammingLanguage[];
-  height: 'auto' | number;
+  height: number;
   scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
