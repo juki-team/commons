@@ -52,7 +52,7 @@ export const ENTITY_ACCESS: {
   [EntityAccess.PUBLIC]: {
     value: EntityAccess.PUBLIC,
     label: 'public',
-    description: 'the record will be visible and editable for the owner, the record will be visible for anyone and editable for editors',
+    description: 'the record will be visible to anyone and editable by editors and the owner',
   },
   [EntityAccess.EXPOSED]: {
     value: EntityAccess.EXPOSED,
