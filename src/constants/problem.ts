@@ -1,4 +1,4 @@
-import { ProblemInput, ProblemMode, ProblemOutput, ProblemRole, ProblemStatus, ProblemType } from '../types';
+import { ProblemInput, ProblemScoringMode, ProblemOutput, ProblemRole, ProblemStatus, ProblemType } from '../types';
 
 export const PROBLEM_STATUS: {
   [key in ProblemStatus]: {
@@ -40,17 +40,17 @@ export const PROBLEM_OUTPUT: { [key in ProblemOutput]: { value: ProblemOutput, l
   [ProblemOutput.INTERACTIVE]: { value: ProblemOutput.INTERACTIVE, label: 'interactive' },
 };
 
-export const PROBLEM_MODES = [ ProblemMode.TOTAL, ProblemMode.SUBTASK, ProblemMode.PARTIAL ];
+export const PROBLEM_MODES = [ ProblemScoringMode.TOTAL, ProblemScoringMode.SUBTASK, ProblemScoringMode.PARTIAL ];
 
-export const PROBLEM_MODE: { [key in ProblemMode]: { value: ProblemMode, label: string, description: string } } = {
-  [ProblemMode.TOTAL]: {
-    value: ProblemMode.TOTAL,
+export const PROBLEM_MODE: { [key in ProblemScoringMode]: { value: ProblemScoringMode, label: string, description: string } } = {
+  [ProblemScoringMode.TOTAL]: {
+    value: ProblemScoringMode.TOTAL,
     label: 'total',
     description: 'if all test cases are Accepted the result is Accepted '
       + 'otherwise it will be Runtime Error, Time Limited Exceeded, Memory Limited Exceeded, Wrong Answer or Presentation Error in that order.',
   },
-  [ProblemMode.SUBTASK]: {
-    value: ProblemMode.SUBTASK,
+  [ProblemScoringMode.SUBTASK]: {
+    value: ProblemScoringMode.SUBTASK,
     label: 'subtask',
     description: 'the test cases are grouped and each group of test cases is assigned a score, '
       + 'if all test cases in a group are Accepted then the score assigned to that group of test cases is added to total score, '
@@ -58,8 +58,8 @@ export const PROBLEM_MODE: { [key in ProblemMode]: { value: ProblemMode, label: 
       + 'otherwise if the total score is greater than zero the result is Partial Accepted with the total accumulated score, '
       + 'otherwise it will be Runtime Error, Time Limited Exceeded, Memory Limited Exceeded, Wrong Answer or Presentation Error in that order.',
   },
-  [ProblemMode.PARTIAL]: {
-    value: ProblemMode.PARTIAL,
+  [ProblemScoringMode.PARTIAL]: {
+    value: ProblemScoringMode.PARTIAL,
     label: 'partial',
     description: 'the test cases are grouped and each group is associated with X points, '
       + 'and each test case in a group scores X points ',

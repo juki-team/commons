@@ -1,5 +1,5 @@
 import { ProgrammingLanguage } from './commons';
-import { ProblemMode, ProblemSettingsPointsByGroupsType, ProblemType } from './problems';
+import { ProblemScoringMode, ProblemSettingsPointsByGroupsType, ProblemType } from './problems';
 
 export enum ErrorCode {
   // General errors
@@ -231,7 +231,7 @@ export type JudgingProblemDataType = {
   problemTimeLimit: number,
   problemMemoryLimit: number,
   problemWithPE: boolean,
-  problemMode: ProblemMode,
+  problemMode: ProblemScoringMode,
   problemPointsByGroups: ProblemSettingsPointsByGroupsType,
   problemSampleCases: ProblemSampleCaseType[],
   problemTestCases: ProblemTestCaseType[],

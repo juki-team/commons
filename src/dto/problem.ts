@@ -1,6 +1,6 @@
 import {
   Judge,
-  ProblemMode,
+  ProblemScoringMode,
   ProblemSettingsType,
   ProblemStatementType,
   ProblemStatus,
@@ -28,7 +28,7 @@ export interface ProblemSummaryListResponseDTO {
   user: ProblemUserType,
   ownerUserNickname: string,
   settings: {
-    mode: ProblemMode,
+    mode: ProblemScoringMode,
     type: ProblemType,
   }
 }

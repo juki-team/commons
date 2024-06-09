@@ -36,7 +36,7 @@ export enum ProblemType {
   INTERACTIVE = 'INTERACTIVE', // The input interact with the output of other file // TODO
 }
 
-export enum ProblemMode {
+export enum ProblemScoringMode {
   SUBTASK = 'SUBTASK', // by groups // Supported
   TOTAL = 'TOTAL', // one group // Supported
   PARTIAL = 'PARTIAL', // each testcase +0.1 points // Supported
@@ -66,7 +66,7 @@ export type ProblemSettingsType = {
   memoryLimit: number,
   withPE: boolean,
   type: ProblemType,
-  mode: ProblemMode,
+  mode: ProblemScoringMode,
   byProgrammingLanguage: ProblemSettingsByProgrammingLanguageType,
   evaluatorSource: string,
   pointsByGroups: ProblemSettingsPointsByGroupsType,

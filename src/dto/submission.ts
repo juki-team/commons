@@ -1,7 +1,7 @@
 import {
   DataLogType,
   Judge,
-  ProblemMode,
+  ProblemScoringMode,
   ProblemType,
   ProblemVerdict,
   ProgrammingLanguage,
@@ -25,7 +25,7 @@ export interface SubmissionResponseDTO {
   problemKey: string,
   problemJudge: Judge,
   problemName: string, // foreign
-  problemMode: ProblemMode, // foreign
+  problemMode: ProblemScoringMode, // foreign
   problemType: ProblemType, // foreign
   problemTimeLimit: number, // foreign
   problemMemoryLimit: number, // foreign

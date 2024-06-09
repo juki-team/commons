@@ -1,6 +1,6 @@
 import {
   Judge,
-  ProblemMode,
+  ProblemScoringMode,
   ProblemType,
   ProblemVerdict,
   ProgrammingLanguage,
@@ -177,10 +177,10 @@ export const JUDGE: JudgeType = {
   },
 };
 
-export const RUNNER_ACCEPTED_PROBLEM_MODES: ProblemMode[] = [
-  ProblemMode.TOTAL,
-  ProblemMode.SUBTASK,
-  ProblemMode.PARTIAL,
+export const RUNNER_ACCEPTED_PROBLEM_MODES: ProblemScoringMode[] = [
+  ProblemScoringMode.TOTAL,
+  ProblemScoringMode.SUBTASK,
+  ProblemScoringMode.PARTIAL,
 ];
 
 export const RUNNER_ACCEPTED_PROBLEM_TYPES: ProblemType[] = [
