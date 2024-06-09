@@ -18,12 +18,12 @@ export const FILE_STATE: { [key in FileState]: { value: FileState, label: string
   [FileState.RELEASED]: {
     value: FileState.RELEASED,
     label: 'released',
-    description: 'the record is released, the record will be viewable for viewers and editable for editors',
+    description: 'the record is released',
   },
   [FileState.IN_DRAFT]: {
     value: FileState.IN_DRAFT,
     label: 'in draft',
-    description: 'the record is in draft, the record will be viewable for viewers and editable for editors',
+    description: 'the record is in draft',
   },
   [FileState.ARCHIVED]: {
     value: FileState.ARCHIVED,
@@ -42,21 +42,21 @@ export const ENTITY_ACCESS: {
   [EntityAccess.PRIVATE]: {
     value: EntityAccess.PRIVATE,
     label: 'private',
-    description: 'the record will be viewable and editable only for the owner',
+    description: 'the record will be visible and editable only for the owner',
   },
   [EntityAccess.RESTRICTED]: {
     value: EntityAccess.RESTRICTED,
     label: 'restricted',
-    description: 'the record will be viewable and editable for the owner, the record will be viewable for viewers and editable for editors',
+    description: 'the record will be visible and editable for the owner, the record will be visible for viewers and editable for editors',
   },
   [EntityAccess.PUBLIC]: {
     value: EntityAccess.PUBLIC,
     label: 'public',
-    description: 'the record will be viewable and editable for the owner, the record will be viewable for anyone and editable for editors',
+    description: 'the record will be visible and editable for the owner, the record will be visible for anyone and editable for editors',
   },
   [EntityAccess.EXPOSED]: {
     value: EntityAccess.EXPOSED,
     label: 'exposed',
-    description: 'the record will be viewable and editable for anyone',
+    description: 'the record will be visible and editable for anyone',
   },
 };
