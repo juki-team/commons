@@ -50,3 +50,7 @@ export interface DocumentMembersResponseDTO {
   guests: { [key: string]: UserBasicInfoResponseDTO },
   spectators: { [key: string]: UserBasicInfoResponseDTO },
 }
+
+export interface DocumentCreateResponseDTO {
+  key: string,
+}

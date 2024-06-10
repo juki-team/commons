@@ -36,9 +36,6 @@ export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
 }
 
-export interface CourseCreateResponseDTO extends Pick<CourseBaseDocument, 'key'> {
-}
-
 export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key'> {
   members: DocumentMembersDTO,
 }
