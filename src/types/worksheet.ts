@@ -1,6 +1,6 @@
 import { EntityMembers } from './entity';
 import { FileState } from './file';
-import { BodyNoteSheetType } from './sheet';
+import { BodyNoteSheetType, NewPageSheetType } from './sheet';
 
 export interface WorksheetBaseDocument {
   key: string,
@@ -12,3 +12,5 @@ export interface WorksheetBaseDocument {
   state: FileState,
   members: EntityMembers,
 }
+
+export type WorksheetsInPages = { header: NewPageSheetType, content: BodyNoteSheetType[] }[];

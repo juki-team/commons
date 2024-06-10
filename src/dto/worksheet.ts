@@ -1,4 +1,4 @@
-import { BodyNoteSheetType, WorksheetBaseDocument } from '../types';
+import { BasicSheetType, BodyNoteSheetType, NewPageSheetType, WorksheetBaseDocument } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity';
 import { UserBasicInfoResponseDTO } from './user';
 
@@ -11,11 +11,12 @@ export interface WorksheetUserResponseDTO {
 export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocument, 'folderId' | 'content' | 'members'> {
   key: string,
   updatedAt: Date,
+  content: { header: NewPageSheetType, content: BasicSheetType[] }[],
   user: WorksheetUserResponseDTO,
   owner: UserBasicInfoResponseDTO,
 }
 
-export interface WorksheetDataResponseDTO extends WorksheetSummaryListResponseDTO {
+export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'content'> {
   folderId: string,
   content: BodyNoteSheetType[],
   members: DocumentMembersResponseDTO,

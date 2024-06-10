@@ -12,7 +12,7 @@ export enum SheetType {
   NEW_PAGE = 'NEW_PAGE',
 }
 
-type BasicSheetType = {
+export type BasicSheetType = {
   id: string,
   type: SheetType,
   title: string,

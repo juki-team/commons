@@ -3,6 +3,7 @@ import { UserBasicInfoInterface } from '../types/users';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
 import { UserBasicInfoResponseDTO } from './user';
+import { WorksheetSummaryListResponseDTO } from './worksheet';
 
 export type CourseUserResponseDTO = {
   isOwner: boolean,
@@ -22,9 +23,12 @@ export interface CourseSummaryListResponseDTO {
   user: CourseUserResponseDTO,
 }
 
+export interface CourseLessonsWorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'user' | 'owner'> {
+}
+
 export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
   lessons: {
-    worksheetKey: string,
+    worksheet: CourseLessonsWorksheetDataResponseDTO,
     usersProgress: {
       [key: string]: {
         user: UserBasicInfoResponseDTO,
