@@ -1,6 +1,6 @@
 import { CourseBaseDocument, CourseState } from '../types/course';
 import { UserBasicInfoInterface } from '../types/users';
-import { DocumentMembersDTO, EntityMembersResponseDTO } from './entity';
+import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
 import { UserBasicInfoResponseDTO } from './user';
 
@@ -33,7 +33,7 @@ export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
       }
     }
   }[],
-  members: EntityMembersResponseDTO,
+  members: DocumentMembersResponseDTO,
 }
 
 export interface CourseCreateResponseDTO extends Pick<CourseBaseDocument, 'key'> {
