@@ -15,7 +15,7 @@ export interface CourseBaseDocument {
   coverImageUrl: string,
   state: CourseState,
   lessons: {
-    worksheetKey: string,
+    worksheetId: string,
   }[],
   members: EntityMembers,
 }
