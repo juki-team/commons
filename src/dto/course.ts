@@ -23,7 +23,7 @@ export interface CourseSummaryListResponseDTO {
   user: CourseUserResponseDTO,
 }
 
-export interface CourseLessonsWorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'user' | 'owner'> {
+export interface CourseLessonsWorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'user' | 'owner' | 'updatedAt'> {
 }
 
 export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
