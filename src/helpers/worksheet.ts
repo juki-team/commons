@@ -1,7 +1,7 @@
 import { NEW_PAGE_SHEET } from '../constants';
 import { BodyNoteSheetType, NewPageSheetType, SheetType, WorksheetsInPages } from '../types';
 
-export const getSheetsInPages = (initialSheets: BodyNoteSheetType[]) => {
+export const getWorksheetsInPages = (initialSheets: BodyNoteSheetType[]) => {
   const sheets = [ ...initialSheets ];
   if (sheets[0]?.type !== SheetType.NEW_PAGE) {
     sheets.unshift(NEW_PAGE_SHEET());
