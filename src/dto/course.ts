@@ -24,7 +24,7 @@ export interface CourseSummaryListResponseDTO {
 
 export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
   lessons: {
-    worksheetId: string,
+    worksheetKey: string,
     usersProgress: {
       [key: string]: {
         user: UserBasicInfoResponseDTO,
