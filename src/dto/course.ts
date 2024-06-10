@@ -1,12 +1,13 @@
 import { CourseBaseDocument, CourseState } from '../types/course';
-import { UserBasicInterface } from '../types/users';
+import { UserBasicInfoInterface } from '../types/users';
 import { DocumentMembersDTO, EntityMembersResponseDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
+import { UserBasicInfoResponseDTO } from './user';
 
-export type CourseUserType = {
+export type CourseUserResponseDTO = {
   isOwner: boolean,
-  isEditor: boolean,
-  isEnrolled: boolean,
+  isManager: boolean,
+  isParticipant: boolean,
   isGuest: boolean,
 };
 
@@ -17,19 +18,25 @@ export interface CourseSummaryListResponseDTO {
   description: string,
   coverImageUrl: string,
   state: CourseState,
-  ownerUser: UserBasicInterface,
-  user: CourseUserType,
+  owner: UserBasicInfoInterface,
+  user: CourseUserResponseDTO,
 }
 
-export interface CourseResponseDTO extends CourseSummaryListResponseDTO {
+export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
   lessons: {
     worksheetId: string,
-    userProgress: {
-      content: WorkSheetStatusContent,
-      progress: number,
+    usersProgress: {
+      [key: string]: {
+        user: UserBasicInfoResponseDTO,
+        content: WorkSheetStatusContent,
+        progress: number,
+      }
     }
   }[],
   members: EntityMembersResponseDTO,
+}
+
+export interface CourseCreateResponseDTO extends Pick<CourseBaseDocument, 'key'> {
 }
 
 export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key'> {

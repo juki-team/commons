@@ -2,10 +2,16 @@ import { BodyNoteSheetType, WorksheetBaseDocument } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity';
 import { UserBasicInfoResponseDTO } from './user';
 
+export interface WorksheetUserResponseDTO {
+  isOwner: boolean,
+  isManager: boolean,
+  isSpectator: boolean,
+}
+
 export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocument, 'folderId' | 'content' | 'members'> {
   key: string,
   updatedAt: Date,
-  user: DocumentUserResponseDTO,
+  user: WorksheetUserResponseDTO,
   owner: UserBasicInfoResponseDTO,
 }
 
