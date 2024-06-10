@@ -18,6 +18,7 @@ export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocum
 
 export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'content'> {
   folderId: string,
+  isSolvable: boolean,
   content: BodyNoteSheetType[],
   members: DocumentMembersResponseDTO,
 }
