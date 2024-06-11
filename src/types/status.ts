@@ -1,11 +1,15 @@
 import { ProblemVerdict } from './judge';
 import { JkmdSheetType, QuizProblemSheetType, SourceCodeType } from './sheet';
 
+export type WorksheetResponseBasicInfoType = {
+  createdAt: number,
+  updatedAt: number,
+}
+
 export type QuizProblemSheetStatusType =
-  Omit<QuizProblemSheetType, 'height' | 'languages' | 'title' | 'description' | 'solutionSourceCode' | 'points' | 'scoringMode'>
-  & {
-  sourceCode: SourceCodeType,
-};
+  WorksheetResponseBasicInfoType
+  & Omit<QuizProblemSheetType, 'height' | 'languages' | 'title' | 'description' | 'solutionSourceCode' | 'points' | 'scoringMode'>
+  & { sourceCode: SourceCodeType };
 
 export type QuizProblemSheetStatusProcessedType = QuizProblemSheetStatusType & {
   sampleTestCasesMerged: {
@@ -17,4 +21,6 @@ export type QuizProblemSheetStatusProcessedType = QuizProblemSheetStatusType & {
   points: number,
 };
 
-export type JkmdSheetStatusType = Omit<JkmdSheetType, 'content' | 'title'> & { read: boolean };
+export type JkmdSheetStatusType = WorksheetResponseBasicInfoType
+  & Omit<JkmdSheetType, 'content' | 'title'>
+  & { read: boolean };
