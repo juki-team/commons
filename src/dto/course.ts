@@ -3,7 +3,7 @@ import { UserBasicInfoInterface } from '../types/users';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { WorkSheetStatusContent } from './status';
 import { UserBasicInfoResponseDTO } from './user';
-import { WorksheetSummaryListResponseDTO } from './worksheet';
+import { WorksheetDataResponseDTO, WorksheetSummaryListResponseDTO } from './worksheet';
 
 export type CourseUserResponseDTO = {
   isOwner: boolean,
@@ -38,6 +38,10 @@ export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
     }
   }[],
   members: DocumentMembersResponseDTO,
+}
+
+export interface CourseWorksheetDataResponseDTO {
+  worksheet: Omit<WorksheetDataResponseDTO, 'folderId' | 'owner' | 'members' | 'isSolvable' | 'state' | 'updatedAt' | 'user'>,
 }
 
 export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons'> {
