@@ -321,6 +321,20 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     executable: '',
     executableVersion: '',
   },
+  [ProgrammingLanguage.DOT]: {
+    value: ProgrammingLanguage.DOT,
+    label: 'DOT',
+    mime: 'text/plain',
+    fileExtension: [ 'dot' ],
+    monacoKey: 'dot',
+    codeMirrorKey: 'dot',
+    compilePattern: '',
+    runPattern: '',
+    templateSourceCode: '',
+    hasBuildFile: false,
+    executable: '',
+    executableVersion: '',
+  },
 };
 
 export const PAGE_SIZES = [ '32', '64', '128', '256', '512' ];

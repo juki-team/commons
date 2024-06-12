@@ -1,6 +1,6 @@
 import { Language } from './prisma';
 
-export enum ProgrammingLanguage {
+export enum ProgrammingLanguage { // TODO: choose a better name that encompasses the items listed below
   ICPC_C = 'ICPC_C',
   C = 'C',
   CPP = 'CPP',
@@ -19,6 +19,7 @@ export enum ProgrammingLanguage {
   MARKDOWN = 'MARKDOWN',
   ARDUINO = 'ARDUINO',
   HTML = 'HTML',
+  DOT = 'DOT',
 }
 
 export enum ScopeData {
