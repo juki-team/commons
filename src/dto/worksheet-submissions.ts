@@ -1,6 +1,6 @@
 import {
   JkmdSheetType,
-  ProblemVerdict,
+  ProgrammingLanguage,
   QuizOptionsSheetType,
   QuizProblemSheetType,
   UserBasicInterface,
@@ -14,9 +14,11 @@ export type WorksheetResponseBasicInfoProcessedType = {
 }
 
 export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheetType, 'id' | 'type'> {
+  language: ProgrammingLanguage,
+  source: string,
 }
 
-export interface QuizProblemSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, QuizProblemSubmissionDTO {
+export interface QuizProblemSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, Omit<QuizProblemSubmissionDTO, 'source' | 'language'> {
   submissionResult: SubmitResponseDTO,
 }
 
@@ -40,7 +42,6 @@ export type WorkSheetSubmissions = {
 
 export interface WorksheetSubmissionsResponseDTO {
   [key: string]: {
-    worksheetKey: string,
     submissions: WorkSheetSubmissions,
     user: UserBasicInterface
   };
