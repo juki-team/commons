@@ -8,7 +8,7 @@ import {
   SubmissionRunStatus,
 } from '../types';
 
-export interface SubmissionResponseDTO {
+export interface SubmissionSummaryListResponseDTO {
   submitId: string,
   language: ProgrammingLanguage,
   timestamp: number,
@@ -67,7 +67,7 @@ export type CompilationResultType = DataLogType & {
   success: boolean,
 };
 
-export interface SubmitResponseDTO extends SubmissionResponseDTO {
+export interface SubmissionDataResponseDTO extends SubmissionSummaryListResponseDTO {
   judgmentTime: number,
   sourceCode: string,
   verdictByGroups: VerdictByGroupsType,

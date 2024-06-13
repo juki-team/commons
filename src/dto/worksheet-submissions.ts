@@ -6,7 +6,7 @@ import {
   SheetType,
   UserBasicInterface,
 } from '../types';
-import { SubmitResponseDTO } from './submission';
+import { SubmissionDataResponseDTO, SubmissionSummaryListResponseDTO } from './submission';
 
 export type WorksheetResponseBasicInfoProcessedType = {
   submittedAt: number,
@@ -20,7 +20,7 @@ export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheetType, 'id
 }
 
 export interface QuizProblemSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, Omit<QuizProblemSubmissionDTO, 'source' | 'language'> {
-  submissionResult: SubmitResponseDTO,
+  submissionResult: SubmissionSummaryListResponseDTO,
 }
 
 export interface JkmdSubmissionDTO extends Pick<JkmdSheetType, 'id' | 'type'> {
