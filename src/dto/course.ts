@@ -1,9 +1,9 @@
 import { CourseBaseDocument, CourseState } from '../types/course';
 import { UserBasicInfoInterface } from '../types/users';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
-import { WorkSheetStatusContent } from './status';
 import { UserBasicInfoResponseDTO } from './user';
-import { WorksheetDataResponseDTO, WorksheetSummaryListResponseDTO } from './worksheet';
+import { WorksheetSummaryListResponseDTO } from './worksheet';
+import { WorkSheetSubmissions } from './worksheet-submissions';
 
 export type CourseUserResponseDTO = {
   isOwner: boolean,
@@ -32,16 +32,12 @@ export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
     usersProgress: {
       [key: string]: {
         user: UserBasicInfoResponseDTO,
-        content: WorkSheetStatusContent,
+        submissions: WorkSheetSubmissions,
         progress: number,
       }
     }
   }[],
   members: DocumentMembersResponseDTO,
-}
-
-export interface CourseWorksheetDataResponseDTO {
-  worksheet: Omit<WorksheetDataResponseDTO, 'folderId' | 'owner' | 'members' | 'isSolvable' | 'state' | 'updatedAt' | 'user'>,
 }
 
 export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons'> {

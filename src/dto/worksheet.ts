@@ -1,5 +1,5 @@
 import { BasicSheetType, BodyNoteSheetType, NewPageSheetType, WorksheetBaseDocument } from '../types';
-import { DocumentMembersDTO, DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity';
+import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { UserBasicInfoResponseDTO } from './user';
 
 export interface WorksheetUserResponseDTO {

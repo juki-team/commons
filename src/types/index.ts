@@ -12,7 +12,6 @@ export * from './problems';
 export * from './services';
 export * from './sheet';
 export * from './socket';
-export * from './status';
 export * from './submission';
 export * from './teams';
 export * from './users';
