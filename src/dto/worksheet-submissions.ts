@@ -38,22 +38,20 @@ export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasic
 }
 
 export type WorkSheetSubmissions = {
-  [key: string]: JkmdSubmissionResponseDTO[] | QuizProblemSubmissionResponseDTO[] | QuizOptionsSubmissionResponseDTO[],
+  [SheetType.JK_MD]: {
+    [key: string]: JkmdSubmissionResponseDTO[],
+  },
+  [SheetType.QUIZ_PROBLEM]: {
+    [key: string]: QuizProblemSubmissionResponseDTO[],
+  },
+  [SheetType.QUIZ_OPTIONS]: {
+    [key: string]: QuizOptionsSubmissionResponseDTO[],
+  }
 }
 
 export interface WorksheetSubmissionsResponseDTO {
   [key: string]: {
-    submissions: {
-      [SheetType.JK_MD]: {
-        [key: string]: JkmdSubmissionResponseDTO[],
-      },
-      [SheetType.QUIZ_PROBLEM]: {
-        [key: string]: QuizProblemSubmissionResponseDTO[],
-      },
-      [SheetType.QUIZ_OPTIONS]: {
-        [key: string]: QuizOptionsSubmissionResponseDTO[],
-      }
-    },
+    submissions: WorkSheetSubmissions,
     user: UserBasicInterface
   };
 }
