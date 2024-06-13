@@ -3,6 +3,7 @@ import {
   ProgrammingLanguage,
   QuizOptionsSheetType,
   QuizProblemSheetType,
+  SheetType,
   UserBasicInterface,
 } from '../types';
 import { SubmitResponseDTO } from './submission';
@@ -42,7 +43,17 @@ export type WorkSheetSubmissions = {
 
 export interface WorksheetSubmissionsResponseDTO {
   [key: string]: {
-    submissions: WorkSheetSubmissions,
+    submissions: {
+      [SheetType.JK_MD]: {
+        [key: string]: JkmdSubmissionResponseDTO[],
+      },
+      [SheetType.QUIZ_PROBLEM]: {
+        [key: string]: QuizProblemSubmissionResponseDTO[],
+      },
+      [SheetType.QUIZ_OPTIONS]: {
+        [key: string]: QuizOptionsSubmissionResponseDTO[],
+      }
+    },
     user: UserBasicInterface
   };
 }
