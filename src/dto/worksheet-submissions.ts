@@ -3,9 +3,9 @@ import {
   ProblemVerdict,
   QuizOptionsSheetType,
   QuizProblemSheetType,
-  SourceCodeType,
   UserBasicInterface,
 } from '../types';
+import { SubmitResponseDTO } from './submission';
 
 export type WorksheetResponseBasicInfoProcessedType = {
   submittedAt: number,
@@ -13,17 +13,11 @@ export type WorksheetResponseBasicInfoProcessedType = {
   isResolved: boolean,
 }
 
-export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheetType, 'id' | 'type' | 'testCases'> {
-  sourceCode: SourceCodeType;
+export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheetType, 'id' | 'type'> {
 }
 
 export interface QuizProblemSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, QuizProblemSubmissionDTO {
-  sampleTestCasesMerged: {
-    verdict: ProblemVerdict,
-    timeUsed: number,
-    memoryUsed: number,
-    exitCode: number,
-  },
+  submissionResult: SubmitResponseDTO,
 }
 
 export interface JkmdSubmissionDTO extends Pick<JkmdSheetType, 'id' | 'type'> {

@@ -1,5 +1,5 @@
 import { ProgrammingLanguage } from './commons';
-import { SubmissionRunStatus } from './judge';
+import { Judge, SubmissionRunStatus } from './judge';
 
 export enum SheetType {
   JK_MD = 'JK_MD',
@@ -60,12 +60,10 @@ export type GraphSheetType = BasicSheetType & {
 
 export type QuizProblemSheetType = BasicSheetType & {
   type: SheetType.QUIZ_PROBLEM;
-  description: string,
-  solutionSourceCode: SourceCodeType;
-  testCases: { [key: string]: CodeEditorTestCaseType };
+  problemJudge: Judge,
+  problemKey: string,
   languages: ProgrammingLanguage[];
   height: number;
-  scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
 export type QuizTextSheetType = BasicSheetType & {
