@@ -40,7 +40,7 @@ export type WorkSheetSubmissions = {
 
 export interface WorksheetSubmissionsResponseDTO {
   [key: string]: {
-    worksheetId: string,
+    worksheetKey: string,
     submissions: WorkSheetSubmissions,
     user: UserBasicInterface
   };
