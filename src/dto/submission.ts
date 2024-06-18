@@ -53,6 +53,7 @@ export type TestCaseResultType = DataLogType & {
   err: string
   verdict: ProblemVerdict,
   diff: string,
+  croppedDiff: boolean,
   group: number,
   points: number, // Used by PARTIAL mode problems
   testCaseKey: string,
