@@ -52,6 +52,15 @@ export type WorkSheetSubmissions = {
 export interface WorksheetSubmissionsResponseDTO {
   [key: string]: {
     submissions: WorkSheetSubmissions,
-    user: UserBasicInterface
+    user: UserBasicInterface,
   };
+}
+
+export interface WorksheetSubmissionsUsersResponseDTO {
+  [key: string]: UserBasicInterface,
+}
+
+export interface WorksheetUserSubmissionsResponseDTO {
+  submissions: WorkSheetSubmissions,
+  user: UserBasicInterface,
 }
