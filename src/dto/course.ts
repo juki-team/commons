@@ -8,6 +8,7 @@ import { WorkSheetSubmissions } from './worksheet-submissions';
 export type CourseUserResponseDTO = {
   isOwner: boolean,
   isManager: boolean,
+  isSpectator: boolean,
   isParticipant: boolean,
   isGuest: boolean,
 };
