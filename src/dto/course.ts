@@ -30,13 +30,6 @@ export interface CourseLessonsWorksheetDataResponseDTO extends Omit<WorksheetSum
 export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
   lessons: {
     worksheet: CourseLessonsWorksheetDataResponseDTO,
-    usersProgress: {
-      [key: string]: {
-        user: UserBasicInfoResponseDTO,
-        submissions: WorkSheetSubmissions,
-        progress: number,
-      }
-    }
   }[],
   members: DocumentMembersResponseDTO,
 }
