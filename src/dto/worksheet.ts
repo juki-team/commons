@@ -26,3 +26,14 @@ export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListRespo
 export interface UpsertWorksheetDTO extends Omit<WorksheetBaseDocument, 'members' | 'key'> {
   members: DocumentMembersDTO,
 }
+
+export interface WorksheetsProgressByUsersResponseDTO {
+  [key: string]: {
+    [key: string]: {
+      pages: { totalPoints: number, points: number, percent: number, worksheetPercent: number }[],
+      percent: number,
+      points: number,
+      totalPoints: number,
+    }
+  };
+}
