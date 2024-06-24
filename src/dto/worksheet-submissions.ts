@@ -6,12 +6,12 @@ import {
   SheetType,
   UserBasicInterface,
 } from '../types';
-import { SubmissionDataResponseDTO, SubmissionSummaryListResponseDTO } from './submission';
+import { SubmissionSummaryListResponseDTO } from './submission';
 
 export type WorksheetResponseBasicInfoProcessedType = {
   submittedAt: number,
   points: number,
-  isResolved: boolean,
+  isCompleted: boolean,
 }
 
 export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheetType, 'id' | 'type'> {
