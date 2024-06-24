@@ -1,4 +1,10 @@
-import { EntityAccess, EntityMembers, EntityMembersRank } from '../types';
+import {
+  EntityAccess,
+  EntityMembers,
+  EntityMembersRank,
+  EntityTeamsMemberUserData,
+  EntityUsersMemberUserData,
+} from '../types';
 
 export const getDocumentAccess = (document: { members: EntityMembers }): EntityAccess => {
   switch (true) {
@@ -29,4 +35,14 @@ export const getDocumentAccess = (document: { members: EntityMembers }): EntityA
     default:
       return EntityAccess.PRIVATE;
   }
+};
+
+
+export const isUserMember = (member: { userId?: string, teamId?: string }): member is EntityUsersMemberUserData => {
+  return typeof member.userId === 'string';
+  
+};
+
+export const isTeamMember = (member: { userId?: string, teamId?: string }): member is EntityTeamsMemberUserData => {
+  return typeof member.teamId === 'string';
 };

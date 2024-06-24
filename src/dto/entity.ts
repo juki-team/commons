@@ -14,19 +14,6 @@ export interface EntityMembersDTO {
   participants?: string[],
 }
 
-export interface EntityMembersResponseDTO {
-  rankAdministrators: EntityMembersRank,
-  administrators: { [key: string]: UserBasicInfoResponseDTO },
-  rankManagers: EntityMembersRank,
-  managers: { [key: string]: UserBasicInfoResponseDTO },
-  rankGuests: EntityMembersRank,
-  guests: { [key: string]: UserBasicInfoResponseDTO },
-  rankSpectators: EntityMembersRank,
-  spectators: { [key: string]: UserBasicInfoResponseDTO },
-  rankParticipants: EntityMembersRank,
-  participants: { [key: string]: UserBasicInfoResponseDTO },
-}
-
 export interface DocumentUserResponseDTO {
   isOwner: boolean,
   isManager: boolean,
@@ -42,13 +29,22 @@ export interface DocumentMembersDTO {
   spectators: string[],
 }
 
+export enum MemberType {
+  USER = 'USER',
+  TEAM = 'TEAM',
+}
+
+export interface DocumentMemberResponseDTO extends UserBasicInfoResponseDTO {
+  type: MemberType;
+}
+
 export interface DocumentMembersResponseDTO {
   access: EntityAccess,
-  administrators: { [key: string]: UserBasicInfoResponseDTO },
-  managers: { [key: string]: UserBasicInfoResponseDTO },
-  participants: { [key: string]: UserBasicInfoResponseDTO },
-  guests: { [key: string]: UserBasicInfoResponseDTO },
-  spectators: { [key: string]: UserBasicInfoResponseDTO },
+  administrators: { [key: string]: DocumentMemberResponseDTO },
+  managers: { [key: string]: DocumentMemberResponseDTO },
+  participants: { [key: string]: DocumentMemberResponseDTO },
+  guests: { [key: string]: DocumentMemberResponseDTO },
+  spectators: { [key: string]: DocumentMemberResponseDTO },
 }
 
 export interface DocumentCreateResponseDTO {
