@@ -11,23 +11,31 @@ export enum EntityState {
   ARCHIVED = 'ARCHIVED',
 }
 
-export declare type EntityUsersMemberUserData = {
+export type EntityUsersMemberUserData = {
   userId: string;
   lastVisitTimestamp: number | null;
   joinedAtTimestamp: number;
 };
 
+export type EntityTeamsMemberUserData = {
+  teamId: string;
+  lastVisitTimestamp: number | null;
+  joinedAtTimestamp: number;
+};
+
+export type EntityMembersUserData = EntityUsersMemberUserData | EntityTeamsMemberUserData;
+
 export interface EntityMembers {
   rankAdministrators: EntityMembersRank,
-  administrators: { [key: string]: EntityUsersMemberUserData },
+  administrators: { [key: string]: EntityMembersUserData },
   rankManagers: EntityMembersRank,
-  managers: { [key: string]: EntityUsersMemberUserData },
+  managers: { [key: string]: EntityMembersUserData },
   rankGuests: EntityMembersRank,
-  guests: { [key: string]: EntityUsersMemberUserData },
+  guests: { [key: string]: EntityMembersUserData },
   rankSpectators: EntityMembersRank,
-  spectators: { [key: string]: EntityUsersMemberUserData },
+  spectators: { [key: string]: EntityMembersUserData },
   rankParticipants: EntityMembersRank,
-  participants: { [key: string]: EntityUsersMemberUserData },
+  participants: { [key: string]: EntityMembersUserData },
 }
 
 export interface EntityOwnerDocument {
