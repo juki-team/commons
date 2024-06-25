@@ -5,13 +5,13 @@ export enum ClassState {
   ARCHIVED = EntityState.ARCHIVED,
 }
 
-enum AssignmentClass {
+export enum AssignmentClass {
   COURSE = 'COURSE',
   WORKSHEET = 'WORKSHEET',
   CONTEST = 'CONTEST',
 }
 
-interface AssignmentCourse {
+export interface AssignmentBasicInfo {
   id: string,
   type: AssignmentClass,
   points: number,
@@ -19,17 +19,17 @@ interface AssignmentCourse {
   endTimestamp: number,
 }
 
-interface AssignmentCourseType extends AssignmentCourse {
+interface AssignmentCourseType extends AssignmentBasicInfo {
   type: AssignmentClass.COURSE,
   courseId: string,
 }
 
-interface AssignmentWorksheetType extends AssignmentCourse {
+interface AssignmentWorksheetType extends AssignmentBasicInfo {
   type: AssignmentClass.WORKSHEET,
   worksheetId: string,
 }
 
-interface AssignmentContestType extends AssignmentCourse {
+interface AssignmentContestType extends AssignmentBasicInfo {
   type: AssignmentClass.CONTEST,
   contestId: string,
 }
