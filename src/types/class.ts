@@ -37,6 +37,7 @@ interface AssignmentContestType extends AssignmentBasicInfo {
 export type AssignmentClassCycle = AssignmentCourseType | AssignmentWorksheetType | AssignmentContestType;
 
 interface SessionClassCycle {
+  id: string,
   name: string,
   assignments: AssignmentClassCycle[],
   startTimestamp: number,
@@ -44,6 +45,7 @@ interface SessionClassCycle {
 }
 
 type ClassCycle = {
+  id: string,
   name: string,
   sessions: SessionClassCycle[],
   startTimestamp: number,
