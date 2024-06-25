@@ -78,7 +78,7 @@ export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key
       endTimestamp: number,
       sessions: {
         [key: string]: {
-          index: string,
+          index: number,
           name: string,
           assignments: {
             [key: string]: (ClassDataResponseDTO | AssignmentCourseUpsert | AssignmentWorksheetUpsert)
