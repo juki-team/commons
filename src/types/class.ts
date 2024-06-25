@@ -20,17 +20,17 @@ export interface AssignmentBasicInfo {
   endTimestamp: number,
 }
 
-interface AssignmentCourseType extends AssignmentBasicInfo {
+export interface AssignmentCourseType extends AssignmentBasicInfo {
   type: AssignmentClass.COURSE,
   courseId: string,
 }
 
-interface AssignmentWorksheetType extends AssignmentBasicInfo {
+export interface AssignmentWorksheetType extends AssignmentBasicInfo {
   type: AssignmentClass.WORKSHEET,
   worksheetId: string,
 }
 
-interface AssignmentContestType extends AssignmentBasicInfo {
+export interface AssignmentContestType extends AssignmentBasicInfo {
   type: AssignmentClass.CONTEST,
   contestId: string,
 }
