@@ -8,6 +8,7 @@ export enum ClassState {
 enum AssignmentClass {
   COURSE = 'COURSE',
   WORKSHEET = 'WORKSHEET',
+  CONTEST = 'CONTEST',
 }
 
 interface AssignmentCourse {
@@ -28,7 +29,12 @@ interface AssignmentWorksheetType extends AssignmentCourse {
   worksheetId: string,
 }
 
-export type AssignmentClassCycle = AssignmentCourseType | AssignmentWorksheetType;
+interface AssignmentContestType extends AssignmentCourse {
+  type: AssignmentClass.CONTEST,
+  contestId: string,
+}
+
+export type AssignmentClassCycle = AssignmentCourseType | AssignmentWorksheetType | AssignmentContestType;
 
 interface SessionClassCycle {
   name: string,
