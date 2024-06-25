@@ -26,22 +26,32 @@ export interface ClassSummaryListResponseDTO {
 }
 
 interface SessionCycleClassDataResponseDTO {
+  id: string,
+  index: number,
   name: string,
-  assignments: AssignmentClassCycle[],
+  assignments: {
+    [key: string]: AssignmentClassCycle,
+  },
   startTimestamp: number,
   endTimestamp: number,
 }
 
 interface CycleClassDataResponseDTO {
+  id: string,
+  index: number,
   name: string,
-  sessions: SessionCycleClassDataResponseDTO[],
+  sessions: {
+    [key: string]: SessionCycleClassDataResponseDTO,
+  },
   startTimestamp: number,
   endTimestamp: number,
 }
 
 export interface ClassDataResponseDTO extends ClassSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
-  cycles: CycleClassDataResponseDTO[],
+  cycles: {
+    [key: string]: CycleClassDataResponseDTO,
+  },
 }
 
 export interface AssignmentContestUpsert extends AssignmentBasicInfo {
@@ -61,15 +71,23 @@ export interface AssignmentWorksheetUpsert extends AssignmentBasicInfo {
 
 export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key' | 'cycles'> {
   cycles: {
-    name: string,
-    sessions: {
+    [key: string]: {
+      index: number,
       name: string,
-      assignments: (ClassDataResponseDTO | AssignmentCourseUpsert | AssignmentWorksheetUpsert)[],
       startTimestamp: number,
       endTimestamp: number,
-    }[],
-    startTimestamp: number,
-    endTimestamp: number,
-  }[],
+      sessions: {
+        [key: string]: {
+          index: string,
+          name: string,
+          assignments: {
+            [key: string]: (ClassDataResponseDTO | AssignmentCourseUpsert | AssignmentWorksheetUpsert)
+          },
+          startTimestamp: number,
+          endTimestamp: number,
+        }
+      },
+    },
+  },
   members: DocumentMembersDTO,
 }

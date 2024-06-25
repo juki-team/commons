@@ -13,6 +13,7 @@ export enum AssignmentClass {
 
 export interface AssignmentBasicInfo {
   id: string,
+  index: number,
   type: AssignmentClass,
   points: number,
   startTimestamp: number,
@@ -36,20 +37,34 @@ interface AssignmentContestType extends AssignmentBasicInfo {
 
 export type AssignmentClassCycle = AssignmentCourseType | AssignmentWorksheetType | AssignmentContestType;
 
+export interface AssignmentClassCycles {
+  [key: string]: AssignmentClassCycle,
+}
+
 interface SessionClassCycle {
   id: string,
+  index: number,
   name: string,
-  assignments: AssignmentClassCycle[],
+  assignments: AssignmentClassCycles,
   startTimestamp: number,
   endTimestamp: number,
 }
 
-type ClassCycle = {
+export interface SessionClassCycles {
+  [key: string]: SessionClassCycle,
+}
+
+export type ClassCycle = {
   id: string,
+  index: number,
   name: string,
-  sessions: SessionClassCycle[],
+  sessions: SessionClassCycles,
   startTimestamp: number,
   endTimestamp: number,
+}
+
+export interface ClassCycles {
+  [key: string]: ClassCycle,
 }
 
 export interface ClassBaseDocument {
@@ -58,5 +73,5 @@ export interface ClassBaseDocument {
   description: string,
   state: ClassState,
   members: EntityMembers,
-  cycles: ClassCycle[],
+  cycles: ClassCycles,
 }
