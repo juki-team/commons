@@ -1,5 +1,6 @@
+export * from './class';
 export * from './commons';
-export * from './company'
+export * from './company';
 export * from './contest';
 export * from './course';
 export * from './date';
