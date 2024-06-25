@@ -1,11 +1,4 @@
-import {
-  AssignmentBasicInfo,
-  AssignmentClass,
-  AssignmentClassCycle,
-  ClassBaseDocument,
-  ClassState,
-  UserBasicInfoInterface,
-} from '../types';
+import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassState, UserBasicInfoInterface } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 
 export interface ClassUserResponseDTO {
@@ -25,12 +18,32 @@ export interface ClassSummaryListResponseDTO {
   user: ClassUserResponseDTO,
 }
 
+export interface ContestAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
+  type: AssignmentClass.CONTEST,
+  contestKey: string,
+}
+
+export interface CourseAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
+  type: AssignmentClass.COURSE,
+  courseKey: string,
+}
+
+export interface WorksheetAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
+  type: AssignmentClass.WORKSHEET,
+  worksheetKey: string,
+}
+
+export type AssignmentSessionCycleClassDataResponseDTO =
+  ContestAssignmentSessionCycleClassDataResponseDTO
+  | CourseAssignmentSessionCycleClassDataResponseDTO
+  | WorksheetAssignmentSessionCycleClassDataResponseDTO;
+
 interface SessionCycleClassDataResponseDTO {
   id: string,
   index: number,
   name: string,
   assignments: {
-    [key: string]: AssignmentClassCycle,
+    [key: string]: AssignmentSessionCycleClassDataResponseDTO,
   },
   startTimestamp: number,
   endTimestamp: number,

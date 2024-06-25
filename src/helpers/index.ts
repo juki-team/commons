@@ -1,3 +1,4 @@
+export * from './class';
 export * from './commons';
 export * from './document';
 export * from './judging';
