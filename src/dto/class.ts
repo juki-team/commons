@@ -69,7 +69,6 @@ export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key
     }[],
     startTimestamp: number,
     endTimestamp: number,
-    worksheetKey: string,
   }[],
   members: DocumentMembersDTO,
 }
