@@ -53,6 +53,7 @@ type ClassCycle = {
 export interface ClassBaseDocument {
   key: string,
   name: string,
+  description: string,
   state: ClassState,
   members: EntityMembers,
   cycles: ClassCycle[],

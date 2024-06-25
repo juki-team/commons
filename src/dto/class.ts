@@ -19,6 +19,7 @@ export interface ClassUserResponseDTO {
 export interface ClassSummaryListResponseDTO {
   key: string,
   name: string,
+  description: string,
   state: ClassState,
   owner: UserBasicInfoInterface,
   user: ClassUserResponseDTO,
