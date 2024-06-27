@@ -1,7 +1,7 @@
 import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassState, UserBasicInfoInterface } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 
-export interface ClassUserResponseDTO {
+interface ClassUserResponseDTO {
   isOwner: boolean,
   isManager: boolean,
   isSpectator: boolean,
@@ -38,7 +38,7 @@ export type AssignmentSessionCycleClassDataResponseDTO =
   | CourseAssignmentSessionCycleClassDataResponseDTO
   | WorksheetAssignmentSessionCycleClassDataResponseDTO;
 
-export interface SessionCycleClassDataResponseDTO {
+interface SessionCycleClassDataResponseDTO {
   id: string,
   index: number,
   name: string,
@@ -49,7 +49,7 @@ export interface SessionCycleClassDataResponseDTO {
   endTimestamp: number,
 }
 
-export interface CycleClassDataResponseDTO {
+interface CycleClassDataResponseDTO {
   id: string,
   index: number,
   name: string,
@@ -65,28 +65,16 @@ export interface ClassCycleDataResponseDTO extends ClassSummaryListResponseDTO {
   cycle: CycleClassDataResponseDTO,
 }
 
-export interface ClassDataResponseDTO extends ClassSummaryListResponseDTO {
-  members: DocumentMembersResponseDTO,
-  cycles: {
-    [key: string]: CycleClassDataResponseDTO,
-  },
-}
-
-interface CycleClassCycleResponseDTO {
-  id: string,
-  index: number,
-  name: string,
+interface ClassCyclesCycleDataResponseDTO extends Omit<CycleClassDataResponseDTO, 'sessions'> {
   sessions: {
     [key: string]: Omit<SessionCycleClassDataResponseDTO, 'assignments'>,
   },
-  startTimestamp: number,
-  endTimestamp: number,
 }
 
 export interface ClassCyclesDataResponseDTO extends ClassSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
   cycles: {
-    [key: string]: CycleClassCycleResponseDTO,
+    [key: string]: ClassCyclesCycleDataResponseDTO,
   },
 }
 
