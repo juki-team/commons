@@ -96,3 +96,9 @@ export interface AssignmentWorksheetUpsert extends AssignmentBasicInfo {
 export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key' | 'cycles'> {
   members: DocumentMembersDTO,
 }
+
+export interface UpsertClassCycleDTO extends Omit<ClassBaseDocument['cycles'][string], 'sessions' | 'id'> {
+}
+
+export interface UpsertClassCycleSessionDTO extends Omit<ClassBaseDocument['cycles'][string]['sessions'][string], 'assignments' | 'id'> {
+}
