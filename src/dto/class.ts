@@ -60,6 +60,11 @@ export interface CycleClassDataResponseDTO {
   endTimestamp: number,
 }
 
+export interface ClassCycleDataResponseDTO extends ClassSummaryListResponseDTO {
+  members: DocumentMembersResponseDTO,
+  cycle: CycleClassDataResponseDTO,
+}
+
 export interface ClassDataResponseDTO extends ClassSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
   cycles: {
