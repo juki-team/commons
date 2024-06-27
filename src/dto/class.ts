@@ -38,7 +38,7 @@ export type AssignmentSessionCycleClassDataResponseDTO =
   | CourseAssignmentSessionCycleClassDataResponseDTO
   | WorksheetAssignmentSessionCycleClassDataResponseDTO;
 
-interface SessionCycleClassDataResponseDTO {
+export interface SessionCycleClassDataResponseDTO {
   id: string,
   index: number,
   name: string,
@@ -49,7 +49,7 @@ interface SessionCycleClassDataResponseDTO {
   endTimestamp: number,
 }
 
-interface CycleClassDataResponseDTO {
+export interface CycleClassDataResponseDTO {
   id: string,
   index: number,
   name: string,
