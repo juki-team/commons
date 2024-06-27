@@ -41,6 +41,11 @@ export interface AssignmentClassCycles {
   [key: string]: AssignmentClassCycle,
 }
 
+export enum ClassCycleSessionState {
+  ARCHIVED = EntityState.ARCHIVED,
+  RELEASED = EntityState.RELEASED,
+}
+
 interface SessionClassCycle {
   id: string,
   index: number,
@@ -48,10 +53,16 @@ interface SessionClassCycle {
   assignments: AssignmentClassCycles,
   startTimestamp: number,
   endTimestamp: number,
+  state: ClassCycleSessionState,
 }
 
 export interface SessionClassCycles {
   [key: string]: SessionClassCycle,
+}
+
+export enum ClassCycleState {
+  ARCHIVED = EntityState.ARCHIVED,
+  RELEASED = EntityState.RELEASED,
 }
 
 export type ClassCycle = {
@@ -61,6 +72,7 @@ export type ClassCycle = {
   sessions: SessionClassCycles,
   startTimestamp: number,
   endTimestamp: number,
+  state: ClassCycleState,
 }
 
 export interface ClassCycles {
