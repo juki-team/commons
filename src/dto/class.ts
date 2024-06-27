@@ -67,6 +67,24 @@ export interface ClassDataResponseDTO extends ClassSummaryListResponseDTO {
   },
 }
 
+interface CycleClassCycleResponseDTO {
+  id: string,
+  index: number,
+  name: string,
+  sessions: {
+    [key: string]: Omit<SessionCycleClassDataResponseDTO, 'assignments'>,
+  },
+  startTimestamp: number,
+  endTimestamp: number,
+}
+
+export interface ClassCycleResponseDTO extends ClassSummaryListResponseDTO {
+  members: DocumentMembersResponseDTO,
+  cycles: {
+    [key: string]: CycleClassCycleResponseDTO,
+  },
+}
+
 export interface AssignmentContestUpsert extends AssignmentBasicInfo {
   type: AssignmentClass.CONTEST,
   contestKey: string,
