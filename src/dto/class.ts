@@ -94,7 +94,7 @@ export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key
           index: number,
           name: string,
           assignments: {
-            [key: string]: (ClassDataResponseDTO | AssignmentCourseUpsert | AssignmentWorksheetUpsert)
+            [key: string]: (AssignmentContestUpsert | AssignmentCourseUpsert | AssignmentWorksheetUpsert)
           },
           startTimestamp: number,
           endTimestamp: number,
