@@ -70,7 +70,7 @@ export interface ClassCycleDataResponseDTO extends ClassSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
   cycle: CycleClassDataResponseDTO,
   cycles: {
-    [key: string]: { name: string, index: string, id: string },
+    [key: string]: { name: string, index: number, id: string },
   },
 }
 
