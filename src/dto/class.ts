@@ -83,7 +83,7 @@ interface CycleClassCycleResponseDTO {
   endTimestamp: number,
 }
 
-export interface ClassCycleResponseDTO extends ClassSummaryListResponseDTO {
+export interface ClassCyclesDataResponseDTO extends ClassSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
   cycles: {
     [key: string]: CycleClassCycleResponseDTO,
