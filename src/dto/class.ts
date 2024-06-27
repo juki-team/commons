@@ -106,24 +106,5 @@ export interface AssignmentWorksheetUpsert extends AssignmentBasicInfo {
 }
 
 export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key' | 'cycles'> {
-  cycles: {
-    [key: string]: {
-      index: number,
-      name: string,
-      startTimestamp: number,
-      endTimestamp: number,
-      sessions: {
-        [key: string]: {
-          index: number,
-          name: string,
-          assignments: {
-            [key: string]: (AssignmentContestUpsert | AssignmentCourseUpsert | AssignmentWorksheetUpsert)
-          },
-          startTimestamp: number,
-          endTimestamp: number,
-        }
-      },
-    },
-  },
   members: DocumentMembersDTO,
 }
