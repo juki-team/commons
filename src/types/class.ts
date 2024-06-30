@@ -1,8 +1,8 @@
 import { EntityMembers, EntityState } from './entity';
 
-export enum ClassState {
-  RELEASED = EntityState.RELEASED,
+export enum ClassCycleSessionAssignmentState {
   ARCHIVED = EntityState.ARCHIVED,
+  RELEASED = EntityState.RELEASED,
 }
 
 export enum AssignmentClass {
@@ -20,25 +20,13 @@ export interface AssignmentBasicInfo {
   endTimestamp: number,
 }
 
-export interface AssignmentCourseType extends AssignmentBasicInfo {
-  type: AssignmentClass.COURSE,
-  courseId: string,
+export interface ClassCycleSessionAssignment extends AssignmentBasicInfo {
+  entityId: string,
+  state: ClassCycleSessionAssignmentState,
 }
 
-export interface AssignmentWorksheetType extends AssignmentBasicInfo {
-  type: AssignmentClass.WORKSHEET,
-  worksheetId: string,
-}
-
-export interface AssignmentContestType extends AssignmentBasicInfo {
-  type: AssignmentClass.CONTEST,
-  contestId: string,
-}
-
-export type AssignmentClassCycle = AssignmentCourseType | AssignmentWorksheetType | AssignmentContestType;
-
-export interface AssignmentClassCycles {
-  [key: string]: AssignmentClassCycle,
+export interface ClassCycleSessionAssignments {
+  [key: string]: ClassCycleSessionAssignment,
 }
 
 export enum ClassCycleSessionState {
@@ -46,18 +34,18 @@ export enum ClassCycleSessionState {
   RELEASED = EntityState.RELEASED,
 }
 
-interface SessionClassCycle {
+interface ClassCycleSession {
   id: string,
   index: number,
   name: string,
-  assignments: AssignmentClassCycles,
+  assignments: ClassCycleSessionAssignments,
   startTimestamp: number,
   endTimestamp: number,
   state: ClassCycleSessionState,
 }
 
-export interface SessionClassCycles {
-  [key: string]: SessionClassCycle,
+export interface ClassCycleSessions {
+  [key: string]: ClassCycleSession,
 }
 
 export enum ClassCycleState {
@@ -69,7 +57,7 @@ export type ClassCycle = {
   id: string,
   index: number,
   name: string,
-  sessions: SessionClassCycles,
+  sessions: ClassCycleSessions,
   startTimestamp: number,
   endTimestamp: number,
   state: ClassCycleState,
@@ -77,6 +65,11 @@ export type ClassCycle = {
 
 export interface ClassCycles {
   [key: string]: ClassCycle,
+}
+
+export enum ClassState {
+  RELEASED = EntityState.RELEASED,
+  ARCHIVED = EntityState.ARCHIVED,
 }
 
 export interface ClassBaseDocument {
