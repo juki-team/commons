@@ -1,4 +1,4 @@
-import { BasicSheetType, BodyNoteSheetType, NewPageSheetType, WorksheetBaseDocument } from '../types';
+import { BodyNoteSheetType, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { UserBasicInfoResponseDTO } from './user';
 
@@ -8,10 +8,11 @@ export interface WorksheetUserResponseDTO {
   isSpectator: boolean,
 }
 
+
 export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocument, 'folderId' | 'content' | 'members' | 'isSolvable'> {
   key: string,
   updatedAt: Date,
-  content: { header: NewPageSheetType, content: BasicSheetType[] }[],
+  content: SummaryWorksheetsInPages,
   user: WorksheetUserResponseDTO,
   owner: UserBasicInfoResponseDTO,
 }

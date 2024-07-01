@@ -1,5 +1,5 @@
 import { EntityMembers, EntityState } from './entity';
-import { BodyNoteSheetType, NewPageSheetType } from './sheet';
+import { BasicSheetType, BodyNoteSheetType, NewPageSheetType } from './sheet';
 
 export enum WorksheetState {
   RELEASED = EntityState.RELEASED,
@@ -19,3 +19,5 @@ export interface WorksheetBaseDocument {
 }
 
 export type WorksheetsInPages = { header: NewPageSheetType, content: BodyNoteSheetType[] }[];
+
+export type SummaryWorksheetsInPages = { header: NewPageSheetType, content: BasicSheetType[] }[];
