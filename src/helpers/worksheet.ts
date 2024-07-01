@@ -68,3 +68,5 @@ export const getSummaryWorksheetsInPages = (initialSheets: BodyNoteSheetType[]) 
   });
   return sheetsByPages;
 };
+
+export const getTotalExercisesOfSummaryWorksheetsInPages = (content: SummaryWorksheetsInPages) => content.reduce((sum, { content }) => sum + content.reduce((sum, { type }) => sum + +(type === SheetType.QUIZ_OPTIONS || type === SheetType.QUIZ_PROBLEM || type === SheetType.QUIZ_TEXT), 0), 0);
