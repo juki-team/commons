@@ -1,5 +1,4 @@
 import { EntityMembers, EntityState } from './entity';
-import { FileState } from './file';
 import { BodyNoteSheetType, NewPageSheetType } from './sheet';
 
 export enum WorksheetState {
@@ -15,7 +14,7 @@ export interface WorksheetBaseDocument {
   description: string,
   content: BodyNoteSheetType[],
   isSolvable: boolean,
-  state: FileState,
+  state: WorksheetState,
   members: EntityMembers,
 }
 
