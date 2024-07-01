@@ -1,6 +1,12 @@
-import { EntityMembers } from './entity';
+import { EntityMembers, EntityState } from './entity';
 import { FileState } from './file';
 import { BodyNoteSheetType, NewPageSheetType } from './sheet';
+
+export enum WorksheetState {
+  RELEASED = EntityState.RELEASED,
+  IN_DRAFT = EntityState.IN_DRAFT,
+  ARCHIVED = EntityState.ARCHIVED,
+}
 
 export interface WorksheetBaseDocument {
   key: string,
