@@ -1,5 +1,5 @@
 import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassState, UserBasicInfoInterface } from '../types';
-import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
+import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 
 interface ClassUserResponseDTO {
   isOwner: boolean,
@@ -67,7 +67,7 @@ interface CycleClassDataResponseDTO {
 }
 
 export interface ClassCycleDataResponseDTO extends ClassSummaryListResponseDTO {
-  members: DocumentMembersResponseDTO,
+  members: EntityMembersResponseDTO,
   cycle: CycleClassDataResponseDTO,
   cycles: {
     [key: string]: { name: string, index: number, id: string },
@@ -81,7 +81,7 @@ interface ClassCyclesCycleDataResponseDTO extends Omit<CycleClassDataResponseDTO
 }
 
 export interface ClassCyclesDataResponseDTO extends ClassSummaryListResponseDTO {
-  members: DocumentMembersResponseDTO,
+  members: EntityMembersResponseDTO,
   cycles: {
     [key: string]: ClassCyclesCycleDataResponseDTO,
   },
@@ -103,7 +103,7 @@ export interface AssignmentWorksheetUpsert extends AssignmentBasicInfo {
 }
 
 export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key' | 'cycles'> {
-  members: DocumentMembersDTO,
+  members: EntityMembersDTO,
 }
 
 export interface UpsertClassCycleDTO extends Omit<ClassBaseDocument['cycles'][string], 'sessions' | 'id'> {

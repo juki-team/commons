@@ -2,16 +2,29 @@ import { EntityAccess, EntityMembersRank } from '../types';
 import { UserBasicInfoResponseDTO } from './user';
 
 export interface EntityMembersDTO {
-  rankAdministrators?: EntityMembersRank,
-  administrators?: string[],
-  rankManagers?: EntityMembersRank,
-  managers?: string[],
-  rankGuests?: EntityMembersRank,
-  guests?: string[],
-  rankSpectators?: EntityMembersRank,
-  spectators?: string[],
-  rankParticipants?: EntityMembersRank,
-  participants?: string[],
+  rankAdministrators: EntityMembersRank,
+  administrators: string[],
+  rankManagers: EntityMembersRank,
+  managers: string[],
+  rankGuests: EntityMembersRank,
+  guests: string[],
+  rankSpectators: EntityMembersRank,
+  spectators: string[],
+  rankParticipants: EntityMembersRank,
+  participants: string[],
+}
+
+export interface EntityMembersResponseDTO {
+  rankAdministrators: EntityMembersRank,
+  administrators: { [key: string]: DocumentMemberResponseDTO },
+  rankManagers: EntityMembersRank,
+  managers: { [key: string]: DocumentMemberResponseDTO },
+  rankGuests: EntityMembersRank,
+  guests: { [key: string]: DocumentMemberResponseDTO },
+  rankSpectators: EntityMembersRank,
+  spectators: { [key: string]: DocumentMemberResponseDTO },
+  rankParticipants: EntityMembersRank,
+  participants: { [key: string]: DocumentMemberResponseDTO },
 }
 
 export interface DocumentUserResponseDTO {
