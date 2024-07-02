@@ -17,8 +17,8 @@ export interface CompanyUserPermissionsResponseDTO extends EmailDataResponseDTO 
   key: string
   hosts: string[],
   imageUrl: string,
-  managerUserId: string,
-  managerUserNickname: string,
+  manager: UserBasicInfoResponseDTO,
+  systemAdmin: UserBasicInfoResponseDTO,
   plan: CompanyPlan,
   userPermissions: UserPermissions,
   contactEmail: string,
