@@ -1,14 +1,14 @@
 import { CompanyPlan } from '../types';
 import { EmailDataResponseDTO } from './system';
-import { UserPermissions } from './user';
+import { UserBasicInfoResponseDTO, UserPermissions } from './user';
 
 export interface CompanyResponseDTO extends EmailDataResponseDTO {
   name: string,
   key: string
   hosts: string[],
   imageUrl: string,
-  managerUserId: string,
-  managerUserNickname: string,
+  manger: UserBasicInfoResponseDTO,
+  systemAdmin: UserBasicInfoResponseDTO,
   plan: CompanyPlan,
 }
 

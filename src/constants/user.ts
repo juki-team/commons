@@ -1,5 +1,5 @@
 import { UserPermissions } from '../dto';
-import { DataViewMode, Language, MenuViewMode, ProfileSetting, Theme, UserRole, UserState, UserStatus } from '../types';
+import { UserRole, UserStatus } from '../types';
 
 export const USER_STATUS: { [key in UserStatus]: { value: UserStatus, label: string } } = {
   [UserStatus.ACTIVE]: { value: UserStatus.ACTIVE, label: 'active' },
@@ -30,29 +30,4 @@ export const EMPTY_USER_PERMISSIONS: UserPermissions = {
     handleServices: false,
     handleSettings: false,
   },
-};
-
-export const USER_GUEST: UserState = {
-  givenName: 'Guest',
-  familyName: 'Guest',
-  email: 'GUEST',
-  nickname: '',
-  status: UserStatus.ACTIVE,
-  aboutMe: '',
-  imageUrl: 'https://images.juki.pub/c/juki-image-profile.svg',
-  city: '',
-  country: '',
-  institution: '',
-  // telegramUsername: '',
-  settings: {
-    [ProfileSetting.LANGUAGE]: Language.ES,
-    [ProfileSetting.THEME]: Theme.LIGHT,
-    [ProfileSetting.DATA_VIEW_MODE]: DataViewMode.ROWS,
-    [ProfileSetting.MENU_VIEW_MODE]: MenuViewMode.VERTICAL,
-    [ProfileSetting.NEWSLETTER_SUBSCRIPTION]: true,
-  },
-  handles: {},
-  ...EMPTY_USER_PERMISSIONS,
-  isLogged: false,
-  sessionId: '',
 };

@@ -68,7 +68,8 @@ export type UserPermissions = {
   },
 }
 
-export type UserPingType = UserPermissions & {
+export type UserPingType = {
+  permissions: UserPermissions,
   nickname: string,
   imageUrl: string,
   status: UserStatus,
