@@ -115,10 +115,13 @@ export function getJudgeKeyOfProblemJudgeKey(problemJudgeKey: string): { judge: 
   const params = problemJudgeKey.split('-');
   const judge = params[0] as Judge;
   const key = params.splice(1).join('-');
-  return {
-    judge,
-    key,
-  };
+  if (judge in Judge) {
+    return {
+      judge,
+      key,
+    };
+  }
+  return { judge: Judge.CUSTOMER, key: problemJudgeKey };
 }
 
 /**
