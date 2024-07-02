@@ -26,7 +26,7 @@ export const EMPTY_USER_PERMISSIONS: UserPermissions = {
     create: false,
   },
   system: {
-    manage: false,
+    handleCompany: false,
     handleServices: false,
     handleSettings: false,
   },

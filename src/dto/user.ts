@@ -62,7 +62,7 @@ export type UserPermissions = {
     create: boolean,
   },
   system: {
-    manage: boolean,
+    handleCompany: boolean,
     handleServices: boolean,
     handleSettings: boolean,
   },
