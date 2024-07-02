@@ -12,14 +12,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   plan: CompanyPlan,
 }
 
-export interface CompanyUserPermissionsResponseDTO extends EmailDataResponseDTO {
-  name: string,
-  key: string
-  hosts: string[],
-  imageUrl: string,
-  manager: UserBasicInfoResponseDTO,
-  systemAdmin: UserBasicInfoResponseDTO,
-  plan: CompanyPlan,
+export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
   userPermissions: UserPermissions,
   contactEmail: string,
   contactCellPhoneNumber: string,
