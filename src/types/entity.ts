@@ -66,7 +66,8 @@ export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' 
 export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>>;
 
 export enum EntityCollection {
-  PROBLEMS = 'PROBLEMS',
-  CONTESTS = 'CONTESTS',
-  USERS = 'USERS',
+  COMPANY = 'COMPANY',
+  PROBLEM = 'PROBLEM',
+  CONTEST = 'CONTEST',
+  USER = 'USER',
 }
