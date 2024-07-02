@@ -7,7 +7,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   key: string
   hosts: string[],
   imageUrl: string,
-  manger: UserBasicInfoResponseDTO,
+  manager: UserBasicInfoResponseDTO,
   systemAdmin: UserBasicInfoResponseDTO,
   plan: CompanyPlan,
 }
