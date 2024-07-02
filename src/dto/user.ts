@@ -54,32 +54,18 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
 }
 
 export type UserPermissions = {
-  canCreateProblem: boolean,
   canCreateContest: boolean,
   canCreateUser: boolean,
-  canCreateTeam: boolean,
-  
-  canHandleEmail: boolean,
   canHandleUsers: boolean,
-  canHandleServices: boolean,
-  canHandleJudges: boolean,
-  canHandleSettings: boolean,
   canViewSubmissionsManagement: boolean, // TODO: Check this permission
-  // problem: {
-  //   create: boolean,
-  //   view: boolean,
-  //   update: boolean,
-  // },
-  // contest: {
-  //   create: boolean,
-  //   view: boolean,
-  //   update: boolean,
-  // },
-  // user: {
-  //   create: boolean,
-  //   view: boolean,
-  //   update: boolean,
-  // }
+  problem: {
+    create: boolean,
+  },
+  system: {
+    manage: boolean,
+    handleServices: boolean,
+    handleSettings: boolean,
+  },
 }
 
 export type UserPingType = UserPermissions & {

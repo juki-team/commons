@@ -1,3 +1,4 @@
+import { UserPermissions } from '../dto';
 import { DataViewMode, Language, MenuViewMode, ProfileSetting, Theme, UserRole, UserState, UserStatus } from '../types';
 
 export const USER_STATUS: { [key in UserStatus]: { value: UserStatus, label: string } } = {
@@ -14,6 +15,21 @@ export const USER_ROLE: { [key in UserRole]: { value: UserRole, label: string, l
   [UserRole.MANAGER]: { value: UserRole.MANAGER, label: 'manager', level: 2 },
   [UserRole.ADMIN]: { value: UserRole.ADMIN, label: 'admin', level: 1 },
   [UserRole.SUPER_ADMIN]: { value: UserRole.SUPER_ADMIN, label: 'super admin', level: 0 },
+};
+
+export const EMPTY_USER_PERMISSIONS: UserPermissions = {
+  canCreateContest: false,
+  canCreateUser: false,
+  canHandleUsers: false,
+  canViewSubmissionsManagement: false, // TODO: Check this permission
+  problem: {
+    create: false,
+  },
+  system: {
+    manage: false,
+    handleServices: false,
+    handleSettings: false,
+  },
 };
 
 export const USER_GUEST: UserState = {
@@ -36,18 +52,7 @@ export const USER_GUEST: UserState = {
     [ProfileSetting.NEWSLETTER_SUBSCRIPTION]: true,
   },
   handles: {},
-  
-  canCreateProblem: false,
-  canCreateContest: false,
-  canCreateUser: false,
-  canCreateTeam: false,
-  canHandleEmail: false,
-  canHandleUsers: false,
-  canHandleServices: false,
-  canHandleJudges: false,
-  canHandleSettings: false,
-  canViewSubmissionsManagement: false,
-  
+  ...EMPTY_USER_PERMISSIONS,
   isLogged: false,
   sessionId: '',
 };
