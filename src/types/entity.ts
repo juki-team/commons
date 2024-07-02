@@ -64,3 +64,9 @@ export type NewEntityDocument<T> =
 export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>;
 
 export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>>;
+
+export enum EntityCollections {
+  PROBLEMS = 'PROBLEMS',
+  CONTESTS = 'CONTESTS',
+  USERS = 'USERS',
+}

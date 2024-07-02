@@ -65,6 +65,21 @@ export type UserPermissions = {
   canHandleJudges: boolean,
   canHandleSettings: boolean,
   canViewSubmissionsManagement: boolean, // TODO: Check this permission
+  // problem: {
+  //   create: boolean,
+  //   view: boolean,
+  //   update: boolean,
+  // },
+  // contest: {
+  //   create: boolean,
+  //   view: boolean,
+  //   update: boolean,
+  // },
+  // user: {
+  //   create: boolean,
+  //   view: boolean,
+  //   update: boolean,
+  // }
 }
 
 export type UserPingType = UserPermissions & {
