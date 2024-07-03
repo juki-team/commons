@@ -9,7 +9,7 @@ import {
   ProblemUserType,
   TextLanguageType,
 } from '../types';
-import { DocumentMembersResponseDTO } from './entity';
+import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { UserBasicInfoResponseDTO } from './user';
 
 export interface ProblemSummaryListResponseDTO {
@@ -51,5 +51,6 @@ export interface ProblemTestCaseResponse {
 export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {
 }
 
-export interface UpsertProblemDTO extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'key'> {
+export interface UpsertProblemDTO extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'key' | 'members'> {
+  members: DocumentMembersDTO,
 }
