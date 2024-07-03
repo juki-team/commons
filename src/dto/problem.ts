@@ -41,6 +41,10 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   ownerNickname: string,
 }
 
+export interface ProblemSystemResponseDTO extends ProblemResponseDTO {
+  id: string,
+}
+
 export interface ProblemTestCaseResponse {
   testCaseKey: string,
   groups: number[],
