@@ -8,6 +8,7 @@ import {
   ProblemUserType,
   TextLanguageType,
 } from '../types';
+import { UserBasicInfoResponseDTO } from './user';
 
 export interface CreateProblemDTO {
   status: ProblemStatus,
@@ -26,7 +27,7 @@ export interface ProblemSummaryListResponseDTO {
   tags: string[],
   status: ProblemStatus,
   user: ProblemUserType,
-  ownerUserNickname: string,
+  owner: UserBasicInfoResponseDTO,
   settings: {
     mode: ProblemScoringMode,
     type: ProblemType,
