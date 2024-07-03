@@ -35,10 +35,7 @@ export interface DocumentUserResponseDTO {
 
 export interface DocumentMembersDTO {
   access: EntityAccess,
-  administrators: string[],
   managers: string[],
-  participants: string[],
-  guests: string[],
   spectators: string[],
 }
 

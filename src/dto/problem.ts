@@ -51,5 +51,5 @@ export interface ProblemTestCaseResponse {
 export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {
 }
 
-export interface UpsertProblemDTO extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'state'> {
+export interface UpsertProblemDTO extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'state' | 'key'> {
 }
