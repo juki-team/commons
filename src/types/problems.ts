@@ -1,4 +1,7 @@
 import { ProgrammingLanguage, TextLanguageType } from './commons';
+import { EntityMembers } from './entity';
+import { Judge } from './judge';
+import { ProblemTestCaseType } from './services';
 
 export interface TestCase {
   id: string,
@@ -71,4 +74,18 @@ export type ProblemUserType = {
   isSpectator: boolean,
   solved: boolean,
   tried: boolean,
+}
+
+export interface ProblemBaseDocument {
+  name: string,
+  author: string,
+  settings: ProblemSettingsType,
+  tags: string[],
+  statement: ProblemStatementType,
+  editorial: TextLanguageType,
+  judge: Judge,
+  key: string,
+  testCases: ProblemTestCaseType[],
+  testCasesUpdatedAtTimestamp: number,
+  members: EntityMembers,
 }

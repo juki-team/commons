@@ -1,11 +1,10 @@
 import {
-  EntityMembers,
   EntityState,
   Judge,
+  ProblemBaseDocument,
   ProblemScoringMode,
   ProblemSettingsType,
   ProblemStatementType,
-  ProblemTestCaseType,
   ProblemType,
   ProblemUserType,
   TextLanguageType,
@@ -50,20 +49,6 @@ export interface ProblemTestCaseResponse {
 }
 
 export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {
-}
-
-export interface ProblemBaseDocument {
-  name: string,
-  author: string,
-  settings: ProblemSettingsType,
-  tags: string[],
-  statement: ProblemStatementType,
-  editorial: TextLanguageType,
-  judge: Judge,
-  key: string,
-  testCases: ProblemTestCaseType[],
-  testCasesUpdatedAtTimestamp: number,
-  members: EntityMembers,
 }
 
 export interface UpsertProblemDTO extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'state'> {
