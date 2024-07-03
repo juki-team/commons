@@ -25,7 +25,7 @@ export interface ProblemSummaryListResponseDTO {
   }
 }
 
-export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
+export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   author: string,
   statement: ProblemStatementType,
   editorial: TextLanguageType,
@@ -34,7 +34,7 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
 }
 
-export interface ProblemSystemResponseDTO extends ProblemResponseDTO {
+export interface ProblemDataSystemResponseDTO extends ProblemDataResponseDTO {
   state: EntityState,
   id: string,
 }

@@ -1,4 +1,4 @@
-import { ProblemResponseDTO } from '../dto';
+import { ProblemDataResponseDTO } from '../dto';
 import { EntityStatus, ProgrammingLanguage } from './commons';
 import { Judge } from './judge';
 import { UserBasicInfoInterface } from './users';
@@ -121,7 +121,7 @@ export type CreateContestMembersBasicType = {
   spectators: string[],
 };
 
-export type ContestProblemType = ProblemResponseDTO & ContestProblemBasicType & {
+export type ContestProblemType = ProblemDataResponseDTO & ContestProblemBasicType & {
   totalSuccess: number,
   totalAttempts: number, // successRate: number,
   myAttempts: number,
