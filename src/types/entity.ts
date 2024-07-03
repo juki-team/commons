@@ -6,8 +6,6 @@ export enum EntityMembersRank {
 
 export enum EntityState {
   RELEASED = 'RELEASED',
-  IN_REVIEW = 'IN_REVIEW',
-  IN_DRAFT = 'IN_DRAFT',
   ARCHIVED = 'ARCHIVED',
 }
 
