@@ -1,11 +1,3 @@
-import { EntityState } from './entity';
-
-export enum FileState {
-  RELEASED = EntityState.RELEASED,
-  IN_DRAFT = EntityState.IN_DRAFT,
-  ARCHIVED = EntityState.ARCHIVED,
-}
-
 export enum FileRole {
   RESTRICTED = 'RESTRICTED',
   GUEST = 'GUEST',

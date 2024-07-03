@@ -1,4 +1,10 @@
-import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassState, UserBasicInfoInterface } from '../types';
+import {
+  AssignmentBasicInfo,
+  AssignmentClass,
+  ClassBaseDocument,
+  EntityState,
+  UserBasicInfoInterface,
+} from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 
 interface ClassUserResponseDTO {
@@ -13,7 +19,7 @@ export interface ClassSummaryListResponseDTO {
   key: string,
   name: string,
   description: string,
-  state: ClassState,
+  state: EntityState,
   owner: UserBasicInfoInterface,
   user: ClassUserResponseDTO,
 }

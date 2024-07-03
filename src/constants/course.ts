@@ -1,27 +1,4 @@
-import { CourseRole, CourseState } from '../types';
-
-export const COURSE_STATE: { [key in CourseState]: { value: CourseState, label: string, description: string } } = {
-  [CourseState.RELEASED]: {
-    value: CourseState.RELEASED,
-    label: 'released',
-    description: 'the course can now be taken',
-  },
-  [CourseState.IN_REVIEW]: {
-    value: CourseState.IN_REVIEW,
-    label: 'in review',
-    description: 'the course is under review',
-  },
-  [CourseState.IN_DRAFT]: {
-    value: CourseState.IN_DRAFT,
-    label: 'in draft',
-    description: 'the course is in draft',
-  },
-  [CourseState.ARCHIVED]: {
-    value: CourseState.ARCHIVED,
-    label: 'archived',
-    description: 'the course will not appear for anyone, contact the administrator to see it again',
-  },
-};
+import { CourseRole } from '../types';
 
 export const COURSE_ROLE: { [key in CourseRole]: { value: CourseRole, label: string, level: number } } = {
   [CourseRole.RESTRICTED]: { value: CourseRole.RESTRICTED, label: 'restricted', level: 8 },

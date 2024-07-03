@@ -1,9 +1,7 @@
-import { CourseBaseDocument, CourseState } from '../types/course';
+import { CourseBaseDocument } from '../types/course';
 import { UserBasicInfoInterface } from '../types/users';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
-import { UserBasicInfoResponseDTO } from './user';
 import { WorksheetSummaryListResponseDTO } from './worksheet';
-import { WorkSheetSubmissions } from './worksheet-submissions';
 
 export type CourseUserResponseDTO = {
   isOwner: boolean,
@@ -19,7 +17,6 @@ export interface CourseSummaryListResponseDTO {
   abstract: string,
   description: string,
   coverImageUrl: string,
-  state: CourseState,
   owner: UserBasicInfoInterface,
   user: CourseUserResponseDTO,
 }

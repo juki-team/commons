@@ -1,4 +1,3 @@
-export * from './class';
 export * from './commons';
 export * from './company';
 export * from './contest';

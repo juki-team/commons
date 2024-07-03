@@ -51,23 +51,38 @@ export interface EntityTimestampsDocument {
   updatedAt: Date,
 }
 
-export type EntityBaseDocumentTypes = Date | number | string;
-
-export type EntityBaseDocumentType = { [key: string]: EntityBaseDocumentTypes };
+export interface EntityStateDocument {
+  state: EntityState,
+}
 
 export type NewEntityDocument<T> =
   T
   & EntityCompanyDocument
   & EntityOwnerDocument
-  & EntityTimestampsDocument;
+  & EntityTimestampsDocument
+  & EntityStateDocument;
 
-export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>;
+export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state'>;
 
-export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId'>>;
+export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state'>>;
 
 export enum EntityCollection {
   COMPANY = 'COMPANY',
   PROBLEM = 'PROBLEM',
   CONTEST = 'CONTEST',
   USER = 'USER',
+}
+
+export enum CollectionKey {
+  COMPANY = 'C',
+  USER = 'U',
+  PROBLEM = 'P',
+  CLASS = 'K',
+  CONTEST = 'T',
+  COURSE = 'R',
+  FILE = 'F',
+  GROUP = 'G',
+  JUDGE = 'J',
+  WORKSHEET = 'W',
+  SUBMIT = 'S',
 }

@@ -1,5 +1,4 @@
-import { EntityStatus, ProgrammingLanguage, TextLanguageType } from './commons';
-import { EntityState } from './entity';
+import { ProgrammingLanguage, TextLanguageType } from './commons';
 
 export interface TestCase {
   id: string,
@@ -22,18 +21,6 @@ export enum ProblemOutput {
   STANDARD = 'STANDARD',
   DYNAMIC = 'DYNAMIC',
   INTERACTIVE = 'INTERACTIVE'
-}
-
-export enum ProblemStatus {
-  PUBLIC = EntityStatus.PUBLIC,
-  RESERVED = EntityStatus.RESERVED,
-  PRIVATE = EntityStatus.PRIVATE,
-  ARCHIVED = EntityStatus.ARCHIVED,
-}
-
-export enum ProblemState {
-  RELEASED = EntityState.RELEASED,
-  ARCHIVED = EntityState.ARCHIVED,
 }
 
 export enum ProblemType {

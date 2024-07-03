@@ -1,10 +1,10 @@
-import { FileContentType, FileMemberRole, FileState, SummaryFileContentType, UserBasicInterface } from '../types';
+import { EntityState, FileContentType, FileMemberRole, SummaryFileContentType, UserBasicInterface } from '../types';
 import { DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity';
 
 export interface FileBasic {
   name: string,
   description: string,
-  state: FileState,
+  state: EntityState,
 }
 
 export interface CreateFileDTO extends FileBasic {

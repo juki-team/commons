@@ -1,10 +1,5 @@
 import { EntityMembers, EntityState } from './entity';
 
-export enum GroupState {
-  RELEASED = EntityState.RELEASED,
-  ARCHIVED = EntityState.ARCHIVED,
-}
-
 export enum GroupType {
   CLASS = 'CLASS',
   TEAM = 'TEAM',
@@ -13,7 +8,7 @@ export enum GroupType {
 export interface GroupBaseDocument {
   name: string,
   description: string,
-  state: GroupState,
+  state: EntityState,
   types: GroupType,
   members: EntityMembers,
   /*

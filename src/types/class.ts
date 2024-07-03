@@ -1,10 +1,5 @@
 import { EntityMembers, EntityState } from './entity';
 
-export enum ClassCycleSessionAssignmentState {
-  ARCHIVED = EntityState.ARCHIVED,
-  RELEASED = EntityState.RELEASED,
-}
-
 export enum AssignmentClass {
   COURSE = 'COURSE',
   WORKSHEET = 'WORKSHEET',
@@ -22,16 +17,11 @@ export interface AssignmentBasicInfo {
 
 export interface ClassCycleSessionAssignment extends AssignmentBasicInfo {
   entityId: string,
-  state: ClassCycleSessionAssignmentState,
+  state: EntityState,
 }
 
 export interface ClassCycleSessionAssignments {
   [key: string]: ClassCycleSessionAssignment,
-}
-
-export enum ClassCycleSessionState {
-  ARCHIVED = EntityState.ARCHIVED,
-  RELEASED = EntityState.RELEASED,
 }
 
 interface ClassCycleSession {
@@ -41,16 +31,11 @@ interface ClassCycleSession {
   assignments: ClassCycleSessionAssignments,
   startTimestamp: number,
   endTimestamp: number,
-  state: ClassCycleSessionState,
+  state: EntityState,
 }
 
 export interface ClassCycleSessions {
   [key: string]: ClassCycleSession,
-}
-
-export enum ClassCycleState {
-  ARCHIVED = EntityState.ARCHIVED,
-  RELEASED = EntityState.RELEASED,
 }
 
 export type ClassCycle = {
@@ -60,23 +45,17 @@ export type ClassCycle = {
   sessions: ClassCycleSessions,
   startTimestamp: number,
   endTimestamp: number,
-  state: ClassCycleState,
+  state: EntityState,
 }
 
 export interface ClassCycles {
   [key: string]: ClassCycle,
 }
 
-export enum ClassState {
-  RELEASED = EntityState.RELEASED,
-  ARCHIVED = EntityState.ARCHIVED,
-}
-
 export interface ClassBaseDocument {
   key: string,
   name: string,
   description: string,
-  state: ClassState,
   members: EntityMembers,
   cycles: ClassCycles,
 }

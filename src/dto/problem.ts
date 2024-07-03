@@ -1,9 +1,9 @@
 import {
   EntityMembers,
+  EntityState,
   Judge,
   ProblemScoringMode,
   ProblemSettingsType,
-  ProblemState,
   ProblemStatementType,
   ProblemTestCaseType,
   ProblemType,
@@ -36,7 +36,7 @@ export interface ProblemResponseDTO extends ProblemSummaryListResponseDTO {
 }
 
 export interface ProblemSystemResponseDTO extends ProblemResponseDTO {
-  state: ProblemState,
+  state: EntityState,
   id: string,
 }
 
@@ -53,7 +53,6 @@ export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseRespon
 }
 
 export interface ProblemBaseDocument {
-  state: ProblemState,
   name: string,
   author: string,
   settings: ProblemSettingsType,

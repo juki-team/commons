@@ -1,12 +1,6 @@
 import { EntityMembers, EntityState } from './entity';
 import { BasicSheetType, BodyNoteSheetType, NewPageSheetType } from './sheet';
 
-export enum WorksheetState {
-  RELEASED = EntityState.RELEASED,
-  IN_DRAFT = EntityState.IN_DRAFT,
-  ARCHIVED = EntityState.ARCHIVED,
-}
-
 export interface WorksheetBaseDocument {
   key: string,
   folderId: string,
@@ -14,7 +8,7 @@ export interface WorksheetBaseDocument {
   description: string,
   content: BodyNoteSheetType[],
   isSolvable: boolean,
-  state: WorksheetState,
+  state: EntityState,
   members: EntityMembers,
 }
 
