@@ -1,33 +1,4 @@
-import { ProblemInput, ProblemScoringMode, ProblemOutput, ProblemRole, ProblemStatus, ProblemType } from '../types';
-
-export const PROBLEM_STATUS: {
-  [key in ProblemStatus]: {
-    value: ProblemStatus,
-    label: string,
-    description: string
-  }
-} = {
-  [ProblemStatus.ARCHIVED]: {
-    value: ProblemStatus.ARCHIVED,
-    label: 'archived',
-    description: 'the problem will not appear for anyone, contact the administrator to see it again.',
-  },
-  [ProblemStatus.PRIVATE]: {
-    value: ProblemStatus.PRIVATE,
-    label: 'private',
-    description: 'the problem will appear in the problem list only for you and problem administrators and users will have access according to their roles.',
-  },
-  [ProblemStatus.RESERVED]: {
-    value: ProblemStatus.RESERVED,
-    label: 'reserved',
-    description: 'the problem will appear in the problem list only for problem editors and users will have access according to their roles.',
-  },
-  [ProblemStatus.PUBLIC]: {
-    value: ProblemStatus.PUBLIC,
-    label: 'public',
-    description: 'the problem will appear in the problem list and users will be able to solve it.',
-  },
-};
+import { ProblemInput, ProblemOutput, ProblemRole, ProblemScoringMode, ProblemType } from '../types';
 
 export const PROBLEM_INPUT: { [key in ProblemInput]: { value: ProblemInput, label: string } } = {
   [ProblemInput.STANDARD]: { value: ProblemInput.STANDARD, label: 'standard' },
@@ -42,7 +13,13 @@ export const PROBLEM_OUTPUT: { [key in ProblemOutput]: { value: ProblemOutput, l
 
 export const PROBLEM_MODES = [ ProblemScoringMode.TOTAL, ProblemScoringMode.SUBTASK, ProblemScoringMode.PARTIAL ];
 
-export const PROBLEM_MODE: { [key in ProblemScoringMode]: { value: ProblemScoringMode, label: string, description: string } } = {
+export const PROBLEM_MODE: {
+  [key in ProblemScoringMode]: {
+    value: ProblemScoringMode,
+    label: string,
+    description: string
+  }
+} = {
   [ProblemScoringMode.TOTAL]: {
     value: ProblemScoringMode.TOTAL,
     label: 'total',

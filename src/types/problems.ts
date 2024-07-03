@@ -1,4 +1,5 @@
 import { EntityStatus, ProgrammingLanguage, TextLanguageType } from './commons';
+import { EntityState } from './entity';
 
 export interface TestCase {
   id: string,
@@ -28,6 +29,11 @@ export enum ProblemStatus {
   RESERVED = EntityStatus.RESERVED,
   PRIVATE = EntityStatus.PRIVATE,
   ARCHIVED = EntityStatus.ARCHIVED,
+}
+
+export enum ProblemState {
+  RELEASED = EntityState.RELEASED,
+  ARCHIVED = EntityState.ARCHIVED,
 }
 
 export enum ProblemType {
@@ -73,7 +79,9 @@ export type ProblemSettingsType = {
 }
 
 export type ProblemUserType = {
-  isEditor: boolean,
+  isOwner: boolean,
+  isManager: boolean,
+  isSpectator: boolean,
   solved: boolean,
   tried: boolean,
 }

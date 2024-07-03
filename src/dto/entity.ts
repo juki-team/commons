@@ -53,10 +53,7 @@ export interface DocumentMemberResponseDTO extends UserBasicInfoResponseDTO {
 
 export interface DocumentMembersResponseDTO {
   access: EntityAccess,
-  administrators: { [key: string]: DocumentMemberResponseDTO },
   managers: { [key: string]: DocumentMemberResponseDTO },
-  participants: { [key: string]: DocumentMemberResponseDTO },
-  guests: { [key: string]: DocumentMemberResponseDTO },
   spectators: { [key: string]: DocumentMemberResponseDTO },
 }
 
