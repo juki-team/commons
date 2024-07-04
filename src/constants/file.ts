@@ -1,4 +1,4 @@
-import { EntityAccess, FileRole, FileType } from '../types';
+import { EntityAccess, EntityState, FileRole, FileType } from '../types';
 
 export const FILE_TYPE: { [key in FileType]: { value: FileType, label: string } } = {
   [FileType.FILE]: { value: FileType.FILE, label: 'file' },
@@ -12,6 +12,17 @@ export const FILE_ROLE: { [key in FileRole]: { value: FileRole, label: string, l
   [FileRole.MASTER]: { value: FileRole.MASTER, label: 'master', level: 2 },
   [FileRole.ADMIN]: { value: FileRole.ADMIN, label: 'admin', level: 1 },
   [FileRole.SUPER_ADMIN]: { value: FileRole.SUPER_ADMIN, label: 'super admin', level: 0 },
+};
+
+export const ENTITY_STATE: { [key in EntityState]: { value: EntityState, label: string } } = {
+  [EntityState.RELEASED]: {
+    value: EntityState.RELEASED,
+    label: 'released',
+  },
+  [EntityState.ARCHIVED]: {
+    value: EntityState.ARCHIVED,
+    label: 'archived',
+  },
 };
 
 export const ENTITY_ACCESS: {
