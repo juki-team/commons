@@ -1,3 +1,5 @@
+import { UserBasicInfoResponseDTO } from '../dto';
+
 export enum EntityMembersRank {
   NONE = 'NONE',
   CLOSE = 'CLOSE',
@@ -83,4 +85,21 @@ export enum CollectionKey {
   JUDGE = 'J',
   WORKSHEET = 'W',
   SUBMIT = 'S',
+}
+
+export enum LogOperation {
+  REMOVE = 'REMOVE',
+  ADD = 'ADD',
+  UPDATE = 'UPDATE'
+}
+
+export interface LogDataResponseDTO {
+  type: LogOperation,
+  key: string,
+  path: string,
+  valueType: string | null,
+  value?: any,
+  oldValue?: any,
+  timestamp: number,
+  customerUser: UserBasicInfoResponseDTO,
 }
