@@ -34,10 +34,19 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
 }
 
-export interface ProblemDataSystemResponseDTO extends ProblemDataResponseDTO {
+export interface ProblemDataManagerSystemResponseDTO extends ProblemDataResponseDTO {
+  isManager: true,
   state: EntityState,
   id: string,
 }
+
+export interface ProblemDataSpectatorSystemResponseDTO extends ProblemDataResponseDTO {
+  isManager: false,
+  state: EntityState,
+  id: string,
+}
+
+export type ProblemDataSystemResponseDTO = ProblemDataManagerSystemResponseDTO | ProblemDataSpectatorSystemResponseDTO;
 
 export interface ProblemTestCaseResponse {
   testCaseKey: string,
