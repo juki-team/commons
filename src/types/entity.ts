@@ -114,7 +114,7 @@ export enum LogOperation {
 }
 
 export interface LogDataResponseDTO {
-  changes: EntityLogChanges,
+  changes: EntityLogChanges[],
   timestamp: number,
   customerUser: UserBasicInfoResponseDTO,
 }
