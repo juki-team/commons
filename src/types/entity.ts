@@ -55,16 +55,32 @@ export interface EntityStateDocument {
   state: EntityState,
 }
 
+export interface EntityLog {
+  key: string;
+  path: string;
+  valueType: string | null;
+  value?: any;
+  oldValue?: any;
+  type: LogOperation,
+  timestamp: number,
+  customerUserId: string,
+}
+
+export interface EntityLogsDocument {
+  logs: EntityLog[],
+}
+
 export type NewEntityDocument<T> =
   T
   & EntityCompanyDocument
   & EntityOwnerDocument
   & EntityTimestampsDocument
-  & EntityStateDocument;
+  & EntityStateDocument
+  & EntityLogsDocument;
 
-export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state'>;
+export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs'>;
 
-export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state'>>;
+export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs'>>;
 
 export enum EntityCollection {
   COMPANY = 'COMPANY',
