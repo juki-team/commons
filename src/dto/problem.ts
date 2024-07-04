@@ -42,8 +42,8 @@ export interface ProblemDataManagerSystemResponseDTO extends ProblemDataResponse
 
 export interface ProblemDataSpectatorSystemResponseDTO extends ProblemDataResponseDTO {
   isManager: false,
-  state: EntityState,
-  id: string,
+  state: undefined,
+  id: undefined,
 }
 
 export type ProblemDataSystemResponseDTO = ProblemDataManagerSystemResponseDTO | ProblemDataSpectatorSystemResponseDTO;
