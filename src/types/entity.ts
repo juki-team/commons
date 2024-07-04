@@ -55,13 +55,17 @@ export interface EntityStateDocument {
   state: EntityState,
 }
 
-export interface EntityLog {
+export interface EntityLogChanges {
   key: string;
   path: string;
   valueType: string | null;
   value?: any;
   oldValue?: any;
   type: LogOperation,
+}
+
+export interface EntityLog {
+  changes: EntityLogChanges[],
   timestamp: number,
   customerUserId: string,
 }
@@ -110,12 +114,7 @@ export enum LogOperation {
 }
 
 export interface LogDataResponseDTO {
-  type: LogOperation,
-  key: string,
-  path: string,
-  valueType: string | null,
-  value?: any,
-  oldValue?: any,
+  changes: EntityLogChanges,
   timestamp: number,
   customerUser: UserBasicInfoResponseDTO,
 }
