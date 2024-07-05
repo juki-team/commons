@@ -13,6 +13,7 @@ import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { UserBasicInfoResponseDTO } from './user';
 
 export interface ProblemSummaryListResponseDTO {
+  companyKey: string,
   judge: Judge,
   key: string,
   name: string,
