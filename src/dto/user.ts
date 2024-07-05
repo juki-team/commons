@@ -14,6 +14,7 @@ import {
 export interface UserBasicInfoResponseDTO {
   nickname: string,
   imageUrl: string,
+  companyKey: string,
 }
 
 export interface UserSummaryResponseDTO extends UserBasicInfoResponseDTO {
