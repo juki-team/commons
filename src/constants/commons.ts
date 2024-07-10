@@ -415,3 +415,5 @@ export const SEC_90 = 1000 * 90;
 export const SEC_120 = 1000 * 120;
 
 export const DEFAULT_JUKI_PROFILE_IMAGE = 'https://juki-judge.s3.us-east-2.amazonaws.com/public/file/5f69783aa7a8e048ef8d0ce2.';
+
+export const SEPARATOR_TOKEN = '\x1E';
