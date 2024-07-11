@@ -23,7 +23,7 @@ export interface SubmissionSummaryListResponseDTO {
   // problem
   isProblemEditor: boolean,
   problemKey: string,
-  problemJudge: Judge,
+  problemJudgeKey: Judge | string,
   problemName: string, // foreign
   problemMode: ProblemScoringMode, // foreign
   problemType: ProblemType, // foreign
