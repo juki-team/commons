@@ -79,7 +79,7 @@ export type ContestClarificationType = {
 
 export type ContestProblemBasicType = {
   key: string,
-  judge: Judge,
+  judgeKey: Judge | string,
   index: string,
   points: number,
   color: string,
