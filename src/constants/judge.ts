@@ -281,7 +281,7 @@ export const RUNNER_TYPE: { [key in RunnerType]: { value: RunnerType, label: str
   [RunnerType.LOW_PERFORMANCE]: { value: RunnerType.LOW_PERFORMANCE, label: 'low performance' },
 };
 
-export const EXTERNAL_JUDGES: (Judge | string)[] = [
+export const EXTERNAL_JUDGE_KEYS: (Judge | string)[] = [
   Judge.CODEFORCES,
   Judge.CODEFORCES_GYM,
   Judge.JV_UMSA,
