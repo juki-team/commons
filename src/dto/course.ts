@@ -22,7 +22,6 @@ export interface CourseSummaryListResponseDTO {
 }
 
 export interface CourseLessonsWorksheetDataResponseDTO extends Pick<WorksheetSummaryListResponseDTO, 'key' | 'name' | 'content'> {
-  index: number,
 }
 
 export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
