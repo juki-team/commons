@@ -31,7 +31,7 @@ export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
 }
 
-export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons'> {
+export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons' | 'state'> {
   lessons: {
     worksheetKey: string,
   }[],
