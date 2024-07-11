@@ -280,3 +280,14 @@ export const RUNNER_TYPE: { [key in RunnerType]: { value: RunnerType, label: str
   [RunnerType.HIGH_PERFORMANCE]: { value: RunnerType.HIGH_PERFORMANCE, label: 'high performance' },
   [RunnerType.LOW_PERFORMANCE]: { value: RunnerType.LOW_PERFORMANCE, label: 'low performance' },
 };
+
+export const EXTERNAL_JUDGES: (Judge | string)[] = [
+  Judge.CODEFORCES,
+  Judge.CODEFORCES_GYM,
+  Judge.JV_UMSA,
+  //
+  Judge.UVA_ONLINE_JUDGE,
+  Judge.CODECHEF,
+  Judge.AT_CODER,
+  Judge.TOPCODER,
+];
