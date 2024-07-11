@@ -73,7 +73,6 @@ export type UserPingType = {
   permissions: UserPermissions,
   nickname: string,
   imageUrl: string,
-  status: UserStatus,
   settings: UserSettingsType,
   isLogged: boolean,
   sessionId: string,
