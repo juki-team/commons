@@ -1,6 +1,7 @@
 import { Judge } from '../types';
 
-export interface JudgeResponseDTO {
-  key: Judge
+export interface JudgeResponseDataDTO {
+  key: Judge | string,
   languages: { value: string, label: string, enabled: boolean }[],
+  problemTags: string[],
 }
