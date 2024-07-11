@@ -21,7 +21,8 @@ export interface CourseSummaryListResponseDTO {
   user: CourseUserResponseDTO,
 }
 
-export interface CourseLessonsWorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'user' | 'owner' | 'updatedAt' | 'state'> {
+export interface CourseLessonsWorksheetDataResponseDTO extends Pick<WorksheetSummaryListResponseDTO, 'key' | 'name' | 'content'> {
+  index: number,
 }
 
 export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
