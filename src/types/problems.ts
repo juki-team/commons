@@ -84,6 +84,7 @@ export interface ProblemBaseDocument {
   statement: ProblemStatementType,
   editorial: TextLanguageType,
   judge: Judge,
+  judgeId: string,
   key: string,
   testCases: ProblemTestCaseType[],
   testCasesUpdatedAtTimestamp: number,
