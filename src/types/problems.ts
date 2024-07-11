@@ -1,6 +1,5 @@
 import { ProgrammingLanguage, TextLanguageType } from './commons';
 import { EntityMembers } from './entity';
-import { Judge } from './judge';
 import { ProblemTestCaseType } from './services';
 
 export interface TestCase {
@@ -83,7 +82,6 @@ export interface ProblemBaseDocument {
   tags: string[],
   statement: ProblemStatementType,
   editorial: TextLanguageType,
-  judge: Judge,
   judgeId: string,
   key: string,
   testCases: ProblemTestCaseType[],
