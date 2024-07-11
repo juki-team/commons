@@ -2,6 +2,12 @@ import { CompanyPlan } from '../types';
 import { EmailDataResponseDTO } from './system';
 import { UserBasicInfoResponseDTO, UserPermissions } from './user';
 
+export interface CompanyJudgeResponseDTO {
+  key: string,
+  label: string,
+  keyPrefix: string,
+}
+
 export interface CompanyResponseDTO extends EmailDataResponseDTO {
   name: string,
   key: string
@@ -10,6 +16,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   manager: UserBasicInfoResponseDTO,
   systemAdmin: UserBasicInfoResponseDTO,
   plan: CompanyPlan,
+  judges: CompanyJudgeResponseDTO
 }
 
 export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
