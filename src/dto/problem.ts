@@ -14,7 +14,7 @@ import { UserBasicInfoResponseDTO } from './user';
 
 export interface ProblemSummaryListResponseDTO {
   companyKey: string,
-  judge: Judge,
+  judgeKey: Judge | string,
   key: string,
   name: string,
   tags: string[],
