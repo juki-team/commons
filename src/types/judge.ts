@@ -1,5 +1,16 @@
 import { DataLogType } from './submission';
 
+export type JudgeLanguageType = { value: string, label: string, enabled: boolean };
+
+export interface JudgeBaseDocument {
+  key: string | Judge,
+  label: string,
+  languages: JudgeLanguageType[],
+  problemTags: string[],
+  companyId: string,
+  keyPrefix: string,
+}
+
 export enum Judge {
   CUSTOMER = 'CUSTOMER',
   JUKI_JUDGE = 'JUKI_JUDGE',
