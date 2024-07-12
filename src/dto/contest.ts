@@ -33,6 +33,7 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
 }
 
 export interface ContestProblemBasicDataResponseDTO {
+  name: string,
   key: string,
   judgeKey: string,
   index: string,
