@@ -25,7 +25,7 @@ export interface SubmissionSummaryListResponseDTO {
   problemKey: string,
   problemJudgeKey: Judge | string,
   problemName: string, // foreign
-  problemMode: ProblemScoringMode, // foreign
+  problemScoringMode: ProblemScoringMode, // foreign
   problemType: ProblemType, // foreign
   problemTimeLimit: number, // foreign
   problemMemoryLimit: number, // foreign
