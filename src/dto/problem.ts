@@ -35,7 +35,7 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
 }
 
-export interface ProblemDataSystemResponseDTO extends ProblemSummaryListResponseDTO, Omit<ProblemDataResponseDTO, 'settings'> {
+export interface ProblemSystemSummaryListResponseDTO extends ProblemSummaryListResponseDTO {
   state: EntityState,
   id: string,
   ownerUserId: string,
