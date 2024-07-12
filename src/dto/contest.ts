@@ -1,4 +1,4 @@
-import { ContestBaseDocument, ContestClarificationType, ContestSettingsBasicType, ContestUserType } from '../types';
+import { ContestBaseDocument, ContestClarificationType, ContestSettings, ContestUserType } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { ProblemDataResponseDTO } from './problem';
 
@@ -11,24 +11,15 @@ export interface UpsertContestProblemDTO {
   endTimestamp: number,
 }
 
-export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems'> {
+export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings'> {
   members: EntityMembersDTO,
   problems: UpsertContestProblemDTO[],
+  settings: Omit<ContestSettings, 'locked'>,
 }
 
-export interface ContestSummaryListResponseDTO {
-  name: string,
-  key: string,
+export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
   user: ContestUserType,
-  settings: {
-    startTimestamp: number,
-    endTimestamp: number,
-    // To get the contest template
-    frozenTimestamp: number,
-    quietTimestamp: number,
-    penalty: number,
-  },
-  tags: string[],
+  settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty'>,
   // Data Calculated
   totalContestants: number,
   isLive: boolean,
@@ -54,10 +45,8 @@ export type ContestProblemDataResponseDTO = ProblemDataResponseDTO & {
   myPenalty: number,
 };
 
-export interface ContestDataResponseDTO extends ContestSummaryListResponseDTO {
-  description: string,
-  settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
+export interface ContestDataResponseDTO extends Omit<ContestSummaryListResponseDTO, 'settings'>, Pick<ContestBaseDocument, 'settings' | 'description'> {
   problems: { [key: string]: ContestProblemDataResponseDTO },
   members: EntityMembersResponseDTO,
-  clarifications: ContestClarificationType[]
+  clarifications: ContestClarificationType[],
 }

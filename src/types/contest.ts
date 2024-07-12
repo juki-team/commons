@@ -75,7 +75,7 @@ export type ContestProblemType = {
   endTimestamp: number,
 };
 
-export type ContestSettingsBasicType = {
+export type ContestSettings = {
   clarifications: boolean,
   numberJudgeValidations: number,
   languages: ProgrammingLanguage[],
@@ -85,7 +85,7 @@ export type ContestSettingsBasicType = {
   frozenTimestamp: number,
   quietTimestamp: number,
   endTimestamp: number,
-  problemEditorials: boolean,
+  locked: boolean,
 };
 
 export type MemberUserData = {
@@ -105,7 +105,7 @@ export interface ContestBaseDocument {
   key: string,
   name: string,
   description: string,
-  settings: ContestSettingsBasicType,
+  settings: ContestSettings,
   problems: { [key: string]: ContestProblemType },
   members: EntityMembers,
   tags: string[],
