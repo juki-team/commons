@@ -32,12 +32,17 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
   isQuietTime: boolean,
 }
 
-export type ContestProblemDataResponseDTO = ProblemDataResponseDTO & {
+export interface ContestProblemBasicDataResponseDTO {
+  key: string,
+  judgeKey: string,
   index: string,
   points: number,
   color: string,
   startTimestamp: number,
   endTimestamp: number,
+}
+
+export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO & ProblemDataResponseDTO & {
   // calculated
   totalSuccess: number,
   totalAttempts: number, // successRate: number,
