@@ -1,4 +1,4 @@
 import { JudgeBaseDocument } from '../types';
 
-export interface JudgeResponseDataDTO extends JudgeBaseDocument {
+export interface JudgeDataResponseDTO extends JudgeBaseDocument {
 }
