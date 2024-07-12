@@ -61,7 +61,7 @@ export type ProblemSettingsType = {
   memoryLimit: number,
   withPE: boolean,
   type: ProblemType,
-  mode: ProblemScoringMode,
+  scoringMode: ProblemScoringMode,
   byProgrammingLanguage: ProblemSettingsByProgrammingLanguageType,
   evaluatorSource: string,
   pointsByGroups: ProblemSettingsPointsByGroupsType,

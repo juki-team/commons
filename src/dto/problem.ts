@@ -21,7 +21,7 @@ export interface ProblemSummaryListResponseDTO {
   user: ProblemUserType,
   owner: UserBasicInfoResponseDTO,
   settings: {
-    mode: ProblemScoringMode,
+    scoringMode: ProblemScoringMode,
     type: ProblemType,
   }
 }
