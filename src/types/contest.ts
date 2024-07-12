@@ -47,7 +47,7 @@ export type ContestUserType = {
   isOwner: boolean,
   isAdministrator: boolean,
   isManager: boolean,
-  isContestant: boolean,
+  isParticipant: boolean,
   isGuest: boolean,
   isSpectator: boolean,
 };
