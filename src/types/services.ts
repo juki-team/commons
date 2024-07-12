@@ -231,7 +231,7 @@ export type JudgingProblemDataType = {
   problemTimeLimit: number,
   problemMemoryLimit: number,
   problemWithPE: boolean,
-  problemMode: ProblemScoringMode,
+  problemScoringMode: ProblemScoringMode,
   problemPointsByGroups: ProblemSettingsPointsByGroupsType,
   problemSampleCases: ProblemSampleCaseType[],
   problemTestCases: ProblemTestCaseType[],
