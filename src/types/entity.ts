@@ -90,6 +90,7 @@ export enum EntityCollection {
   COMPANY = 'COMPANY',
   PROBLEM = 'PROBLEM',
   CONTEST = 'CONTEST',
+  JUDGE = 'JUDGE',
   USER = 'USER',
 }
 
