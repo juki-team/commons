@@ -13,7 +13,7 @@ export interface UpsertContestProblemDTO {
 
 export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings'> {
   members: EntityMembersDTO,
-  problems: UpsertContestProblemDTO[],
+  problems: { [key: string]: UpsertContestProblemDTO },
   settings: Omit<ContestSettings, 'locked'>,
 }
 
