@@ -1,4 +1,4 @@
-import { ContestBaseDocument, ContestClarificationType, ContestSettings, ContestUserType } from '../types';
+import { ContestBaseDocument, ContestClarificationType, ContestSettings, ContestUserType, EntityState } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { ProblemDataResponseDTO } from './problem';
 import { UserBasicInfoResponseDTO } from './user';
@@ -30,6 +30,16 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
   isEndless: boolean,
   isFrozenTime: boolean,
   isQuietTime: boolean,
+}
+
+export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListResponseDTO {
+  state: EntityState,
+  id: string,
+  ownerUserId: string,
+  companyName: string,
+  companyId: string,
+  createdAt: number,
+  updatedAt: number,
 }
 
 export interface ContestProblemBasicDataResponseDTO {

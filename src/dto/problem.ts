@@ -43,6 +43,8 @@ export interface ProblemSystemSummaryListResponseDTO extends ProblemSummaryListR
   judgeId: string,
   companyName: string,
   companyId: string,
+  createdAt: number,
+  updatedAt: number,
 }
 
 export interface ProblemTestCaseResponse {
