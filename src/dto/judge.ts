@@ -1,8 +1,4 @@
-import { Judge } from '../types';
+import { JudgeBaseDocument } from '../types';
 
-export interface JudgeResponseDataDTO {
-  key: Judge | string,
-  label: string,
-  languages: { value: string, label: string, enabled: boolean }[],
-  problemTags: string[],
+export interface JudgeResponseDataDTO extends JudgeBaseDocument {
 }

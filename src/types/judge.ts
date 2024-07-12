@@ -4,10 +4,9 @@ export type JudgeLanguageType = { value: string, label: string, enabled: boolean
 
 export interface JudgeBaseDocument {
   key: string | Judge,
-  label: string,
+  name: string,
   languages: JudgeLanguageType[],
   problemTags: string[],
-  companyId: string,
   keyPrefix: string,
 }
 
