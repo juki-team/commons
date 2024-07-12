@@ -35,19 +35,15 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
 }
 
-export interface ProblemDataManagerSystemResponseDTO extends ProblemDataResponseDTO {
-  isManager: true,
+export interface ProblemDataSystemResponseDTO extends ProblemDataResponseDTO {
   state: EntityState,
   id: string,
+  ownerUserId: string,
+  judgeName: string,
+  judgeId: string,
+  companyName: string,
+  companyId: string,
 }
-
-export interface ProblemDataSpectatorSystemResponseDTO extends ProblemDataResponseDTO {
-  isManager: false,
-  state: undefined,
-  id: undefined,
-}
-
-export type ProblemDataSystemResponseDTO = ProblemDataManagerSystemResponseDTO | ProblemDataSpectatorSystemResponseDTO;
 
 export interface ProblemTestCaseResponse {
   testCaseKey: string,
