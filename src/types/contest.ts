@@ -1,5 +1,5 @@
-import { ProblemDataResponseDTO } from '../dto';
 import { EntityStatus, ProgrammingLanguage } from './commons';
+import { EntityMembers } from './entity';
 import { Judge } from './judge';
 import { UserBasicInfoInterface } from './users';
 
@@ -43,21 +43,10 @@ export interface AnswerClarification extends NewClarification {
   id: string,
 }
 
-export enum ContestSettingsParams {
-  START = 'start',
-  CLARIFICATIONS = 'clarifications',
-  OPEN_REGISTRATION = 'openRegistration',
-  OPEN_SCOREBOARD = 'openScoreboard',
-  LIMIT_PROBLEM_TIME = 'limitProblemTime',
-  LANGUAGES = 'languages',
-  FROZEN = 'frozen',
-  MANUAL_JUDGE = 'manualJudge',
-  NUMBER_MANUAL_JUDGES = 'numberManualJudges'
-}
-
 export type ContestUserType = {
-  isAdmin: boolean,
-  isJudge: boolean,
+  isOwner: boolean,
+  isAdministrator: boolean,
+  isManager: boolean,
   isContestant: boolean,
   isGuest: boolean,
   isSpectator: boolean,
@@ -77,9 +66,8 @@ export type ContestClarificationType = {
   public: boolean,
 };
 
-export type ContestProblemBasicType = {
-  key: string,
-  judgeKey: Judge | string,
+export type ContestProblemType = {
+  id: string
   index: string,
   points: number,
   color: string,
@@ -113,24 +101,15 @@ export type ContestMembersBasicType = {
   spectators: { [key: string]: MemberUserData },
 };
 
-export type CreateContestMembersBasicType = {
-  administrators: string[]
-  judges: string[],
-  contestants: string[],
-  guests: string[],
-  spectators: string[],
-};
-
-export type ContestProblemType = ProblemDataResponseDTO & ContestProblemBasicType & {
-  totalSuccess: number,
-  totalAttempts: number, // successRate: number,
-  myAttempts: number,
-  myPoints: number,
-  mySuccess: boolean,
-  myPenalty: number,
-};
-
-export type ContestMembersType = ContestMembersBasicType & { contestants: { [key: string]: MemberUserData } };
+export interface ContestBaseDocument {
+  key: string,
+  name: string,
+  description: string,
+  settings: ContestSettingsBasicType,
+  problems: { [key: string]: ContestProblemType },
+  members: EntityMembers,
+  tags: string[],
+}
 
 export type ContestMembersResponseType = {
   administrators: { [key: string]: UserBasicInfoInterface },

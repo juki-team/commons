@@ -1,27 +1,22 @@
-import {
-  ContestClarificationType,
-  ContestMembersResponseType,
-  ContestProblemBasicType,
-  ContestProblemType,
-  ContestSettingsBasicType,
-  ContestStatus,
-  ContestUserType,
-  CreateContestMembersBasicType,
-} from '../types';
+import { ContestBaseDocument, ContestClarificationType, ContestSettingsBasicType, ContestUserType } from '../types';
+import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
+import { ProblemDataResponseDTO } from './problem';
 
-export interface CreateContestDTO {
-  key: string,
-  name: string,
-  description: string,
-  settings: ContestSettingsBasicType,
-  problems: { [key: string]: ContestProblemBasicType },
-  members: CreateContestMembersBasicType,
-  tags: string[],
-  status: ContestStatus,
+export interface UpsertContestProblemDTO {
+  key: string
+  index: string,
+  points: number,
+  color: string,
+  startTimestamp: number,
+  endTimestamp: number,
+}
+
+export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems'> {
+  members: EntityMembersDTO,
+  problems: UpsertContestProblemDTO[],
 }
 
 export interface ContestSummaryListResponseDTO {
-  status: ContestStatus,
   name: string,
   key: string,
   user: ContestUserType,
@@ -44,11 +39,25 @@ export interface ContestSummaryListResponseDTO {
   isQuietTime: boolean,
 }
 
-export interface ContestResponseDTO extends ContestSummaryListResponseDTO {
+export type ContestProblemDataResponseDTO = ProblemDataResponseDTO & {
+  index: string,
+  points: number,
+  color: string,
+  startTimestamp: number,
+  endTimestamp: number,
+  // calculated
+  totalSuccess: number,
+  totalAttempts: number, // successRate: number,
+  myAttempts: number,
+  myPoints: number,
+  mySuccess: boolean,
+  myPenalty: number,
+};
+
+export interface ContestDataResponseDTO extends ContestSummaryListResponseDTO {
   description: string,
   settings: ContestSettingsBasicType & { scoreboardLocked: boolean, },
-  problems: { [key: string]: ContestProblemType },
-  user: ContestUserType,
-  members: ContestMembersResponseType,
+  problems: { [key: string]: ContestProblemDataResponseDTO },
+  members: EntityMembersResponseDTO,
   clarifications: ContestClarificationType[]
 }
