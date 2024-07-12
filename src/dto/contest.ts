@@ -1,6 +1,7 @@
 import { ContestBaseDocument, ContestClarificationType, ContestSettings, ContestUserType } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { ProblemDataResponseDTO } from './problem';
+import { UserBasicInfoResponseDTO } from './user';
 
 export interface UpsertContestProblemDTO {
   key: string
@@ -19,6 +20,7 @@ export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'mem
 
 export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
   user: ContestUserType,
+  owner: UserBasicInfoResponseDTO;
   settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty'>,
   // Data Calculated
   totalContestants: number,
