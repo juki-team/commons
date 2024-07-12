@@ -21,10 +21,10 @@ export interface UserSummaryResponseDTO extends UserBasicInfoResponseDTO {
   email: string,
   familyName: string,
   givenName: string,
-  status: UserStatus,
 }
 
 export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
+  status: UserStatus,
   city: string,
   country: string,
   institution: string,
