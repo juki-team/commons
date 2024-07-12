@@ -38,8 +38,8 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
   ownerUserId: string,
   companyName: string,
   companyId: string,
-  createdAt: number,
-  updatedAt: number,
+  creationTimestamp: number,
+  updateTimestamp: number,
 }
 
 export interface ContestProblemBasicDataResponseDTO {
