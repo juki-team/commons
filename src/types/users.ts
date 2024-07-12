@@ -78,6 +78,7 @@ export const ContestRole: {
   GUEST: 'GUEST',
   REGULAR: 'REGULAR',
   MANAGER: 'MANAGER',
+  MASTER: 'MASTER',
   ADMIN: 'ADMIN',
   SUPER_ADMIN: 'SUPER_ADMIN'
 } = {
@@ -85,6 +86,7 @@ export const ContestRole: {
   GUEST: 'GUEST',
   REGULAR: 'REGULAR',
   MANAGER: 'MANAGER',
+  MASTER: 'MASTER',
   ADMIN: 'ADMIN',
   SUPER_ADMIN: 'SUPER_ADMIN',
 };
