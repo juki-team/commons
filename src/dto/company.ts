@@ -4,7 +4,7 @@ import { UserBasicInfoResponseDTO, UserPermissions } from './user';
 
 export interface CompanyJudgeResponseDTO {
   key: string,
-  label: string,
+  name: string,
   keyPrefix: string,
 }
 
