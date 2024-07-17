@@ -1,7 +1,11 @@
 import { ContestBaseDocument, ContestClarificationType, ContestSettings, ContestUserType, EntityState } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { ProblemDataResponseDTO } from './problem';
-import { UserBasicInfoResponseDTO } from './user';
+import {
+  EntityCompanySummaryListResponseDTO,
+  EntityCompanySystemSummaryListResponseDTO,
+  ProblemDataResponseDTO,
+} from './problem';
+import { EntityOwnerSummaryListResponseDTO, EntityOwnerSystemSummaryListResponseDTO } from './user';
 
 export interface UpsertContestProblemDTO {
   key: string
@@ -20,7 +24,8 @@ export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'mem
 
 export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
   user: ContestUserType,
-  owner: UserBasicInfoResponseDTO;
+  owner: EntityOwnerSummaryListResponseDTO;
+  company: EntityCompanySummaryListResponseDTO,
   settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty'>,
   // Data Calculated
   totalContestants: number,
@@ -35,9 +40,8 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
 export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListResponseDTO {
   state: EntityState,
   id: string,
-  ownerUserId: string,
-  companyName: string,
-  companyId: string,
+  owner: EntityOwnerSystemSummaryListResponseDTO,
+  company: EntityCompanySystemSummaryListResponseDTO,
   creationTimestamp: number,
   updateTimestamp: number,
 }

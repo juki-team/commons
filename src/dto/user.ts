@@ -11,6 +11,19 @@ import {
   UserStatus,
 } from '../types';
 
+export interface EntityOwnerSummaryListResponseDTO {
+  nickname: string,
+  imageUrl: string,
+  companyKey: string,
+}
+
+export interface EntityOwnerSystemSummaryListResponseDTO {
+  id: string,
+  nickname: string,
+  imageUrl: string,
+  companyKey: string,
+}
+
 export interface UserBasicInfoResponseDTO {
   nickname: string,
   imageUrl: string,

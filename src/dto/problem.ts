@@ -10,19 +10,26 @@ import {
   TextLanguageType,
 } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
-import { UserBasicInfoResponseDTO } from './user';
+import { EntityOwnerSummaryListResponseDTO, EntityOwnerSystemSummaryListResponseDTO } from './user';
+
+export interface ProblemJudgeSummaryListResponseDTO {
+  key: Judge | string,
+  name: string,
+  isCustom: boolean,
+}
+
+export interface EntityCompanySummaryListResponseDTO {
+  key: string,
+}
 
 export interface ProblemSummaryListResponseDTO {
-  companyKey: string,
-  judge: {
-    key: Judge | string,
-    name: string,
-  }
+  company: EntityCompanySummaryListResponseDTO,
+  judge: ProblemJudgeSummaryListResponseDTO,
   key: string,
   name: string,
   tags: string[],
   user: ProblemUserType,
-  owner: UserBasicInfoResponseDTO,
+  owner: EntityOwnerSummaryListResponseDTO,
   settings: {
     scoringMode: ProblemScoringMode,
     type: ProblemType,
@@ -38,14 +45,22 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   members: DocumentMembersResponseDTO,
 }
 
+export interface ProblemJudgeSystemSummaryListResponseDTO extends ProblemJudgeSummaryListResponseDTO {
+  name: string,
+  id: string,
+}
+
+export interface EntityCompanySystemSummaryListResponseDTO extends EntityCompanySummaryListResponseDTO {
+  name: string,
+  id: string,
+}
+
 export interface ProblemSystemSummaryListResponseDTO extends ProblemSummaryListResponseDTO {
   state: EntityState,
   id: string,
-  ownerUserId: string,
-  judgeName: string,
-  judgeId: string,
-  companyName: string,
-  companyId: string,
+  owner: EntityOwnerSystemSummaryListResponseDTO,
+  judge: ProblemJudgeSystemSummaryListResponseDTO,
+  company: EntityCompanySystemSummaryListResponseDTO,
   creationTimestamp: number,
   updateTimestamp: number,
 }

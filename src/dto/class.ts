@@ -1,6 +1,6 @@
 import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, EntityState } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserBasicInfoResponseDTO } from './user';
+import { EntityOwnerSummaryListResponseDTO } from './user';
 
 interface ClassUserResponseDTO {
   isOwner: boolean,
@@ -15,7 +15,7 @@ export interface ClassSummaryListResponseDTO {
   name: string,
   description: string,
   state: EntityState,
-  owner: UserBasicInfoResponseDTO,
+  owner: EntityOwnerSummaryListResponseDTO,
   user: ClassUserResponseDTO,
 }
 

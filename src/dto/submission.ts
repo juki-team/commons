@@ -7,6 +7,7 @@ import {
   ProgrammingLanguage,
   SubmissionRunStatus,
 } from '../types';
+import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
 
 export interface SubmissionSummaryListResponseDTO {
   submitId: string,
@@ -46,7 +47,14 @@ export interface SubmissionSummaryListResponseDTO {
       total: number,
       processed: number
     }
-  }
+  },
+  company: EntityCompanySummaryListResponseDTO,
+}
+
+export interface SubmissionSystemSummaryListResponseDTO {
+  company: EntityCompanySystemSummaryListResponseDTO,
+  creationTimestamp: number,
+  updateTimestamp: number,
 }
 
 export type TestCaseResultType = DataLogType & {
