@@ -17,7 +17,7 @@ export interface EcsTask {
   containers?: TaskResponseDTOContainer[];
 }
 
-interface EcsTaskSystemSummaryListResponseDTO extends EcsTask {
+export interface EcsTaskSystemSummaryListResponseDTO extends EcsTask {
   isLowRunnerCompanyKeys: string[],
   isHighRunnerCompanyKeys: string[],
   isRunnerListenerCompanyKeys: string[],
@@ -32,7 +32,7 @@ export interface EcsTaskDefinition {
   registeredAt: Date,
 }
 
-interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDefinition {
+export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDefinition {
   isLowRunnerCompanyKeys: string[],
   isHighRunnerCompanyKeys: string[],
   isRunnerListenerCompanyKeys: string[],
