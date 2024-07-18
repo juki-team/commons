@@ -93,7 +93,6 @@ export type CompilationResultType = DataLogType & {
 };
 
 export interface SubmissionDataResponseDTO extends SubmissionSummaryListResponseDTO {
-  company: EntityCompanySystemSummaryListResponseDTO,
   judgmentTime: number,
   sourceCode: string,
   verdictByGroups: VerdictByGroupsType,
