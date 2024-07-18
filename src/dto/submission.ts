@@ -8,6 +8,25 @@ import {
   SubmissionRunStatus,
 } from '../types';
 import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
+import { UserBasicInfoResponseDTO } from './user';
+
+export interface SubmissionProblemSummaryListResponseDTO {
+  isEditor: boolean,
+  key: string,
+  judgeKey: Judge | string,
+  name: string,
+  scoringMode: ProblemScoringMode,
+  type: ProblemType,
+  timeLimit: number,
+  memoryLimit: number,
+}
+
+export interface SubmissionContestSummaryListResponseDTO {
+  key: string, // foreign
+  name: string, // foreign
+  problemIndex: string,
+  problemColor: string,
+}
 
 export interface SubmissionSummaryListResponseDTO {
   submitId: string,
@@ -18,26 +37,13 @@ export interface SubmissionSummaryListResponseDTO {
   verdict: ProblemVerdict,
   points: number, // default: 0
   status: SubmissionRunStatus,
-  // permissions
-  canViewSourceCode: boolean, // foreign
-  canViewOutputDiff: boolean, // foreign
-  // problem
-  isProblemEditor: boolean,
-  problemKey: string,
-  problemJudgeKey: Judge | string,
-  problemName: string, // foreign
-  problemScoringMode: ProblemScoringMode, // foreign
-  problemType: ProblemType, // foreign
-  problemTimeLimit: number, // foreign
-  problemMemoryLimit: number, // foreign
-  // User
-  userNickname: string, // foreign
-  userImageUrl: string, // foreign
+  problem: SubmissionProblemSummaryListResponseDTO,
+  user: UserBasicInfoResponseDTO & {
+    canViewSourceCode: boolean, // foreign
+    // canViewOutputDiff: boolean, // foreign
+  }, // foreign
   // contest data or empty string
-  contestKey: string,
-  contestName: string, // foreign
-  contestProblemIndex: string,
-  contestProblemColor: string,
+  contest: SubmissionContestSummaryListResponseDTO | null,
   processedCases: {
     samples: {
       total: number,
@@ -51,7 +57,17 @@ export interface SubmissionSummaryListResponseDTO {
   company: EntityCompanySummaryListResponseDTO,
 }
 
+export interface SubmissionProblemSystemSummaryListResponseDTO extends SubmissionProblemSummaryListResponseDTO {
+  id: string,
+}
+
+export interface SubmissionContestSystemSummaryListResponseDTO extends SubmissionContestSummaryListResponseDTO {
+  id: string,
+}
+
 export interface SubmissionSystemSummaryListResponseDTO {
+  problem: SubmissionProblemSystemSummaryListResponseDTO,
+  contest: SubmissionContestSystemSummaryListResponseDTO | null,
   company: EntityCompanySystemSummaryListResponseDTO,
   creationTimestamp: number,
   updateTimestamp: number,
@@ -77,6 +93,7 @@ export type CompilationResultType = DataLogType & {
 };
 
 export interface SubmissionDataResponseDTO extends SubmissionSummaryListResponseDTO {
+  company: EntityCompanySystemSummaryListResponseDTO,
   judgmentTime: number,
   sourceCode: string,
   verdictByGroups: VerdictByGroupsType,
