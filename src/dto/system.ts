@@ -2,7 +2,7 @@ export type TaskResponseDTOContainer = {
   runtimeId?: string,
 }
 
-export interface TaskResponseDTO {
+export interface EcsTask {
   taskArn: string,
   taskDefinitionArn: string,
   group: string,
@@ -14,22 +14,28 @@ export interface TaskResponseDTO {
   startedAt: Date,
   desiredStatus: string,
   lastStatus: string,
-  isLowRunnerGroup: boolean,
-  isHighRunnerGroup: boolean,
-  isRunnerListenerGroup: boolean,
   containers?: TaskResponseDTOContainer[];
 }
 
-export interface TaskDefinitionResponseDTO {
+interface EcsTaskSystemSummaryListResponseDTO extends EcsTask {
+  isLowRunnerCompanyKeys: string[],
+  isHighRunnerCompanyKeys: string[],
+  isRunnerListenerCompanyKeys: string[],
+}
+
+export interface EcsTaskDefinition {
   family: string,
   taskDefinitionArn: string,
   revision: number,
   cpu: string,
   memory: string,
   registeredAt: Date,
-  isLowRunner: boolean,
-  isHighRunner: boolean,
-  isRunnerListener: boolean,
+}
+
+interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDefinition {
+  isLowRunnerCompanyKeys: string[],
+  isHighRunnerCompanyKeys: string[],
+  isRunnerListenerCompanyKeys: string[],
 }
 
 export type SqsPropertiesType = {
