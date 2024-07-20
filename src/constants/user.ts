@@ -18,12 +18,20 @@ export const USER_ROLE: { [key in UserRole]: { value: UserRole, label: string, l
 };
 
 export const EMPTY_USER_PERMISSIONS: UserPermissions = {
-  canCreateContest: false,
-  canCreateUser: false,
   canHandleUsers: false,
-  canViewSubmissionsManagement: false, // TODO: Check this permission
-  problem: {
+  users: {
     create: false,
+  },
+  problems: {
+    create: false,
+    manage: false,
+  },
+  submissions: {
+    manage: false,
+  },
+  contests: {
+    create: false,
+    manage: false,
   },
   system: {
     handleCompany: false,

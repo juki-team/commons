@@ -68,12 +68,20 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
 }
 
 export type UserPermissions = {
-  canCreateContest: boolean,
-  canCreateUser: boolean,
   canHandleUsers: boolean,
-  canViewSubmissionsManagement: boolean, // TODO: Check this permission
-  problem: {
+  users: {
     create: boolean,
+  },
+  problems: {
+    create: boolean,
+    manage: boolean,
+  },
+  submissions: {
+    manage: boolean,
+  },
+  contests: {
+    create: boolean,
+    manage: boolean,
   },
   system: {
     handleCompany: boolean,
