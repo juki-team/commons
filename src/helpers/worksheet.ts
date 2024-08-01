@@ -1,4 +1,4 @@
-import { NEW_PAGE_SHEET } from '../constants';
+import { NEW_PAGE_SHEET } from '../constants/worksheet';
 import {
   BasicSheetType,
   BodyNoteSheetType,

@@ -68,9 +68,9 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
 }
 
 export type UserPermissions = {
-  canHandleUsers: boolean,
   users: {
     create: boolean,
+    manage: boolean,
   },
   problems: {
     create: boolean,

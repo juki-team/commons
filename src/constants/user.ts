@@ -18,9 +18,9 @@ export const USER_ROLE: { [key in UserRole]: { value: UserRole, label: string, l
 };
 
 export const EMPTY_USER_PERMISSIONS: UserPermissions = {
-  canHandleUsers: false,
   users: {
     create: false,
+    manage: false,
   },
   problems: {
     create: false,
