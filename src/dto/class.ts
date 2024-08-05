@@ -1,6 +1,6 @@
 import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, EntityState } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { EntityOwnerSummaryListResponseDTO } from './user';
+import { EntityOwnerSummaryListResponseDTO, UserBasicInfoResponseDTO } from './user';
 
 interface ClassUserResponseDTO {
   isOwner: boolean,
@@ -115,4 +115,26 @@ export interface UpsertClassCycleSessionDTO extends Omit<ClassBaseDocument['cycl
 
 export interface UpsertClassCycleSessionAssignmentDTO extends AssignmentBasicInfo {
   key: string,
+}
+
+export interface ClassAssignmentBaseDocument {
+  userId: string,
+  assignmentId: string,
+  points: number,
+  comments: {
+    userId: string,
+    content: string,
+    timestamp: number,
+  }[],
+}
+
+export interface ClassAssignmentDataResponseDTO {
+  user: UserBasicInfoResponseDTO,
+  assignmentId: string,
+  points: number,
+  comments: {
+    user: UserBasicInfoResponseDTO,
+    content: string,
+    timestamp: number,
+  }[],
 }
