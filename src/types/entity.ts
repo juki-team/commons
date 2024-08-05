@@ -99,6 +99,7 @@ export enum CollectionKey {
   USER = 'U',
   PROBLEM = 'P',
   CLASS = 'K',
+  CLASS_ASSIGNMENT = 'KA',
   CONTEST = 'T',
   COURSE = 'R',
   FILE = 'F',
