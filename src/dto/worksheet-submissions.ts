@@ -1,4 +1,5 @@
 import {
+  CodeEditorSheetType,
   JkmdSheetType,
   ProgrammingLanguage,
   QuizOptionsSheetType,
@@ -27,13 +28,16 @@ export interface JkmdSubmissionDTO extends Pick<JkmdSheetType, 'id' | 'type'> {
   read: boolean;
 }
 
-export interface CodeEditorSubmissionDTO extends Pick<JkmdSheetType, 'id' | 'type'> {
+export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, JkmdSubmissionDTO {
+}
+
+export interface CodeEditorSubmissionDTO extends Pick<CodeEditorSheetType, 'id' | 'type'> {
   language: ProgrammingLanguage,
   source: string,
   inputs: { key: string, content: string },
 }
 
-export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, JkmdSubmissionDTO {
+export interface CodeEditorSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, CodeEditorSubmissionDTO {
 }
 
 export interface QuizOptionsSubmissionDTO extends Pick<QuizOptionsSheetType, 'id' | 'type'> {
@@ -46,6 +50,9 @@ export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasic
 export type WorkSheetSubmissions = {
   [SheetType.JK_MD]: {
     [key: string]: JkmdSubmissionResponseDTO[],
+  },
+  [SheetType.CODE_EDITOR]: {
+    [key: string]: CodeEditorSubmissionResponseDTO[],
   },
   [SheetType.QUIZ_PROBLEM]: {
     [key: string]: QuizProblemSubmissionResponseDTO[],
