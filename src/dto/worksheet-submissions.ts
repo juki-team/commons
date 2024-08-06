@@ -27,6 +27,12 @@ export interface JkmdSubmissionDTO extends Pick<JkmdSheetType, 'id' | 'type'> {
   read: boolean;
 }
 
+export interface CodeEditorSubmissionDTO extends Pick<JkmdSheetType, 'id' | 'type'> {
+  language: ProgrammingLanguage,
+  source: string,
+  inputs: { key: string, content: string },
+}
+
 export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, JkmdSubmissionDTO {
 }
 
