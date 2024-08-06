@@ -34,7 +34,7 @@ export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoPro
 
 export interface CodeEditorSubmissionDTO extends Pick<CodeEditorSheetType, 'id' | 'type'> {
   language: ProgrammingLanguage,
-  source: string,
+  sourceCode: string,
   testCases: CodeEditorTestCasesType,
 }
 
