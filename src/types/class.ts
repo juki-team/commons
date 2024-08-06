@@ -13,6 +13,7 @@ export interface AssignmentBasicInfo {
   points: number,
   startTimestamp: number,
   endTimestamp: number,
+  title: string,
 }
 
 export interface ClassCycleSessionAssignment extends AssignmentBasicInfo {
