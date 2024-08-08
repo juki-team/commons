@@ -106,6 +106,7 @@ export enum CollectionKey {
   GROUP = 'G',
   JUDGE = 'J',
   WORKSHEET = 'W',
+  WORKSHEET_SUBMISSIONS = 'WS',
   SUBMIT = 'S',
 }
 
