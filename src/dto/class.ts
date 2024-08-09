@@ -22,28 +22,30 @@ export interface ClassSummaryListResponseDTO {
 export interface ContestAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
   type: AssignmentClass.CONTEST,
   contestKey: string,
-  title: string,
   numberProblems: number,
 }
 
 export interface CourseAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
   type: AssignmentClass.COURSE,
   courseKey: string,
-  title: string,
   numberLessons: number,
 }
 
 export interface WorksheetAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
   type: AssignmentClass.WORKSHEET,
   worksheetKey: string,
-  title: string,
   numberPages: number,
+}
+
+export interface NoneAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
+  type: AssignmentClass.NONE,
 }
 
 export type AssignmentSessionCycleClassDataResponseDTO =
   ContestAssignmentSessionCycleClassDataResponseDTO
   | CourseAssignmentSessionCycleClassDataResponseDTO
-  | WorksheetAssignmentSessionCycleClassDataResponseDTO;
+  | WorksheetAssignmentSessionCycleClassDataResponseDTO
+  | NoneAssignmentSessionCycleClassDataResponseDTO;
 
 interface SessionCycleClassDataResponseDTO {
   id: string,
