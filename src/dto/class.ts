@@ -65,6 +65,7 @@ interface CycleClassDataResponseDTO {
   sessions: {
     [key: string]: SessionCycleClassDataResponseDTO,
   },
+  tags: string[],
   startTimestamp: number,
   endTimestamp: number,
 }

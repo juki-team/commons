@@ -36,7 +36,6 @@ interface ClassCycleSession {
   assignments: ClassCycleSessionAssignments,
   startTimestamp: number,
   endTimestamp: number,
-  tags: string[],
   state: EntityState,
 }
 
@@ -49,6 +48,7 @@ export type ClassCycle = {
   index: number,
   name: string,
   sessions: ClassCycleSessions,
+  tags: string[],
   startTimestamp: number,
   endTimestamp: number,
   state: EntityState,
