@@ -1,6 +1,8 @@
+import { BodyWorksheetType } from '../types/sheet';
 import { EntityMembers, EntityState } from './entity';
 
 export enum AssignmentClass {
+  NONE = 'NONE',
   COURSE = 'COURSE',
   WORKSHEET = 'WORKSHEET',
   CONTEST = 'CONTEST',
@@ -14,6 +16,8 @@ export interface AssignmentBasicInfo {
   startTimestamp: number,
   endTimestamp: number,
   title: string,
+  content: BodyWorksheetType[],
+  tags: string[],
 }
 
 export interface ClassCycleSessionAssignment extends AssignmentBasicInfo {
@@ -32,6 +36,7 @@ interface ClassCycleSession {
   assignments: ClassCycleSessionAssignments,
   startTimestamp: number,
   endTimestamp: number,
+  tags: string[],
   state: EntityState,
 }
 

@@ -5,8 +5,8 @@ import {
   ProgrammingLanguage,
   QuizOptionsSheetType,
   QuizProblemSheetType,
-  SheetType,
   UserBasicInterface,
+  WorksheetType,
 } from '../types';
 import { SubmissionSummaryListResponseDTO } from './submission';
 
@@ -49,16 +49,16 @@ export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasic
 }
 
 export type WorkSheetSubmissions = {
-  [SheetType.JK_MD]: {
+  [WorksheetType.JK_MD]: {
     [key: string]: JkmdSubmissionResponseDTO[],
   },
-  [SheetType.CODE_EDITOR]: {
+  [WorksheetType.CODE_EDITOR]: {
     [key: string]: CodeEditorSubmissionResponseDTO[],
   },
-  [SheetType.QUIZ_PROBLEM]: {
+  [WorksheetType.QUIZ_PROBLEM]: {
     [key: string]: QuizProblemSubmissionResponseDTO[],
   },
-  [SheetType.QUIZ_OPTIONS]: {
+  [WorksheetType.QUIZ_OPTIONS]: {
     [key: string]: QuizOptionsSubmissionResponseDTO[],
   }
 }

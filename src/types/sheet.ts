@@ -1,7 +1,7 @@
 import { ProgrammingLanguage } from './commons';
 import { Judge, SubmissionRunStatus } from './judge';
 
-export enum SheetType {
+export enum WorksheetType {
   JK_MD = 'JK_MD',
   CODE_EDITOR = 'CODE_EDITOR',
   LIST = 'LIST',
@@ -12,15 +12,15 @@ export enum SheetType {
   NEW_PAGE = 'NEW_PAGE',
 }
 
-export type BasicSheetType = {
+export type BasicWorksheetType = {
   id: string,
-  type: SheetType,
+  type: WorksheetType,
   title: string,
   points: number,
 }
 
-export type JkmdSheetType = BasicSheetType & {
-  type: SheetType.JK_MD,
+export type JkmdSheetType = BasicWorksheetType & {
+  type: WorksheetType.JK_MD,
   content: string,
 }
 
@@ -45,54 +45,54 @@ export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
 
 export type SourceCodeType = { [key in ProgrammingLanguage]: string };
 
-export type CodeEditorSheetType = BasicSheetType & {
-  type: SheetType.CODE_EDITOR,
+export type CodeEditorSheetType = BasicWorksheetType & {
+  type: WorksheetType.CODE_EDITOR,
   sourceCode: SourceCodeType,
   testCases: CodeEditorTestCasesType,
   languages: ProgrammingLanguage[],
   height: number,
 }
 
-export type GraphSheetType = BasicSheetType & {
-  type: SheetType.GRAPH,
+export type GraphSheetType = BasicWorksheetType & {
+  type: WorksheetType.GRAPH,
   dots: string[],
 }
 
-export type QuizProblemSheetType = BasicSheetType & {
-  type: SheetType.QUIZ_PROBLEM;
+export type QuizProblemSheetType = BasicWorksheetType & {
+  type: WorksheetType.QUIZ_PROBLEM;
   problemJudge: Judge,
   problemKey: string,
   languages: ProgrammingLanguage[];
   height: number;
 };
 
-export type QuizTextSheetType = BasicSheetType & {
-  type: SheetType.QUIZ_TEXT;
+export type QuizTextSheetType = BasicWorksheetType & {
+  type: WorksheetType.QUIZ_TEXT;
   description: string,
   answer: string;
   inputType: 'text' | 'number' | 'textarea';
 };
 
-export type QuizOptionsSheetType = BasicSheetType & {
-  type: SheetType.QUIZ_OPTIONS;
+export type QuizOptionsSheetType = BasicWorksheetType & {
+  type: WorksheetType.QUIZ_OPTIONS;
   description: string,
   options: { label: string, correct: boolean }[],
   multiple: boolean,
   scoringMode: 'TOTAL' | 'PARTIAL',
 };
 
-export type ListSheetType = BasicSheetType & {
-  type: SheetType.LIST,
+export type ListSheetType = BasicWorksheetType & {
+  type: WorksheetType.LIST,
   header: string,
   content: (JkmdSheetType | CodeEditorSheetType | GraphSheetType | QuizProblemSheetType | QuizTextSheetType | QuizOptionsSheetType)[],
   children: ListSheetType[],
 }
 
-export type NewPageSheetType = BasicSheetType & {
-  type: SheetType.NEW_PAGE,
+export type NewPageSheetType = BasicWorksheetType & {
+  type: WorksheetType.NEW_PAGE,
 }
 
-export type BodyNoteSheetType =
+export type BodyWorksheetType =
   JkmdSheetType
   | CodeEditorSheetType
   | ListSheetType

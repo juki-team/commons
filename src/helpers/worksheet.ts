@@ -1,24 +1,24 @@
 import { NEW_PAGE_SHEET } from '../constants/worksheet';
 import {
-  BasicSheetType,
-  BodyNoteSheetType,
+  BasicWorksheetType,
+  BodyWorksheetType,
   NewPageSheetType,
-  SheetType,
   SummaryWorksheetsInPages,
   WorksheetsInPages,
+  WorksheetType,
 } from '../types';
 
-export const getWorksheetsInPages = (initialSheets: BodyNoteSheetType[]) => {
+export const getWorksheetsInPages = (initialSheets: BodyWorksheetType[]) => {
   const sheets = [ ...initialSheets ];
-  if (sheets[0]?.type !== SheetType.NEW_PAGE) {
+  if (sheets[0]?.type !== WorksheetType.NEW_PAGE) {
     sheets.unshift(NEW_PAGE_SHEET());
   }
   let newPage: NewPageSheetType = sheets[0] as NewPageSheetType;
-  let content: BodyNoteSheetType[] = [];
+  let content: BodyWorksheetType[] = [];
   const sheetsByPages: WorksheetsInPages = [];
   for (let i = 1; i < sheets.length; i++) {
     const sheet = sheets[i];
-    if (sheet.type === SheetType.NEW_PAGE) {
+    if (sheet.type === WorksheetType.NEW_PAGE) {
       sheetsByPages.push({
         header: newPage,
         content: [ ...content ],
@@ -36,17 +36,17 @@ export const getWorksheetsInPages = (initialSheets: BodyNoteSheetType[]) => {
   return sheetsByPages;
 };
 
-export const getSummaryWorksheetsInPages = (initialSheets: BodyNoteSheetType[]) => {
+export const getSummaryWorksheetsInPages = (initialSheets: BodyWorksheetType[]) => {
   const sheets = [ ...initialSheets ];
-  if (sheets[0]?.type !== SheetType.NEW_PAGE) {
+  if (sheets[0]?.type !== WorksheetType.NEW_PAGE) {
     sheets.unshift(NEW_PAGE_SHEET());
   }
   let newPage: NewPageSheetType = sheets[0] as NewPageSheetType;
-  let content: BasicSheetType[] = [];
+  let content: BasicWorksheetType[] = [];
   const sheetsByPages: SummaryWorksheetsInPages = [];
   for (let i = 1; i < sheets.length; i++) {
     const sheet = sheets[i];
-    if (sheet.type === SheetType.NEW_PAGE) {
+    if (sheet.type === WorksheetType.NEW_PAGE) {
       sheetsByPages.push({
         header: newPage,
         content: content.map(c => ({
@@ -69,4 +69,4 @@ export const getSummaryWorksheetsInPages = (initialSheets: BodyNoteSheetType[]) 
   return sheetsByPages;
 };
 
-export const getTotalExercisesOfSummaryWorksheetsInPages = (content: SummaryWorksheetsInPages) => content.reduce((sum, { content }) => sum + content.reduce((sum, { type }) => sum + +(type === SheetType.QUIZ_OPTIONS || type === SheetType.QUIZ_PROBLEM || type === SheetType.QUIZ_TEXT), 0), 0);
+export const getTotalExercisesOfSummaryWorksheetsInPages = (content: SummaryWorksheetsInPages) => content.reduce((sum, { content }) => sum + content.reduce((sum, { type }) => sum + +(type === WorksheetType.QUIZ_OPTIONS || type === WorksheetType.QUIZ_PROBLEM || type === WorksheetType.QUIZ_TEXT), 0), 0);
