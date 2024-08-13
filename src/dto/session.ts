@@ -1,4 +1,4 @@
-import { EntityCompanySummaryListResponseDTO } from './problem';
+import { EntityCompanySystemSummaryListResponseDTO } from './problem';
 import { UserBasicResponseDTO } from './user';
 
 export interface SessionBasicResponseDTO {
@@ -10,8 +10,8 @@ export interface SessionBasicResponseDTO {
   updateTimestamp: number,
 }
 
-export interface UserSessionResponseDTO extends SessionBasicResponseDTO {
+export interface UserSessionSystemSummaryListResponseDTO extends SessionBasicResponseDTO {
   userId: string,
   user: UserBasicResponseDTO,
-  company: EntityCompanySummaryListResponseDTO,
+  company: EntityCompanySystemSummaryListResponseDTO,
 }
