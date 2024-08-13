@@ -38,8 +38,6 @@ export interface UserSummaryListResponseDTO extends UserBasicInfoResponseDTO {
 }
 
 export interface UserSystemSummaryListResponseDTO extends UserSummaryListResponseDTO {
-  owner: EntityOwnerSystemSummaryListResponseDTO,
-  company: EntityCompanySystemSummaryListResponseDTO,
   status: UserStatus,
   city: string,
   country: string,
@@ -52,6 +50,10 @@ export interface UserSystemSummaryListResponseDTO extends UserSummaryListRespons
   teamRole: TeamRole,
   courseRole: CourseRole,
   canResetPassword: boolean,
+  owner: EntityOwnerSystemSummaryListResponseDTO,
+  company: EntityCompanySystemSummaryListResponseDTO,
+  creationTimestamp: number,
+  updateTimestamp: number,
 }
 
 export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
