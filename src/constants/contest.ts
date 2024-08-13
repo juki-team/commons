@@ -29,7 +29,7 @@ export const CONTEST_ROLE: { [key in ContestRole]: { value: ContestRole, label: 
   [ContestRole.GUEST]: { value: ContestRole.GUEST, label: 'guest', level: 5 },
   [ContestRole.REGULAR]: { value: ContestRole.REGULAR, label: 'regular', level: 4 },
   [ContestRole.MANAGER]: { value: ContestRole.MANAGER, label: 'manager', level: 3 },
-  [ContestRole.MASTER]: { value: ContestRole.MANAGER, label: 'master', level: 2 },
+  [ContestRole.MASTER]: { value: ContestRole.MASTER, label: 'master', level: 2 },
   [ContestRole.ADMIN]: { value: ContestRole.ADMIN, label: 'admin', level: 1 },
   [ContestRole.SUPER_ADMIN]: { value: ContestRole.SUPER_ADMIN, label: 'super admin', level: 0 },
 };
