@@ -10,33 +10,36 @@ import {
   UserSettingsType,
   UserStatus,
 } from '../types';
+import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
 
 export interface EntityOwnerSummaryListResponseDTO {
   nickname: string,
   imageUrl: string,
-  companyKey: string,
+  company: EntityCompanySummaryListResponseDTO,
 }
 
 export interface EntityOwnerSystemSummaryListResponseDTO {
   id: string,
   nickname: string,
   imageUrl: string,
-  companyKey: string,
+  company: EntityCompanySummaryListResponseDTO,
 }
 
 export interface UserBasicInfoResponseDTO {
   nickname: string,
   imageUrl: string,
-  companyKey: string,
+  company: EntityCompanySummaryListResponseDTO,
 }
 
-export interface UserSummaryResponseDTO extends UserBasicInfoResponseDTO {
+export interface UserSummaryListResponseDTO extends UserBasicInfoResponseDTO {
   email: string,
   familyName: string,
   givenName: string,
 }
 
-export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
+export interface UserSystemSummaryListResponseDTO extends UserSummaryListResponseDTO {
+  owner: EntityOwnerSystemSummaryListResponseDTO,
+  company: EntityCompanySystemSummaryListResponseDTO,
   status: UserStatus,
   city: string,
   country: string,
@@ -51,7 +54,7 @@ export interface UserManagementResponseDTO extends UserSummaryResponseDTO {
   canResetPassword: boolean,
 }
 
-export interface UserBasicResponseDTO extends UserSummaryResponseDTO {
+export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
   aboutMe: string,
   city: string,
   country: string,

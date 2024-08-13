@@ -1,4 +1,4 @@
-import { UserSummaryResponseDTO } from './user';
+import { UserSummaryListResponseDTO } from './user';
 
 export type ScoreboardProblemType = {
   attempts: number,
@@ -12,7 +12,7 @@ export type ScoreboardProblemsType = {
 }
 
 export interface ScoreboardResponseDTO {
-  user: UserSummaryResponseDTO,
+  user: UserSummaryListResponseDTO,
   totalPenalty: number,
   totalPoints: number,
   position: number,
