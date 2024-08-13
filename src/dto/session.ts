@@ -5,9 +5,9 @@ export interface SessionBasicResponseDTO {
   id: string,
   deviceName: string,
   osName: string,
-  validUntil: Date,
-  createdAt: Date,
-  updatedAt: Date,
+  validUntilTimestamp: number,
+  creationTimestamp: number,
+  updateTimestamp: number,
 }
 
 export interface UserSessionResponseDTO extends SessionBasicResponseDTO {
