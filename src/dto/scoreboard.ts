@@ -5,6 +5,7 @@ export type ScoreboardProblemType = {
   points: number,
   success: boolean,
   penalty: number,
+  isFirstAccepted: boolean,
 }
 
 export type ScoreboardProblemsType = {
