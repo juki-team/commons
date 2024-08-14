@@ -76,6 +76,7 @@ export type UserPermissions = {
   users: {
     create: boolean,
     manage: boolean,
+    administrate: boolean,
   },
   problems: {
     create: boolean,

@@ -21,6 +21,7 @@ export const EMPTY_USER_PERMISSIONS: UserPermissions = {
   users: {
     create: false,
     manage: false,
+    administrate: false,
   },
   problems: {
     create: false,
