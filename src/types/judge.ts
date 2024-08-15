@@ -8,6 +8,10 @@ export interface JudgeBaseDocument {
   languages: JudgeLanguageType[],
   problemTags: string[],
   keyPrefix: string,
+  isExternal: boolean,
+  logo: string,
+  logoSize: [ number, number ],
+  url: string,
 }
 
 export enum Judge {
