@@ -211,7 +211,10 @@ export type RunCommandType = {
   rawExecution?: boolean,
 };
 
-export type RunnerSQSMessageBodyType = RunCommandType & { next: RunnerNextQueueType | RunnerNextRequestType };
+export type RunnerSQSMessageBodyType = {
+  executions: RunCommandType[],
+  next: RunnerNextQueueType | RunnerNextRequestType,
+};
 
 export enum JudgingState {
   COMPILED = 'COMPILED',
