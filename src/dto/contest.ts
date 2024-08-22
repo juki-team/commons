@@ -52,6 +52,7 @@ export interface ContestProblemBasicDataResponseDTO {
   judge: {
     key: string,
     isExternal: boolean,
+    isMain: boolean,
   },
   index: string,
   points: number,
