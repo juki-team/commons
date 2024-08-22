@@ -49,7 +49,10 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
 export interface ContestProblemBasicDataResponseDTO {
   name: string,
   key: string,
-  judgeKey: string,
+  judge: {
+    key: string,
+    isExternal: boolean,
+  },
   index: string,
   points: number,
   color: string,
