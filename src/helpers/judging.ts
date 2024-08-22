@@ -47,12 +47,14 @@ export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCaseType, ti
             ? ProblemVerdict.AC
             : testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
               ? ProblemVerdict.PE
-              : ProblemVerdict.WA,
+              : !testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
+                ? ProblemVerdict.AC
+                : ProblemVerdict.WA,
     timeUsed,
     memoryUsed,
     exitCode,
   };
-}
+};
 
 export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) => {
   
@@ -97,5 +99,5 @@ export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) =
     memoryUsed: Math.max(first.memoryUsed, second.memoryUsed),
     exitCode: first.exitCode || second.exitCode,
     verdict,
-  }
-}
+  };
+};
