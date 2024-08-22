@@ -16,6 +16,8 @@ export interface ProblemJudgeSummaryListResponseDTO {
   key: Judge | string,
   name: string,
   isCustom: boolean,
+  isExternal: boolean,
+  isMain: boolean,
 }
 
 export interface EntityCompanySummaryListResponseDTO {

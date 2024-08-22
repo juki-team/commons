@@ -1,9 +1,16 @@
-import { ContestBaseDocument, ContestClarificationType, ContestSettings, ContestUserType, EntityState } from '../types';
+import {
+  ContestBaseDocument,
+  ContestClarificationType,
+  ContestSettings,
+  ContestUserType,
+  EntityState,
+} from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,
   ProblemDataResponseDTO,
+  ProblemJudgeSummaryListResponseDTO,
 } from './problem';
 import { EntityOwnerSummaryListResponseDTO, EntityOwnerSystemSummaryListResponseDTO } from './user';
 
@@ -49,11 +56,7 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
 export interface ContestProblemBasicDataResponseDTO {
   name: string,
   key: string,
-  judge: {
-    key: string,
-    isExternal: boolean,
-    isMain: boolean,
-  },
+  judge: ProblemJudgeSummaryListResponseDTO,
   index: string,
   points: number,
   color: string,
