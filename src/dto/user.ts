@@ -38,6 +38,7 @@ export interface UserSummaryListResponseDTO extends UserBasicInfoResponseDTO {
 }
 
 export interface UserSystemSummaryListResponseDTO extends UserSummaryListResponseDTO {
+  id: string,
   status: UserStatus,
   city: string,
   country: string,
