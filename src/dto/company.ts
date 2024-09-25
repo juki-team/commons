@@ -44,3 +44,13 @@ export interface CompanyResourceSpecificationsResponseDTO {
     maximum: number,
   },
 }
+
+export interface CompanyStatsResponseDTO {
+  statsByMonth: {
+    [key: number]: {
+      [key: number]: { codeEditorRuns: number, submissions: number }
+    }
+  },
+  problems: number,
+  contests: number,
+}
