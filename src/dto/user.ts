@@ -113,7 +113,7 @@ export type CompanyPingType = {
   contactTelegram: string,
   imageUrl: string,
   name: string,
-  codeEditorRunEnabled: string,
+  codeEditorRunEnabled: boolean,
 }
 
 export interface PingResponseDTO {
