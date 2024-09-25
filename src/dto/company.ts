@@ -16,6 +16,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   manager: UserBasicInfoResponseDTO,
   systemAdmin: UserBasicInfoResponseDTO,
   plan: CompanyPlan,
+  startTimestamp: number,
   judges: CompanyJudgeResponseDTO[],
 }
 
