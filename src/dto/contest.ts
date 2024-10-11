@@ -4,13 +4,16 @@ import {
   ContestSettings,
   ContestUserType,
   EntityState,
+  ProblemSettingsType,
+  ProblemStatementType,
+  TextLanguageType,
 } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
+import { DocumentMembersResponseDTO, EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,
-  ProblemDataResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
+  ProblemSummaryListResponseDTO,
 } from './problem';
 import { EntityOwnerSummaryListResponseDTO, EntityOwnerSystemSummaryListResponseDTO } from './user';
 
@@ -65,7 +68,16 @@ export interface ContestProblemBasicDataResponseDTO {
   url: string,
 }
 
-export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO & ProblemDataResponseDTO & {
+export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {
+  author: string,
+  statement: ProblemStatementType,
+  editorial: TextLanguageType,
+  settings: ProblemSettingsType,
+  ownerNickname: string,
+  members: DocumentMembersResponseDTO,
+}
+
+export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO & ContestContestProblemDataResponseDTO & {
   // calculated
   totalSuccess: number,
   totalAttempts: number, // successRate: number,
