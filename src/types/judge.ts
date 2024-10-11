@@ -12,6 +12,12 @@ export interface JudgeBaseDocument {
   logo: string,
   logoSize: [ number, number ],
   url: string,
+  getLoginUrl: string,
+  getProfileUrl: string,
+  getSubmitUrl: string,
+  getSubmissionUrl: string,
+  getProblemUrl: string,
+  getUserSubmissionsUrl: string,
 }
 
 export enum Judge {

@@ -62,6 +62,7 @@ export interface ContestProblemBasicDataResponseDTO {
   color: string,
   startTimestamp: number,
   endTimestamp: number,
+  url: string,
 }
 
 export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO & ProblemDataResponseDTO & {

@@ -1,6 +1,5 @@
 import {
   EntityState,
-  Judge,
   ProblemBaseDocument,
   ProblemScoringMode,
   ProblemSettingsType,
@@ -13,7 +12,7 @@ import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { EntityOwnerSummaryListResponseDTO, EntityOwnerSystemSummaryListResponseDTO } from './user';
 
 export interface ProblemJudgeSummaryListResponseDTO {
-  key: Judge | string,
+  key: string,
   name: string,
   isCustom: boolean,
   isExternal: boolean,
