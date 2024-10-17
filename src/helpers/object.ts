@@ -18,6 +18,7 @@ export function memorySizeOf(obj: any) {
           if (objClass === "Object" || objClass === "Array") {
             for (const key in obj) {
               if (!obj.hasOwnProperty(key)) continue;
+              bytes += key.length * 2;
               sizeOf(obj[key]);
             }
           } else bytes += obj.toString().length * 2;
