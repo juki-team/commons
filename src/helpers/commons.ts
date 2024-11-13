@@ -3,10 +3,14 @@ import { Judge } from '../types';
 
 export function isStringJson(str: any): boolean {
   try {
-    return typeof str === 'string' && JSON.parse(str);
+    if (typeof str === 'string') {
+      JSON.parse(str);
+      return true;
+    }
   } catch (e) {
     return false;
   }
+  return false;
 }
 
 export function isObjectJson(obj: any): boolean {
