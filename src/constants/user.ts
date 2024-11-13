@@ -35,10 +35,10 @@ export const EMPTY_USER_PERMISSIONS: UserPermissions = {
     manage: false,
   },
   company: {
-    edit: false,
     manage: false,
+    administrate: false,
   },
   services: {
-    manage: false,
+    administrate: false,
   },
 };

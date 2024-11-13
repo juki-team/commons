@@ -91,11 +91,11 @@ export type UserPermissions = {
     manage: boolean,
   },
   company: {
-    edit: boolean,
     manage: boolean,
+    administrate: boolean,
   },
   services: {
-    manage: boolean,
+    administrate: boolean,
   }
 }
 
