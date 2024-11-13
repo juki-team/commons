@@ -90,11 +90,13 @@ export type UserPermissions = {
     create: boolean,
     manage: boolean,
   },
-  system: {
-    handleCompany: boolean,
-    handleServices: boolean,
-    handleSettings: boolean,
+  company: {
+    edit: boolean,
+    manage: boolean,
   },
+  services: {
+    manage: boolean,
+  }
 }
 
 export type UserPingType = {
