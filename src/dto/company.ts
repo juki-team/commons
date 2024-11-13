@@ -51,6 +51,7 @@ export interface CompanyStatsResponseDTO {
       [key: number]: { codeEditorRuns: number, submissions: number }
     }
   },
+  users: number,
   problems: number,
   contests: number,
 }
