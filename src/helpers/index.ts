@@ -4,5 +4,6 @@ export * from './document';
 export * from './judging';
 export * from './object';
 export * from './responses';
+export * from './socket';
 export * from './time';
 export * from './worksheet';

@@ -1,5 +1,19 @@
 import { ProblemVerdict, SocketBroadcastEvent, SocketEvent, SubmissionRunStatus } from '../types';
 
+export interface SocketSubscribeEventDTO {
+  action: 'subscribe',
+  event: SocketEvent,
+  id: string,
+  sessionId: string,
+}
+
+export interface SocketUnsubscribeEventDTO {
+  action: 'unsubscribe',
+  event: SocketEvent,
+  id: string,
+  sessionId: string,
+}
+
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
 
 export interface SocketBroadcastEventCodeRunStatusDTO {
