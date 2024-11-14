@@ -17,7 +17,7 @@ export interface SocketUnsubscribeEventDTO {
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
 
 export interface SocketBroadcastEventCodeRunStatusDTO {
-  type: SocketBroadcastEvent.CODE_RUN_STATUS,
+  event: SocketBroadcastEvent.CODE_RUN_STATUS,
   messageTimestamp: number,
   runId: string,
   sessionId: string,
@@ -26,9 +26,9 @@ export interface SocketBroadcastEventCodeRunStatusDTO {
 }
 
 export interface SocketEventCodeRunStatusResponseDTO {
-  type: SocketEvent.CODE_RUN_STATUS,
+  event: SocketEvent.CODE_RUN_STATUS,
+  id: string, // runId
   messageTimestamp: number,
-  runId: string,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
 }
@@ -40,7 +40,7 @@ export type TestInfoType = {
 }
 
 export interface SocketBroadcastEventSubmissionStatusDTO {
-  type: SocketBroadcastEvent.SUBMISSION_RUN_STATUS,
+  event: SocketBroadcastEvent.SUBMISSION_RUN_STATUS,
   messageTimestamp: number,
   submitId: string,
   sessionId: string,
@@ -51,9 +51,9 @@ export interface SocketBroadcastEventSubmissionStatusDTO {
 }
 
 export interface SocketEventSubmissionStatusResponseDTO {
-  type: SocketEvent.SUBMISSION_RUN_STATUS,
+  event: SocketEvent.SUBMISSION_RUN_STATUS,
+  id: string, // submitId
   messageTimestamp: number,
-  submitId: string,
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,
   points: number,
@@ -61,15 +61,20 @@ export interface SocketEventSubmissionStatusResponseDTO {
 }
 
 export interface SocketBroadcastEventUserMessageDTO {
-  type: SocketBroadcastEvent.USER_MESSAGE,
+  event: SocketBroadcastEvent.USER_MESSAGE,
   messageTimestamp: number,
   userId: string,
   content: string,
 }
 
 export interface SocketEventUserMessageResponseDTO {
-  type: SocketEvent.USER_MESSAGE,
+  event: SocketEvent.USER_MESSAGE,
+  id: string, // userId
   messageTimestamp: number,
-  userId: string,
   content: string,
 }
+
+export type SocketEventsResponseDTO =
+  SocketEventCodeRunStatusResponseDTO
+  | SocketEventSubmissionStatusResponseDTO
+  | SocketEventUserMessageResponseDTO;
