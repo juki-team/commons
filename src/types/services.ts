@@ -279,9 +279,9 @@ export type JudgingTestCaseCompletedBodyType =
   cases: {
     state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED,
     key: string,
-    isSampleCase: boolean,
     index: number,
   }[],
+  areSampleCases: boolean,
   lastCasesIndex: number,
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
