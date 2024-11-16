@@ -18,6 +18,7 @@ export interface JudgeBaseDocument {
   getSubmissionUrl: string,
   getProblemUrl: string,
   getUserSubmissionsUrl: string,
+  submissionsWithHighPriority: boolean,
 }
 
 export enum Judge {
