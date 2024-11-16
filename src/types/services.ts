@@ -276,12 +276,14 @@ export type JudgingTestCaseCompletedBodyType =
   & JudgingProblemDataType
   & JudgingContestDataType
   & {
-  state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED,
-  caseKey: string,
+  cases: {
+    state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED,
+    key: string,
+    isSampleCase: boolean,
+    index: number,
+  }[],
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
-  index: number,
-  sampleCase: boolean,
   isSampleCasesEmpty: boolean,
 }
 

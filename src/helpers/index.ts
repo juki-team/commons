@@ -1,6 +1,7 @@
 export * from './class';
 export * from './commons';
 export * from './document';
+export * from './interval';
 export * from './judging';
 export * from './object';
 export * from './responses';
