@@ -282,6 +282,7 @@ export type JudgingTestCaseCompletedBodyType =
     isSampleCase: boolean,
     index: number,
   }[],
+  lastCasesIndex: number,
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
   isSampleCasesEmpty: boolean,
