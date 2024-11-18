@@ -280,7 +280,7 @@ export type JudgingTestCaseCompletedBodyType =
     key: string,
     index: number,
   }[],
-  state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED,
+  state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED, // state of cases
   areSampleCases: boolean,
   lastCasesIndex: number,
   clusterChunkCases: CaseType[][],
