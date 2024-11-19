@@ -1,4 +1,5 @@
 import {
+  EntityAccess,
   EntityState,
   ProblemBaseDocument,
   ProblemScoringMode,
@@ -34,6 +35,9 @@ export interface ProblemSummaryListResponseDTO {
   settings: {
     scoringMode: ProblemScoringMode,
     type: ProblemType,
+  },
+  members: {
+    access: EntityAccess,
   }
 }
 
