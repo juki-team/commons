@@ -108,6 +108,7 @@ export enum CollectionKey {
   WORKSHEET = 'W',
   WORKSHEET_SUBMISSIONS = 'WS',
   SUBMIT = 'S',
+  LOCALE = 'L',
 }
 
 export enum LogOperation {
