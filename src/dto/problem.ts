@@ -24,14 +24,12 @@ export interface EntityCompanySummaryListResponseDTO {
   key: string,
 }
 
-export interface ProblemSummaryListResponseDTO {
+export interface ProblemBasicSummaryListResponseDTO {
   company: EntityCompanySummaryListResponseDTO,
   judge: ProblemJudgeSummaryListResponseDTO,
   key: string,
   name: string,
   tags: string[],
-  user: ProblemUserType,
-  owner: EntityOwnerSummaryListResponseDTO,
   settings: {
     scoringMode: ProblemScoringMode,
     type: ProblemType,
@@ -39,6 +37,11 @@ export interface ProblemSummaryListResponseDTO {
   members: {
     access: EntityAccess,
   }
+}
+
+export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
+  user: ProblemUserType,
+  owner: EntityOwnerSummaryListResponseDTO,
 }
 
 export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
