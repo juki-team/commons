@@ -181,7 +181,7 @@ export function chunkString(str: string, size: number): string[] {
 }
 
 export const getRandomString = (length: number) => {
-  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 62
   let retVal = '';
   for (let i = 0; i < length; ++i) {
     retVal += charset.charAt(Math.floor(Math.random() * charset.length));
