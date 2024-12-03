@@ -39,6 +39,7 @@ export interface CodeEditorTestCaseType extends SubmissionTestCaseType {
   sample: boolean,
   hidden: boolean,
   index: number,
+  messageTimestamp: number,
 }
 
 export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
