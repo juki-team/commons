@@ -87,7 +87,6 @@ export interface ProblemBaseDocument {
   testCases: ProblemTestCaseType[],
   testCasesUpdatedAtTimestamp: number,
   members: EntityMembers,
-  editorialUnlockCost: number,
   costs: {
     unlockEditorial: number,
     unlockHint: number,
