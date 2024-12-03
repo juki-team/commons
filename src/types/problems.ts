@@ -88,4 +88,14 @@ export interface ProblemBaseDocument {
   testCasesUpdatedAtTimestamp: number,
   members: EntityMembers,
   editorialUnlockCost: number,
+  costs: {
+    unlockEditorial: number,
+    unlockHint: number,
+    viewTestCases: number,
+  },
+  rewardJukiCoins: {
+    forSolving: number,
+    forSolvingFirstTry: number,
+    forSolvingInAnExtraLanguage: number,
+  }
 }
