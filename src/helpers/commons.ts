@@ -74,15 +74,15 @@ export function objectsUpdate(base: any, ...objects: any[]): { [key: string]: an
 }
 
 export function consoleWarn(...warn: any): void {
-  console.warn(Date.now(), ...warn);
+  console.warn(new Date().toLocaleString(), ...warn);
 }
 
 export function consoleInfo(...info: any): void {
-  console.info(Date.now(), ...info);
+  console.info(new Date().toLocaleString(), ...info);
 }
 
 export function consoleError(...error: any): void {
-  console.error(Date.now(), ...error);
+  console.error(new Date().toLocaleString(), ...error);
 }
 
 export function indexToLetters(index: number): string {
