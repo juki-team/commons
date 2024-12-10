@@ -1,38 +1,38 @@
 import {
   ProblemVerdict,
-  SocketActionEvent,
-  SocketBroadcastEvent,
-  SocketResponseEvent,
   SubmissionRunStatus,
+  WebSocketActionEvent,
+  WebSocketBroadcastEvent,
+  WebSocketResponseEvent,
 } from '../types';
 import { PingResponseDTO } from './user';
 
 // EVENT ACTIONS
 export interface PingWebSocketEventDTO {
-  event: SocketActionEvent.PING,
+  event: WebSocketActionEvent.PING,
   sessionId: string,
 }
 
 export interface SubscribeCodeRunStatusWebSocketEventDTO {
-  event: SocketActionEvent.SUBSCRIBE_CODE_RUN_STATUS,
+  event: WebSocketActionEvent.SUBSCRIBE_CODE_RUN_STATUS,
   sessionId: string,
   runId: string,
 }
 
 export interface UnsubscribeCodeRunStatusWebSocketEventDTO {
-  event: SocketActionEvent.UNSUBSCRIBE_CODE_RUN_STATUS,
+  event: WebSocketActionEvent.UNSUBSCRIBE_CODE_RUN_STATUS,
   sessionId: string,
   runId: string,
 }
 
 export interface SubscribeSubmissionRunStatusWebSocketEventDTO {
-  event: SocketActionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS,
+  event: WebSocketActionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS,
   sessionId: string,
   submitId: string,
 }
 
 export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO {
-  event: SocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS,
+  event: WebSocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS,
   sessionId: string,
   submitId: string,
 }
@@ -50,7 +50,7 @@ export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, lo
 
 export interface CodeRunStatusNotificationWebSocketBroadcastEventDTO {
   sessionId: string,
-  event: SocketBroadcastEvent.CODE_RUN_STATUS_NOTIFICATION,
+  event: WebSocketBroadcastEvent.CODE_RUN_STATUS_NOTIFICATION,
   messageTimestamp: number,
   runId: string,
   status: SubmissionRunStatus,
@@ -64,7 +64,7 @@ export type TestInfoType = {
 }
 
 export interface SubmissionRunStatusNotificationWebSocketBroadcastEventDTO {
-  event: SocketBroadcastEvent.SUBMISSION_RUN_STATUS_NOTIFICATION,
+  event: WebSocketBroadcastEvent.SUBMISSION_RUN_STATUS_NOTIFICATION,
   sessionId: string,
   messageTimestamp: number,
   submitId: string,
@@ -75,7 +75,7 @@ export interface SubmissionRunStatusNotificationWebSocketBroadcastEventDTO {
 }
 
 export interface UserNotificationWebSocketBroadcastEventDTO {
-  event: SocketBroadcastEvent.USER_NOTIFICATION,
+  event: WebSocketBroadcastEvent.USER_NOTIFICATION,
   sessionId: string,
   messageTimestamp: number,
   userId: string,
@@ -85,12 +85,12 @@ export interface UserNotificationWebSocketBroadcastEventDTO {
 // RESPONSE EVENTS
 
 export interface PongWebSocketResponseEventDTO {
-  event: SocketResponseEvent.PONG,
+  event: WebSocketResponseEvent.PONG,
   data: PingResponseDTO,
 }
 
 export interface CodeRunStatusMessageWebSocketResponseEventDTO {
-  event: SocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
+  event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
   id: string, // runId
   messageTimestamp: number,
   status: SubmissionRunStatus,
@@ -98,7 +98,7 @@ export interface CodeRunStatusMessageWebSocketResponseEventDTO {
 }
 
 export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
-  event: SocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
+  event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
   id: string, // submitId
   messageTimestamp: number,
   status: SubmissionRunStatus,
@@ -108,7 +108,7 @@ export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
 }
 
 export interface UserMessageWebSocketResponseEventDTO {
-  event: SocketResponseEvent.USER_MESSAGE,
+  event: WebSocketResponseEvent.USER_MESSAGE,
   id: string, // userId
   messageTimestamp: number,
   content: string,
