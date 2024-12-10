@@ -46,6 +46,10 @@ export type WebSocketEventDTO =
 
 // BROADCAST EVENTS
 
+export interface PingWebSocketBroadcastEventDTO {
+  event: WebSocketBroadcastEvent.PING,
+}
+
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
 
 export interface CodeRunStatusNotificationWebSocketBroadcastEventDTO {
@@ -81,6 +85,11 @@ export interface UserNotificationWebSocketBroadcastEventDTO {
   userId: string,
   content: string,
 }
+
+export type WebSocketBroadcastEventDTO = PingWebSocketBroadcastEventDTO
+  | CodeRunStatusNotificationWebSocketBroadcastEventDTO
+  | SubmissionRunStatusNotificationWebSocketBroadcastEventDTO
+  | UserNotificationWebSocketBroadcastEventDTO;
 
 // RESPONSE EVENTS
 

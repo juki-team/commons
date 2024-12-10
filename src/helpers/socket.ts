@@ -1,5 +1,6 @@
 import {
   CodeRunStatusNotificationWebSocketBroadcastEventDTO,
+  PingWebSocketBroadcastEventDTO,
   PingWebSocketEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
@@ -37,6 +38,10 @@ export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): e
   return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS
     && typeof event?.sessionId === 'string' && event.sessionId
     && typeof event?.submitId === 'string' && !event.submitId;
+};
+
+export const isPingWebSocketBroadcastEventDTO = (event: any): event is PingWebSocketBroadcastEventDTO => {
+  return event?.event === WebSocketBroadcastEvent.PING;
 };
 
 export const isCodeRunStatusNotificationWebSocketBroadcastEventDTO = (event: any): event is CodeRunStatusNotificationWebSocketBroadcastEventDTO => {
