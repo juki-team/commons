@@ -36,6 +36,13 @@ export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO {
   submitId: string,
 }
 
+export type WebSocketEventDTO =
+  PingWebSocketEventDTO
+  | SubscribeCodeRunStatusWebSocketEventDTO
+  | UnsubscribeCodeRunStatusWebSocketEventDTO
+  | SubscribeSubmissionRunStatusWebSocketEventDTO
+  | UnsubscribeSubmissionRunStatusWebSocketEventDTO;
+
 // BROADCAST EVENTS
 
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
