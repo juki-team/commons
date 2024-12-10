@@ -1,34 +1,50 @@
-import { ProblemVerdict, SocketBroadcastEvent, SocketEvent, SubmissionRunStatus } from '../types';
+import {
+  ProblemVerdict,
+  SocketActionEvent,
+  SocketBroadcastEvent,
+  SocketResponseEvent,
+  SubmissionRunStatus,
+} from '../types';
+import { PingResponseDTO } from './user';
 
-export interface SocketSubscribeEventDTO {
-  action: 'subscribe',
-  event: SocketEvent,
-  id: string,
-  sessionId: string,
+// EVENT ACTIONS
+export interface PingWebSocketEventDTO {
+  event: SocketActionEvent.PING,
 }
 
-export interface SocketUnsubscribeEventDTO {
-  action: 'unsubscribe',
-  event: SocketEvent,
-  id: string,
+export interface SubscribeCodeRunStatusWebSocketEventDTO {
+  event: SocketActionEvent.SUBSCRIBE_CODE_RUN_STATUS,
   sessionId: string,
+  runId: string,
 }
+
+export interface UnsubscribeCodeRunStatusWebSocketEventDTO {
+  event: SocketActionEvent.UNSUBSCRIBE_CODE_RUN_STATUS,
+  sessionId: string,
+  runId: string,
+}
+
+export interface SubscribeSubmissionRunStatusWebSocketEventDTO {
+  event: SocketActionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS,
+  sessionId: string,
+  submitId: string,
+}
+
+export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO {
+  event: SocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS,
+  sessionId: string,
+  submitId: string,
+}
+
+// BROADCAST EVENTS
 
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
 
-export interface SocketBroadcastEventCodeRunStatusDTO {
-  event: SocketBroadcastEvent.CODE_RUN_STATUS,
+export interface CodeRunStatusNotificationWebSocketBroadcastEventDTO {
+  sessionId: string,
+  event: SocketBroadcastEvent.CODE_RUN_STATUS_NOTIFICATION,
   messageTimestamp: number,
   runId: string,
-  sessionId: string,
-  status: SubmissionRunStatus,
-  log: InfoLogCaseStatus
-}
-
-export interface SocketEventCodeRunStatusResponseDTO {
-  event: SocketEvent.CODE_RUN_STATUS,
-  id: string, // runId
-  messageTimestamp: number,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
 }
@@ -39,19 +55,42 @@ export type TestInfoType = {
   caseResultsTotal: number,
 }
 
-export interface SocketBroadcastEventSubmissionStatusDTO {
-  event: SocketBroadcastEvent.SUBMISSION_RUN_STATUS,
+export interface SubmissionRunStatusNotificationWebSocketBroadcastEventDTO {
+  event: SocketBroadcastEvent.SUBMISSION_RUN_STATUS_NOTIFICATION,
+  sessionId: string,
   messageTimestamp: number,
   submitId: string,
-  sessionId: string,
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,
   points: number,
   testInfo?: TestInfoType,
 }
 
-export interface SocketEventSubmissionStatusResponseDTO {
-  event: SocketEvent.SUBMISSION_RUN_STATUS,
+export interface UserNotificationWebSocketBroadcastEventDTO {
+  event: SocketBroadcastEvent.USER_NOTIFICATION,
+  sessionId: string,
+  messageTimestamp: number,
+  userId: string,
+  content: string,
+}
+
+// RESPONSE EVENTS
+
+export interface PongWebSocketResponseEventDTO {
+  event: SocketResponseEvent.PONG,
+  data: PingResponseDTO,
+}
+
+export interface CodeRunStatusMessageWebSocketResponseEventDTO {
+  event: SocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
+  id: string, // runId
+  messageTimestamp: number,
+  status: SubmissionRunStatus,
+  log: InfoLogCaseStatus
+}
+
+export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
+  event: SocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
   id: string, // submitId
   messageTimestamp: number,
   status: SubmissionRunStatus,
@@ -60,21 +99,15 @@ export interface SocketEventSubmissionStatusResponseDTO {
   testInfo?: TestInfoType,
 }
 
-export interface SocketBroadcastEventUserMessageDTO {
-  event: SocketBroadcastEvent.USER_MESSAGE,
-  messageTimestamp: number,
-  userId: string,
-  content: string,
-}
-
-export interface SocketEventUserMessageResponseDTO {
-  event: SocketEvent.USER_MESSAGE,
+export interface UserMessageWebSocketResponseEventDTO {
+  event: SocketResponseEvent.USER_MESSAGE,
   id: string, // userId
   messageTimestamp: number,
   content: string,
 }
 
-export type SocketEventsResponseDTO =
-  SocketEventCodeRunStatusResponseDTO
-  | SocketEventSubmissionStatusResponseDTO
-  | SocketEventUserMessageResponseDTO;
+export type WebSocketResponseEventDTO =
+  PongWebSocketResponseEventDTO
+  | CodeRunStatusMessageWebSocketResponseEventDTO
+  | SubmissionRunStatusMessageWebSocketResponseEventDTO
+  | UserMessageWebSocketResponseEventDTO;
