@@ -26,7 +26,7 @@ export const isUnsubscribeCodeRunStatusWebSocketEventDTO = (event: any): event i
     && typeof event?.runId === 'string' && !event.runId;
 };
 
-export const isSocketSubscribeSubmissionRunStatusEventDTO = (event: any): event is SubscribeSubmissionRunStatusWebSocketEventDTO => {
+export const isSubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): event is SubscribeSubmissionRunStatusWebSocketEventDTO => {
   return event?.event === SocketActionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS
     && typeof event?.sessionId === 'string' && event.sessionId
     && typeof event?.submitId === 'string' && !event.submitId;
