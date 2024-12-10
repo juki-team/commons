@@ -11,7 +11,8 @@ import {
 import { ProblemVerdict, SocketActionEvent, SocketBroadcastEvent, SubmissionRunStatus } from '../types';
 
 export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
-  return event?.event === SocketActionEvent.PING;
+  return event?.event === SocketActionEvent.PING
+    && typeof event?.sessionId === 'string' && event.sessionId;
 };
 
 export const isSubscribeCodeRunStatusWebSocketEventDTO = (event: any): event is SubscribeCodeRunStatusWebSocketEventDTO => {

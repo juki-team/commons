@@ -10,6 +10,7 @@ import { PingResponseDTO } from './user';
 // EVENT ACTIONS
 export interface PingWebSocketEventDTO {
   event: SocketActionEvent.PING,
+  sessionId: string,
 }
 
 export interface SubscribeCodeRunStatusWebSocketEventDTO {
