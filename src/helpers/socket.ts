@@ -10,17 +10,17 @@ import {
 } from '../dto';
 import { ProblemVerdict, SocketActionEvent, SocketBroadcastEvent, SubmissionRunStatus } from '../types';
 
-export const isSocketPingEventDTO = (event: any): event is PingWebSocketEventDTO => {
+export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
   return event?.event === SocketActionEvent.PING;
 };
 
-export const isSocketSubscribeCodeRunStatusEventDTO = (event: any): event is SubscribeCodeRunStatusWebSocketEventDTO => {
+export const isSubscribeCodeRunStatusWebSocketEventDTO = (event: any): event is SubscribeCodeRunStatusWebSocketEventDTO => {
   return event?.event === SocketActionEvent.SUBSCRIBE_CODE_RUN_STATUS
     && typeof event?.sessionId === 'string' && event.sessionId
     && typeof event?.runId === 'string' && !event.runId;
 };
 
-export const isSocketUnsubscribeCodeRunStatusEventDTO = (event: any): event is UnsubscribeCodeRunStatusWebSocketEventDTO => {
+export const isUnsubscribeCodeRunStatusWebSocketEventDTO = (event: any): event is UnsubscribeCodeRunStatusWebSocketEventDTO => {
   return event?.event === SocketActionEvent.UNSUBSCRIBE_CODE_RUN_STATUS
     && typeof event?.sessionId === 'string' && event.sessionId
     && typeof event?.runId === 'string' && !event.runId;
@@ -32,7 +32,7 @@ export const isSocketSubscribeSubmissionRunStatusEventDTO = (event: any): event 
     && typeof event?.submitId === 'string' && !event.submitId;
 };
 
-export const isSocketUnsubscribeSubmissionRunStatusEventDTO = (event: any): event is UnsubscribeSubmissionRunStatusWebSocketEventDTO => {
+export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): event is UnsubscribeSubmissionRunStatusWebSocketEventDTO => {
   return event?.event === SocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS
     && typeof event?.sessionId === 'string' && event.sessionId
     && typeof event?.submitId === 'string' && !event.submitId;
