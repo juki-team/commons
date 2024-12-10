@@ -100,7 +100,7 @@ export interface PongWebSocketResponseEventDTO {
 
 export interface CodeRunStatusMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
-  id: string, // runId
+  runId: string,
   messageTimestamp: number,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
@@ -108,7 +108,7 @@ export interface CodeRunStatusMessageWebSocketResponseEventDTO {
 
 export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
-  id: string, // submitId
+  submitId: string,
   messageTimestamp: number,
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,
@@ -118,7 +118,7 @@ export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
 
 export interface UserMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_MESSAGE,
-  id: string, // userId
+  userId: string
   messageTimestamp: number,
   content: string,
 }
