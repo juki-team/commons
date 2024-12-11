@@ -21,3 +21,5 @@ export enum WebSocketResponseEvent {
   SUBMISSION_RUN_STATUS_MESSAGE = 'SUBMISSION_RUN_STATUS_MESSAGE',
   USER_MESSAGE = 'USER_MESSAGE',
 }
+
+export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${string & { length: 24 }}-${string}`;

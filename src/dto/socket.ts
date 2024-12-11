@@ -4,6 +4,7 @@ import {
   WebSocketActionEvent,
   WebSocketBroadcastEvent,
   WebSocketResponseEvent,
+  WebSocketResponseEventKey,
 } from '../types';
 import { PingResponseDTO } from './user';
 
@@ -95,11 +96,13 @@ export type WebSocketBroadcastEventDTO = PingWebSocketBroadcastEventDTO
 
 export interface PongWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.PONG,
+  key: WebSocketResponseEventKey,
   data: PingResponseDTO,
 }
 
 export interface CodeRunStatusMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
+  key: WebSocketResponseEventKey,
   runId: string,
   messageTimestamp: number,
   status: SubmissionRunStatus,
@@ -108,6 +111,7 @@ export interface CodeRunStatusMessageWebSocketResponseEventDTO {
 
 export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
+  key: WebSocketResponseEventKey,
   submitId: string,
   messageTimestamp: number,
   status: SubmissionRunStatus,
@@ -118,6 +122,7 @@ export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
 
 export interface UserMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_MESSAGE,
+  key: WebSocketResponseEventKey,
   userId: string
   messageTimestamp: number,
   content: string,

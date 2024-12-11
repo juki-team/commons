@@ -9,7 +9,14 @@ import {
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UserNotificationWebSocketBroadcastEventDTO,
 } from '../dto';
-import { ProblemVerdict, SubmissionRunStatus, WebSocketActionEvent, WebSocketBroadcastEvent } from '../types';
+import {
+  ProblemVerdict,
+  SubmissionRunStatus,
+  WebSocketActionEvent,
+  WebSocketBroadcastEvent,
+  WebSocketResponseEvent,
+  WebSocketResponseEventKey,
+} from '../types';
 
 export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
   return event?.event === WebSocketActionEvent.PING
@@ -68,4 +75,10 @@ export const isUserNotificationWebSocketBroadcastEventDTO = (event: any): event 
     && typeof event?.messageTimestamp === 'number' && event.messageTimestamp
     && typeof event?.userId === 'string' && event?.userId
     && typeof event?.content === 'string' && event?.content;
+};
+
+export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, sessionId: string & {
+  length: 24
+}, id: string): WebSocketResponseEventKey => {
+  return `${event}-${sessionId}-${id}`;
 };
