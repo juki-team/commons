@@ -1,3 +1,5 @@
+import { ObjectIdType } from './commons';
+
 export enum WebSocketBroadcastEvent {
   PING = 'PING',
   CODE_RUN_STATUS_NOTIFICATION = 'CODE_RUN_STATUS_NOTIFICATION',
@@ -22,4 +24,4 @@ export enum WebSocketResponseEvent {
   USER_MESSAGE = 'USER_MESSAGE',
 }
 
-export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${string & { length: 24 }}-${string}`;
+export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ObjectIdType}-${string}`;

@@ -1,4 +1,4 @@
-import { ProgrammingLanguage } from './commons';
+import { ObjectIdType, ProgrammingLanguage } from './commons';
 import { ProblemScoringMode, ProblemSettingsPointsByGroupsType, ProblemType } from './problems';
 
 export enum ErrorCode {
@@ -261,7 +261,7 @@ export type JudgingContestDataType = {
 }
 
 export type JudgingType = {
-  sessionId: string,
+  sessionId: ObjectIdType,
   submitId: string,
   runId: string,
   timestamp: number,

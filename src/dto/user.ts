@@ -2,6 +2,7 @@ import {
   ContestRole,
   CourseRole,
   FileRole,
+  ObjectIdType,
   ProblemRole,
   SystemRole,
   TeamRole,
@@ -105,7 +106,7 @@ export type UserPingType = {
   imageUrl: string,
   settings: UserSettingsType,
   isLogged: boolean,
-  sessionId: string,
+  sessionId: ObjectIdType,
 }
 
 export type CompanyPingType = {

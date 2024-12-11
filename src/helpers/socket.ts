@@ -10,6 +10,7 @@ import {
   UserNotificationWebSocketBroadcastEventDTO,
 } from '../dto';
 import {
+  ObjectIdType,
   ProblemVerdict,
   SubmissionRunStatus,
   WebSocketActionEvent,
@@ -77,8 +78,6 @@ export const isUserNotificationWebSocketBroadcastEventDTO = (event: any): event 
     && typeof event?.content === 'string' && event?.content;
 };
 
-export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, sessionId: string & {
-  length: 24
-}, id: string): WebSocketResponseEventKey => {
+export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, sessionId: ObjectIdType, id: string): WebSocketResponseEventKey => {
   return `${event}-${sessionId}-${id}`;
 };

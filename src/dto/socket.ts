@@ -1,4 +1,5 @@
 import {
+  ObjectIdType,
   ProblemVerdict,
   SubmissionRunStatus,
   WebSocketActionEvent,
@@ -11,30 +12,30 @@ import { PingResponseDTO } from './user';
 // EVENT ACTIONS
 export interface PingWebSocketEventDTO {
   event: WebSocketActionEvent.PING,
-  sessionId: string,
+  sessionId: ObjectIdType,
 }
 
 export interface SubscribeCodeRunStatusWebSocketEventDTO {
   event: WebSocketActionEvent.SUBSCRIBE_CODE_RUN_STATUS,
-  sessionId: string,
+  sessionId: ObjectIdType,
   runId: string,
 }
 
 export interface UnsubscribeCodeRunStatusWebSocketEventDTO {
   event: WebSocketActionEvent.UNSUBSCRIBE_CODE_RUN_STATUS,
-  sessionId: string,
+  sessionId: ObjectIdType,
   runId: string,
 }
 
 export interface SubscribeSubmissionRunStatusWebSocketEventDTO {
   event: WebSocketActionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS,
-  sessionId: string,
+  sessionId: ObjectIdType,
   submitId: string,
 }
 
 export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO {
   event: WebSocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS,
-  sessionId: string,
+  sessionId: ObjectIdType,
   submitId: string,
 }
 
@@ -54,7 +55,7 @@ export interface PingWebSocketBroadcastEventDTO {
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
 
 export interface CodeRunStatusNotificationWebSocketBroadcastEventDTO {
-  sessionId: string,
+  sessionId: ObjectIdType,
   event: WebSocketBroadcastEvent.CODE_RUN_STATUS_NOTIFICATION,
   messageTimestamp: number,
   runId: string,
@@ -70,7 +71,7 @@ export type TestInfoType = {
 
 export interface SubmissionRunStatusNotificationWebSocketBroadcastEventDTO {
   event: WebSocketBroadcastEvent.SUBMISSION_RUN_STATUS_NOTIFICATION,
-  sessionId: string,
+  sessionId: ObjectIdType,
   messageTimestamp: number,
   submitId: string,
   status: SubmissionRunStatus,
@@ -81,7 +82,7 @@ export interface SubmissionRunStatusNotificationWebSocketBroadcastEventDTO {
 
 export interface UserNotificationWebSocketBroadcastEventDTO {
   event: WebSocketBroadcastEvent.USER_NOTIFICATION,
-  sessionId: string,
+  sessionId: ObjectIdType,
   messageTimestamp: number,
   userId: string,
   content: string,
