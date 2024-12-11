@@ -54,4 +54,4 @@ export type TextLanguageType = { [key in Language]: string };
 
 export type SplitTime = { remaining: number, label: string, milliseconds: number };
 
-export type ObjectIdType = string & { length: 24 };
+export type ObjectIdType = `${string & { length: 24 }}`;
