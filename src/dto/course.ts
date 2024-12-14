@@ -1,6 +1,6 @@
 import { CourseBaseDocument } from '../types/course';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
-import { EntityOwnerSummaryListResponseDTO } from './user';
+import { UserCompanyBasicInfoResponseDTO } from './user';
 import { WorksheetSummaryListResponseDTO } from './worksheet';
 
 export type CourseUserResponseDTO = {
@@ -17,7 +17,7 @@ export interface CourseSummaryListResponseDTO {
   abstract: string,
   description: string,
   coverImageUrl: string,
-  owner: EntityOwnerSummaryListResponseDTO,
+  owner: UserCompanyBasicInfoResponseDTO,
   user: CourseUserResponseDTO,
 }
 

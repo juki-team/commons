@@ -10,7 +10,7 @@ import {
   TextLanguageType,
 } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
-import { EntityOwnerSummaryListResponseDTO, EntityOwnerSystemSummaryListResponseDTO } from './user';
+import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface ProblemJudgeSummaryListResponseDTO {
   key: string,
@@ -41,7 +41,7 @@ export interface ProblemBasicSummaryListResponseDTO {
 
 export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
   user: ProblemUserType,
-  owner: EntityOwnerSummaryListResponseDTO,
+  owner: UserCompanyBasicInfoResponseDTO,
 }
 
 export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {

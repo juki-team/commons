@@ -7,7 +7,7 @@ import {
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
 } from '../types';
-import { PingResponseDTO } from './user';
+import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 // EVENT ACTIONS
 export interface PingWebSocketEventDTO {
@@ -124,9 +124,15 @@ export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
 export interface UserMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_MESSAGE,
   key: WebSocketResponseEventKey,
-  userId: string
+  user: UserCompanyBasicInfoResponseDTO,
   messageTimestamp: number,
-  content: string,
+  content: {
+    type: 'SUBMISSION_VERDICT'
+    contestName: string,
+    problemName: string,
+    verdict: ProblemVerdict,
+    points: number,
+  }
 }
 
 export type WebSocketResponseEventDTO =

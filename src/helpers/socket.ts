@@ -101,7 +101,7 @@ export const isCodeRunStatusMessageWebSocketResponseEventDTO = (event: any): eve
 export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (event: any): event is SubmissionRunStatusMessageWebSocketResponseEventDTO => {
   return event?.event === WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE
     && typeof event?.key === 'string' && !!event.key
-    && typeof event?.submitId === 'string' && !!event.runId
+    && typeof event?.submitId === 'string' && !!event.submitId
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
     && event?.status in SubmissionRunStatus
     && event?.verdict in ProblemVerdict
@@ -111,7 +111,9 @@ export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (event: any
 export const isUserMessageWebSocketResponseEventDTO = (event: any): event is UserMessageWebSocketResponseEventDTO => {
   return event?.event === WebSocketResponseEvent.USER_MESSAGE
     && typeof event?.key === 'string' && !!event.key
-    && typeof event?.userId === 'string' && !!event.runId
+    && typeof event?.user?.nickname === 'string' && !!event.user?.nickname
+    && typeof event?.user?.imageUrl === 'string' && !!event.user?.imageUrl
+    && typeof event?.user?.company?.key === 'string' && !!event.user?.company?.key
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
     && !!event?.content;
 };

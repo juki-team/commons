@@ -6,18 +6,13 @@ import {
   ProblemRole,
   SystemRole,
   TeamRole,
+  UserBasicInfoInterface,
   UserHandlesType,
   UserRole,
   UserSettingsType,
   UserStatus,
 } from '../types';
 import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
-
-export interface EntityOwnerSummaryListResponseDTO {
-  nickname: string,
-  imageUrl: string,
-  company: EntityCompanySummaryListResponseDTO,
-}
 
 export interface EntityOwnerSystemSummaryListResponseDTO {
   id: string,
@@ -26,13 +21,11 @@ export interface EntityOwnerSystemSummaryListResponseDTO {
   company: EntityCompanySummaryListResponseDTO,
 }
 
-export interface UserBasicInfoResponseDTO {
-  nickname: string,
-  imageUrl: string,
+export interface UserCompanyBasicInfoResponseDTO extends UserBasicInfoInterface {
   company: EntityCompanySummaryListResponseDTO,
 }
 
-export interface UserSummaryListResponseDTO extends UserBasicInfoResponseDTO {
+export interface UserSummaryListResponseDTO extends UserCompanyBasicInfoResponseDTO {
   email: string,
   familyName: string,
   givenName: string,

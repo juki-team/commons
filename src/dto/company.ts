@@ -1,6 +1,6 @@
 import { CompanyPlan } from '../types';
 import { EmailDataResponseDTO } from './system';
-import { UserBasicInfoResponseDTO, UserPermissions } from './user';
+import { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user';
 
 export interface CompanyJudgeResponseDTO {
   key: string,
@@ -13,8 +13,8 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   key: string
   hosts: string[],
   imageUrl: string,
-  managerUser: UserBasicInfoResponseDTO,
-  systemAdminUser: UserBasicInfoResponseDTO,
+  managerUser: UserCompanyBasicInfoResponseDTO,
+  systemAdminUser: UserCompanyBasicInfoResponseDTO,
   plan: CompanyPlan,
   startTimestamp: number,
   judges: CompanyJudgeResponseDTO[],

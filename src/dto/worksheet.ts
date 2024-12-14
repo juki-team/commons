@@ -1,6 +1,6 @@
 import { BodyWorksheetType, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types';
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
-import { EntityOwnerSummaryListResponseDTO } from './user';
+import { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface WorksheetUserResponseDTO {
   isOwner: boolean,
@@ -13,7 +13,7 @@ export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocum
   updatedAt: Date,
   content: SummaryWorksheetsInPages,
   user: WorksheetUserResponseDTO,
-  owner: EntityOwnerSummaryListResponseDTO,
+  owner: UserCompanyBasicInfoResponseDTO,
 }
 
 export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'content'> {

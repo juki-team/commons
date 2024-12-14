@@ -8,7 +8,7 @@ import {
   SubmissionRunStatus,
 } from '../types';
 import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
-import { UserBasicInfoResponseDTO } from './user';
+import { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface SubmissionProblemSummaryListResponseDTO {
   isEditor: boolean,
@@ -38,7 +38,7 @@ export interface SubmissionSummaryListResponseDTO {
   points: number, // default: 0
   status: SubmissionRunStatus,
   problem: SubmissionProblemSummaryListResponseDTO,
-  user: UserBasicInfoResponseDTO & {
+  user: UserCompanyBasicInfoResponseDTO & {
     canViewSourceCode: boolean, // foreign
     // canViewOutputDiff: boolean, // foreign
   }, // foreign

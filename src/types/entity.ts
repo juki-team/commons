@@ -1,4 +1,4 @@
-import { UserBasicInfoResponseDTO } from '../dto';
+import { UserCompanyBasicInfoResponseDTO } from '../dto';
 
 export enum EntityMembersRank {
   NONE = 'NONE',
@@ -120,5 +120,5 @@ export enum LogOperation {
 export interface LogDataResponseDTO {
   changes: EntityLogChanges[],
   timestamp: number,
-  customerUser: UserBasicInfoResponseDTO,
+  customerUser: UserCompanyBasicInfoResponseDTO,
 }

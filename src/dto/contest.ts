@@ -15,7 +15,7 @@ import {
   ProblemJudgeSummaryListResponseDTO,
   ProblemSummaryListResponseDTO,
 } from './problem';
-import { EntityOwnerSummaryListResponseDTO, EntityOwnerSystemSummaryListResponseDTO } from './user';
+import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface UpsertContestProblemDTO {
   key: string
@@ -34,7 +34,7 @@ export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'mem
 
 export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
   user: ContestUserType,
-  owner: EntityOwnerSummaryListResponseDTO;
+  owner: UserCompanyBasicInfoResponseDTO;
   company: EntityCompanySummaryListResponseDTO,
   settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty'>,
   // Data Calculated
@@ -77,7 +77,10 @@ export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummar
   members: DocumentMembersResponseDTO,
 }
 
-export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO & ContestContestProblemDataResponseDTO & {
+export type ContestProblemDataResponseDTO =
+  ContestProblemBasicDataResponseDTO
+  & ContestContestProblemDataResponseDTO
+  & {
   // calculated
   totalSuccess: number,
   totalAttempts: number, // successRate: number,
