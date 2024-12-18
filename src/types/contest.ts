@@ -73,6 +73,7 @@ export type ContestProblemType = {
   color: string,
   startTimestamp: number,
   endTimestamp: number,
+  
 };
 
 export type ContestSettings = {

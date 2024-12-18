@@ -1,15 +1,15 @@
 import { Judge, WorkingIn } from '../types';
 
-export declare type CookieSameSite = 'Strict' | 'Lax' | 'None';
+export type CookieSameSite = 'Strict' | 'Lax' | 'None';
 
-export declare type CookiePriority = 'Low' | 'Medium' | 'High';
+export type CookiePriority = 'Low' | 'Medium' | 'High';
 
-export declare interface CookiePartitionKey {
+export interface CookiePartitionKey {
   sourceOrigin: string;
   hasCrossSiteAncestor?: boolean;
 }
 
-export declare interface Cookie {
+export interface Cookie {
   name: string;
   value: string;
   domain: string;
