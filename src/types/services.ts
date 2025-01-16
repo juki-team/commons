@@ -302,7 +302,7 @@ export type JudgingCompiledBodyType =
 export type JudgingReceivedBodyType = {
   runId: string,
   timestamp: number,
-  sessionId: string,
+  sessionId: ObjectIdType,
   isCodeEditorRun: boolean,
   language: ProgrammingLanguage,
   source: string,
