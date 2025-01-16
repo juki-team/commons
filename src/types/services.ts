@@ -300,6 +300,7 @@ export type JudgingCompiledBodyType =
 };
 
 export type JudgingReceivedBodyType = {
+  sessionId: string,
   isCodeEditorRun: boolean,
   language: ProgrammingLanguage,
   source: string,
