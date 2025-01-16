@@ -302,7 +302,7 @@ export type JudgingCompiledBodyType =
 export type JudgingReceivedBodyType = {
   language: ProgrammingLanguage,
   source: string,
-  inputs: [],
+  inputs: { key: string, source: string }[],
   timeLimit: number,
   memoryLimit: number,
   state: JudgingState.RECEIVED,
