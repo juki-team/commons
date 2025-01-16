@@ -299,7 +299,7 @@ export type JudgingCompiledBodyType =
   state: JudgingState.COMPILED,
 };
 
-export type JudgingReceivedBodyType = JudgingCompanyDataType & {
+export type JudgingReceivedBodyType = JudgingCompanyDataType & JudgingUserDataType & {
   runId: string,
   timestamp: number,
   sessionId: ObjectIdType,
