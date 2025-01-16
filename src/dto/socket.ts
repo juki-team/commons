@@ -98,6 +98,7 @@ export type WebSocketBroadcastEventDTO = PingWebSocketBroadcastEventDTO
 export interface PongWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.PONG,
   key: WebSocketResponseEventKey,
+  connectionId: string,
   data: PingResponseDTO,
 }
 
