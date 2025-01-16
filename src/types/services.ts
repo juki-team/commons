@@ -217,6 +217,7 @@ export type RunnerSQSMessageBodyType = {
 };
 
 export enum JudgingState {
+  RECEIVED = 'RECEIVED',
   COMPILED = 'COMPILED',
   TEST_CASE_EXECUTED = 'TEST_CASE_EXECUTED',
   TEST_CASE_EVALUATED = 'TEST_CASE_EVALUATED',
@@ -298,4 +299,16 @@ export type JudgingCompiledBodyType =
   state: JudgingState.COMPILED,
 };
 
-export type RunnerCompletedSQSMessageBodyType = JudgingCompiledBodyType | JudgingTestCaseCompletedBodyType;
+export type JudgingReceivedBodyType = {
+  language: ProgrammingLanguage,
+  source: string,
+  inputs: [],
+  timeLimit: number,
+  memoryLimit: number,
+  state: JudgingState.RECEIVED,
+};
+
+export type RunnerCompletedSQSMessageBodyType =
+  JudgingReceivedBodyType
+  | JudgingCompiledBodyType
+  | JudgingTestCaseCompletedBodyType;
