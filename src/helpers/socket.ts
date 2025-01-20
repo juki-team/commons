@@ -4,6 +4,8 @@ import {
   PingWebSocketBroadcastEventDTO,
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
+  SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
+  SendDataEcsTaskListWebSocketResponseEventDTO,
   SubmissionRunStatusMessageWebSocketResponseEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
@@ -114,6 +116,20 @@ export const isUserMessageWebSocketResponseEventDTO = (event: any): event is Use
     && typeof event?.user?.nickname === 'string' && !!event.user?.nickname
     && typeof event?.user?.imageUrl === 'string' && !!event.user?.imageUrl
     && typeof event?.user?.company?.key === 'string' && !!event.user?.company?.key
+    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
+    && !!event?.content;
+};
+
+export const isSendDataEcsTaskDefinitionsWebSocketResponseEventDTO = (event: any): event is SendDataEcsTaskDefinitionListWebSocketResponseEventDTO => {
+  return event?.event === WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITION_LIST
+    && typeof event?.key === 'string' && !!event.key
+    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
+    && !!event?.content;
+};
+
+export const isSendDataEcsTaskListWebSocketResponseEventDTO = (event: any): event is SendDataEcsTaskListWebSocketResponseEventDTO => {
+  return event?.event === WebSocketResponseEvent.SEND_DATA_ECS_TASK_LIST
+    && typeof event?.key === 'string' && !!event.key
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
     && !!event?.content;
 };

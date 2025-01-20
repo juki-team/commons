@@ -7,6 +7,7 @@ import {
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
 } from '../types';
+import { EcsTaskDefinitionSystemSummaryListResponseDTO, EcsTaskSystemSummaryListResponseDTO } from './system';
 import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 // EVENT ACTIONS
@@ -136,8 +137,24 @@ export interface UserMessageWebSocketResponseEventDTO {
   }
 }
 
+export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITION_LIST,
+  key: WebSocketResponseEventKey,
+  messageTimestamp: number,
+  content: EcsTaskDefinitionSystemSummaryListResponseDTO[],
+}
+
+export interface SendDataEcsTaskListWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_LIST,
+  key: WebSocketResponseEventKey,
+  messageTimestamp: number,
+  content: EcsTaskSystemSummaryListResponseDTO[],
+}
+
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | CodeRunStatusMessageWebSocketResponseEventDTO
   | SubmissionRunStatusMessageWebSocketResponseEventDTO
-  | UserMessageWebSocketResponseEventDTO;
+  | UserMessageWebSocketResponseEventDTO
+  | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
+  | SendDataEcsTaskListWebSocketResponseEventDTO;
