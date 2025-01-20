@@ -18,9 +18,9 @@ export interface EcsTask {
 }
 
 export interface EcsTaskSystemSummaryListResponseDTO extends EcsTask {
-  isLowRunnerCompanyKeys: string[],
+  // isLowRunnerCompanyKeys: string[],
   isHighRunnerCompanyKeys: string[],
-  isRunnerListenerCompanyKeys: string[],
+  // isRunnerListenerCompanyKeys: string[],
 }
 
 export interface EcsTaskDefinition {
@@ -33,9 +33,9 @@ export interface EcsTaskDefinition {
 }
 
 export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDefinition {
-  isLowRunnerCompanyKeys: string[],
+  // isLowRunnerCompanyKeys: string[],
   isHighRunnerCompanyKeys: string[],
-  isRunnerListenerCompanyKeys: string[],
+  // isRunnerListenerCompanyKeys: string[],
 }
 
 export type SqsPropertiesType = {
