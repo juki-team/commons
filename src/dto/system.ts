@@ -38,24 +38,6 @@ export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDe
   isRunnerListenerCompanyKeys: string[],
 }
 
-export interface EcsTaskSystemSummaryListResponseDTO {
-  taskArn: string,
-  taskDefinitionArn: string,
-  group: string,
-  version: number,
-  cpu: string,
-  memory: string,
-  launchType: string,
-  createdTimestamp: number,
-  startedTimestamp: number,
-  desiredStatus: string,
-  lastStatus: string,
-  containers: {}[],
-  isLowRunnerCompanyKeys: string[],
-  isHighRunnerCompanyKeys: string[],
-  isRunnerListenerCompanyKeys: string[],
-}
-
 export type SqsPropertiesType = {
   QueueArn: string,
   ApproximateNumberOfMessages: string,
