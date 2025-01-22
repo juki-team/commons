@@ -19,7 +19,7 @@ export interface SubmissionProblemSummaryListResponseDTO {
   type: ProblemType,
   timeLimit: number,
   memoryLimit: number,
-  companyKey: string,
+  company: EntityCompanySummaryListResponseDTO,
 }
 
 export interface SubmissionContestSummaryListResponseDTO {
@@ -27,6 +27,7 @@ export interface SubmissionContestSummaryListResponseDTO {
   name: string, // foreign
   problemIndex: string,
   problemColor: string,
+  company: EntityCompanySummaryListResponseDTO,
 }
 
 export interface SubmissionSummaryListResponseDTO {
