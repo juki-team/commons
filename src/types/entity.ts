@@ -92,6 +92,7 @@ export enum EntityCollection {
   CONTEST = 'CONTEST',
   JUDGE = 'JUDGE',
   USER = 'USER',
+  SUBMISSION = 'SUBMISSION',
 }
 
 export enum CollectionKey {
