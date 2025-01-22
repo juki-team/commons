@@ -67,6 +67,7 @@ export interface ContestProblemBasicDataResponseDTO {
   startTimestamp: number,
   endTimestamp: number,
   tags: string[],
+  company: EntityCompanySummaryListResponseDTO,
 }
 
 export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {
