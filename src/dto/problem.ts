@@ -51,6 +51,7 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   settings: ProblemSettingsType,
   ownerNickname: string,
   members: DocumentMembersResponseDTO,
+  state: EntityState,
 }
 
 export interface ProblemJudgeSystemSummaryListResponseDTO extends ProblemJudgeSummaryListResponseDTO {

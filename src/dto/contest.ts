@@ -96,4 +96,5 @@ export interface ContestDataResponseDTO extends Omit<ContestSummaryListResponseD
   problems: { [key: string]: ContestProblemDataResponseDTO },
   members: EntityMembersResponseDTO,
   clarifications: ContestClarificationType[],
+  state: EntityState,
 }
