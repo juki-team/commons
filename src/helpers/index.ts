@@ -1,5 +1,6 @@
 export * from './class';
 export * from './commons';
+export * from './contest';
 export * from './document';
 export * from './interval';
 export * from './judging';
