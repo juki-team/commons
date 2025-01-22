@@ -19,6 +19,7 @@ export interface SubmissionProblemSummaryListResponseDTO {
   type: ProblemType,
   timeLimit: number,
   memoryLimit: number,
+  companyKey: string,
 }
 
 export interface SubmissionContestSummaryListResponseDTO {
