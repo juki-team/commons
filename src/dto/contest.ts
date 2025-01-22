@@ -43,6 +43,7 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
   isPast: boolean,
   isFuture: boolean,
   isEndless: boolean,
+  isGlobal: boolean,
   isFrozenTime: boolean,
   isQuietTime: boolean,
 }
