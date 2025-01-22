@@ -66,7 +66,7 @@ export interface ContestProblemBasicDataResponseDTO {
   color: string,
   startTimestamp: number,
   endTimestamp: number,
-  url: string,
+  tags: string[],
 }
 
 export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {
