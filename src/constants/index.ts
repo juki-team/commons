@@ -3,6 +3,7 @@ export * from './company';
 export * from './contest';
 export * from './course';
 export * from './date';
+export * from './email';
 export * from './entity';
 export * from './judge';
 export * from './problem';
