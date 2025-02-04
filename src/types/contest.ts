@@ -105,6 +105,7 @@ export type ContestMembersBasicType = {
 export interface ContestBaseDocument {
   key: string,
   name: string,
+  shortname: string,
   description: string,
   settings: ContestSettings,
   problems: { [key: string]: ContestProblemType },
