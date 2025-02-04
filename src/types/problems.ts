@@ -77,6 +77,7 @@ export type ProblemUserType = {
 
 export interface ProblemBaseDocument {
   name: string,
+  shortname: string,
   author: string,
   settings: ProblemSettingsType,
   tags: string[],
