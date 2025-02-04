@@ -73,6 +73,7 @@ export interface ContestProblemBasicDataResponseDTO {
 
 export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {
   author: string,
+  shortname: string,
   statement: ProblemStatementType,
   editorial: TextLanguageType,
   settings: ProblemSettingsType,
