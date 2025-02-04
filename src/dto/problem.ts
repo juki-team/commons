@@ -29,6 +29,7 @@ export interface ProblemBasicSummaryListResponseDTO {
   judge: ProblemJudgeSummaryListResponseDTO,
   key: string,
   name: string,
+  shortname: string,
   tags: string[],
   settings: {
     scoringMode: ProblemScoringMode,
@@ -46,7 +47,6 @@ export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListRe
 
 export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   author: string,
-  shortname: string,
   statement: ProblemStatementType,
   editorial: TextLanguageType,
   settings: ProblemSettingsType,
