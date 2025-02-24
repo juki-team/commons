@@ -16,6 +16,11 @@ export interface PingWebSocketEventDTO {
   sessionId: ObjectIdType,
 }
 
+export interface AuthenticateWebSocketEventDTO {
+  event: WebSocketActionEvent.AUTHENTICATE,
+  sessionId: ObjectIdType,
+}
+
 export interface SubscribeCodeRunStatusWebSocketEventDTO {
   event: WebSocketActionEvent.SUBSCRIBE_CODE_RUN_STATUS,
   sessionId: ObjectIdType,
@@ -42,6 +47,7 @@ export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO {
 
 export type WebSocketEventDTO =
   PingWebSocketEventDTO
+  | AuthenticateWebSocketEventDTO
   | SubscribeCodeRunStatusWebSocketEventDTO
   | UnsubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
