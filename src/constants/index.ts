@@ -12,5 +12,6 @@ export * from './services';
 export * from './file';
 export * from './system';
 export * from './teams';
+export * from './time';
 export * from './user';
 export * from './worksheet';
