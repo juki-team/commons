@@ -7,8 +7,8 @@ export type ReactionUser = {
 }
 
 export interface CommentBaseDocument {
+  key: string,
   parentId: string | null,
-  postKey: string,
   content: string,
   reactions: {
     '✅': ReactionUser,
