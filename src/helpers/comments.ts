@@ -1,4 +1,4 @@
-export const getAssignmentCommentKey = (assignmentId: string) => `assignment:${assignmentId}`;
-export const getAssignmentUserCommentKey = (assignmentUserId: string) => `assignment-user:${assignmentUserId}`;
-export const getProblemCommentKey = (assignmentId: string) => `problem:${assignmentId}`;
-export const getContestCommentKey = (assignmentId: string) => `contest:${assignmentId}`;
+export const getAssignmentCommentKey = (assignmentKey: string) => `assignment:${assignmentKey}`;
+export const getAssignmentUserCommentKey = (assignmentKey: string, userNickname: string, userCompany: string) => `assignment:${assignmentKey}|user_nickname:${userNickname}|user_company:${userCompany}`;
+export const getProblemCommentKey = (problemKey: string) => `problem:${problemKey}`;
+export const getContestCommentKey = (contestKey: string) => `contest:${contestKey}`;
