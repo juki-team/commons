@@ -1,4 +1,5 @@
 export * from './class';
+export * from './comments';
 export * from './company';
 export * from './contest';
 export * from './course';
