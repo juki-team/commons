@@ -3,8 +3,8 @@ import { UserCompanyBasicInfoResponseDTO } from './user';
 export type ReactionUserResponseData = {
   [key: string]: {
     user: UserCompanyBasicInfoResponseDTO
-    createdAt: Date;
-    updatedAt: Date;
+    createdTimestamp: number;
+    updatedTimestamp: number;
   }
 }
 
