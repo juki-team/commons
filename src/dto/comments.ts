@@ -9,7 +9,7 @@ export type ReactionUserResponseData = {
 }
 
 export interface CommentDataResponseDTO {
-  key: string,
+  id: string,
   content: string,
   user: UserCompanyBasicInfoResponseDTO,
   reactions: {
