@@ -1,8 +1,8 @@
 export type ReactionUser = {
   [key: string]: {
     userId: string,
-    createdAt: Date;
-    updatedAt: Date;
+    createdTimestamp: number;
+    updatedTimestamp: number;
   }
 }
 
