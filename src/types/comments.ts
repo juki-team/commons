@@ -1,10 +1,8 @@
 export type ReactionUser = {
-  [key: string]: {
-    key: string,
-    userId: string,
-    createdTimestamp: number;
-    updatedTimestamp: number;
-  }
+  key: string,
+  userId: string,
+  createdTimestamp: number;
+  updatedTimestamp: number;
 }
 
 export interface CommentBaseDocument {

@@ -1,12 +1,10 @@
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
 export type ReactionUserResponseData = {
-  [key: string]: {
-    key: string,
-    user: UserCompanyBasicInfoResponseDTO
-    createdTimestamp: number;
-    updatedTimestamp: number;
-  }
+  key: string,
+  user: UserCompanyBasicInfoResponseDTO
+  createdTimestamp: number;
+  updatedTimestamp: number;
 }
 
 export interface CommentDataResponseDTO {
