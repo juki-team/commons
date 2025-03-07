@@ -12,7 +12,9 @@ export interface CommentDataResponseDTO {
   content: string,
   user: UserCompanyBasicInfoResponseDTO,
   reactions: {
-    [key: string]: ReactionUserResponseData,
+    [key: string /*emoji*/]: {
+      [key: string /*userId*/]: ReactionUserResponseData
+    },
   }
   replies: CommentDataResponseDTO[];
   createdTimestamp: number;

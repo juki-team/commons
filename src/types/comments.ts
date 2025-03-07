@@ -10,6 +10,8 @@ export interface CommentBaseDocument {
   parentId: string | null,
   content: string,
   reactions: {
-    [key: string]: ReactionUser,
+    [key: string /*emoji*/]: {
+      [key: string /*userId*/]: ReactionUser
+    },
   }
 }
