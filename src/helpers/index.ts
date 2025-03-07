@@ -9,4 +9,5 @@ export * from './object';
 export * from './responses';
 export * from './socket';
 export * from './time';
+export * from './user';
 export * from './worksheet';
