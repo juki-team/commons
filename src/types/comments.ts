@@ -11,12 +11,6 @@ export interface CommentBaseDocument {
   parentId: string | null,
   content: string,
   reactions: {
-    '✅': ReactionUser,
-    '👍': ReactionUser,
-    '👏': ReactionUser,
-    '💡': ReactionUser,
-    '📝': ReactionUser,
-    '🤯': ReactionUser,
-    '🔥': ReactionUser,
+    [key: string]: ReactionUser,
   }
 }

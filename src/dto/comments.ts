@@ -13,13 +13,7 @@ export interface CommentDataResponseDTO {
   content: string,
   user: UserCompanyBasicInfoResponseDTO,
   reactions: {
-    '✅': ReactionUserResponseData,
-    '👍': ReactionUserResponseData,
-    '👏': ReactionUserResponseData,
-    '💡': ReactionUserResponseData,
-    '📝': ReactionUserResponseData,
-    '🤯': ReactionUserResponseData,
-    '🔥': ReactionUserResponseData,
+    [key: string]: ReactionUserResponseData,
   }
   replies: CommentDataResponseDTO[];
   createdTimestamp: number;
