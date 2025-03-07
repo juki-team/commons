@@ -1,5 +1,6 @@
 export type ReactionUser = {
   [key: string]: {
+    key: string,
     userId: string,
     createdTimestamp: number;
     updatedTimestamp: number;
