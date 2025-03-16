@@ -10,8 +10,10 @@ import {
   SubmissionRunStatusMessageWebSocketResponseEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
+  SubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
+  UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserNotificationWebSocketBroadcastEventDTO,
@@ -58,6 +60,16 @@ export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): e
   return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS
     && typeof event?.sessionId === 'string' && !!event.sessionId
     && typeof event?.submitId === 'string' && !!event.submitId;
+};
+
+export const isSubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO = (event: any): event is SubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITION_LIST
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
+};
+
+export const isUnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITION_LIST
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isPingWebSocketBroadcastEventDTO = (event: any): event is PingWebSocketBroadcastEventDTO => {
