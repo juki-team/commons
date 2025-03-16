@@ -55,6 +55,16 @@ export interface UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO {
   sessionId: ObjectIdType,
 }
 
+export interface SubscribeSenDataEcsTaskListWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_LIST,
+  sessionId: ObjectIdType,
+}
+
+export interface UnsubscribeSenDataEcsTaskListWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_LIST,
+  sessionId: ObjectIdType,
+}
+
 export type WebSocketEventDTO =
   PingWebSocketEventDTO
   | AuthenticateWebSocketEventDTO
@@ -63,7 +73,9 @@ export type WebSocketEventDTO =
   | SubscribeSubmissionRunStatusWebSocketEventDTO
   | UnsubscribeSubmissionRunStatusWebSocketEventDTO
   | SubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO
-  | UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO;
+  | UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO
+  | SubscribeSenDataEcsTaskListWebSocketEventDTO
+  | UnsubscribeSenDataEcsTaskListWebSocketEventDTO;
 
 // BROADCAST EVENTS
 

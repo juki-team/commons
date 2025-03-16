@@ -11,9 +11,11 @@ import {
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO,
+  SubscribeSenDataEcsTaskListWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO,
+  UnsubscribeSenDataEcsTaskListWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserNotificationWebSocketBroadcastEventDTO,
@@ -69,6 +71,16 @@ export const isSubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO = (event: 
 
 export const isUnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO => {
   return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITION_LIST
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
+};
+
+export const isSubscribeSenDataEcsTaskListWebSocketEventDTO = (event: any): event is SubscribeSenDataEcsTaskListWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_LIST
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
+};
+
+export const isUnsubscribeSenDataEcsTaskListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEcsTaskListWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
