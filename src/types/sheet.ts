@@ -77,7 +77,7 @@ export type QuizTextSheetType = BasicWorksheetType & {
 export type QuizOptionsSheetType = BasicWorksheetType & {
   type: WorksheetType.QUIZ_OPTIONS;
   description: string,
-  options: { label: string, correct: boolean }[],
+  options: { label: string, correct: boolean, id: string }[],
   multiple: boolean,
   scoringMode: 'TOTAL' | 'PARTIAL',
 };
