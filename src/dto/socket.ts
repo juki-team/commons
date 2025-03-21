@@ -197,7 +197,7 @@ export interface ProblemCrawledWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
   key: WebSocketResponseEventKey,
   messageTimestamp: number,
-  content: { problemKey: string }[],
+  content: { problemKey: string },
 }
 
 export type WebSocketResponseEventDTO =
