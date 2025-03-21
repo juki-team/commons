@@ -147,6 +147,11 @@ export interface PongWebSocketResponseEventDTO {
   data: PingResponseDTO,
 }
 
+export interface ResponseWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.RESPONSE,
+  key: WebSocketResponseEventKey,
+}
+
 export interface CodeRunStatusMessageWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
   key: WebSocketResponseEventKey,
@@ -204,6 +209,7 @@ export interface ProblemCrawledWebSocketResponseEventDTO {
 
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
+  | ResponseWebSocketResponseEventDTO
   | CodeRunStatusMessageWebSocketResponseEventDTO
   | SubmissionRunStatusMessageWebSocketResponseEventDTO
   | UserMessageWebSocketResponseEventDTO
