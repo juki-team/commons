@@ -67,11 +67,13 @@ export interface UnsubscribeSenDataEcsTaskListWebSocketEventDTO {
 
 export interface SubscribeProblemCrawledWebSocketEventDTO {
   event: WebSocketActionEvent.SUBSCRIBE_PROBLEM_CRAWLED,
+  sessionId: ObjectIdType,
   problemKey: string,
 }
 
 export interface UnsubscribeProblemCrawledWebSocketEventDTO {
   event: WebSocketActionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED,
+  sessionId: ObjectIdType,
   problemKey: string,
 }
 
