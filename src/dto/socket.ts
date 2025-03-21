@@ -65,6 +65,16 @@ export interface UnsubscribeSenDataEcsTaskListWebSocketEventDTO {
   sessionId: ObjectIdType,
 }
 
+export interface SubscribeProblemCrawledWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_PROBLEM_CRAWLED,
+  problemKey: string,
+}
+
+export interface UnsubscribeProblemCrawledWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED,
+  problemKey: string,
+}
+
 export type WebSocketEventDTO =
   PingWebSocketEventDTO
   | AuthenticateWebSocketEventDTO
@@ -75,7 +85,9 @@ export type WebSocketEventDTO =
   | SubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO
   | UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO
   | SubscribeSenDataEcsTaskListWebSocketEventDTO
-  | UnsubscribeSenDataEcsTaskListWebSocketEventDTO;
+  | UnsubscribeSenDataEcsTaskListWebSocketEventDTO
+  | SubscribeProblemCrawledWebSocketEventDTO
+  | UnsubscribeProblemCrawledWebSocketEventDTO;
 
 // BROADCAST EVENTS
 
@@ -181,10 +193,18 @@ export interface SendDataEcsTaskListWebSocketResponseEventDTO {
   content: EcsTaskSystemSummaryListResponseDTO[],
 }
 
+export interface ProblemCrawledWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.PROBLEM_CRAWLED,
+  key: WebSocketResponseEventKey,
+  messageTimestamp: number,
+  content: { problemKey: string }[],
+}
+
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | CodeRunStatusMessageWebSocketResponseEventDTO
   | SubmissionRunStatusMessageWebSocketResponseEventDTO
   | UserMessageWebSocketResponseEventDTO
   | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
-  | SendDataEcsTaskListWebSocketResponseEventDTO;
+  | SendDataEcsTaskListWebSocketResponseEventDTO
+  | ProblemCrawledWebSocketResponseEventDTO;
