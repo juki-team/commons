@@ -3,13 +3,13 @@ import { JkError } from '../prototypes';
 import { ContentResponseType, ContentsMetaType, ContentsResponseType, ErrorCode, ErrorResponseType } from '../types';
 import { consoleError, isStringJson } from './commons';
 
-export function toJkError(err: any): JkError {
+export function toJkError(err: any, data?: any): JkError {
   const error = new Error();
   let code = err?.code;
   if (!(code in ErrorCode)) {
     code = ErrorCode.ERR500;
   }
-  return new JkError(code, { message: err?.message || error.message, stack: err?.stack || error.stack });
+  return new JkError(code, { message: err?.message || error.message, stack: err?.stack || error.stack, data });
 }
 
 export function errorsResponse(message: string, ...errors: JkError[]): ErrorResponseType {
