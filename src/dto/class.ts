@@ -1,6 +1,6 @@
 import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, EntityState } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { UserCompanyBasicInfoResponseDTO, UserSummaryListResponseDTO } from './user';
 
 interface ClassUserResponseDTO {
   isOwner: boolean,
@@ -132,12 +132,7 @@ export interface ClassAssignmentBaseDocument {
 }
 
 export interface ClassAssignmentDataResponseDTO {
-  user: UserCompanyBasicInfoResponseDTO,
+  user: UserSummaryListResponseDTO,
   assignmentId: string,
   points: number,
-  comments: {
-    user: UserCompanyBasicInfoResponseDTO,
-    content: string,
-    timestamp: number,
-  }[],
 }
