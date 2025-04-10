@@ -78,7 +78,7 @@ export interface ClassCycleDataResponseDTO extends ClassSummaryListResponseDTO {
   },
 }
 
-interface ClassCyclesCycleDataResponseDTO extends Omit<CycleClassDataResponseDTO, 'sessions'> {
+export interface ClassCyclesCycleDataResponseDTO extends Omit<CycleClassDataResponseDTO, 'sessions'> {
   sessions: {
     [key: string]: Omit<SessionCycleClassDataResponseDTO, 'assignments'>,
   },
