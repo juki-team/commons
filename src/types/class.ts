@@ -44,12 +44,19 @@ export interface ClassCycleSessions {
   [key: string]: ClassCycleSession,
 }
 
+export type ClassCycleTag = {
+  key: string,
+  color: string,
+  points: string,
+  abbreviation: string,
+}
+
 export type ClassCycle = {
   id: string,
   index: number,
   name: string,
   sessions: ClassCycleSessions,
-  tags: { key: string, color: string, points: string, abbreviation: string }[],
+  tags: ClassCycleTag[],
   startTimestamp: number,
   endTimestamp: number,
   state: EntityState,
