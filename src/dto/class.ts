@@ -47,7 +47,7 @@ export type AssignmentSessionCycleClassDataResponseDTO =
   | WorksheetAssignmentSessionCycleClassDataResponseDTO
   | NoneAssignmentSessionCycleClassDataResponseDTO;
 
-interface SessionCycleClassDataResponseDTO {
+export interface SessionCycleClassDataResponseDTO {
   id: string,
   index: number,
   name: string,
