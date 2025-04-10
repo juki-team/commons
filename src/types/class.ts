@@ -47,7 +47,7 @@ export interface ClassCycleSessions {
 export type ClassCycleTag = {
   key: string,
   color: string,
-  points: string,
+  points: number,
   abbreviation: string,
 }
 
