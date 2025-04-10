@@ -1,4 +1,4 @@
-import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, EntityState } from '../types';
+import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassCycleTag, EntityState } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { UserCompanyBasicInfoResponseDTO, UserSummaryListResponseDTO } from './user';
 
@@ -65,7 +65,7 @@ interface CycleClassDataResponseDTO {
   sessions: {
     [key: string]: SessionCycleClassDataResponseDTO,
   },
-  tags: string[],
+  tags: ClassCycleTag[],
   startTimestamp: number,
   endTimestamp: number,
 }
