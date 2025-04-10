@@ -46,7 +46,7 @@ export interface ClassCycleSessions {
 
 export type ClassCycleTag = {
   key: string,
-  string: string,
+  name: string,
   color: string,
   points: number,
 }
