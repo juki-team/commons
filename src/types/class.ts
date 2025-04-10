@@ -18,6 +18,7 @@ export interface AssignmentBasicInfo {
   title: string,
   content: BodyWorksheetType[],
   tags: string[],
+  graded: boolean,
 }
 
 export interface ClassCycleSessionAssignment extends AssignmentBasicInfo {

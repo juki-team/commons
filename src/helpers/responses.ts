@@ -49,7 +49,7 @@ export const cleanRequest = <T extends ContentResponseType<any> | ContentsRespon
       message: ERROR[ErrorCode.ERR9999].message,
       errors: [ { code: ErrorCode.ERR9999, detail: '', message: ERROR[ErrorCode.ERR9999].message } ],
     };
-    consoleError({ message: 'success false on cleaning request', responseText, response });
+    consoleError({ message: 'response is not string json, success false on cleaning request', responseText, response });
     // jukiApiManager.reportError({ message: 'success false on cleaning request', responseText, response });
     return response;
   }
