@@ -49,7 +49,7 @@ export type ClassCycle = {
   index: number,
   name: string,
   sessions: ClassCycleSessions,
-  tags: string[],
+  tags: { key: string, color: string, points: string, abbreviation: string }[],
   startTimestamp: number,
   endTimestamp: number,
   state: EntityState,
