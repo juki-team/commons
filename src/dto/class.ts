@@ -58,7 +58,7 @@ export interface SessionCycleClassDataResponseDTO {
   endTimestamp: number,
 }
 
-interface CycleClassDataResponseDTO {
+export interface CycleClassDataResponseDTO {
   id: string,
   index: number,
   name: string,
