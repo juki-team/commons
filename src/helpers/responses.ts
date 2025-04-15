@@ -20,6 +20,7 @@ export function errorsResponse(message: string, ...errors: JkError[]): ErrorResp
       code: error.code,
       message: error.message,
       detail: error.stack || new Error().stack || '',
+      data: error.data,
     })),
   };
 }
