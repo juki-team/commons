@@ -11,6 +11,7 @@ export interface CommentDataResponseDTO {
   id: string,
   content: string,
   user: UserCompanyBasicInfoResponseDTO,
+  hidden: boolean,
   reactions: {
     [key: string /*emoji*/]: {
       [key: string /*userId*/]: ReactionUserResponseData
