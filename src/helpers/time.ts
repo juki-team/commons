@@ -1,3 +1,4 @@
+import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants';
 import { SplitTime } from '../types';
 
 export function splitTime(timeRemaining: number): Array<SplitTime> {
@@ -13,15 +14,27 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   
   const aWeekMilliseconds = 1000 * 60 * 60 * 24 * 7;
   const remainingWeeks = Math.floor(timeRemaining / aWeekMilliseconds);
-  remaining.push({ remaining: remainingWeeks, label: remainingWeeks === 1 ? 'week' : 'weeks', milliseconds: aWeekMilliseconds });
+  remaining.push({
+    remaining: remainingWeeks,
+    label: remainingWeeks === 1 ? 'week' : 'weeks',
+    milliseconds: aWeekMilliseconds,
+  });
   
   const aDayMilliseconds = 1000 * 60 * 60 * 24;
   const remainingDays = Math.floor((timeRemaining % aWeekMilliseconds) / aDayMilliseconds);
-  remaining.push({ remaining: remainingDays, label: remainingDays === 1 ? 'day' : 'days', milliseconds: aDayMilliseconds });
+  remaining.push({
+    remaining: remainingDays,
+    label: remainingDays === 1 ? 'day' : 'days',
+    milliseconds: aDayMilliseconds,
+  });
   
   const aHourMilliseconds = 1000 * 60 * 60;
   const remainingHours = Math.floor((timeRemaining % aDayMilliseconds) / aHourMilliseconds);
-  remaining.push({ remaining: remainingHours, label: remainingHours === 1 ? 'hour' : 'hours', milliseconds: aHourMilliseconds });
+  remaining.push({
+    remaining: remainingHours,
+    label: remainingHours === 1 ? 'hour' : 'hours',
+    milliseconds: aHourMilliseconds,
+  });
   
   const aMinuteMilliseconds = 1000 * 60;
   const remainingMinutes = Math.floor((timeRemaining % aHourMilliseconds) / aMinuteMilliseconds);
@@ -55,3 +68,11 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   
   return remaining;
 }
+
+export const getYears = (d: Date) => d.getFullYear();
+export const getMonths = (d: Date) => d.getFullYear() * 12 + d.getMonth();
+export const getDays = (d: Date) => Math.floor(d.getTime() / ONE_DAY);
+export const getHours = (d: Date) => Math.floor(d.getTime() / ONE_HOUR);
+export const getMinutes = (d: Date) => Math.floor(d.getTime() / ONE_MINUTE);
+export const getSeconds = (d: Date) => Math.floor(d.getTime() / 1000);
+export const getMilliseconds = (d: Date) => d.getTime();
