@@ -409,11 +409,11 @@ export const PALLETE = {
 export const UPPERCASE_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 export const LOWERCASE_LETTERS = UPPERCASE_LETTERS.toLowerCase();
 export const NUMBERS = '012345678';
-export const SEC_30 = 1000 * 30;
-export const SEC_60 = 1000 * 60;
-export const SEC_90 = 1000 * 90;
-export const SEC_120 = 1000 * 120;
 
 export const DEFAULT_JUKI_PROFILE_IMAGE = 'https://juki-judge.s3.us-east-2.amazonaws.com/public/file/5f69783aa7a8e048ef8d0ce2.';
 
 export const SEPARATOR_TOKEN = '\x1E';
+
+export const JUKI_FORWARDED_HOST = 'x-juki-forwarded-host';
+export const JUKI_SESSION_ID = 'x-juki-session-id';
+export const JUKI_METADATA = 'x-juki-metadata';

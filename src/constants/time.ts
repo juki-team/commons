@@ -1,4 +1,8 @@
 export const ONE_SECOND = 1000;
+export const SEC_30 = ONE_SECOND * 30;
+export const SEC_60 = ONE_SECOND * 60;
+export const SEC_90 = ONE_SECOND * 90;
+export const SEC_120 = ONE_SECOND * 120;
 export const ONE_MINUTE = ONE_SECOND * 60;
 export const ONE_HOUR = ONE_MINUTE * 60;
 export const ONE_DAY = ONE_HOUR * 24;
