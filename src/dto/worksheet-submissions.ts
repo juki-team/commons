@@ -42,7 +42,7 @@ export interface CodeEditorSubmissionResponseDTO extends WorksheetResponseBasicI
 }
 
 export interface QuizOptionsSubmissionDTO extends Pick<QuizOptionsSheetType, 'id' | 'type'> {
-  checkedOptions: number[],
+  checkedOptions: string[],
 }
 
 export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, QuizOptionsSubmissionDTO {
