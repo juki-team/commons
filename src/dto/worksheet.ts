@@ -18,6 +18,7 @@ export interface WorksheetSummaryListResponseDTO extends Pick<WorksheetBaseDocum
 export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'content'> {
   folderId: string,
   isSolvable: boolean,
+  automaticFeedback: boolean,
   content: BodyWorksheetType[],
   members: DocumentMembersResponseDTO,
 }
