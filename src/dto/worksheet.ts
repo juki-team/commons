@@ -8,8 +8,7 @@ export interface WorksheetUserResponseDTO {
   isSpectator: boolean,
 }
 
-export interface WorksheetSummaryListResponseDTO extends Omit<WorksheetBaseDocument, 'folderId' | 'content' | 'members' | 'isSolvable' | 'state'> {
-  key: string,
+export interface WorksheetSummaryListResponseDTO extends Pick<WorksheetBaseDocument, 'key' | 'name' | 'description'> {
   updatedAt: Date,
   content: SummaryWorksheetsInPages,
   user: WorksheetUserResponseDTO,
