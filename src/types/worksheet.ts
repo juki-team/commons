@@ -1,4 +1,4 @@
-import { EntityMembers, EntityState } from './entity';
+import { EntityMembers } from './entity';
 import { BasicWorksheetType, BodyWorksheetType, NewPageSheetType } from './sheet';
 
 export interface WorksheetBaseDocument {
@@ -8,7 +8,7 @@ export interface WorksheetBaseDocument {
   description: string,
   content: BodyWorksheetType[],
   isSolvable: boolean,
-  state: EntityState,
+  automaticFeedback: boolean,
   members: EntityMembers,
 }
 
