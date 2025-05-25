@@ -5,6 +5,7 @@ import {
   ProgrammingLanguage,
   QuizOptionsSheetType,
   QuizProblemSheetType,
+  QuizTextSheetType,
   UserBasicInterface,
   WorksheetType,
 } from '../types';
@@ -48,6 +49,13 @@ export interface QuizOptionsSubmissionDTO extends Pick<QuizOptionsSheetType, 'id
 export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, QuizOptionsSubmissionDTO {
 }
 
+export interface QuizTextSubmissionDTO extends Pick<QuizTextSheetType, 'id' | 'type'> {
+  response: string,
+}
+
+export interface QuizTextSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, QuizTextSubmissionDTO {
+}
+
 export type WorkSheetSubmissions = {
   [WorksheetType.JK_MD]: {
     [key: string]: JkmdSubmissionResponseDTO[],
@@ -60,6 +68,9 @@ export type WorkSheetSubmissions = {
   },
   [WorksheetType.QUIZ_OPTIONS]: {
     [key: string]: QuizOptionsSubmissionResponseDTO[],
+  }
+  [WorksheetType.QUIZ_TEXT]: {
+    [key: string]: QuizTextSubmissionResponseDTO[],
   }
 }
 
