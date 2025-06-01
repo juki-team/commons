@@ -8,7 +8,7 @@ import {
   ProblemStatementType,
   TextLanguageType,
 } from '../types';
-import { DocumentMembersResponseDTO, EntityMembersDTO, EntityMembersResponseDTO } from './entity';
+import { DocumentMembersResponseDTO, EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity';
 import {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,
@@ -96,7 +96,7 @@ export type ContestProblemDataResponseDTO =
 
 export interface ContestDataResponseDTO extends Omit<ContestSummaryListResponseDTO, 'settings'>, Pick<ContestBaseDocument, 'settings' | 'description'> {
   problems: { [key: string]: ContestProblemDataResponseDTO },
-  members: EntityMembersResponseDTO,
+  members: EntityMembersWithTimestampsResponseDTO,
   clarifications: ContestClarificationType[],
   state: EntityState,
 }
