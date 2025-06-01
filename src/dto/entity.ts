@@ -48,6 +48,25 @@ export interface DocumentMemberResponseDTO extends UserCompanyBasicInfoResponseD
   type: MemberType;
 }
 
+export interface DocumentMemberWithTimestampsResponseDTO extends DocumentMemberResponseDTO {
+  type: MemberType,
+  lastVisitTimestamp: number,
+  joinedAtTimestamp: number,
+}
+
+export interface EntityMembersWithTimestampsResponseDTO {
+  rankAdministrators: EntityMembersRank,
+  administrators: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  rankManagers: EntityMembersRank,
+  managers: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  rankGuests: EntityMembersRank,
+  guests: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  rankSpectators: EntityMembersRank,
+  spectators: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  rankParticipants: EntityMembersRank,
+  participants: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+}
+
 export interface DocumentMembersResponseDTO {
   access: EntityAccess,
   managers: { [key: string]: DocumentMemberResponseDTO },
