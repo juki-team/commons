@@ -46,9 +46,15 @@ export interface CompanyResourceSpecificationsResponseDTO {
 }
 
 export interface CompanyStatsResponseDTO {
-  statsByMonth: {
-    [key: number]: {
-      [key: number]: { codeEditorRuns: number, submissions: number }
+  stats: {
+    [key: number]: { // year
+      [key: number]: { // month
+        [key: number]: { // day
+          [key: number]: { // hour
+            codeEditorRuns: number, judgingRuns: number, reJudgingRuns: number,
+          }
+        }
+      }
     }
   },
   users: number,
