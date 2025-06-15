@@ -209,6 +209,7 @@ export type RunCommandType = {
   lockFilePath?: string,
   endFilePath?: string,
   rawExecution?: boolean,
+  isolated: boolean,
 };
 
 export type RunnerSQSMessageBodyType = {
@@ -287,6 +288,7 @@ export type JudgingTestCaseCompletedBodyType =
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
   isSampleCasesEmpty: boolean,
+  attempts: number,
 }
 
 export type JudgingCompiledBodyType =
