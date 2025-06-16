@@ -287,15 +287,23 @@ export type JudgingType = {
 export type JudgingTestCaseExecutedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.TEST_CASE_EXECUTED,
+  caseKey: string,
+  caseIndex: number,
+  isSampleCase: boolean,
+  isSampleCasesEmpty: boolean,
+}
+
+export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
+  type: PrivateHandlerEventType.JUDGING,
+  state: JudgingState.TEST_CASE_EXECUTED,
   cases: {
     key: string,
     index: number,
   }[],
   areSampleCases: boolean,
-  lastCasesIndex: number,
+  areSampleCasesEmpty: boolean,
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
-  isSampleCasesEmpty: boolean,
 }
 
 export type JudgingTestCaseEvaluatedBodyType = Omit<JudgingTestCaseExecutedBodyType, 'state'> & {
@@ -322,4 +330,5 @@ export type JudgingPrivateHandlerEventDTO =
   | JudgingCompiledBodyType
   | JudgingTestCaseExecutedBodyType
   | JudgingTestCaseEvaluatedBodyType
+  | JudgingChunkTestCasesCompletedBodyType
   | JudgingCompletedBodyType;
