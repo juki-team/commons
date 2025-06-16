@@ -272,9 +272,11 @@ export type JudgingType = {
   submitId: string,
   runId: string,
   timestamp: number,
-  language: ProgrammingLanguage,
   sourceFileName: string,
   isCodeEditorRun: boolean,
+  language: ProgrammingLanguage,
+  timeLimit: number,
+  memoryLimit: number,
 }
 
 export type JudgingTestCaseExecutedBodyType =
@@ -318,8 +320,6 @@ export type JudgingReceivedBodyType = JudgingType & JudgingCompanyDataType & Jud
   state: JudgingState.RECEIVED,
   source: string,
   inputs: { key: string, source: string }[],
-  timeLimit: number,
-  memoryLimit: number,
 };
 
 export type JudgingCompletedBodyType = JudgingType & JudgingCompanyDataType & JudgingUserDataType & {
