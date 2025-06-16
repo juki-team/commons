@@ -274,6 +274,7 @@ export type JudgingType = {
   timestamp: number,
   language: ProgrammingLanguage,
   sourceFileName: string,
+  isCodeEditorRun: boolean,
 }
 
 export type JudgingTestCaseExecutedBodyType =
@@ -301,15 +302,6 @@ export type JudgingTestCaseEvaluatedBodyType = Omit<JudgingTestCaseExecutedBodyT
   state: JudgingState.TEST_CASE_EVALUATED,
 }
 
-export type JudgingCompletedBodyType = JudgingCompanyDataType & JudgingUserDataType & {
-  type: PrivateHandlerEventType.JUDGING,
-  state: JudgingState.COMPLETED,
-  runId: string,
-  timestamp: number,
-  sessionId: ObjectIdType,
-  isCodeEditorRun: boolean,
-}
-
 export type JudgingCompiledBodyType =
   JudgingType
   & JudgingCompanyDataType
@@ -321,19 +313,19 @@ export type JudgingCompiledBodyType =
   state: JudgingState.COMPILED,
 };
 
-export type JudgingReceivedBodyType = JudgingCompanyDataType & JudgingUserDataType & {
+export type JudgingReceivedBodyType = JudgingType & JudgingCompanyDataType & JudgingUserDataType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.RECEIVED,
-  runId: string,
-  timestamp: number,
-  sessionId: ObjectIdType,
-  isCodeEditorRun: boolean,
-  language: ProgrammingLanguage,
   source: string,
   inputs: { key: string, source: string }[],
   timeLimit: number,
   memoryLimit: number,
 };
+
+export type JudgingCompletedBodyType = JudgingType & JudgingCompanyDataType & JudgingUserDataType & {
+  type: PrivateHandlerEventType.JUDGING,
+  state: JudgingState.COMPLETED,
+}
 
 export type JudgingPrivateHandlerEventDTO =
   JudgingReceivedBodyType
