@@ -225,6 +225,7 @@ export enum JudgingState {
   RECEIVED = 'RECEIVED',
   COMPILED = 'COMPILED',
   TEST_CASE_EXECUTED = 'TEST_CASE_EXECUTED',
+  CHUNK_TEST_CASES_COMPLETED = 'CHUNK_TEST_CASES_COMPLETED',
   COMPLETED = 'COMPLETED',
 }
 
@@ -294,7 +295,7 @@ export type JudgingTestCaseExecutedBodyType = JudgingType & {
 
 export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
-  state: JudgingState.TEST_CASE_EXECUTED,
+  state: JudgingState.CHUNK_TEST_CASES_COMPLETED,
   cases: {
     key: string,
     index: number,
