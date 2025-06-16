@@ -225,7 +225,6 @@ export enum JudgingState {
   RECEIVED = 'RECEIVED',
   COMPILED = 'COMPILED',
   TEST_CASE_EXECUTED = 'TEST_CASE_EXECUTED',
-  TEST_CASE_EVALUATED = 'TEST_CASE_EVALUATED',
   COMPLETED = 'COMPLETED',
 }
 
@@ -305,10 +304,6 @@ export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
   chunkIndex: number,
 }
 
-export type JudgingTestCaseEvaluatedBodyType = Omit<JudgingTestCaseExecutedBodyType, 'state'> & {
-  state: JudgingState.TEST_CASE_EVALUATED,
-}
-
 export type JudgingCompiledBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.COMPILED,
@@ -328,6 +323,5 @@ export type JudgingPrivateHandlerEventDTO =
   JudgingReceivedBodyType
   | JudgingCompiledBodyType
   | JudgingTestCaseExecutedBodyType
-  | JudgingTestCaseEvaluatedBodyType
   | JudgingChunkTestCasesCompletedBodyType
   | JudgingCompletedBodyType;
