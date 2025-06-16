@@ -198,6 +198,8 @@ export type RunnerNextQueueType = {
   messageDeduplicationId: string
 };
 
+export type RunnerNextType = RunnerNextRequestType | RunnerNextQueueType;
+
 export type RunCommandType = {
   commandLine: string,
   inputFilePath: string,
@@ -211,11 +213,12 @@ export type RunCommandType = {
   endFilePath?: string,
   rawExecution?: boolean,
   isolated: boolean,
+  next?: RunnerNextType,
 };
 
 export type RunnerSQSMessageBodyType = {
   executions: RunCommandType[],
-  next: RunnerNextQueueType | RunnerNextRequestType,
+  next: RunnerNextType,
 };
 
 export enum JudgingState {
