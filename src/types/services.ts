@@ -218,7 +218,7 @@ export type RunCommandType = {
 
 export type RunnerSQSMessageBodyType = {
   executions: RunCommandType[],
-  next: RunnerNextType,
+  next?: RunnerNextType,
 };
 
 export enum JudgingState {
