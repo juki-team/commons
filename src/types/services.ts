@@ -226,6 +226,7 @@ export enum JudgingState {
   COMPILED = 'COMPILED',
   TEST_CASE_EXECUTED = 'TEST_CASE_EXECUTED',
   TEST_CASE_EVALUATED = 'TEST_CASE_EVALUATED',
+  COMPLETED = 'COMPLETED',
 }
 
 export type CaseType = { caseKey: string, groups: number[] };
@@ -283,11 +284,11 @@ export type JudgingTestCaseExecutedBodyType =
   & JudgingContestDataType
   & {
   type: PrivateHandlerEventType.JUDGING,
+  state: JudgingState.TEST_CASE_EXECUTED,
   cases: {
     key: string,
     index: number,
   }[],
-  state: JudgingState.TEST_CASE_EXECUTED,
   areSampleCases: boolean,
   lastCasesIndex: number,
   clusterChunkCases: CaseType[][],
@@ -298,6 +299,15 @@ export type JudgingTestCaseExecutedBodyType =
 
 export type JudgingTestCaseEvaluatedBodyType = Omit<JudgingTestCaseExecutedBodyType, 'state'> & {
   state: JudgingState.TEST_CASE_EVALUATED,
+}
+
+export type JudgingCompletedBodyType = JudgingCompanyDataType & JudgingUserDataType & {
+  type: PrivateHandlerEventType.JUDGING,
+  state: JudgingState.COMPLETED,
+  runId: string,
+  timestamp: number,
+  sessionId: ObjectIdType,
+  isCodeEditorRun: boolean,
 }
 
 export type JudgingCompiledBodyType =
@@ -313,6 +323,7 @@ export type JudgingCompiledBodyType =
 
 export type JudgingReceivedBodyType = JudgingCompanyDataType & JudgingUserDataType & {
   type: PrivateHandlerEventType.JUDGING,
+  state: JudgingState.RECEIVED,
   runId: string,
   timestamp: number,
   sessionId: ObjectIdType,
@@ -322,11 +333,11 @@ export type JudgingReceivedBodyType = JudgingCompanyDataType & JudgingUserDataTy
   inputs: { key: string, source: string }[],
   timeLimit: number,
   memoryLimit: number,
-  state: JudgingState.RECEIVED,
 };
 
 export type JudgingPrivateHandlerEventDTO =
   JudgingReceivedBodyType
   | JudgingCompiledBodyType
   | JudgingTestCaseExecutedBodyType
-  | JudgingTestCaseEvaluatedBodyType;
+  | JudgingTestCaseEvaluatedBodyType
+  | JudgingCompletedBodyType;
