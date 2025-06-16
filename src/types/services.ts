@@ -272,7 +272,6 @@ export type JudgingType = {
   submitId: string,
   runId: string,
   timestamp: number,
-  sourceFileName: string,
   isCodeEditorRun: boolean,
   language: ProgrammingLanguage,
   attempts: number,
