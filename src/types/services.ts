@@ -1,4 +1,5 @@
 import { ObjectIdType, ProgrammingLanguage } from './commons';
+import { PrivateHandlerEventType } from './private-handler';
 import { ProblemScoringMode, ProblemSettingsPointsByGroupsType, ProblemType } from './problems';
 
 export enum ErrorCode {
@@ -271,24 +272,29 @@ export type JudgingType = {
   sourceFileName: string,
 }
 
-export type JudgingTestCaseCompletedBodyType =
+export type JudgingTestCaseExecutedBodyType =
   JudgingType
   & JudgingCompanyDataType
   & JudgingUserDataType
   & JudgingProblemDataType
   & JudgingContestDataType
   & {
+  type: PrivateHandlerEventType.JUDGING,
   cases: {
     key: string,
     index: number,
   }[],
-  state: JudgingState.TEST_CASE_EXECUTED | JudgingState.TEST_CASE_EVALUATED, // state of cases
+  state: JudgingState.TEST_CASE_EXECUTED,
   areSampleCases: boolean,
   lastCasesIndex: number,
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
   isSampleCasesEmpty: boolean,
   attempts: number,
+}
+
+export type JudgingTestCaseEvaluatedBodyType = Omit<JudgingTestCaseExecutedBodyType, 'state'> & {
+  state: JudgingState.TEST_CASE_EVALUATED,
 }
 
 export type JudgingCompiledBodyType =
@@ -298,10 +304,12 @@ export type JudgingCompiledBodyType =
   & JudgingProblemDataType
   & JudgingContestDataType
   & {
+  type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.COMPILED,
 };
 
 export type JudgingReceivedBodyType = JudgingCompanyDataType & JudgingUserDataType & {
+  type: PrivateHandlerEventType.JUDGING,
   runId: string,
   timestamp: number,
   sessionId: ObjectIdType,
@@ -314,7 +322,8 @@ export type JudgingReceivedBodyType = JudgingCompanyDataType & JudgingUserDataTy
   state: JudgingState.RECEIVED,
 };
 
-export type RunnerCompletedSQSMessageBodyType =
+export type JudgingPrivateHandlerEventDTO =
   JudgingReceivedBodyType
   | JudgingCompiledBodyType
-  | JudgingTestCaseCompletedBodyType;
+  | JudgingTestCaseExecutedBodyType
+  | JudgingTestCaseEvaluatedBodyType;
