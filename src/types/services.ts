@@ -1,6 +1,5 @@
 import { ObjectIdType, ProgrammingLanguage } from './commons';
 import { PrivateHandlerEventType } from './private-handler';
-import { ProblemScoringMode, ProblemSettingsPointsByGroupsType, ProblemType } from './problems';
 
 export enum ErrorCode {
   // General errors
@@ -234,38 +233,38 @@ export type CaseType = { caseKey: string, groups: number[] };
 export type ProblemTestCaseType = { testCaseKey: string, groups: number[] };
 export type ProblemSampleCaseType = { input: string, output: string };
 
-export type JudgingProblemDataType = {
-  problemId: string,
-  problemKey: string,
-  problemType: ProblemType,
-  problemTimeLimit: number,
-  problemMemoryLimit: number,
-  problemWithPE: boolean,
-  problemScoringMode: ProblemScoringMode,
-  problemPointsByGroups: ProblemSettingsPointsByGroupsType,
-  problemSampleCases: ProblemSampleCaseType[],
-  problemTestCases: ProblemTestCaseType[],
-  problemEvaluatorSource: string,
-}
+// export type JudgingProblemDataType = {
+//   problemId: string,
+//   problemKey: string,
+//   problemType: ProblemType,
+//   problemTimeLimit: number,
+//   problemMemoryLimit: number,
+//   problemWithPE: boolean,
+//   problemScoringMode: ProblemScoringMode,
+//   problemPointsByGroups: ProblemSettingsPointsByGroupsType,
+//   problemSampleCases: ProblemSampleCaseType[],
+//   problemTestCases: ProblemTestCaseType[],
+//   problemEvaluatorSource: string,
+// }
 
-export type JudgingUserDataType = {
-  userId: string,
-  userNickname: string,
-}
+// export type JudgingUserDataType = {
+//   userId: string,
+//   userNickname: string,
+// }
 
-export type JudgingCompanyDataType = {
-  companyId: string,
-  // companyHighPerformanceRunnerTaskDefinition: string,
-  // companyHighPerformanceRunnerMinTasks: number,
-  // companyHighPerformanceRunnerMaxTasks: number,
-  // companyLowPerformanceRunnerTaskDefinition: string,
-  // companyLowPerformanceRunnerMinTasks: number,
-  // companyLowPerformanceRunnerMaxTasks: number,
-}
+// export type JudgingCompanyDataType = {
+//   companyId: string,
+//   // companyHighPerformanceRunnerTaskDefinition: string,
+//   // companyHighPerformanceRunnerMinTasks: number,
+//   // companyHighPerformanceRunnerMaxTasks: number,
+//   // companyLowPerformanceRunnerTaskDefinition: string,
+//   // companyLowPerformanceRunnerMinTasks: number,
+//   // companyLowPerformanceRunnerMaxTasks: number,
+// }
 
-export type JudgingContestDataType = {
-  contestId: string,
-}
+// export type JudgingContestDataType = {
+//   contestId: string,
+// }
 
 export type JudgingType = {
   sessionId: ObjectIdType,
@@ -277,15 +276,10 @@ export type JudgingType = {
   language: ProgrammingLanguage,
   timeLimit: number,
   memoryLimit: number,
+  attempts: number,
 }
 
-export type JudgingTestCaseExecutedBodyType =
-  JudgingType
-  & JudgingCompanyDataType
-  & JudgingUserDataType
-  & JudgingProblemDataType
-  & JudgingContestDataType
-  & {
+export type JudgingTestCaseExecutedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.TEST_CASE_EXECUTED,
   cases: {
@@ -297,32 +291,25 @@ export type JudgingTestCaseExecutedBodyType =
   clusterChunkCases: CaseType[][],
   chunkIndex: number,
   isSampleCasesEmpty: boolean,
-  attempts: number,
 }
 
 export type JudgingTestCaseEvaluatedBodyType = Omit<JudgingTestCaseExecutedBodyType, 'state'> & {
   state: JudgingState.TEST_CASE_EVALUATED,
 }
 
-export type JudgingCompiledBodyType =
-  JudgingType
-  & JudgingCompanyDataType
-  & JudgingUserDataType
-  & JudgingProblemDataType
-  & JudgingContestDataType
-  & {
+export type JudgingCompiledBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.COMPILED,
 };
 
-export type JudgingReceivedBodyType = JudgingType & JudgingCompanyDataType & JudgingUserDataType & {
+export type JudgingReceivedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.RECEIVED,
   source: string,
   inputs: { key: string, source: string }[],
 };
 
-export type JudgingCompletedBodyType = JudgingType & JudgingCompanyDataType & JudgingUserDataType & {
+export type JudgingCompletedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.COMPLETED,
 }
