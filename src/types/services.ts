@@ -287,6 +287,7 @@ export type JudgingTestCaseExecutedBodyType = JudgingType & {
   state: JudgingState.TEST_CASE_EXECUTED,
   caseKey: string,
   caseIndex: number,
+  totalCases: number,
   isSampleCase: boolean,
   isSampleCasesEmpty: boolean,
 }
