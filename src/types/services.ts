@@ -311,7 +311,6 @@ export type JudgingReceivedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.RECEIVED,
   source: string,
-  inputs: { key: string, source: string }[],
 };
 
 export type JudgingCompletedBodyType = JudgingType & {
