@@ -1,5 +1,6 @@
 import { ObjectIdType, ProgrammingLanguage } from './commons';
 import { PrivateHandlerEventType } from './private-handler';
+import { ProblemType } from './problems';
 
 export enum ErrorCode {
   // General errors
@@ -274,11 +275,13 @@ export type JudgingType = {
   sourceFileName: string,
   isCodeEditorRun: boolean,
   language: ProgrammingLanguage,
-  timeLimit: number,
-  memoryLimit: number,
   attempts: number,
-  sampleCases: ProblemSampleCaseType[],
-  testCases: ProblemTestCaseType[],
+  // Problem data
+  problemTimeLimit: number,
+  problemMemoryLimit: number,
+  problemSampleCases: ProblemSampleCaseType[],
+  problemTestCases: ProblemTestCaseType[],
+  problemType: ProblemType,
 }
 
 export type JudgingTestCaseExecutedBodyType = JudgingType & {
