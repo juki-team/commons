@@ -277,6 +277,8 @@ export type JudgingType = {
   timeLimit: number,
   memoryLimit: number,
   attempts: number,
+  sampleCases: ProblemSampleCaseType[],
+  testCases: ProblemTestCaseType[],
 }
 
 export type JudgingTestCaseExecutedBodyType = JudgingType & {
