@@ -11,3 +11,11 @@ export enum CompanyLogoType {
   VERTICAL_WHITE = 'vertical-white',
   VERTICAL_COLOR = 'vertical-color',
 }
+
+export type ResourceInstanceType = {
+  imageId: string,
+  instanceType: string,
+  userDataScript: string,
+  minimum: number,
+  maximum: number,
+}
