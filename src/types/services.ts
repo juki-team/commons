@@ -316,7 +316,7 @@ export type JudgingReceivedBodyType = JudgingType & {
   state: JudgingState.RECEIVED,
 };
 
-export type JudgingCompletedBodyType = JudgingType & {
+export type JudgingCompletedBodyType = JudgingChunkTestCasesCompletedBodyType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.COMPLETED,
 }
