@@ -226,4 +226,5 @@ export type WebSocketResponseEventDTO =
   | UserMessageWebSocketResponseEventDTO
   | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
   | SendDataEcsTaskListWebSocketResponseEventDTO
+  | SendDataEc2InstancesListWebSocketResponseEventDTO
   | ProblemCrawledWebSocketResponseEventDTO;
