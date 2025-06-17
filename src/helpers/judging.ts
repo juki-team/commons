@@ -1,4 +1,4 @@
-import { CodeEditorTestCaseType, ProblemVerdict, SubmissionTestCaseType, TestCaseVerdict } from '../types';
+import { CodeEditorTestCaseType, DataLogType, ProblemVerdict, SubmissionTestCaseType, TestCaseVerdict } from '../types';
 
 export const getDataOfTestCase = (testCase: SubmissionTestCaseType, timeLimit: number, memoryLimit: number) => {
   
@@ -99,5 +99,35 @@ export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) =
     memoryUsed: Math.max(first.memoryUsed, second.memoryUsed),
     exitCode: first.exitCode || second.exitCode,
     verdict,
+  };
+};
+
+export const getDataLog = (log: any): DataLogType => {
+  
+  const lines = log?.split?.('\n') || [];
+  let timeUsed = 0;
+  let memoryUsed = 0;
+  let exitCode = -1;
+  
+  if (lines.length > 4) {
+    for (const line of lines) {
+      if (line.startsWith('time:')) {
+        timeUsed = parseFloat(line.split(':')[1]);
+      } else if (line.startsWith('max-rss:')) {
+        memoryUsed = parseInt(line.split(':')[1], 10); // en KB
+      } else if (line.startsWith('exitcode:')) {
+        exitCode = parseInt(line.split(':')[1], 10);
+      }
+    }
+  } else {
+    timeUsed = +lines[0];
+    memoryUsed = +lines[1];
+    exitCode = +lines[2];
+  }
+  
+  return {
+    timeUsed: Number.isNaN(timeUsed) ? 0 : timeUsed,
+    memoryUsed: Number.isNaN(memoryUsed) ? 0 : memoryUsed,
+    exitCode: Number.isNaN(exitCode) ? -1 : exitCode,
   };
 };
