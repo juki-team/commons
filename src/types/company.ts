@@ -19,3 +19,14 @@ export type ResourceInstanceType = {
   minimum: number,
   maximum: number,
 }
+
+export type ResourceLoggerType = {
+  info: {
+    chatId: string,
+    messageThreadId: string,
+  },
+  error: {
+    chatId: string,
+    messageThreadId: string,
+  }
+}

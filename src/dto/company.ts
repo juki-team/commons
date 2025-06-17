@@ -1,4 +1,4 @@
-import { CompanyPlan, ResourceInstanceType } from '../types';
+import { CompanyPlan, ResourceInstanceType, ResourceLoggerType } from '../types';
 import { EmailDataResponseDTO } from './system';
 import { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user';
 
@@ -28,6 +28,7 @@ export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
 }
 
 export interface CompanyResourceSpecificationsResponseDTO {
+  logger: ResourceLoggerType,
   runnerInstance: ResourceInstanceType,
   runnerListener: {
     taskDefinition: string,
