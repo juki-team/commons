@@ -60,7 +60,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'c' ],
     monacoKey: 'c',
     codeMirrorKey: 'c',
-    compilePattern: '/usr/bin/gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
+    compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
@@ -75,7 +75,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'c' ],
     monacoKey: 'c',
     codeMirrorKey: 'c',
-    compilePattern: '/usr/bin/gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
+    compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <stdio.h>\n \nint main(void) {\n \n  printf("Hello World\\n");\n \n  return 0;\n}',
@@ -90,7 +90,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
-    compilePattern: '/usr/bin/g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
+    compilePattern: 'g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
@@ -106,7 +106,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
-    compilePattern: '/usr/bin/g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -o ' +
+    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
@@ -122,7 +122,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
-    compilePattern: '/usr/bin/g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++11 -o ' +
+    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++11 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++11 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}} -lm',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
@@ -140,7 +140,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++14 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}} -lm',
-    compilePattern: '/usr/bin/g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++14 -o ' +
+    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++14 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
@@ -157,7 +157,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     monacoKey: 'cpp',
     codeMirrorKey: 'cpp',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++17 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}} -lm',
-    compilePattern: '/usr/bin/g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++17 -o ' +
+    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++17 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
@@ -173,10 +173,10 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'java' ],
     monacoKey: 'java',
     codeMirrorKey: 'java',
-    compilePattern: '/usr/bin/javac -cp \'.;*\' {{folder_path}}/{{source_file_name}}',
+    compilePattern: 'javac -cp \'.;*\' {{folder_path}}/{{source_file_name}}',
     // compilePattern: 'javac {{folder_path}}/{{source_file_name}}',
     // runPattern: 'java -cp {{folder_path}} {{class_name}}'
-    runPattern: '/usr/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
+    runPattern: 'java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
       '{{folder_path}} {{class_name}}',
     templateSourceCode: 'class Main {\n  public static void main (String[] args) {' +
       '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
@@ -191,8 +191,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'py' ],
     monacoKey: 'python',
     codeMirrorKey: 'python',
-    compilePattern: '/usr/bin/pypy3 -m py_compile {{folder_path}}/{{source_file_name}}',
-    runPattern: '/usr/bin/pypy3 {{folder_path}}/{{source_file_name}}',
+    compilePattern: 'pypy3 -m py_compile {{folder_path}}/{{source_file_name}}',
+    runPattern: 'pypy3 {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'pypy3',
@@ -205,8 +205,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'py' ],
     monacoKey: 'python',
     codeMirrorKey: 'python',
-    compilePattern: '/usr/bin/python2 -m py_compile {{folder_path}}/{{source_file_name}}',
-    runPattern: '/usr/bin/python2 {{folder_path}}/{{source_file_name}}',
+    compilePattern: 'python2 -m py_compile {{folder_path}}/{{source_file_name}}',
+    runPattern: 'python2 {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python',
@@ -219,8 +219,8 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'py' ],
     monacoKey: 'python',
     codeMirrorKey: 'python',
-    compilePattern: '/usr/bin/python3 -m py_compile {{folder_path}}/{{source_file_name}}',
-    runPattern: '/usr/bin/python3 {{folder_path}}/{{source_file_name}}',
+    compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_file_name}}',
+    runPattern: 'python3 {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python3',
@@ -234,7 +234,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     monacoKey: 'javascript',
     codeMirrorKey: 'javascript',
     compilePattern: '',
-    runPattern: '/usr/bin/node {{folder_path}}/{{source_file_name}}',
+    runPattern: 'node {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
     hasBuildFile: false,
     executable: 'node',
@@ -247,10 +247,10 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     fileExtension: [ 'psc' ],
     monacoKey: 'text',
     codeMirrorKey: 'pseudocode-pseint',
-    compilePattern: '/usr/bin/jk-pseint {{folder_path}}/{{source_file_name}} --norun --nouser'
-      + ' && /usr/bin/jk-pseint {{folder_path}}/{{source_file_name}} --draw {{folder_path}}/{{source_file_name}}.psd'
-      + ' && /usr/bin/jk-psexport {{folder_path}}/{{source_file_name}}.psd {{folder_path}}/{{source_file_name}}.cpp --lang=cpp'
-      + ' && /usr/bin/g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
+    compilePattern: 'jk-pseint {{folder_path}}/{{source_file_name}} --norun --nouser'
+      + ' && jk-pseint {{folder_path}}/{{source_file_name}} --draw {{folder_path}}/{{source_file_name}}.psd'
+      + ' && jk-psexport {{folder_path}}/{{source_file_name}}.psd {{folder_path}}/{{source_file_name}}.cpp --lang=cpp'
+      + ' && g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_file_name}}.cpp',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: 'Algoritmo HOLA_MUNDO\n\tImprimir "Hello World"\nFinAlgoritmo\n',
