@@ -38,6 +38,16 @@ export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDe
   // isRunnerListenerCompanyKeys: string[],
 }
 
+export interface Ec2InstanceType {
+  instanceId: string,
+  state: 'pending' | 'running' | 'shutting-down' | 'stopped' | 'stopping' | 'terminated' | undefined,
+  instanceType: string,
+  privateIpAddress: string,
+  publicIpAddress: string,
+  tags: { Key?: string | undefined, Value?: string | undefined }[],
+  launchTime: Date | undefined,
+}
+
 export type SqsPropertiesType = {
   QueueArn: string,
   ApproximateNumberOfMessages: string,

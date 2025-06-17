@@ -7,7 +7,11 @@ import {
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
 } from '../types';
-import { EcsTaskDefinitionSystemSummaryListResponseDTO, EcsTaskSystemSummaryListResponseDTO } from './system';
+import {
+  Ec2InstanceType,
+  EcsTaskDefinitionSystemSummaryListResponseDTO,
+  EcsTaskSystemSummaryListResponseDTO,
+} from './system';
 import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 // EVENT ACTIONS
@@ -187,14 +191,21 @@ export interface UserMessageWebSocketResponseEventDTO {
 }
 
 export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO {
-  event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITION_LIST,
+  event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
   key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: EcsTaskDefinitionSystemSummaryListResponseDTO[],
 }
 
+export interface SendDataEc2InstancesListWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
+  key: WebSocketResponseEventKey,
+  messageTimestamp: number,
+  content: Ec2InstanceType[],
+}
+
 export interface SendDataEcsTaskListWebSocketResponseEventDTO {
-  event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_LIST,
+  event: WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
   key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: EcsTaskSystemSummaryListResponseDTO[],

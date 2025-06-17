@@ -176,7 +176,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     compilePattern: 'javac -cp \'.;*\' {{folder_path}}/{{source_file_name}}',
     // compilePattern: 'javac {{folder_path}}/{{source_file_name}}',
     // runPattern: 'java -cp {{folder_path}} {{class_name}}'
-    runPattern: 'java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
+    runPattern: '/usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
       '{{folder_path}} {{class_name}}',
     templateSourceCode: 'class Main {\n  public static void main (String[] args) {' +
       '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
@@ -192,7 +192,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     monacoKey: 'python',
     codeMirrorKey: 'python',
     compilePattern: 'pypy3 -m py_compile {{folder_path}}/{{source_file_name}}',
-    runPattern: 'pypy3 {{folder_path}}/{{source_file_name}}',
+    runPattern: '/usr/bin/pypy3 {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'pypy3',
@@ -206,7 +206,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     monacoKey: 'python',
     codeMirrorKey: 'python',
     compilePattern: 'python2 -m py_compile {{folder_path}}/{{source_file_name}}',
-    runPattern: 'python2 {{folder_path}}/{{source_file_name}}',
+    runPattern: '/usr/bin/python2 {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python',
@@ -220,7 +220,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     monacoKey: 'python',
     codeMirrorKey: 'python',
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_file_name}}',
-    runPattern: 'python3 {{folder_path}}/{{source_file_name}}',
+    runPattern: '/usr/bin/python3 {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python3',
@@ -234,7 +234,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
     monacoKey: 'javascript',
     codeMirrorKey: 'javascript',
     compilePattern: '',
-    runPattern: 'node {{folder_path}}/{{source_file_name}}',
+    runPattern: '/usr/bin/node {{folder_path}}/{{source_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
     hasBuildFile: false,
     executable: 'node',
