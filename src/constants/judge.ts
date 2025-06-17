@@ -199,7 +199,7 @@ export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
   ProgrammingLanguage.JAVA,
   ProgrammingLanguage.JAVASCRIPT,
   ProgrammingLanguage.ICPC_PYTHON,
-  ProgrammingLanguage.PYTHON,
+  ProgrammingLanguage.PYTHON2,
   ProgrammingLanguage.PYTHON3,
   ProgrammingLanguage.PSEUDOCODE_PSEINT,
 ];
@@ -214,7 +214,7 @@ export const ACCEPTED_PROGRAMMING_LANGUAGES = [
   ProgrammingLanguage.JAVA,
   ProgrammingLanguage.JAVASCRIPT,
   ProgrammingLanguage.ICPC_PYTHON,
-  ProgrammingLanguage.PYTHON,
+  ProgrammingLanguage.PYTHON2,
   ProgrammingLanguage.PYTHON3,
   ProgrammingLanguage.PSEUDOCODE_PSEINT,
 ];

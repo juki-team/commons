@@ -10,7 +10,7 @@ export enum ProgrammingLanguage { // TODO: choose a better name that encompasses
   CPP17 = 'CPP17',
   JAVA = 'JAVA',
   ICPC_PYTHON = 'ICPC_PYTHON',
-  PYTHON = 'PYTHON',
+  PYTHON2 = 'PYTHON2',
   PYTHON3 = 'PYTHON3',
   JAVASCRIPT = 'JAVASCRIPT',
   PSEUDOCODE_PSEINT = 'PSEUDOCODE_PSEINT',
