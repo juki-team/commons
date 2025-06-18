@@ -1,5 +1,3 @@
-import { ProblemVerdict } from '../types';
-
 export interface StatisticsCompanyResponseDTO {
   codeEditorRuns: number[],
   judgingRuns: number[],
@@ -11,7 +9,7 @@ export interface StatisticsCompanyResponseDTO {
 
 export interface StatisticsProblemResponseDTO {
   verdict: {
-    [key in ProblemVerdict]: number[]
+    [key: string]: number[]
   },
   language: {
     [key: string]: number[]
