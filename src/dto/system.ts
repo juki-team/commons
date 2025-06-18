@@ -44,8 +44,14 @@ export interface Ec2InstanceType {
   instanceType: string,
   privateIpAddress: string,
   publicIpAddress: string,
-  tags: { Key?: string | undefined, Value?: string | undefined }[],
+  tags: { key: string, value: string }[],
   launchTime: Date | undefined,
+  instanceLifecycle: 'capacity-block' | 'scheduled' | 'spot' | undefined,
+  imageId: string,
+  vpcId: string,
+  subnetId: string,
+  securityGroups: { groupId: string, groupName: string }[],
+  raw: any,
 }
 
 export type SqsPropertiesType = {
@@ -85,4 +91,5 @@ export type SsmSessionType = {
   startTimestamps: number,
   owner: string,
   maxSessionDuration: number,
+  raw: any,
 }
