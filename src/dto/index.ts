@@ -11,6 +11,7 @@ export * from './problem';
 export * from './scoreboard';
 export * from './session';
 export * from './socket';
+export * from './statistics';
 export * from './submission';
 export * from './system';
 export * from './user';

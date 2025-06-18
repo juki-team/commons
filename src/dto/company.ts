@@ -46,20 +46,3 @@ export interface CompanyResourceSpecificationsResponseDTO {
     maximum: number,
   },
 }
-
-export interface CompanyStatsResponseDTO {
-  stats: {
-    [key: number]: { // year
-      [key: number]: { // month
-        [key: number]: { // day
-          [key: number]: { // hour
-            codeEditorRuns: number, judgingRuns: number, reJudgingRuns: number,
-          }
-        }
-      }
-    }
-  },
-  users: number,
-  problems: number,
-  contests: number,
-}
