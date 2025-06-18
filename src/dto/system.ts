@@ -77,3 +77,12 @@ export interface EmailDataResponseDTO {
   contactEmails: string[],
   mainEmail: string,
 }
+
+export type SsmSessionType = {
+  sessionId: string,
+  target: string,
+  status: 'Connected' | 'Connecting' | 'Disconnected' | 'Failed' | 'Terminating' | 'Terminated' | undefined,
+  startTimestamps: number,
+  owner: string,
+  maxSessionDuration: number,
+}

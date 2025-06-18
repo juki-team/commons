@@ -7,7 +7,8 @@ import {
   PongWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
-  SendDataEcsTaskListWebSocketResponseEventDTO,
+  SendDataEcsTasksListWebSocketResponseEventDTO,
+  SendDataSsmSessionsListWebSocketResponseEventDTO,
   SubmissionRunStatusMessageWebSocketResponseEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
@@ -15,12 +16,14 @@ import {
   SubscribeSenDataEc2InstancesListWebSocketEventDTO,
   SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO,
   SubscribeSenDataEcsTasksListWebSocketEventDTO,
+  SubscribeSenDataSsmSessionsListWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeProblemCrawledWebSocketEventDTO,
   UnsubscribeSenDataEc2InstancesListWebSocketEventDTO,
   UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO,
   UnsubscribeSenDataEcsTasksListWebSocketEventDTO,
+  UnsubscribeSenDataSsmSessionsListWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserNotificationWebSocketBroadcastEventDTO,
@@ -96,6 +99,16 @@ export const isSubscribeSenDataEc2InstancesListWebSocketEventDTO = (event: any):
 
 export const isUnsubscribeSenDataEc2InstancesListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEc2InstancesListWebSocketEventDTO => {
   return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
+};
+
+export const isSubscribeSenDataSsmSessionsListWebSocketEventDTO = (event: any): event is SubscribeSenDataSsmSessionsListWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.SUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
+};
+
+export const isUnsubscribeSenDataSsmSessionsListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataSsmSessionsListWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
@@ -187,8 +200,15 @@ export const isSendDataEc2InstancesListWebSocketResponseEventDTO = (event: any):
     && !!event?.content;
 };
 
-export const isSendDataEcsTaskListWebSocketResponseEventDTO = (event: any): event is SendDataEcsTaskListWebSocketResponseEventDTO => {
+export const isSendDataEcsTaskListWebSocketResponseEventDTO = (event: any): event is SendDataEcsTasksListWebSocketResponseEventDTO => {
   return event?.event === WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST
+    && typeof event?.key === 'string' && !!event.key
+    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
+    && !!event?.content;
+};
+
+export const isSendDataSsmSessionsListWebSocketResponseEventDTO = (event: any): event is SendDataSsmSessionsListWebSocketResponseEventDTO => {
+  return event?.event === WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST
     && typeof event?.key === 'string' && !!event.key
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
     && !!event?.content;

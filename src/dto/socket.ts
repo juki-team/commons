@@ -11,6 +11,7 @@ import {
   Ec2InstanceType,
   EcsTaskDefinitionSystemSummaryListResponseDTO,
   EcsTaskSystemSummaryListResponseDTO,
+  SsmSessionType,
 } from './system';
 import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
@@ -79,6 +80,16 @@ export interface UnsubscribeSenDataEc2InstancesListWebSocketEventDTO {
   sessionId: ObjectIdType,
 }
 
+export interface SubscribeSenDataSsmSessionsListWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST,
+  sessionId: ObjectIdType,
+}
+
+export interface UnsubscribeSenDataSsmSessionsListWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST,
+  sessionId: ObjectIdType,
+}
+
 export interface SubscribeProblemCrawledWebSocketEventDTO {
   event: WebSocketActionEvent.SUBSCRIBE_PROBLEM_CRAWLED,
   sessionId: ObjectIdType,
@@ -104,6 +115,8 @@ export type WebSocketEventDTO =
   | UnsubscribeSenDataEcsTasksListWebSocketEventDTO
   | SubscribeSenDataEc2InstancesListWebSocketEventDTO
   | UnsubscribeSenDataEc2InstancesListWebSocketEventDTO
+  | SubscribeSenDataSsmSessionsListWebSocketEventDTO
+  | UnsubscribeSenDataSsmSessionsListWebSocketEventDTO
   | SubscribeProblemCrawledWebSocketEventDTO
   | UnsubscribeProblemCrawledWebSocketEventDTO;
 
@@ -216,11 +229,18 @@ export interface SendDataEc2InstancesListWebSocketResponseEventDTO {
   content: Ec2InstanceType[],
 }
 
-export interface SendDataEcsTaskListWebSocketResponseEventDTO {
+export interface SendDataEcsTasksListWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
   key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: EcsTaskSystemSummaryListResponseDTO[],
+}
+
+export interface SendDataSsmSessionsListWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
+  key: WebSocketResponseEventKey,
+  messageTimestamp: number,
+  content: SsmSessionType[],
 }
 
 export interface ProblemCrawledWebSocketResponseEventDTO {
@@ -237,6 +257,7 @@ export type WebSocketResponseEventDTO =
   | SubmissionRunStatusMessageWebSocketResponseEventDTO
   | UserMessageWebSocketResponseEventDTO
   | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
-  | SendDataEcsTaskListWebSocketResponseEventDTO
+  | SendDataEcsTasksListWebSocketResponseEventDTO
   | SendDataEc2InstancesListWebSocketResponseEventDTO
+  | SendDataSsmSessionsListWebSocketResponseEventDTO
   | ProblemCrawledWebSocketResponseEventDTO;
