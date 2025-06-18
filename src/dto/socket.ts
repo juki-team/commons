@@ -49,23 +49,33 @@ export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO {
   submitId: string,
 }
 
-export interface SubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO {
-  event: WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITION_LIST,
+export interface SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
   sessionId: ObjectIdType,
 }
 
-export interface UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO {
-  event: WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITION_LIST,
+export interface UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
   sessionId: ObjectIdType,
 }
 
-export interface SubscribeSenDataEcsTaskListWebSocketEventDTO {
-  event: WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_LIST,
+export interface SubscribeSenDataEcsTasksListWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
   sessionId: ObjectIdType,
 }
 
-export interface UnsubscribeSenDataEcsTaskListWebSocketEventDTO {
-  event: WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_LIST,
+export interface UnsubscribeSenDataEcsTasksListWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
+  sessionId: ObjectIdType,
+}
+
+export interface SubscribeSenDataEc2InstancesListWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST,
+  sessionId: ObjectIdType,
+}
+
+export interface UnsubscribeSenDataEc2InstancesListWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST,
   sessionId: ObjectIdType,
 }
 
@@ -88,10 +98,12 @@ export type WebSocketEventDTO =
   | UnsubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
   | UnsubscribeSubmissionRunStatusWebSocketEventDTO
-  | SubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO
-  | UnsubscribeSenDataEcsTaskDefinitionListWebSocketEventDTO
-  | SubscribeSenDataEcsTaskListWebSocketEventDTO
-  | UnsubscribeSenDataEcsTaskListWebSocketEventDTO
+  | SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO
+  | UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO
+  | SubscribeSenDataEcsTasksListWebSocketEventDTO
+  | UnsubscribeSenDataEcsTasksListWebSocketEventDTO
+  | SubscribeSenDataEc2InstancesListWebSocketEventDTO
+  | UnsubscribeSenDataEc2InstancesListWebSocketEventDTO
   | SubscribeProblemCrawledWebSocketEventDTO
   | UnsubscribeProblemCrawledWebSocketEventDTO;
 
