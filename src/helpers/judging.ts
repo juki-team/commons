@@ -109,7 +109,11 @@ export const getDataLog = (log: any): DataLogType => {
   if (lines.length > 4) {
     for (const line of lines) {
       if (line.startsWith('time:')) {
-        timeUsed = parseFloat(line.split(':')[1]);
+        timeUsed = +line.split(':')[1];
+        if (Number.isNaN(timeUsed)) {
+          timeUsed = 0;
+        }
+        timeUsed *= 1000;
       } else if (line.startsWith('max-rss:')) {
         memoryUsed = parseInt(line.split(':')[1], 10); // en KB
       } else if (line.startsWith('exitcode:')) {
