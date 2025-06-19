@@ -24,10 +24,18 @@ export interface StatisticsCompanyResponseDTO {
 
 export interface StatisticsProblemResponseDTO {
   verdict: {
-    [key: string]: number
+    [key: string]: {
+      label: number,
+      key: string,
+      value: number,
+    }
   },
   language: {
-    [key: string]: number
+    [key: string]: {
+      label: number,
+      key: string,
+      value: number,
+    }
   },
   date: StatisticsDateType,
 }
