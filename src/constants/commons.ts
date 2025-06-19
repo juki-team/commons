@@ -200,7 +200,7 @@ export const PROGRAMMING_LANGUAGE: { [key in ProgrammingLanguage]: ProgrammingLa
   },
   [ProgrammingLanguage.PYTHON2]: {
     value: ProgrammingLanguage.PYTHON2,
-    label: 'Python',
+    label: 'Python 2',
     mime: 'text/x-python',
     fileExtension: [ 'py' ],
     monacoKey: 'python',
