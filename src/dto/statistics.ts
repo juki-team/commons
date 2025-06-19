@@ -1,4 +1,4 @@
-type StatisticsDateType = {
+export type StatisticsDateType = {
   hour: {
     [key: number]: number,
   }
