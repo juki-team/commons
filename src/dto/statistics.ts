@@ -1,22 +1,22 @@
-export type StatisticsDateType = {
+export type StatisticsDateType<T> = {
   hour: {
-    [key: number]: number,
+    [key: number]: T,
   }
   day: {
-    [key: number]: number,
+    [key: number]: T,
   },
   month: {
-    [key: number]: number,
+    [key: number]: T,
   },
   year: {
-    [key: number]: number,
+    [key: number]: T,
   }
 }
 
 export interface StatisticsCompanyResponseDTO {
-  codeEditorRuns: StatisticsDateType,
-  judgingRuns: StatisticsDateType,
-  reJudgingRuns: StatisticsDateType,
+  codeEditorRuns: StatisticsDateType<number>,
+  judgingRuns: StatisticsDateType<number>,
+  reJudgingRuns: StatisticsDateType<number>,
   users: number,
   problems: number,
   contests: number,
@@ -37,5 +37,5 @@ export interface StatisticsProblemResponseDTO {
       label: string,
     }
   },
-  date: StatisticsDateType,
+  date: StatisticsDateType<number>,
 }
