@@ -39,3 +39,7 @@ export interface StatisticsProblemResponseDTO {
   },
   date: StatisticsDateType<number>,
 }
+
+export interface StatisticsUserTrackResponseDTO {
+  [key: string]: StatisticsDateType<{ href: string }>;
+}
