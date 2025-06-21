@@ -1,4 +1,4 @@
-type DateGranularity = 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year';
+export type DateGranularity = 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year';
 
 export type StatisticsDateType<
   T,
