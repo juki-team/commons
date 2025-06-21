@@ -1,3 +1,5 @@
+import { UserCompanyBasicInfoResponseDTO } from './user';
+
 export type DateGranularity = 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year';
 
 export type StatisticsDateType<
@@ -35,5 +37,8 @@ export interface StatisticsProblemResponseDTO {
 }
 
 export interface StatisticsUserTrackResponseDTO {
-  [key: string]: StatisticsDateType<{ href: string }, 'second'>,
+  [key: string]: {
+    user: UserCompanyBasicInfoResponseDTO,
+    data: StatisticsDateType<{ href: string }, 'second'>,
+  },
 }
