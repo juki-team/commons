@@ -52,6 +52,6 @@ export enum EntityAccess {
 
 export type TextLanguageType = { [key in Language]: string };
 
-export type SplitTime = { remaining: number, label: string, milliseconds: number };
+export type SplitTime = { remaining: number, label: string, milliseconds: number, abbreviatedLabel: string };
 
 export type ObjectIdType = `${string & { length: 24 }}`;

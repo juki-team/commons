@@ -17,6 +17,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   remaining.push({
     remaining: remainingWeeks,
     label: remainingWeeks === 1 ? 'week' : 'weeks',
+    abbreviatedLabel: 'w',
     milliseconds: aWeekMilliseconds,
   });
   
@@ -25,6 +26,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   remaining.push({
     remaining: remainingDays,
     label: remainingDays === 1 ? 'day' : 'days',
+    abbreviatedLabel: 'd',
     milliseconds: aDayMilliseconds,
   });
   
@@ -33,6 +35,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   remaining.push({
     remaining: remainingHours,
     label: remainingHours === 1 ? 'hour' : 'hours',
+    abbreviatedLabel: 'h',
     milliseconds: aHourMilliseconds,
   });
   
@@ -41,6 +44,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   remaining.push({
     remaining: remainingMinutes,
     label: remainingMinutes === 1 ? 'minute' : 'minutes',
+    abbreviatedLabel: 'm',
     milliseconds: aMinuteMilliseconds,
   });
   
@@ -49,6 +53,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   remaining.push({
     remaining: remainingSeconds,
     label: remainingSeconds === 1 ? 'second' : 'seconds',
+    abbreviatedLabel: 's',
     milliseconds: aSecondMilliseconds,
   });
   
@@ -56,6 +61,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   remaining.push({
     remaining: remainingMilliseconds,
     label: remainingMilliseconds === 1 ? 'millisecond' : 'milliseconds',
+    abbreviatedLabel: 'ms',
     milliseconds: 1,
   });
   
