@@ -1,4 +1,4 @@
-import { EntityStatus, ProgrammingLanguage } from './commons';
+import { CodeLanguage, EntityStatus } from './commons';
 import { EntityMembers } from './entity';
 import { Judge } from './judge';
 import { UserBasicInfoInterface } from './users';
@@ -79,7 +79,7 @@ export type ContestProblemType = {
 export type ContestSettings = {
   clarifications: boolean,
   numberJudgeValidations: number,
-  languages: ProgrammingLanguage[],
+  languages: CodeLanguage[],
   penalty: number,
   timeToSolve: number,
   startTimestamp: number,

@@ -1,11 +1,11 @@
-import { ProgrammingLanguage } from './commons';
+import { CodeLanguage } from './commons';
 import { DataLogType } from './submission';
 
 export type JudgeLanguageType = {
   value: string,
   label: string,
   enabled: boolean,
-  associatedLanguage: ProgrammingLanguage
+  associatedLanguage: CodeLanguage
 };
 
 export interface JudgeBaseDocument {

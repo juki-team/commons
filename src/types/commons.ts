@@ -1,6 +1,6 @@
 import { Language } from './prisma';
 
-export enum ProgrammingLanguage { // TODO: choose a better name that encompasses the items listed below
+export enum CodeLanguage {
   ICPC_C = 'ICPC_C',
   C = 'C',
   CPP = 'CPP',

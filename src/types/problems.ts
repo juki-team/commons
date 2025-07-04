@@ -1,4 +1,4 @@
-import { ProgrammingLanguage, TextLanguageType } from './commons';
+import { CodeLanguage, TextLanguageType } from './commons';
 import { EntityMembers } from './entity';
 import { ProblemTestCaseType } from './services';
 
@@ -42,7 +42,7 @@ export type ProblemSettingsPointsByGroupsType = {
 };
 
 export type ProblemSettingsByProgrammingLanguageType = {
-  [key: string]: { language: ProgrammingLanguage, timeLimit: number, memoryLimit: number }
+  [key: string]: { language: CodeLanguage, timeLimit: number, memoryLimit: number }
 };
 
 export type ProblemSampleCasesType = { input: string, output: string }[];

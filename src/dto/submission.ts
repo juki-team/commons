@@ -1,10 +1,10 @@
 import {
+  CodeLanguage,
   DataLogType,
   Judge,
   ProblemScoringMode,
   ProblemType,
   ProblemVerdict,
-  ProgrammingLanguage,
   SubmissionRunStatus,
 } from '../types';
 import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
@@ -32,7 +32,7 @@ export interface SubmissionContestSummaryListResponseDTO {
 
 export interface SubmissionSummaryListResponseDTO {
   submitId: string,
-  language: ProgrammingLanguage,
+  language: CodeLanguage,
   timestamp: number,
   memoryUsed: number,
   timeUsed: number,

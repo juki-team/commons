@@ -1,8 +1,8 @@
 import {
   CodeEditorSheetType,
   CodeEditorTestCasesType,
+  CodeLanguage,
   JkmdSheetType,
-  ProgrammingLanguage,
   QuizOptionsSheetType,
   QuizProblemSheetType,
   QuizTextSheetType,
@@ -18,7 +18,7 @@ export type WorksheetResponseBasicInfoProcessedType = {
 }
 
 export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheetType, 'id' | 'type'> {
-  language: ProgrammingLanguage,
+  language: CodeLanguage,
   source: string,
 }
 
@@ -34,7 +34,7 @@ export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoPro
 }
 
 export interface CodeEditorSubmissionDTO extends Pick<CodeEditorSheetType, 'id' | 'type'> {
-  language: ProgrammingLanguage,
+  language: CodeLanguage,
   sourceCode: string,
   testCases: CodeEditorTestCasesType,
 }

@@ -1,4 +1,4 @@
-import { ProgrammingLanguage } from './commons';
+import { CodeLanguage } from './commons';
 import { Judge, SubmissionRunStatus } from './judge';
 
 export enum WorksheetType {
@@ -44,13 +44,13 @@ export interface CodeEditorTestCaseType extends SubmissionTestCaseType {
 
 export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
 
-export type SourceCodeType = { [key in ProgrammingLanguage]: string };
+export type SourceCodeType = { [key in CodeLanguage]: string };
 
 export type CodeEditorSheetType = BasicWorksheetType & {
   type: WorksheetType.CODE_EDITOR,
   sourceCode: SourceCodeType,
   testCases: CodeEditorTestCasesType,
-  languages: ProgrammingLanguage[],
+  languages: CodeLanguage[],
   height: number,
 }
 
@@ -63,7 +63,7 @@ export type QuizProblemSheetType = BasicWorksheetType & {
   type: WorksheetType.QUIZ_PROBLEM;
   problemJudge: Judge,
   problemKey: string,
-  languages: ProgrammingLanguage[];
+  languages: CodeLanguage[];
   height: number;
 };
 

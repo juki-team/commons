@@ -1,9 +1,9 @@
 import {
+  CodeLanguage,
   Judge,
   ProblemScoringMode,
   ProblemType,
   ProblemVerdict,
-  ProgrammingLanguage,
   RunnerType,
   SubmissionRunStatus,
 } from '../types';
@@ -188,35 +188,35 @@ export const RUNNER_ACCEPTED_PROBLEM_TYPES: ProblemType[] = [
   ProblemType.DYNAMIC,
 ];
 
-export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
-  ProgrammingLanguage.ICPC_C,
-  ProgrammingLanguage.C,
-  ProgrammingLanguage.ICPC_CPP,
-  ProgrammingLanguage.CPP,
-  ProgrammingLanguage.CPP11,
-  ProgrammingLanguage.CPP14,
-  ProgrammingLanguage.CPP17,
-  ProgrammingLanguage.JAVA,
-  ProgrammingLanguage.JAVASCRIPT,
-  ProgrammingLanguage.ICPC_PYTHON,
-  ProgrammingLanguage.PYTHON2,
-  ProgrammingLanguage.PYTHON3,
-  ProgrammingLanguage.PSEUDOCODE_PSEINT,
+export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: CodeLanguage[] = [
+  CodeLanguage.ICPC_C,
+  CodeLanguage.C,
+  CodeLanguage.ICPC_CPP,
+  CodeLanguage.CPP,
+  CodeLanguage.CPP11,
+  CodeLanguage.CPP14,
+  CodeLanguage.CPP17,
+  CodeLanguage.JAVA,
+  CodeLanguage.JAVASCRIPT,
+  CodeLanguage.ICPC_PYTHON,
+  CodeLanguage.PYTHON2,
+  CodeLanguage.PYTHON3,
+  CodeLanguage.PSEUDOCODE_PSEINT,
 ];
 
 export const ACCEPTED_PROGRAMMING_LANGUAGES = [
-  ProgrammingLanguage.ICPC_C,
-  ProgrammingLanguage.C,
-  ProgrammingLanguage.ICPC_CPP,
-  ProgrammingLanguage.CPP11,
-  ProgrammingLanguage.CPP14,
-  ProgrammingLanguage.CPP17,
-  ProgrammingLanguage.JAVA,
-  ProgrammingLanguage.JAVASCRIPT,
-  ProgrammingLanguage.ICPC_PYTHON,
-  ProgrammingLanguage.PYTHON2,
-  ProgrammingLanguage.PYTHON3,
-  ProgrammingLanguage.PSEUDOCODE_PSEINT,
+  CodeLanguage.ICPC_C,
+  CodeLanguage.C,
+  CodeLanguage.ICPC_CPP,
+  CodeLanguage.CPP11,
+  CodeLanguage.CPP14,
+  CodeLanguage.CPP17,
+  CodeLanguage.JAVA,
+  CodeLanguage.JAVASCRIPT,
+  CodeLanguage.ICPC_PYTHON,
+  CodeLanguage.PYTHON2,
+  CodeLanguage.PYTHON3,
+  CodeLanguage.PSEUDOCODE_PSEINT,
 ];
 
 export const PROBLEM_VERDICT: { [key in ProblemVerdict]: { value: ProblemVerdict, label: string, color: string } } = {

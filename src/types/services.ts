@@ -1,4 +1,4 @@
-import { ObjectIdType, ProgrammingLanguage } from './commons';
+import { CodeLanguage, ObjectIdType } from './commons';
 import { PrivateHandlerEventType } from './private-handler';
 import { ProblemType } from './problems';
 
@@ -273,7 +273,7 @@ export type JudgingType = {
   runId: string,
   timestamp: number,
   isCodeEditorRun: boolean,
-  language: ProgrammingLanguage,
+  language: CodeLanguage,
   attempts: number,
   // Problem data
   problemTimeLimit: number,
