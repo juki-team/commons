@@ -1,5 +1,5 @@
 import { CodeLanguage } from './commons';
-import { Judge, SubmissionRunStatus } from './judge';
+import { SubmissionRunStatus } from './judge';
 
 export enum WorksheetType {
   JK_MD = 'JK_MD',
@@ -61,7 +61,6 @@ export type GraphSheetType = BasicWorksheetType & {
 
 export type QuizProblemSheetType = BasicWorksheetType & {
   type: WorksheetType.QUIZ_PROBLEM;
-  problemJudge: Judge,
   problemKey: string,
   languages: CodeLanguage[];
   height: number;
