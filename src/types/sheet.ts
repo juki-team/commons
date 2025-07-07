@@ -73,12 +73,17 @@ export type QuizTextSheetType = BasicWorksheetType & {
   inputType: 'text' | 'number' | 'textarea';
 };
 
+export enum QuizScoringMode {
+  TOTAL = 'TOTAL',
+  PARTIAL = 'PARTIAL',
+}
+
 export type QuizOptionsSheetType = BasicWorksheetType & {
   type: WorksheetType.QUIZ_OPTIONS;
   description: string,
   options: { label: string, correct: boolean, id: string }[],
   multiple: boolean,
-  scoringMode: 'TOTAL' | 'PARTIAL',
+  scoringMode: QuizScoringMode,
 };
 
 export type ListSheetType = BasicWorksheetType & {
