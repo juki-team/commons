@@ -44,7 +44,7 @@ export interface CodeEditorTestCaseType extends SubmissionTestCaseType {
 
 export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
 
-export type SourceCodeType = { [key in CodeLanguage]: string };
+export type SourceCodeType = Partial<Record<CodeLanguage, string>>;
 
 export type CodeEditorSheetType = BasicWorksheetType & {
   type: WorksheetType.CODE_EDITOR,
