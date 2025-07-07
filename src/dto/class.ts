@@ -116,7 +116,7 @@ export interface UpsertClassCycleDTO extends Omit<ClassBaseDocument['cycles'][st
 export interface UpsertClassCycleSessionDTO extends Omit<ClassBaseDocument['cycles'][string]['sessions'][string], 'assignments' | 'id'> {
 }
 
-export interface UpsertClassCycleSessionAssignmentDTO extends AssignmentBasicInfo {
+export interface UpsertClassCycleSessionAssignmentDTO extends Omit<AssignmentBasicInfo, 'id'> {
   key: string,
 }
 
