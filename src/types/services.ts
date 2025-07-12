@@ -273,7 +273,7 @@ export type JudgingType = {
   runId: string,
   timestamp: number,
   isCodeEditorRun: boolean,
-  files: { language: CodeLanguage, name: string, toCompile: boolean }[],
+  files: { language: CodeLanguage, name: string, toCompile: boolean, isEntryPoint: boolean }[],
   attempts: number,
   // Problem data
   problemTimeLimit: number,
