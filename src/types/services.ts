@@ -266,7 +266,7 @@ export type ProblemSampleCaseType = { input: string, output: string };
 //   contestId: string,
 // }
 
-export type JudgingFileType = { language: CodeLanguage, name: string };
+export type JudgingFileType = { language: CodeLanguage, fullFileName: string };
 
 export type JudgingRunType = {
   runPattern: string,
@@ -279,6 +279,7 @@ export type JudgingRunType = {
 export type JudgingInputType = { key: string, groups: number[] };
 
 export type JudgingType = {
+  type: PrivateHandlerEventType.JUDGING,
   sessionId: ObjectIdType,
   submitId: string,
   runId: string,
@@ -296,8 +297,15 @@ export type JudgingType = {
   // problemType: ProblemType,
 }
 
+export type JudgingReceivedBodyType = JudgingType & {
+  state: JudgingState.RECEIVED,
+};
+
+export type JudgingCompiledBodyType = JudgingType & {
+  state: JudgingState.COMPILED,
+};
+
 export type JudgingTestCaseExecutedBodyType = JudgingType & {
-  type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.TEST_CASE_EXECUTED,
   // inputFileKey: string,
   inputFileIndex: number,
@@ -306,7 +314,6 @@ export type JudgingTestCaseExecutedBodyType = JudgingType & {
 }
 
 export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
-  type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.CHUNK_TEST_CASES_COMPLETED,
   // cases: {
   //   key: string,
@@ -318,18 +325,7 @@ export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
   chunkIndex: number,
 }
 
-export type JudgingCompiledBodyType = JudgingType & {
-  type: PrivateHandlerEventType.JUDGING,
-  state: JudgingState.COMPILED,
-};
-
-export type JudgingReceivedBodyType = JudgingType & {
-  type: PrivateHandlerEventType.JUDGING,
-  state: JudgingState.RECEIVED,
-};
-
 export type JudgingCompletedBodyType = JudgingType & {
-  type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.COMPLETED,
 }
 
