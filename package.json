@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.0.834",
+  "version": "0.0.835",
   "author": "juki-team",
   "license": "MIT",
   "main": "dist/cjs/index.js",
