@@ -267,13 +267,15 @@ export type ProblemSampleCaseType = { input: string, output: string };
 //   contestId: string,
 // }
 
+export type JudgingFileType = { language: CodeLanguage, name: string, toCompile: boolean, isEntryPoint: boolean };
+
 export type JudgingType = {
   sessionId: ObjectIdType,
   submitId: string,
   runId: string,
   timestamp: number,
   isCodeEditorRun: boolean,
-  files: { language: CodeLanguage, name: string, toCompile: boolean, isEntryPoint: boolean }[],
+  files: JudgingFileType[],
   attempts: number,
   // Problem data
   problemTimeLimit: number,
