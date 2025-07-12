@@ -1,6 +1,5 @@
 import { CodeLanguage, ObjectIdType } from './commons';
 import { PrivateHandlerEventType } from './private-handler';
-import { ProblemType } from './problems';
 
 export enum ErrorCode {
   // General errors
@@ -267,7 +266,17 @@ export type ProblemSampleCaseType = { input: string, output: string };
 //   contestId: string,
 // }
 
-export type JudgingFileType = { language: CodeLanguage, name: string, toCompile: boolean };
+export type JudgingFileType = { language: CodeLanguage, name: string };
+
+export type JudgingRunType = {
+  runPattern: string,
+  inputFilePathPattern: string,
+  workDirectory: string,
+  timeLimit: number,
+  memoryLimit: number
+};
+
+export type JudgingInputType = { key: string, groups: number[] };
 
 export type JudgingType = {
   sessionId: ObjectIdType,
@@ -275,37 +284,37 @@ export type JudgingType = {
   runId: string,
   timestamp: number,
   isCodeEditorRun: boolean,
-  files: JudgingFileType[],
-  entryPointFile: [ JudgingFileType ],
+  filesToCompile: JudgingFileType[],
+  executions: JudgingRunType[],
   attempts: number,
   // Problem data
-  problemTimeLimit: number,
-  problemMemoryLimit: number,
-  problemSampleCases: ProblemSampleCaseType[],
-  problemTestCases: ProblemTestCaseType[],
-  problemType: ProblemType,
+  // problemTimeLimit: number,
+  // problemMemoryLimit: number,
+  inputFiles: JudgingInputType[]
+  // problemSampleCases: ProblemSampleCaseType[],
+  // problemTestCases: ProblemTestCaseType[],
+  // problemType: ProblemType,
 }
 
 export type JudgingTestCaseExecutedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.TEST_CASE_EXECUTED,
-  caseKey: string,
-  caseIndex: number,
-  totalCases: number,
-  isSampleCase: boolean,
-  isSampleCasesEmpty: boolean,
+  // inputFileKey: string,
+  inputFileIndex: number,
+  // isSampleCase: boolean,
+  // isSampleCasesEmpty: boolean,
 }
 
 export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.CHUNK_TEST_CASES_COMPLETED,
-  cases: {
-    key: string,
-    index: number,
-  }[],
-  areSampleCases: boolean,
-  areSampleCasesEmpty: boolean,
-  clusterChunkCases: CaseType[][],
+  // cases: {
+  //   key: string,
+  //   index: number,
+  // }[],
+  // areSampleCases: boolean,
+  // areSampleCasesEmpty: boolean,
+  clusterChunkCases: JudgingInputType[][],
   chunkIndex: number,
 }
 
@@ -319,7 +328,7 @@ export type JudgingReceivedBodyType = JudgingType & {
   state: JudgingState.RECEIVED,
 };
 
-export type JudgingCompletedBodyType = Omit<JudgingChunkTestCasesCompletedBodyType, 'state'> & {
+export type JudgingCompletedBodyType = JudgingType & {
   type: PrivateHandlerEventType.JUDGING,
   state: JudgingState.COMPLETED,
 }
