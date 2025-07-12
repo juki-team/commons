@@ -276,7 +276,7 @@ export type JudgingRunType = {
   memoryLimit: number
 };
 
-export type JudgingInputType = { key: string, groups: number[] };
+export type JudgingInputType = { baseFileName: string, groups: number[] };
 
 export type JudgingType = {
   type: PrivateHandlerEventType.JUDGING,
