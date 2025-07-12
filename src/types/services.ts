@@ -290,7 +290,7 @@ export type JudgingType = {
   // Problem data
   // problemTimeLimit: number,
   // problemMemoryLimit: number,
-  inputFiles: JudgingInputType[]
+  chunkInputFiles: JudgingInputType[][],
   // problemSampleCases: ProblemSampleCaseType[],
   // problemTestCases: ProblemTestCaseType[],
   // problemType: ProblemType,
@@ -307,6 +307,7 @@ export type JudgingCompiledBodyType = JudgingType & {
 export type JudgingTestCaseExecutedBodyType = JudgingType & {
   state: JudgingState.TEST_CASE_EXECUTED,
   // inputFileKey: string,
+  inputFileChunkIndex: number,
   inputFileIndex: number,
   // isSampleCase: boolean,
   // isSampleCasesEmpty: boolean,
@@ -320,7 +321,6 @@ export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
   // }[],
   // areSampleCases: boolean,
   // areSampleCasesEmpty: boolean,
-  clusterChunkCases: JudgingInputType[][],
   chunkIndex: number,
 }
 
