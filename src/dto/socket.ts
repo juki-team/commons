@@ -170,30 +170,31 @@ export type WebSocketBroadcastEventDTO = PingWebSocketBroadcastEventDTO
 
 // RESPONSE EVENTS
 
-export interface PongWebSocketResponseEventDTO {
-  event: WebSocketResponseEvent.PONG,
+export interface WebSocketResponse {
+  event: WebSocketResponseEvent,
   key: WebSocketResponseEventKey,
   connectionId: string,
+}
+
+export interface PongWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.PONG,
   data: PingResponseDTO,
 }
 
-export interface ResponseWebSocketResponseEventDTO {
+export interface ResponseWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.RESPONSE,
-  key: WebSocketResponseEventKey,
 }
 
-export interface CodeRunStatusMessageWebSocketResponseEventDTO {
+export interface CodeRunStatusMessageWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
-  key: WebSocketResponseEventKey,
   runId: string,
   messageTimestamp: number,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
 }
 
-export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
+export interface SubmissionRunStatusMessageWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
-  key: WebSocketResponseEventKey,
   submitId: string,
   messageTimestamp: number,
   status: SubmissionRunStatus,
@@ -202,9 +203,8 @@ export interface SubmissionRunStatusMessageWebSocketResponseEventDTO {
   testInfo?: TestInfoType,
 }
 
-export interface UserMessageWebSocketResponseEventDTO {
+export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_MESSAGE,
-  key: WebSocketResponseEventKey,
   user: UserCompanyBasicInfoResponseDTO,
   messageTimestamp: number,
   content: {
@@ -216,37 +216,32 @@ export interface UserMessageWebSocketResponseEventDTO {
   }
 }
 
-export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO {
+export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
-  key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: EcsTaskDefinitionSystemSummaryListResponseDTO[],
 }
 
-export interface SendDataEc2InstancesListWebSocketResponseEventDTO {
+export interface SendDataEc2InstancesListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
-  key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: Ec2InstanceType[],
 }
 
-export interface SendDataEcsTasksListWebSocketResponseEventDTO {
+export interface SendDataEcsTasksListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
-  key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: EcsTaskSystemSummaryListResponseDTO[],
 }
 
-export interface SendDataSsmSessionsListWebSocketResponseEventDTO {
+export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
-  key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: SsmSessionType[],
 }
 
-export interface ProblemCrawledWebSocketResponseEventDTO {
+export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
-  key: WebSocketResponseEventKey,
   messageTimestamp: number,
   content: { problemKey: string },
 }
