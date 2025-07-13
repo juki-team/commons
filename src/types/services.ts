@@ -285,7 +285,7 @@ export type JudgingType = {
   timestamp: number,
   isCodeEditorRun: boolean,
   filesToCompile: JudgingFileType[],
-  executions: JudgingRunType[],
+  runs: JudgingRunType[],
   attempts: number,
   // Problem data
   // problemTimeLimit: number,
