@@ -270,6 +270,7 @@ export type JudgingFileType = { language: CodeLanguage, fullFileName: string };
 
 export type JudgingRunType = {
   runPattern: string,
+  baseFileNamePattern: string,
   inputFilePathPattern: string,
   timeLimit: number,
   memoryLimit: number,
