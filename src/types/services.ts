@@ -273,6 +273,7 @@ export type JudgingRunType = {
   inputFilePathPattern: string,
   timeLimit: number,
   memoryLimit: number,
+  rawExecution: boolean,
   isolated: boolean,
 };
 
