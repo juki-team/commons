@@ -3,6 +3,7 @@ export * from './comments';
 export * from './commons';
 export * from './contest';
 export * from './document';
+export * from './file';
 export * from './interval';
 export * from './judging';
 export * from './object';
