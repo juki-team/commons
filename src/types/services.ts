@@ -329,6 +329,7 @@ export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
 
 export type JudgingCompletedBodyType = JudgingType & {
   state: JudgingState.COMPLETED,
+  inputFileChunkIndex: number,
 }
 
 export type JudgingPrivateHandlerEventDTO =
