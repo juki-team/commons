@@ -324,7 +324,7 @@ export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
   // }[],
   // areSampleCases: boolean,
   // areSampleCasesEmpty: boolean,
-  chunkIndex: number,
+  inputFileChunkIndex: number,
 }
 
 export type JudgingCompletedBodyType = JudgingType & {
