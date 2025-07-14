@@ -272,7 +272,8 @@ export type JudgingRunType = {
   runPattern: string,
   inputFilePathPattern: string,
   timeLimit: number,
-  memoryLimit: number
+  memoryLimit: number,
+  isolated: boolean,
 };
 
 export type JudgingInputType = { baseFileName: string, groups: number[] };
