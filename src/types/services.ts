@@ -210,7 +210,7 @@ export type RunCommandType = {
   memoryLimit: number,
   lockFilePath?: string,
   endFilePath?: string,
-  rawExecution?: boolean,
+  rawExecution: boolean,
   isolated: boolean,
   next?: RunnerNextType,
 };
