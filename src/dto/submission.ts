@@ -1,6 +1,7 @@
 import {
   CodeLanguage,
   DataLogType,
+  EntityState,
   Judge,
   ProblemScoringMode,
   ProblemType,
@@ -67,12 +68,13 @@ export interface SubmissionContestSystemSummaryListResponseDTO extends Submissio
   id: string,
 }
 
-export interface SubmissionSystemSummaryListResponseDTO {
+export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummaryListResponseDTO {
   problem: SubmissionProblemSystemSummaryListResponseDTO,
   contest: SubmissionContestSystemSummaryListResponseDTO | null,
   company: EntityCompanySystemSummaryListResponseDTO,
   creationTimestamp: number,
   updateTimestamp: number,
+  state: EntityState,
 }
 
 export type TestCaseResultType = DataLogType & {
