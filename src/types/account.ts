@@ -4,4 +4,6 @@ export enum ProfileSetting {
   THEME = 'preferredTheme',
   DATA_VIEW_MODE = 'preferredDataViewMode',
   MENU_VIEW_MODE = 'preferredMenuViewMode',
+  TIME_ZONE = 'preferredTimeZone',
+  FONT_SIZE = 'preferredFontSize',
 }

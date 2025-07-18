@@ -38,6 +38,8 @@ export type UserSettingsType = {
   [ProfileSetting.DATA_VIEW_MODE]: DataViewMode,
   [ProfileSetting.MENU_VIEW_MODE]: MenuViewMode,
   [ProfileSetting.NEWSLETTER_SUBSCRIPTION]: boolean,
+  [ProfileSetting.TIME_ZONE]: string,
+  [ProfileSetting.FONT_SIZE]: number,
 }
 
 export enum Role {
