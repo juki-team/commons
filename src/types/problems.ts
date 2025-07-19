@@ -54,6 +54,7 @@ export type ProblemStatementType = {
   sampleCases: ProblemSampleCasesType,
   note: TextLanguageType,
   html: TextLanguageType,
+  pdfUrl: TextLanguageType,
 };
 
 export type ProblemSettingsType = {
