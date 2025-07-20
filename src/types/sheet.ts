@@ -42,7 +42,15 @@ export interface CodeEditorTestCaseType extends SubmissionTestCaseType {
   messageTimestamp: number,
 }
 
-export type CodeEditorFile<T> = { source: string, language: T, index: number, name: string };
+export type CodeEditorFile<T> = {
+  source: string,
+  language: T,
+  index: number,
+  name: string,
+  hidden: boolean,
+  readonly: boolean,
+  protected: boolean
+};
 
 export type CodeEditorFiles<T> = { [key: string /*name*/]: CodeEditorFile<T> };
 
