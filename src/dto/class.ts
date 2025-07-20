@@ -124,11 +124,6 @@ export interface ClassAssignmentBaseDocument {
   userId: string,
   assignmentId: string,
   points: number,
-  comments: {
-    userId: string,
-    content: string,
-    timestamp: number,
-  }[],
 }
 
 export interface ClassAssignmentDataResponseDTO {
