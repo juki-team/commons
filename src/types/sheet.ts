@@ -42,13 +42,15 @@ export interface CodeEditorTestCaseType extends SubmissionTestCaseType {
   messageTimestamp: number,
 }
 
-export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
+export type CodeEditorFile<T> = { source: string, language: T, index: number, name: string };
 
-export type SourceCodeType = Partial<Record<CodeLanguage, string>>;
+export type CodeEditorFiles<T> = { [key: string /*name*/]: CodeEditorFile<T> };
+
+export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
 
 export type CodeEditorSheetType = BasicWorksheetType & {
   type: WorksheetType.CODE_EDITOR,
-  sourceCode: SourceCodeType,
+  sourceCode: CodeEditorFiles<CodeLanguage>,
   testCases: CodeEditorTestCasesType,
   languages: CodeLanguage[],
   height: number,
