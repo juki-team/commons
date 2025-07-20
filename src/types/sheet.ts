@@ -50,7 +50,7 @@ export type CodeEditorTestCasesType = { [key: string]: CodeEditorTestCaseType };
 
 export type CodeEditorSheetType = BasicWorksheetType & {
   type: WorksheetType.CODE_EDITOR,
-  sourceCode: CodeEditorFiles<CodeLanguage>,
+  files: CodeEditorFiles<CodeLanguage>,
   testCases: CodeEditorTestCasesType,
   languages: CodeLanguage[],
   height: number,
