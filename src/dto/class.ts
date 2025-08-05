@@ -69,6 +69,7 @@ export interface CycleClassDataResponseDTO {
   tags: ClassCycleTag[],
   startTimestamp: number,
   endTimestamp: number,
+  state: EntityState,
 }
 
 export interface ClassCycleDataResponseDTO extends ClassSummaryListResponseDTO {
