@@ -56,6 +56,7 @@ export interface SessionCycleClassDataResponseDTO {
   },
   startTimestamp: number,
   endTimestamp: number,
+  state: EntityState,
 }
 
 export interface CycleClassDataResponseDTO {
