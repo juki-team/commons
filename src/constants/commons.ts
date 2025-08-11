@@ -264,17 +264,38 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.DOT]: {
     value: CodeLanguage.DOT,
     label: 'DOT',
-    mime: 'text/plain',
-    mainFilename: 'main.dot',
+    mime: 'text/vnd.graphviz',
+    mainFilename: 'diagram.dot',
     fileExtension: [ 'dot' ],
     compilePattern: '',
     runPattern: '',
-    templateSourceCode: '',
+    templateSourceCode: 'digraph G {\n  A -> B;\n  B -> C;\n}',
     hasBuildFile: false,
     executable: '',
     executableVersion: '',
     monacoKey: 'dot',
     codeMirrorKey: 'dot',
+    highlightJsKey: 'plaintext',
+  },
+  [CodeLanguage.MERMAID]: {
+    value: CodeLanguage.MERMAID,
+    label: 'Mermaid',
+    mime: 'text/mermaid',
+    mainFilename: 'diagram.mmd',
+    fileExtension: [ 'mmd', 'mermaid' ],
+    compilePattern: '',
+    runPattern: '',
+    templateSourceCode: `graph TD
+  A[Start] --> B{Is it working?}
+  B -- Yes --> C[Great!]
+  B -- No --> D[Fix it]
+  D --> B
+`,
+    hasBuildFile: false,
+    executable: '',
+    executableVersion: '',
+    monacoKey: 'mermaid',
+    codeMirrorKey: 'mermaid',
     highlightJsKey: 'plaintext',
   },
   [CodeLanguage.JSON]: {
@@ -308,7 +329,24 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     monacoKey: 'text',
     codeMirrorKey: 'text',
     highlightJsKey: 'plaintext',
-  }, // asc txt text diff pot
+  },
+  [CodeLanguage.LATEX]: {
+    value: CodeLanguage.LATEX,
+    label: 'LaTeX',
+    mime: 'application/x-latex',
+    mainFilename: 'main.tex',
+    fileExtension: [ 'tex' ],
+    compilePattern: '',
+    runPattern: '',
+    templateSourceCode: '',
+    hasBuildFile: false,
+    executable: '',
+    executableVersion: '',
+    monacoKey: 'latex',
+    codeMirrorKey: 'stex',
+    highlightJsKey: 'latex',
+  },
+  // asc txt text diff pot
   [CodeLanguage.MARKDOWN]: {
     value: CodeLanguage.MARKDOWN,
     label: 'Markdown',

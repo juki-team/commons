@@ -15,12 +15,14 @@ export enum CodeLanguage {
   PYTHON3 = 'PYTHON3',
   JAVASCRIPT = 'JAVASCRIPT',
   PSEUDOCODE_PSEINT = 'PSEUDOCODE_PSEINT',
+  LATEX = 'LATEX',
   JSON = 'JSON',
+  HTML = 'HTML',
   TEXT = 'TEXT',
   MARKDOWN = 'MARKDOWN',
   ARDUINO = 'ARDUINO',
-  HTML = 'HTML',
   DOT = 'DOT',
+  MERMAID = 'MERMAID',
 }
 
 export enum ScopeData {
