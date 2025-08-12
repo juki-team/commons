@@ -119,7 +119,8 @@ export type WebSocketEventDTO =
   | SubscribeSenDataSsmSessionsListWebSocketEventDTO
   | UnsubscribeSenDataSsmSessionsListWebSocketEventDTO
   | SubscribeProblemCrawledWebSocketEventDTO
-  | UnsubscribeProblemCrawledWebSocketEventDTO;
+  | UnsubscribeProblemCrawledWebSocketEventDTO
+  | ChatCompletionsResponseWebSocketResponseEventDTO;
 
 // BROADCAST EVENTS
 
@@ -255,5 +256,4 @@ export type WebSocketResponseEventDTO =
   | SendDataEcsTasksListWebSocketResponseEventDTO
   | SendDataEc2InstancesListWebSocketResponseEventDTO
   | SendDataSsmSessionsListWebSocketResponseEventDTO
-  | ProblemCrawledWebSocketResponseEventDTO
-  | ChatCompletionsResponseWebSocketResponseEventDTO;
+  | ProblemCrawledWebSocketResponseEventDTO;
