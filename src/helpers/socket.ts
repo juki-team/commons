@@ -12,6 +12,7 @@ import {
   SendDataSsmSessionsListWebSocketResponseEventDTO,
   SubmissionRunStatusMessageWebSocketResponseEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
+  SubscribeChatCompletionsDataWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeProblemCrawledWebSocketEventDTO,
   SubscribeSenDataEc2InstancesListWebSocketEventDTO,
@@ -19,6 +20,7 @@ import {
   SubscribeSenDataEcsTasksListWebSocketEventDTO,
   SubscribeSenDataSsmSessionsListWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
+  UnsubscribeChatCompletionsDataWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeProblemCrawledWebSocketEventDTO,
   UnsubscribeSenDataEc2InstancesListWebSocketEventDTO,
@@ -119,6 +121,14 @@ export const isSubscribeProblemCrawledWebSocketEventDTO = (event: any): event is
 
 export const isUnsubscribeProblemCrawledWebSocketEventDTO = (event: any): event is UnsubscribeProblemCrawledWebSocketEventDTO => {
   return event?.event === WebSocketActionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED;
+};
+
+export const isSubscribeChatCompletionsDataWebSocketEventDTO = (event: any): event is SubscribeChatCompletionsDataWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.SUBSCRIBE_CHAT_COMPLETIONS_DATA;
+};
+
+export const isUnsubscribeChatCompletionsDataWebSocketEventDTO = (event: any): event is UnsubscribeChatCompletionsDataWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_CHAT_COMPLETIONS_DATA;
 };
 
 export const isPingWebSocketBroadcastEventDTO = (event: any): event is PingWebSocketBroadcastEventDTO => {

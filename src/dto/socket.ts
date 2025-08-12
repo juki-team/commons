@@ -103,6 +103,16 @@ export interface UnsubscribeProblemCrawledWebSocketEventDTO {
   problemKey: string,
 }
 
+export interface SubscribeChatCompletionsDataWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_CHAT_COMPLETIONS_DATA,
+  sessionId: ObjectIdType,
+}
+
+export interface UnsubscribeChatCompletionsDataWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_CHAT_COMPLETIONS_DATA,
+  sessionId: ObjectIdType,
+}
+
 export type WebSocketEventDTO =
   PingWebSocketEventDTO
   | AuthenticateWebSocketEventDTO
@@ -120,7 +130,8 @@ export type WebSocketEventDTO =
   | UnsubscribeSenDataSsmSessionsListWebSocketEventDTO
   | SubscribeProblemCrawledWebSocketEventDTO
   | UnsubscribeProblemCrawledWebSocketEventDTO
-  | ChatCompletionsResponseWebSocketResponseEventDTO;
+  | SubscribeChatCompletionsDataWebSocketEventDTO
+  | UnsubscribeChatCompletionsDataWebSocketEventDTO;
 
 // BROADCAST EVENTS
 
@@ -256,4 +267,5 @@ export type WebSocketResponseEventDTO =
   | SendDataEcsTasksListWebSocketResponseEventDTO
   | SendDataEc2InstancesListWebSocketResponseEventDTO
   | SendDataSsmSessionsListWebSocketResponseEventDTO
-  | ProblemCrawledWebSocketResponseEventDTO;
+  | ProblemCrawledWebSocketResponseEventDTO
+  | ChatCompletionsResponseWebSocketResponseEventDTO;
