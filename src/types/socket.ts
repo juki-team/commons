@@ -45,6 +45,7 @@ export enum WebSocketResponseEvent {
   SEND_DATA_EC2_INSTANCES_LIST = 'SEND_DATA_EC2_INSTANCES_LIST',
   SEND_DATA_SSM_SESSIONS_LIST = 'SEND_DATA_SSM_SESSIONS_LIST',
   PROBLEM_CRAWLED = 'PROBLEM_CRAWLED',
+  CHAT_COMPLETIONS_RESPONSE = 'CHAT_COMPLETIONS_RESPONSE',
 }
 
 export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ObjectIdType}-${string}`;

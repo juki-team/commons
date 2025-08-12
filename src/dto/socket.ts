@@ -174,6 +174,7 @@ export interface WebSocketResponse {
   event: WebSocketResponseEvent,
   key: WebSocketResponseEventKey,
   connectionId: string,
+  messageTimestamp: number,
 }
 
 export interface PongWebSocketResponseEventDTO extends WebSocketResponse {
@@ -188,7 +189,6 @@ export interface ResponseWebSocketResponseEventDTO extends WebSocketResponse {
 export interface CodeRunStatusMessageWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
   runId: string,
-  messageTimestamp: number,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
 }
@@ -196,7 +196,6 @@ export interface CodeRunStatusMessageWebSocketResponseEventDTO extends WebSocket
 export interface SubmissionRunStatusMessageWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
   submitId: string,
-  messageTimestamp: number,
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,
   points: number,
@@ -206,7 +205,6 @@ export interface SubmissionRunStatusMessageWebSocketResponseEventDTO extends Web
 export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_MESSAGE,
   user: UserCompanyBasicInfoResponseDTO,
-  messageTimestamp: number,
   content: {
     type: 'SUBMISSION_VERDICT'
     contestName: string,
@@ -218,32 +216,32 @@ export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse 
 
 export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
-  messageTimestamp: number,
   content: EcsTaskDefinitionSystemSummaryListResponseDTO[],
 }
 
 export interface SendDataEc2InstancesListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
-  messageTimestamp: number,
   content: Ec2InstanceType[],
 }
 
 export interface SendDataEcsTasksListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
-  messageTimestamp: number,
   content: EcsTaskSystemSummaryListResponseDTO[],
 }
 
 export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
-  messageTimestamp: number,
   content: SsmSessionType[],
 }
 
 export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
-  messageTimestamp: number,
   content: { problemKey: string },
+}
+
+export interface ChatCompletionsResponseWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE,
+  content: { choices: [ { index: number, message: { role: string, content: string } } ] },
 }
 
 export type WebSocketResponseEventDTO =
@@ -256,4 +254,5 @@ export type WebSocketResponseEventDTO =
   | SendDataEcsTasksListWebSocketResponseEventDTO
   | SendDataEc2InstancesListWebSocketResponseEventDTO
   | SendDataSsmSessionsListWebSocketResponseEventDTO
-  | ProblemCrawledWebSocketResponseEventDTO;
+  | ProblemCrawledWebSocketResponseEventDTO
+  | ChatCompletionsResponseWebSocketResponseEventDTO;
