@@ -1,5 +1,6 @@
 import {
   AuthenticateWebSocketEventDTO,
+  ChatCompletionsResponseWebSocketResponseEventDTO,
   CodeRunStatusMessageWebSocketResponseEventDTO,
   CodeRunStatusNotificationWebSocketBroadcastEventDTO,
   PingWebSocketBroadcastEventDTO,
@@ -214,6 +215,12 @@ export const isSendDataSsmSessionsListWebSocketResponseEventDTO = (event: any): 
     && !!event?.content;
 };
 
+export const isChatCompletionsResponseWebSocketResponseEventDTO = (event: any): event is ChatCompletionsResponseWebSocketResponseEventDTO => {
+  return event?.event === WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE
+    && typeof event?.key === 'string' && !!event.key
+    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
+    && !!event?.content;
+};
 // generic
 
 export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, sessionId: ObjectIdType, id: string): WebSocketResponseEventKey => {
