@@ -19,6 +19,7 @@ export enum CodeLanguage {
   JSON = 'JSON',
   HTML = 'HTML',
   TEXT = 'TEXT',
+  DIFF = 'DIFF',
   MARKDOWN = 'MARKDOWN',
   ARDUINO = 'ARDUINO',
   DOT = 'DOT',
