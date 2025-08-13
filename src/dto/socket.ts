@@ -254,7 +254,7 @@ export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketRespon
 export interface ChatCompletionsResponseWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE,
   sessionId: ObjectIdType,
-  content: { choices: [ { index: number, message: { role: string, content: string } } ] },
+  content: { choices: [ { index: number, message: { role: string, content: string } } ], rawData: any },
 }
 
 export type WebSocketResponseEventDTO =
