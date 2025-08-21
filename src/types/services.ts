@@ -293,7 +293,7 @@ export type JudgingType = {
   // Problem data
   // problemTimeLimit: number,
   // problemMemoryLimit: number,
-  chunkInputFiles: JudgingInputType[][],
+  // chunkInputFiles: JudgingInputType[][],
   // problemSampleCases: ProblemSampleCaseType[],
   // problemTestCases: ProblemTestCaseType[],
   // problemType: ProblemType,
