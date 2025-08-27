@@ -38,7 +38,7 @@ export interface ProblemBasicSummaryListResponseDTO {
   members: {
     access: EntityAccess,
   }
-  externalUrl: string
+  externalUrl: string,
 }
 
 export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {

@@ -67,7 +67,6 @@ export interface ContestProblemBasicDataResponseDTO {
   startTimestamp: number,
   endTimestamp: number,
   tags: string[],
-  url: string,
   company: EntityCompanySummaryListResponseDTO,
 }
 
