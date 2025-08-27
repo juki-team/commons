@@ -6,6 +6,7 @@ import {
   PingWebSocketBroadcastEventDTO,
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
+  ProblemCrawledWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
@@ -30,6 +31,7 @@ import {
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserNotificationWebSocketBroadcastEventDTO,
+  WebSocketResponseEventDTO,
 } from '../dto';
 import {
   ObjectIdType,
@@ -225,10 +227,20 @@ export const isSendDataSsmSessionsListWebSocketResponseEventDTO = (event: any): 
     && !!event?.content;
 };
 
-export const isChatCompletionsResponseWebSocketResponseEventDTO = (event: any): event is ChatCompletionsResponseWebSocketResponseEventDTO => {
-  return event?.event === WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE
+export const isWebSocketResponse = (event: any): event is WebSocketResponseEventDTO => {
+  return Object.values(WebSocketResponseEvent).includes(event?.event as WebSocketResponseEvent)
     && typeof event?.key === 'string' && !!event.key
-    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
+    && typeof event?.connectionId === 'string' && !!event.connectionId
+    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp;
+};
+
+export const isProblemCrawledWebSocketResponseEventDTO = (event: any): event is ProblemCrawledWebSocketResponseEventDTO => {
+  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.PROBLEM_CRAWLED
+    && !!event?.content;
+};
+
+export const isChatCompletionsResponseWebSocketResponseEventDTO = (event: any): event is ChatCompletionsResponseWebSocketResponseEventDTO => {
+  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE
     && !!event?.content;
 };
 // generic

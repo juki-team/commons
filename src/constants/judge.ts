@@ -151,6 +151,9 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/leetcode-logo-color.svg',
     logoSize: [ 500, 500 ],
     url: 'https://leetcode.com',
+    // getProblemUrl: (problemKey: string) => {
+    //   return `https://leetcode.com/problems/${problemKey}`;
+    // },
   },
 };
 
