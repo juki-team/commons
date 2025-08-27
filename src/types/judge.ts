@@ -15,6 +15,7 @@ export interface JudgeBaseDocument {
   problemTags: string[],
   keyPrefix: string,
   isExternal: boolean,
+  isSupported: boolean,
   logo: string,
   logoSize: [ number, number ],
   url: string,
