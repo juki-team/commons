@@ -1,6 +1,7 @@
 import {
   EntityAccess,
   EntityState,
+  JudgeBaseDocument,
   ProblemBaseDocument,
   ProblemScoringMode,
   ProblemSettingsType,
@@ -12,11 +13,8 @@ import {
 import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
-export interface ProblemJudgeSummaryListResponseDTO {
-  key: string,
-  name: string,
+export interface ProblemJudgeSummaryListResponseDTO extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
   isCustom: boolean,
-  isExternal: boolean,
   isMain: boolean,
 }
 
