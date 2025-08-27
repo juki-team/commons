@@ -53,6 +53,7 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   ownerNickname: string,
   members: DocumentMembersResponseDTO,
   state: EntityState,
+  externalUrl: string,
 }
 
 export interface ProblemJudgeSystemSummaryListResponseDTO extends ProblemJudgeSummaryListResponseDTO {
