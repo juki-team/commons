@@ -15,12 +15,6 @@ export type JudgeType = {
     logo: string,
     logoSize: [ number, number ],
     url: string,
-    getProblemUrl: (problemKey: string) => string
-    getLoginUrl: () => string,
-    getProfileUrl: (username: string) => string,
-    getSubmitUrl: (problemKey: string) => string,
-    getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => string,
-    getUserSubmissionsUrl: (username: string) => string,
   }
 }
 
@@ -31,12 +25,12 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
     logoSize: [ 883.991, 435 ],
     url: '',
-    getLoginUrl: () => '',
-    getProfileUrl: () => '',
-    getSubmitUrl: () => '',
-    getSubmissionUrl: () => '',
-    getProblemUrl: (key: string) => `/problem/view/${key}`,
-    getUserSubmissionsUrl: () => '',
+    // getLoginUrl: () => '',
+    // getProfileUrl: () => '',
+    // getSubmitUrl: () => '',
+    // getSubmissionUrl: () => '',
+    // getProblemUrl: (key: string) => `/problem/view/${key}`,
+    // getUserSubmissionsUrl: () => '',
   },
   [Judge.JUKI_JUDGE]: {
     value: Judge.JUKI_JUDGE,
@@ -44,12 +38,12 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
     logoSize: [ 883.991, 435 ],
     url: 'https://judge.juki.app',
-    getLoginUrl: () => '',
-    getProfileUrl: () => '',
-    getSubmitUrl: () => '',
-    getSubmissionUrl: () => '',
-    getProblemUrl: (key: string) => `https://judge.juki.app/problem/view/${key}`,
-    getUserSubmissionsUrl: () => '',
+    // getLoginUrl: () => '',
+    // getProfileUrl: () => '',
+    // getSubmitUrl: () => '',
+    // getSubmissionUrl: () => '',
+    // getProblemUrl: (key: string) => `https://judge.juki.app/problem/view/${key}`,
+    // getUserSubmissionsUrl: () => '',
   },
   [Judge.CODEFORCES]: {
     value: Judge.CODEFORCES,
@@ -57,18 +51,18 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
-    getLoginUrl: () => 'https://codeforces.com/enter',
-    getProfileUrl: () => '',
-    getSubmitUrl: () => 'https://codeforces.com/problemset/submit',
-    getSubmissionUrl: (problemKey: string, submissionId: string) => {
-      const [ contestId ] = problemKey.split('-');
-      return `https://codeforces.com/problemset/submission/${contestId}/${submissionId}`;
-    },
-    getProblemUrl: (problemKey: string) => {
-      const [ contestId, index ] = problemKey.split('-');
-      return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
-    },
-    getUserSubmissionsUrl: () => '',
+    // getLoginUrl: () => 'https://codeforces.com/enter',
+    // getProfileUrl: () => '',
+    // getSubmitUrl: () => 'https://codeforces.com/problemset/submit',
+    // getSubmissionUrl: (problemKey: string, submissionId: string) => {
+    //   const [ contestId ] = problemKey.split('-');
+    //   return `https://codeforces.com/problemset/submission/${contestId}/${submissionId}`;
+    // },
+    // getProblemUrl: (problemKey: string) => {
+    //   const [ contestId, index ] = problemKey.split('-');
+    //   return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
+    // },
+    // getUserSubmissionsUrl: () => '',
   },
   [Judge.CODEFORCES_GYM]: {
     value: Judge.CODEFORCES_GYM,
@@ -76,21 +70,21 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://codeforces.com',
-    getLoginUrl: () => 'https://codeforces.com/enter',
-    getProfileUrl: () => '',
-    getSubmitUrl: (problemKey: string) => {
-      const [ gymContestId, index ] = problemKey.split('-');
-      return `https://codeforces.com/gym/${gymContestId}/submit`;
-    },
-    getSubmissionUrl: (problemKey: string, submissionId: string) => {
-      const [ gymContestId ] = problemKey.split('-');
-      return `https://codeforces.com/gym/${gymContestId}/submission/${submissionId}`;
-    },
-    getProblemUrl: (problemKey: string) => {
-      const [ gymContestId, index ] = problemKey.split('-');
-      return `https://codeforces.com/gym/${gymContestId}/problem/${index}`;
-    },
-    getUserSubmissionsUrl: () => '',
+    // getLoginUrl: () => 'https://codeforces.com/enter',
+    // getProfileUrl: () => '',
+    // getSubmitUrl: (problemKey: string) => {
+    //   const [ gymContestId, index ] = problemKey.split('-');
+    //   return `https://codeforces.com/gym/${gymContestId}/submit`;
+    // },
+    // getSubmissionUrl: (problemKey: string, submissionId: string) => {
+    //   const [ gymContestId ] = problemKey.split('-');
+    //   return `https://codeforces.com/gym/${gymContestId}/submission/${submissionId}`;
+    // },
+    // getProblemUrl: (problemKey: string) => {
+    //   const [ gymContestId, index ] = problemKey.split('-');
+    //   return `https://codeforces.com/gym/${gymContestId}/problem/${index}`;
+    // },
+    // getUserSubmissionsUrl: () => '',
   },
   [Judge.JV_UMSA]: {
     value: Judge.JV_UMSA,
@@ -98,30 +92,30 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
     logoSize: [ 1232.75, 145.12 ],
     url: 'https://jv.umsa.bo',
-    getLoginUrl: () => 'https://jv.umsa.bo/oj/login.php',
-    getProfileUrl: () => 'https://jv.umsa.bo/oj/userInfo.php',
-    getSubmitUrl: (problemKey: string) => {
-      // single problem: '1019'
-      // cib problem: '1019-A'
-      const isContestProblem = problemKey.includes('-');
-      // A -> 0, B -> 1, C -> 2, D -> 3, E -> 4, F -> 5, G -> 6, H -> 7, I -> 8, J -> 9
-      const params = problemKey.split('-');
-      return isContestProblem
-        ? `https://jv.umsa.bo/oj/submitpage.php?cid=${params[0]}&pid=${params[1].charCodeAt(0) - 65}`
-        : `https://jv.umsa.bo/oj/submitpage.php?id=${problemKey}`;
-    },
-    getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => {
-      // return `https://jv.umsa.bo/status.php?problem_id=&user_id=${username}&language=-1&jresult=-1`;
-      return `https://jv.umsa.bo/oj/showsource.php?id=${submissionId}`;
-    },
-    getProblemUrl: (problemKey: string) => {
-      const isContestProblem = problemKey.includes('-');
-      const params = problemKey.split('-');
-      return isContestProblem
-        ? `https://jv.umsa.bo/oj/problem.php?cid=${params[0]}&pid=${params[1].charCodeAt(0) - 65}`
-        : `https://jv.umsa.bo/oj/problem.php?id=${problemKey}`;
-    },
-    getUserSubmissionsUrl: (username: string) => `https://jv.umsa.bo/oj/status.php?user_id=${username}`,
+    // getLoginUrl: () => 'https://jv.umsa.bo/oj/login.php',
+    // getProfileUrl: () => 'https://jv.umsa.bo/oj/userInfo.php',
+    // getSubmitUrl: (problemKey: string) => {
+    //   // single problem: '1019'
+    //   // cib problem: '1019-A'
+    //   const isContestProblem = problemKey.includes('-');
+    //   // A -> 0, B -> 1, C -> 2, D -> 3, E -> 4, F -> 5, G -> 6, H -> 7, I -> 8, J -> 9
+    //   const params = problemKey.split('-');
+    //   return isContestProblem
+    //     ? `https://jv.umsa.bo/oj/submitpage.php?cid=${params[0]}&pid=${params[1].charCodeAt(0) - 65}`
+    //     : `https://jv.umsa.bo/oj/submitpage.php?id=${problemKey}`;
+    // },
+    // getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => {
+    //   // return `https://jv.umsa.bo/status.php?problem_id=&user_id=${username}&language=-1&jresult=-1`;
+    //   return `https://jv.umsa.bo/oj/showsource.php?id=${submissionId}`;
+    // },
+    // getProblemUrl: (problemKey: string) => {
+    //   const isContestProblem = problemKey.includes('-');
+    //   const params = problemKey.split('-');
+    //   return isContestProblem
+    //     ? `https://jv.umsa.bo/oj/problem.php?cid=${params[0]}&pid=${params[1].charCodeAt(0) - 65}`
+    //     : `https://jv.umsa.bo/oj/problem.php?id=${problemKey}`;
+    // },
+    // getUserSubmissionsUrl: (username: string) => `https://jv.umsa.bo/oj/status.php?user_id=${username}`,
   },
   [Judge.UVA_ONLINE_JUDGE]: {
     value: Judge.UVA_ONLINE_JUDGE,
@@ -129,12 +123,6 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/uva-online-judge-logo-color.png',
     logoSize: [ 150, 135.994 ],
     url: 'https://onlinejudge.org',
-    getLoginUrl: () => '',
-    getProfileUrl: () => '',
-    getSubmitUrl: () => '',
-    getSubmissionUrl: () => '',
-    getProblemUrl: () => '',
-    getUserSubmissionsUrl: () => '',
   },
   [Judge.AT_CODER]: {
     value: Judge.AT_CODER,
@@ -142,12 +130,6 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
     logoSize: [ 762.997, 675 ],
     url: 'https://atcoder.jp',
-    getLoginUrl: () => '',
-    getProfileUrl: () => '',
-    getSubmitUrl: () => '',
-    getSubmissionUrl: () => '',
-    getProblemUrl: () => '',
-    getUserSubmissionsUrl: () => '',
   },
   [Judge.CODECHEF]: {
     value: Judge.CODECHEF,
@@ -155,12 +137,6 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/codechef-logo-color.svg',
     logoSize: [ 1207.7, 453.17 ],
     url: 'https://www.codechef.com',
-    getLoginUrl: () => '',
-    getProfileUrl: () => '',
-    getSubmitUrl: () => '',
-    getSubmissionUrl: () => '',
-    getProblemUrl: () => '',
-    getUserSubmissionsUrl: () => '',
   },
   [Judge.TOPCODER]: {
     value: Judge.TOPCODER,
@@ -168,12 +144,13 @@ export const JUDGE: JudgeType = {
     logo: 'https://images.juki.pub/c/topcoder-logo-color.png',
     logoSize: [ 971.99, 415.99 ],
     url: 'https://www.topcoder.com',
-    getLoginUrl: () => '',
-    getProfileUrl: () => '',
-    getSubmitUrl: () => '',
-    getSubmissionUrl: () => '',
-    getProblemUrl: () => '',
-    getUserSubmissionsUrl: () => '',
+  },
+  [Judge.LEETCODE]: {
+    value: Judge.LEETCODE,
+    label: 'LeetCode',
+    logo: 'https://images.juki.pub/c/leetcode-logo-color.svg',
+    logoSize: [ 500, 500 ],
+    url: 'https://leetcode.com',
   },
 };
 

@@ -37,6 +37,7 @@ export enum Judge {
   AT_CODER = 'AT_CODER',
   CODECHEF = 'CODECHEF',
   TOPCODER = 'TOPCODER',
+  LEETCODE = 'LEETCODE',
 }
 
 export enum ProblemVerdict {
