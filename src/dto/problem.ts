@@ -38,6 +38,7 @@ export interface ProblemBasicSummaryListResponseDTO {
   members: {
     access: EntityAccess,
   }
+  externalUrl: string
 }
 
 export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
@@ -53,7 +54,6 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   ownerNickname: string,
   members: DocumentMembersResponseDTO,
   state: EntityState,
-  externalUrl: string,
 }
 
 export interface ProblemJudgeSystemSummaryListResponseDTO extends ProblemJudgeSummaryListResponseDTO {
