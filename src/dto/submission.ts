@@ -102,4 +102,5 @@ export interface SubmissionDataResponseDTO extends SubmissionSummaryListResponse
   verdictByGroups: VerdictByGroupsType,
   testCaseResults: TestCaseResultType[],
   compilationResult: CompilationResultType,
+  runId: string,
 }
