@@ -14,17 +14,17 @@ export const getDocumentAccess = (document: { members: EntityMembers } | undefin
     && document?.members?.rankSpectators === EntityMembersRank.OPEN
     && document?.members?.rankParticipants === EntityMembersRank.NONE:
       return EntityAccess.EXPOSED;
-    case document?.members?.rankAdministrators === EntityMembersRank.NONE
+    case (document?.members?.rankAdministrators === EntityMembersRank.NONE || document?.members?.rankAdministrators === EntityMembersRank.CLOSE)
     && document?.members?.rankManagers === EntityMembersRank.CLOSE
-    && document?.members?.rankGuests === EntityMembersRank.NONE
+    && (document?.members?.rankGuests === EntityMembersRank.NONE || document?.members?.rankGuests === EntityMembersRank.CLOSE)
     && document?.members?.rankSpectators === EntityMembersRank.OPEN
-    && document?.members?.rankParticipants === EntityMembersRank.NONE:
+    && (document?.members?.rankParticipants === EntityMembersRank.NONE || document?.members?.rankParticipants === EntityMembersRank.CLOSE):
       return EntityAccess.PUBLIC;
-    case document?.members?.rankAdministrators === EntityMembersRank.NONE
+    case (document?.members?.rankAdministrators === EntityMembersRank.NONE || document?.members?.rankAdministrators === EntityMembersRank.CLOSE)
     && document?.members?.rankManagers === EntityMembersRank.CLOSE
-    && document?.members?.rankGuests === EntityMembersRank.NONE
+    && (document?.members?.rankGuests === EntityMembersRank.NONE || document?.members?.rankGuests === EntityMembersRank.CLOSE)
     && document?.members?.rankSpectators === EntityMembersRank.CLOSE
-    && document?.members?.rankParticipants === EntityMembersRank.NONE:
+    && (document?.members?.rankParticipants === EntityMembersRank.NONE || document?.members?.rankParticipants === EntityMembersRank.CLOSE):
       return EntityAccess.RESTRICTED;
     case document?.members?.rankAdministrators === EntityMembersRank.NONE
     && document?.members?.rankManagers === EntityMembersRank.NONE
@@ -36,7 +36,6 @@ export const getDocumentAccess = (document: { members: EntityMembers } | undefin
       return EntityAccess.PRIVATE;
   }
 };
-
 
 export const isUserMember = (member: { userId?: string, teamId?: string }): member is EntityUsersMemberUserData => {
   return typeof member.userId === 'string';
