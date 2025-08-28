@@ -6,7 +6,9 @@ import {
   EntityUsersMemberUserData,
 } from '../types';
 
-export const getDocumentAccess = (document: { members: EntityMembers } | undefined): EntityAccess => {
+export const getDocumentAccess = (document: {
+  members: Pick<EntityMembers, 'rankAdministrators' | 'rankManagers' | 'rankGuests' | 'rankSpectators' | 'rankParticipants'>
+} | undefined): EntityAccess => {
   switch (true) {
     case document?.members?.rankAdministrators === EntityMembersRank.NONE
     && document?.members?.rankManagers === EntityMembersRank.OPEN
