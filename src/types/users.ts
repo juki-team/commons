@@ -53,44 +53,24 @@ export enum Role {
   RESTRICTED = 'RESTRICTED',
 }
 
-export const ProblemRole: {
-  RESTRICTED: 'RESTRICTED',
-  GUEST: 'GUEST',
-  REGULAR: 'REGULAR',
-  CREATOR: 'CREATOR',
-  MANAGER: 'MANAGER',
-  MASTER: 'MASTER',
-  ADMIN: 'ADMIN',
-  SUPER_ADMIN: 'SUPER_ADMIN'
-} = {
-  RESTRICTED: 'RESTRICTED',
-  GUEST: 'GUEST',
-  REGULAR: 'REGULAR',
-  CREATOR: 'CREATOR',
-  MANAGER: 'MANAGER',
-  MASTER: 'MASTER',
-  ADMIN: 'ADMIN',
-  SUPER_ADMIN: 'SUPER_ADMIN',
-};
+export enum ProblemRole {
+  RESTRICTED = 'RESTRICTED',
+  GUEST = 'GUEST',
+  REGULAR = 'REGULAR',
+  CREATOR = 'CREATOR',
+  MANAGER = 'MANAGER',
+  MASTER = 'MASTER',
+  ADMIN = 'ADMIN',
+  SUPER_ADMIN = 'SUPER_ADMIN'
+}
 
-export type ProblemRole = (typeof ProblemRole)[keyof typeof ProblemRole]
-
-export const ContestRole: {
-  RESTRICTED: 'RESTRICTED',
-  GUEST: 'GUEST',
-  REGULAR: 'REGULAR',
-  MANAGER: 'MANAGER',
-  MASTER: 'MASTER',
-  ADMIN: 'ADMIN',
-  SUPER_ADMIN: 'SUPER_ADMIN'
-} = {
-  RESTRICTED: 'RESTRICTED',
-  GUEST: 'GUEST',
-  REGULAR: 'REGULAR',
-  MANAGER: 'MANAGER',
-  MASTER: 'MASTER',
-  ADMIN: 'ADMIN',
-  SUPER_ADMIN: 'SUPER_ADMIN',
-};
-
-export type ContestRole = (typeof ContestRole)[keyof typeof ContestRole]
+export enum ContestRole {
+  RESTRICTED = 'RESTRICTED',
+  GUEST = 'GUEST',
+  REGULAR = 'REGULAR',
+  CREATOR = 'CREATOR',
+  MANAGER = 'MANAGER',
+  MASTER = 'MASTER',
+  ADMIN = 'ADMIN',
+  SUPER_ADMIN = 'SUPER_ADMIN',
+}

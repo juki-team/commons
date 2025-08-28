@@ -25,9 +25,10 @@ export const CONTEST_STATUS: {
 };
 
 export const CONTEST_ROLE: { [key in ContestRole]: { value: ContestRole, label: string, level: number } } = {
-  [ContestRole.RESTRICTED]: { value: ContestRole.RESTRICTED, label: 'restricted', level: 6 },
-  [ContestRole.GUEST]: { value: ContestRole.GUEST, label: 'guest', level: 5 },
-  [ContestRole.REGULAR]: { value: ContestRole.REGULAR, label: 'regular', level: 4 },
+  [ContestRole.RESTRICTED]: { value: ContestRole.RESTRICTED, label: 'restricted', level: 7 },
+  [ContestRole.GUEST]: { value: ContestRole.GUEST, label: 'guest', level: 6 },
+  [ContestRole.REGULAR]: { value: ContestRole.REGULAR, label: 'regular', level: 5 },
+  [ContestRole.CREATOR]: { value: ContestRole.CREATOR, label: 'creator', level: 4 },
   [ContestRole.MANAGER]: { value: ContestRole.MANAGER, label: 'manager', level: 3 },
   [ContestRole.MASTER]: { value: ContestRole.MASTER, label: 'master', level: 2 },
   [ContestRole.ADMIN]: { value: ContestRole.ADMIN, label: 'admin', level: 1 },
