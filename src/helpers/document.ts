@@ -16,15 +16,15 @@ export const getDocumentAccess = (document: { members: EntityMembers } | undefin
       return EntityAccess.EXPOSED;
     case (document?.members?.rankAdministrators === EntityMembersRank.NONE || document?.members?.rankAdministrators === EntityMembersRank.CLOSE)
     && document?.members?.rankManagers === EntityMembersRank.CLOSE
-    && (document?.members?.rankGuests === EntityMembersRank.NONE || document?.members?.rankGuests === EntityMembersRank.CLOSE)
+    && (document?.members?.rankGuests === EntityMembersRank.NONE || document?.members?.rankGuests === EntityMembersRank.CLOSE || document?.members?.rankGuests === EntityMembersRank.OPEN)
     && document?.members?.rankSpectators === EntityMembersRank.OPEN
-    && (document?.members?.rankParticipants === EntityMembersRank.NONE || document?.members?.rankParticipants === EntityMembersRank.CLOSE):
+    && (document?.members?.rankParticipants === EntityMembersRank.NONE || document?.members?.rankParticipants === EntityMembersRank.CLOSE || document?.members?.rankParticipants === EntityMembersRank.OPEN):
       return EntityAccess.PUBLIC;
     case (document?.members?.rankAdministrators === EntityMembersRank.NONE || document?.members?.rankAdministrators === EntityMembersRank.CLOSE)
     && document?.members?.rankManagers === EntityMembersRank.CLOSE
-    && (document?.members?.rankGuests === EntityMembersRank.NONE || document?.members?.rankGuests === EntityMembersRank.CLOSE)
+    && (document?.members?.rankGuests === EntityMembersRank.NONE || document?.members?.rankGuests === EntityMembersRank.CLOSE || document?.members?.rankGuests === EntityMembersRank.OPEN)
     && document?.members?.rankSpectators === EntityMembersRank.CLOSE
-    && (document?.members?.rankParticipants === EntityMembersRank.NONE || document?.members?.rankParticipants === EntityMembersRank.CLOSE):
+    && (document?.members?.rankParticipants === EntityMembersRank.NONE || document?.members?.rankParticipants === EntityMembersRank.CLOSE || document?.members?.rankParticipants === EntityMembersRank.OPEN):
       return EntityAccess.RESTRICTED;
     case document?.members?.rankAdministrators === EntityMembersRank.NONE
     && document?.members?.rankManagers === EntityMembersRank.NONE
