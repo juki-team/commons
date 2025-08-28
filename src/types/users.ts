@@ -47,30 +47,29 @@ export enum Role {
   ADMIN = 'ADMIN',
   MASTER = 'MASTER',
   MANAGER = 'MANAGER',
+  CREATOR = 'CREATOR',
   REGULAR = 'REGULAR',
   LIMITED = 'LIMITED',
   GUEST = 'GUEST',
   RESTRICTED = 'RESTRICTED',
 }
 
-export enum ProblemRole {
-  RESTRICTED = 'RESTRICTED',
-  GUEST = 'GUEST',
-  REGULAR = 'REGULAR',
-  CREATOR = 'CREATOR',
-  MANAGER = 'MANAGER',
-  MASTER = 'MASTER',
-  ADMIN = 'ADMIN',
-  SUPER_ADMIN = 'SUPER_ADMIN'
-}
+export type ProblemRole =
+  Role.RESTRICTED
+  | Role.GUEST
+  | Role.REGULAR
+  | Role.CREATOR
+  | Role.MANAGER
+  | Role.MASTER
+  | Role.ADMIN
+  | Role.SUPER_ADMIN;
 
-export enum ContestRole {
-  RESTRICTED = 'RESTRICTED',
-  GUEST = 'GUEST',
-  REGULAR = 'REGULAR',
-  CREATOR = 'CREATOR',
-  MANAGER = 'MANAGER',
-  MASTER = 'MASTER',
-  ADMIN = 'ADMIN',
-  SUPER_ADMIN = 'SUPER_ADMIN',
-}
+export type ContestRole =
+  Role.RESTRICTED
+  | Role.GUEST
+  | Role.REGULAR
+  | Role.CREATOR
+  | Role.MANAGER
+  | Role.MASTER
+  | Role.ADMIN
+  | Role.SUPER_ADMIN;

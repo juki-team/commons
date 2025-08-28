@@ -1,4 +1,4 @@
-import { ProblemInput, ProblemOutput, ProblemRole, ProblemScoringMode, ProblemType } from '../types';
+import { ProblemInput, ProblemOutput, ProblemRole, ProblemScoringMode, ProblemType, Role } from '../types';
 
 export const PROBLEM_INPUT: { [key in ProblemInput]: { value: ProblemInput, label: string } } = {
   [ProblemInput.STANDARD]: { value: ProblemInput.STANDARD, label: 'standard' },
@@ -71,12 +71,12 @@ export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType, label: 
 };
 
 export const PROBLEM_ROLE: { [key in ProblemRole]: { value: ProblemRole, label: string, level: number } } = {
-  [ProblemRole.RESTRICTED]: { value: ProblemRole.RESTRICTED, label: 'restricted', level: 7 },
-  [ProblemRole.GUEST]: { value: ProblemRole.GUEST, label: 'guest', level: 6 },
-  [ProblemRole.REGULAR]: { value: ProblemRole.REGULAR, label: 'regular', level: 5 },
-  [ProblemRole.CREATOR]: { value: ProblemRole.CREATOR, label: 'creator', level: 4 },
-  [ProblemRole.MANAGER]: { value: ProblemRole.MANAGER, label: 'manager', level: 3 },
-  [ProblemRole.MASTER]: { value: ProblemRole.MASTER, label: 'master', level: 2 },
-  [ProblemRole.ADMIN]: { value: ProblemRole.ADMIN, label: 'admin', level: 1 },
-  [ProblemRole.SUPER_ADMIN]: { value: ProblemRole.SUPER_ADMIN, label: 'super admin', level: 0 },
+  [Role.RESTRICTED]: { value: Role.RESTRICTED, label: 'restricted', level: 7 },
+  [Role.GUEST]: { value: Role.GUEST, label: 'guest', level: 6 },
+  [Role.REGULAR]: { value: Role.REGULAR, label: 'regular', level: 5 },
+  [Role.CREATOR]: { value: Role.CREATOR, label: 'creator', level: 4 },
+  [Role.MANAGER]: { value: Role.MANAGER, label: 'manager', level: 3 },
+  [Role.MASTER]: { value: Role.MASTER, label: 'master', level: 2 },
+  [Role.ADMIN]: { value: Role.ADMIN, label: 'admin', level: 1 },
+  [Role.SUPER_ADMIN]: { value: Role.SUPER_ADMIN, label: 'super admin', level: 0 },
 };

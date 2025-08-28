@@ -1,4 +1,4 @@
-import { ContestRole, ContestStatus } from '../types';
+import { ContestRole, ContestStatus, Role } from '../types';
 
 export const CONTEST_STATUS: {
   [key in ContestStatus]: {
@@ -25,12 +25,12 @@ export const CONTEST_STATUS: {
 };
 
 export const CONTEST_ROLE: { [key in ContestRole]: { value: ContestRole, label: string, level: number } } = {
-  [ContestRole.RESTRICTED]: { value: ContestRole.RESTRICTED, label: 'restricted', level: 7 },
-  [ContestRole.GUEST]: { value: ContestRole.GUEST, label: 'guest', level: 6 },
-  [ContestRole.REGULAR]: { value: ContestRole.REGULAR, label: 'regular', level: 5 },
-  [ContestRole.CREATOR]: { value: ContestRole.CREATOR, label: 'creator', level: 4 },
-  [ContestRole.MANAGER]: { value: ContestRole.MANAGER, label: 'manager', level: 3 },
-  [ContestRole.MASTER]: { value: ContestRole.MASTER, label: 'master', level: 2 },
-  [ContestRole.ADMIN]: { value: ContestRole.ADMIN, label: 'admin', level: 1 },
-  [ContestRole.SUPER_ADMIN]: { value: ContestRole.SUPER_ADMIN, label: 'super admin', level: 0 },
+  [Role.RESTRICTED]: { value: Role.RESTRICTED, label: 'restricted', level: 7 },
+  [Role.GUEST]: { value: Role.GUEST, label: 'guest', level: 6 },
+  [Role.REGULAR]: { value: Role.REGULAR, label: 'regular', level: 5 },
+  [Role.CREATOR]: { value: Role.CREATOR, label: 'creator', level: 4 },
+  [Role.MANAGER]: { value: Role.MANAGER, label: 'manager', level: 3 },
+  [Role.MASTER]: { value: Role.MASTER, label: 'master', level: 2 },
+  [Role.ADMIN]: { value: Role.ADMIN, label: 'admin', level: 1 },
+  [Role.SUPER_ADMIN]: { value: Role.SUPER_ADMIN, label: 'super admin', level: 0 },
 };
