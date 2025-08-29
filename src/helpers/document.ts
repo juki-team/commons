@@ -10,7 +10,7 @@ export const getDocumentAccess = (document: {
   members: Pick<EntityMembers, 'rankAdministrators' | 'rankManagers' | 'rankGuests' | 'rankSpectators' | 'rankParticipants'>
 } | undefined): EntityAccess => {
   switch (true) {
-    case  (document?.members?.rankAdministrators === EntityMembersRank.NONE || document?.members?.rankAdministrators === EntityMembersRank.CLOSE)
+    case (document?.members?.rankAdministrators === EntityMembersRank.NONE || document?.members?.rankAdministrators === EntityMembersRank.CLOSE)
     && document?.members?.rankManagers === EntityMembersRank.OPEN
     && (document?.members?.rankGuests === EntityMembersRank.NONE || document?.members?.rankGuests === EntityMembersRank.CLOSE || document?.members?.rankGuests === EntityMembersRank.OPEN)
     && document?.members?.rankSpectators === EntityMembersRank.OPEN

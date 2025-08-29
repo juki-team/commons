@@ -1,5 +1,4 @@
 import {
-  EntityAccess,
   EntityState,
   JudgeBaseDocument,
   ProblemBaseDocument,
@@ -10,7 +9,7 @@ import {
   ProblemUserType,
   TextLanguageType,
 } from '../types';
-import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
+import { DocumentMembersDTO, EntityMembersDTO } from './entity';
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface ProblemJudgeSummaryListResponseDTO extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
@@ -33,9 +32,7 @@ export interface ProblemBasicSummaryListResponseDTO {
     scoringMode: ProblemScoringMode,
     type: ProblemType,
   },
-  members: {
-    access: EntityAccess,
-  }
+  members: EntityMembersDTO,
   externalUrl: string,
 }
 
@@ -50,7 +47,6 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   editorial: TextLanguageType,
   settings: ProblemSettingsType,
   ownerNickname: string,
-  members: DocumentMembersResponseDTO,
   state: EntityState,
 }
 
