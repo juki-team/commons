@@ -70,6 +70,7 @@ export type ProblemSettingsType = {
 
 export type ProblemUserType = {
   isOwner: boolean,
+  isAdministrator: boolean,
   isManager: boolean,
   isSpectator: boolean,
   solved: boolean,
