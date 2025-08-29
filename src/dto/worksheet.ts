@@ -1,5 +1,5 @@
 import { BodyWorksheetType, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types';
-import { DocumentMembersResponseDTO, EntityMembersDTO } from './entity';
+import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface WorksheetUserResponseDTO {
@@ -20,7 +20,7 @@ export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListRespo
   isSolvable: boolean,
   automaticFeedback: boolean,
   content: BodyWorksheetType[],
-  members: DocumentMembersResponseDTO,
+  members: EntityMembersResponseDTO,
 }
 
 export interface UpsertWorksheetDTO extends Omit<WorksheetBaseDocument, 'members' | 'key' | 'state'> {
