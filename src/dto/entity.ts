@@ -33,12 +33,6 @@ export interface DocumentUserResponseDTO {
   isSpectator: boolean,
 }
 
-export interface DocumentMembersDTO {
-  access: EntityAccess,
-  managers: string[],
-  spectators: string[],
-}
-
 export enum MemberType {
   USER = 'USER',
   TEAM = 'TEAM',

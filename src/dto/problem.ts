@@ -9,7 +9,7 @@ import {
   ProblemUserType,
   TextLanguageType,
 } from '../types';
-import { DocumentMembersDTO, EntityMembersResponseDTO } from './entity';
+import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface ProblemJudgeSummaryListResponseDTO extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
@@ -83,5 +83,5 @@ export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseRespon
 }
 
 export interface UpsertProblemDTO extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'key' | 'members' | 'judgeId'> {
-  members: DocumentMembersDTO,
+  members: EntityMembersDTO,
 }

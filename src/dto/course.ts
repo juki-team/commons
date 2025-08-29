@@ -1,5 +1,5 @@
-import { CourseBaseDocument } from '../types/course';
-import { DocumentMembersDTO, DocumentMembersResponseDTO } from './entity';
+import { CourseBaseDocument } from '../types';
+import { DocumentMembersResponseDTO, EntityMembersDTO } from './entity';
 import { UserCompanyBasicInfoResponseDTO } from './user';
 import { WorksheetSummaryListResponseDTO } from './worksheet';
 
@@ -35,5 +35,5 @@ export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'k
   lessons: {
     worksheetKey: string,
   }[],
-  members: DocumentMembersDTO,
+  members: EntityMembersDTO,
 }
