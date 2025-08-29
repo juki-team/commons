@@ -12,7 +12,8 @@ import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResp
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface SubmissionProblemSummaryListResponseDTO {
-  isEditor: boolean,
+  isAdministrator: boolean,
+  isManager: boolean,
   key: string,
   judgeKey: Judge | string,
   name: string,
