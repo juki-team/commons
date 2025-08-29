@@ -9,7 +9,7 @@ import {
   ProblemUserType,
   TextLanguageType,
 } from '../types';
-import { DocumentMembersDTO, EntityMembersDTO } from './entity';
+import { DocumentMembersDTO, EntityMembersResponseDTO } from './entity';
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface ProblemJudgeSummaryListResponseDTO extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
@@ -32,7 +32,7 @@ export interface ProblemBasicSummaryListResponseDTO {
     scoringMode: ProblemScoringMode,
     type: ProblemType,
   },
-  members: EntityMembersDTO,
+  members: EntityMembersResponseDTO,
   externalUrl: string,
 }
 
