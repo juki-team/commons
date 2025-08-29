@@ -86,7 +86,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     value: CodeLanguage.ICPC_C,
     label: 'ICPC C',
     compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}"',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
   },
@@ -94,7 +94,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     value: CodeLanguage.C,
     label: 'C',
     compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}"',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
   },
@@ -102,7 +102,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     value: CodeLanguage.ICPC_CPP,
     label: 'ICPC C++',
     compilePattern: 'g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}"',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -110,7 +110,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     value: CodeLanguage.CPP,
     label: 'C++',
     compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}"',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -118,7 +118,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     value: CodeLanguage.CPP11,
     label: 'C++ 11',
     compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++11 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}"',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++11 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
@@ -128,7 +128,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'C++ 14',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++14 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++14 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}"',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -137,7 +137,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'C++ 17',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++17 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++17 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}"',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -147,7 +147,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mime: 'text/x-java',
     mainFilename: 'Main.java',
     fileExtension: [ 'java' ],
-    compilePattern: 'javac -cp \'.;*\' {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'javac -cp \'.;*\' "{{folder_path}}/{{source_full_file_name}}"',
     // compilePattern: 'javac {{folder_path}}/{{source_full_file_name}}',
     // runPattern: 'java -cp {{folder_path}} {{class_name}}'
     runPattern: '/usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
@@ -167,8 +167,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mime: 'text/x-python',
     mainFilename: 'main.py',
     fileExtension: [ 'py' ],
-    compilePattern: 'pypy3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/pypy3 {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'pypy3 -m py_compile "{{folder_path}}/{{source_full_file_name}}"',
+    runPattern: '/usr/bin/pypy3 "{{folder_path}}/{{source_full_file_name}}"',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'pypy3',
@@ -183,8 +183,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mime: 'text/x-python',
     mainFilename: 'main.py',
     fileExtension: [ 'py' ],
-    compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'python3 -m py_compile "{{folder_path}}/{{source_full_file_name}}"',
+    runPattern: '/usr/bin/python3 "{{folder_path}}/{{source_full_file_name}}"',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python3',
@@ -199,8 +199,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mime: 'text/x-python',
     mainFilename: 'main.py',
     fileExtension: [ 'py' ],
-    compilePattern: 'python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/python2 {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'python2 -m py_compile "{{folder_path}}/{{source_full_file_name}}"',
+    runPattern: '/usr/bin/python2 "{{folder_path}}/{{source_full_file_name}}"',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python',
@@ -215,8 +215,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mime: 'text/x-python',
     mainFilename: 'main.py',
     fileExtension: [ 'py' ],
-    compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'python3 -m py_compile "{{folder_path}}/{{source_full_file_name}}"',
+    runPattern: '/usr/bin/python3 "{{folder_path}}/{{source_full_file_name}}"',
     templateSourceCode: 'print("Hello World\\n")',
     hasBuildFile: false,
     executable: 'python3',
@@ -247,11 +247,11 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mime: 'text/plain',
     mainFilename: 'main.psc',
     fileExtension: [ 'psc' ],
-    compilePattern: 'jk-pseint {{folder_path}}/{{source_full_file_name}} --norun --nouser'
-      + ' && jk-pseint {{folder_path}}/{{source_full_file_name}} --draw {{folder_path}}/{{source_full_file_name}}.psd'
-      + ' && jk-psexport {{folder_path}}/{{source_full_file_name}}.psd {{folder_path}}/{{source_full_file_name}}.cpp --lang=cpp'
+    compilePattern: 'jk-pseint "{{folder_path}}/{{source_full_file_name}}" --norun --nouser'
+      + ' && jk-pseint "{{folder_path}}/{{source_full_file_name}}" --draw "{{folder_path}}/{{source_full_file_name}}.psd"'
+      + ' && jk-psexport "{{folder_path}}/{{source_full_file_name}}.psd" "{{folder_path}}/{{source_full_file_name}}.cpp" --lang=cpp'
       + ' && g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}.cpp',
+      '"{{folder_path}}/{{compiled_file_name}}" "{{folder_path}}/{{source_full_file_name}}.cpp"',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: 'Algoritmo HOLA_MUNDO\n\tImprimir "Hello World"\nFinAlgoritmo\n',
     hasBuildFile: false,
