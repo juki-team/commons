@@ -1,6 +1,6 @@
 import { JudgeBaseDocument } from '../types';
 
-export interface JudgeDataResponseDTO extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getSubmissionUrl' | 'getLoginUrl' | 'getProfileUrl' | 'getSubmitUrl'> {
+export interface JudgeDataResponseDTO extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getSubmissionUrl' | 'getLoginUrl'> {
 }
 
 export interface JudgeSummaryListResponseDTO extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getSubmissionUrl' | 'getLoginUrl' | 'getProfileUrl' | 'getSubmitUrl'> {
