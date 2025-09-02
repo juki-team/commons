@@ -152,14 +152,13 @@ export const JUDGE: JudgeType = {
     logoSize: [ 500, 500 ],
     url: 'https://leetcode.com',
     // getProblemUrl: (problemKey: string) => {
-    //   return `https://leetcode.com/problems/${problemKey}`;
+    //   return `https://leetcode.com/problems/${problemKey.replace('PL-', '')}`;
     // },
-    // getProblemUrl: (problemKey: string) => {
-    //   return `https://leetcode.com/problems/${problemKey}`;
+    // getProfileUrl: (userNickname: string) => {
+    //   return `https://leetcode.com/u/${userNickname}`;
     // },
-    // getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => {
-    //   // return `https://jv.umsa.bo/status.php?problem_id=&user_id=${username}&language=-1&jresult=-1`;
-    //   return `https://jv.umsa.bo/oj/showsource.php?id=${submissionId}`;
+    // getSubmissionUrl: (problemKey: string, submissionId: string, username: string, submissionRunId: string) => {
+    //   return `https://leetcode.com/problems/${problemKey.replace('PL-', '')}/submissions/${submissionRunId}`;
     // },
   },
 };
