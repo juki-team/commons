@@ -148,8 +148,8 @@ export const JUDGE: JudgeType = {
   [Judge.LEETCODE]: {
     value: Judge.LEETCODE,
     label: 'LeetCode',
-    logo: 'https://images.juki.pub/c/leetcode-logo-color.svg',
-    logoSize: [ 500, 500 ],
+    logo: 'https://images.juki.pub/assets/leetcode-logo-color.svg',
+    logoSize: [ 95, 111 ],
     url: 'https://leetcode.com',
     // getProblemUrl: (problemKey: string) => {
     //   return `https://leetcode.com/problems/${problemKey.replace('PL-', '')}`;

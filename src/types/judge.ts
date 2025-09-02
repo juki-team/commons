@@ -20,9 +20,9 @@ export interface JudgeBaseDocument {
   logoSize: [ number, number ],
   url: string,
   getLoginUrl: string,
-  getProfileUrl: string,
+  getProfileUrl: string, // getProfileUrl: (userNickname: string) => ''
   getSubmitUrl: string,
-  getSubmissionUrl: string,
+  getSubmissionUrl: string, // getSubmissionUrl: (problemKey: string, submissionId: string, username: string, submissionRunId: string) => ''
   getProblemUrl: string,
   getUserSubmissionsUrl: string,
   submissionsWithHighPriority: boolean,
