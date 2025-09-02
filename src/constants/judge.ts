@@ -154,6 +154,13 @@ export const JUDGE: JudgeType = {
     // getProblemUrl: (problemKey: string) => {
     //   return `https://leetcode.com/problems/${problemKey}`;
     // },
+    // getProblemUrl: (problemKey: string) => {
+    //   return `https://leetcode.com/problems/${problemKey}`;
+    // },
+    // getSubmissionUrl: (problemKey: string, submissionId: string, username: string) => {
+    //   // return `https://jv.umsa.bo/status.php?problem_id=&user_id=${username}&language=-1&jresult=-1`;
+    //   return `https://jv.umsa.bo/oj/showsource.php?id=${submissionId}`;
+    // },
   },
 };
 
