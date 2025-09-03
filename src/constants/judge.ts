@@ -252,7 +252,7 @@ export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: Sub
   }, // state
   [SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES]: {
     value: SubmissionRunStatus.RUNNING_SAMPLE_TEST_CASES,
-    label: 'running sample test cases',
+    label: 'running sample cases',
   }, // state
   [SubmissionRunStatus.EXECUTED_TEST_CASE]: {
     value: SubmissionRunStatus.EXECUTED_TEST_CASE,
