@@ -8,9 +8,11 @@ export interface WorksheetBaseDocument {
   name: string,
   description: string,
   content: BodyWorksheetType[],
-  isSolvable: boolean,
-  automaticFeedback: boolean,
   members: EntityMembers,
+  quiz: {
+    enable: boolean,
+    automaticFeedback: boolean,
+  },
   slides: {
     titleBackgroundImage: string,
     backgroundImage: string,
