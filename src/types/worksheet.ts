@@ -1,4 +1,5 @@
 import { EntityMembers } from './entity';
+import { Theme } from './prisma';
 import { BasicWorksheetType, BodyWorksheetType, NewPageSheetType } from './sheet';
 
 export interface WorksheetBaseDocument {
@@ -10,6 +11,13 @@ export interface WorksheetBaseDocument {
   isSolvable: boolean,
   automaticFeedback: boolean,
   members: EntityMembers,
+  slides: {
+    titleBackgroundImage: string,
+    backgroundImage: string,
+    fontSize: number,
+    theme: Theme,
+    colorTextHighlight: string,
+  },
 }
 
 export type WorksheetsInPages = { header: NewPageSheetType, content: BodyWorksheetType[] }[];

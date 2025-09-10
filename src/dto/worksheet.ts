@@ -21,6 +21,7 @@ export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListRespo
   automaticFeedback: boolean,
   content: BodyWorksheetType[],
   members: EntityMembersResponseDTO,
+  slides: WorksheetBaseDocument['slides'],
 }
 
 export interface UpsertWorksheetDTO extends Omit<WorksheetBaseDocument, 'members' | 'key' | 'state'> {
