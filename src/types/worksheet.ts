@@ -14,6 +14,7 @@ export interface WorksheetBaseDocument {
     automaticFeedback: boolean,
   },
   slides: {
+    enable: boolean,
     titleBackgroundImage: string,
     backgroundImage: string,
     fontSize: number,
