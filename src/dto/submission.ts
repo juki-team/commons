@@ -1,5 +1,6 @@
 import {
   CodeLanguage,
+  ContestUserType,
   DataLogType,
   EntityState,
   Judge,
@@ -67,6 +68,7 @@ export interface SubmissionProblemSystemSummaryListResponseDTO extends Submissio
 
 export interface SubmissionContestSystemSummaryListResponseDTO extends SubmissionContestSummaryListResponseDTO {
   id: string,
+  user: ContestUserType,
 }
 
 export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummaryListResponseDTO {
