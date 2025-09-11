@@ -11,8 +11,10 @@ import {
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
   SendDataSsmSessionsListWebSocketResponseEventDTO,
+  SubmissionCrawledWebSocketResponseEventDTO,
   SubmissionRunStatusMessageWebSocketResponseEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
+  SubmissionsProblemUserCrawledWebSocketResponseEventDTO,
   SubscribeChatCompletionsDataWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeProblemCrawledWebSocketEventDTO,
@@ -243,6 +245,17 @@ export const isChatCompletionsResponseWebSocketResponseEventDTO = (event: any): 
   return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE
     && !!event?.content;
 };
+
+export const isSubmissionsProblemUserCrawledWebSocketResponseEventDTO = (event: any): event is SubmissionsProblemUserCrawledWebSocketResponseEventDTO => {
+  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.SUBMISSIONS_PROBLEM_USER_CRAWLED
+    && !!event?.content;
+};
+
+export const isSubmissionCrawledWebSocketResponseEventDTO = (event: any): event is SubmissionCrawledWebSocketResponseEventDTO => {
+  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.SUBMISSION_CRAWLED
+    && !!event?.content;
+};
+
 // generic
 
 export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, sessionId: ObjectIdType, id: string): WebSocketResponseEventKey => {

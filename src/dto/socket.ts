@@ -257,6 +257,29 @@ export interface ChatCompletionsResponseWebSocketResponseEventDTO extends WebSoc
   content: { choices: [ { index: number, message: { role: string, content: string } } ], rawData: any },
 }
 
+export interface SubmissionsProblemUserCrawledWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.SUBMISSIONS_PROBLEM_USER_CRAWLED,
+  content: {
+    contestKey: string,
+    problemKey: string,
+    judge: string,
+    userKey: string,
+    submissionsCount: number,
+  },
+}
+
+export interface SubmissionCrawledWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.SUBMISSION_CRAWLED,
+  content: {
+    contestKey: string,
+    problemKey: string,
+    judge: string,
+    userKey: string,
+    submitId: string,
+    isNewSubmission: boolean,
+  },
+}
+
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | ResponseWebSocketResponseEventDTO
@@ -268,4 +291,6 @@ export type WebSocketResponseEventDTO =
   | SendDataEc2InstancesListWebSocketResponseEventDTO
   | SendDataSsmSessionsListWebSocketResponseEventDTO
   | ProblemCrawledWebSocketResponseEventDTO
-  | ChatCompletionsResponseWebSocketResponseEventDTO;
+  | ChatCompletionsResponseWebSocketResponseEventDTO
+  | SubmissionsProblemUserCrawledWebSocketResponseEventDTO
+  | SubmissionCrawledWebSocketResponseEventDTO;
