@@ -113,6 +113,20 @@ export interface UnsubscribeChatCompletionsDataWebSocketEventDTO {
   sessionId: ObjectIdType,
 }
 
+export interface SubscribeSubmissionsCrawlWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL,
+  sessionId: ObjectIdType,
+  contestKey: string,
+  problemKey: string,
+}
+
+export interface UnsubscribeSubmissionsCrawlWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL,
+  sessionId: ObjectIdType,
+  contestKey: string,
+  problemKey: string,
+}
+
 export type WebSocketEventDTO =
   PingWebSocketEventDTO
   | AuthenticateWebSocketEventDTO
@@ -131,7 +145,9 @@ export type WebSocketEventDTO =
   | SubscribeProblemCrawledWebSocketEventDTO
   | UnsubscribeProblemCrawledWebSocketEventDTO
   | SubscribeChatCompletionsDataWebSocketEventDTO
-  | UnsubscribeChatCompletionsDataWebSocketEventDTO;
+  | UnsubscribeChatCompletionsDataWebSocketEventDTO
+  | SubscribeSubmissionsCrawlWebSocketEventDTO
+  | UnsubscribeSubmissionsCrawlWebSocketEventDTO;
 
 // BROADCAST EVENTS
 
