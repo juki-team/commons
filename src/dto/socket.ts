@@ -198,14 +198,14 @@ export interface ResponseWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.RESPONSE,
 }
 
-export interface CodeRunStatusMessageWebSocketResponseEventDTO extends WebSocketResponse {
+export interface CodeRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
   runId: string,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
 }
 
-export interface SubmissionRunStatusMessageWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
   submitId: string,
   status: SubmissionRunStatus,
@@ -283,8 +283,8 @@ export interface SubmissionCrawledWebSocketResponseEventDTO extends WebSocketRes
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | ResponseWebSocketResponseEventDTO
-  | CodeRunStatusMessageWebSocketResponseEventDTO
-  | SubmissionRunStatusMessageWebSocketResponseEventDTO
+  | CodeRunStatusWebSocketResponseEventDTO
+  | SubmissionRunStatusWebSocketResponseEventDTO
   | UserMessageWebSocketResponseEventDTO
   | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
   | SendDataEcsTasksListWebSocketResponseEventDTO

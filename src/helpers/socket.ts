@@ -1,8 +1,8 @@
 import {
   AuthenticateWebSocketEventDTO,
   ChatCompletionsResponseWebSocketResponseEventDTO,
-  CodeRunStatusMessageWebSocketResponseEventDTO,
   CodeRunStatusNotificationWebSocketBroadcastEventDTO,
+  CodeRunStatusWebSocketResponseEventDTO,
   PingWebSocketBroadcastEventDTO,
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
@@ -12,8 +12,8 @@ import {
   SendDataEcsTasksListWebSocketResponseEventDTO,
   SendDataSsmSessionsListWebSocketResponseEventDTO,
   SubmissionCrawledWebSocketResponseEventDTO,
-  SubmissionRunStatusMessageWebSocketResponseEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
+  SubmissionRunStatusWebSocketResponseEventDTO,
   SubmissionsProblemUserCrawledWebSocketResponseEventDTO,
   SubscribeChatCompletionsDataWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
@@ -173,7 +173,7 @@ export const isPongWebSocketResponseEventDTO = (event: any): event is PongWebSoc
     && !!event?.data;
 };
 
-export const isCodeRunStatusMessageWebSocketResponseEventDTO = (event: any): event is CodeRunStatusMessageWebSocketResponseEventDTO => {
+export const isCodeRunStatusMessageWebSocketResponseEventDTO = (event: any): event is CodeRunStatusWebSocketResponseEventDTO => {
   return event?.event === WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE
     && typeof event?.key === 'string' && !!event.key
     && typeof event?.runId === 'string' && !!event.runId
@@ -181,7 +181,7 @@ export const isCodeRunStatusMessageWebSocketResponseEventDTO = (event: any): eve
     && event?.status in SubmissionRunStatus;
 };
 
-export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (event: any): event is SubmissionRunStatusMessageWebSocketResponseEventDTO => {
+export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (event: any): event is SubmissionRunStatusWebSocketResponseEventDTO => {
   return event?.event === WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE
     && typeof event?.key === 'string' && !!event.key
     && typeof event?.submitId === 'string' && !!event.submitId
