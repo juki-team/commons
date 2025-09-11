@@ -11,10 +11,9 @@ import {
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
   SendDataSsmSessionsListWebSocketResponseEventDTO,
-  SubmissionCrawledWebSocketResponseEventDTO,
   SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
   SubmissionRunStatusWebSocketResponseEventDTO,
-  SubmissionsProblemUserCrawledWebSocketResponseEventDTO,
+  SubmissionsCrawlWebSocketResponseEventDTO,
   SubscribeChatCompletionsDataWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeProblemCrawledWebSocketEventDTO,
@@ -246,13 +245,8 @@ export const isChatCompletionsResponseWebSocketResponseEventDTO = (event: any): 
     && !!event?.content;
 };
 
-export const isSubmissionsProblemUserCrawledWebSocketResponseEventDTO = (event: any): event is SubmissionsProblemUserCrawledWebSocketResponseEventDTO => {
-  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.SUBMISSIONS_PROBLEM_USER_CRAWLED
-    && !!event?.content;
-};
-
-export const isSubmissionCrawledWebSocketResponseEventDTO = (event: any): event is SubmissionCrawledWebSocketResponseEventDTO => {
-  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.SUBMISSION_CRAWLED
+export const isSubmissionsCrawlWebSocketResponseEventDTO = (event: any): event is SubmissionsCrawlWebSocketResponseEventDTO => {
+  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.SUBMISSIONS_CRAWL
     && !!event?.content;
 };
 
