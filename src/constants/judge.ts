@@ -19,19 +19,19 @@ export type JudgeType = {
 }
 
 export const JUDGE: JudgeType = {
-  [Judge.CUSTOMER]: {
-    value: Judge.CUSTOMER,
-    label: '',
-    logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
-    logoSize: [ 883.991, 435 ],
-    url: '',
-    // getLoginUrl: () => '',
-    // getProfileUrl: () => '',
-    // getSubmitUrl: () => '',
-    // getSubmissionUrl: () => '',
-    // getProblemUrl: (key: string) => `/problem/view/${key}`,
-    // getUserSubmissionsUrl: () => '',
-  },
+  // [Judge.CUSTOMER]: {
+  //   value: Judge.CUSTOMER,
+  //   label: '',
+  //   logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
+  //   logoSize: [ 883.991, 435 ],
+  //   url: '',
+  //   // getLoginUrl: () => '',
+  //   // getProfileUrl: () => '',
+  //   // getSubmitUrl: () => '',
+  //   // getSubmissionUrl: () => '',
+  //   // getProblemUrl: (key: string) => `/problem/view/${key}`,
+  //   // getUserSubmissionsUrl: () => '',
+  // },
   [Judge.JUKI_JUDGE]: {
     value: Judge.JUKI_JUDGE,
     label: 'Juki Judge',

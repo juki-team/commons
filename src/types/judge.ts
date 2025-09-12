@@ -29,7 +29,6 @@ export interface JudgeBaseDocument {
 }
 
 export enum Judge {
-  CUSTOMER = 'CUSTOMER',
   JUKI_JUDGE = 'JUKI_JUDGE',
   CODEFORCES = 'CODEFORCES',
   CODEFORCES_GYM = 'CODEFORCES_GYM',

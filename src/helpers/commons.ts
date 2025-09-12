@@ -115,19 +115,6 @@ export function getProblemJudgeKey(judge: Judge, key: string) {
   return `${judge}-${key}`;
 }
 
-export function getJudgeKeyOfProblemJudgeKey(problemJudgeKey: string): { judge: Judge, key: string } {
-  const params = problemJudgeKey.split('-');
-  const judge = params[0] as Judge;
-  const key = params.splice(1).join('-');
-  if (judge in Judge) {
-    return {
-      judge,
-      key,
-    };
-  }
-  return { judge: Judge.CUSTOMER, key: problemJudgeKey };
-}
-
 /**
  * https://stackoverflow.com/questions/10420352/converting-file-size-in-bytes-to-human-readable-string
  * Format bytes as human-readable text.

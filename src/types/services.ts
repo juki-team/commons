@@ -1,5 +1,4 @@
-import { CodeLanguage, ObjectIdType } from './commons';
-import { PrivateHandlerEventType } from './private-handler';
+import { CodeLanguage } from './commons';
 
 export enum ErrorCode {
   // General errors
@@ -220,14 +219,6 @@ export type RunnerSQSMessageBodyType = {
   next?: RunnerNextType,
 };
 
-export enum JudgingState {
-  RECEIVED = 'RECEIVED',
-  COMPILED = 'COMPILED',
-  TEST_CASE_EXECUTED = 'TEST_CASE_EXECUTED',
-  CHUNK_TEST_CASES_COMPLETED = 'CHUNK_TEST_CASES_COMPLETED',
-  COMPLETED = 'COMPLETED',
-}
-
 export type CaseType = { caseKey: string, groups: number[] };
 
 export type ProblemTestCaseType = { testCaseKey: string, groups: number[] };
@@ -267,74 +258,3 @@ export type ProblemSampleCaseType = { input: string, output: string };
 // }
 
 export type JudgingFileType = { language: CodeLanguage, fullFileName: string };
-
-export type JudgingRunType = {
-  runPattern: string,
-  baseFileNamePattern: string,
-  inputFilePathPattern: string,
-  timeLimit: number,
-  memoryLimit: number,
-  rawExecution: boolean,
-  isolated: boolean,
-};
-
-export type JudgingInputType = { baseFileName: string, groups: number[] };
-
-export type JudgingType = {
-  type: PrivateHandlerEventType.JUDGING,
-  sessionId: ObjectIdType,
-  submitId: string,
-  runId: string,
-  timestamp: number,
-  isCodeEditorRun: boolean,
-  filesToCompile: JudgingFileType[],
-  runs: JudgingRunType[],
-  attempts: number,
-  // Problem data
-  // problemTimeLimit: number,
-  // problemMemoryLimit: number,
-  // chunkInputFiles: JudgingInputType[][],
-  // problemSampleCases: ProblemSampleCaseType[],
-  // problemTestCases: ProblemTestCaseType[],
-  // problemType: ProblemType,
-}
-
-export type JudgingReceivedBodyType = JudgingType & {
-  state: JudgingState.RECEIVED,
-};
-
-export type JudgingCompiledBodyType = JudgingType & {
-  state: JudgingState.COMPILED,
-};
-
-export type JudgingTestCaseExecutedBodyType = JudgingType & {
-  state: JudgingState.TEST_CASE_EXECUTED,
-  // inputFileKey: string,
-  inputFileChunkIndex: number,
-  inputFileIndex: number,
-  // isSampleCase: boolean,
-  // isSampleCasesEmpty: boolean,
-}
-
-export type JudgingChunkTestCasesCompletedBodyType = JudgingType & {
-  state: JudgingState.CHUNK_TEST_CASES_COMPLETED,
-  // cases: {
-  //   key: string,
-  //   index: number,
-  // }[],
-  // areSampleCases: boolean,
-  // areSampleCasesEmpty: boolean,
-  inputFileChunkIndex: number,
-}
-
-export type JudgingCompletedBodyType = JudgingType & {
-  state: JudgingState.COMPLETED,
-  inputFileChunkIndex: number,
-}
-
-export type JudgingPrivateHandlerEventDTO =
-  JudgingReceivedBodyType
-  | JudgingCompiledBodyType
-  | JudgingTestCaseExecutedBodyType
-  | JudgingChunkTestCasesCompletedBodyType
-  | JudgingCompletedBodyType;

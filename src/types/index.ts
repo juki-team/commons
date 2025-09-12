@@ -10,7 +10,6 @@ export * from './group';
 export * from './file';
 export * from './judge';
 export * from './prisma';
-export * from './private-handler';
 export * from './problems';
 export * from './services';
 export * from './sheet';
