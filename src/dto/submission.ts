@@ -3,26 +3,29 @@ import {
   ContestUserType,
   DataLogType,
   EntityState,
-  Judge,
   ProblemScoringMode,
   ProblemType,
   ProblemVerdict,
   SubmissionRunStatus,
 } from '../types';
-import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
+import {
+  EntityCompanySummaryListResponseDTO,
+  EntityCompanySystemSummaryListResponseDTO,
+  ProblemJudgeSummaryListResponseDTO,
+} from './problem';
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface SubmissionProblemSummaryListResponseDTO {
   isAdministrator: boolean,
   isManager: boolean,
   key: string,
-  judgeKey: Judge | string,
   name: string,
   scoringMode: ProblemScoringMode,
   type: ProblemType,
   timeLimit: number,
   memoryLimit: number,
   company: EntityCompanySummaryListResponseDTO,
+  judge: ProblemJudgeSummaryListResponseDTO,
 }
 
 export interface SubmissionContestSummaryListResponseDTO {
