@@ -277,7 +277,7 @@ export interface SubmissionsCrawlWebSocketResponseEventDTO extends WebSocketResp
   event: WebSocketResponseEvent.SUBMISSIONS_CRAWL,
   content: {
     contestKey: string,
-    problemKey: string,
+    problemKeys: string,
     judge: string,
     userKey: string,
     submissionsCount: number,
