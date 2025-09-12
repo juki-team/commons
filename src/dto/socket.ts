@@ -117,14 +117,14 @@ export interface SubscribeSubmissionsCrawlWebSocketEventDTO {
   event: WebSocketActionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL,
   sessionId: ObjectIdType,
   contestKey: string,
-  problemKey: string,
+  problemKeys: string,
 }
 
 export interface UnsubscribeSubmissionsCrawlWebSocketEventDTO {
   event: WebSocketActionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL,
   sessionId: ObjectIdType,
   contestKey: string,
-  problemKey: string,
+  problemKeys: string,
 }
 
 export type WebSocketEventDTO =
