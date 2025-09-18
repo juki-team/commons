@@ -19,6 +19,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     label: remainingWeeks === 1 ? 'week' : 'weeks',
     abbreviatedLabel: 'w',
     milliseconds: aWeekMilliseconds,
+    digits: 2,
   });
   
   const aDayMilliseconds = 1000 * 60 * 60 * 24;
@@ -28,6 +29,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     label: remainingDays === 1 ? 'day' : 'days',
     abbreviatedLabel: 'd',
     milliseconds: aDayMilliseconds,
+    digits: 2,
   });
   
   const aHourMilliseconds = 1000 * 60 * 60;
@@ -37,6 +39,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     label: remainingHours === 1 ? 'hour' : 'hours',
     abbreviatedLabel: 'h',
     milliseconds: aHourMilliseconds,
+    digits: 2,
   });
   
   const aMinuteMilliseconds = 1000 * 60;
@@ -46,6 +49,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     label: remainingMinutes === 1 ? 'minute' : 'minutes',
     abbreviatedLabel: 'm',
     milliseconds: aMinuteMilliseconds,
+    digits: 2,
   });
   
   const aSecondMilliseconds = 1000;
@@ -55,6 +59,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     label: remainingSeconds === 1 ? 'second' : 'seconds',
     abbreviatedLabel: 's',
     milliseconds: aSecondMilliseconds,
+    digits: 2,
   });
   
   const remainingMilliseconds = Math.floor(timeRemaining % aSecondMilliseconds);
@@ -63,6 +68,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     label: remainingMilliseconds === 1 ? 'millisecond' : 'milliseconds',
     abbreviatedLabel: 'ms',
     milliseconds: 1,
+    digits: 3,
   });
   
   // while (remaining[0].remaining <= 0) {
