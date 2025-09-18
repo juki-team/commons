@@ -1,7 +1,7 @@
 import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants';
 import { SplitTime } from '../types';
 
-export function splitTime(timeRemaining: number): Array<SplitTime> {
+export function splitTime(timeRemaining: number) {
   const remaining: Array<SplitTime> = [];
   
   // const aYearMilliseconds = 1000 * 60 * 60 * 24 * 365;
@@ -12,7 +12,12 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   // const remainingWeeks = Math.floor((timeRemaining % aYearMilliseconds) / aWeekMilliseconds);
   // remaining.push({ remaining: remainingWeeks, label: 'weeks', milliseconds: aWeekMilliseconds });
   
-  const aWeekMilliseconds = 1000 * 60 * 60 * 24 * 7;
+  const aSecondMilliseconds = 1000;
+  const aMinuteMilliseconds = aSecondMilliseconds * 60;
+  const aHourMilliseconds = aMinuteMilliseconds * 60;
+  const aDayMilliseconds = aHourMilliseconds * 24;
+  const aWeekMilliseconds = aDayMilliseconds * 7;
+  
   const remainingWeeks = Math.floor(timeRemaining / aWeekMilliseconds);
   remaining.push({
     remaining: remainingWeeks,
@@ -22,7 +27,6 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     digits: 2,
   });
   
-  const aDayMilliseconds = 1000 * 60 * 60 * 24;
   const remainingDays = Math.floor((timeRemaining % aWeekMilliseconds) / aDayMilliseconds);
   remaining.push({
     remaining: remainingDays,
@@ -32,7 +36,6 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     digits: 2,
   });
   
-  const aHourMilliseconds = 1000 * 60 * 60;
   const remainingHours = Math.floor((timeRemaining % aDayMilliseconds) / aHourMilliseconds);
   remaining.push({
     remaining: remainingHours,
@@ -42,7 +45,6 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     digits: 2,
   });
   
-  const aMinuteMilliseconds = 1000 * 60;
   const remainingMinutes = Math.floor((timeRemaining % aHourMilliseconds) / aMinuteMilliseconds);
   remaining.push({
     remaining: remainingMinutes,
@@ -52,7 +54,6 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
     digits: 2,
   });
   
-  const aSecondMilliseconds = 1000;
   const remainingSeconds = Math.floor((timeRemaining % aMinuteMilliseconds) / aSecondMilliseconds);
   remaining.push({
     remaining: remainingSeconds,
@@ -78,7 +79,7 @@ export function splitTime(timeRemaining: number): Array<SplitTime> {
   //   }
   // }
   
-  return remaining;
+  return remaining as [ SplitTime, SplitTime, SplitTime, SplitTime, SplitTime, SplitTime ];
 }
 
 export function normalizeToLocalStartOfDay(timestamp: number | Date) {
