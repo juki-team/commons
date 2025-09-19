@@ -1,7 +1,7 @@
 import { UPPERCASE_LETTERS } from '../constants/commons';
 import { Judge } from '../types';
 
-export function isStringJson(str: any): boolean {
+export function isStringJson(str: any): str is string {
   try {
     if (typeof str === 'string') {
       JSON.parse(str);
