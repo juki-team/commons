@@ -1,4 +1,11 @@
-import { CodeEditorTestCaseType, DataLogType, ProblemVerdict, SubmissionTestCaseType, TestCaseVerdict } from '../types';
+import {
+  CodeEditorTestCaseType,
+  DataLogType,
+  ProblemVerdict,
+  SubmissionRunStatus,
+  SubmissionTestCaseType,
+  TestCaseVerdict,
+} from '../types';
 
 export const getDataOfTestCase = (testCase: SubmissionTestCaseType, timeLimit: number, memoryLimit: number) => {
   
@@ -6,8 +13,10 @@ export const getDataOfTestCase = (testCase: SubmissionTestCaseType, timeLimit: n
   const timeLimitExceeded = timeUsed > timeLimit;
   const memoryLimitExceeded = memoryUsed > memoryLimit;
   const runtimeError = exitCode !== 0;
+  const compilationError = testCase?.status === SubmissionRunStatus.COMPILATION_ERROR;
   
   return {
+    compilationError,
     timeUsed,
     timeLimitExceeded: timeLimitExceeded,
     memoryUsed,
@@ -25,6 +34,7 @@ export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCaseType, ti
   exitCode: number,
 } => {
   const {
+    compilationError,
     timeLimitExceeded,
     memoryLimitExceeded,
     runtimeError,
@@ -34,19 +44,21 @@ export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCaseType, ti
   } = getDataOfTestCase(testCaseValue, timeLimit, memoryLimit);
   
   return {
-    verdict: timeLimitExceeded
-      ? ProblemVerdict.TLE
-      : memoryLimitExceeded
-        ? ProblemVerdict.MLE
-        : runtimeError
-          ? ProblemVerdict.RE
-          : testCaseValue.out === testCaseValue.testOut
-            ? ProblemVerdict.AC
-            : testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
-              ? ProblemVerdict.PE
-              : !testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
-                ? ProblemVerdict.AC
-                : ProblemVerdict.WA,
+    verdict: compilationError
+      ? ProblemVerdict.CE
+      : timeLimitExceeded
+        ? ProblemVerdict.TLE
+        : memoryLimitExceeded
+          ? ProblemVerdict.MLE
+          : runtimeError
+            ? ProblemVerdict.RE
+            : testCaseValue.out === testCaseValue.testOut
+              ? ProblemVerdict.AC
+              : testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
+                ? ProblemVerdict.PE
+                : !testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
+                  ? ProblemVerdict.AC
+                  : ProblemVerdict.WA,
     timeUsed,
     memoryUsed,
     exitCode,
