@@ -68,6 +68,8 @@ export interface ContestProblemBasicDataResponseDTO {
   color: string,
   startTimestamp: number,
   endTimestamp: number,
+  prerequisites: { problemKey: string }[],
+  maxAcceptedUsers: number,
   tags: string[],
   company: EntityCompanySummaryListResponseDTO,
 }
