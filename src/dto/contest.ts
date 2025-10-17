@@ -83,9 +83,9 @@ export type ContestProblemDataResponseDTO =
   & ContestContestProblemDataResponseDTO
   & {
   // calculated
-  blockedBy: { type: ContestProblemBlockedByType }[],
+  blockedBy: { type: ContestProblemBlockedByType, details: Record<string, any> }[],
   totalSuccess: number,
-  totalAttempts: number, // successRate: number,
+  totalAttempts: number,
   myAttempts: number,
   myPoints: number,
   mySuccess: boolean,
@@ -96,7 +96,7 @@ export interface ContestEventResponseDTO {
   action: ContestEventAction,
   user: UserCompanyBasicInfoResponseDTO,
   timestamp: number,
-  details: Record<string, any>;
+  details: Record<string, any>,
 }
 
 export interface ContestDataResponseDTO extends Omit<ContestSummaryListResponseDTO, 'settings'>, Pick<ContestBaseDocument, 'settings' | 'description'> {
