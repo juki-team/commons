@@ -53,17 +53,10 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
   updateTimestamp: number,
 }
 
-export interface ContestProblemBasicDataResponseDTO {
+export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblemType, 'id'>{
   name: string,
   key: string,
   judge: ProblemJudgeSummaryListResponseDTO,
-  index: string,
-  points: number,
-  color: string,
-  startTimestamp: number,
-  endTimestamp: number,
-  prerequisites: { problemKey: string }[],
-  maxAcceptedUsers: number,
   tags: string[],
   company: EntityCompanySummaryListResponseDTO,
 }
