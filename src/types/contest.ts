@@ -66,6 +66,11 @@ export type ContestClarificationType = {
   public: boolean,
 };
 
+export enum ContestProblemPrerequisiteType {
+  INDIVIDUALLY = 'individually',
+  CONTEST = 'contest',
+}
+
 export type ContestProblemType = {
   id: string
   index: string,
@@ -73,7 +78,7 @@ export type ContestProblemType = {
   color: string,
   startTimestamp: number,
   endTimestamp: number,
-  prerequisites: { problemKey: string, type: 'individually' | 'contest', delay: number }[],
+  prerequisites: { problemKey: string, type: ContestProblemPrerequisiteType, delay: number }[],
   maxAcceptedUsers: number,
 };
 
