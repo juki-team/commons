@@ -108,6 +108,21 @@ export type ContestMembersBasicType = {
   spectators: { [key: string]: MemberUserData },
 };
 
+export enum ContestEventAction {
+  DATA_UPDATE = 'DATA_UPDATE',
+  SCOREBOARD_RECALCULATE = 'SCOREBOARD_RECALCULATE',
+  SCOREBOARD_UNLOCK = 'SCOREBOARD_UNLOCK',
+  SCOREBOARD_LOCK = 'SCOREBOARD_LOCK',
+  PARTICIPANT_JOIN = 'PARTICIPANT_JOIN',
+}
+
+export interface ContestEvent {
+  action:   ContestEventAction,
+  userId:  string,
+  timestamp: number,
+  details: Record<string, any>;
+}
+
 export interface ContestBaseDocument {
   key: string,
   name: string,
@@ -116,6 +131,7 @@ export interface ContestBaseDocument {
   problems: { [key: string]: ContestProblemType },
   members: EntityMembers,
   tags: string[],
+  events: ContestEvent[],
 }
 
 export type ContestMembersResponseType = {

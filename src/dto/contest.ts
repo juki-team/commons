@@ -1,6 +1,7 @@
 import {
   ContestBaseDocument,
   ContestClarificationType,
+  ContestEventAction,
   ContestProblemType,
   ContestSettings,
   ContestUserType,
@@ -22,7 +23,7 @@ export interface UpsertContestProblemDTO extends Omit<ContestProblemType, 'id'> 
   key: string
 }
 
-export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings'> {
+export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings' | 'events'> {
   members: EntityMembersDTO,
   problems: { [key: string]: UpsertContestProblemDTO },
   settings: Omit<ContestSettings, 'locked'>,
@@ -83,9 +84,17 @@ export type ContestProblemDataResponseDTO =
   myPenalty: number,
 };
 
+export interface ContestEventResponseDTO {
+  action:   ContestEventAction,
+  user:  UserCompanyBasicInfoResponseDTO,
+  timestamp: number,
+  details: Record<string, any>;
+}
+
 export interface ContestDataResponseDTO extends Omit<ContestSummaryListResponseDTO, 'settings'>, Pick<ContestBaseDocument, 'settings' | 'description'> {
   problems: { [key: string]: ContestProblemDataResponseDTO },
   members: EntityMembersWithTimestampsResponseDTO,
   clarifications: ContestClarificationType[],
   state: EntityState,
+  events: ContestEventResponseDTO[]
 }
