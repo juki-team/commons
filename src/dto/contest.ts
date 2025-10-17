@@ -21,7 +21,7 @@ import {
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export type UpsertContestProblemPrerequisiteDTO = (Omit<ContestProblemPrerequisite, 'problemId'> & {
-  problemKey: string
+  problemIndex: string
 })[];
 
 export interface UpsertContestProblemDTO extends Omit<ContestProblemType, 'id' | 'prerequisites'> {
