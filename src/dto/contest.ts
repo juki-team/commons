@@ -1,6 +1,7 @@
 import {
   ContestBaseDocument,
   ContestClarificationType,
+  ContestProblemType,
   ContestSettings,
   ContestUserType,
   EntityState,
@@ -17,15 +18,8 @@ import {
 } from './problem';
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
-export interface UpsertContestProblemDTO {
+export interface UpsertContestProblemDTO extends Omit<ContestProblemType, 'id'> {
   key: string
-  index: string,
-  points: number,
-  color: string,
-  startTimestamp: number,
-  endTimestamp: number,
-  prerequisites: { problemKey: string }[],
-  maxAcceptedUsers: number,
 }
 
 export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings'> {
