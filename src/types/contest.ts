@@ -73,7 +73,7 @@ export type ContestProblemType = {
   color: string,
   startTimestamp: number,
   endTimestamp: number,
-  prerequisites: { problemKey: string }[],
+  prerequisites: { problemKey: string, type: 'individually' | 'contest', delay: number }[],
   maxAcceptedUsers: number,
 };
 
