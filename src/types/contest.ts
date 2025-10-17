@@ -67,8 +67,8 @@ export type ContestClarificationType = {
 };
 
 export enum ContestProblemPrerequisiteType {
-  INDIVIDUALLY = 'individually',
-  CONTEST = 'contest',
+  INDIVIDUALLY = 'INDIVIDUALLY',
+  CONTEST = 'CONTEST',
 }
 
 export type ContestProblemPrerequisite = {
