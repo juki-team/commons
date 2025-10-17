@@ -2,6 +2,7 @@ import {
   ContestBaseDocument,
   ContestClarificationType,
   ContestEventAction,
+  ContestProblemPrerequisite,
   ContestProblemType,
   ContestSettings,
   ContestUserType,
@@ -19,8 +20,13 @@ import {
 } from './problem';
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
-export interface UpsertContestProblemDTO extends Omit<ContestProblemType, 'id'> {
-  key: string;
+export type UpsertContestProblemPrerequisiteDTO = (Omit<ContestProblemPrerequisite, 'problemId'> & {
+  problemKey: string
+})[];
+
+export interface UpsertContestProblemDTO extends Omit<ContestProblemType, 'id' | 'prerequisites'> {
+  key: string,
+  prerequisites: UpsertContestProblemPrerequisiteDTO,
 }
 
 export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings' | 'events'> {
@@ -54,9 +60,10 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
   updateTimestamp: number,
 }
 
-export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblemType, 'id'> {
+export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblemType, 'id' | 'prerequisites'> {
   name: string,
   key: string,
+  prerequisites: UpsertContestProblemPrerequisiteDTO,
   judge: ProblemJudgeSummaryListResponseDTO,
   tags: string[],
   company: EntityCompanySummaryListResponseDTO,

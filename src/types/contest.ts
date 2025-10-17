@@ -71,6 +71,12 @@ export enum ContestProblemPrerequisiteType {
   CONTEST = 'contest',
 }
 
+export type ContestProblemPrerequisite = {
+  problemId: string,
+  type: ContestProblemPrerequisiteType,
+  delay: number,
+}
+
 export type ContestProblemType = {
   id: string
   index: string,
@@ -78,7 +84,7 @@ export type ContestProblemType = {
   color: string,
   startTimestamp: number,
   endTimestamp: number,
-  prerequisites: { problemKey: string, type: ContestProblemPrerequisiteType, delay: number }[],
+  prerequisites: ContestProblemPrerequisite[],
   maxAcceptedUsers: number,
 };
 
@@ -117,8 +123,8 @@ export enum ContestEventAction {
 }
 
 export interface ContestEvent {
-  action:   ContestEventAction,
-  userId:  string,
+  action: ContestEventAction,
+  userId: string,
   timestamp: number,
   details: Record<string, any>;
 }
