@@ -127,6 +127,18 @@ export interface UnsubscribeSubmissionsCrawlWebSocketEventDTO {
   problemKeys: string,
 }
 
+export interface SubscribeContestChangesWebSocketEventDTO {
+  event: WebSocketActionEvent.SUBSCRIBE_CONTEST_CHANGES,
+  sessionId: ObjectIdType,
+  contestKey: string,
+}
+
+export interface UnsubscribeContestChangesWebSocketEventDTO {
+  event: WebSocketActionEvent.UNSUBSCRIBE_CONTEST_CHANGES,
+  sessionId: ObjectIdType,
+  contestKey: string,
+}
+
 export type WebSocketEventDTO =
   PingWebSocketEventDTO
   | AuthenticateWebSocketEventDTO
@@ -147,7 +159,9 @@ export type WebSocketEventDTO =
   | SubscribeChatCompletionsDataWebSocketEventDTO
   | UnsubscribeChatCompletionsDataWebSocketEventDTO
   | SubscribeSubmissionsCrawlWebSocketEventDTO
-  | UnsubscribeSubmissionsCrawlWebSocketEventDTO;
+  | UnsubscribeSubmissionsCrawlWebSocketEventDTO
+  | SubscribeContestChangesWebSocketEventDTO
+  | UnsubscribeContestChangesWebSocketEventDTO;
 
 // BROADCAST EVENTS
 
@@ -286,6 +300,13 @@ export interface SubmissionsCrawlWebSocketResponseEventDTO extends WebSocketResp
   },
 }
 
+export interface ContestChangesWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.CONTEST_CHANGES,
+  content: {
+    contestKey: string,
+  },
+}
+
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | ResponseWebSocketResponseEventDTO
@@ -298,4 +319,5 @@ export type WebSocketResponseEventDTO =
   | SendDataSsmSessionsListWebSocketResponseEventDTO
   | ProblemCrawledWebSocketResponseEventDTO
   | ChatCompletionsResponseWebSocketResponseEventDTO
-  | SubmissionsCrawlWebSocketResponseEventDTO;
+  | SubmissionsCrawlWebSocketResponseEventDTO
+  | ContestChangesWebSocketResponseEventDTO;

@@ -3,6 +3,7 @@ import {
   ChatCompletionsResponseWebSocketResponseEventDTO,
   CodeRunStatusNotificationWebSocketBroadcastEventDTO,
   CodeRunStatusWebSocketResponseEventDTO,
+  ContestChangesWebSocketResponseEventDTO,
   PingWebSocketBroadcastEventDTO,
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
@@ -16,6 +17,7 @@ import {
   SubmissionsCrawlWebSocketResponseEventDTO,
   SubscribeChatCompletionsDataWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
+  SubscribeContestChangesWebSocketEventDTO,
   SubscribeProblemCrawledWebSocketEventDTO,
   SubscribeSenDataEc2InstancesListWebSocketEventDTO,
   SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO,
@@ -25,6 +27,7 @@ import {
   SubscribeSubmissionsCrawlWebSocketEventDTO,
   UnsubscribeChatCompletionsDataWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
+  UnsubscribeContestChangesWebSocketEventDTO,
   UnsubscribeProblemCrawledWebSocketEventDTO,
   UnsubscribeSenDataEc2InstancesListWebSocketEventDTO,
   UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO,
@@ -144,6 +147,14 @@ export const isUnsubscribeSubmissionsCrawlWebSocketEventDTO = (event: any): even
   return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL;
 };
 
+export const isSubscribeContestChangesWebSocketEventDTO = (event: any): event is SubscribeContestChangesWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.SUBSCRIBE_CONTEST_CHANGES;
+};
+
+export const isUnsubscribeContestChangesWebSocketEventDTO = (event: any): event is UnsubscribeContestChangesWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
+};
+
 export const isPingWebSocketBroadcastEventDTO = (event: any): event is PingWebSocketBroadcastEventDTO => {
   return event?.event === WebSocketBroadcastEvent.PING;
 };
@@ -257,6 +268,11 @@ export const isChatCompletionsResponseWebSocketResponseEventDTO = (event: any): 
 
 export const isSubmissionsCrawlWebSocketResponseEventDTO = (event: any): event is SubmissionsCrawlWebSocketResponseEventDTO => {
   return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.SUBMISSIONS_CRAWL
+    && !!event?.content;
+};
+
+export const isContestChangesWebSocketResponseEventDTO = (event: any): event is ContestChangesWebSocketResponseEventDTO => {
+  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.CONTEST_CHANGES
     && !!event?.content;
 };
 
