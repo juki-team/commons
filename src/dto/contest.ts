@@ -20,7 +20,7 @@ import {
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface UpsertContestProblemDTO extends Omit<ContestProblemType, 'id'> {
-  key: string
+  key: string;
 }
 
 export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings' | 'events'> {
@@ -54,7 +54,7 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
   updateTimestamp: number,
 }
 
-export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblemType, 'id'>{
+export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblemType, 'id'> {
   name: string,
   key: string,
   judge: ProblemJudgeSummaryListResponseDTO,
@@ -71,11 +71,19 @@ export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummar
   ownerNickname: string,
 }
 
+export enum ContestProblemBlockedByType {
+  PREREQUISITE = 'PREREQUISITE',
+  MAX_ACCEPTED_SUBMISSIONS = 'MAX_ACCEPTED_SUBMISSIONS',
+  START_TIME_IN_THE_FUTURE = 'START_TIME_IN_THE_FUTURE',
+  END_TIME_IN_THE_PAST = 'END_TIME_IN_THE_PAST',
+}
+
 export type ContestProblemDataResponseDTO =
   ContestProblemBasicDataResponseDTO
   & ContestContestProblemDataResponseDTO
   & {
   // calculated
+  blockedBy: { type: ContestProblemBlockedByType }[],
   totalSuccess: number,
   totalAttempts: number, // successRate: number,
   myAttempts: number,
@@ -85,8 +93,8 @@ export type ContestProblemDataResponseDTO =
 };
 
 export interface ContestEventResponseDTO {
-  action:   ContestEventAction,
-  user:  UserCompanyBasicInfoResponseDTO,
+  action: ContestEventAction,
+  user: UserCompanyBasicInfoResponseDTO,
   timestamp: number,
   details: Record<string, any>;
 }
