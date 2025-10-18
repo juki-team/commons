@@ -1,5 +1,4 @@
 import {
-  AuthenticateWebSocketEventDTO,
   ChatCompletionsResponseWebSocketResponseEventDTO,
   CodeRunStatusNotificationWebSocketBroadcastEventDTO,
   CodeRunStatusWebSocketResponseEventDTO,
@@ -51,11 +50,6 @@ import {
 
 export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
   return event?.event === WebSocketActionEvent.PING
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isAuthenticateWebSocketEventDTO = (event: any): event is AuthenticateWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.AUTHENTICATE
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
