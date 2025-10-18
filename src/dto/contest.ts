@@ -97,6 +97,7 @@ export type ContestProblemDataResponseDTO =
   myPoints: number,
   mySuccess: boolean,
   myPenalty: number,
+  myIndexAccepted: number,
 };
 
 export interface ContestEventResponseDTO {
