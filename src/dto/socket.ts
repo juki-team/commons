@@ -19,6 +19,11 @@ import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 export interface PingWebSocketEventDTO {
   event: WebSocketActionEvent.PING,
   sessionId: ObjectIdType,
+}
+
+export interface UserTrackWebSocketEventDTO {
+  event: WebSocketActionEvent.USER_TRACK,
+  sessionId: ObjectIdType,
   href: string,
 }
 

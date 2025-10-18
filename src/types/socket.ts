@@ -10,6 +10,8 @@ export enum WebSocketBroadcastEvent {
 export enum WebSocketActionEvent {
   PING = 'PING',
   
+  USER_TRACK = 'USER_TRACK',
+  
   SUBSCRIBE_CODE_RUN_STATUS = 'SUBSCRIBE_CODE_RUN_STATUS',
   UNSUBSCRIBE_CODE_RUN_STATUS = 'UNSUBSCRIBE_CODE_RUN_STATUS',
   

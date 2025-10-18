@@ -36,6 +36,7 @@ import {
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserNotificationWebSocketBroadcastEventDTO,
+  UserTrackWebSocketEventDTO,
   WebSocketResponseEventDTO,
 } from '../dto';
 import {
@@ -50,6 +51,11 @@ import {
 
 export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
   return event?.event === WebSocketActionEvent.PING
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
+};
+
+export const isUserTrackWebSocketEventDTO = (event: any): event is UserTrackWebSocketEventDTO => {
+  return event?.event === WebSocketActionEvent.USER_TRACK
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
