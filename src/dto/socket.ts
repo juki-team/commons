@@ -141,6 +141,7 @@ export interface UnsubscribeContestChangesWebSocketEventDTO {
 
 export type WebSocketEventDTO =
   PingWebSocketEventDTO
+  | UserTrackWebSocketEventDTO
   | SubscribeCodeRunStatusWebSocketEventDTO
   | UnsubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
