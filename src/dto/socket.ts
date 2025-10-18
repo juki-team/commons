@@ -13,7 +13,7 @@ import {
   EcsTaskSystemSummaryListResponseDTO,
   SsmSessionType,
 } from './system';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 // EVENT ACTIONS
 export interface PingWebSocketEventDTO {
@@ -221,7 +221,7 @@ export interface WebSocketResponse {
 
 export interface PongWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.PONG,
-  data: { message: string },
+  data: PingResponseDTO,
 }
 
 export interface ResponseWebSocketResponseEventDTO extends WebSocketResponse {
