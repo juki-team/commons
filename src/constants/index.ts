@@ -14,4 +14,5 @@ export * from './system';
 export * from './teams';
 export * from './time';
 export * from './user';
+export * from './websocket';
 export * from './worksheet';
