@@ -1,5 +1,7 @@
-export const CHANNEL_CONTROL_SUBSCRIPTIONS = 'control:subscriptions';
+export const CHANNEL_CLIENT_SUBSCRIPTIONS = 'client:subscriptions';
 
-export const CHANNEL_NOTIFICATIONS = 'notifications';
+export const CHANNEL_CLIENT_NOTIFICATIONS = 'client:notifications';
 
-export const CHANNEL_USER_SESSION = (sessionId: string) => `user:${sessionId}`;
+export const CHANNEL_CLIENT_USER_SESSION = (sessionId: string) => `client:user:${sessionId}`;
+
+export const CHANNEL_SEVER_MESSAGES = 'server:messages';
