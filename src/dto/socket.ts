@@ -139,7 +139,7 @@ export interface UnsubscribeContestChangesWebSocketEventDTO {
   contestKey: string,
 }
 
-export type WebSocketEventDTO =
+export type _WebSocketEventDTO =
   PingWebSocketEventDTO
   | UserTrackWebSocketEventDTO
   | SubscribeCodeRunStatusWebSocketEventDTO
@@ -162,6 +162,18 @@ export type WebSocketEventDTO =
   | UnsubscribeSubmissionsCrawlWebSocketEventDTO
   | SubscribeContestChangesWebSocketEventDTO
   | UnsubscribeContestChangesWebSocketEventDTO;
+
+export type SubscribeWebSocketEventDTO =
+  SubscribeCodeRunStatusWebSocketEventDTO
+  | SubscribeSubmissionRunStatusWebSocketEventDTO
+  | SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO
+  | SubscribeSenDataEcsTasksListWebSocketEventDTO
+  | SubscribeSenDataEc2InstancesListWebSocketEventDTO
+  | SubscribeSenDataSsmSessionsListWebSocketEventDTO
+  | SubscribeProblemCrawledWebSocketEventDTO
+  | SubscribeChatCompletionsDataWebSocketEventDTO
+  | SubscribeSubmissionsCrawlWebSocketEventDTO
+  | SubscribeContestChangesWebSocketEventDTO;
 
 // BROADCAST EVENTS
 
