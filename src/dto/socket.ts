@@ -175,6 +175,18 @@ export type SubscribeWebSocketEventDTO =
   | SubscribeSubmissionsCrawlWebSocketEventDTO
   | SubscribeContestChangesWebSocketEventDTO;
 
+export type UnsubscribeWebSocketEventDTO =
+  UnsubscribeCodeRunStatusWebSocketEventDTO
+  | UnsubscribeSubmissionRunStatusWebSocketEventDTO
+  | UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO
+  | UnsubscribeSenDataEcsTasksListWebSocketEventDTO
+  | UnsubscribeSenDataEc2InstancesListWebSocketEventDTO
+  | UnsubscribeSenDataSsmSessionsListWebSocketEventDTO
+  | UnsubscribeProblemCrawledWebSocketEventDTO
+  | UnsubscribeChatCompletionsDataWebSocketEventDTO
+  | UnsubscribeSubmissionsCrawlWebSocketEventDTO
+  | UnsubscribeContestChangesWebSocketEventDTO;
+
 // BROADCAST EVENTS
 
 export interface PingWebSocketBroadcastEventDTO {
