@@ -106,11 +106,13 @@ export interface UnsubscribeProblemCrawledWebSocketEventDTO {
 export interface SubscribeChatCompletionsDataWebSocketEventDTO {
   event: WebSocketActionEvent.SUBSCRIBE_CHAT_COMPLETIONS_DATA,
   sessionId: ObjectIdType,
+  chatId: string,
 }
 
 export interface UnsubscribeChatCompletionsDataWebSocketEventDTO {
   event: WebSocketActionEvent.UNSUBSCRIBE_CHAT_COMPLETIONS_DATA,
   sessionId: ObjectIdType,
+  chatId: string,
 }
 
 export interface SubscribeSubmissionsCrawlWebSocketEventDTO {
