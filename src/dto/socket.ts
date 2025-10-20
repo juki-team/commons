@@ -242,7 +242,7 @@ export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketR
   verdict: ProblemVerdict,
   points: number,
   testInfo?: TestInfoType,
-  shouldValidateByContestId?: boolean,
+  shouldValidateByContestId?: string,
 }
 
 export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse {
