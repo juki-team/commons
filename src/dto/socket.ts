@@ -242,6 +242,8 @@ export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketR
   verdict: ProblemVerdict,
   points: number,
   testInfo?: TestInfoType,
+  isFrozenTime: boolean,
+  isQuietTime: boolean,
 }
 
 export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse {
