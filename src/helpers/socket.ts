@@ -1,9 +1,8 @@
 import {
   ChatCompletionsResponseWebSocketResponseEventDTO,
-  CodeRunStatusNotificationWebSocketBroadcastEventDTO,
+  ChatCompletionsWebSocketEventDTO,
   CodeRunStatusWebSocketResponseEventDTO,
   ContestChangesWebSocketResponseEventDTO,
-  PingWebSocketBroadcastEventDTO,
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
   ProblemCrawledWebSocketResponseEventDTO,
@@ -11,7 +10,6 @@ import {
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
   SendDataSsmSessionsListWebSocketResponseEventDTO,
-  SubmissionRunStatusNotificationWebSocketBroadcastEventDTO,
   SubmissionRunStatusWebSocketResponseEventDTO,
   SubmissionsCrawlWebSocketResponseEventDTO,
   SubscribeChatCompletionsDataWebSocketEventDTO,
@@ -35,7 +33,6 @@ import {
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
-  UserNotificationWebSocketBroadcastEventDTO,
   UserTrackWebSocketEventDTO,
   WebSocketResponseEventDTO,
 } from '../dto';
@@ -43,146 +40,122 @@ import {
   ObjectIdType,
   ProblemVerdict,
   SubmissionRunStatus,
-  WebSocketActionEvent,
-  WebSocketBroadcastEvent,
+  WebSocketMessageEvent,
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
+  WebSocketSubscriptionEvent,
 } from '../types';
 
 export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.PING
+  return event?.event === WebSocketMessageEvent.PING
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isUserTrackWebSocketEventDTO = (event: any): event is UserTrackWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.USER_TRACK
+  return event?.event === WebSocketMessageEvent.USER_TRACK
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
+export const isChatCompletionsWebSocketEventDTO = (event: any): event is ChatCompletionsWebSocketEventDTO => {
+  return event?.event === WebSocketMessageEvent.CHAT_COMPLETIONS
+    && typeof event?.sessionId === 'string' && !!event.sessionId;
+};
+// SUBSCRIPTIONS
+
 export const isSubscribeCodeRunStatusWebSocketEventDTO = (event: any): event is SubscribeCodeRunStatusWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_CODE_RUN_STATUS
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CODE_RUN_STATUS
     && typeof event?.sessionId === 'string' && !!event.sessionId
     && typeof event?.runId === 'string' && !!event.runId;
 };
 
 export const isUnsubscribeCodeRunStatusWebSocketEventDTO = (event: any): event is UnsubscribeCodeRunStatusWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_CODE_RUN_STATUS
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CODE_RUN_STATUS
     && typeof event?.sessionId === 'string' && !!event.sessionId
     && typeof event?.runId === 'string' && !!event.runId;
 };
 
 export const isSubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): event is SubscribeSubmissionRunStatusWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS
     && typeof event?.sessionId === 'string' && !!event.sessionId
     && typeof event?.submitId === 'string' && !!event.submitId;
 };
 
 export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): event is UnsubscribeSubmissionRunStatusWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS
     && typeof event?.sessionId === 'string' && !!event.sessionId
     && typeof event?.submitId === 'string' && !!event.submitId;
 };
 
 export const isSubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isUnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isSubscribeSenDataEcsTasksListWebSocketEventDTO = (event: any): event is SubscribeSenDataEcsTasksListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isUnsubscribeSenDataEcsTasksListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEcsTasksListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isSubscribeSenDataEc2InstancesListWebSocketEventDTO = (event: any): event is SubscribeSenDataEc2InstancesListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isUnsubscribeSenDataEc2InstancesListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEc2InstancesListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isSubscribeSenDataSsmSessionsListWebSocketEventDTO = (event: any): event is SubscribeSenDataSsmSessionsListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isUnsubscribeSenDataSsmSessionsListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataSsmSessionsListWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isSubscribeProblemCrawledWebSocketEventDTO = (event: any): event is SubscribeProblemCrawledWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_PROBLEM_CRAWLED;
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_PROBLEM_CRAWLED;
 };
 
 export const isUnsubscribeProblemCrawledWebSocketEventDTO = (event: any): event is UnsubscribeProblemCrawledWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED;
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED;
 };
 
 export const isSubscribeChatCompletionsDataWebSocketEventDTO = (event: any): event is SubscribeChatCompletionsDataWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_CHAT_COMPLETIONS_DATA;
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CHAT_COMPLETIONS_DATA;
 };
 
 export const isUnsubscribeChatCompletionsDataWebSocketEventDTO = (event: any): event is UnsubscribeChatCompletionsDataWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_CHAT_COMPLETIONS_DATA;
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CHAT_COMPLETIONS_DATA;
 };
 
 export const isSubscribeSubmissionsCrawlWebSocketEventDTO = (event: any): event is SubscribeSubmissionsCrawlWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL;
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL;
 };
 
 export const isUnsubscribeSubmissionsCrawlWebSocketEventDTO = (event: any): event is UnsubscribeSubmissionsCrawlWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL;
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL;
 };
 
 export const isSubscribeContestChangesWebSocketEventDTO = (event: any): event is SubscribeContestChangesWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.SUBSCRIBE_CONTEST_CHANGES;
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CONTEST_CHANGES;
 };
 
 export const isUnsubscribeContestChangesWebSocketEventDTO = (event: any): event is UnsubscribeContestChangesWebSocketEventDTO => {
-  return event?.event === WebSocketActionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
-};
-
-export const isPingWebSocketBroadcastEventDTO = (event: any): event is PingWebSocketBroadcastEventDTO => {
-  return event?.event === WebSocketBroadcastEvent.PING;
-};
-
-export const isCodeRunStatusNotificationWebSocketBroadcastEventDTO = (event: any): event is CodeRunStatusNotificationWebSocketBroadcastEventDTO => {
-  return event?.event === WebSocketBroadcastEvent.CODE_RUN_STATUS_NOTIFICATION
-    && typeof event?.sessionId === 'string' && !!event.sessionId
-    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
-    && typeof event?.runId === 'string' && !!event.runId
-    && event?.status in SubmissionRunStatus;
-};
-
-export const isSubmissionRunStatusNotificationWebSocketBroadcastEventDTO = (event: any): event is SubmissionRunStatusNotificationWebSocketBroadcastEventDTO => {
-  return event?.event === WebSocketBroadcastEvent.SUBMISSION_RUN_STATUS_NOTIFICATION
-    && typeof event?.sessionId === 'string' && !!event?.sessionId
-    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
-    && typeof event?.submitId === 'string' && !!event.submitId
-    && event?.status in SubmissionRunStatus
-    && event?.verdict in ProblemVerdict
-    && typeof event?.points === 'number';
-};
-
-export const isUserNotificationWebSocketBroadcastEventDTO = (event: any): event is UserNotificationWebSocketBroadcastEventDTO => {
-  return event?.event === WebSocketBroadcastEvent.USER_NOTIFICATION
-    && typeof event?.sessionId === 'string' && !!event?.sessionId
-    && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
-    && typeof event?.userId === 'string' && !!event?.userId
-    && typeof event?.content === 'string' && !!event?.content;
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
 };
 
 // is WebSocketResponseEventDTO
