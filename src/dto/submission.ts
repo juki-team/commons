@@ -34,6 +34,8 @@ export interface SubmissionContestSummaryListResponseDTO {
   problemIndex: string,
   problemColor: string,
   company: EntityCompanySummaryListResponseDTO,
+  isFrozen: boolean,
+  isQuiet: boolean,
 }
 
 export interface SubmissionSummaryListResponseDTO {
