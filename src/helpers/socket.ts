@@ -60,6 +60,7 @@ export const isChatCompletionsWebSocketEventDTO = (event: any): event is ChatCom
   return event?.event === WebSocketMessageEvent.CHAT_COMPLETIONS
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
+
 // SUBSCRIPTIONS
 
 export const isSubscribeCodeRunStatusWebSocketEventDTO = (event: any): event is SubscribeCodeRunStatusWebSocketEventDTO => {

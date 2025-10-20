@@ -32,7 +32,8 @@ export interface UserTrackWebSocketEventDTO extends WebsocketMessage {
 
 export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
   event: WebSocketMessageEvent.CHAT_COMPLETIONS,
-  href: string,
+  chatAiId: string,
+  content: string,
 }
 
 export type WebSocketMessageEventDTO =
