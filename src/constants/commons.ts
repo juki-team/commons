@@ -96,7 +96,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.C_11]: {
     value: CodeLanguage.C_11,
     label: 'C 11',
-    compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -std=gnu11 -o ' +
+    compilePattern: '/usr/bin/jk-c11 -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -std=gnu11 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
@@ -124,7 +124,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.CPP_11]: {
     value: CodeLanguage.CPP_11,
     label: 'C++ 11',
-    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++11 -o ' +
+    compilePattern: '/usr/bin/jk-cpp11 -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++11 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
@@ -132,7 +132,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.CPP_20]: {
     value: CodeLanguage.CPP_20,
     label: 'C++ 20',
-    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++20 -o ' +
+    compilePattern: '/usr/bin/jk-cpp20 -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++20 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
@@ -143,25 +143,25 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mime: 'text/x-java',
     mainFilename: 'Main.java',
     fileExtension: [ 'java' ],
-    compilePattern: 'javac -cp \'.;*\' {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: '/usr/bin/jk-javac -cp \'.;*\' {{folder_path}}/{{source_full_file_name}}',
     // compilePattern: 'javac {{folder_path}}/{{source_full_file_name}}',
     // runPattern: 'java -cp {{folder_path}} {{class_name}}'
-    runPattern: '/usr/lib/jvm/java-21-openjdk-amd64/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
+    runPattern: '/usr/bin/jk-java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
       '{{folder_path}} {{class_name}}',
     templateSourceCode: 'class Main {\n  public static void main (String[] args) {' +
       '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
-    executable: 'javac',
+    executable: 'java',
     executableVersion: JAVAC_VERSION,
     monacoKey: 'java',
     codeMirrorKey: 'java',
     highlightJsKey: 'java',
   },
-  [CodeLanguage.PYTHON_2]: {
+  [CodeLanguage.PYTHON_2]: { // DEPRECATED
     value: CodeLanguage.PYTHON_2,
     label: 'Python 2',
-    compilePattern: '/usr/bin/python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/python2 {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: '/usr/bin/jk-python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/jk-python2 {{folder_path}}/{{source_full_file_name}}',
     executable: 'python2',
     executableVersion: PYPY3_VERSION,
     ...PYTHON,
@@ -169,27 +169,27 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.PYTHON_3]: {
     value: CodeLanguage.PYTHON_3,
     label: 'Python 3',
-    compilePattern: '/usr/bin/python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: '/usr/bin/k-python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/jk-python3 {{folder_path}}/{{source_full_file_name}}',
     executable: 'python3',
     executableVersion: PYPY3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON_PYPY_2]: {
+  [CodeLanguage.PYTHON_PYPY_2]: { // DEPRECATED
     value: CodeLanguage.PYTHON_PYPY_2,
     label: 'PyPy 2',
-    compilePattern: '/usr/bin/pypy2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/pypy2 {{folder_path}}/{{source_full_file_name}}',
-    executable: 'python3',
+    compilePattern: '/usr/bin/jk-pypy2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/jk-pypy2 {{folder_path}}/{{source_full_file_name}}',
+    executable: 'pypy2',
     executableVersion: PYPY3_VERSION,
     ...PYTHON,
   },
   [CodeLanguage.PYTHON_PYPY_3]: {
     value: CodeLanguage.PYTHON_PYPY_3,
     label: 'PyPy 3',
-    compilePattern: '/usr/bin/pypy3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
-    runPattern: '/usr/bin/pypy3 {{folder_path}}/{{source_full_file_name}}',
-    executable: 'python3',
+    compilePattern: '/usr/bin/jk-pypy3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/jk-pypy3 {{folder_path}}/{{source_full_file_name}}',
+    executable: 'pypy3',
     executableVersion: PYPY3_VERSION,
     ...PYTHON,
   },
@@ -200,7 +200,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     mainFilename: 'main.js',
     fileExtension: [ 'js' ],
     compilePattern: '',
-    runPattern: '/usr/bin/node {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/jk-node22 {{folder_path}}/{{source_full_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
     hasBuildFile: false,
     executable: 'node',

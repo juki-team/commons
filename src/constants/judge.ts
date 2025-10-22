@@ -175,47 +175,18 @@ export const RUNNER_ACCEPTED_PROBLEM_TYPES: ProblemType[] = [
 ];
 
 export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: CodeLanguage[] = [
-  CodeLanguage.ICPC_C,
-  CodeLanguage.C,
-  CodeLanguage.ICPC_CPP,
-  CodeLanguage.CPP,
-  CodeLanguage.CPP11,
-  CodeLanguage.CPP14,
-  CodeLanguage.CPP17,
-  CodeLanguage.JAVA,
-  CodeLanguage.JAVASCRIPT,
-  CodeLanguage.ICPC_PYTHON,
-  CodeLanguage.PYTHON,
-  CodeLanguage.PYTHON2,
-  CodeLanguage.PYTHON3,
-  CodeLanguage.PSEUDOCODE_PSEINT,
-];
-
-export const ACCEPTED_PROGRAMMING_LANGUAGES = [
   CodeLanguage.C_11,
   CodeLanguage.CPP_11,
   CodeLanguage.CPP_20,
   CodeLanguage.JAVA_21,
-  CodeLanguage.PYTHON_2,
   CodeLanguage.PYTHON_3,
-  CodeLanguage.PYTHON_PYPY_2,
   CodeLanguage.PYTHON_PYPY_3,
   CodeLanguage.JAVASCRIPT_NODE_JS_22,
-  //  deprecated:
-  CodeLanguage.ICPC_C,
-  CodeLanguage.C,
-  CodeLanguage.ICPC_CPP,
-  CodeLanguage.CPP,
-  CodeLanguage.CPP11,
-  CodeLanguage.CPP14,
-  CodeLanguage.CPP17,
-  CodeLanguage.JAVA,
-  CodeLanguage.JAVASCRIPT,
-  CodeLanguage.ICPC_PYTHON,
-  CodeLanguage.PYTHON,
-  CodeLanguage.PYTHON2,
-  CodeLanguage.PYTHON3,
   CodeLanguage.PSEUDOCODE_PSEINT,
+];
+
+export const ACCEPTED_PROGRAMMING_LANGUAGES = [
+  ...RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES,
 ];
 
 export const PROBLEM_VERDICT: { [key in ProblemVerdict]: { value: ProblemVerdict, label: string, color: string } } = {
