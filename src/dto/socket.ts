@@ -79,12 +79,12 @@ export interface UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO exte
 }
 
 export interface SubscribeSendDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
-  ecsTasksList: string,
+  ecsTasksListId: string,
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
 }
 
 export interface UnsubscribeSendDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
-  ecsTasksList: string,
+  ecsTasksListId: string,
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
 }
 
