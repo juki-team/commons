@@ -68,35 +68,35 @@ export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO extends Websock
   submitId: string,
 }
 
-export interface SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
 }
 
-export interface UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
 }
 
-export interface SubscribeSenDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSendDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
 }
 
-export interface UnsubscribeSenDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSendDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
 }
 
-export interface SubscribeSenDataEc2InstancesListWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSendDataEc2InstancesListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST,
 }
 
-export interface UnsubscribeSenDataEc2InstancesListWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSendDataEc2InstancesListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST,
 }
 
-export interface SubscribeSenDataSsmSessionsListWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSendDataSsmSessionsListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST,
 }
 
-export interface UnsubscribeSenDataSsmSessionsListWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSendDataSsmSessionsListWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST,
 }
 
@@ -145,10 +145,10 @@ export interface UnsubscribeContestChangesWebSocketEventDTO extends WebsocketSub
 export type WebSocketSubscribeEventDTO =
   SubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
-  | SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO
-  | SubscribeSenDataEcsTasksListWebSocketEventDTO
-  | SubscribeSenDataEc2InstancesListWebSocketEventDTO
-  | SubscribeSenDataSsmSessionsListWebSocketEventDTO
+  | SubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO
+  | SubscribeSendDataEcsTasksListWebSocketEventDTO
+  | SubscribeSendDataEc2InstancesListWebSocketEventDTO
+  | SubscribeSendDataSsmSessionsListWebSocketEventDTO
   | SubscribeProblemCrawledWebSocketEventDTO
   | SubscribeChatCompletionsDataWebSocketEventDTO
   | SubscribeSubmissionsCrawlWebSocketEventDTO
@@ -157,10 +157,10 @@ export type WebSocketSubscribeEventDTO =
 export type WebSocketUnsubscribeEventDTO =
   UnsubscribeCodeRunStatusWebSocketEventDTO
   | UnsubscribeSubmissionRunStatusWebSocketEventDTO
-  | UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO
-  | UnsubscribeSenDataEcsTasksListWebSocketEventDTO
-  | UnsubscribeSenDataEc2InstancesListWebSocketEventDTO
-  | UnsubscribeSenDataSsmSessionsListWebSocketEventDTO
+  | UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO
+  | UnsubscribeSendDataEcsTasksListWebSocketEventDTO
+  | UnsubscribeSendDataEc2InstancesListWebSocketEventDTO
+  | UnsubscribeSendDataSsmSessionsListWebSocketEventDTO
   | UnsubscribeProblemCrawledWebSocketEventDTO
   | UnsubscribeChatCompletionsDataWebSocketEventDTO
   | UnsubscribeSubmissionsCrawlWebSocketEventDTO

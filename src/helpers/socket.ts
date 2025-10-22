@@ -16,20 +16,20 @@ import {
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeContestChangesWebSocketEventDTO,
   SubscribeProblemCrawledWebSocketEventDTO,
-  SubscribeSenDataEc2InstancesListWebSocketEventDTO,
-  SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO,
-  SubscribeSenDataEcsTasksListWebSocketEventDTO,
-  SubscribeSenDataSsmSessionsListWebSocketEventDTO,
+  SubscribeSendDataEc2InstancesListWebSocketEventDTO,
+  SubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO,
+  SubscribeSendDataEcsTasksListWebSocketEventDTO,
+  SubscribeSendDataSsmSessionsListWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
   UnsubscribeChatCompletionsDataWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeContestChangesWebSocketEventDTO,
   UnsubscribeProblemCrawledWebSocketEventDTO,
-  UnsubscribeSenDataEc2InstancesListWebSocketEventDTO,
-  UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO,
-  UnsubscribeSenDataEcsTasksListWebSocketEventDTO,
-  UnsubscribeSenDataSsmSessionsListWebSocketEventDTO,
+  UnsubscribeSendDataEc2InstancesListWebSocketEventDTO,
+  UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO,
+  UnsubscribeSendDataEcsTasksListWebSocketEventDTO,
+  UnsubscribeSendDataSsmSessionsListWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
@@ -87,42 +87,42 @@ export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): e
     && typeof event?.submitId === 'string' && !!event.submitId;
 };
 
-export const isSubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is SubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO => {
+export const isSubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is SubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isUnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEcsTaskDefinitionsListWebSocketEventDTO => {
+export const isUnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isSubscribeSenDataEcsTasksListWebSocketEventDTO = (event: any): event is SubscribeSenDataEcsTasksListWebSocketEventDTO => {
+export const isSubscribeSendDataEcsTasksListWebSocketEventDTO = (event: any): event is SubscribeSendDataEcsTasksListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isUnsubscribeSenDataEcsTasksListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEcsTasksListWebSocketEventDTO => {
+export const isUnsubscribeSendDataEcsTasksListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataEcsTasksListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isSubscribeSenDataEc2InstancesListWebSocketEventDTO = (event: any): event is SubscribeSenDataEc2InstancesListWebSocketEventDTO => {
+export const isSubscribeSendDataEc2InstancesListWebSocketEventDTO = (event: any): event is SubscribeSendDataEc2InstancesListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isUnsubscribeSenDataEc2InstancesListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataEc2InstancesListWebSocketEventDTO => {
+export const isUnsubscribeSendDataEc2InstancesListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataEc2InstancesListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isSubscribeSenDataSsmSessionsListWebSocketEventDTO = (event: any): event is SubscribeSenDataSsmSessionsListWebSocketEventDTO => {
+export const isSubscribeSendDataSsmSessionsListWebSocketEventDTO = (event: any): event is SubscribeSendDataSsmSessionsListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isUnsubscribeSenDataSsmSessionsListWebSocketEventDTO = (event: any): event is UnsubscribeSenDataSsmSessionsListWebSocketEventDTO => {
+export const isUnsubscribeSendDataSsmSessionsListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataSsmSessionsListWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
