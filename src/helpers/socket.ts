@@ -83,12 +83,12 @@ export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): e
 };
 
 export const isSubscribeGetDataWebSocketEventDTO = (event: any): event is SubscribeGetDataWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
+  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_GET_DATA
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
 export const isUnsubscribeGetDataWebSocketEventDTO = (event: any): event is UnsubscribeGetDataWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
+  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_GET_DATA
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 

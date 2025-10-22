@@ -70,12 +70,12 @@ export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO extends Websock
 
 export interface SubscribeGetDataWebSocketEventDTO extends WebsocketSubscription {
   dataId: string,
-  event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
+  event: WebSocketSubscriptionEvent.SUBSCRIBE_GET_DATA,
 }
 
 export interface UnsubscribeGetDataWebSocketEventDTO extends WebsocketSubscription {
   dataId: string,
-  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
+  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_GET_DATA,
 }
 
 export interface SubscribeProblemCrawledWebSocketEventDTO extends WebsocketSubscription {
