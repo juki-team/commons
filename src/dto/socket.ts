@@ -69,22 +69,22 @@ export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO extends Websock
 }
 
 export interface SubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO extends WebsocketSubscription {
-  id: string,
+  ecsTaskDefinitionsId: string,
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
 }
 
 export interface UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO extends WebsocketSubscription {
-  id: string,
+  ecsTaskDefinitionsId: string,
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
 }
 
 export interface SubscribeSendDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
-  id: string,
+  ecsTaskList: string,
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
 }
 
 export interface UnsubscribeSendDataEcsTasksListWebSocketEventDTO extends WebsocketSubscription {
-  id: string,
+  ecsTaskList: string,
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST,
 }
 
