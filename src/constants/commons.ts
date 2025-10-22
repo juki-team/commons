@@ -169,7 +169,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.PYTHON_3]: {
     value: CodeLanguage.PYTHON_3,
     label: 'Python 3',
-    compilePattern: '/usr/bin/k-python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: '/usr/bin/jk-python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/jk-python3 {{folder_path}}/{{source_full_file_name}}',
     executable: 'python3',
     executableVersion: PYPY3_VERSION,
