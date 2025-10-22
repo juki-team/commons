@@ -193,27 +193,27 @@ export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse 
   }
 }
 
-export interface SendDataWebSocketResponse extends WebSocketResponse {
+export interface SendDataWebSocketResponseEventDTO extends WebSocketResponse {
   dataId: string,
   content: any,
 }
 
-export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO extends SendDataWebSocketResponse {
+export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
   content: EcsTaskDefinitionSystemSummaryListResponseDTO[],
 }
 
-export interface SendDataEcsTasksListWebSocketResponseEventDTO extends SendDataWebSocketResponse {
+export interface SendDataEcsTasksListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
   content: EcsTaskSystemSummaryListResponseDTO[],
 }
 
-export interface SendDataEc2InstancesListWebSocketResponseEventDTO extends SendDataWebSocketResponse {
+export interface SendDataEc2InstancesListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
   content: Ec2InstanceType[],
 }
 
-export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends SendDataWebSocketResponse {
+export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
   content: SsmSessionType[],
 }
