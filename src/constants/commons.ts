@@ -81,8 +81,135 @@ const CPP = {
   highlightJsKey: 'cpp',
 };
 
+const PYTHON = {
+  mime: 'text/x-python',
+  mainFilename: 'main.py',
+  fileExtension: [ 'py' ],
+  hasBuildFile: false,
+  templateSourceCode: 'print("Hello World\\n")',
+  monacoKey: 'python',
+  codeMirrorKey: 'python',
+  highlightJsKey: 'python',
+};
+
 export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
-  [CodeLanguage.ICPC_C]: {
+  [CodeLanguage.C_11]: {
+    value: CodeLanguage.C_11,
+    label: 'C 11',
+    compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -std=gnu11 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '{{folder_path}}/{{compiled_file_name}}',
+    ...C,
+    /*
+    -static
+      Binario independiente.
+    -fno-optimize-sibling-calls
+      Desactiva la optimización de llamadas recursivas “tail call”. Facilita detectar desbordes de pila o trazas correctas.
+    -fno-strict-aliasing
+      Evita asumir aliasing de punteros agresivo. Previene bugs raros en código competitivo.
+    -DONLINE_JUDGE
+      Define la macro ONLINE_JUDGE, usada a veces para omitir logs o debug prints (#ifdef ONLINE_JUDGE).
+    -fno-asm
+      Prohíbe insertar código ensamblador inline (asm()). Seguridad en entornos restringidos.
+    -lm
+      Enlaza libm.
+    -s
+      “Strips symbols”: elimina toda información de depuración. Binario más pequeño y más difícil de desensamblar.
+    -O2
+      Nivel medio de optimización (rápido y seguro).
+    -std=gnu11
+      Usa el estándar C11 con extensiones GNU.
+     */
+  },
+  [CodeLanguage.CPP_11]: {
+    value: CodeLanguage.CPP_11,
+    label: 'C++ 11',
+    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++11 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '{{folder_path}}/{{compiled_file_name}}',
+    ...CPP,
+  },
+  [CodeLanguage.CPP_20]: {
+    value: CodeLanguage.CPP_20,
+    label: 'C++ 20',
+    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++20 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '{{folder_path}}/{{compiled_file_name}}',
+    ...CPP,
+  },
+  [CodeLanguage.JAVA_21]: {
+    value: CodeLanguage.JAVA_21,
+    label: 'Java 21',
+    mime: 'text/x-java',
+    mainFilename: 'Main.java',
+    fileExtension: [ 'java' ],
+    compilePattern: 'javac -cp \'.;*\' {{folder_path}}/{{source_full_file_name}}',
+    // compilePattern: 'javac {{folder_path}}/{{source_full_file_name}}',
+    // runPattern: 'java -cp {{folder_path}} {{class_name}}'
+    runPattern: '/usr/lib/jvm/java-21-openjdk-amd64/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
+      '{{folder_path}} {{class_name}}',
+    templateSourceCode: 'class Main {\n  public static void main (String[] args) {' +
+      '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
+    hasBuildFile: true,
+    executable: 'javac',
+    executableVersion: JAVAC_VERSION,
+    monacoKey: 'java',
+    codeMirrorKey: 'java',
+    highlightJsKey: 'java',
+  },
+  [CodeLanguage.PYTHON_2]: {
+    value: CodeLanguage.PYTHON_2,
+    label: 'Python 2',
+    compilePattern: '/usr/bin/python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/python2 {{folder_path}}/{{source_full_file_name}}',
+    executable: 'python2',
+    executableVersion: PYPY3_VERSION,
+    ...PYTHON,
+  },
+  [CodeLanguage.PYTHON_3]: {
+    value: CodeLanguage.PYTHON_3,
+    label: 'Python 3',
+    compilePattern: '/usr/bin/python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
+    executable: 'python3',
+    executableVersion: PYPY3_VERSION,
+    ...PYTHON,
+  },
+  [CodeLanguage.PYTHON_PYPY_2]: {
+    value: CodeLanguage.PYTHON_PYPY_2,
+    label: 'PyPy 2',
+    compilePattern: '/usr/bin/pypy2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/pypy2 {{folder_path}}/{{source_full_file_name}}',
+    executable: 'python3',
+    executableVersion: PYPY3_VERSION,
+    ...PYTHON,
+  },
+  [CodeLanguage.PYTHON_PYPY_3]: {
+    value: CodeLanguage.PYTHON_PYPY_3,
+    label: 'PyPy 3',
+    compilePattern: '/usr/bin/pypy3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
+    runPattern: '/usr/bin/pypy3 {{folder_path}}/{{source_full_file_name}}',
+    executable: 'python3',
+    executableVersion: PYPY3_VERSION,
+    ...PYTHON,
+  },
+  [CodeLanguage.JAVASCRIPT_NODE_JS_22]: {
+    value: CodeLanguage.JAVASCRIPT_NODE_JS_22,
+    label: 'Javascript Node.js 22',
+    mime: 'application/x-javascript',
+    mainFilename: 'main.js',
+    fileExtension: [ 'js' ],
+    compilePattern: '',
+    runPattern: '/usr/bin/node {{folder_path}}/{{source_full_file_name}}',
+    templateSourceCode: 'console.log("Hello World\\n")',
+    hasBuildFile: false,
+    executable: 'node',
+    executableVersion: NODE_VERSION,
+    monacoKey: 'javascript',
+    codeMirrorKey: 'javascript',
+    highlightJsKey: 'javascript',
+  },
+  [CodeLanguage.ICPC_C]: { // DEPRECATED
     value: CodeLanguage.ICPC_C,
     label: 'ICPC C',
     compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
@@ -90,7 +217,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
   },
-  [CodeLanguage.C]: {
+  [CodeLanguage.C]: { // DEPRECATED
     value: CodeLanguage.C,
     label: 'C',
     compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
@@ -98,45 +225,45 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
   },
-  [CodeLanguage.ICPC_CPP]: {
+  [CodeLanguage.ICPC_CPP]: { // DEPRECATED
     value: CodeLanguage.ICPC_CPP,
     label: 'ICPC C++',
-    compilePattern: 'g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
+    compilePattern: 'g++ -x c++ -static -g -O2 -std=gnu++20 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP]: {
+  [CodeLanguage.CPP]: { // DEPRECATED
     value: CodeLanguage.CPP,
     label: 'C++',
-    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -o ' +
+    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP11]: {
+  [CodeLanguage.CPP11]: { // DEPRECATED
     value: CodeLanguage.CPP11,
     label: 'C++ 11',
-    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++11 -o ' +
+    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++11 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++11 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP14]: {
+  [CodeLanguage.CPP14]: { // DEPRECATED
     value: CodeLanguage.CPP14,
     label: 'C++ 14',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++14 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
-    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++14 -o ' +
+    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++14 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP17]: {
+  [CodeLanguage.CPP17]: { // DEPRECATED
     value: CodeLanguage.CPP17,
     label: 'C++ 17',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++17 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
-    compilePattern: 'g++ -static -DONLINE_JUDGE -lm -s -x c++ -O2 -std=c++17 -o ' +
+    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++17 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
@@ -164,66 +291,38 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.ICPC_PYTHON]: {
     value: CodeLanguage.ICPC_PYTHON,
     label: 'ICPC Python',
-    mime: 'text/x-python',
-    mainFilename: 'main.py',
-    fileExtension: [ 'py' ],
     compilePattern: 'pypy3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/pypy3 {{folder_path}}/{{source_full_file_name}}',
-    templateSourceCode: 'print("Hello World\\n")',
-    hasBuildFile: false,
     executable: 'pypy3',
     executableVersion: PYPY3_VERSION,
-    monacoKey: 'python',
-    codeMirrorKey: 'python',
-    highlightJsKey: 'python',
+    ...PYTHON,
   },
   [CodeLanguage.PYTHON]: {
     value: CodeLanguage.PYTHON,
     label: 'Python',
-    mime: 'text/x-python',
-    mainFilename: 'main.py',
-    fileExtension: [ 'py' ],
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
-    templateSourceCode: 'print("Hello World\\n")',
-    hasBuildFile: false,
     executable: 'python3',
     executableVersion: PYTHON3_VERSION,
-    monacoKey: 'python',
-    codeMirrorKey: 'python',
-    highlightJsKey: 'python',
+    ...PYTHON,
   },
   [CodeLanguage.PYTHON2]: {
     value: CodeLanguage.PYTHON2,
     label: 'Python 2',
-    mime: 'text/x-python',
-    mainFilename: 'main.py',
-    fileExtension: [ 'py' ],
     compilePattern: 'python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/python2 {{folder_path}}/{{source_full_file_name}}',
-    templateSourceCode: 'print("Hello World\\n")',
-    hasBuildFile: false,
     executable: 'python',
     executableVersion: 'Python 2.7.18',
-    monacoKey: 'python',
-    codeMirrorKey: 'python',
-    highlightJsKey: 'python',
+    ...PYTHON,
   },
   [CodeLanguage.PYTHON3]: {
     value: CodeLanguage.PYTHON3,
     label: 'Python 3',
-    mime: 'text/x-python',
-    mainFilename: 'main.py',
-    fileExtension: [ 'py' ],
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
-    templateSourceCode: 'print("Hello World\\n")',
-    hasBuildFile: false,
     executable: 'python3',
     executableVersion: PYTHON3_VERSION,
-    monacoKey: 'python',
-    codeMirrorKey: 'python',
-    highlightJsKey: 'python',
+    ...PYTHON,
   },
   [CodeLanguage.JAVASCRIPT]: {
     value: CodeLanguage.JAVASCRIPT,

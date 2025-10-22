@@ -1,6 +1,16 @@
 import { Language } from './prisma';
 
 export enum CodeLanguage {
+  C_11 = 'c11',
+  CPP_11 = 'cpp11',
+  CPP_20 = 'cpp20',
+  JAVA_21 = 'java21',
+  PYTHON_2 = 'python2',
+  PYTHON_3 = 'python3',
+  PYTHON_PYPY_2 = 'pypy2',
+  PYTHON_PYPY_3 = 'pypy3',
+  JAVASCRIPT_NODE_JS_22 = 'nodejs22',
+  // DEPRECATED
   ICPC_C = 'ICPC_C',
   C = 'C',
   CPP = 'CPP',

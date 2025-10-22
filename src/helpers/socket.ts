@@ -209,7 +209,7 @@ export const isSendDataEc2InstancesListWebSocketResponseEventDTO = (event: any):
     && !!event?.content;
 };
 
-export const isSendDataEcsTaskListWebSocketResponseEventDTO = (event: any): event is SendDataEcsTasksListWebSocketResponseEventDTO => {
+export const isSendDataEcsTasksListWebSocketResponseEventDTO = (event: any): event is SendDataEcsTasksListWebSocketResponseEventDTO => {
   return event?.event === WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST
     && typeof event?.key === 'string' && !!event.key
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
