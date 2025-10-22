@@ -15,21 +15,15 @@ import {
   SubscribeChatCompletionsDataWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeContestChangesWebSocketEventDTO,
+  SubscribeGetDataWebSocketEventDTO,
   SubscribeProblemCrawledWebSocketEventDTO,
-  SubscribeSendDataEc2InstancesListWebSocketEventDTO,
-  SubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO,
-  SubscribeSendDataEcsTasksListWebSocketEventDTO,
-  SubscribeSendDataSsmSessionsListWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
   UnsubscribeChatCompletionsDataWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeContestChangesWebSocketEventDTO,
+  UnsubscribeGetDataWebSocketEventDTO,
   UnsubscribeProblemCrawledWebSocketEventDTO,
-  UnsubscribeSendDataEc2InstancesListWebSocketEventDTO,
-  UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO,
-  UnsubscribeSendDataEcsTasksListWebSocketEventDTO,
-  UnsubscribeSendDataSsmSessionsListWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
@@ -87,43 +81,13 @@ export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (event: any): e
     && typeof event?.submitId === 'string' && !!event.submitId;
 };
 
-export const isSubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is SubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO => {
+export const isSubscribeGetDataWebSocketEventDTO = (event: any): event is SubscribeGetDataWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
-export const isUnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataEcsTaskDefinitionsListWebSocketEventDTO => {
+export const isUnsubscribeGetDataWebSocketEventDTO = (event: any): event is UnsubscribeGetDataWebSocketEventDTO => {
   return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASK_DEFINITIONS_LIST
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isSubscribeSendDataEcsTasksListWebSocketEventDTO = (event: any): event is SubscribeSendDataEcsTasksListWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isUnsubscribeSendDataEcsTasksListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataEcsTasksListWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_ECS_TASKS_LIST
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isSubscribeSendDataEc2InstancesListWebSocketEventDTO = (event: any): event is SubscribeSendDataEc2InstancesListWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isUnsubscribeSendDataEc2InstancesListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataEc2InstancesListWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_EC2_INSTANCES_LIST
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isSubscribeSendDataSsmSessionsListWebSocketEventDTO = (event: any): event is SubscribeSendDataSsmSessionsListWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isUnsubscribeSendDataSsmSessionsListWebSocketEventDTO = (event: any): event is UnsubscribeSendDataSsmSessionsListWebSocketEventDTO => {
-  return event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SEND_DATA_SSM_SESSIONS_LIST
     && typeof event?.sessionId === 'string' && !!event.sessionId;
 };
 
