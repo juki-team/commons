@@ -6,10 +6,10 @@ import {
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
   ProblemCrawledWebSocketResponseEventDTO,
-  RunCommandWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
+  SendDataRunCommandWebSocketResponseEventDTO,
   SendDataSsmSessionsListWebSocketResponseEventDTO,
   SendDataWebSocketResponseEventDTO,
   SubmissionRunStatusWebSocketResponseEventDTO,
@@ -162,7 +162,13 @@ export const isUserMessageWebSocketResponseEventDTO = (event: any): event is Use
 };
 
 export const isSendDataWebSocketResponseEventDTO = (event: any): event is SendDataWebSocketResponseEventDTO => {
-  return typeof event?.key === 'string' && !!event.key
+  return [
+      WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
+      WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
+      WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
+      WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
+      WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
+    ].includes(event?.event)
     && typeof event?.dataId === 'string' && !!event.dataId
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp
     && !!event?.content;
@@ -186,6 +192,11 @@ export const isSendDataEcsTasksListWebSocketResponseEventDTO = (event: any): eve
 export const isSendDataSsmSessionsListWebSocketResponseEventDTO = (event: any): event is SendDataSsmSessionsListWebSocketResponseEventDTO => {
   return isSendDataWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST;
+};
+
+export const isSendDataRunCommandWebSocketResponseEventDTO = (event: any): event is SendDataRunCommandWebSocketResponseEventDTO => {
+  return isSendDataWebSocketResponseEventDTO(event)
+    && event?.event === WebSocketResponseEvent.SEND_DATA_RUN_COMMAND;
 };
 
 export const isWebSocketResponse = (event: any): event is WebSocketResponseEventDTO => {
@@ -212,11 +223,6 @@ export const isSubmissionsCrawlWebSocketResponseEventDTO = (event: any): event i
 
 export const isContestChangesWebSocketResponseEventDTO = (event: any): event is ContestChangesWebSocketResponseEventDTO => {
   return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.CONTEST_CHANGES
-    && !!event?.content;
-};
-
-export const isRunCommandWebSocketResponseEventDTO = (event: any): event is RunCommandWebSocketResponseEventDTO => {
-  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.RUN_COMMAND
     && !!event?.content;
 };
 

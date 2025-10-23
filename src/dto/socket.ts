@@ -218,6 +218,15 @@ export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends SendDa
   content: SsmSessionType[],
 }
 
+export interface SendDataRunCommandWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
+  content: {
+    testCaseOutContent: string,
+    testCaseErrorContent: string,
+    testCaseLogContent: string,
+  },
+}
+
 export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
   content: { problemKey: string },
@@ -249,15 +258,6 @@ export interface ContestChangesWebSocketResponseEventDTO extends WebSocketRespon
   },
 }
 
-export interface RunCommandWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.RUN_COMMAND,
-  content: {
-    testCaseOutContent: string,
-    testCaseErrorContent: string,
-    testCaseLogContent: string,
-  },
-}
-
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | ResponseWebSocketResponseEventDTO
@@ -272,4 +272,4 @@ export type WebSocketResponseEventDTO =
   | ChatCompletionsResponseWebSocketResponseEventDTO
   | SubmissionsCrawlWebSocketResponseEventDTO
   | ContestChangesWebSocketResponseEventDTO
-  | RunCommandWebSocketResponseEventDTO;
+  | SendDataRunCommandWebSocketResponseEventDTO;
