@@ -43,6 +43,7 @@ export enum WebSocketResponseEvent {
   CHAT_COMPLETIONS_RESPONSE = 'CHAT_COMPLETIONS_RESPONSE',
   SUBMISSIONS_CRAWL = 'SUBMISSIONS_CRAWL',
   CONTEST_CHANGES = 'CONTEST_CHANGES',
+  RUN_COMMAND = 'RUN_COMMAND',
 }
 
 export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ObjectIdType}-${string}`;

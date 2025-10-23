@@ -6,6 +6,7 @@ import {
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
   ProblemCrawledWebSocketResponseEventDTO,
+  RunCommandWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
@@ -211,6 +212,11 @@ export const isSubmissionsCrawlWebSocketResponseEventDTO = (event: any): event i
 
 export const isContestChangesWebSocketResponseEventDTO = (event: any): event is ContestChangesWebSocketResponseEventDTO => {
   return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.CONTEST_CHANGES
+    && !!event?.content;
+};
+
+export const isRunCommandWebSocketResponseEventDTO = (event: any): event is RunCommandWebSocketResponseEventDTO => {
+  return isWebSocketResponse(event) && event?.event === WebSocketResponseEvent.RUN_COMMAND
     && !!event?.content;
 };
 

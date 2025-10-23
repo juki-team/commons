@@ -249,6 +249,15 @@ export interface ContestChangesWebSocketResponseEventDTO extends WebSocketRespon
   },
 }
 
+export interface RunCommandWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.RUN_COMMAND,
+  content: {
+    testCaseOutContent: string,
+    testCaseErrorContent: string,
+    testCaseLogContent: string,
+  },
+}
+
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | ResponseWebSocketResponseEventDTO
@@ -262,4 +271,5 @@ export type WebSocketResponseEventDTO =
   | ProblemCrawledWebSocketResponseEventDTO
   | ChatCompletionsResponseWebSocketResponseEventDTO
   | SubmissionsCrawlWebSocketResponseEventDTO
-  | ContestChangesWebSocketResponseEventDTO;
+  | ContestChangesWebSocketResponseEventDTO
+  | RunCommandWebSocketResponseEventDTO;
