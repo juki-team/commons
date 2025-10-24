@@ -201,8 +201,8 @@ export const isSendDataRunCommandWebSocketResponseEventDTO = (event: any): event
 
 export const isWebSocketResponse = (event: any): event is WebSocketResponseEventDTO => {
   return Object.values(WebSocketResponseEvent).includes(event?.event as WebSocketResponseEvent)
-    && typeof event?.key === 'string' && !!event.key
-    && typeof event?.connectionId === 'string' && !!event.connectionId
+    && typeof event?.key === 'string'
+    && typeof event?.connectionId === 'string'
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp;
 };
 
