@@ -218,7 +218,7 @@ export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends SendDa
   content: SsmSessionType[],
 }
 
-export interface SendDataRunCommandWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
   content: {
     testCaseOutContent: string,
