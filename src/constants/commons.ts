@@ -592,3 +592,4 @@ export const SEPARATOR_TOKEN = '\x1E';
 export const JUKI_FORWARDED_HOST = 'x-juki-forwarded-host';
 export const JUKI_SESSION_ID = 'x-juki-session-id';
 export const JUKI_METADATA = 'x-juki-metadata';
+export const JUKI_SECRET_TOKEN = 'x-juki-secret-token';
