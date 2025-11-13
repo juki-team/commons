@@ -49,7 +49,7 @@ export interface Ec2InstanceType {
   instanceLifecycle: 'capacity-block' | 'scheduled' | 'spot' | undefined,
   imageId: string,
   vpcId: string,
-  subnetId: string,
+  subnet: { id: string, name: string },
   securityGroups: { groupId: string, groupName: string }[],
   raw: any,
 }
