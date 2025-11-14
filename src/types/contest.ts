@@ -86,6 +86,7 @@ export type ContestProblemType = {
   endTimestamp: number,
   prerequisites: ContestProblemPrerequisite[],
   maxAcceptedUsers: number,
+  group: string,
 };
 
 export type ContestSettings = {
@@ -129,14 +130,21 @@ export interface ContestEvent {
   details: Record<string, any>;
 }
 
+export interface ContestGroup {
+  label: string,
+  value: string,
+  color: string,
+}
+
 export interface ContestBaseDocument {
   key: string,
   name: string,
   description: string,
   settings: ContestSettings,
-  problems: { [key: string]: ContestProblemType },
+  problems: Record<string, ContestProblemType>,
   members: EntityMembers,
   tags: string[],
+  groups: Record<string, ContestGroup>,
   events: ContestEvent[],
 }
 
