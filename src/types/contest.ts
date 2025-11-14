@@ -1,3 +1,4 @@
+import { ContestDataResponseDTO, UpsertContestDTO } from '../dto';
 import { CodeLanguage, EntityStatus } from './commons';
 import { EntityMembers } from './entity';
 import { Judge } from './judge';
@@ -155,3 +156,7 @@ export type ContestMembersResponseType = {
   spectators: { [key: string]: UserBasicInfoInterface },
   contestants: { [key: string]: UserBasicInfoInterface },
 }
+
+export type ContestTimeData =
+  Pick<ContestDataResponseDTO, 'isLive' | 'isFrozenTime' | 'isQuietTime' | 'isEndless' | 'isPast' | 'isFuture' | 'isGlobal'>
+  & Pick<UpsertContestDTO, 'settings'>;
