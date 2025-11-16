@@ -161,6 +161,7 @@ export type ContentsMetaType = {
   size: number,
   totalElements: number,
   sort: { [key: string]: number }[],
+  filter: Record<any, any>,
 }
 
 export type ContentsResponseType<T> = {
