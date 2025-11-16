@@ -109,8 +109,17 @@ export interface ContestEventResponseDTO {
 
 export interface ContestDataResponseDTO extends Omit<ContestSummaryListResponseDTO, 'settings'>, Pick<ContestBaseDocument, 'settings' | 'description' | 'groups'> {
   problems: Record<string, ContestProblemDataResponseDTO>,
-  members: EntityMembersWithTimestampsResponseDTO,
-  clarifications: ContestClarificationType[],
   state: EntityState,
-  events: ContestEventResponseDTO[]
+}
+
+export interface ContestMembersResponseDTO {
+  members: EntityMembersWithTimestampsResponseDTO,
+}
+
+export interface ContestClarificationResponseDTO {
+  clarifications: ContestClarificationType[],
+}
+
+export interface ContestEventsResponseDTO {
+  events: ContestEventResponseDTO[];
 }

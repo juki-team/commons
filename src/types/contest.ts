@@ -1,4 +1,4 @@
-import { ContestDataResponseDTO, UpsertContestDTO } from '../dto';
+import { ContestDataResponseDTO, UpsertContestDTO, UserCompanyBasicInfoResponseDTO } from '../dto';
 import { CodeLanguage, EntityStatus } from './commons';
 import { EntityMembers } from './entity';
 import { Judge } from './judge';
@@ -57,13 +57,11 @@ export type ContestClarificationType = {
   key: string,
   problemJudgeKey: string,
   question: string,
+  questionUser: UserCompanyBasicInfoResponseDTO,
   questionTimestamp: number,
-  questionUserNickname: string,
-  questionUserImageUrl: string,
   answer: string,
   answerTimestamp: number,
-  answerUserNickname: string,
-  answerUserImageUrl: string,
+  answerUser: UserCompanyBasicInfoResponseDTO,
   public: boolean,
 };
 
