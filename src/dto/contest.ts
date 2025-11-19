@@ -116,7 +116,7 @@ export interface ContestMembersResponseDTO {
   members: EntityMembersWithTimestampsResponseDTO,
 }
 
-export interface ContestClarificationResponseDTO {
+export interface ContestClarificationsResponseDTO {
   clarifications: ContestClarificationType[],
 }
 
