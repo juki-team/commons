@@ -112,6 +112,7 @@ export enum CollectionKey {
   SUBMIT = 'S',
   LOCALE = 'L',
   COMMENT = 'M',
+  DOCUMENT_TEMPLATE = 'DT',
 }
 
 export enum LogOperation {
