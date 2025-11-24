@@ -593,5 +593,6 @@ export const HEADER_JUKI_FORWARDED_HOST = 'x-juki-forwarded-host';
 export const HEADER_JUKI_VISITOR_SESSION_ID = 'x-juki-visitor-session-id';
 export const HEADER_JUKI_METADATA = 'x-juki-metadata';
 export const HEADER_JUKI_SECRET_TOKEN = 'x-juki-secret-token';
+export const HEADER_JUKI_INTERNAL_API_KEY = 'x-juki-internal-api-key';
 
 export const COOKIE_JUKI_SESSION_ID = 'juki-session-id';
