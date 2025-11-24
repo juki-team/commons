@@ -593,3 +593,5 @@ export const HEADER_JUKI_FORWARDED_HOST = 'x-juki-forwarded-host';
 export const HEADER_JUKI_SESSION_ID = 'x-juki-session-id';
 export const HEADER_JUKI_METADATA = 'x-juki-metadata';
 export const HEADER_JUKI_SECRET_TOKEN = 'x-juki-secret-token';
+
+export const COOKIE_JUKI_SESSION_ID = 'juki-session-id';
