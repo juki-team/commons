@@ -590,7 +590,7 @@ export const DEFAULT_JUKI_PROFILE_IMAGE = 'https://juki-judge.s3.us-east-2.amazo
 export const SEPARATOR_TOKEN = '\x1E';
 
 export const HEADER_JUKI_FORWARDED_HOST = 'x-juki-forwarded-host';
-export const HEADER_JUKI_SESSION_ID = 'x-juki-session-id';
+export const HEADER_JUKI_VISITOR_SESSION_ID = 'x-juki-session-id';
 export const HEADER_JUKI_METADATA = 'x-juki-metadata';
 export const HEADER_JUKI_SECRET_TOKEN = 'x-juki-secret-token';
 
