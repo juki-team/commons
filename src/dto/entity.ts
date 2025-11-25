@@ -70,3 +70,9 @@ export interface DocumentMembersResponseDTO {
 export interface DocumentCreateResponseDTO {
   key: string,
 }
+
+export interface MetadataResponseDTO {
+  title: string,
+  description: string,
+  cover: string,
+}
