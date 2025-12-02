@@ -159,7 +159,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.PYTHON_2]: { // DEPRECATED
     value: CodeLanguage.PYTHON_2,
-    label: 'Python 2',
+    label: 'Python 2 *',
     compilePattern: '/usr/bin/jk-python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/jk-python2 {{folder_path}}/{{source_full_file_name}}',
     executable: 'python2',
@@ -177,7 +177,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.PYTHON_PYPY_2]: { // DEPRECATED
     value: CodeLanguage.PYTHON_PYPY_2,
-    label: 'PyPy 2',
+    label: 'PyPy 2 *',
     compilePattern: '/usr/bin/jk-pypy2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/jk-pypy2 {{folder_path}}/{{source_full_file_name}}',
     executable: 'pypy2',
@@ -211,7 +211,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.ICPC_C]: { // DEPRECATED
     value: CodeLanguage.ICPC_C,
-    label: 'ICPC C',
+    label: 'ICPC C *',
     compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
@@ -219,7 +219,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.C]: { // DEPRECATED
     value: CodeLanguage.C,
-    label: 'C',
+    label: 'C *',
     compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
@@ -227,7 +227,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.ICPC_CPP]: { // DEPRECATED
     value: CodeLanguage.ICPC_CPP,
-    label: 'ICPC C++',
+    label: 'ICPC C++ *',
     compilePattern: 'g++ -x c++ -static -g -O2 -std=gnu++20 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
@@ -235,7 +235,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.CPP]: { // DEPRECATED
     value: CodeLanguage.CPP,
-    label: 'C++',
+    label: 'C++ *',
     compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
@@ -243,7 +243,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.CPP11]: { // DEPRECATED
     value: CodeLanguage.CPP11,
-    label: 'C++ 11',
+    label: 'C++ 11 *',
     compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++11 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++11 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
@@ -252,7 +252,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.CPP14]: { // DEPRECATED
     value: CodeLanguage.CPP14,
-    label: 'C++ 14',
+    label: 'C++ 14 *',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++14 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++14 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
@@ -261,16 +261,16 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   },
   [CodeLanguage.CPP17]: { // DEPRECATED
     value: CodeLanguage.CPP17,
-    label: 'C++ 17',
+    label: 'C++ 17 *',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++17 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++17 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.JAVA]: {
+  [CodeLanguage.JAVA]: { // DEPRECATED
     value: CodeLanguage.JAVA,
-    label: 'Java',
+    label: 'Java *',
     mime: 'text/x-java',
     mainFilename: 'Main.java',
     fileExtension: [ 'java' ],
@@ -288,45 +288,45 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'java',
     highlightJsKey: 'java',
   },
-  [CodeLanguage.ICPC_PYTHON]: {
+  [CodeLanguage.ICPC_PYTHON]: { // DEPRECATED
     value: CodeLanguage.ICPC_PYTHON,
-    label: 'ICPC Python',
+    label: 'ICPC Python *',
     compilePattern: 'pypy3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/pypy3 {{folder_path}}/{{source_full_file_name}}',
     executable: 'pypy3',
     executableVersion: PYPY3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON]: {
+  [CodeLanguage.PYTHON]: { // DEPRECATED
     value: CodeLanguage.PYTHON,
-    label: 'Python',
+    label: 'Python *',
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
     executable: 'python3',
     executableVersion: PYTHON3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON2]: {
+  [CodeLanguage.PYTHON2]: { // DEPRECATED
     value: CodeLanguage.PYTHON2,
-    label: 'Python 2',
+    label: 'Python 2 *',
     compilePattern: 'python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/python2 {{folder_path}}/{{source_full_file_name}}',
     executable: 'python',
     executableVersion: 'Python 2.7.18',
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON3]: {
+  [CodeLanguage.PYTHON3]: { // DEPRECATED
     value: CodeLanguage.PYTHON3,
-    label: 'Python 3',
+    label: 'Python 3 *',
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
     runPattern: '/usr/bin/python3 {{folder_path}}/{{source_full_file_name}}',
     executable: 'python3',
     executableVersion: PYTHON3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.JAVASCRIPT]: {
+  [CodeLanguage.JAVASCRIPT]: { // DEPRECATED
     value: CodeLanguage.JAVASCRIPT,
-    label: 'Javascript',
+    label: 'Javascript *',
     mime: 'application/x-javascript',
     mainFilename: 'main.js',
     fileExtension: [ 'js' ],
