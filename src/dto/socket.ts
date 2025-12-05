@@ -44,7 +44,7 @@ export type WebSocketMessageEventDTO =
 
 // EVENT SUBSCRIPTIONS
 
-interface WebsocketSubscription {
+export interface WebsocketSubscription {
   event: WebSocketSubscriptionEvent,
   clientId: ClientIdType,
 }
