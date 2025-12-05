@@ -46,7 +46,7 @@ import {
 } from '../types';
 
 export const isWebsocketSubscription = (event: any): event is WebSocketSubscribeEventDTO | WebSocketUnsubscribeEventDTO | WebSocketMessageEventDTO => {
-  return Object.values(WebSocketSubscriptionEvent).includes(event?.event)
+  return (Object.values(WebSocketSubscriptionEvent).includes(event?.event) || Object.values(WebSocketMessageEvent).includes(event?.event))
     && typeof event?.clientId === 'string' && !!event.clientId;
 };
 
