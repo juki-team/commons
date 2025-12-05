@@ -30,6 +30,7 @@ import {
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserTrackWebSocketEventDTO,
+  WebSocketMessageEventDTO,
   WebSocketResponseEventDTO,
   WebSocketSubscribeEventDTO,
   WebSocketUnsubscribeEventDTO,
@@ -44,28 +45,29 @@ import {
   WebSocketSubscriptionEvent,
 } from '../types';
 
-// Custom CHANNEL_PUBLISH_MESSAGES
-export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
-  return event?.event === WebSocketMessageEvent.PING
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isUserTrackWebSocketEventDTO = (event: any): event is UserTrackWebSocketEventDTO => {
-  return event?.event === WebSocketMessageEvent.USER_TRACK
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-export const isChatCompletionsWebSocketEventDTO = (event: any): event is ChatCompletionsWebSocketEventDTO => {
-  return event?.event === WebSocketMessageEvent.CHAT_COMPLETIONS
-    && typeof event?.sessionId === 'string' && !!event.sessionId;
-};
-
-// CHANNEL_PUBLISH_SUBSCRIPTIONS
-
-export const isWebsocketSubscription = (event: any): event is WebSocketSubscribeEventDTO | WebSocketUnsubscribeEventDTO => {
+export const isWebsocketSubscription = (event: any): event is WebSocketSubscribeEventDTO | WebSocketUnsubscribeEventDTO | WebSocketMessageEventDTO => {
   return Object.values(WebSocketSubscriptionEvent).includes(event?.event)
     && typeof event?.clientId === 'string' && !!event.clientId;
 };
+
+// Custom CHANNEL_PUBLISH_MESSAGES
+
+export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketMessageEvent.PING;
+};
+
+export const isUserTrackWebSocketEventDTO = (event: any): event is UserTrackWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketMessageEvent.USER_TRACK;
+};
+
+export const isChatCompletionsWebSocketEventDTO = (event: any): event is ChatCompletionsWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketMessageEvent.CHAT_COMPLETIONS;
+};
+
+// CHANNEL_PUBLISH_SUBSCRIPTIONS
 
 export const isSubscribeCodeRunStatusWebSocketEventDTO = (event: any): event is SubscribeCodeRunStatusWebSocketEventDTO => {
   return isWebsocketSubscription(event)
