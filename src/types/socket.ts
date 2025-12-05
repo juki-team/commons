@@ -46,4 +46,6 @@ export enum WebSocketResponseEvent {
   CONTEST_CHANGES = 'CONTEST_CHANGES',
 }
 
-export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ObjectIdType}-${string}`;
+export type ClientIdType = `${ObjectIdType}|${string}`;
+
+export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ClientIdType}-${string}`;

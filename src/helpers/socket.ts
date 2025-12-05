@@ -33,7 +33,7 @@ import {
   WebSocketResponseEventDTO,
 } from '../dto';
 import {
-  ObjectIdType,
+  ClientIdType,
   ProblemVerdict,
   SubmissionRunStatus,
   WebSocketMessageEvent,
@@ -228,6 +228,6 @@ export const isContestChangesWebSocketResponseEventDTO = (event: any): event is 
 
 // generic
 
-export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, sessionId: ObjectIdType, id: string): WebSocketResponseEventKey => {
-  return `${event}-${sessionId}-${id}`;
+export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, clientId: ClientIdType, id: string): WebSocketResponseEventKey => {
+  return `${event}-${clientId}-${id}`;
 };

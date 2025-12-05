@@ -1,4 +1,5 @@
 import {
+  ClientIdType,
   ObjectIdType,
   ProblemVerdict,
   SubmissionRunStatus,
@@ -18,7 +19,7 @@ import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 // EVENT MESSAGES
 interface WebsocketMessage {
   event: WebSocketMessageEvent,
-  clientId: string,
+  clientId: ClientIdType,
 }
 
 export interface PingWebSocketEventDTO extends WebsocketMessage {
@@ -45,7 +46,7 @@ export type WebSocketMessageEventDTO =
 
 interface WebsocketSubscription {
   event: WebSocketSubscriptionEvent,
-  clientId: string,
+  clientId: ClientIdType,
 }
 
 export interface SubscribeCodeRunStatusWebSocketEventDTO extends WebsocketSubscription {

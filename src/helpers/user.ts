@@ -1,3 +1,5 @@
+import { ClientIdType, ObjectIdType } from '../types';
+
 export const getUserKey = (userNickname: string, userCompanyKey: string) => {
   return userNickname + '|' + userCompanyKey;
 };
@@ -7,11 +9,11 @@ export const getParamsOfUserKey = (userKey: string) => {
   return { userNickname, userCompanyKey };
 };
 
-export const getClientId = (sessionId: string, uiId: string) => {
-  return sessionId + '|' + uiId;
+export const getClientId = (sessionId: ObjectIdType, uiId: string): ClientIdType => {
+  return `${sessionId}|${uiId}`;
 };
 
-export const getParamsOfClientId = (clientId: string) => {
+export const getParamsOfClientId = (clientId: ClientIdType) => {
   const [ sessionId, uiId ] = clientId.split('|');
-  return { sessionId, uiId };
+  return { sessionId, uiId } as { sessionId: ObjectIdType, uiId: string };
 };
