@@ -45,7 +45,7 @@ export type WebSocketMessageEventDTO =
 
 interface WebsocketSubscription {
   event: WebSocketSubscriptionEvent,
-  sessionId: ObjectIdType,
+  clientId: string,
 }
 
 export interface SubscribeCodeRunStatusWebSocketEventDTO extends WebsocketSubscription {
