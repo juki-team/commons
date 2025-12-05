@@ -18,7 +18,7 @@ import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 // EVENT MESSAGES
 interface WebsocketMessage {
   event: WebSocketMessageEvent,
-  sessionId: ObjectIdType,
+  clientId: string,
 }
 
 export interface PingWebSocketEventDTO extends WebsocketMessage {
