@@ -1,7 +1,7 @@
-export const CHANNEL_CLIENT_SUBSCRIPTIONS = 'client:subscriptions';
+export const CHANNEL_PUBLISH_SUBSCRIPTIONS = 'pub:subscriptions';
 
-export const CHANNEL_CLIENT_NOTIFICATIONS = 'client:notifications';
+export const CHANNEL_SUBSCRIBE_NOTIFICATIONS = 'sub:notifications';
 
-export const CHANNEL_CLIENT_USER_SESSION = (sessionId: string) => `client:user:${sessionId}`;
+export const CHANNEL_SUBSCRIBE_CLIENT = (clientId: string) => `sub:client:${clientId}`;
 
-export const CHANNEL_SEVER_MESSAGES = 'server:messages';
+export const CHANNEL_PUBLISH_MESSAGES = 'pub:messages';
