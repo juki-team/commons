@@ -31,6 +31,12 @@ export interface UserTrackWebSocketEventDTO extends WebsocketMessage {
   href: string,
 }
 
+export interface UserTrackScreenshotWebSocketEventDTO extends WebsocketMessage {
+  event: WebSocketMessageEvent.USER_TRACK_SCREENSHOT,
+  href: string,
+  screenshot: string,
+}
+
 export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
   event: WebSocketMessageEvent.CHAT_COMPLETIONS,
   chatAiId: string,
@@ -40,6 +46,7 @@ export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
 export type WebSocketMessageEventDTO =
   PingWebSocketEventDTO
   | UserTrackWebSocketEventDTO
+  | UserTrackScreenshotWebSocketEventDTO
   | ChatCompletionsWebSocketEventDTO;
 
 // EVENT SUBSCRIPTIONS

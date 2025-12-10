@@ -29,6 +29,7 @@ import {
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
+  UserTrackScreenshotWebSocketEventDTO,
   UserTrackWebSocketEventDTO,
   WebSocketMessageEventDTO,
   WebSocketResponseEventDTO,
@@ -60,6 +61,11 @@ export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEvent
 export const isUserTrackWebSocketEventDTO = (event: any): event is UserTrackWebSocketEventDTO => {
   return isWebsocketSubscription(event)
     && event?.event === WebSocketMessageEvent.USER_TRACK;
+};
+
+export const isUserTrackScreenshotWebSocketEventDTO = (event: any): event is UserTrackScreenshotWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketMessageEvent.USER_TRACK_SCREENSHOT;
 };
 
 export const isChatCompletionsWebSocketEventDTO = (event: any): event is ChatCompletionsWebSocketEventDTO => {

@@ -3,6 +3,7 @@ import { ObjectIdType } from './commons';
 export enum WebSocketMessageEvent {
   PING = 'PING',
   USER_TRACK = 'USER_TRACK',
+  USER_TRACK_SCREENSHOT = 'USER_TRACK_SCREENSHOT',
   CHAT_COMPLETIONS = 'CHAT_COMPLETIONS'
 }
 
