@@ -128,6 +128,14 @@ export interface UnsubscribeContestChangesWebSocketEventDTO extends WebsocketSub
   contestKey: string,
 }
 
+export interface SubscribeUserTrackScreenshotWebSocketEventDTO extends WebsocketSubscription {
+  event: WebSocketSubscriptionEvent.SUBSCRIBE_USER_TRACK_SCREENSHOT,
+}
+
+export interface UnsubscribeUserTrackScreenshotWebSocketEventDTO extends WebsocketSubscription {
+  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_TRACK_SCREENSHOT,
+}
+
 export type WebSocketSubscribeEventDTO =
   SubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
@@ -135,7 +143,8 @@ export type WebSocketSubscribeEventDTO =
   | SubscribeProblemCrawledWebSocketEventDTO
   | SubscribeChatCompletionsDataWebSocketEventDTO
   | SubscribeSubmissionsCrawlWebSocketEventDTO
-  | SubscribeContestChangesWebSocketEventDTO;
+  | SubscribeContestChangesWebSocketEventDTO
+  | SubscribeUserTrackScreenshotWebSocketEventDTO;
 
 export type WebSocketUnsubscribeEventDTO =
   UnsubscribeCodeRunStatusWebSocketEventDTO
@@ -144,7 +153,8 @@ export type WebSocketUnsubscribeEventDTO =
   | UnsubscribeProblemCrawledWebSocketEventDTO
   | UnsubscribeChatCompletionsDataWebSocketEventDTO
   | UnsubscribeSubmissionsCrawlWebSocketEventDTO
-  | UnsubscribeContestChangesWebSocketEventDTO;
+  | UnsubscribeContestChangesWebSocketEventDTO
+  | UnsubscribeUserTrackScreenshotWebSocketEventDTO;
 
 // RESPONSE EVENTS
 

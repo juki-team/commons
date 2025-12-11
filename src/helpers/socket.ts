@@ -21,6 +21,7 @@ import {
   SubscribeProblemCrawledWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
+  SubscribeUserTrackScreenshotWebSocketEventDTO,
   UnsubscribeChatCompletionsDataWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeContestChangesWebSocketEventDTO,
@@ -28,6 +29,7 @@ import {
   UnsubscribeProblemCrawledWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
+  UnsubscribeUserTrackScreenshotWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserTrackScreenshotWebSocketEventDTO,
   UserTrackWebSocketEventDTO,
@@ -147,6 +149,16 @@ export const isSubscribeContestChangesWebSocketEventDTO = (event: any): event is
 export const isUnsubscribeContestChangesWebSocketEventDTO = (event: any): event is UnsubscribeContestChangesWebSocketEventDTO => {
   return isWebsocketSubscription(event)
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
+};
+
+export const isSubscribeUserTrackScreenshotWebSocketEventDTO = (event: any): event is SubscribeUserTrackScreenshotWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_USER_TRACK_SCREENSHOT;
+};
+
+export const isUnsubscribeUserTrackScreenshotWebSocketEventDTO = (event: any): event is UnsubscribeUserTrackScreenshotWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_TRACK_SCREENSHOT;
 };
 
 // is WebSocketResponseEventDTO, CHANNEL_SUBSCRIBE_CLIENT
