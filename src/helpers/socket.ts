@@ -15,21 +15,21 @@ import {
   SubmissionRunStatusWebSocketResponseEventDTO,
   SubmissionsCrawlWebSocketResponseEventDTO,
   SubscribeChatCompletionsDataWebSocketEventDTO,
+  SubscribeClientTrackWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeContestChangesWebSocketEventDTO,
   SubscribeGetDataWebSocketEventDTO,
   SubscribeProblemCrawledWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
-  SubscribeUserTrackScreenshotWebSocketEventDTO,
   UnsubscribeChatCompletionsDataWebSocketEventDTO,
+  UnsubscribeClientTrackWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeContestChangesWebSocketEventDTO,
   UnsubscribeGetDataWebSocketEventDTO,
   UnsubscribeProblemCrawledWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
-  UnsubscribeUserTrackScreenshotWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserTrackScreenshotWebSocketEventDTO,
   UserTrackWebSocketEventDTO,
@@ -151,14 +151,14 @@ export const isUnsubscribeContestChangesWebSocketEventDTO = (event: any): event 
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
 };
 
-export const isSubscribeUserTrackScreenshotWebSocketEventDTO = (event: any): event is SubscribeUserTrackScreenshotWebSocketEventDTO => {
+export const isSubscribeClientTrackWebSocketEventDTO = (event: any): event is SubscribeClientTrackWebSocketEventDTO => {
   return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_USER_TRACK_SCREENSHOT;
+    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK;
 };
 
-export const isUnsubscribeUserTrackScreenshotWebSocketEventDTO = (event: any): event is UnsubscribeUserTrackScreenshotWebSocketEventDTO => {
+export const isUnsubscribeClientTrackWebSocketEventDTO = (event: any): event is UnsubscribeClientTrackWebSocketEventDTO => {
   return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_TRACK_SCREENSHOT;
+    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK;
 };
 
 // is WebSocketResponseEventDTO, CHANNEL_SUBSCRIBE_CLIENT
