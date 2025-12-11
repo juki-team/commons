@@ -136,9 +136,6 @@ export interface UnsubscribeContestChangesWebSocketEventDTO extends WebsocketSub
 
 export interface SubscribeClientTrackWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK,
-  location: boolean,
-  screenshot: boolean,
-  device: boolean,
 }
 
 export interface UnsubscribeClientTrackWebSocketEventDTO extends WebsocketSubscription {
@@ -285,6 +282,13 @@ export interface ContestChangesWebSocketResponseEventDTO extends WebSocketRespon
   },
 }
 
+export interface ClientTrackRequestWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.CLIENT_TRACK_REQUEST,
+  location: boolean,
+  screenshot: boolean,
+  device: boolean,
+}
+
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
   | ResponseWebSocketResponseEventDTO
@@ -299,4 +303,5 @@ export type WebSocketResponseEventDTO =
   | ChatCompletionsResponseWebSocketResponseEventDTO
   | SubmissionsCrawlWebSocketResponseEventDTO
   | ContestChangesWebSocketResponseEventDTO
-  | SendDataRunCommandWebSocketResponseEventDTO;
+  | SendDataRunCommandWebSocketResponseEventDTO
+  | ClientTrackRequestWebSocketResponseEventDTO;
