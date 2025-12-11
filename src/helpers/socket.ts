@@ -4,6 +4,7 @@ import {
   ClientTrackDeviceWebSocketEventDTO,
   ClientTrackLocationWebSocketEventDTO,
   ClientTrackScreenshotWebSocketEventDTO,
+  ClientTrackWebSocketResponseEventDTO,
   CodeRunStatusWebSocketResponseEventDTO,
   ContestChangesWebSocketResponseEventDTO,
   PingWebSocketEventDTO,
@@ -266,6 +267,11 @@ export const isContestChangesWebSocketResponseEventDTO = (event: any): event is 
   return isWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.CONTEST_CHANGES
     && !!event?.content;
+};
+
+export const isClientTrackWebSocketResponseEventDTO = (event: any): event is ClientTrackWebSocketResponseEventDTO => {
+  return isWebSocketResponseEventDTO(event)
+    && event?.event === WebSocketResponseEvent.CLIENT_TRACK;
 };
 
 // generic

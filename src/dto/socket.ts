@@ -282,8 +282,8 @@ export interface ContestChangesWebSocketResponseEventDTO extends WebSocketRespon
   },
 }
 
-export interface ClientTrackRequestWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.CLIENT_TRACK_REQUEST,
+export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.CLIENT_TRACK,
   location: boolean,
   screenshot: boolean,
   device: boolean,
@@ -304,4 +304,4 @@ export type WebSocketResponseEventDTO =
   | SubmissionsCrawlWebSocketResponseEventDTO
   | ContestChangesWebSocketResponseEventDTO
   | SendDataRunCommandWebSocketResponseEventDTO
-  | ClientTrackRequestWebSocketResponseEventDTO;
+  | ClientTrackWebSocketResponseEventDTO;
