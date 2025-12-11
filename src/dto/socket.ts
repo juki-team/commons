@@ -1,5 +1,6 @@
 import {
   ClientIdType,
+  DeviceType,
   ObjectIdType,
   ProblemVerdict,
   SubmissionRunStatus,
@@ -26,15 +27,19 @@ export interface PingWebSocketEventDTO extends WebsocketMessage {
   event: WebSocketMessageEvent.PING,
 }
 
-export interface UserTrackWebSocketEventDTO extends WebsocketMessage {
-  event: WebSocketMessageEvent.USER_TRACK,
+export interface ClientTrackLocationWebSocketEventDTO extends WebsocketMessage {
+  event: WebSocketMessageEvent.CLIENT_TRACK_LOCATION,
   href: string,
 }
 
-export interface UserTrackScreenshotWebSocketEventDTO extends WebsocketMessage {
-  event: WebSocketMessageEvent.USER_TRACK_SCREENSHOT,
-  href: string,
+export interface ClientTrackScreenshotWebSocketEventDTO extends WebsocketMessage {
+  event: WebSocketMessageEvent.CLIENT_TRACK_SCREENSHOT,
   screenshot: string,
+}
+
+export interface ClientTrackDeviceWebSocketEventDTO extends WebsocketMessage {
+  event: WebSocketMessageEvent.CLIENT_TRACK_DEVICE,
+  device: DeviceType,
 }
 
 export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
@@ -45,8 +50,9 @@ export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
 
 export type WebSocketMessageEventDTO =
   PingWebSocketEventDTO
-  | UserTrackWebSocketEventDTO
-  | UserTrackScreenshotWebSocketEventDTO
+  | ClientTrackLocationWebSocketEventDTO
+  | ClientTrackScreenshotWebSocketEventDTO
+  | ClientTrackDeviceWebSocketEventDTO
   | ChatCompletionsWebSocketEventDTO;
 
 // EVENT SUBSCRIPTIONS
@@ -130,6 +136,7 @@ export interface UnsubscribeContestChangesWebSocketEventDTO extends WebsocketSub
 
 export interface SubscribeClientTrackWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK,
+  location: boolean,
   screenshot: boolean,
   device: boolean,
 }

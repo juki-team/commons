@@ -1,6 +1,9 @@
 import {
   ChatCompletionsResponseWebSocketResponseEventDTO,
   ChatCompletionsWebSocketEventDTO,
+  ClientTrackDeviceWebSocketEventDTO,
+  ClientTrackLocationWebSocketEventDTO,
+  ClientTrackScreenshotWebSocketEventDTO,
   CodeRunStatusWebSocketResponseEventDTO,
   ContestChangesWebSocketResponseEventDTO,
   PingWebSocketEventDTO,
@@ -31,8 +34,6 @@ import {
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
-  UserTrackScreenshotWebSocketEventDTO,
-  UserTrackWebSocketEventDTO,
   WebSocketMessageEventDTO,
   WebSocketResponseEventDTO,
   WebSocketSubscribeEventDTO,
@@ -60,14 +61,19 @@ export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEvent
     && event?.event === WebSocketMessageEvent.PING;
 };
 
-export const isUserTrackWebSocketEventDTO = (event: any): event is UserTrackWebSocketEventDTO => {
+export const isClientTrackLocationWebSocketEventDTO = (event: any): event is ClientTrackLocationWebSocketEventDTO => {
   return isWebsocketSubscription(event)
-    && event?.event === WebSocketMessageEvent.USER_TRACK;
+    && event?.event === WebSocketMessageEvent.CLIENT_TRACK_LOCATION;
 };
 
-export const isUserTrackScreenshotWebSocketEventDTO = (event: any): event is UserTrackScreenshotWebSocketEventDTO => {
+export const isClientTrackScreenshotWebSocketEventDTO = (event: any): event is ClientTrackScreenshotWebSocketEventDTO => {
   return isWebsocketSubscription(event)
-    && event?.event === WebSocketMessageEvent.USER_TRACK_SCREENSHOT;
+    && event?.event === WebSocketMessageEvent.CLIENT_TRACK_SCREENSHOT;
+};
+
+export const isClientTrackDeviceWebSocketEventDTO = (event: any): event is ClientTrackDeviceWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketMessageEvent.CLIENT_TRACK_DEVICE;
 };
 
 export const isChatCompletionsWebSocketEventDTO = (event: any): event is ChatCompletionsWebSocketEventDTO => {

@@ -75,3 +75,5 @@ export type SplitTime = {
 };
 
 export type ObjectIdType = `${string & { length: 24 }}`;
+
+export type DeviceType = { label: string, isMobile: boolean, isBrowser: boolean, type: string, osLabel: string };
