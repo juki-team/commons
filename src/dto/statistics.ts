@@ -39,6 +39,7 @@ export interface StatisticsProblemResponseDTO {
 export interface StatisticsUserTrackResponseDTO {
   [key: string]: {
     user: UserCompanyBasicInfoResponseDTO,
+    sessionId: string,
     data: Record<
       number,
       Record<
