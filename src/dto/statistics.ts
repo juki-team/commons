@@ -39,6 +39,9 @@ export interface StatisticsProblemResponseDTO {
 export interface StatisticsUserTrackResponseDTO {
   [key: string]: {
     user: UserCompanyBasicInfoResponseDTO,
-    data: StatisticsDateType<{ href: string }, 'second' | 'minute'>,
+    data: StatisticsDateType<{
+      timestamp: number,
+      history: { href: string, uiId: string, timestamp: number } []
+    }, 'second' | 'minute'>,
   },
 }
