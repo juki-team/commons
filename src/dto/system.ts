@@ -46,7 +46,7 @@ export interface Ec2InstanceType {
   publicIpAddress: string,
   tags: { key: string, value: string }[],
   launchTime: Date | undefined,
-  instanceLifecycle: 'capacity-block' | 'scheduled' | 'spot' | undefined,
+  instanceLifecycle: 'capacity-block' | 'scheduled' | 'spot' | 'interruptible-capacity-reservation' | undefined,
   imageId: string,
   vpcId: string,
   subnet: { id: string, name: string },
