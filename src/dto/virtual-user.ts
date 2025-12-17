@@ -16,7 +16,7 @@ export interface Cookie {
   path: string;
   expires: number;
   size: number;
-  httpOnly: boolean;
+  httpOnly?: boolean;
   secure: boolean;
   session: boolean;
   sameSite?: CookieSameSite;
