@@ -251,6 +251,15 @@ export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWeb
   },
 }
 
+export interface SendDataClientTrackWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK,
+  content: {
+    location?: string,
+    screenshot?: string,
+    device?: DeviceType,
+  },
+}
+
 export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
   content: { problemKey: string },
@@ -304,4 +313,5 @@ export type WebSocketResponseEventDTO =
   | SubmissionsCrawlWebSocketResponseEventDTO
   | ContestChangesWebSocketResponseEventDTO
   | SendDataRunCommandWebSocketResponseEventDTO
+  | SendDataClientTrackWebSocketResponseEventDTO
   | ClientTrackWebSocketResponseEventDTO;

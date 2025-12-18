@@ -10,6 +10,7 @@ import {
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
   ProblemCrawledWebSocketResponseEventDTO,
+  SendDataClientTrackWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
@@ -243,6 +244,11 @@ export const isSendDataSsmSessionsListWebSocketResponseEventDTO = (event: any): 
 export const isSendDataRunCommandWebSocketResponseEventDTO = (event: any): event is SendDataRunCommandWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event) && isSendDataWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.SEND_DATA_RUN_COMMAND;
+};
+
+export const isSendDataClientTrackWebSocketResponseEventDTO = (event: any): event is SendDataClientTrackWebSocketResponseEventDTO => {
+  return isWebSocketResponseEventDTO(event) && isSendDataWebSocketResponseEventDTO(event)
+    && event?.event === WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK;
 };
 
 export const isProblemCrawledWebSocketResponseEventDTO = (event: any): event is ProblemCrawledWebSocketResponseEventDTO => {
