@@ -1,5 +1,5 @@
 import { ProfileSetting } from './account';
-import { Language, Theme } from './prisma';
+import { CourseRole, Language, SystemRole, TeamRole, Theme, UserRole } from './prisma';
 
 export interface UserBasicInfoInterface {
   nickname: string,
@@ -73,3 +73,12 @@ export type ContestRole =
   | Role.MASTER
   | Role.ADMIN
   | Role.SUPER_ADMIN;
+
+export type UserRoles = {
+  systemRole: SystemRole,
+  userRole: UserRole;
+  contestRole: ContestRole;
+  problemRole: ProblemRole;
+  teamRole: TeamRole;
+  courseRole: CourseRole;
+}
