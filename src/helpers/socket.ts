@@ -216,6 +216,7 @@ export const isSendDataWebSocketResponseEventDTO = (event: any): event is SendDa
       WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
       WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
       WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
+      WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK,
     ].includes(event?.event)
     && typeof event?.dataId === 'string' && !!event.dataId
     && !!event?.content;
