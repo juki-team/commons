@@ -100,6 +100,7 @@ export type UserPingType = {
   settings: UserSettingsType,
   isLogged: boolean,
   sessionId: ObjectIdType,
+  company: EntityCompanySummaryListResponseDTO,
 }
 
 export type CompanyPingType = {
