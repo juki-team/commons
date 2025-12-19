@@ -93,3 +93,7 @@ export const cleanRequest = <T extends ContentResponseType<any> | ContentsRespon
   // jukiApiManager.reportError({ message: 'success false on cleaning request', responseText, response });
   return response;
 };
+
+export const getDefaultMeta = (contents: any[], sort?: ContentsMetaType['sort']): ContentsMetaType => {
+  return { sort: sort ?? [], page: 1, size: contents.length, totalElements: contents.length, filter: contents.filter };
+};
