@@ -127,4 +127,5 @@ export interface UserRankResponseDTO {
   institution: string,
   problemPoints: number,
   competitionPoints: number,
+  company: EntityCompanySummaryListResponseDTO,
 }
