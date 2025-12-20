@@ -20,3 +20,20 @@ export interface ScoreboardResponseDTO {
   position: number,
   problems: ScoreboardProblemsType,
 }
+
+export type ScoreboardTimelineEventType = {
+  timestamp: number,
+  userId: string,
+  problemId: string,
+  attempts: number,
+  points: number,
+  success: boolean,
+  isFirstAccepted: boolean,
+  penalty: number,
+}
+
+export interface ScoreboardHistoryResponseDTO {
+  contestId: string,
+  userProblemTimelineRefs: Record<string, number[]>,
+  timelineEvents: ScoreboardTimelineEventType[],
+}
