@@ -56,6 +56,8 @@ export interface SubmissionSummaryListResponseDTO {
   }, // foreign
   // contest data or empty string
   contest: SubmissionContestSummaryListResponseDTO | null,
+  hiddenSubmission: boolean,
+  hiddenVerdict: boolean,
   processedCases: {
     samples: {
       total: number,
