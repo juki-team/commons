@@ -31,6 +31,7 @@ export interface SubmissionProblemSummaryListResponseDTO {
 export interface SubmissionContestSummaryListResponseDTO {
   key: string, // foreign
   name: string, // foreign
+  settingsStartTimestamp: number,
   problemIndex: string,
   problemColor: string,
   company: EntityCompanySummaryListResponseDTO,
