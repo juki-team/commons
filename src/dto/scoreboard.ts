@@ -28,7 +28,7 @@ export type ScoreboardTimelineEventResponseDTO = {
   attempts: number,
   points: number,
   success: boolean,
-  indexAccepted: boolean,
+  indexAccepted: number,
   penalty: number,
 }
 
