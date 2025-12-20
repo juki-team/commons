@@ -36,4 +36,5 @@ export interface ScoreboardHistoryResponseDTO {
   contestKey: string,
   userProblemTimelineRefs: Record<string, number[]>,
   timelineEvents: ScoreboardTimelineEventResponseDTO[],
+  users: Record<string, UserSummaryListResponseDTO>,
 }
