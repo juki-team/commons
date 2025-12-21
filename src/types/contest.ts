@@ -98,7 +98,7 @@ export type ContestSettings = {
   frozenTimestamp: number,
   quietTimestamp: number,
   endTimestamp: number,
-  locked: boolean,
+  upsolvingEnabled: boolean,
 };
 
 export type MemberUserData = {

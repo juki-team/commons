@@ -39,7 +39,7 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
   user: ContestUserType,
   owner: UserCompanyBasicInfoResponseDTO;
   company: EntityCompanySummaryListResponseDTO,
-  settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty'>,
+  settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty' | 'upsolvingEnabled'>,
   // Data Calculated
   totalContestants: number,
   isLive: boolean,
