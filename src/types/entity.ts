@@ -103,6 +103,7 @@ export enum CollectionKey {
   CLASS_ASSIGNMENT = 'KA',
   CONTEST = 'T',
   SCOREBOARD = 'B',
+  SCOREBOARD_EVENTS = 'BE',
   COURSE = 'R',
   FILE = 'F',
   GROUP = 'G',
