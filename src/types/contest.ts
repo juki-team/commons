@@ -161,5 +161,5 @@ export type ContestMembersResponseType = {
 export type ContestTimeData =
   Pick<ContestDataResponseDTO, 'isLive' | 'isFrozenTime' | 'isQuietTime' | 'isEndless' | 'isPast' | 'isFuture' | 'isGlobal'>
   & {
-  settings: Pick<UpsertContestDTO['settings'], 'penalty' | 'startTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'endTimestamp'>
+  settings: Pick<UpsertContestDTO['settings'], 'penalty' | 'startTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'endTimestamp' | 'upsolvingEnabled'>
 };
