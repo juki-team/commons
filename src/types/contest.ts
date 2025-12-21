@@ -98,6 +98,7 @@ export type ContestSettings = {
   frozenTimestamp: number,
   quietTimestamp: number,
   endTimestamp: number,
+  scoreboardLocked: boolean,
   upsolvingEnabled: boolean,
 };
 
