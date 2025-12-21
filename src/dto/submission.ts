@@ -38,6 +38,7 @@ export interface SubmissionContestSummaryListResponseDTO {
   company: EntityCompanySummaryListResponseDTO,
   isFrozen: boolean,
   isQuiet: boolean,
+  isUpsolving: boolean,
 }
 
 export interface SubmissionSummaryListResponseDTO {
