@@ -1,18 +1,11 @@
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
-export type DateGranularity = 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year';
-
-export type StatisticsDateType<
-  T,
-  U extends DateGranularity = never
-> = {
-  [K in U]: Record<number, T>;
-};
+export type StatisticsGroupedType<T> = Record<number, Record<number, T>>;
 
 export interface StatisticsCompanyResponseDTO {
-  codeEditorRuns: StatisticsDateType<number, 'hour' | 'day' | 'month' | 'year'>,
-  judgingRuns: StatisticsDateType<number, 'hour' | 'day' | 'month' | 'year'>,
-  reJudgingRuns: StatisticsDateType<number, 'hour' | 'day' | 'month' | 'year'>,
+  codeEditorRuns: StatisticsGroupedType<number>,
+  judgingRuns: StatisticsGroupedType<number>,
+  reJudgingRuns: StatisticsGroupedType<number>,
   users: number,
   problems: number,
   contests: number,
@@ -33,22 +26,13 @@ export interface StatisticsProblemResponseDTO {
       label: string,
     }
   },
-  date: StatisticsDateType<number, 'hour' | 'day' | 'month' | 'year'>,
+  date: StatisticsGroupedType<number>,
 }
 
 export interface StatisticsUserTrackResponseDTO {
   [key: string]: {
     user: UserCompanyBasicInfoResponseDTO,
     sessionId: string,
-    data: Record<
-      number,
-      Record<
-        number,
-        {
-          timestamp: number,
-          history: { href: string, uiId: string, timestamp: number } []
-        }
-      >
-    >
+    data: StatisticsGroupedType<{ timestamp: number, history: { href: string, uiId: string, timestamp: number } [] }>
   },
 }
