@@ -1,6 +1,8 @@
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
-export type StatisticsGroupedType<T> = Record<number, Record<number, T>>;
+export type GroupByTimestampKey = 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | number;
+
+export type StatisticsGroupedType<T> = Partial<Record<GroupByTimestampKey, Record<number, T>>>;
 
 export interface StatisticsCompanyResponseDTO {
   codeEditorRuns: StatisticsGroupedType<number>,
