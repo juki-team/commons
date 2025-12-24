@@ -173,7 +173,7 @@ export const isUnsubscribeClientTrackWebSocketEventDTO = (event: any): event is 
 
 export const isWebSocketResponseEventDTO = (event: any): event is WebSocketResponseEventDTO => {
   return Object.values(WebSocketResponseEvent).includes(event?.event)
-    && typeof event?.key === 'string' && !!event.key
+    && typeof event?.key === 'string'
     && typeof event?.connectionId === 'string'
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp;
 };
