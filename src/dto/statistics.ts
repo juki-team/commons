@@ -31,10 +31,15 @@ export interface StatisticsProblemResponseDTO {
   date: StatisticsGroupedType<number>,
 }
 
+export type StatisticsUserTrackDataResponseDTO = {
+  timestamp: number,
+  history: { href: string, uiId: string, timestamp: number } []
+}
+
 export interface StatisticsUserTrackResponseDTO {
   [key: string]: {
     user: UserCompanyBasicInfoResponseDTO,
     sessionId: string,
-    data: StatisticsGroupedType<{ timestamp: number, history: { href: string, uiId: string, timestamp: number } [] }>
+    data: StatisticsGroupedType<StatisticsUserTrackDataResponseDTO>,
   },
 }
