@@ -8,6 +8,11 @@ export interface CompanyJudgeResponseDTO {
   keyPrefix: string,
 }
 
+export interface CompanyTrustedCompanyResponseDTO {
+  key: string,
+  name: string,
+}
+
 export interface CompanyResponseDTO extends EmailDataResponseDTO {
   name: string,
   key: string
@@ -18,6 +23,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   plan: CompanyPlan,
   startTimestamp: number,
   judges: CompanyJudgeResponseDTO[],
+  trustedCompanies: CompanyTrustedCompanyResponseDTO[],
 }
 
 export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
