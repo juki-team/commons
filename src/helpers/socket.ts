@@ -27,6 +27,7 @@ import {
   SubscribeProblemCrawledWebSocketEventDTO,
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
+  SubscribeUserNotificationWebsocketEventDTO,
   UnsubscribeChatCompletionsDataWebSocketEventDTO,
   UnsubscribeClientTrackWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
@@ -35,6 +36,7 @@ import {
   UnsubscribeProblemCrawledWebSocketEventDTO,
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
+  UnsubscribeUserNotificationWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
   UserNotificationClarificationWebSocketResponseEventDTO,
   UserNotificationSubmissionWebSocketResponseEventDTO,
@@ -170,6 +172,16 @@ export const isSubscribeClientTrackWebSocketEventDTO = (event: any): event is Su
 export const isUnsubscribeClientTrackWebSocketEventDTO = (event: any): event is UnsubscribeClientTrackWebSocketEventDTO => {
   return isWebsocketSubscription(event)
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK;
+};
+
+export const isSubscribeUserNotificationWebSocketEventDTO = (event: any): event is SubscribeUserNotificationWebsocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION;
+};
+
+export const isUnsubscribeUserNotificationWebSocketEventDTO = (event: any): event is UnsubscribeUserNotificationWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION;
 };
 
 // is WebSocketResponseEventDTO, CHANNEL_SUBSCRIBE_CLIENT

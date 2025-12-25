@@ -143,6 +143,14 @@ export interface UnsubscribeClientTrackWebSocketEventDTO extends WebsocketSubscr
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK,
 }
 
+export interface SubscribeUserNotificationWebsocketEventDTO extends WebsocketSubscription {
+  event: WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION,
+}
+
+export interface UnsubscribeUserNotificationWebSocketEventDTO extends WebsocketSubscription {
+  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION,
+}
+
 export type WebSocketSubscribeEventDTO =
   SubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
@@ -151,7 +159,8 @@ export type WebSocketSubscribeEventDTO =
   | SubscribeChatCompletionsDataWebSocketEventDTO
   | SubscribeSubmissionsCrawlWebSocketEventDTO
   | SubscribeContestChangesWebSocketEventDTO
-  | SubscribeClientTrackWebSocketEventDTO;
+  | SubscribeClientTrackWebSocketEventDTO
+  | SubscribeUserNotificationWebsocketEventDTO;
 
 export type WebSocketUnsubscribeEventDTO =
   UnsubscribeCodeRunStatusWebSocketEventDTO
@@ -161,7 +170,8 @@ export type WebSocketUnsubscribeEventDTO =
   | UnsubscribeChatCompletionsDataWebSocketEventDTO
   | UnsubscribeSubmissionsCrawlWebSocketEventDTO
   | UnsubscribeContestChangesWebSocketEventDTO
-  | UnsubscribeClientTrackWebSocketEventDTO;
+  | UnsubscribeClientTrackWebSocketEventDTO
+  | UnsubscribeUserNotificationWebSocketEventDTO;
 
 // RESPONSE EVENTS
 
