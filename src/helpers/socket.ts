@@ -36,6 +36,9 @@ import {
   UnsubscribeSubmissionRunStatusWebSocketEventDTO,
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
+  UserNotificationClarificationWebSocketResponseEventDTO,
+  UserNotificationSubmissionWebSocketResponseEventDTO,
+  UserNotificationWebSocketResponseEventDTO,
   WebSocketMessageEventDTO,
   WebSocketResponseEventDTO,
   WebSocketSubscribeEventDTO,
@@ -186,14 +189,14 @@ export const isPongWebSocketResponseEventDTO = (event: any): event is PongWebSoc
 
 export const isCodeRunStatusMessageWebSocketResponseEventDTO = (event: any): event is CodeRunStatusWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE
+    && event?.event === WebSocketResponseEvent.CODE_RUN_STATUS
     && typeof event?.runId === 'string' && !!event.runId
     && event?.status in SubmissionRunStatus;
 };
 
 export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (event: any): event is SubmissionRunStatusWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE
+    && event?.event === WebSocketResponseEvent.SUBMISSION_RUN_STATUS
     && typeof event?.submitId === 'string' && !!event.submitId
     && event?.status in SubmissionRunStatus
     && event?.verdict in ProblemVerdict
@@ -279,6 +282,25 @@ export const isContestChangesWebSocketResponseEventDTO = (event: any): event is 
 export const isClientTrackWebSocketResponseEventDTO = (event: any): event is ClientTrackWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.CLIENT_TRACK;
+};
+
+export const isUserNotificationWebSocketResponseEventDTO = (event: any): event is UserNotificationWebSocketResponseEventDTO => {
+  return [
+      WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
+      WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION,
+    ].includes(event?.event)
+    && typeof event?.dataId === 'string' && !!event.dataId
+    && !!event?.content;
+};
+
+export const isUserNotificationSubmissionWebSocketResponseEventDTO = (event: any): event is UserNotificationSubmissionWebSocketResponseEventDTO => {
+  return isWebSocketResponseEventDTO(event) && isUserNotificationWebSocketResponseEventDTO(event)
+    && event?.event === WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION;
+};
+
+export const isUserNotificationClarificationWebSocketResponseEventDTO = (event: any): event is UserNotificationClarificationWebSocketResponseEventDTO => {
+  return isWebSocketResponseEventDTO(event) && isUserNotificationWebSocketResponseEventDTO(event)
+    && event?.event === WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION;
 };
 
 // generic

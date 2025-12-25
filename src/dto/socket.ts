@@ -9,6 +9,7 @@ import {
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
 } from '../types';
+import { NotificationType } from '../types/notification';
 import {
   Ec2InstanceType,
   EcsTaskDefinitionSystemSummaryListResponseDTO,
@@ -176,14 +177,10 @@ export interface PongWebSocketResponseEventDTO extends WebSocketResponse {
   data: PingResponseDTO,
 }
 
-export interface ResponseWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.RESPONSE,
-}
-
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
 
 export interface CodeRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.CODE_RUN_STATUS_MESSAGE,
+  event: WebSocketResponseEvent.CODE_RUN_STATUS,
   runId: string,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
@@ -196,7 +193,7 @@ export type TestInfoType = {
 }
 
 export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS_MESSAGE,
+  event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS,
   submitId: string,
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,
@@ -298,9 +295,24 @@ export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse 
   device: boolean,
 }
 
+export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
+  event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION,
+  type: NotificationType,
+  tile: string,
+  message: string,
+  href: string,
+}
+
+export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
+}
+
+export interface UserNotificationClarificationWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION,
+}
+
 export type WebSocketResponseEventDTO =
   PongWebSocketResponseEventDTO
-  | ResponseWebSocketResponseEventDTO
   | CodeRunStatusWebSocketResponseEventDTO
   | SubmissionRunStatusWebSocketResponseEventDTO
   | UserMessageWebSocketResponseEventDTO
@@ -314,4 +326,6 @@ export type WebSocketResponseEventDTO =
   | ContestChangesWebSocketResponseEventDTO
   | SendDataRunCommandWebSocketResponseEventDTO
   | SendDataClientTrackWebSocketResponseEventDTO
-  | ClientTrackWebSocketResponseEventDTO;
+  | ClientTrackWebSocketResponseEventDTO
+  | UserNotificationSubmissionWebSocketResponseEventDTO
+  | UserNotificationClarificationWebSocketResponseEventDTO;
