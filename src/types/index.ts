@@ -9,6 +9,7 @@ export * from './entity';
 export * from './group';
 export * from './file';
 export * from './judge';
+export * from './notification';
 export * from './prisma';
 export * from './problems';
 export * from './services';
