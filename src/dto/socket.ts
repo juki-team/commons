@@ -307,6 +307,7 @@ export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse 
 
 export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION,
+  notificationId: string,
   type: NotificationType,
   tile: string,
   message: string,
