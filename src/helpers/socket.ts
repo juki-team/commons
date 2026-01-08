@@ -1,5 +1,4 @@
 import {
-  ChatCompletionsResponseWebSocketResponseEventDTO,
   ChatCompletionsWebSocketEventDTO,
   ClientTrackDeviceWebSocketEventDTO,
   ClientTrackLocationWebSocketEventDTO,
@@ -10,6 +9,7 @@ import {
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
   ProblemCrawledWebSocketResponseEventDTO,
+  SenDataChatCompletionsWebSocketResponseEventDTO,
   SendDataClientTrackWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
@@ -19,7 +19,6 @@ import {
   SendDataWebSocketResponseEventDTO,
   SubmissionRunStatusWebSocketResponseEventDTO,
   SubmissionsCrawlWebSocketResponseEventDTO,
-  SubscribeChatCompletionsDataWebSocketEventDTO,
   SubscribeClientTrackWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeContestChangesWebSocketEventDTO,
@@ -28,7 +27,6 @@ import {
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
   SubscribeUserNotificationWebsocketEventDTO,
-  UnsubscribeChatCompletionsDataWebSocketEventDTO,
   UnsubscribeClientTrackWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeContestChangesWebSocketEventDTO,
@@ -134,16 +132,6 @@ export const isUnsubscribeProblemCrawledWebSocketEventDTO = (event: any): event 
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED;
 };
 
-export const isSubscribeChatCompletionsDataWebSocketEventDTO = (event: any): event is SubscribeChatCompletionsDataWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CHAT_COMPLETIONS_DATA;
-};
-
-export const isUnsubscribeChatCompletionsDataWebSocketEventDTO = (event: any): event is UnsubscribeChatCompletionsDataWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CHAT_COMPLETIONS_DATA;
-};
-
 export const isSubscribeSubmissionsCrawlWebSocketEventDTO = (event: any): event is SubscribeSubmissionsCrawlWebSocketEventDTO => {
   return isWebsocketSubscription(event)
     && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL;
@@ -232,6 +220,7 @@ export const isSendDataWebSocketResponseEventDTO = (event: any): event is SendDa
       WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
       WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
       WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK,
+      WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS,
     ].includes(event?.event)
     && typeof event?.dataId === 'string' && !!event.dataId
     && !!event?.content;
@@ -267,15 +256,14 @@ export const isSendDataClientTrackWebSocketResponseEventDTO = (event: any): even
     && event?.event === WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK;
 };
 
+export const isSenDataChatCompletionsWebSocketResponseEventDTO = (event: any): event is SenDataChatCompletionsWebSocketResponseEventDTO => {
+  return isWebSocketResponseEventDTO(event) && isSendDataWebSocketResponseEventDTO(event)
+    && event?.event === WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS;
+};
+
 export const isProblemCrawledWebSocketResponseEventDTO = (event: any): event is ProblemCrawledWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.PROBLEM_CRAWLED
-    && !!event?.content;
-};
-
-export const isChatCompletionsResponseWebSocketResponseEventDTO = (event: any): event is ChatCompletionsResponseWebSocketResponseEventDTO => {
-  return isWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE
     && !!event?.content;
 };
 

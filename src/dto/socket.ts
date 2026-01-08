@@ -1,7 +1,6 @@
 import {
   ClientIdType,
   DeviceType,
-  ObjectIdType,
   ProblemVerdict,
   SubmissionRunStatus,
   WebSocketMessageEvent,
@@ -103,16 +102,6 @@ export interface UnsubscribeProblemCrawledWebSocketEventDTO extends WebsocketSub
   problemKey: string,
 }
 
-export interface SubscribeChatCompletionsDataWebSocketEventDTO extends WebsocketSubscription {
-  event: WebSocketSubscriptionEvent.SUBSCRIBE_CHAT_COMPLETIONS_DATA,
-  chatAiId: string,
-}
-
-export interface UnsubscribeChatCompletionsDataWebSocketEventDTO extends WebsocketSubscription {
-  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_CHAT_COMPLETIONS_DATA,
-  chatAiId: string,
-}
-
 export interface SubscribeSubmissionsCrawlWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL,
   contestKey: string,
@@ -156,7 +145,6 @@ export type WebSocketSubscribeEventDTO =
   | SubscribeSubmissionRunStatusWebSocketEventDTO
   | SubscribeGetDataWebSocketEventDTO
   | SubscribeProblemCrawledWebSocketEventDTO
-  | SubscribeChatCompletionsDataWebSocketEventDTO
   | SubscribeSubmissionsCrawlWebSocketEventDTO
   | SubscribeContestChangesWebSocketEventDTO
   | SubscribeClientTrackWebSocketEventDTO
@@ -167,7 +155,6 @@ export type WebSocketUnsubscribeEventDTO =
   | UnsubscribeSubmissionRunStatusWebSocketEventDTO
   | UnsubscribeGetDataWebSocketEventDTO
   | UnsubscribeProblemCrawledWebSocketEventDTO
-  | UnsubscribeChatCompletionsDataWebSocketEventDTO
   | UnsubscribeSubmissionsCrawlWebSocketEventDTO
   | UnsubscribeContestChangesWebSocketEventDTO
   | UnsubscribeClientTrackWebSocketEventDTO
@@ -267,15 +254,14 @@ export interface SendDataClientTrackWebSocketResponseEventDTO extends SendDataWe
   },
 }
 
+export interface SenDataChatCompletionsWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS,
+  content: { choices: [ { index: number, message: { role: string, content: string } } ], rawData: any },
+}
+
 export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
   content: { problemKey: string },
-}
-
-export interface ChatCompletionsResponseWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.CHAT_COMPLETIONS_RESPONSE,
-  sessionId: ObjectIdType,
-  content: { choices: [ { index: number, message: { role: string, content: string } } ], rawData: any },
 }
 
 export interface SubmissionsCrawlWebSocketResponseEventDTO extends WebSocketResponse {
@@ -331,7 +317,7 @@ export type WebSocketResponseEventDTO =
   | SendDataEc2InstancesListWebSocketResponseEventDTO
   | SendDataSsmSessionsListWebSocketResponseEventDTO
   | ProblemCrawledWebSocketResponseEventDTO
-  | ChatCompletionsResponseWebSocketResponseEventDTO
+  | SenDataChatCompletionsWebSocketResponseEventDTO
   | SubmissionsCrawlWebSocketResponseEventDTO
   | ContestChangesWebSocketResponseEventDTO
   | SendDataRunCommandWebSocketResponseEventDTO
