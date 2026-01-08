@@ -1,4 +1,4 @@
-import { UPPERCASE_LETTERS } from '../constants/commons';
+import { SEPARATOR_TOKEN, UPPERCASE_LETTERS } from '../constants/commons';
 import { Judge } from '../types';
 
 export function isStringJson(str: any): str is string {
@@ -167,11 +167,19 @@ export function chunkString(str: string, size: number): string[] {
   return chunks;
 }
 
-export const getRandomString = (length: number) => {
+export function getRandomString(length: number) {
   const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 62
   let retVal = '';
   for (let i = 0; i < length; ++i) {
     retVal += charset.charAt(Math.floor(Math.random() * charset.length));
   }
   return retVal;
-};
+}
+
+export function join(array: (string | null | Date)[]) {
+  return array.join(SEPARATOR_TOKEN);
+}
+
+export function split(text: string) {
+  return text.split(SEPARATOR_TOKEN);
+}
