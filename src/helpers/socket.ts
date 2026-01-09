@@ -289,7 +289,6 @@ export const isUserNotificationWebSocketResponseEventDTO = (event: any): event i
       WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
       WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
     ].includes(event?.event)
-    && typeof event?.dataId === 'string' && !!event.dataId
     && !!event?.content;
 };
 
