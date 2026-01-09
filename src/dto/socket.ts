@@ -134,10 +134,12 @@ export interface UnsubscribeClientTrackWebSocketEventDTO extends WebsocketSubscr
 
 export interface SubscribeUserNotificationWebsocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION,
+  userKey: string,
 }
 
 export interface UnsubscribeUserNotificationWebSocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION,
+  userKey: string,
 }
 
 export type WebSocketSubscribeEventDTO =
