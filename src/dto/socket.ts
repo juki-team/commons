@@ -298,7 +298,14 @@ export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResp
 
 export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
-  contest: { key: string, name: string, problemIndex: string, isFrozen: boolean, isQuiet: boolean } | null,
+  contest: {
+    key: string,
+    name: string,
+    problemIndex: string,
+    isFrozen: boolean,
+    isQuiet: boolean,
+    isUpsolving: boolean
+  } | null,
   problem: { key: string, name: string },
   verdict: ProblemVerdict,
   submissionId: string,
