@@ -308,6 +308,7 @@ export interface UserNotificationSubmissionWebSocketResponseEventDTO extends Use
   } | null,
   problem: { key: string, name: string },
   verdict: ProblemVerdict,
+  points: number,
   submissionId: string,
 }
 
