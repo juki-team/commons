@@ -8,7 +8,6 @@ import {
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
 } from '../types';
-import { NotificationType } from '../types/notification';
 import {
   Ec2InstanceType,
   EcsTaskDefinitionSystemSummaryListResponseDTO,
@@ -295,14 +294,13 @@ export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse 
 
 export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
-  type: NotificationType,
-  tile: string,
-  message: string,
-  href: string,
 }
 
 export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
+  contest: { key: string, name: string, problemIndex: string, isFrozen: boolean, isQuiet: boolean } | null,
+  problem: { key: string, name: string },
+  verdict: ProblemVerdict,
   submissionId: string,
 }
 
