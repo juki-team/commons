@@ -294,27 +294,32 @@ export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse 
 
 export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
+  content: any,
 }
 
 export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
-  contest: {
-    key: string,
-    name: string,
-    problemIndex: string,
-    isFrozen: boolean,
-    isQuiet: boolean,
-    isUpsolving: boolean
-  } | null,
-  problem: { key: string, name: string },
-  verdict: ProblemVerdict,
-  points: number,
-  submissionId: string,
+  content: {
+    contest: {
+      key: string,
+      name: string,
+      problemIndex: string,
+      isFrozen: boolean,
+      isQuiet: boolean,
+      isUpsolving: boolean
+    } | null,
+    problem: { key: string, name: string },
+    verdict: ProblemVerdict,
+    points: number,
+    submissionId: string,
+  }
 }
 
 export interface UserNotificationContestClarificationWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
-  contestKey: string,
+  content: {
+    contestKey: string,
+  }
 }
 
 export type WebSocketResponseEventDTO =
