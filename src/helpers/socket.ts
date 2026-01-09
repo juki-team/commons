@@ -36,7 +36,7 @@ import {
   UnsubscribeSubmissionsCrawlWebSocketEventDTO,
   UnsubscribeUserNotificationWebSocketEventDTO,
   UserMessageWebSocketResponseEventDTO,
-  UserNotificationClarificationWebSocketResponseEventDTO,
+  UserNotificationContestClarificationWebSocketResponseEventDTO,
   UserNotificationSubmissionWebSocketResponseEventDTO,
   UserNotificationWebSocketResponseEventDTO,
   WebSocketMessageEventDTO,
@@ -287,7 +287,7 @@ export const isClientTrackWebSocketResponseEventDTO = (event: any): event is Cli
 export const isUserNotificationWebSocketResponseEventDTO = (event: any): event is UserNotificationWebSocketResponseEventDTO => {
   return [
       WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
-      WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION,
+      WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
     ].includes(event?.event)
     && typeof event?.dataId === 'string' && !!event.dataId
     && !!event?.content;
@@ -298,9 +298,9 @@ export const isUserNotificationSubmissionWebSocketResponseEventDTO = (event: any
     && event?.event === WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION;
 };
 
-export const isUserNotificationClarificationWebSocketResponseEventDTO = (event: any): event is UserNotificationClarificationWebSocketResponseEventDTO => {
+export const isUserNotificationContestClarificationWebSocketResponseEventDTO = (event: any): event is UserNotificationContestClarificationWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event) && isUserNotificationWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION;
+    && event?.event === WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION;
 };
 
 // generic

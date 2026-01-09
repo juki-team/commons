@@ -292,7 +292,7 @@ export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse 
 }
 
 export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION,
+  event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
   type: NotificationType,
   tile: string,
   message: string,
@@ -301,10 +301,12 @@ export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResp
 
 export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
+  submissionId: string,
 }
 
-export interface UserNotificationClarificationWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
-  event: WebSocketResponseEvent.USER_NOTIFICATION_CLARIFICATION,
+export interface UserNotificationContestClarificationWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
+  event: WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
+  contestKey: string,
 }
 
 export type WebSocketResponseEventDTO =
@@ -324,4 +326,4 @@ export type WebSocketResponseEventDTO =
   | SendDataClientTrackWebSocketResponseEventDTO
   | ClientTrackWebSocketResponseEventDTO
   | UserNotificationSubmissionWebSocketResponseEventDTO
-  | UserNotificationClarificationWebSocketResponseEventDTO;
+  | UserNotificationContestClarificationWebSocketResponseEventDTO;
