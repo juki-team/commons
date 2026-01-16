@@ -9,6 +9,7 @@ import {
   WorksheetType,
 } from '../types';
 import { SubmissionSummaryListResponseDTO } from './submission';
+import { UserCompanyBasicInfoResponseDTO } from './user';
 
 export type WorksheetResponseBasicInfoProcessedType = {
   submittedAt: number,
@@ -78,7 +79,7 @@ export interface WorksheetSubmissionsResponseDTO {
 }
 
 export interface WorksheetSubmissionsUsersResponseDTO {
-  [key: string]: UserBasicInterface,
+  [key: string]: UserCompanyBasicInfoResponseDTO,
 }
 
 export interface WorksheetUserSubmissionsResponseDTO {
