@@ -12,6 +12,7 @@ import {
   UserSettingsType,
   UserStatus,
 } from '../types';
+import { CompanyStylesType } from './company';
 import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
 
 export interface EntityOwnerSystemSummaryListResponseDTO {
@@ -111,6 +112,7 @@ export type CompanyPingType = {
   imageUrl: string,
   name: string,
   codeEditorRunEnabled: boolean,
+  styles: CompanyStylesType,
 }
 
 export interface PingResponseDTO {

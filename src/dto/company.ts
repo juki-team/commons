@@ -1,4 +1,4 @@
-import { CompanyPlan, ResourceInstanceType, ResourceLoggerType } from '../types';
+import { CompanyPlan, ResourceInstanceType, ResourceLoggerType, Theme } from '../types';
 import { EmailDataResponseDTO } from './system';
 import { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user';
 
@@ -52,3 +52,17 @@ export interface CompanyResourceSpecificationsResponseDTO {
     maximum: number,
   },
 }
+
+export type  CompanyStylesType = Record<Theme, {
+  body: {
+    backgroundColor: string,
+    backgroundColorHighlight: string,
+    color: string,
+    colorHighlight: string,
+  }
+  navbar: {
+    color: string,
+    backgroundColor: string,
+    logoTheme: Theme,
+  }
+}>;
