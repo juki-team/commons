@@ -60,10 +60,12 @@ export type  CompanyStylesType = Record<Theme, {
     backgroundColorHighlight: string,
     color: string,
     colorHighlight: string,
+    accentColor: string,
   },
   navbar: {
     color: string,
     backgroundColor: string,
     logoTheme: Theme,
+    accentColor: string,
   },
 }>;
