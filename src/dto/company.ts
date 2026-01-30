@@ -62,6 +62,7 @@ export type  CompanyStylesType = Record<Theme, {
     textColorHighlight: string,
     textColorHighlightInset: string,
     accentColor: string,
+    accentColorInset: string,
   },
   navbar: {
     textColor: string,
