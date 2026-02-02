@@ -113,6 +113,8 @@ export enum CollectionKey {
   SUBMIT = 'S',
   LOCALE = 'L',
   COMMENT = 'M',
+  EXCALIDRAW = 'E',
+  MARKDOWN = 'MD',
   DOCUMENT_TEMPLATE = 'DT',
 }
 
