@@ -5,6 +5,7 @@ export * from './company';
 export * from './contest';
 export * from './course';
 export * from './entity';
+export * from './excalidraw';
 export * from './file';
 export * from './image';
 export * from './judge';
