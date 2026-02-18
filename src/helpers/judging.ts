@@ -132,7 +132,7 @@ export const getDataLog = (log: any): DataLogType => {
         exitCode = parseInt(line.split(':')[1], 10);
       }
     }
-  } else {
+  } else if (lines.length >= 3) {
     timeUsed = +lines[0];
     memoryUsed = +lines[1];
     exitCode = +lines[2];

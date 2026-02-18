@@ -13,6 +13,17 @@ export function isStringJson(str: any): str is string {
   return false;
 }
 
+export function jsonParse(str: any) {
+  try {
+    if (typeof str === 'string') {
+      return JSON.parse(str);
+    }
+  } catch (e) {
+    return null;
+  }
+  return null;
+}
+
 export function isObjectJson(obj: any): boolean {
   try {
     return typeof JSON.stringify(obj) === 'string';

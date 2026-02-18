@@ -95,5 +95,5 @@ export const cleanRequest = <T extends ContentResponseType<any> | ContentsRespon
 };
 
 export const getDefaultMeta = (contents: any[], sort?: ContentsMetaType['sort']): ContentsMetaType => {
-  return { sort: sort ?? [], page: 1, size: contents.length, totalElements: contents.length, filter: contents.filter };
+  return { sort: sort ?? [], page: 1, size: contents.length, totalElements: contents.length, filter: {} };
 };
