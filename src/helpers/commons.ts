@@ -13,7 +13,7 @@ export function isStringJson(str: any): str is string {
   return false;
 }
 
-export function jsonParse(str: any) {
+export function safeJsonParse(str: any) {
   try {
     if (typeof str === 'string') {
       return JSON.parse(str);
@@ -194,3 +194,20 @@ export function join(array: (string | null | Date)[]) {
 export function split(text: string) {
   return text.split(SEPARATOR_TOKEN);
 }
+
+export const areArraysDifferent = <T>(a: T[], b: T[]) => {
+  if (a === b) {
+    return false;
+  }
+  if (a.length !== b.length) {
+    return true;
+  }
+  
+  for (let i = 0; i < b.length; i += 1) {
+    if (b[i] !== a[i]) {
+      return true;
+    }
+  }
+  
+  return false;
+};
