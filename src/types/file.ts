@@ -1,3 +1,5 @@
+import { CollectionKey } from './entity';
+
 export enum FileRole {
   RESTRICTED = 'RESTRICTED',
   GUEST = 'GUEST',
@@ -27,3 +29,11 @@ export type FileContentType =
 export type SummaryFileContentType =
   FolderFileContentType
   | Omit<FileFileContentType, 'key'>;
+
+export enum FilesJukiPub {
+  SHARED = 'shared', // files to share
+  SHARED_EXCALIDRAW = `shared/${CollectionKey.EXCALIDRAW}`,
+  TEMP = 'temp', // temporal files
+  PROBLEMS = 'problems',
+  CONTESTS = 'contests',
+}
