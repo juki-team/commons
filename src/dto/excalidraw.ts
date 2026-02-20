@@ -1,4 +1,4 @@
-import { ExcalidrawBaseDocument, MermaidBaseDocument } from '../types';
+import { ExcalidrawBaseDocument } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
@@ -9,6 +9,6 @@ export interface ExcalidrawResponseDTO extends Omit<ExcalidrawBaseDocument, 'mem
   createdAt: number,
 }
 
-export interface UpsertExcalidrawDTO extends Omit<MermaidBaseDocument, 'key' | 'members'> {
+export interface UpsertExcalidrawDTO extends Omit<ExcalidrawBaseDocument, 'key' | 'members'> {
   members: EntityMembersDTO,
 }
