@@ -10,6 +10,7 @@ export * from './file';
 export * from './image';
 export * from './judge';
 export * from './problem';
+export * from './mermaid';
 export * from './scoreboard';
 export * from './session';
 export * from './socket';
