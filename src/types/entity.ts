@@ -116,6 +116,7 @@ export enum CollectionKey {
   EXCALIDRAW = 'E',
   MARKDOWN = 'MD',
   DOCUMENT_TEMPLATE = 'DT',
+  MERMAID = 'MM',
 }
 
 export enum LogOperation {
