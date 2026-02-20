@@ -1,13 +1,13 @@
 import { CollectionKey } from './entity';
+import { Role } from './users';
 
-export enum FileRole {
-  RESTRICTED = 'RESTRICTED',
-  GUEST = 'GUEST',
-  REGULAR = 'REGULAR',
-  MASTER = 'MASTER',
-  ADMIN = 'ADMIN',
-  SUPER_ADMIN = 'SUPER_ADMIN'
-}
+export type FileRole =
+  Role.RESTRICTED
+  | Role.GUEST
+  | Role.REGULAR
+  | Role.MASTER
+  | Role.ADMIN
+  | Role.SUPER_ADMIN;
 
 export enum FileMemberRole {
   VIEWER = 'VIEWER',

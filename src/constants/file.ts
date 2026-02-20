@@ -1,4 +1,4 @@
-import { EntityAccess, EntityState, FileRole, FileType } from '../types';
+import { EntityAccess, EntityState, FileRole, FileType, Role } from '../types';
 
 export const FILE_TYPE: { [key in FileType]: { value: FileType, label: string } } = {
   [FileType.FILE]: { value: FileType.FILE, label: 'file' },
@@ -6,12 +6,12 @@ export const FILE_TYPE: { [key in FileType]: { value: FileType, label: string } 
 };
 
 export const FILE_ROLE: { [key in FileRole]: { value: FileRole, label: string, level: number } } = {
-  [FileRole.RESTRICTED]: { value: FileRole.RESTRICTED, label: 'restricted', level: 5 },
-  [FileRole.GUEST]: { value: FileRole.GUEST, label: 'guest', level: 4 },
-  [FileRole.REGULAR]: { value: FileRole.REGULAR, label: 'regular', level: 3 },
-  [FileRole.MASTER]: { value: FileRole.MASTER, label: 'master', level: 2 },
-  [FileRole.ADMIN]: { value: FileRole.ADMIN, label: 'admin', level: 1 },
-  [FileRole.SUPER_ADMIN]: { value: FileRole.SUPER_ADMIN, label: 'super admin', level: 0 },
+  [Role.RESTRICTED]: { value: Role.RESTRICTED, label: 'restricted', level: 5 },
+  [Role.GUEST]: { value: Role.GUEST, label: 'guest', level: 4 },
+  [Role.REGULAR]: { value: Role.REGULAR, label: 'regular', level: 3 },
+  [Role.MASTER]: { value: Role.MASTER, label: 'master', level: 2 },
+  [Role.ADMIN]: { value: Role.ADMIN, label: 'admin', level: 1 },
+  [Role.SUPER_ADMIN]: { value: Role.SUPER_ADMIN, label: 'super admin', level: 0 },
 };
 
 export const ENTITY_STATE: { [key in EntityState]: { value: EntityState, label: string } } = {
