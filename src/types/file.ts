@@ -19,16 +19,16 @@ export enum FileType {
   FILE = 'FILE',
 }
 
-export type FolderFileContentType = { type: FileType.FOLDER };
-export type FileFileContentType = { type: FileType.FILE, mime: string, key: string }
+export type FolderFileContent = { type: FileType.FOLDER };
+export type FileFileContent = { type: FileType.FILE, mime: string, key: string }
 
-export type FileContentType =
-  FolderFileContentType
-  | FileFileContentType;
+export type FileContent =
+  FolderFileContent
+  | FileFileContent;
 
-export type SummaryFileContentType =
-  FolderFileContentType
-  | Omit<FileFileContentType, 'key'>;
+export type SummaryFileContent =
+  FolderFileContent
+  | Omit<FileFileContent, 'key'>;
 
 export enum FilesJukiPub {
   SHARED = 'shared', // files to share

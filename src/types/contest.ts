@@ -2,7 +2,7 @@ import { ContestDataResponseDTO, UpsertContestDTO, UserCompanyBasicInfoResponseD
 import { CodeLanguage, EntityStatus } from './commons';
 import { EntityMembers } from './entity';
 import { Judge } from './judge';
-import { UserBasicInfoInterface } from './users';
+import { UserBasicInfo } from './users';
 
 export enum ContestStatus {
   PUBLIC = EntityStatus.PUBLIC,
@@ -44,7 +44,7 @@ export interface AnswerClarification extends NewClarification {
   id: string,
 }
 
-export type ContestUserType = {
+export type ContestUser = {
   isOwner: boolean,
   isAdministrator: boolean,
   isManager: boolean,
@@ -53,7 +53,7 @@ export type ContestUserType = {
   isSpectator: boolean,
 };
 
-export type ContestClarificationType = {
+export type ContestClarification = {
   key: string,
   problemJudgeKey: string,
   question: string,
@@ -76,7 +76,7 @@ export type ContestProblemPrerequisite = {
   delay: number,
 }
 
-export type ContestProblemType = {
+export type ContestProblem = {
   id: string
   index: string,
   points: number,
@@ -108,7 +108,7 @@ export type MemberUserData = {
   joinedAtTimestamp: number,
 };
 
-export type ContestMembersBasicType = {
+export type ContestMembersBasic = {
   administrators: { [key: string]: MemberUserData },
   judges: { [key: string]: MemberUserData },
   guests: { [key: string]: MemberUserData },
@@ -143,19 +143,19 @@ export interface ContestBaseDocument {
   name: string,
   description: string,
   settings: ContestSettings,
-  problems: Record<string, ContestProblemType>,
+  problems: Record<string, ContestProblem>,
   members: EntityMembers,
   tags: string[],
   groups: Record<string, ContestGroup>,
   events: ContestEvent[],
 }
 
-export type ContestMembersResponseType = {
-  administrators: { [key: string]: UserBasicInfoInterface },
-  judges: { [key: string]: UserBasicInfoInterface },
-  guests: { [key: string]: UserBasicInfoInterface },
-  spectators: { [key: string]: UserBasicInfoInterface },
-  contestants: { [key: string]: UserBasicInfoInterface },
+export type ContestMembersResponse = {
+  administrators: { [key: string]: UserBasicInfo },
+  judges: { [key: string]: UserBasicInfo },
+  guests: { [key: string]: UserBasicInfo },
+  spectators: { [key: string]: UserBasicInfo },
+  contestants: { [key: string]: UserBasicInfo },
 }
 
 export type ContestTimeData =

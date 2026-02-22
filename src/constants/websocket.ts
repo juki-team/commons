@@ -1,10 +1,10 @@
-import { ClientIdType } from '../types';
+import { ClientId } from '../types';
 
 export const CHANNEL_PUBLISH_SUBSCRIPTIONS = 'pub:subscriptions';
 
 export const CHANNEL_SUBSCRIBE_NOTIFICATIONS = 'sub:notifications';
 
-export const CHANNEL_SUBSCRIBE_CLIENT = (clientId: ClientIdType) => `sub:client:${clientId}`;
+export const CHANNEL_SUBSCRIBE_CLIENT = (clientId: ClientId) => `sub:client:${clientId}`;
 
 export const CHANNEL_PUBLISH_MESSAGES = 'pub:messages';
 

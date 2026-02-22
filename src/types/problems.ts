@@ -1,6 +1,6 @@
-import { CodeLanguage, TextLanguageType } from './commons';
+import { CodeLanguage, TextLanguage } from './commons';
 import { EntityMembers } from './entity';
-import { ProblemTestCaseType } from './services';
+import { ProblemTestCase } from './services';
 
 export interface TestCase {
   id: string,
@@ -37,38 +37,38 @@ export enum ProblemScoringMode {
   PARTIAL = 'PARTIAL', // each testcase +0.1 points // Supported
 }
 
-export type ProblemSettingsPointsByGroupsType = {
-  [key: number]: { points: number, partial: number, group: number, description: TextLanguageType, }
+export type ProblemSettingsPointsByGroups = {
+  [key: number]: { points: number, partial: number, group: number, description: TextLanguage, }
 };
 
-export type ProblemSettingsByProgrammingLanguageType = {
+export type ProblemSettingsByProgrammingLanguage = {
   [key: string]: { language: CodeLanguage, timeLimit: number, memoryLimit: number }
 };
 
-export type ProblemSampleCasesType = { input: string, output: string }[];
+export type ProblemSampleCases = { input: string, output: string }[];
 
-export type ProblemStatementType = {
-  description: TextLanguageType,
-  input: TextLanguageType,
-  output: TextLanguageType,
-  sampleCases: ProblemSampleCasesType,
-  note: TextLanguageType,
-  html: TextLanguageType,
-  pdfUrl: TextLanguageType,
+export type ProblemStatement = {
+  description: TextLanguage,
+  input: TextLanguage,
+  output: TextLanguage,
+  sampleCases: ProblemSampleCases,
+  note: TextLanguage,
+  html: TextLanguage,
+  pdfUrl: TextLanguage,
 };
 
-export type ProblemSettingsType = {
+export type ProblemSettings = {
   timeLimit: number,
   memoryLimit: number,
   withPE: boolean,
   type: ProblemType,
   scoringMode: ProblemScoringMode,
-  byProgrammingLanguage: ProblemSettingsByProgrammingLanguageType,
+  byProgrammingLanguage: ProblemSettingsByProgrammingLanguage,
   evaluatorSource: string,
-  pointsByGroups: ProblemSettingsPointsByGroupsType,
+  pointsByGroups: ProblemSettingsPointsByGroups,
 }
 
-export type ProblemUserType = {
+export type ProblemUser = {
   isOwner: boolean,
   isAdministrator: boolean,
   isManager: boolean,
@@ -81,13 +81,13 @@ export interface ProblemBaseDocument {
   name: string,
   shortname: string,
   author: string,
-  settings: ProblemSettingsType,
+  settings: ProblemSettings,
   tags: string[],
-  statement: ProblemStatementType,
-  editorial: TextLanguageType,
+  statement: ProblemStatement,
+  editorial: TextLanguage,
   judgeId: string,
   key: string,
-  testCases: ProblemTestCaseType[],
+  testCases: ProblemTestCase[],
   testCasesUpdatedAtTimestamp: number,
   members: EntityMembers,
   costs: {

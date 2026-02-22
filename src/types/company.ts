@@ -12,7 +12,7 @@ export enum CompanyLogoType {
   VERTICAL_COLOR = 'vertical-color',
 }
 
-export type ResourceInstanceType = {
+export type ResourceInstance = {
   imageId: string,
   instanceType: string,
   userDataScript: string,
@@ -20,7 +20,7 @@ export type ResourceInstanceType = {
   maximum: number,
 }
 
-export type ResourceLoggerType = {
+export type ResourceLogger = {
   info: {
     chatId: string,
     messageThreadId: string,

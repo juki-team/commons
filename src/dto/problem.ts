@@ -3,11 +3,11 @@ import {
   JudgeBaseDocument,
   ProblemBaseDocument,
   ProblemScoringMode,
-  ProblemSettingsType,
-  ProblemStatementType,
+  ProblemSettings,
+  ProblemStatement,
   ProblemType,
-  ProblemUserType,
-  TextLanguageType,
+  ProblemUser,
+  TextLanguage,
 } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
@@ -37,15 +37,15 @@ export interface ProblemBasicSummaryListResponseDTO {
 }
 
 export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
-  user: ProblemUserType,
+  user: ProblemUser,
   owner: UserCompanyBasicInfoResponseDTO,
 }
 
 export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   author: string,
-  statement: ProblemStatementType,
-  editorial: TextLanguageType,
-  settings: ProblemSettingsType,
+  statement: ProblemStatement,
+  editorial: TextLanguage,
+  settings: ProblemSettings,
   ownerNickname: string,
   state: EntityState,
 }

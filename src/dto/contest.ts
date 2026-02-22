@@ -1,15 +1,15 @@
 import {
   ContestBaseDocument,
-  ContestClarificationType,
+  ContestClarification,
   ContestEventAction,
   ContestProblemPrerequisite,
-  ContestProblemType,
+  ContestProblem,
   ContestSettings,
-  ContestUserType,
+  ContestUser,
   EntityState,
-  ProblemSettingsType,
-  ProblemStatementType,
-  TextLanguageType,
+  ProblemSettings,
+  ProblemStatement,
+  TextLanguage,
 } from '../types';
 import { EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity';
 import {
@@ -24,7 +24,7 @@ export type UpsertContestProblemPrerequisiteDTO = (Omit<ContestProblemPrerequisi
   problemIndex: string
 })[];
 
-export interface UpsertContestProblemDTO extends Omit<ContestProblemType, 'id' | 'prerequisites'> {
+export interface UpsertContestProblemDTO extends Omit<ContestProblem, 'id' | 'prerequisites'> {
   key: string,
   prerequisites: UpsertContestProblemPrerequisiteDTO,
 }
@@ -36,7 +36,7 @@ export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'mem
 }
 
 export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
-  user: ContestUserType,
+  user: ContestUser,
   owner: UserCompanyBasicInfoResponseDTO;
   company: EntityCompanySummaryListResponseDTO,
   settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty' | 'upsolvingEnabled'>,
@@ -60,7 +60,7 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
   updateTimestamp: number,
 }
 
-export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblemType, 'id' | 'prerequisites'> {
+export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblem, 'id' | 'prerequisites'> {
   name: string,
   key: string,
   prerequisites: UpsertContestProblemPrerequisiteDTO,
@@ -72,9 +72,9 @@ export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblemT
 export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {
   author: string,
   shortname: string,
-  statement: ProblemStatementType,
-  editorial: TextLanguageType,
-  settings: ProblemSettingsType,
+  statement: ProblemStatement,
+  editorial: TextLanguage,
+  settings: ProblemSettings,
   ownerNickname: string,
 }
 
@@ -117,7 +117,7 @@ export interface ContestMembersResponseDTO {
 }
 
 export interface ContestClarificationsResponseDTO {
-  clarifications: ContestClarificationType[],
+  clarifications: ContestClarification[],
 }
 
 export interface ContestEventsResponseDTO {

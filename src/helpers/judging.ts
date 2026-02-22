@@ -1,13 +1,13 @@
 import {
-  CodeEditorTestCaseType,
-  DataLogType,
+  CodeEditorTestCase,
+  DataLog,
   ProblemVerdict,
   SubmissionRunStatus,
-  SubmissionTestCaseType,
+  SubmissionTestCase,
   TestCaseVerdict,
 } from '../types';
 
-export const getDataOfTestCase = (testCase: SubmissionTestCaseType, timeLimit: number, memoryLimit: number) => {
+export const getDataOfTestCase = (testCase: SubmissionTestCase, timeLimit: number, memoryLimit: number) => {
   
   const { timeUsed, memoryUsed, exitCode } = getDataLog(testCase?.log);
   const timeLimitExceeded = timeUsed > timeLimit;
@@ -27,7 +27,7 @@ export const getDataOfTestCase = (testCase: SubmissionTestCaseType, timeLimit: n
   };
 };
 
-export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCaseType, timeLimit: number, memoryLimit: number): {
+export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCase, timeLimit: number, memoryLimit: number): {
   verdict: ProblemVerdict,
   timeUsed: number,
   memoryUsed: number,
@@ -111,7 +111,7 @@ export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) =
   };
 };
 
-export const getDataLog = (log: any): DataLogType => {
+export const getDataLog = (log: any): DataLog => {
   
   const lines = log?.split?.('\n') || [];
   let timeUsed = 0;

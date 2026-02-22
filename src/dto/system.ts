@@ -38,7 +38,7 @@ export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDe
   // isRunnerListenerCompanyKeys: string[],
 }
 
-export interface Ec2InstanceType {
+export interface Ec2Instance {
   instanceId: string,
   state: 'pending' | 'running' | 'shutting-down' | 'stopped' | 'stopping' | 'terminated' | undefined,
   instanceType: string,
@@ -54,7 +54,7 @@ export interface Ec2InstanceType {
   raw: any,
 }
 
-export type SqsPropertiesType = {
+export type SqsProperties = {
   QueueArn: string,
   ApproximateNumberOfMessages: string,
   ApproximateNumberOfMessagesNotVisible: string,
@@ -74,8 +74,8 @@ export type SqsPropertiesType = {
 }
 
 export interface SqsPropertiesResponseDTO {
-  sqsJukiHighRunnerFifo: SqsPropertiesType,
-  sqsJukiLowRunnerFifo: SqsPropertiesType,
+  sqsJukiHighRunnerFifo: SqsProperties,
+  sqsJukiLowRunnerFifo: SqsProperties,
 }
 
 export interface EmailDataResponseDTO {
@@ -84,7 +84,7 @@ export interface EmailDataResponseDTO {
   mainEmail: string,
 }
 
-export type SsmSessionType = {
+export type SsmSession = {
   sessionId: string,
   target: string,
   status: 'Connected' | 'Connecting' | 'Disconnected' | 'Failed' | 'Terminating' | 'Terminated' | undefined,

@@ -1,56 +1,56 @@
 import {
-  CodeEditorSheetType,
+  CodeEditorSheet,
   CodeLanguage,
-  JkmdSheetType,
-  QuizOptionsSheetType,
-  QuizProblemSheetType,
-  QuizTextSheetType,
-  UserBasicInterface,
+  JkmdSheet,
+  QuizOptionsSheet,
+  QuizProblemSheet,
+  QuizTextSheet,
+  UserBasic,
   WorksheetType,
 } from '../types';
 import { SubmissionSummaryListResponseDTO } from './submission';
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
-export type WorksheetResponseBasicInfoProcessedType = {
+export type WorksheetResponseBasicInfoProcessed = {
   submittedAt: number,
   points: number,
   isCompleted: boolean,
 }
 
-export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheetType, 'id' | 'type'> {
+export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheet, 'id' | 'type'> {
   language: CodeLanguage,
   source: string,
 }
 
-export interface QuizProblemSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, Omit<QuizProblemSubmissionDTO, 'source' | 'language'> {
+export interface QuizProblemSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, Omit<QuizProblemSubmissionDTO, 'source' | 'language'> {
   submissionResult: SubmissionSummaryListResponseDTO,
 }
 
-export interface JkmdSubmissionDTO extends Pick<JkmdSheetType, 'id' | 'type'> {
+export interface JkmdSubmissionDTO extends Pick<JkmdSheet, 'id' | 'type'> {
   read: boolean;
 }
 
-export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, JkmdSubmissionDTO {
+export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, JkmdSubmissionDTO {
 }
 
-export interface CodeEditorSubmissionDTO extends Pick<CodeEditorSheetType, 'id' | 'type' | 'files' | 'testCases'> {
+export interface CodeEditorSubmissionDTO extends Pick<CodeEditorSheet, 'id' | 'type' | 'files' | 'testCases'> {
 }
 
-export interface CodeEditorSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, CodeEditorSubmissionDTO {
+export interface CodeEditorSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, CodeEditorSubmissionDTO {
 }
 
-export interface QuizOptionsSubmissionDTO extends Pick<QuizOptionsSheetType, 'id' | 'type'> {
+export interface QuizOptionsSubmissionDTO extends Pick<QuizOptionsSheet, 'id' | 'type'> {
   checkedOptions: string[],
 }
 
-export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, QuizOptionsSubmissionDTO {
+export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, QuizOptionsSubmissionDTO {
 }
 
-export interface QuizTextSubmissionDTO extends Pick<QuizTextSheetType, 'id' | 'type'> {
+export interface QuizTextSubmissionDTO extends Pick<QuizTextSheet, 'id' | 'type'> {
   response: string,
 }
 
-export interface QuizTextSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessedType, QuizTextSubmissionDTO {
+export interface QuizTextSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, QuizTextSubmissionDTO {
 }
 
 export type WorkSheetSubmissions = {
@@ -74,7 +74,7 @@ export type WorkSheetSubmissions = {
 export interface WorksheetSubmissionsResponseDTO {
   [key: string]: {
     submissions: WorkSheetSubmissions,
-    user: UserBasicInterface,
+    user: UserBasic,
   };
 }
 
@@ -84,5 +84,5 @@ export interface WorksheetSubmissionsUsersResponseDTO {
 
 export interface WorksheetUserSubmissionsResponseDTO {
   submissions: WorkSheetSubmissions,
-  user: UserBasicInterface,
+  user: UserBasic,
 }

@@ -1,6 +1,12 @@
 import { ErrorCode } from '../types';
 
-export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, status: 500 | 400 | 401 | 403 | 404 | 405 } } = {
+export const ERROR: {
+  [key in ErrorCode]: {
+    value: ErrorCode,
+    message: string,
+    status: 500 | 400 | 401 | 403 | 404 | 405
+  }
+} = {
   // Http Errors
   [ErrorCode.ERR500]: { value: ErrorCode.ERR500, message: 'internal server error', status: 500 },
   [ErrorCode.ERR400]: { value: ErrorCode.ERR400, message: 'bad request', status: 400 },
@@ -8,14 +14,14 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR403]: { value: ErrorCode.ERR403, message: 'forbidden', status: 403 },
   [ErrorCode.ERR404]: { value: ErrorCode.ERR404, message: 'not found', status: 404 },
   [ErrorCode.ERR405]: { value: ErrorCode.ERR405, message: 'method not allowed', status: 405 },
-  
+
   // UI general errors
   [ErrorCode.ERR9997]: { value: ErrorCode.ERR9997, message: 'aborted request', status: 400 },
   [ErrorCode.ERR9998]: { value: ErrorCode.ERR9998, message: 'error on response', status: 400 },
   [ErrorCode.ERR9999]: { value: ErrorCode.ERR9999, message: 'service no found', status: 400 },
-  
+
   // COMPANY ERRORS ERR99XX
-  [ErrorCode.ERR9900]: { value: ErrorCode.ERR0000, message: 'internal server error on company service', status: 500 },
+  [ErrorCode.ERR9900]: { value: ErrorCode.ERR9900, message: 'internal server error on company service', status: 500 },
   // Company server errors
   [ErrorCode.ERR9910]: { value: ErrorCode.ERR9910, message: 'company not created', status: 500 },
   [ErrorCode.ERR9911]: { value: ErrorCode.ERR9911, message: 'company not found', status: 500 },
@@ -26,7 +32,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR9915]: { value: ErrorCode.ERR9915, message: 'not allowed to view the company', status: 400 },
   [ErrorCode.ERR9916]: { value: ErrorCode.ERR9916, message: 'not allowed to updated the company', status: 400 },
   [ErrorCode.ERR9917]: { value: ErrorCode.ERR9917, message: 'not allowed to deleted the company', status: 400 },
-  
+
   // USER ERRORS ERR00XX
   [ErrorCode.ERR0000]: { value: ErrorCode.ERR0000, message: 'internal server error on users service', status: 500 },
   // User server errors
@@ -53,7 +59,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0051]: { value: ErrorCode.ERR0051, message: 'user session not found', status: 500 },
   [ErrorCode.ERR0052]: { value: ErrorCode.ERR0052, message: 'user session not updated', status: 500 },
   [ErrorCode.ERR0053]: { value: ErrorCode.ERR0053, message: 'user session not deleted', status: 500 },
-  
+
   // PROBLEM ERRORS ERR01XX
   [ErrorCode.ERR0100]: { value: ErrorCode.ERR0100, message: 'internal server error on problems service', status: 500 },
   // Problem server errors
@@ -72,7 +78,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0120]: { value: ErrorCode.ERR0120, message: 'problem time limit must be a number', status: 500 },
   [ErrorCode.ERR0121]: { value: ErrorCode.ERR0121, message: 'problem memory limit must be number', status: 500 },
   [ErrorCode.ERR0122]: { value: ErrorCode.ERR0122, message: 'test case file empty', status: 400 },
-  
+
   // Contest Errors ERR02XX
   [ErrorCode.ERR0200]: { value: ErrorCode.ERR0200, message: 'internal server error on contests service', status: 500 },
   // Contest Server Error
@@ -89,7 +95,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0218]: { value: ErrorCode.ERR0218, message: 'not allowed to register to the contest', status: 400 },
   [ErrorCode.ERR0219]: { value: ErrorCode.ERR0219, message: 'is already registered', status: 400 },
   [ErrorCode.ERR0220]: { value: ErrorCode.ERR0220, message: 'not allowed to view contests', status: 400 },
-  
+
   [ErrorCode.ERR0230]: { value: ErrorCode.ERR0230, message: 'scoreboard not created', status: 500 },
   [ErrorCode.ERR0231]: { value: ErrorCode.ERR0231, message: 'scoreboard not found', status: 500 },
   [ErrorCode.ERR0232]: { value: ErrorCode.ERR0232, message: 'scoreboard not updated', status: 500 },
@@ -98,7 +104,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0235]: { value: ErrorCode.ERR0235, message: 'not allowed to view the scoreboard', status: 400 },
   [ErrorCode.ERR0236]: { value: ErrorCode.ERR0236, message: 'not allowed to update the scoreboard', status: 400 },
   [ErrorCode.ERR0237]: { value: ErrorCode.ERR0237, message: 'not allowed to delete the scoreboard', status: 400 },
-  
+
   [ErrorCode.ERR0240]: { value: ErrorCode.ERR0240, message: 'clarification not created', status: 500 },
   [ErrorCode.ERR0241]: { value: ErrorCode.ERR0241, message: 'clarification not found', status: 500 },
   [ErrorCode.ERR0242]: { value: ErrorCode.ERR0242, message: 'clarification not updated', status: 500 },
@@ -107,15 +113,23 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0245]: { value: ErrorCode.ERR0245, message: 'not allowed to view clarification', status: 400 },
   [ErrorCode.ERR0246]: { value: ErrorCode.ERR0246, message: 'not allowed to update clarification', status: 400 },
   [ErrorCode.ERR0247]: { value: ErrorCode.ERR0247, message: 'not allowed to delete clarification', status: 400 },
-  
+
   // Submission Errors ERR03XXX
-  [ErrorCode.ERR0300]: { value: ErrorCode.ERR0300, message: 'internal server error on submissions service', status: 500 },
+  [ErrorCode.ERR0300]: {
+    value: ErrorCode.ERR0300,
+    message: 'internal server error on submissions service',
+    status: 500,
+  },
   [ErrorCode.ERR0301]: { value: ErrorCode.ERR0301, message: 'submission not found', status: 500 },
   [ErrorCode.ERR0302]: { value: ErrorCode.ERR0302, message: 'submission not created', status: 500 },
   [ErrorCode.ERR0303]: { value: ErrorCode.ERR0303, message: 'submission not updated', status: 500 },
   [ErrorCode.ERR0310]: { value: ErrorCode.ERR0310, message: 'source empty', status: 400 },
   [ErrorCode.ERR0311]: { value: ErrorCode.ERR0311, message: 'programming language not supported', status: 400 },
-  [ErrorCode.ERR0321]: { value: ErrorCode.ERR0321, message: 'not allowed submit the problem in the contest', status: 400 },
+  [ErrorCode.ERR0321]: {
+    value: ErrorCode.ERR0321,
+    message: 'not allowed submit the problem in the contest',
+    status: 400,
+  },
   [ErrorCode.ERR0331]: { value: ErrorCode.ERR0331, message: 'judgement unavailable', status: 400 },
   // Utils Errors ERR04XX
   [ErrorCode.ERR0400]: { value: ErrorCode.ERR0400, message: 'internal server error on utils services', status: 500 },
@@ -124,7 +138,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   [ErrorCode.ERR0421]: { value: ErrorCode.ERR0421, message: 'compilation failed', status: 400 }, // codes
   [ErrorCode.ERR0430]: { value: ErrorCode.ERR0430, message: '', status: 400 }, // files
   [ErrorCode.ERR0440]: { value: ErrorCode.ERR0440, message: 'the email could not be sent', status: 400 }, // mails
-  
+
   // TEAMS ERRORS ERR06XX
   [ErrorCode.ERR0600]: { value: ErrorCode.ERR0600, message: 'internal server error on teams service', status: 500 },
   // Teams server errors
@@ -140,7 +154,7 @@ export const ERROR: { [key in ErrorCode]: { value: ErrorCode, message: string, s
   // Teams status permission error
   [ErrorCode.ERR0618]: { value: ErrorCode.ERR0618, message: 'team is reported', status: 400 },
   [ErrorCode.ERR0619]: { value: ErrorCode.ERR0619, message: 'team is archived', status: 400 },
-  
+
   // FILES ERRORS ERR08XX
   [ErrorCode.ERR0800]: { value: ErrorCode.ERR0800, message: 'internal server error on files service', status: 500 },
   // Files server errors

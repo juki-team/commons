@@ -1,13 +1,13 @@
 import { MemberRole, AssignmentType, TeamStatus, UserTeamStatus } from './prisma';
-import { UserBasicInterface, UserProfileInterface } from './users';
+import { UserBasic, UserProfile } from './users';
 
-export interface TeamMemberInterface {
-  user: UserProfileInterface,
+export interface TeamMember {
+  user: UserProfile,
   role: MemberRole,
   status: UserTeamStatus,
 }
 
-export interface AssignmentInterface {
+export interface Assignment {
   id: number,
   createdAt: Date,
   updatedAt: Date,
@@ -18,7 +18,7 @@ export interface AssignmentInterface {
   content: string,
 }
 
-export interface CommentInterface {
+export interface Comment {
   id: number,
   createdAt: Date,
   updatedAt: Date,
@@ -26,12 +26,12 @@ export interface CommentInterface {
   comment: string,
 }
 
-export interface TaskInterface {
+export interface Task {
   id: number,
   createdAt: Date,
   updatedAt: Date,
-  comments: CommentInterface[],
-  assigned: UserBasicInterface  [],
+  comments: Comment[],
+  assigned: UserBasic  [],
   subtasks: [],
   // data
   title: string,
@@ -39,16 +39,16 @@ export interface TaskInterface {
   dueDate: Date,
 }
 
-export interface TrainingInterface {
+export interface Training {
   id: number,
-  tasks: TaskInterface[],
+  tasks: Task[],
   // data
   name: string,
   startDate: Date,
   endDate: Date,
 }
 
-export interface TeamInterface {
+export interface Team {
   id: number
   createdAt: Date,
   // data
@@ -59,11 +59,11 @@ export interface TeamInterface {
   institution: string,
   imageUrl: string,
   status: TeamStatus,
-  members: TeamMemberInterface[],
-  training: TrainingInterface[],
+  members: TeamMember[],
+  training: Training[],
 }
 
-export interface TrainingBasicInterface {
+export interface TrainingBasic {
   id: number,
   numberOfTasks: number,
   // data
@@ -72,7 +72,7 @@ export interface TrainingBasicInterface {
   endDate: Date,
 }
 
-export interface TeamBasicInterface {
+export interface TeamBasic {
   id: number
   createdAt: Date,
   // data
@@ -83,6 +83,6 @@ export interface TeamBasicInterface {
   institution: string,
   imageUrl: string,
   status: TeamStatus,
-  members: TeamMemberInterface[],
-  training: TrainingInterface[],
+  members: TeamMember[],
+  training: Training[],
 }

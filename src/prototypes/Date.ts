@@ -3,111 +3,111 @@
 declare global {
   interface Date {
     changeYear(year: number): Date;
-    
+
     changeMonth(monthIndex: number): Date;
-    
+
     changeDay(date: number): Date;
-    
+
     changeHours(hours: number): Date;
-    
+
     changeMinutes(minutes: number): Date;
-    
+
     changeSeconds(seconds: number): Date;
-    
+
     changeMilliseconds(milliseconds: number): Date;
-    
+
     decreaseYear(count?: number): Date;
-    
+
     increaseYear(count?: number): Date;
-    
+
     decreaseMonth(): Date;
-    
+
     increaseMonth(): Date;
-    
+
     decreaseDay(): Date;
-    
+
     increaseDay(): Date;
-    
+
     startOfYear(): Date;
-    
+
     endOfYear(): Date;
-    
+
     startOfMonth(): Date;
-    
+
     endOfMonth(): Date;
-    
+
     startOfWeek(): Date;
-    
+
     endOfWeek(): Date;
-    
+
     startOfDay(): Date;
-    
+
     endOfDay(): Date;
-    
+
     startOfHour(): Date;
-    
+
     endOfHour(): Date;
-    
+
     startOfMinute(): Date;
-    
+
     endOfMinute(): Date;
-    
+
     startOfSecond(): Date;
-    
+
     endOfSecond(): Date;
-    
+
     isSameYear(date: Date): boolean;
-    
+
     isSameMonth(date: Date): boolean;
-    
+
     isSameDay(date: Date): boolean;
-    
+
     isSameHour(date: Date): boolean;
-    
+
     isSameMinute(date: Date): boolean;
-    
+
     isSameSecond(date: Date): boolean;
-    
+
     isSameMillisecond(date: Date): boolean;
-    
+
     isToday(): boolean;
-    
+
     isEqual(date: Date): boolean;
-    
+
     isValidDate(): boolean;
-    
+
     isYearAfter(date: Date): boolean;
-    
+
     isMonthAfter(date: Date): boolean;
-    
+
     isDayAfter(date: Date): boolean;
-    
+
     isHoursAfter(date: Date): boolean;
-    
+
     isMinutesAfter(date: Date): boolean;
-    
+
     isSecondsAfter(date: Date): boolean;
-    
+
     isMillisecondsAfter(date: Date): boolean;
-    
+
     isAfter(date: Date): boolean;
-    
+
     isYearBefore(date: Date): boolean;
-    
+
     isMonthBefore(date: Date): boolean;
-    
+
     isDayBefore(date: Date): boolean;
-    
+
     isHoursBefore(date: Date): boolean;
-    
+
     isMinutesBefore(date: Date): boolean;
-    
+
     isSecondsBefore(date: Date): boolean;
-    
+
     isMillisecondsBefore(date: Date): boolean;
-    
+
     isBefore(date: Date): boolean;
-    
+
     isWithinInterval(props: { start: Date, end: Date }, cmp?: '[]' | '()' | '[)' | '(]'): boolean;
   }
 }
@@ -182,7 +182,7 @@ Date.prototype.increaseDay = function () {
 
 Date.prototype.decreaseDay = function () {
   const newDate = new Date(this);
-  newDate.setDate(newDate.getDate() + 1);
+  newDate.setDate(newDate.getDate() - 1);
   return newDate;
 };
 

@@ -1,4 +1,4 @@
-import { EntityState, FileContentType, FileMemberRole, SummaryFileContentType, UserBasicInterface } from '../types';
+import { EntityState, FileContent, FileMemberRole, SummaryFileContent, UserBasic } from '../types';
 import { DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity';
 
 export interface FileBasic {
@@ -9,20 +9,20 @@ export interface FileBasic {
 
 export interface CreateFileDTO extends FileBasic {
   folderId: string,
-  content: FileContentType,
+  content: FileContent,
   members: FileMembersDTO,
 }
 
 export interface FileSummaryListResponseDTO extends FileBasic {
   key: string,
   updatedAt: Date,
-  content: SummaryFileContentType,
+  content: SummaryFileContent,
   user: DocumentUserResponseDTO,
-  owner: UserBasicInterface,
+  owner: UserBasic,
 }
 
 export interface FileDataResponseDTO extends FileSummaryListResponseDTO {
-  content: FileContentType,
+  content: FileContent,
   members: DocumentMembersResponseDTO,
   parentFolders: {
     name: string,

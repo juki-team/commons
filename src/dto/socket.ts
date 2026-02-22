@@ -1,6 +1,6 @@
 import {
-  ClientIdType,
-  DeviceType,
+  ClientId,
+  Device,
   ProblemVerdict,
   SubmissionRunStatus,
   WebSocketMessageEvent,
@@ -9,17 +9,17 @@ import {
   WebSocketSubscriptionEvent,
 } from '../types';
 import {
-  Ec2InstanceType,
+  Ec2Instance,
   EcsTaskDefinitionSystemSummaryListResponseDTO,
   EcsTaskSystemSummaryListResponseDTO,
-  SsmSessionType,
+  SsmSession,
 } from './system';
 import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 // EVENT MESSAGES
 interface WebsocketMessage {
   event: WebSocketMessageEvent,
-  clientId: ClientIdType,
+  clientId: ClientId,
 }
 
 export interface PingWebSocketEventDTO extends WebsocketMessage {
@@ -38,7 +38,7 @@ export interface ClientTrackScreenshotWebSocketEventDTO extends WebsocketMessage
 
 export interface ClientTrackDeviceWebSocketEventDTO extends WebsocketMessage {
   event: WebSocketMessageEvent.CLIENT_TRACK_DEVICE,
-  device: DeviceType,
+  device: Device,
 }
 
 export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
@@ -58,7 +58,7 @@ export type WebSocketMessageEventDTO =
 
 export interface WebsocketSubscription {
   event: WebSocketSubscriptionEvent,
-  clientId: ClientIdType,
+  clientId: ClientId,
 }
 
 export interface SubscribeCodeRunStatusWebSocketEventDTO extends WebsocketSubscription {
@@ -184,7 +184,7 @@ export interface CodeRunStatusWebSocketResponseEventDTO extends WebSocketRespons
   log: InfoLogCaseStatus
 }
 
-export type TestInfoType = {
+export type TestInfo = {
   sampleCase: boolean,
   caseResultsExecuted: number,
   caseResultsTotal: number,
@@ -196,7 +196,7 @@ export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketR
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,
   points: number,
-  testInfo?: TestInfoType,
+  testInfo?: TestInfo,
   shouldValidateContest: boolean,
 }
 
@@ -229,12 +229,12 @@ export interface SendDataEcsTasksListWebSocketResponseEventDTO extends SendDataW
 
 export interface SendDataEc2InstancesListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
-  content: Ec2InstanceType[],
+  content: Ec2Instance[],
 }
 
 export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
-  content: SsmSessionType[],
+  content: SsmSession[],
 }
 
 export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
@@ -251,11 +251,11 @@ export interface SendDataClientTrackWebSocketResponseEventDTO extends SendDataWe
   content: {
     location?: string,
     screenshot?: string,
-    device?: DeviceType,
+    device?: Device,
   },
 }
 
-export interface SenDataChatCompletionsWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataChatCompletionsWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS,
   content: { choices: [ { index: number, message: { role: string, content: string } } ], rawData: any },
 }
@@ -332,7 +332,7 @@ export type WebSocketResponseEventDTO =
   | SendDataEc2InstancesListWebSocketResponseEventDTO
   | SendDataSsmSessionsListWebSocketResponseEventDTO
   | ProblemCrawledWebSocketResponseEventDTO
-  | SenDataChatCompletionsWebSocketResponseEventDTO
+  | SendDataChatCompletionsWebSocketResponseEventDTO
   | SubmissionsCrawlWebSocketResponseEventDTO
   | ContestChangesWebSocketResponseEventDTO
   | SendDataRunCommandWebSocketResponseEventDTO

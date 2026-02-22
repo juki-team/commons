@@ -1,6 +1,6 @@
 import { ERROR } from '../constants';
 import { JkError } from '../prototypes';
-import { ContentResponseType, ContentsMetaType, ContentsResponseType, ErrorCode, ErrorResponseType } from '../types';
+import { ContentResponse, ContentsMeta, ContentsResponse, ErrorCode, ErrorResponse } from '../types';
 import { consoleError, isStringJson } from './commons';
 
 export function toJkError(err: any): JkError {
@@ -16,7 +16,7 @@ export function toJkError(err: any): JkError {
   });
 }
 
-export function errorsResponse(message: string, ...errors: JkError[]): ErrorResponseType {
+export function errorsResponse(message: string, ...errors: JkError[]): ErrorResponse {
   return {
     success: false,
     message: message,
@@ -29,7 +29,7 @@ export function errorsResponse(message: string, ...errors: JkError[]): ErrorResp
   };
 }
 
-export function contentResponse<T>(message: string, content: T): ContentResponseType<T> {
+export function contentResponse<T>(message: string, content: T): ContentResponse<T> {
   return {
     success: true,
     message,
@@ -37,7 +37,7 @@ export function contentResponse<T>(message: string, content: T): ContentResponse
   };
 }
 
-export function contentsResponse<T>(message: string, contents: T[], meta: ContentsMetaType): ContentsResponseType<T> {
+export function contentsResponse<T>(message: string, contents: T[], meta: ContentsMeta): ContentsResponse<T> {
   return {
     success: true,
     message,
@@ -46,10 +46,10 @@ export function contentsResponse<T>(message: string, contents: T[], meta: Conten
   };
 }
 
-export const cleanRequest = <T extends ContentResponseType<any> | ContentsResponseType<any>>(responseText: string): (ErrorResponseType | T) => {
+export const cleanRequest = <T extends ContentResponse<any> | ContentsResponse<any>>(responseText: string): (ErrorResponse | T) => {
   if (!isStringJson(responseText)) {
     // this occurs when the endpoint don't exits or server is down
-    const response: ErrorResponseType = {
+    const response: ErrorResponse = {
       success: false,
       message: ERROR[ErrorCode.ERR9999].message,
       errors: [ { code: ErrorCode.ERR9999, detail: '', message: ERROR[ErrorCode.ERR9999].message } ],
@@ -74,7 +74,7 @@ export const cleanRequest = <T extends ContentResponseType<any> | ContentsRespon
         meta: responseJson.meta,
       } as T;
     } else if (responseJson.success === false && typeof responseJson.message === 'string' && Array.isArray(responseJson.errors)) { // V1
-      const response: ErrorResponseType = {
+      const response: ErrorResponse = {
         success: false,
         message: responseJson.message,
         errors: responseJson.errors,
@@ -84,7 +84,7 @@ export const cleanRequest = <T extends ContentResponseType<any> | ContentsRespon
       return response;
     }
   }
-  const response: ErrorResponseType = {
+  const response: ErrorResponse = {
     success: false,
     message: ERROR[ErrorCode.ERR9998].message,
     errors: [ { code: ErrorCode.ERR9998, detail: '', message: ERROR[ErrorCode.ERR9998].message } ],
@@ -94,6 +94,6 @@ export const cleanRequest = <T extends ContentResponseType<any> | ContentsRespon
   return response;
 };
 
-export const getDefaultMeta = (contents: any[], sort?: ContentsMetaType['sort']): ContentsMetaType => {
+export const getDefaultMeta = (contents: any[], sort?: ContentsMeta['sort']): ContentsMeta => {
   return { sort: sort ?? [], page: 1, size: contents.length, totalElements: contents.length, filter: {} };
 };

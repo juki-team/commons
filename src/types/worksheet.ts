@@ -1,6 +1,6 @@
 import { EntityMembers } from './entity';
 import { Theme } from './prisma';
-import { BasicWorksheetType, BodyWorksheetType, NewPageSheetType } from './sheet';
+import { BasicWorksheet, BodyWorksheet, NewPageSheet } from './sheet';
 
 export enum AspectRatio {
   RATIO_21_9 = '21:9',
@@ -18,7 +18,7 @@ export interface WorksheetBaseDocument {
   folderId: string,
   name: string,
   description: string,
-  content: BodyWorksheetType[],
+  content: BodyWorksheet[],
   members: EntityMembers,
   quiz: {
     enable: boolean,
@@ -35,6 +35,6 @@ export interface WorksheetBaseDocument {
   },
 }
 
-export type WorksheetsInPages = { header: NewPageSheetType, content: BodyWorksheetType[] }[];
+export type WorksheetsInPages = { header: NewPageSheet, content: BodyWorksheet[] }[];
 
-export type SummaryWorksheetsInPages = { header: NewPageSheetType, content: BasicWorksheetType[] }[];
+export type SummaryWorksheetsInPages = { header: NewPageSheet, content: BasicWorksheet[] }[];

@@ -40,7 +40,7 @@ export type UsersCourses = {
  * Model Task
  *
  */
-export type Task = {
+export type TaskPrisma = {
   id: number
   createdAt: Date
   updatedAt: Date
@@ -67,7 +67,7 @@ export type TaskComment = {
  * Model Assignment
  *
  */
-export type Assignment = {
+export type AssignmentPrisma = {
   id: number
   createdAt: Date
   updatedAt: Date
@@ -93,7 +93,7 @@ export type UsersAssignment = {
  * Model Team
  *
  */
-export type Team = {
+export type TeamPrisma = {
   id: number
   createdAt: Date
   updatedAt: Date
@@ -126,7 +126,7 @@ export type UsersTeams = {
  * Model Training
  *
  */
-export type Training = {
+export type TrainingPrisma = {
   id: number
   createdAt: Date
   updatedAt: Date

@@ -1,7 +1,7 @@
 import { CodeLanguage } from './commons';
-import { DataLogType } from './submission';
+import { DataLog } from './submission';
 
-export type JudgeLanguageType = {
+export type JudgeLanguage = {
   value: string,
   label: string,
   enabled: boolean,
@@ -11,7 +11,7 @@ export type JudgeLanguageType = {
 export interface JudgeBaseDocument {
   key: string | Judge,
   name: string,
-  languages: JudgeLanguageType[],
+  languages: JudgeLanguage[],
   problemTags: string[],
   keyPrefix: string,
   isExternal: boolean,
@@ -77,4 +77,4 @@ export enum RunnerType {
   LOW_PERFORMANCE = 'LOW_PERFORMANCE',
 }
 
-export type TestCaseVerdict = DataLogType & { verdict: ProblemVerdict };
+export type TestCaseVerdict = DataLog & { verdict: ProblemVerdict };

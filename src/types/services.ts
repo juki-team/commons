@@ -138,25 +138,25 @@ export enum ErrorCode {
   ERR9917 = 'ERR9917',
 }
 
-export type ErrorType = {
+export type ApiError = {
   code: ErrorCode,
   detail: string,
   message: string,
 }
 
-export type ErrorResponseType = {
+export type ErrorResponse = {
   success: false,
   message: string,
-  errors: ErrorType[],
+  errors: ApiError[],
 }
 
-export type ContentResponseType<T> = {
+export type ContentResponse<T> = {
   success: true,
   message: string,
   content: T,
 }
 
-export type ContentsMetaType = {
+export type ContentsMeta = {
   page: number,
   size: number,
   totalElements: number,
@@ -164,11 +164,11 @@ export type ContentsMetaType = {
   filter: Record<any, any>,
 }
 
-export type ContentsResponseType<T> = {
+export type ContentsResponse<T> = {
   success: true,
   message: string,
   contents: T[],
-  meta: ContentsMetaType,
+  meta: ContentsMeta,
 }
 
 export enum LogLevel {
@@ -188,18 +188,18 @@ export enum HTTPMethod {
   DELETE = 'DELETE',
 }
 
-export type RunnerNextRequestType = { type: 'request', body: string, method: HTTPMethod, url: string }
+export type RunnerNextRequest = { type: 'request', body: string, method: HTTPMethod, url: string }
 
-export type RunnerNextQueueType = {
+export type RunnerNextQueue = {
   type: 'queue',
   messageBody: string,
   messageGroupId: string,
   messageDeduplicationId: string
 };
 
-export type RunnerNextType = RunnerNextRequestType | RunnerNextQueueType;
+export type RunnerNext = RunnerNextRequest | RunnerNextQueue;
 
-export type RunCommandType = {
+export type RunCommand = {
   commandLine: string,
   inputFilePath: string,
   outputFilePath: string,
@@ -212,18 +212,18 @@ export type RunCommandType = {
   endFilePath?: string,
   rawExecution: boolean,
   isolated: boolean,
-  next?: RunnerNextType,
+  next?: RunnerNext,
 };
 
-export type RunnerSQSMessageBodyType = {
-  executions: RunCommandType[],
-  next?: RunnerNextType,
+export type RunnerSQSMessageBody = {
+  executions: RunCommand[],
+  next?: RunnerNext,
 };
 
-export type CaseType = { caseKey: string, groups: number[] };
+export type Case = { caseKey: string, groups: number[] };
 
-export type ProblemTestCaseType = { testCaseKey: string, groups: number[] };
-export type ProblemSampleCaseType = { input: string, output: string };
+export type ProblemTestCase = { testCaseKey: string, groups: number[] };
+export type ProblemSampleCase = { input: string, output: string };
 
 // export type JudgingProblemDataType = {
 //   problemId: string,
@@ -233,9 +233,9 @@ export type ProblemSampleCaseType = { input: string, output: string };
 //   problemMemoryLimit: number,
 //   problemWithPE: boolean,
 //   problemScoringMode: ProblemScoringMode,
-//   problemPointsByGroups: ProblemSettingsPointsByGroupsType,
-//   problemSampleCases: ProblemSampleCaseType[],
-//   problemTestCases: ProblemTestCaseType[],
+//   problemPointsByGroups: ProblemSettingsPointsByGroups,
+//   problemSampleCases: ProblemSampleCase[],
+//   problemTestCases: ProblemTestCase[],
 //   problemEvaluatorSource: string,
 // }
 
@@ -258,4 +258,4 @@ export type ProblemSampleCaseType = { input: string, output: string };
 //   contestId: string,
 // }
 
-export type JudgingFileType = { language: CodeLanguage, fullFileName: string };
+export type JudgingFile = { language: CodeLanguage, fullFileName: string };

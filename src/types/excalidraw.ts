@@ -6,4 +6,5 @@ export interface ExcalidrawBaseDocument {
   elements: any,
   appState: any,
   members: EntityMembers,
+  tags: string[],
 }

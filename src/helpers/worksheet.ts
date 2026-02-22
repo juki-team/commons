@@ -1,26 +1,26 @@
 import { NEW_PAGE_SHEET } from '../constants/worksheet';
 import {
-  BasicWorksheetType,
-  BodyWorksheetType,
-  CodeEditorSheetType,
-  JkmdSheetType,
+  BasicWorksheet,
+  BodyWorksheet,
+  CodeEditorSheet,
+  JkmdSheet,
   Judge,
-  NewPageSheetType,
-  QuizOptionsSheetType,
-  QuizProblemSheetType,
-  QuizTextSheetType,
+  NewPageSheet,
+  QuizOptionsSheet,
+  QuizProblemSheet,
+  QuizTextSheet,
   SummaryWorksheetsInPages,
   WorksheetsInPages,
   WorksheetType,
 } from '../types';
 
-export const getWorksheetsInPages = (initialSheets: BodyWorksheetType[]) => {
+export const getWorksheetsInPages = (initialSheets: BodyWorksheet[]) => {
   const sheets = [ ...initialSheets ];
   if (sheets[0]?.type !== WorksheetType.NEW_PAGE) {
     sheets.unshift(NEW_PAGE_SHEET());
   }
-  let newPage: NewPageSheetType = sheets[0] as NewPageSheetType;
-  let content: BodyWorksheetType[] = [];
+  let newPage: NewPageSheet = sheets[0] as NewPageSheet;
+  let content: BodyWorksheet[] = [];
   const sheetsByPages: WorksheetsInPages = [];
   for (let i = 1; i < sheets.length; i++) {
     const sheet = sheets[i];
@@ -42,13 +42,13 @@ export const getWorksheetsInPages = (initialSheets: BodyWorksheetType[]) => {
   return sheetsByPages;
 };
 
-export const getSummaryWorksheetsInPages = (initialSheets: BodyWorksheetType[]) => {
+export const getSummaryWorksheetsInPages = (initialSheets: BodyWorksheet[]) => {
   const sheets = [ ...initialSheets ];
   if (sheets[0]?.type !== WorksheetType.NEW_PAGE) {
     sheets.unshift(NEW_PAGE_SHEET());
   }
-  let newPage: NewPageSheetType = sheets[0] as NewPageSheetType;
-  let content: BasicWorksheetType[] = [];
+  let newPage: NewPageSheet = sheets[0] as NewPageSheet;
+  let content: BasicWorksheet[] = [];
   const sheetsByPages: SummaryWorksheetsInPages = [];
   for (let i = 1; i < sheets.length; i++) {
     const sheet = sheets[i];
@@ -77,21 +77,21 @@ export const getSummaryWorksheetsInPages = (initialSheets: BodyWorksheetType[]) 
 
 export const getTotalExercisesOfSummaryWorksheetsInPages = (content: SummaryWorksheetsInPages) => content.reduce((sum, { content }) => sum + content.reduce((sum, { type }) => sum + +(type === WorksheetType.QUIZ_OPTIONS || type === WorksheetType.QUIZ_PROBLEM || type === WorksheetType.QUIZ_TEXT), 0), 0);
 
-export const isBasicWorksheetType = (value: any): value is BasicWorksheetType & any => {
+export const isBasicWorksheet = (value: any): value is BasicWorksheet & any => {
   return typeof value?.id == 'string' && value.id
     && Object.values(WorksheetType).includes(value?.type as WorksheetType)
     && typeof value?.title == 'string'
     && typeof value?.points == 'number';
 };
 
-export const isJkmdSheetType = (value: any): value is JkmdSheetType => {
-  return isBasicWorksheetType(value)
+export const isJkmdSheet = (value: any): value is JkmdSheet => {
+  return isBasicWorksheet(value)
     && value?.type === WorksheetType.JK_MD
     && typeof value?.content == 'string';
 };
 
-export const isCodeEditorSheetType = (value: any): value is CodeEditorSheetType => {
-  return isBasicWorksheetType(value)
+export const isCodeEditorSheet = (value: any): value is CodeEditorSheet => {
+  return isBasicWorksheet(value)
     && value?.type === WorksheetType.CODE_EDITOR
     && typeof value?.sourceCode === 'object' && value?.sourceCode !== null
     && value?.testCases === 'object' && value?.testCases !== null
@@ -99,8 +99,8 @@ export const isCodeEditorSheetType = (value: any): value is CodeEditorSheetType 
     && typeof value?.height == 'number';
 };
 
-export const isQuizProblemSheetType = (value: any): value is QuizProblemSheetType => {
-  return isBasicWorksheetType(value)
+export const isQuizProblemSheet = (value: any): value is QuizProblemSheet => {
+  return isBasicWorksheet(value)
     && value?.type === WorksheetType.QUIZ_PROBLEM
     && Object.values(Judge).includes(value?.problemJudge as Judge) || typeof value?.problemJudge === 'string'
     && typeof value?.problemKey == 'string'
@@ -108,8 +108,8 @@ export const isQuizProblemSheetType = (value: any): value is QuizProblemSheetTyp
     && typeof value?.height == 'number';
 };
 
-export const isQuizOptionsSheetType = (value: any): value is QuizOptionsSheetType => {
-  return isBasicWorksheetType(value)
+export const isQuizOptionsSheet = (value: any): value is QuizOptionsSheet => {
+  return isBasicWorksheet(value)
     && value?.type === WorksheetType.QUIZ_OPTIONS
     && typeof value?.description == 'string'
     && Array.isArray(value?.options)
@@ -118,8 +118,8 @@ export const isQuizOptionsSheetType = (value: any): value is QuizOptionsSheetTyp
     && (value?.scoringMode === 'TOTAL' || value?.scoringMode === 'PARTIAL');
 };
 
-export const isQuizTextSheetType = (value: any): value is QuizTextSheetType => {
-  return isBasicWorksheetType(value)
+export const isQuizTextSheet = (value: any): value is QuizTextSheet => {
+  return isBasicWorksheet(value)
     && value?.type === WorksheetType.QUIZ_TEXT
     && typeof value?.description == 'string'
     && typeof value?.answer == 'string'

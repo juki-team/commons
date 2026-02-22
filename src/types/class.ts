@@ -1,4 +1,4 @@
-import { BodyWorksheetType } from '../types/sheet';
+import { BodyWorksheet } from '../types/sheet';
 import { EntityMembers, EntityState } from './entity';
 
 export enum AssignmentClass {
@@ -16,7 +16,7 @@ export interface AssignmentBasicInfo {
   startTimestamp: number,
   endTimestamp: number,
   title: string,
-  content: BodyWorksheetType[],
+  content: BodyWorksheet[],
   tags: string[],
   graded: boolean,
   visible: boolean,

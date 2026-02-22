@@ -2,17 +2,17 @@ import {
   ContestRole,
   CourseRole,
   FileRole,
-  ObjectIdType,
+  ObjectId,
   ProblemRole,
   SystemRole,
   TeamRole,
-  UserBasicInfoInterface,
-  UserHandlesType,
+  UserBasicInfo,
+  UserHandles,
   UserRole,
-  UserSettingsType,
+  UserSettings,
   UserStatus,
 } from '../types';
-import { CompanyStylesType } from './company';
+import { CompanyStyles } from './company';
 import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
 
 export interface EntityOwnerSystemSummaryListResponseDTO {
@@ -22,7 +22,7 @@ export interface EntityOwnerSystemSummaryListResponseDTO {
   company: EntityCompanySummaryListResponseDTO,
 }
 
-export interface UserCompanyBasicInfoResponseDTO extends UserBasicInfoInterface {
+export interface UserCompanyBasicInfoResponseDTO extends UserBasicInfo {
   company: EntityCompanySummaryListResponseDTO,
 }
 
@@ -57,7 +57,7 @@ export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
   city: string,
   country: string,
   institution: string,
-  handles: UserHandlesType,
+  handles: UserHandles,
 }
 
 export interface UserProfileResponseDTO extends UserBasicResponseDTO {
@@ -94,17 +94,17 @@ export type UserPermissions = {
   }
 }
 
-export type UserPingType = {
+export type UserPing = {
   permissions: UserPermissions,
   nickname: string,
   imageUrl: string,
-  settings: UserSettingsType,
+  settings: UserSettings,
   isLogged: boolean,
-  sessionId: ObjectIdType,
+  sessionId: ObjectId,
   company: EntityCompanySummaryListResponseDTO,
 }
 
-export type CompanyPingType = {
+export type CompanyPing = {
   key: string,
   contactEmail: string,
   contactCellPhoneNumber: string,
@@ -112,12 +112,12 @@ export type CompanyPingType = {
   imageUrl: string,
   name: string,
   codeEditorRunEnabled: boolean,
-  styles: CompanyStylesType,
+  styles: CompanyStyles,
 }
 
 export interface PingResponseDTO {
-  user: UserPingType,
-  company: CompanyPingType,
+  user: UserPing,
+  company: CompanyPing,
 }
 
 export interface UserRankResponseDTO {

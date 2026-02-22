@@ -1,7 +1,7 @@
 import {
   CodeLanguage,
-  ContestUserType,
-  DataLogType,
+  ContestUser,
+  DataLog,
   EntityState,
   ProblemScoringMode,
   ProblemType,
@@ -78,7 +78,7 @@ export interface SubmissionProblemSystemSummaryListResponseDTO extends Submissio
 
 export interface SubmissionContestSystemSummaryListResponseDTO extends SubmissionContestSummaryListResponseDTO {
   id: string,
-  user: ContestUserType,
+  user: ContestUser,
 }
 
 export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummaryListResponseDTO {
@@ -90,7 +90,7 @@ export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummar
   state: EntityState,
 }
 
-export type TestCaseResultType = DataLogType & {
+export type TestCaseResult = DataLog & {
   err: string
   verdict: ProblemVerdict,
   diff: string,
@@ -100,11 +100,11 @@ export type TestCaseResultType = DataLogType & {
   testCaseKey: string,
 }
 
-export type VerdictByGroupsType = {
-  [key: number]: Omit<TestCaseResultType, 'err' | 'diff' | 'croppedDiff'>
+export type VerdictByGroups = {
+  [key: number]: Omit<TestCaseResult, 'err' | 'diff' | 'croppedDiff'>
 };
 
-export type CompilationResultType = DataLogType & {
+export type CompilationResult = DataLog & {
   err: string,
   success: boolean,
 };
@@ -112,8 +112,8 @@ export type CompilationResultType = DataLogType & {
 export interface SubmissionDataResponseDTO extends SubmissionSummaryListResponseDTO {
   judgmentTime: number,
   sourceCode: string,
-  verdictByGroups: VerdictByGroupsType,
-  testCaseResults: TestCaseResultType[],
-  compilationResult: CompilationResultType,
+  verdictByGroups: VerdictByGroups,
+  testCaseResults: TestCaseResult[],
+  compilationResult: CompilationResult,
   runId: string,
 }

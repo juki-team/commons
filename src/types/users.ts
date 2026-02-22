@@ -1,18 +1,18 @@
 import { ProfileSetting } from './account';
 import { CourseRole, Language, SystemRole, TeamRole, Theme, UserRole } from './prisma';
 
-export interface UserBasicInfoInterface {
+export interface UserBasicInfo {
   nickname: string,
   imageUrl: string,
 }
 
-export interface UserBasicInterface extends UserBasicInfoInterface {
+export interface UserBasic extends UserBasicInfo {
   givenName: string,
   familyName: string,
   email: string,
 }
 
-export interface UserProfileInterface extends UserBasicInterface {
+export interface UserProfile extends UserBasic {
   aboutMe: string,
   country: string,
   city: string,
@@ -20,7 +20,7 @@ export interface UserProfileInterface extends UserBasicInterface {
   telegramUsername: string,
 }
 
-export type UserHandlesType = { [key: string]: string };
+export type UserHandles = { [key: string]: string };
 
 export enum DataViewMode {
   CARDS = 'CARDS',
@@ -32,7 +32,7 @@ export enum MenuViewMode {
   VERTICAL = 'VERTICAL',
 }
 
-export type UserSettingsType = {
+export type UserSettings = {
   [ProfileSetting.LANGUAGE]: Language,
   [ProfileSetting.THEME]: Theme,
   [ProfileSetting.DATA_VIEW_MODE]: DataViewMode,

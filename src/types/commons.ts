@@ -64,7 +64,7 @@ export enum EntityAccess {
   EXPOSED = 'EXPOSED',
 }
 
-export type TextLanguageType = { [key in Language]: string };
+export type TextLanguage = { [key in Language]: string };
 
 export type SplitTime = {
   remaining: number,
@@ -74,6 +74,6 @@ export type SplitTime = {
   digits: number
 };
 
-export type ObjectIdType = `${string & { length: 24 }}`;
+export type ObjectId = `${string & { length: 24 }}`;
 
-export type DeviceType = { label: string, isMobile: boolean, isBrowser: boolean, type: string, osLabel: string };
+export type Device = { label: string, isMobile: boolean, isBrowser: boolean, type: string, osLabel: string };

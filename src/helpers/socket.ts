@@ -9,7 +9,7 @@ import {
   PingWebSocketEventDTO,
   PongWebSocketResponseEventDTO,
   ProblemCrawledWebSocketResponseEventDTO,
-  SenDataChatCompletionsWebSocketResponseEventDTO,
+  SendDataChatCompletionsWebSocketResponseEventDTO,
   SendDataClientTrackWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
@@ -45,7 +45,7 @@ import {
   WebSocketUnsubscribeEventDTO,
 } from '../dto';
 import {
-  ClientIdType,
+  ClientId,
   ProblemVerdict,
   SubmissionRunStatus,
   WebSocketMessageEvent,
@@ -256,7 +256,7 @@ export const isSendDataClientTrackWebSocketResponseEventDTO = (event: any): even
     && event?.event === WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK;
 };
 
-export const isSenDataChatCompletionsWebSocketResponseEventDTO = (event: any): event is SenDataChatCompletionsWebSocketResponseEventDTO => {
+export const isSenDataChatCompletionsWebSocketResponseEventDTO = (event: any): event is SendDataChatCompletionsWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event) && isSendDataWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS;
 };
@@ -304,6 +304,6 @@ export const isUserNotificationContestClarificationWebSocketResponseEventDTO = (
 
 // generic
 
-export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, clientId: ClientIdType, id: string): WebSocketResponseEventKey => {
+export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, clientId: ClientId, id: string): WebSocketResponseEventKey => {
   return `${event}-${clientId}-${id}`;
 };

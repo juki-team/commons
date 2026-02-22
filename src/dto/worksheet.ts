@@ -1,4 +1,4 @@
-import { BodyWorksheetType, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types';
+import { BodyWorksheet, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types';
 import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
 import { UserCompanyBasicInfoResponseDTO } from './user';
 
@@ -17,7 +17,7 @@ export interface WorksheetSummaryListResponseDTO extends Pick<WorksheetBaseDocum
 
 export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'content'> {
   folderId: string,
-  content: BodyWorksheetType[],
+  content: BodyWorksheet[],
   members: EntityMembersResponseDTO,
   quiz: WorksheetBaseDocument['quiz'],
   slides: WorksheetBaseDocument['slides'],

@@ -1,4 +1,4 @@
-import { ObjectIdType } from './commons';
+import { ObjectId } from './commons';
 
 export enum WebSocketMessageEvent {
   PING = 'PING',
@@ -56,6 +56,6 @@ export enum WebSocketResponseEvent {
   USER_NOTIFICATION_CONTEST_CLARIFICATION = 'USER_NOTIFICATION_CONTEST_CLARIFICATION',
 }
 
-export type ClientIdType = `${ObjectIdType}|${string}`;
+export type ClientId = `${ObjectId}|${string}`;
 
-export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ClientIdType}-${string}`;
+export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ClientId}-${string}`;

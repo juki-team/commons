@@ -1,4 +1,4 @@
-import { CompanyPlan, ResourceInstanceType, ResourceLoggerType, Theme } from '../types';
+import { CompanyPlan, ResourceInstance, ResourceLogger, Theme } from '../types';
 import { EmailDataResponseDTO } from './system';
 import { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user';
 
@@ -24,7 +24,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   startTimestamp: number,
   judges: CompanyJudgeResponseDTO[],
   trustedCompanies: CompanyTrustedCompanyResponseDTO[],
-  styles: CompanyStylesType,
+  styles: CompanyStyles,
 }
 
 export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
@@ -35,8 +35,8 @@ export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
 }
 
 export interface CompanyResourceSpecificationsResponseDTO {
-  logger: ResourceLoggerType,
-  runnerInstance: ResourceInstanceType,
+  logger: ResourceLogger,
+  runnerInstance: ResourceInstance,
   runnerListener: {
     taskDefinition: string,
     minimum: number,
@@ -54,7 +54,7 @@ export interface CompanyResourceSpecificationsResponseDTO {
   },
 }
 
-export type  CompanyStylesType = Record<Theme, {
+export type  CompanyStyles = Record<Theme, {
   body: {
     backgroundColor: string,
     backgroundColorHighlight: string,

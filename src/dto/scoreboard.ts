@@ -1,6 +1,6 @@
 import { UserSummaryListResponseDTO } from './user';
 
-export type ScoreboardProblemType = {
+export type ScoreboardProblem = {
   attempts: number,
   points: number,
   success: boolean,
@@ -9,8 +9,8 @@ export type ScoreboardProblemType = {
   indexAccepted: number,
 }
 
-export type ScoreboardProblemsType = {
-  [key: string]: ScoreboardProblemType
+export type ScoreboardProblems = {
+  [key: string]: ScoreboardProblem
 }
 
 export interface ScoreboardResponseDTO {
@@ -18,7 +18,7 @@ export interface ScoreboardResponseDTO {
   totalPenalty: number,
   totalPoints: number,
   position: number,
-  problems: ScoreboardProblemsType,
+  problems: ScoreboardProblems,
 }
 
 export type ScoreboardTimelineEventResponseDTO = {
