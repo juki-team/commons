@@ -2,8 +2,8 @@ import {
   ContestRole,
   CourseRole,
   FileRole,
-  ObjectId,
   ProblemRole,
+  RecordId,
   SystemRole,
   TeamRole,
   UserBasicInfo,
@@ -100,7 +100,7 @@ export type UserPing = {
   imageUrl: string,
   settings: UserSettings,
   isLogged: boolean,
-  sessionId: ObjectId,
+  sessionId: RecordId,
   company: EntityCompanySummaryListResponseDTO,
 }
 
