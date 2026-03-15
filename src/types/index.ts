@@ -10,6 +10,7 @@ export * from './excalidraw';
 export * from './file';
 export * from './group';
 export * from './judge';
+export * from './markdown';
 export * from './mermaid';
 export * from './notification';
 export * from './prisma';
