@@ -37,6 +37,7 @@ export enum CodeLanguage {
   ARDUINO = 'ARDUINO',
   DOT = 'DOT',
   MERMAID = 'MERMAID',
+  BASH = 'BASH',
 }
 
 export enum ScopeData {

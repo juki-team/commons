@@ -1,31 +1,31 @@
 import { CodeLanguage, Language, Theme } from '../types';
 
-export const LANGUAGE: { [key in Language]: { value: Language, label: string } } = {
+export const LANGUAGE: { [key in Language]: { value: Language; label: string } } = {
   [Language.EN]: { value: Language.EN, label: 'english' },
   [Language.ES]: { value: Language.ES, label: 'español' },
 };
 
-export const THEME: { [key in Theme]: { value: Theme, label: string } } = {
+export const THEME: { [key in Theme]: { value: Theme; label: string } } = {
   [Theme.LIGHT]: { value: Theme.LIGHT, label: 'light' },
   [Theme.DARK]: { value: Theme.DARK, label: 'dark' },
 };
 
 // Languages to monaco https://monaco-react.surenatoyan.com/
 export type CodeLanguageMeta = {
-  value: CodeLanguage,
-  label: string,
-  mime: string,
-  mainFilename: string,
-  fileExtension: Array<string>,
-  compilePattern: string,
-  runPattern: string,
-  templateSourceCode: string,
-  hasBuildFile: boolean,
-  executable: string,
-  executableVersion: string,
-  monacoKey: string,
-  codeMirrorKey: string,
-  highlightJsKey: string,
+  value: CodeLanguage;
+  label: string;
+  mime: string;
+  mainFilename: string;
+  fileExtension: Array<string>;
+  compilePattern: string;
+  runPattern: string;
+  templateSourceCode: string;
+  hasBuildFile: boolean;
+  executable: string;
+  executableVersion: string;
+  monacoKey: string;
+  codeMirrorKey: string;
+  highlightJsKey: string;
 };
 
 const GCC_VERSION = `gcc (Debian 12.2.0-14+deb12u1) 12.2.0
@@ -57,7 +57,7 @@ by Pablo Novara (zaskar_84@yahoo.com.ar)`;
 const C = {
   mime: 'text/x-csrc',
   mainFilename: 'main.c',
-  fileExtension: [ 'c' ],
+  fileExtension: ['c'],
   hasBuildFile: true,
   executable: 'gcc',
   executableVersion: GCC_VERSION,
@@ -70,12 +70,11 @@ const C = {
 const CPP = {
   mime: 'text/x-c++src',
   mainFilename: 'main.cpp',
-  fileExtension: [ 'cpp', 'c++', 'cxx', 'cc' ],
+  fileExtension: ['cpp', 'c++', 'cxx', 'cc'],
   hasBuildFile: true,
   executable: 'g++',
   executableVersion: GPP_VERSION,
-  templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' +
-    'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
+  templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' + 'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
   monacoKey: 'cpp',
   codeMirrorKey: 'cpp',
   highlightJsKey: 'cpp',
@@ -84,7 +83,7 @@ const CPP = {
 const PYTHON = {
   mime: 'text/x-python',
   mainFilename: 'main.py',
-  fileExtension: [ 'py' ],
+  fileExtension: ['py'],
   hasBuildFile: false,
   templateSourceCode: 'print("Hello World\\n")',
   monacoKey: 'python',
@@ -96,7 +95,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.C_11]: {
     value: CodeLanguage.C_11,
     label: 'C 11',
-    compilePattern: '/usr/bin/jk-c11 -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -std=gnu11 -o ' +
+    compilePattern:
+      '/usr/bin/jk-c11 -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -std=gnu11 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
@@ -124,7 +124,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.CPP_11]: {
     value: CodeLanguage.CPP_11,
     label: 'C++ 11',
-    compilePattern: '/usr/bin/jk-cpp11 -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++11 -o ' +
+    compilePattern:
+      '/usr/bin/jk-cpp11 -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++11 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
@@ -132,7 +133,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.CPP_20]: {
     value: CodeLanguage.CPP_20,
     label: 'C++ 20',
-    compilePattern: '/usr/bin/jk-cpp20 -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++20 -o ' +
+    compilePattern:
+      '/usr/bin/jk-cpp20 -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=gnu++20 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
@@ -142,14 +144,13 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'Java 21',
     mime: 'text/x-java',
     mainFilename: 'Main.java',
-    fileExtension: [ 'java' ],
-    compilePattern: '/usr/bin/jk-javac -cp \'.;*\' {{folder_path}}/{{source_full_file_name}}',
+    fileExtension: ['java'],
+    compilePattern: "/usr/bin/jk-javac -cp '.;*' {{folder_path}}/{{source_full_file_name}}",
     // compilePattern: 'javac {{folder_path}}/{{source_full_file_name}}',
     // runPattern: 'java -cp {{folder_path}} {{class_name}}'
-    runPattern: '/usr/bin/jk-java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
-      '{{folder_path}} {{class_name}}',
-    templateSourceCode: 'class Main {\n  public static void main (String[] args) {' +
-      '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
+    runPattern:
+      '/usr/bin/jk-java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' + '{{folder_path}} {{class_name}}',
+    templateSourceCode: 'class Main {\n  public static void main (String[] args) {' + '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
     executable: 'java',
     executableVersion: JAVAC_VERSION,
@@ -157,7 +158,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'java',
     highlightJsKey: 'java',
   },
-  [CodeLanguage.PYTHON_2]: { // DEPRECATED
+  [CodeLanguage.PYTHON_2]: {
+    // DEPRECATED
     value: CodeLanguage.PYTHON_2,
     label: 'Python 2 *',
     compilePattern: '/usr/bin/jk-python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
@@ -175,7 +177,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     executableVersion: PYPY3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON_PYPY_2]: { // DEPRECATED
+  [CodeLanguage.PYTHON_PYPY_2]: {
+    // DEPRECATED
     value: CodeLanguage.PYTHON_PYPY_2,
     label: 'PyPy 2 *',
     compilePattern: '/usr/bin/jk-pypy2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
@@ -198,7 +201,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'Javascript Node.js 22',
     mime: 'application/x-javascript',
     mainFilename: 'main.js',
-    fileExtension: [ 'js' ],
+    fileExtension: ['js'],
     compilePattern: '',
     runPattern: '/usr/bin/jk-node22 {{folder_path}}/{{source_full_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
@@ -209,78 +212,84 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'javascript',
     highlightJsKey: 'javascript',
   },
-  [CodeLanguage.ICPC_C]: { // DEPRECATED
+  [CodeLanguage.ICPC_C]: {
+    // DEPRECATED
     value: CodeLanguage.ICPC_C,
     label: 'ICPC C *',
-    compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
   },
-  [CodeLanguage.C]: { // DEPRECATED
+  [CodeLanguage.C]: {
+    // DEPRECATED
     value: CodeLanguage.C,
     label: 'C *',
-    compilePattern: 'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
+    compilePattern:
+      'gcc -static -fno-optimize-sibling-calls -fno-strict-aliasing -DONLINE_JUDGE -fno-asm -lm -s -O2 -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
   },
-  [CodeLanguage.ICPC_CPP]: { // DEPRECATED
+  [CodeLanguage.ICPC_CPP]: {
+    // DEPRECATED
     value: CodeLanguage.ICPC_CPP,
     label: 'ICPC C++ *',
-    compilePattern: 'g++ -x c++ -static -g -O2 -std=gnu++20 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'g++ -x c++ -static -g -O2 -std=gnu++20 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP]: { // DEPRECATED
+  [CodeLanguage.CPP]: {
+    // DEPRECATED
     value: CodeLanguage.CPP,
     label: 'C++ *',
-    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP11]: { // DEPRECATED
+  [CodeLanguage.CPP11]: {
+    // DEPRECATED
     value: CodeLanguage.CPP11,
     label: 'C++ 11 *',
-    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++11 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern:
+      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++11 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++11 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP14]: { // DEPRECATED
+  [CodeLanguage.CPP14]: {
+    // DEPRECATED
     value: CodeLanguage.CPP14,
     label: 'C++ 14 *',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++14 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
-    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++14 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern:
+      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++14 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.CPP17]: { // DEPRECATED
+  [CodeLanguage.CPP17]: {
+    // DEPRECATED
     value: CodeLanguage.CPP17,
     label: 'C++ 17 *',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++17 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
-    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++17 -o ' +
-      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern:
+      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++17 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
-  [CodeLanguage.JAVA]: { // DEPRECATED
+  [CodeLanguage.JAVA]: {
+    // DEPRECATED
     value: CodeLanguage.JAVA,
     label: 'Java *',
     mime: 'text/x-java',
     mainFilename: 'Main.java',
-    fileExtension: [ 'java' ],
-    compilePattern: 'javac -cp \'.;*\' {{folder_path}}/{{source_full_file_name}}',
+    fileExtension: ['java'],
+    compilePattern: "javac -cp '.;*' {{folder_path}}/{{source_full_file_name}}",
     // compilePattern: 'javac {{folder_path}}/{{source_full_file_name}}',
     // runPattern: 'java -cp {{folder_path}} {{class_name}}'
-    runPattern: '/usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
+    runPattern:
+      '/usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
       '{{folder_path}} {{class_name}}',
-    templateSourceCode: 'class Main {\n  public static void main (String[] args) {' +
-      '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
+    templateSourceCode: 'class Main {\n  public static void main (String[] args) {' + '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
     executable: 'javac',
     executableVersion: JAVAC_VERSION,
@@ -288,7 +297,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'java',
     highlightJsKey: 'java',
   },
-  [CodeLanguage.ICPC_PYTHON]: { // DEPRECATED
+  [CodeLanguage.ICPC_PYTHON]: {
+    // DEPRECATED
     value: CodeLanguage.ICPC_PYTHON,
     label: 'ICPC Python *',
     compilePattern: 'pypy3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
@@ -297,7 +307,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     executableVersion: PYPY3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON]: { // DEPRECATED
+  [CodeLanguage.PYTHON]: {
+    // DEPRECATED
     value: CodeLanguage.PYTHON,
     label: 'Python *',
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
@@ -306,7 +317,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     executableVersion: PYTHON3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON2]: { // DEPRECATED
+  [CodeLanguage.PYTHON2]: {
+    // DEPRECATED
     value: CodeLanguage.PYTHON2,
     label: 'Python 2 *',
     compilePattern: 'python2 -m py_compile {{folder_path}}/{{source_full_file_name}}',
@@ -315,7 +327,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     executableVersion: 'Python 2.7.18',
     ...PYTHON,
   },
-  [CodeLanguage.PYTHON3]: { // DEPRECATED
+  [CodeLanguage.PYTHON3]: {
+    // DEPRECATED
     value: CodeLanguage.PYTHON3,
     label: 'Python 3 *',
     compilePattern: 'python3 -m py_compile {{folder_path}}/{{source_full_file_name}}',
@@ -324,12 +337,13 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     executableVersion: PYTHON3_VERSION,
     ...PYTHON,
   },
-  [CodeLanguage.JAVASCRIPT]: { // DEPRECATED
+  [CodeLanguage.JAVASCRIPT]: {
+    // DEPRECATED
     value: CodeLanguage.JAVASCRIPT,
     label: 'Javascript *',
     mime: 'application/x-javascript',
     mainFilename: 'main.js',
-    fileExtension: [ 'js' ],
+    fileExtension: ['js'],
     compilePattern: '',
     runPattern: '/usr/bin/node {{folder_path}}/{{source_full_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
@@ -340,12 +354,13 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'javascript',
     highlightJsKey: 'javascript',
   },
-  [CodeLanguage.TYPESCRIPT]: { // DEPRECATED
+  [CodeLanguage.TYPESCRIPT]: {
+    // DEPRECATED
     value: CodeLanguage.TYPESCRIPT,
     label: 'Typescript *',
     mime: 'application/x-typescript',
     mainFilename: 'main.ts',
-    fileExtension: [ 'ts' ],
+    fileExtension: ['ts'],
     compilePattern: '',
     runPattern: '/usr/bin/node {{folder_path}}/{{source_full_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
@@ -356,12 +371,13 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'typescript',
     highlightJsKey: 'typescript',
   },
-  [CodeLanguage.TSX]: { // DEPRECATED
+  [CodeLanguage.TSX]: {
+    // DEPRECATED
     value: CodeLanguage.TSX,
     label: 'TSX *',
     mime: 'application/x-typescript',
     mainFilename: 'main.tsx',
-    fileExtension: [ 'tsx' ],
+    fileExtension: ['tsx'],
     compilePattern: '',
     runPattern: '/usr/bin/node {{folder_path}}/{{source_full_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
@@ -372,12 +388,13 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'typescript',
     highlightJsKey: 'typescript',
   },
-  [CodeLanguage.JSX]: { // DEPRECATED
+  [CodeLanguage.JSX]: {
+    // DEPRECATED
     value: CodeLanguage.JSX,
     label: 'JSX *',
     mime: 'application/x-javascript',
     mainFilename: 'main.jsx',
-    fileExtension: [ 'jsx' ],
+    fileExtension: ['jsx'],
     compilePattern: '',
     runPattern: '/usr/bin/node {{folder_path}}/{{source_full_file_name}}',
     templateSourceCode: 'console.log("Hello World\\n")',
@@ -393,11 +410,12 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'Pseudo-código (PSeInt)',
     mime: 'text/plain',
     mainFilename: 'main.psc',
-    fileExtension: [ 'psc' ],
-    compilePattern: 'jk-pseint {{folder_path}}/{{source_full_file_name}} --norun --nouser'
-      + ' && jk-pseint {{folder_path}}/{{source_full_file_name}} --draw {{folder_path}}/{{source_full_file_name}}.psd'
-      + ' && jk-psexport {{folder_path}}/{{source_full_file_name}}.psd {{folder_path}}/{{source_full_file_name}}.cpp --lang=cpp'
-      + ' && g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
+    fileExtension: ['psc'],
+    compilePattern:
+      'jk-pseint {{folder_path}}/{{source_full_file_name}} --norun --nouser' +
+      ' && jk-pseint {{folder_path}}/{{source_full_file_name}} --draw {{folder_path}}/{{source_full_file_name}}.psd' +
+      ' && jk-psexport {{folder_path}}/{{source_full_file_name}}.psd {{folder_path}}/{{source_full_file_name}}.cpp --lang=cpp' +
+      ' && g++ -x c++ -g -O2 -std=gnu++20 -static -o ' +
       '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}.cpp',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     templateSourceCode: 'Algoritmo HOLA_MUNDO\n\tImprimir "Hello World"\nFinAlgoritmo\n',
@@ -413,7 +431,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'DOT',
     mime: 'text/vnd.graphviz',
     mainFilename: 'diagram.dot',
-    fileExtension: [ 'dot' ],
+    fileExtension: ['dot'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: 'digraph G {\n  A -> B;\n  B -> C;\n}',
@@ -429,7 +447,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'Mermaid',
     mime: 'text/mermaid',
     mainFilename: 'diagram.mmd',
-    fileExtension: [ 'mmd', 'mermaid' ],
+    fileExtension: ['mmd', 'mermaid'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: `graph TD
@@ -450,7 +468,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'JSON',
     mime: 'application/json',
     mainFilename: 'main.json',
-    fileExtension: [ 'json' ],
+    fileExtension: ['json'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: '{\n  \n}',
@@ -466,7 +484,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'plain text',
     mime: 'text/plain',
     mainFilename: 'main.txt',
-    fileExtension: [ 'txt', 'text', 'in', 'out' ],
+    fileExtension: ['txt', 'text', 'in', 'out'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: '',
@@ -482,7 +500,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'diff',
     mime: 'text/plain',
     mainFilename: 'main.patch',
-    fileExtension: [ 'diff', 'patch' ],
+    fileExtension: ['diff', 'patch'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: '',
@@ -498,7 +516,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'LaTeX',
     mime: 'application/x-latex',
     mainFilename: 'main.tex',
-    fileExtension: [ 'tex' ],
+    fileExtension: ['tex'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: '',
@@ -515,7 +533,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'Markdown',
     mime: 'text/plain',
     mainFilename: 'main.md',
-    fileExtension: [ 'md' ],
+    fileExtension: ['md'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: '# Hello World\n',
@@ -531,7 +549,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'Arduino',
     mime: 'text/plain',
     mainFilename: 'main.c',
-    fileExtension: [ 'c', 'cpp', 'pde', 'h', 'ino' ],
+    fileExtension: ['c', 'cpp', 'pde', 'h', 'ino'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: '',
@@ -547,7 +565,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'HTML',
     mime: 'text/HTML',
     mainFilename: 'index.html',
-    fileExtension: [ 'html' ],
+    fileExtension: ['html'],
     compilePattern: '',
     runPattern: '',
     templateSourceCode: '',
@@ -558,9 +576,25 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     codeMirrorKey: 'html',
     highlightJsKey: 'xml',
   },
+  [CodeLanguage.BASH]: {
+    value: CodeLanguage.BASH,
+    label: 'Bash',
+    mime: 'text/plain',
+    mainFilename: 'main.sh',
+    fileExtension: ['sh', 'bash'],
+    compilePattern: '',
+    runPattern: '',
+    templateSourceCode: '#!/bin/bash\necho "Hello World"\n',
+    hasBuildFile: false,
+    executable: 'bash',
+    executableVersion: '',
+    monacoKey: 'shell',
+    codeMirrorKey: 'shell',
+    highlightJsKey: 'bash',
+  },
 };
 
-export const PAGE_SIZES = [ '32', '64', '128', '256', '512' ];
+export const PAGE_SIZES = ['32', '64', '128', '256', '512'];
 
 export const PALLETE = {
   VIVOS: [
