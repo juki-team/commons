@@ -24,6 +24,9 @@ export enum CodeLanguage {
   PYTHON2 = 'PYTHON2',
   PYTHON3 = 'PYTHON3',
   JAVASCRIPT = 'JAVASCRIPT',
+  TYPESCRIPT = 'TYPESCRIPT',
+  JSX = 'JSX',
+  TSX = 'TSX',
   PSEUDOCODE_PSEINT = 'PSEUDOCODE_PSEINT',
   LATEX = 'LATEX',
   JSON = 'JSON',
@@ -40,14 +43,14 @@ export enum ScopeData {
   USER = 'USER',
   PROBLEM = 'PROBLEM',
   CONTEST = 'CONTEST',
-  ATTEMPT = 'ATTEMPT'
+  ATTEMPT = 'ATTEMPT',
 }
 
 export enum Status {
   SUCCESS = 'SUCCESS',
   ERROR = 'ERROR',
   LOADING = 'LOADING',
-  NONE = 'NONE'
+  NONE = 'NONE',
 }
 
 export enum EntityStatus {
@@ -67,13 +70,13 @@ export enum EntityAccess {
 export type TextLanguage = { [key in Language]: string };
 
 export type SplitTime = {
-  remaining: number,
-  label: string,
-  milliseconds: number,
-  abbreviatedLabel: string,
-  digits: number
+  remaining: number;
+  label: string;
+  milliseconds: number;
+  abbreviatedLabel: string;
+  digits: number;
 };
 
 export type RecordId = `${string & { length: 24 }}`;
 
-export type Device = { label: string, isMobile: boolean, isBrowser: boolean, type: string, osLabel: string };
+export type Device = { label: string; isMobile: boolean; isBrowser: boolean; type: string; osLabel: string };
