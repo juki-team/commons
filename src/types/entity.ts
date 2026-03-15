@@ -26,33 +26,33 @@ export type EntityTeamsMemberUserData = {
 export type EntityMembersUserData = EntityUsersMemberUserData | EntityTeamsMemberUserData;
 
 export interface EntityMembers {
-  rankAdministrators: EntityMembersRank,
-  administrators: { [key: string]: EntityMembersUserData },
-  rankManagers: EntityMembersRank,
-  managers: { [key: string]: EntityMembersUserData },
-  rankGuests: EntityMembersRank,
-  guests: { [key: string]: EntityMembersUserData },
-  rankSpectators: EntityMembersRank,
-  spectators: { [key: string]: EntityMembersUserData },
-  rankParticipants: EntityMembersRank,
-  participants: { [key: string]: EntityMembersUserData },
+  rankAdministrators: EntityMembersRank;
+  administrators: { [key: string]: EntityMembersUserData };
+  rankManagers: EntityMembersRank;
+  managers: { [key: string]: EntityMembersUserData };
+  rankGuests: EntityMembersRank;
+  guests: { [key: string]: EntityMembersUserData };
+  rankSpectators: EntityMembersRank;
+  spectators: { [key: string]: EntityMembersUserData };
+  rankParticipants: EntityMembersRank;
+  participants: { [key: string]: EntityMembersUserData };
 }
 
 export interface EntityOwnerDocument {
-  ownerUserId: string,
+  ownerUserId: string;
 }
 
 export interface EntityCompanyDocument {
-  companyId: string,
+  companyId: string;
 }
 
 export interface EntityTimestampsDocument {
-  createdAt: Date,
-  updatedAt: Date,
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface EntityStateDocument {
-  state: EntityState,
+  state: EntityState;
 }
 
 export interface EntityLogChanges {
@@ -61,26 +61,20 @@ export interface EntityLogChanges {
   valueType: string | null;
   value?: any;
   oldValue?: any;
-  type: LogOperation,
+  type: LogOperation;
 }
 
 export interface EntityLog {
-  changes: EntityLogChanges[],
-  timestamp: number,
-  customerUserId: string,
+  changes: EntityLogChanges[];
+  timestamp: number;
+  customerUserId: string;
 }
 
 export interface EntityLogsDocument {
-  logs: EntityLog[],
+  logs: EntityLog[];
 }
 
-export type NewEntityDocument<T> =
-  T
-  & EntityCompanyDocument
-  & EntityOwnerDocument
-  & EntityTimestampsDocument
-  & EntityStateDocument
-  & EntityLogsDocument;
+export type NewEntityDocument<T> = T & EntityCompanyDocument & EntityOwnerDocument & EntityTimestampsDocument & EntityStateDocument & EntityLogsDocument;
 
 export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs'>;
 
@@ -122,11 +116,11 @@ export enum CollectionKey {
 export enum LogOperation {
   REMOVE = 'REMOVE',
   ADD = 'ADD',
-  UPDATE = 'UPDATE'
+  UPDATE = 'UPDATE',
 }
 
 export interface LogDataResponseDTO {
-  changes: EntityLogChanges[],
-  timestamp: number,
-  customerUser: UserCompanyBasicInfoResponseDTO,
+  changes: EntityLogChanges[];
+  timestamp: number;
+  customerUser: UserCompanyBasicInfoResponseDTO;
 }
