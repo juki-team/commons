@@ -27,6 +27,7 @@ export enum CodeLanguage {
   TYPESCRIPT = 'TYPESCRIPT',
   JSX = 'JSX',
   TSX = 'TSX',
+  MDX = 'MDX',
   PSEUDOCODE_PSEINT = 'PSEUDOCODE_PSEINT',
   LATEX = 'LATEX',
   JSON = 'JSON',
