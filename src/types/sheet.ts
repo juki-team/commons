@@ -43,6 +43,7 @@ export interface CodeEditorTestCase extends SubmissionTestCase {
 }
 
 export type CodeEditorFile<T> = {
+  description: string;
   folderPath: string;
   source: string;
   language: T;
