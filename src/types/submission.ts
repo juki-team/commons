@@ -1,6 +1,5 @@
 export type DataLog = {
-  timeUsed: number,
-  memoryUsed: number,
-  exitCode: number,
-}
-
+  timeUsed: number;
+  memoryUsed: number;
+  exitCode: number;
+};

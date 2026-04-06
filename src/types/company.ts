@@ -13,20 +13,20 @@ export enum CompanyLogoType {
 }
 
 export type ResourceInstance = {
-  imageId: string,
-  instanceType: string,
-  userDataScript: string,
-  minimum: number,
-  maximum: number,
-}
+  imageId: string;
+  instanceType: string;
+  userDataScript: string;
+  minimum: number;
+  maximum: number;
+};
 
 export type ResourceLogger = {
   info: {
-    chatId: string,
-    messageThreadId: string,
-  },
+    chatId: string;
+    messageThreadId: string;
+  };
   error: {
-    chatId: string,
-    messageThreadId: string,
-  }
-}
+    chatId: string;
+    messageThreadId: string;
+  };
+};

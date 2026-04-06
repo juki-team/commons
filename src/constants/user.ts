@@ -1,13 +1,14 @@
-import { UserPermissions } from '../dto';
-import { UserRole, UserStatus } from '../types';
+import type { UserPermissions } from '../dto';
+import { UserRole } from '../prisma/enums';
+import { UserStatus } from '../types';
 
-export const USER_STATUS: { [key in UserStatus]: { value: UserStatus, label: string } } = {
+export const USER_STATUS: { [key in UserStatus]: { value: UserStatus; label: string } } = {
   [UserStatus.ACTIVE]: { value: UserStatus.ACTIVE, label: 'active' },
   [UserStatus.REPORTED]: { value: UserStatus.REPORTED, label: 'reported' },
   [UserStatus.ARCHIVED]: { value: UserStatus.ARCHIVED, label: 'archived' },
 };
 
-export const USER_ROLE: { [key in UserRole]: { value: UserRole, label: string, level: number } } = {
+export const USER_ROLE: { [key in UserRole]: { value: UserRole; label: string; level: number } } = {
   [UserRole.RESTRICTED]: { value: UserRole.RESTRICTED, label: 'restricted', level: 6 },
   [UserRole.GUEST]: { value: UserRole.GUEST, label: 'guest', level: 5 },
   [UserRole.LIMITED]: { value: UserRole.LIMITED, label: 'limited', level: 4 },

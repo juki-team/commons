@@ -1,36 +1,36 @@
-import { EntityAccess, EntityMembersRank } from '../types';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import type { EntityAccess, EntityMembersRank } from '../types';
+import type { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface EntityMembersDTO {
-  rankAdministrators: EntityMembersRank,
-  administrators: string[],
-  rankManagers: EntityMembersRank,
-  managers: string[],
-  rankGuests: EntityMembersRank,
-  guests: string[],
-  rankSpectators: EntityMembersRank,
-  spectators: string[],
-  rankParticipants: EntityMembersRank,
-  participants: string[],
+  rankAdministrators: EntityMembersRank;
+  administrators: string[];
+  rankManagers: EntityMembersRank;
+  managers: string[];
+  rankGuests: EntityMembersRank;
+  guests: string[];
+  rankSpectators: EntityMembersRank;
+  spectators: string[];
+  rankParticipants: EntityMembersRank;
+  participants: string[];
 }
 
 export interface EntityMembersResponseDTO {
-  rankAdministrators: EntityMembersRank,
-  administrators: { [key: string]: DocumentMemberResponseDTO },
-  rankManagers: EntityMembersRank,
-  managers: { [key: string]: DocumentMemberResponseDTO },
-  rankGuests: EntityMembersRank,
-  guests: { [key: string]: DocumentMemberResponseDTO },
-  rankSpectators: EntityMembersRank,
-  spectators: { [key: string]: DocumentMemberResponseDTO },
-  rankParticipants: EntityMembersRank,
-  participants: { [key: string]: DocumentMemberResponseDTO },
+  rankAdministrators: EntityMembersRank;
+  administrators: { [key: string]: DocumentMemberResponseDTO };
+  rankManagers: EntityMembersRank;
+  managers: { [key: string]: DocumentMemberResponseDTO };
+  rankGuests: EntityMembersRank;
+  guests: { [key: string]: DocumentMemberResponseDTO };
+  rankSpectators: EntityMembersRank;
+  spectators: { [key: string]: DocumentMemberResponseDTO };
+  rankParticipants: EntityMembersRank;
+  participants: { [key: string]: DocumentMemberResponseDTO };
 }
 
 export interface DocumentUserResponseDTO {
-  isOwner: boolean,
-  isManager: boolean,
-  isSpectator: boolean,
+  isOwner: boolean;
+  isManager: boolean;
+  isSpectator: boolean;
 }
 
 export enum MemberType {
@@ -43,36 +43,36 @@ export interface DocumentMemberResponseDTO extends UserCompanyBasicInfoResponseD
 }
 
 export interface DocumentMemberWithTimestampsResponseDTO extends DocumentMemberResponseDTO {
-  type: MemberType,
-  lastVisitTimestamp: number,
-  joinedAtTimestamp: number,
+  type: MemberType;
+  lastVisitTimestamp: number;
+  joinedAtTimestamp: number;
 }
 
 export interface EntityMembersWithTimestampsResponseDTO {
-  rankAdministrators: EntityMembersRank,
-  administrators: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
-  rankManagers: EntityMembersRank,
-  managers: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
-  rankGuests: EntityMembersRank,
-  guests: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
-  rankSpectators: EntityMembersRank,
-  spectators: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
-  rankParticipants: EntityMembersRank,
-  participants: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  rankAdministrators: EntityMembersRank;
+  administrators: { [key: string]: DocumentMemberWithTimestampsResponseDTO };
+  rankManagers: EntityMembersRank;
+  managers: { [key: string]: DocumentMemberWithTimestampsResponseDTO };
+  rankGuests: EntityMembersRank;
+  guests: { [key: string]: DocumentMemberWithTimestampsResponseDTO };
+  rankSpectators: EntityMembersRank;
+  spectators: { [key: string]: DocumentMemberWithTimestampsResponseDTO };
+  rankParticipants: EntityMembersRank;
+  participants: { [key: string]: DocumentMemberWithTimestampsResponseDTO };
 }
 
 export interface DocumentMembersResponseDTO {
-  access: EntityAccess,
-  managers: { [key: string]: DocumentMemberResponseDTO },
-  spectators: { [key: string]: DocumentMemberResponseDTO },
+  access: EntityAccess;
+  managers: { [key: string]: DocumentMemberResponseDTO };
+  spectators: { [key: string]: DocumentMemberResponseDTO };
 }
 
 export interface DocumentCreateResponseDTO {
-  key: string,
+  key: string;
 }
 
 export interface MetadataResponseDTO {
-  title: string,
-  description: string,
-  cover: string,
+  title: string;
+  description: string;
+  cover: string;
 }

@@ -1,4 +1,4 @@
-import { DocumentMembersResponseDTO, EntityMembersResponseDTO } from '../dto';
+import type { DocumentMembersResponseDTO, EntityMembersResponseDTO } from '../dto';
 import { EntityAccess, EntityMembersRank } from '../types';
 
 export const EMPTY_DOCUMENT_MEMBERS = (): DocumentMembersResponseDTO => ({

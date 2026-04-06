@@ -1,4 +1,4 @@
-import { UserCompanyBasicInfoResponseDTO } from '../dto';
+import type { UserCompanyBasicInfoResponseDTO } from '../dto';
 
 export enum EntityMembersRank {
   NONE = 'NONE',
@@ -74,11 +74,21 @@ export interface EntityLogsDocument {
   logs: EntityLog[];
 }
 
-export type NewEntityDocument<T> = T & EntityCompanyDocument & EntityOwnerDocument & EntityTimestampsDocument & EntityStateDocument & EntityLogsDocument;
+export type NewEntityDocument<T> = T &
+  EntityCompanyDocument &
+  EntityOwnerDocument &
+  EntityTimestampsDocument &
+  EntityStateDocument &
+  EntityLogsDocument;
 
-export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs'>;
+export type CreateEntityDocument<T> = Omit<
+  T,
+  '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs'
+>;
 
-export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs' | 'key'>>;
+export type UpdateEntityDocument<T> = Partial<
+  Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs' | 'key'>
+>;
 
 export enum EntityCollection {
   COMPANY = 'COMPANY',

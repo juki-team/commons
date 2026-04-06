@@ -1,135 +1,134 @@
-import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassCycleTag, EntityState } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserCompanyBasicInfoResponseDTO, UserSummaryListResponseDTO } from './user';
+import type { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassCycleTag, EntityState } from '../types';
+import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
+import type { UserCompanyBasicInfoResponseDTO, UserSummaryListResponseDTO } from './user';
 
 interface ClassUserResponseDTO {
-  isOwner: boolean,
-  isManager: boolean,
-  isSpectator: boolean,
-  isParticipant: boolean,
-  isGuest: boolean,
+  isOwner: boolean;
+  isManager: boolean;
+  isSpectator: boolean;
+  isParticipant: boolean;
+  isGuest: boolean;
 }
 
 export interface ClassSummaryListResponseDTO {
-  key: string,
-  name: string,
-  description: string,
-  state: EntityState,
-  owner: UserCompanyBasicInfoResponseDTO,
-  user: ClassUserResponseDTO,
+  key: string;
+  name: string;
+  description: string;
+  state: EntityState;
+  owner: UserCompanyBasicInfoResponseDTO;
+  user: ClassUserResponseDTO;
 }
 
 export interface ContestAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.CONTEST,
-  contestKey: string,
-  numberProblems: number,
+  type: AssignmentClass.CONTEST;
+  contestKey: string;
+  numberProblems: number;
 }
 
 export interface CourseAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.COURSE,
-  courseKey: string,
-  numberLessons: number,
+  type: AssignmentClass.COURSE;
+  courseKey: string;
+  numberLessons: number;
 }
 
 export interface WorksheetAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.WORKSHEET,
-  worksheetKey: string,
-  numberPages: number,
+  type: AssignmentClass.WORKSHEET;
+  worksheetKey: string;
+  numberPages: number;
 }
 
 export interface NoneAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.NONE,
+  type: AssignmentClass.NONE;
 }
 
 export type AssignmentSessionCycleClassDataResponseDTO =
-  ContestAssignmentSessionCycleClassDataResponseDTO
+  | ContestAssignmentSessionCycleClassDataResponseDTO
   | CourseAssignmentSessionCycleClassDataResponseDTO
   | WorksheetAssignmentSessionCycleClassDataResponseDTO
   | NoneAssignmentSessionCycleClassDataResponseDTO;
 
 export interface SessionCycleClassDataResponseDTO {
-  id: string,
-  index: number,
-  name: string,
+  id: string;
+  index: number;
+  name: string;
   assignments: {
-    [key: string]: AssignmentSessionCycleClassDataResponseDTO,
-  },
-  startTimestamp: number,
-  endTimestamp: number,
-  state: EntityState,
+    [key: string]: AssignmentSessionCycleClassDataResponseDTO;
+  };
+  startTimestamp: number;
+  endTimestamp: number;
+  state: EntityState;
 }
 
 export interface CycleClassDataResponseDTO {
-  id: string,
-  index: number,
-  name: string,
+  id: string;
+  index: number;
+  name: string;
   sessions: {
-    [key: string]: SessionCycleClassDataResponseDTO,
-  },
-  tags: ClassCycleTag[],
-  startTimestamp: number,
-  endTimestamp: number,
-  state: EntityState,
+    [key: string]: SessionCycleClassDataResponseDTO;
+  };
+  tags: ClassCycleTag[];
+  startTimestamp: number;
+  endTimestamp: number;
+  state: EntityState;
 }
 
 export interface ClassCycleDataResponseDTO extends ClassSummaryListResponseDTO {
-  members: EntityMembersResponseDTO,
-  cycle: CycleClassDataResponseDTO,
+  members: EntityMembersResponseDTO;
+  cycle: CycleClassDataResponseDTO;
   cycles: {
-    [key: string]: { name: string, index: number, id: string },
-  },
+    [key: string]: { name: string; index: number; id: string };
+  };
 }
 
 export interface ClassCyclesCycleDataResponseDTO extends Omit<CycleClassDataResponseDTO, 'sessions'> {
   sessions: {
-    [key: string]: Omit<SessionCycleClassDataResponseDTO, 'assignments'>,
-  },
+    [key: string]: Omit<SessionCycleClassDataResponseDTO, 'assignments'>;
+  };
 }
 
 export interface ClassCyclesDataResponseDTO extends ClassSummaryListResponseDTO {
-  members: EntityMembersResponseDTO,
+  members: EntityMembersResponseDTO;
   cycles: {
-    [key: string]: ClassCyclesCycleDataResponseDTO,
-  },
+    [key: string]: ClassCyclesCycleDataResponseDTO;
+  };
 }
 
 export interface AssignmentContestUpsert extends AssignmentBasicInfo {
-  type: AssignmentClass.CONTEST,
-  contestKey: string,
+  type: AssignmentClass.CONTEST;
+  contestKey: string;
 }
 
 export interface AssignmentCourseUpsert extends AssignmentBasicInfo {
-  type: AssignmentClass.COURSE,
-  courseKey: string,
+  type: AssignmentClass.COURSE;
+  courseKey: string;
 }
 
 export interface AssignmentWorksheetUpsert extends AssignmentBasicInfo {
-  type: AssignmentClass.WORKSHEET,
-  worksheetKey: string,
+  type: AssignmentClass.WORKSHEET;
+  worksheetKey: string;
 }
 
 export interface UpsertClassDTO extends Omit<ClassBaseDocument, 'members' | 'key' | 'cycles'> {
-  members: EntityMembersDTO,
+  members: EntityMembersDTO;
 }
 
-export interface UpsertClassCycleDTO extends Omit<ClassBaseDocument['cycles'][string], 'sessions' | 'id'> {
-}
+export interface UpsertClassCycleDTO extends Omit<ClassBaseDocument['cycles'][string], 'sessions' | 'id'> {}
 
-export interface UpsertClassCycleSessionDTO extends Omit<ClassBaseDocument['cycles'][string]['sessions'][string], 'assignments' | 'id'> {
-}
+export interface UpsertClassCycleSessionDTO
+  extends Omit<ClassBaseDocument['cycles'][string]['sessions'][string], 'assignments' | 'id'> {}
 
 export interface UpsertClassCycleSessionAssignmentDTO extends Omit<AssignmentBasicInfo, 'id'> {
-  key: string,
+  key: string;
 }
 
 export interface ClassAssignmentBaseDocument {
-  userId: string,
-  assignmentId: string,
-  points: number,
+  userId: string;
+  assignmentId: string;
+  points: number;
 }
 
 export interface ClassAssignmentDataResponseDTO {
-  user: UserSummaryListResponseDTO,
-  assignmentId: string,
-  points: number,
+  user: UserSummaryListResponseDTO;
+  assignmentId: string;
+  points: number;
 }

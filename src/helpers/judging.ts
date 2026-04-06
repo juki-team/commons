@@ -1,20 +1,13 @@
-import {
-  CodeEditorTestCase,
-  DataLog,
-  ProblemVerdict,
-  SubmissionRunStatus,
-  SubmissionTestCase,
-  TestCaseVerdict,
-} from '../types';
+import { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums';
+import type { CodeEditorTestCase, DataLog, SubmissionTestCase, TestCaseVerdict } from '../types';
 
 export const getDataOfTestCase = (testCase: SubmissionTestCase, timeLimit: number, memoryLimit: number) => {
-  
   const { timeUsed, memoryUsed, exitCode } = getDataLog(testCase?.log);
   const timeLimitExceeded = timeUsed > timeLimit;
   const memoryLimitExceeded = memoryUsed > memoryLimit;
   const runtimeError = exitCode !== 0;
   const compilationError = testCase?.status === SubmissionRunStatus.COMPILATION_ERROR;
-  
+
   return {
     compilationError,
     timeUsed,
@@ -27,22 +20,19 @@ export const getDataOfTestCase = (testCase: SubmissionTestCase, timeLimit: numbe
   };
 };
 
-export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCase, timeLimit: number, memoryLimit: number): {
-  verdict: ProblemVerdict,
-  timeUsed: number,
-  memoryUsed: number,
-  exitCode: number,
+export const getVerdictFromTestCase = (
+  testCaseValue: CodeEditorTestCase,
+  timeLimit: number,
+  memoryLimit: number,
+): {
+  verdict: ProblemVerdict;
+  timeUsed: number;
+  memoryUsed: number;
+  exitCode: number;
 } => {
-  const {
-    compilationError,
-    timeLimitExceeded,
-    memoryLimitExceeded,
-    runtimeError,
-    timeUsed,
-    memoryUsed,
-    exitCode,
-  } = getDataOfTestCase(testCaseValue, timeLimit, memoryLimit);
-  
+  const { compilationError, timeLimitExceeded, memoryLimitExceeded, runtimeError, timeUsed, memoryUsed, exitCode } =
+    getDataOfTestCase(testCaseValue, timeLimit, memoryLimit);
+
   return {
     verdict: compilationError
       ? ProblemVerdict.CE
@@ -54,9 +44,13 @@ export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCase, timeLi
             ? ProblemVerdict.RE
             : testCaseValue.out === testCaseValue.testOut
               ? ProblemVerdict.AC
-              : testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
+              : testCaseValue.withPE &&
+                  testCaseValue.out.split(' ').join('').split('\n').join('') ===
+                    testCaseValue.testOut.split(' ').join('').split('\n').join('')
                 ? ProblemVerdict.PE
-                : !testCaseValue.withPE && testCaseValue.out.split(' ').join('').split('\n').join('') === testCaseValue.testOut.split(' ').join('').split('\n').join('')
+                : !testCaseValue.withPE &&
+                    testCaseValue.out.split(' ').join('').split('\n').join('') ===
+                      testCaseValue.testOut.split(' ').join('').split('\n').join('')
                   ? ProblemVerdict.AC
                   : ProblemVerdict.WA,
     timeUsed,
@@ -66,41 +60,46 @@ export const getVerdictFromTestCase = (testCaseValue: CodeEditorTestCase, timeLi
 };
 
 export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) => {
-  
   let verdict = first.verdict;
   if (second.verdict === ProblemVerdict.RE) {
     verdict = ProblemVerdict.RE;
-  } else if (second.verdict === ProblemVerdict.TLE && verdict != ProblemVerdict.RE) {
+  } else if (second.verdict === ProblemVerdict.TLE && verdict !== ProblemVerdict.RE) {
     verdict = ProblemVerdict.TLE;
-  } else if (second.verdict === ProblemVerdict.MLE
-    && verdict !== ProblemVerdict.TLE
-    && verdict !== ProblemVerdict.RE) {
+  } else if (second.verdict === ProblemVerdict.MLE && verdict !== ProblemVerdict.TLE && verdict !== ProblemVerdict.RE) {
     verdict = ProblemVerdict.MLE;
-  } else if (second.verdict === ProblemVerdict.WA
-    && verdict !== ProblemVerdict.MLE
-    && verdict !== ProblemVerdict.TLE
-    && verdict !== ProblemVerdict.RE) {
+  } else if (
+    second.verdict === ProblemVerdict.WA &&
+    verdict !== ProblemVerdict.MLE &&
+    verdict !== ProblemVerdict.TLE &&
+    verdict !== ProblemVerdict.RE
+  ) {
     verdict = ProblemVerdict.WA;
-  } else if (second.verdict === ProblemVerdict.PE
-    && verdict !== ProblemVerdict.WA
-    && verdict !== ProblemVerdict.MLE
-    && verdict !== ProblemVerdict.TLE
-    && verdict !== ProblemVerdict.RE) {
+  } else if (
+    second.verdict === ProblemVerdict.PE &&
+    verdict !== ProblemVerdict.WA &&
+    verdict !== ProblemVerdict.MLE &&
+    verdict !== ProblemVerdict.TLE &&
+    verdict !== ProblemVerdict.RE
+  ) {
     verdict = ProblemVerdict.PE;
-  } else if (second.verdict === ProblemVerdict.PA
-    && verdict !== ProblemVerdict.PE
-    && verdict !== ProblemVerdict.WA
-    && verdict !== ProblemVerdict.MLE
-    && verdict !== ProblemVerdict.TLE
-    && verdict !== ProblemVerdict.RE) {
+  } else if (
+    second.verdict === ProblemVerdict.PA &&
+    verdict !== ProblemVerdict.PE &&
+    verdict !== ProblemVerdict.WA &&
+    verdict !== ProblemVerdict.MLE &&
+    verdict !== ProblemVerdict.TLE &&
+    verdict !== ProblemVerdict.RE
+  ) {
     verdict = ProblemVerdict.PA;
-  } else if (second.verdict === ProblemVerdict.AC
-    && verdict !== ProblemVerdict.PA
-    && verdict !== ProblemVerdict.PE
-    && verdict !== ProblemVerdict.WA
-    && verdict !== ProblemVerdict.MLE
-    && verdict !== ProblemVerdict.TLE
-    && verdict !== ProblemVerdict.RE) {
+  } else if (
+    second.verdict === ProblemVerdict.AC &&
+    verdict !== ProblemVerdict.PA &&
+    verdict !== ProblemVerdict.PE &&
+    verdict !== ProblemVerdict.WA &&
+    verdict !== ProblemVerdict.MLE &&
+    verdict !== ProblemVerdict.TLE &&
+    verdict !== ProblemVerdict.RE
+  ) {
     verdict = ProblemVerdict.AC;
   }
   return {
@@ -112,12 +111,11 @@ export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) =
 };
 
 export const getDataLog = (log: any): DataLog => {
-  
   const lines = log?.split?.('\n') || [];
   let timeUsed = 0;
   let memoryUsed = 0;
   let exitCode = -1;
-  
+
   if (lines.length > 4) {
     for (const line of lines) {
       if (line.startsWith('time:')) {
@@ -137,7 +135,7 @@ export const getDataLog = (log: any): DataLog => {
     memoryUsed = +lines[1];
     exitCode = +lines[2];
   }
-  
+
   return {
     timeUsed: Number.isNaN(timeUsed) ? 0 : timeUsed,
     memoryUsed: Number.isNaN(memoryUsed) ? 0 : memoryUsed,

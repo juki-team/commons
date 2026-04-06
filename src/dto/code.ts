@@ -1,9 +1,9 @@
-import { JudgingFile } from '../types';
+import type { JudgingFile } from '../types';
 
 export interface CodeRunDTO {
   runId: string;
-  timeLimit: number,
-  memoryLimit: number,
-  connectionId: string,
-  files: (JudgingFile & { source: string, isInput: boolean, isEntryPoint: boolean, toCompile: boolean })[],
+  timeLimit: number;
+  memoryLimit: number;
+  connectionId: string;
+  files: (JudgingFile & { source: string; isInput: boolean; isEntryPoint: boolean; toCompile: boolean })[];
 }

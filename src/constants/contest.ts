@@ -1,11 +1,12 @@
-import { ContestRole, ContestStatus, Role } from '../types';
+import { type ContestRole, ContestStatus } from '../prisma/enums';
+import { Role } from '../types';
 
 export const CONTEST_STATUS: {
   [key in ContestStatus]: {
-    value: ContestStatus,
-    label: string,
-    description: string
-  }
+    value: ContestStatus;
+    label: string;
+    description: string;
+  };
 } = {
   [ContestStatus.PUBLIC]: {
     value: ContestStatus.PUBLIC,
@@ -15,7 +16,8 @@ export const CONTEST_STATUS: {
   [ContestStatus.RESERVED]: {
     value: ContestStatus.RESERVED,
     label: 'reserved',
-    description: 'the contest will appear in the contest list only for contest members and the users will have access according to their roles',
+    description:
+      'the contest will appear in the contest list only for contest members and the users will have access according to their roles',
   },
   [ContestStatus.ARCHIVED]: {
     value: ContestStatus.ARCHIVED,
@@ -24,7 +26,7 @@ export const CONTEST_STATUS: {
   },
 };
 
-export const CONTEST_ROLE: { [key in ContestRole]: { value: ContestRole, label: string, level: number } } = {
+export const CONTEST_ROLE: { [key in ContestRole]: { value: ContestRole; label: string; level: number } } = {
   [Role.RESTRICTED]: { value: Role.RESTRICTED, label: 'restricted', level: 7 },
   [Role.GUEST]: { value: Role.GUEST, label: 'guest', level: 6 },
   [Role.REGULAR]: { value: Role.REGULAR, label: 'regular', level: 5 },

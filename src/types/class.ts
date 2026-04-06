@@ -1,5 +1,5 @@
-import { BodyWorksheet } from '../types/sheet';
-import { EntityMembers, EntityState } from './entity';
+import type { BodyWorksheet } from '../types/sheet';
+import type { EntityMembers, EntityState } from './entity';
 
 export enum AssignmentClass {
   NONE = 'NONE',
@@ -9,68 +9,68 @@ export enum AssignmentClass {
 }
 
 export interface AssignmentBasicInfo {
-  id: string,
-  index: number,
-  type: AssignmentClass,
-  points: number,
-  startTimestamp: number,
-  endTimestamp: number,
-  title: string,
-  content: BodyWorksheet[],
-  tags: string[],
-  graded: boolean,
-  visible: boolean,
+  id: string;
+  index: number;
+  type: AssignmentClass;
+  points: number;
+  startTimestamp: number;
+  endTimestamp: number;
+  title: string;
+  content: BodyWorksheet[];
+  tags: string[];
+  graded: boolean;
+  visible: boolean;
 }
 
 export interface ClassCycleSessionAssignment extends AssignmentBasicInfo {
-  entityId: string,
-  state: EntityState,
+  entityId: string;
+  state: EntityState;
 }
 
 export interface ClassCycleSessionAssignments {
-  [key: string]: ClassCycleSessionAssignment,
+  [key: string]: ClassCycleSessionAssignment;
 }
 
 interface ClassCycleSession {
-  id: string,
-  index: number,
-  name: string,
-  assignments: ClassCycleSessionAssignments,
-  startTimestamp: number,
-  endTimestamp: number,
-  state: EntityState,
+  id: string;
+  index: number;
+  name: string;
+  assignments: ClassCycleSessionAssignments;
+  startTimestamp: number;
+  endTimestamp: number;
+  state: EntityState;
 }
 
 export interface ClassCycleSessions {
-  [key: string]: ClassCycleSession,
+  [key: string]: ClassCycleSession;
 }
 
 export type ClassCycleTag = {
-  key: string,
-  name: string,
-  color: string,
-  points: number,
-}
+  key: string;
+  name: string;
+  color: string;
+  points: number;
+};
 
 export type ClassCycle = {
-  id: string,
-  index: number,
-  name: string,
-  sessions: ClassCycleSessions,
-  tags: ClassCycleTag[],
-  startTimestamp: number,
-  endTimestamp: number,
-  state: EntityState,
-}
+  id: string;
+  index: number;
+  name: string;
+  sessions: ClassCycleSessions;
+  tags: ClassCycleTag[];
+  startTimestamp: number;
+  endTimestamp: number;
+  state: EntityState;
+};
 
 export interface ClassCycles {
-  [key: string]: ClassCycle,
+  [key: string]: ClassCycle;
 }
 
 export interface ClassBaseDocument {
-  key: string,
-  name: string,
-  description: string,
-  members: EntityMembers,
-  cycles: ClassCycles,
+  key: string;
+  name: string;
+  description: string;
+  members: EntityMembers;
+  cycles: ClassCycles;
 }

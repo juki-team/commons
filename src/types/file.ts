@@ -1,34 +1,17 @@
+import { FileType } from '../prisma/enums';
 import { CollectionKey } from './entity';
-import { Role } from './users';
-
-export type FileRole =
-  Role.RESTRICTED
-  | Role.GUEST
-  | Role.REGULAR
-  | Role.MASTER
-  | Role.ADMIN
-  | Role.SUPER_ADMIN;
 
 export enum FileMemberRole {
   VIEWER = 'VIEWER',
   EDITOR = 'EDITOR',
 }
 
-export enum FileType {
-  FOLDER = 'FOLDER',
-  FILE = 'FILE',
-}
+export type FolderFileContent = { type: typeof FileType.FOLDER };
+export type FileFileContent = { type: typeof FileType.FILE; mime: string; key: string };
 
-export type FolderFileContent = { type: FileType.FOLDER };
-export type FileFileContent = { type: FileType.FILE, mime: string, key: string }
+export type FileContent = FolderFileContent | FileFileContent;
 
-export type FileContent =
-  FolderFileContent
-  | FileFileContent;
-
-export type SummaryFileContent =
-  FolderFileContent
-  | Omit<FileFileContent, 'key'>;
+export type SummaryFileContent = FolderFileContent | Omit<FileFileContent, 'key'>;
 
 export enum FilesJukiPub {
   SHARED = 'shared', // files to share

@@ -1,19 +1,22 @@
-import { JudgeBaseDocument } from '../types';
+import type { JudgeBaseDocument } from '../types';
 
-export interface JudgeDataResponseDTO extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getLoginUrl' | 'getSubmitUrl'> {
-}
+export interface JudgeDataResponseDTO
+  extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getLoginUrl' | 'getSubmitUrl'> {}
 
-export interface JudgeSummaryListResponseDTO extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getSubmissionUrl' | 'getLoginUrl' | 'getProfileUrl' | 'getSubmitUrl'> {
-}
+export interface JudgeSummaryListResponseDTO
+  extends Omit<
+    JudgeBaseDocument,
+    'getProblemUrl' | 'getUserSubmissionsUrl' | 'getSubmissionUrl' | 'getLoginUrl' | 'getProfileUrl' | 'getSubmitUrl'
+  > {}
 
 export interface JudgeSystemSummaryListResponseDTO extends JudgeSummaryListResponseDTO {
-  id: string,
-  creationTimestamp: number,
-  updateTimestamp: number,
-  getLoginUrl: string,
-  getProfileUrl: string,
-  getSubmitUrl: string,
-  getSubmissionUrl: string,
-  getProblemUrl: string,
-  getUserSubmissionsUrl: string,
+  id: string;
+  creationTimestamp: number;
+  updateTimestamp: number;
+  getLoginUrl: string;
+  getProfileUrl: string;
+  getSubmitUrl: string;
+  getSubmissionUrl: string;
+  getProblemUrl: string;
+  getUserSubmissionsUrl: string;
 }

@@ -1,11 +1,11 @@
-import { RecordId } from './commons';
+import type { RecordId } from './commons';
 
 export enum WebSocketMessageEvent {
   PING = 'PING',
   CLIENT_TRACK_LOCATION = 'CLIENT_TRACK_LOCATION',
   CLIENT_TRACK_SCREENSHOT = 'CLIENT_TRACK_SCREENSHOT',
   CLIENT_TRACK_DEVICE = 'CLIENT_TRACK_DEVICE',
-  CHAT_COMPLETIONS = 'CHAT_COMPLETIONS'
+  CHAT_COMPLETIONS = 'CHAT_COMPLETIONS',
 }
 
 export enum WebSocketSubscriptionEvent {

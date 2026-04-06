@@ -1,4 +1,4 @@
-import { Language } from './prisma';
+import type { Language } from './prisma';
 
 export enum CodeLanguage {
   C_11 = 'c11',

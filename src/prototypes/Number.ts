@@ -2,9 +2,9 @@
 
 declare global {
   interface Number {
-    padStart(maxLength: number, fillString?: string): String,
-    
-    padEnd(maxLength: number, fillString?: string): String,
+    padStart(maxLength: number, fillString?: string): string;
+
+    padEnd(maxLength: number, fillString?: string): string;
   }
 }
 

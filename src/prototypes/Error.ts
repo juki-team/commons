@@ -1,12 +1,12 @@
-import { ERROR } from '../constants/services';
-import { ErrorCode } from '../types';
+import { getErrorMessage } from '../constants/services';
+import type { ErrorCode } from '../types';
 
 export class JkError extends Error {
   code: ErrorCode;
   data: any;
-  
-  constructor(code: ErrorCode, custom?: { message?: string, stack?: string, data?: any }) {
-    const message = custom?.message || ERROR[code].message;
+
+  constructor(code: ErrorCode, custom?: { message?: string; stack?: string; data?: any }) {
+    const message = custom?.message || getErrorMessage(code);
     super(message);
     this.message = message;
     this.code = code;

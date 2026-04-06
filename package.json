@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -25,14 +25,17 @@
     "git:commit-push": "f() { param=${1}; message=${param:-chore}; echo ${message}; git add .; echo $message | git commit -F -; yarn publish --patch --no-git-tag-version; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin main; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
     "git:push": "f() { yarn publish --patch --no-git-tag-version; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin main; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
     "push-commit": "f() { yarn build && yarn git-push \"${1}\"; }; f",
-    "push": "yarn build && yarn git:push"
+    "push": "yarn build && yarn git:push",
+    "lint": "biome check src/",
+    "lint:fix": "biome check --write src/",
+    "lint:format": "biome format --write src/"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
     "@types/uuid": "^11.0.0",
-    "prettier": "^3.8.1",
-    "rollup": "^4.57.1",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "typedoc": "^0.28.16",
-    "typescript": "^5.9.3"
+    "rollup": "^4.60.1",
+    "rollup-plugin-typescript2": "^0.37.0",
+    "typedoc": "^0.28.18",
+    "typescript": "^6.0.2"
   }
 }

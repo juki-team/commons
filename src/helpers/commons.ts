@@ -1,5 +1,5 @@
 import { SEPARATOR_TOKEN, UPPERCASE_LETTERS } from '../constants/commons';
-import { Judge } from '../types';
+import type { Judge } from '../types';
 
 export function isStringJson(str: any): str is string {
   try {
@@ -50,7 +50,7 @@ export function range(start: number, end: number): number[] {
 
 export async function getPlainText(url: string): Promise<string> {
   return await fetch(url)
-    .then(data => data.text())
+    .then((data) => data.text())
     .catch((error) => {
       console.error('ERROR:', error);
       return '';
@@ -62,8 +62,8 @@ export function objectUpdate(base: any, update: any): any {
     return base;
   }
   if (base !== null && update !== null && !Array.isArray(base) && typeof base === 'object' && typeof update === 'object') {
-    const mergeKeys = new Set([ ...Object.keys(base), ...Object.keys(update) ]);
-    Array.from(mergeKeys).forEach(key => {
+    const mergeKeys = new Set([...Object.keys(base), ...Object.keys(update)]);
+    Array.from(mergeKeys).forEach((key) => {
       if (update[key] !== null && update[key] !== undefined && base[key] !== update[key]) {
         base[key] = objectUpdate(base[key], update[key]);
       }
@@ -101,7 +101,7 @@ export function indexToLetters(index: number): string {
   if (d === 1) {
     return UPPERCASE_LETTERS.charAt(index - 1);
   }
-  return UPPERCASE_LETTERS.charAt(d - 2) + UPPERCASE_LETTERS.charAt(index - (26 * (d - 1)) - 1);
+  return UPPERCASE_LETTERS.charAt(d - 2) + UPPERCASE_LETTERS.charAt(index - 26 * (d - 1) - 1);
 }
 
 export function lettersToIndex(index: string): number {
@@ -139,30 +139,30 @@ export function getProblemJudgeKey(judge: Judge, key: string) {
  */
 export function humanFileSize(bytes: number, si = false, dp = 1) {
   const thresh = si ? 1000 : 1024;
-  
+
   if (Math.abs(bytes) < thresh) {
     return bytes + ' B';
   }
-  
+
   const units = si
-    ? [ 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB' ]
-    : [ 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB' ];
+    ? ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
   let u = -1;
   const r = 10 ** dp;
-  
+
   do {
     bytes /= thresh;
     ++u;
   } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
-  
+
   return bytes.toFixed(dp) + ' ' + units[u];
 }
 
 export function stringToArrayBuffer(str: string) {
   const buf = new ArrayBuffer(str.length); //convert str to arrayBuffer
-  const view = new Uint8Array(buf);  //create Uint8Array as viewer
+  const view = new Uint8Array(buf); //create Uint8Array as viewer
   for (let i = 0; i < str.length; i++) {
-    view[i] = str.charCodeAt(i) & 0xFF; //convert to octet
+    view[i] = str.charCodeAt(i) & 0xff; //convert to octet
   }
   return buf;
 }
@@ -170,11 +170,11 @@ export function stringToArrayBuffer(str: string) {
 export function chunkString(str: string, size: number): string[] {
   const numChunks = Math.ceil(str.length / size);
   const chunks = new Array(numChunks);
-  
+
   for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
     chunks[i] = str.substr(o, size);
   }
-  
+
   return chunks;
 }
 
@@ -202,12 +202,12 @@ export const areArraysDifferent = <T>(a: T[], b: T[]) => {
   if (a.length !== b.length) {
     return true;
   }
-  
+
   for (let i = 0; i < b.length; i += 1) {
     if (b[i] !== a[i]) {
       return true;
     }
   }
-  
+
   return false;
 };

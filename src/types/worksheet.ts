@@ -1,6 +1,6 @@
-import { EntityMembers } from './entity';
-import { Theme } from './prisma';
-import { BasicWorksheet, BodyWorksheet, NewPageSheet } from './sheet';
+import type { EntityMembers } from './entity';
+import type { Theme } from './prisma';
+import type { BasicWorksheet, BodyWorksheet, NewPageSheet } from './sheet';
 
 export enum AspectRatio {
   RATIO_21_9 = '21:9',
@@ -14,27 +14,27 @@ export enum AspectRatio {
 }
 
 export interface WorksheetBaseDocument {
-  key: string,
-  folderId: string,
-  name: string,
-  description: string,
-  content: BodyWorksheet[],
-  members: EntityMembers,
+  key: string;
+  folderId: string;
+  name: string;
+  description: string;
+  content: BodyWorksheet[];
+  members: EntityMembers;
   quiz: {
-    enable: boolean,
-    automaticFeedback: boolean,
-  },
+    enable: boolean;
+    automaticFeedback: boolean;
+  };
   slides: {
-    enable: boolean,
-    titleBackgroundImage: string,
-    backgroundImage: string,
-    fontSize: number,
-    theme: Theme,
-    colorTextHighlight: string,
-    aspectRatio: AspectRatio,
-  },
+    enable: boolean;
+    titleBackgroundImage: string;
+    backgroundImage: string;
+    fontSize: number;
+    theme: Theme;
+    colorTextHighlight: string;
+    aspectRatio: AspectRatio;
+  };
 }
 
-export type WorksheetsInPages = { header: NewPageSheet, content: BodyWorksheet[] }[];
+export type WorksheetsInPages = { header: NewPageSheet; content: BodyWorksheet[] }[];
 
-export type SummaryWorksheetsInPages = { header: NewPageSheet, content: BasicWorksheet[] }[];
+export type SummaryWorksheetsInPages = { header: NewPageSheet; content: BasicWorksheet[] }[];

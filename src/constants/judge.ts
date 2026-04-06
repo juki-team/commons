@@ -1,24 +1,17 @@
-import {
-  CodeLanguage,
-  Judge,
-  ProblemScoringMode,
-  ProblemType,
-  ProblemVerdict,
-  RunnerType,
-  SubmissionRunStatus,
-} from '../types';
+import { JudgeType, ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../prisma/enums';
+import { CodeLanguage, RunnerType } from '../types';
 
-export type JudgeType = {
-  [key in Judge]: {
-    value: Judge,
-    label: string,
-    logo: string,
-    logoSize: [ number, number ],
-    url: string,
-  }
-}
+type Judge = {
+  [key in JudgeType]: {
+    value: JudgeType;
+    label: string;
+    logo: string;
+    logoSize: [number, number];
+    url: string;
+  };
+};
 
-export const JUDGE: JudgeType = {
+export const JUDGE: Judge = {
   // [Judge.CUSTOMER]: {
   //   value: Judge.CUSTOMER,
   //   label: '',
@@ -32,11 +25,11 @@ export const JUDGE: JudgeType = {
   //   // getProblemUrl: (key: string) => `/problem/view/${key}`,
   //   // getUserSubmissionsUrl: () => '',
   // },
-  [Judge.JUKI_JUDGE]: {
-    value: Judge.JUKI_JUDGE,
+  [JudgeType.JUKI_JUDGE]: {
+    value: JudgeType.JUKI_JUDGE,
     label: 'Juki Judge',
     logo: 'https://images.juki.pub/c/juki-judge-logo-horizontal-color.svg',
-    logoSize: [ 883.991, 435 ],
+    logoSize: [883.991, 435],
     url: 'https://judge.juki.app',
     // getLoginUrl: () => '',
     // getProfileUrl: () => '',
@@ -45,11 +38,11 @@ export const JUDGE: JudgeType = {
     // getProblemUrl: (key: string) => `https://judge.juki.app/problem/view/${key}`,
     // getUserSubmissionsUrl: () => '',
   },
-  [Judge.CODEFORCES]: {
-    value: Judge.CODEFORCES,
+  [JudgeType.CODEFORCES]: {
+    value: JudgeType.CODEFORCES,
     label: 'Codeforces',
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
-    logoSize: [ 1232.75, 145.12 ],
+    logoSize: [1232.75, 145.12],
     url: 'https://codeforces.com',
     // getLoginUrl: () => 'https://codeforces.com/enter',
     // getProfileUrl: () => '',
@@ -64,11 +57,11 @@ export const JUDGE: JudgeType = {
     // },
     // getUserSubmissionsUrl: () => '',
   },
-  [Judge.CODEFORCES_GYM]: {
-    value: Judge.CODEFORCES_GYM,
+  [JudgeType.CODEFORCES_GYM]: {
+    value: JudgeType.CODEFORCES_GYM,
     label: 'Codeforces Gym',
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
-    logoSize: [ 1232.75, 145.12 ],
+    logoSize: [1232.75, 145.12],
     url: 'https://codeforces.com',
     // getLoginUrl: () => 'https://codeforces.com/enter',
     // getProfileUrl: () => '',
@@ -86,11 +79,11 @@ export const JUDGE: JudgeType = {
     // },
     // getUserSubmissionsUrl: () => '',
   },
-  [Judge.JV_UMSA]: {
-    value: Judge.JV_UMSA,
+  [JudgeType.JV_UMSA]: {
+    value: JudgeType.JV_UMSA,
     label: 'Juez Virtual UMSA',
     logo: 'https://images.juki.pub/c/codeforces-logo-horizontal-color.svg',
-    logoSize: [ 1232.75, 145.12 ],
+    logoSize: [1232.75, 145.12],
     url: 'https://jv.umsa.bo',
     // getLoginUrl: () => 'https://jv.umsa.bo/oj/login.php',
     // getProfileUrl: () => 'https://jv.umsa.bo/oj/userInfo.php',
@@ -117,39 +110,39 @@ export const JUDGE: JudgeType = {
     // },
     // getUserSubmissionsUrl: (username: string) => `https://jv.umsa.bo/oj/status.php?user_id=${username}`,
   },
-  [Judge.UVA_ONLINE_JUDGE]: {
-    value: Judge.UVA_ONLINE_JUDGE,
+  [JudgeType.UVA_ONLINE_JUDGE]: {
+    value: JudgeType.UVA_ONLINE_JUDGE,
     label: 'Uva Online Judge',
     logo: 'https://images.juki.pub/c/uva-online-judge-logo-color.png',
-    logoSize: [ 150, 135.994 ],
+    logoSize: [150, 135.994],
     url: 'https://onlinejudge.org',
   },
-  [Judge.AT_CODER]: {
-    value: Judge.AT_CODER,
+  [JudgeType.AT_CODER]: {
+    value: JudgeType.AT_CODER,
     label: 'AtCoder',
     logo: 'https://images.juki.pub/c/at-coder-logo-color.png',
-    logoSize: [ 762.997, 675 ],
+    logoSize: [762.997, 675],
     url: 'https://atcoder.jp',
   },
-  [Judge.CODECHEF]: {
-    value: Judge.CODECHEF,
+  [JudgeType.CODECHEF]: {
+    value: JudgeType.CODECHEF,
     label: 'Codechef',
     logo: 'https://images.juki.pub/c/codechef-logo-color.svg',
-    logoSize: [ 1207.7, 453.17 ],
+    logoSize: [1207.7, 453.17],
     url: 'https://www.codechef.com',
   },
-  [Judge.TOPCODER]: {
-    value: Judge.TOPCODER,
+  [JudgeType.TOPCODER]: {
+    value: JudgeType.TOPCODER,
     label: 'Topcoder',
     logo: 'https://images.juki.pub/c/topcoder-logo-color.png',
-    logoSize: [ 971.99, 415.99 ],
+    logoSize: [971.99, 415.99],
     url: 'https://www.topcoder.com',
   },
-  [Judge.LEETCODE]: {
-    value: Judge.LEETCODE,
+  [JudgeType.LEETCODE]: {
+    value: JudgeType.LEETCODE,
     label: 'LeetCode',
     logo: 'https://images.juki.pub/assets/leetcode-logo-color.svg',
-    logoSize: [ 95, 111 ],
+    logoSize: [95, 111],
     url: 'https://leetcode.com',
     // getProblemUrl: (problemKey: string) => {
     //   return `https://leetcode.com/problems/${problemKey.replace('PL-', '')}`;
@@ -169,10 +162,7 @@ export const RUNNER_ACCEPTED_PROBLEM_MODES: ProblemScoringMode[] = [
   ProblemScoringMode.PARTIAL,
 ];
 
-export const RUNNER_ACCEPTED_PROBLEM_TYPES: ProblemType[] = [
-  ProblemType.STANDARD,
-  ProblemType.DYNAMIC,
-];
+export const RUNNER_ACCEPTED_PROBLEM_TYPES: ProblemType[] = [ProblemType.STANDARD, ProblemType.DYNAMIC];
 
 export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: CodeLanguage[] = [
   CodeLanguage.C_11,
@@ -185,11 +175,9 @@ export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: CodeLanguage[] = [
   CodeLanguage.PSEUDOCODE_PSEINT,
 ];
 
-export const ACCEPTED_PROGRAMMING_LANGUAGES = [
-  ...RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES,
-];
+export const ACCEPTED_PROGRAMMING_LANGUAGES = [...RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES];
 
-export const PROBLEM_VERDICT: { [key in ProblemVerdict]: { value: ProblemVerdict, label: string, color: string } } = {
+export const PROBLEM_VERDICT: { [key in ProblemVerdict]: { value: ProblemVerdict; label: string; color: string } } = {
   [ProblemVerdict.NONE]: { value: ProblemVerdict.NONE, label: 'none', color: '#555555' },
   [ProblemVerdict.PENDING]: { value: ProblemVerdict.PENDING, label: 'pending', color: '#79B6FD' },
   [ProblemVerdict.HIDDEN]: { value: ProblemVerdict.HIDDEN, label: 'hidden', color: '#555555' },
@@ -216,12 +204,12 @@ export const PROBLEM_VERDICTS = [
   ProblemVerdict.WA,
 ];
 
-export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: SubmissionRunStatus, label: string } } = {
+export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: SubmissionRunStatus; label: string } } = {
   [SubmissionRunStatus.NONE]: { value: SubmissionRunStatus.NONE, label: 'none' }, // status
   [SubmissionRunStatus.RECEIVED]: { value: SubmissionRunStatus.RECEIVED, label: 'received' }, // state
   [SubmissionRunStatus.COMPILING]: { value: SubmissionRunStatus.COMPILING, label: 'compiling' }, // state
-  [SubmissionRunStatus.COMPILED]: { value: SubmissionRunStatus.COMPILED, label: 'compiled' },  // status
-  [SubmissionRunStatus.COMPILATION_ERROR]: { value: SubmissionRunStatus.COMPILATION_ERROR, label: 'compilation error' },  // status
+  [SubmissionRunStatus.COMPILED]: { value: SubmissionRunStatus.COMPILED, label: 'compiled' }, // status
+  [SubmissionRunStatus.COMPILATION_ERROR]: { value: SubmissionRunStatus.COMPILATION_ERROR, label: 'compilation error' }, // status
   [SubmissionRunStatus.FETCHING_TEST_CASES]: {
     value: SubmissionRunStatus.FETCHING_TEST_CASES,
     label: 'fetching test cases',
@@ -242,11 +230,11 @@ export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: Sub
   [SubmissionRunStatus.FAILED_TEST_CASE]: { value: SubmissionRunStatus.FAILED_TEST_CASE, label: 'failed test case' }, // status
   [SubmissionRunStatus.JUDGING_TEST_CASE]: { value: SubmissionRunStatus.JUDGING_TEST_CASE, label: 'judging test case' }, // state
   [SubmissionRunStatus.GRADING]: { value: SubmissionRunStatus.GRADING, label: 'grading' }, // status
-  [SubmissionRunStatus.FAILED]: { value: SubmissionRunStatus.FAILED, label: 'failed' },  // status
-  [SubmissionRunStatus.COMPLETED]: { value: SubmissionRunStatus.COMPLETED, label: 'completed' },  // status
+  [SubmissionRunStatus.FAILED]: { value: SubmissionRunStatus.FAILED, label: 'failed' }, // status
+  [SubmissionRunStatus.COMPLETED]: { value: SubmissionRunStatus.COMPLETED, label: 'completed' }, // status
 };
 
-export const RUNNER_TYPE: { [key in RunnerType]: { value: RunnerType, label: string } } = {
+export const RUNNER_TYPE: { [key in RunnerType]: { value: RunnerType; label: string } } = {
   [RunnerType.HIGH_PERFORMANCE]: { value: RunnerType.HIGH_PERFORMANCE, label: 'high performance' },
   [RunnerType.LOW_PERFORMANCE]: { value: RunnerType.LOW_PERFORMANCE, label: 'low performance' },
 };

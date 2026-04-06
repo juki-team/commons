@@ -1,0 +1,9 @@
+export const WorkingIn = {
+  NOTHING: 'NOTHING',
+  SEND_SUBMISSION: 'SEND_SUBMISSION',
+  TRACKING_SUBMISSION: 'TRACKING_SUBMISSION',
+  CRAWLING_LANGUAGES: 'CRAWLING_LANGUAGES',
+  CRAWLING_PROBLEM_DATA: 'CRAWLING_PROBLEM_DATA',
+} as const;
+
+export type WorkingIn = (typeof WorkingIn)[keyof typeof WorkingIn];

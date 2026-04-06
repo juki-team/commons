@@ -1,13 +1,13 @@
-import { ERROR } from '../constants';
+import { ERROR_HTTP_STATUS, getErrorMessage } from '../constants';
 import { JkError } from '../prototypes';
-import { ContentResponse, ContentsMeta, ContentsResponse, ErrorCode, ErrorResponse } from '../types';
+import { type ContentResponse, type ContentsMeta, type ContentsResponse, ErrorCode, type ErrorResponse } from '../types';
 import { consoleError, isStringJson } from './commons';
 
 export function toJkError(err: any): JkError {
   const error = new Error();
   let code = err?.code;
-  if (!(code in ErrorCode)) {
-    code = ErrorCode.ERR500;
+  if (!Object.values(ErrorCode).includes(code)) {
+    code = ErrorCode.INTERNAL_SERVER_ERROR;
   }
   return new JkError(code, {
     message: err?.message || error.message,
@@ -20,7 +20,7 @@ export function errorsResponse(message: string, ...errors: JkError[]): ErrorResp
   return {
     success: false,
     message: message,
-    errors: errors.map(error => ({
+    errors: errors.map((error) => ({
       code: error.code,
       message: error.message,
       detail: error.stack || new Error().stack || '',
@@ -46,13 +46,15 @@ export function contentsResponse<T>(message: string, contents: T[], meta: Conten
   };
 }
 
-export const cleanRequest = <T extends ContentResponse<any> | ContentsResponse<any>>(responseText: string): (ErrorResponse | T) => {
+export const cleanRequest = <T extends ContentResponse<any> | ContentsResponse<any>>(
+  responseText: string,
+): ErrorResponse | T => {
   if (!isStringJson(responseText)) {
     // this occurs when the endpoint don't exits or server is down
     const response: ErrorResponse = {
       success: false,
-      message: ERROR[ErrorCode.ERR9999].message,
-      errors: [ { code: ErrorCode.ERR9999, detail: '', message: ERROR[ErrorCode.ERR9999].message } ],
+      message: getErrorMessage(ErrorCode.SERVICE_NOT_FOUND),
+      errors: [{ code: ErrorCode.SERVICE_NOT_FOUND, detail: '', message: getErrorMessage(ErrorCode.SERVICE_NOT_FOUND) }],
     };
     consoleError({ message: 'response is not string json, success false on cleaning request', responseText, response });
     // jukiApiManager.reportError({ message: 'success false on cleaning request', responseText, response });
@@ -60,20 +62,32 @@ export const cleanRequest = <T extends ContentResponse<any> | ContentsResponse<a
   }
   const responseJson = JSON.parse(responseText);
   if (typeof responseJson.success === 'boolean') {
-    if (responseJson.success === true && typeof responseJson.message === 'string' && responseJson.content) { // V1
+    if (responseJson.success === true && typeof responseJson.message === 'string' && responseJson.content) {
+      // V1
       return {
         success: true,
         message: responseJson.message,
         content: responseJson.content,
       } as T;
-    } else if (responseJson.success === true && typeof responseJson.message === 'string' && Array.isArray(responseJson.contents) && responseJson.meta) { // V1
+    } else if (
+      responseJson.success === true &&
+      typeof responseJson.message === 'string' &&
+      Array.isArray(responseJson.contents) &&
+      responseJson.meta
+    ) {
+      // V1
       return {
         success: true,
         message: responseJson.message,
         contents: responseJson.contents,
         meta: responseJson.meta,
       } as T;
-    } else if (responseJson.success === false && typeof responseJson.message === 'string' && Array.isArray(responseJson.errors)) { // V1
+    } else if (
+      responseJson.success === false &&
+      typeof responseJson.message === 'string' &&
+      Array.isArray(responseJson.errors)
+    ) {
+      // V1
       const response: ErrorResponse = {
         success: false,
         message: responseJson.message,
@@ -86,8 +100,8 @@ export const cleanRequest = <T extends ContentResponse<any> | ContentsResponse<a
   }
   const response: ErrorResponse = {
     success: false,
-    message: ERROR[ErrorCode.ERR9998].message,
-    errors: [ { code: ErrorCode.ERR9998, detail: '', message: ERROR[ErrorCode.ERR9998].message } ],
+    message: getErrorMessage(ErrorCode.ERROR_ON_RESPONSE),
+    errors: [{ code: ErrorCode.ERROR_ON_RESPONSE, detail: '', message: getErrorMessage(ErrorCode.ERROR_ON_RESPONSE) }],
   };
   consoleError({ message: 'success false on cleaning request', responseText, response });
   // jukiApiManager.reportError({ message: 'success false on cleaning request', responseText, response });

@@ -1,9 +1,9 @@
-import {
+import type { ContestEventAction } from '../prisma/enums';
+import type {
   ContestBaseDocument,
   ContestClarification,
-  ContestEventAction,
-  ContestProblemPrerequisite,
   ContestProblem,
+  ContestProblemPrerequisite,
   ContestSettings,
   ContestUser,
   EntityState,
@@ -11,71 +11,74 @@ import {
   ProblemStatement,
   TextLanguage,
 } from '../types';
-import { EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity';
-import {
+import type { EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity';
+import type {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
   ProblemSummaryListResponseDTO,
 } from './problem';
-import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
+import type { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
 
 export type UpsertContestProblemPrerequisiteDTO = (Omit<ContestProblemPrerequisite, 'problemId'> & {
-  problemIndex: string
+  problemIndex: string;
 })[];
 
 export interface UpsertContestProblemDTO extends Omit<ContestProblem, 'id' | 'prerequisites'> {
-  key: string,
-  prerequisites: UpsertContestProblemPrerequisiteDTO,
+  key: string;
+  prerequisites: UpsertContestProblemPrerequisiteDTO;
 }
 
 export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings' | 'events'> {
-  members: EntityMembersDTO,
-  problems: { [key: string]: UpsertContestProblemDTO },
-  settings: Omit<ContestSettings, 'locked'>,
+  members: EntityMembersDTO;
+  problems: { [key: string]: UpsertContestProblemDTO };
+  settings: Omit<ContestSettings, 'locked'>;
 }
 
 export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
-  user: ContestUser,
+  user: ContestUser;
   owner: UserCompanyBasicInfoResponseDTO;
-  company: EntityCompanySummaryListResponseDTO,
-  settings: Pick<ContestSettings, 'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty' | 'upsolvingEnabled'>,
+  company: EntityCompanySummaryListResponseDTO;
+  settings: Pick<
+    ContestSettings,
+    'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty' | 'upsolvingEnabled'
+  >;
   // Data Calculated
-  totalContestants: number,
-  isLive: boolean,
-  isPast: boolean,
-  isFuture: boolean,
-  isEndless: boolean,
-  isGlobal: boolean,
-  isFrozenTime: boolean,
-  isQuietTime: boolean,
+  totalContestants: number;
+  isLive: boolean;
+  isPast: boolean;
+  isFuture: boolean;
+  isEndless: boolean;
+  isGlobal: boolean;
+  isFrozenTime: boolean;
+  isQuietTime: boolean;
 }
 
 export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListResponseDTO {
-  state: EntityState,
-  id: string,
-  owner: EntityOwnerSystemSummaryListResponseDTO,
-  company: EntityCompanySystemSummaryListResponseDTO,
-  creationTimestamp: number,
-  updateTimestamp: number,
+  state: EntityState;
+  id: string;
+  owner: EntityOwnerSystemSummaryListResponseDTO;
+  company: EntityCompanySystemSummaryListResponseDTO;
+  creationTimestamp: number;
+  updateTimestamp: number;
 }
 
 export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblem, 'id' | 'prerequisites'> {
-  name: string,
-  key: string,
-  prerequisites: UpsertContestProblemPrerequisiteDTO,
-  judge: ProblemJudgeSummaryListResponseDTO,
-  tags: string[],
-  company: EntityCompanySummaryListResponseDTO,
+  name: string;
+  key: string;
+  prerequisites: UpsertContestProblemPrerequisiteDTO;
+  judge: ProblemJudgeSummaryListResponseDTO;
+  tags: string[];
+  company: EntityCompanySummaryListResponseDTO;
 }
 
 export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {
-  author: string,
-  shortname: string,
-  statement: ProblemStatement,
-  editorial: TextLanguage,
-  settings: ProblemSettings,
-  ownerNickname: string,
+  author: string;
+  shortname: string;
+  statement: ProblemStatement;
+  editorial: TextLanguage;
+  settings: ProblemSettings;
+  ownerNickname: string;
 }
 
 export enum ContestProblemBlockedByType {
@@ -85,39 +88,39 @@ export enum ContestProblemBlockedByType {
   END_TIME_IN_THE_PAST = 'END_TIME_IN_THE_PAST',
 }
 
-export type ContestProblemDataResponseDTO =
-  ContestProblemBasicDataResponseDTO
-  & ContestContestProblemDataResponseDTO
-  & {
-  // calculated
-  blockedBy: { type: ContestProblemBlockedByType, details: Record<string, any> }[],
-  totalSuccess: number,
-  totalAttempts: number,
-  myAttempts: number,
-  myPoints: number,
-  mySuccess: boolean,
-  myPenalty: number,
-  myIndexAccepted: number,
-};
+export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO &
+  ContestContestProblemDataResponseDTO & {
+    // calculated
+    blockedBy: { type: ContestProblemBlockedByType; details: Record<string, any> }[];
+    totalSuccess: number;
+    totalAttempts: number;
+    myAttempts: number;
+    myPoints: number;
+    mySuccess: boolean;
+    myPenalty: number;
+    myIndexAccepted: number;
+  };
 
 export interface ContestEventResponseDTO {
-  action: ContestEventAction,
-  user: UserCompanyBasicInfoResponseDTO,
-  timestamp: number,
-  details: Record<string, any>,
+  action: ContestEventAction;
+  user: UserCompanyBasicInfoResponseDTO;
+  timestamp: number;
+  details: Record<string, any>;
 }
 
-export interface ContestDataResponseDTO extends Omit<ContestSummaryListResponseDTO, 'settings'>, Pick<ContestBaseDocument, 'settings' | 'description' | 'groups'> {
-  problems: Record<string, ContestProblemDataResponseDTO>,
-  state: EntityState,
+export interface ContestDataResponseDTO
+  extends Omit<ContestSummaryListResponseDTO, 'settings'>,
+    Pick<ContestBaseDocument, 'settings' | 'description' | 'groups'> {
+  problems: Record<string, ContestProblemDataResponseDTO>;
+  state: EntityState;
 }
 
 export interface ContestMembersResponseDTO {
-  members: EntityMembersWithTimestampsResponseDTO,
+  members: EntityMembersWithTimestampsResponseDTO;
 }
 
 export interface ContestClarificationsResponseDTO {
-  clarifications: ContestClarification[],
+  clarifications: ContestClarification[];
 }
 
 export interface ContestEventsResponseDTO {

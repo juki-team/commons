@@ -1,6 +1,7 @@
-import { MemberRole, TeamRole } from '../types';
+import { TeamRole } from '../prisma/enums';
+import { MemberRole } from '../types';
 
-export const MEMBER_ROLE: { [key in MemberRole]: { value: MemberRole, label: string } } = {
+export const MEMBER_ROLE: { [key in MemberRole]: { value: MemberRole; label: string } } = {
   [MemberRole.COACH]: { value: MemberRole.COACH, label: 'coach' },
   [MemberRole.CO_COACH]: { value: MemberRole.CO_COACH, label: 'co-coach' },
   [MemberRole.STAFF]: { value: MemberRole.STAFF, label: 'staff' },
@@ -9,7 +10,7 @@ export const MEMBER_ROLE: { [key in MemberRole]: { value: MemberRole, label: str
   [MemberRole.CONTESTANT]: { value: MemberRole.CONTESTANT, label: 'contestant' },
 };
 
-export const TEAM_ROLE: { [key in TeamRole]: { value: TeamRole, label: string, level: number } } = {
+export const TEAM_ROLE: { [key in TeamRole]: { value: TeamRole; label: string; level: number } } = {
   [TeamRole.RESTRICTED]: { value: TeamRole.RESTRICTED, label: 'restricted', level: 5 },
   [TeamRole.GUEST]: { value: TeamRole.GUEST, label: 'guest', level: 4 },
   [TeamRole.REGULAR]: { value: TeamRole.REGULAR, label: 'regular', level: 3 },

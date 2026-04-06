@@ -3,5 +3,5 @@ export enum NotificationType {
   INFO = 'info',
   WARNING = 'warning',
   ERROR = 'error',
-  QUIET = 'quiet'
+  QUIET = 'quiet',
 }

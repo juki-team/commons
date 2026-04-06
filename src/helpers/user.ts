@@ -1,11 +1,11 @@
-import { ClientId, RecordId } from '../types';
+import type { ClientId, RecordId } from '../types';
 
 export const getUserKey = (userNickname: string, userCompanyKey: string) => {
   return userNickname + '|' + userCompanyKey;
 };
 
 export const getParamsOfUserKey = (userKey: string) => {
-  const [ userNickname, userCompanyKey ] = userKey.split('|');
+  const [userNickname, userCompanyKey] = userKey.split('|');
   return { userNickname, userCompanyKey };
 };
 
@@ -14,6 +14,6 @@ export const getClientId = (sessionId: RecordId, uiId: string): ClientId => {
 };
 
 export const getParamsOfClientId = (clientId: ClientId) => {
-  const [ sessionId, uiId ] = clientId.split('|');
-  return { sessionId, uiId } as { sessionId: RecordId, uiId: string };
+  const [sessionId, uiId] = clientId.split('|');
+  return { sessionId, uiId } as { sessionId: RecordId; uiId: string };
 };

@@ -1,6 +1,6 @@
-import { MarkdownBaseDocument } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import type { MarkdownBaseDocument } from '../types';
+import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
+import type { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface MarkdownResponseDTO extends Omit<MarkdownBaseDocument, 'members'> {
   owner: UserCompanyBasicInfoResponseDTO;

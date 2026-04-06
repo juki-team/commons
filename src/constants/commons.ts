@@ -74,7 +74,9 @@ const CPP = {
   hasBuildFile: true,
   executable: 'g++',
   executableVersion: GPP_VERSION,
-  templateSourceCode: '#include <iostream>\n\nusing namespace std;\n\n' + 'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
+  templateSourceCode:
+    '#include <iostream>\n\nusing namespace std;\n\n' +
+    'int main() {\n  \n  cout << "Hello World" << endl;\n  \n  return 0;\n}',
   monacoKey: 'cpp',
   codeMirrorKey: 'cpp',
   highlightJsKey: 'cpp',
@@ -149,8 +151,11 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     // compilePattern: 'javac {{folder_path}}/{{source_full_file_name}}',
     // runPattern: 'java -cp {{folder_path}} {{class_name}}'
     runPattern:
-      '/usr/bin/jk-java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' + '{{folder_path}} {{class_name}}',
-    templateSourceCode: 'class Main {\n  public static void main (String[] args) {' + '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
+      '/usr/bin/jk-java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
+      '{{folder_path}} {{class_name}}',
+    templateSourceCode:
+      'class Main {\n  public static void main (String[] args) {' +
+      '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
     executable: 'java',
     executableVersion: JAVAC_VERSION,
@@ -216,7 +221,9 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     // DEPRECATED
     value: CodeLanguage.ICPC_C,
     label: 'ICPC C *',
-    compilePattern: 'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern:
+      'gcc -x c -g -O2 -std=gnu11 -static -lm -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...C,
   },
@@ -234,7 +241,9 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     // DEPRECATED
     value: CodeLanguage.ICPC_CPP,
     label: 'ICPC C++ *',
-    compilePattern: 'g++ -x c++ -static -g -O2 -std=gnu++20 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern:
+      'g++ -x c++ -static -g -O2 -std=gnu++20 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -242,7 +251,9 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     // DEPRECATED
     value: CodeLanguage.CPP,
     label: 'C++ *',
-    compilePattern: 'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+    compilePattern:
+      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -251,7 +262,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     value: CodeLanguage.CPP11,
     label: 'C++ 11 *',
     compilePattern:
-      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++11 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++11 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++11 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
@@ -262,7 +274,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'C++ 14 *',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++14 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     compilePattern:
-      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++14 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++14 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -272,7 +285,8 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     label: 'C++ 17 *',
     // compilePattern: 'g++ -O2 -s -Wall -std=c++17 -o {{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}} -lm',
     compilePattern:
-      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++17 -o ' + '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
+      'g++ -x c++ -static -DONLINE_JUDGE -lm -s -O2 -std=c++17 -o ' +
+      '{{folder_path}}/{{compiled_file_name}} {{folder_path}}/{{source_full_file_name}}',
     runPattern: '{{folder_path}}/{{compiled_file_name}}',
     ...CPP,
   },
@@ -289,7 +303,9 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
     runPattern:
       '/usr/lib/jvm/java-17-openjdk-amd64/bin/java -Xmx512M -Xss64M -DONLINE_JUDGE=true -Duser.language=en -Duser.region=US -Duser.variant=US -cp ' +
       '{{folder_path}} {{class_name}}',
-    templateSourceCode: 'class Main {\n  public static void main (String[] args) {' + '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
+    templateSourceCode:
+      'class Main {\n  public static void main (String[] args) {' +
+      '\n    \n    System.out.println("Hello World");\n    \n  }\n}',
     hasBuildFile: true,
     executable: 'javac',
     executableVersion: JAVAC_VERSION,

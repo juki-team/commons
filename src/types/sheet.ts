@@ -1,5 +1,5 @@
-import { CodeLanguage } from './commons';
-import { SubmissionRunStatus } from './judge';
+import type { SubmissionRunStatus } from '../prisma/enums';
+import type { CodeLanguage } from './commons';
 
 export enum WorksheetType {
   JK_MD = 'JK_MD',
@@ -109,4 +109,12 @@ export type NewPageSheet = BasicWorksheet & {
   type: WorksheetType.NEW_PAGE;
 };
 
-export type BodyWorksheet = JkmdSheet | CodeEditorSheet | ListSheet | GraphSheet | QuizProblemSheet | QuizTextSheet | QuizOptionsSheet | NewPageSheet;
+export type BodyWorksheet =
+  | JkmdSheet
+  | CodeEditorSheet
+  | ListSheet
+  | GraphSheet
+  | QuizProblemSheet
+  | QuizTextSheet
+  | QuizOptionsSheet
+  | NewPageSheet;

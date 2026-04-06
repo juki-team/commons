@@ -1,31 +1,32 @@
-import { CodeLanguage } from './commons';
-import { DataLog } from './submission';
+import type { ProblemVerdict } from '../prisma/enums';
+import type { CodeLanguage } from './commons';
+import type { DataLog } from './submission';
 
 export type JudgeLanguage = {
-  value: string,
-  label: string,
-  enabled: boolean,
-  associatedLanguage: CodeLanguage
+  value: string;
+  label: string;
+  enabled: boolean;
+  associatedLanguage: CodeLanguage;
 };
 
 export interface JudgeBaseDocument {
-  key: string | Judge,
-  name: string,
-  languages: JudgeLanguage[],
-  problemTags: string[],
-  keyPrefix: string,
-  isExternal: boolean,
-  isSubmitSupported: boolean,
-  logo: string,
-  logoSize: [ number, number ],
-  url: string,
-  getLoginUrl: string,
-  getProfileUrl: string, // getProfileUrl: (userNickname: string) => ''
-  getSubmitUrl: string,
-  getSubmissionUrl: string, // getSubmissionUrl: (problemKey: string, submissionId: string, username: string, submissionRunId: string) => ''
-  getProblemUrl: string,
-  getUserSubmissionsUrl: string,
-  submissionsWithHighPriority: boolean,
+  key: string | Judge;
+  name: string;
+  languages: JudgeLanguage[];
+  problemTags: string[];
+  keyPrefix: string;
+  isExternal: boolean;
+  isSubmitSupported: boolean;
+  logo: string;
+  logoSize: [number, number];
+  url: string;
+  getLoginUrl: string;
+  getProfileUrl: string; // getProfileUrl: (userNickname: string) => ''
+  getSubmitUrl: string;
+  getSubmissionUrl: string; // getSubmissionUrl: (problemKey: string, submissionId: string, username: string, submissionRunId: string) => ''
+  getProblemUrl: string;
+  getUserSubmissionsUrl: string;
+  submissionsWithHighPriority: boolean;
 }
 
 export enum Judge {
@@ -38,38 +39,6 @@ export enum Judge {
   CODECHEF = 'CODECHEF',
   TOPCODER = 'TOPCODER',
   LEETCODE = 'LEETCODE',
-}
-
-export enum ProblemVerdict {
-  NONE = 'NONE', // No judge
-  PENDING = 'PENDING', // Pending
-  HIDDEN = 'HIDDEN', // Hidden
-  CE = 'CE', // Compilation Error
-  RE = 'RE', // Runtime Error
-  TLE = 'TLE', // Time Limit Exceded
-  MLE = 'MLE', // Memory Limit Exceded
-  WA = 'WA', // Wrong Answer
-  PE = 'PE', // Presentation Error
-  PA = 'PA', // Partial Accepted
-  AC = 'AC', // Accepted
-}
-
-export enum SubmissionRunStatus {
-  NONE = 'NONE',
-  RECEIVED = 'RECEIVED',
-  COMPILING = 'COMPILING',
-  COMPILED = 'COMPILED',
-  COMPILATION_ERROR = 'COMPILATION_ERROR',
-  FETCHING_TEST_CASES = 'FETCHING_TEST_CASES',
-  RUNNING_TEST_CASE = 'RUNNING_TEST_CASE',
-  RUNNING_TEST_CASES = 'RUNNING_TEST_CASES',
-  RUNNING_SAMPLE_TEST_CASES = 'RUNNING_SAMPLE_TEST_CASES',
-  EXECUTED_TEST_CASE = 'EXECUTED_TEST_CASE',
-  FAILED_TEST_CASE = 'FAILED_TEST_CASE',
-  JUDGING_TEST_CASE = 'JUDGING_TEST_CASE',
-  GRADING = 'GRADING',
-  FAILED = 'FAILED',
-  COMPLETED = 'COMPLETED',
 }
 
 export enum RunnerType {

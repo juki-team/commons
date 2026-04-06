@@ -1,4 +1,5 @@
-import { Judge, WorkingIn } from '../types';
+import type { WorkingIn } from '../prisma/enums';
+import type { Judge } from '../types';
 
 export type CookieSameSite = 'Strict' | 'Lax' | 'None';
 
@@ -28,15 +29,15 @@ export interface Cookie {
 }
 
 export interface VirtualUserResponseDTO {
-  id: string,
-  judge: Judge,
-  email: string,
-  username: string,
-  password: string,
-  submitId: string,
-  attempts: number,
-  workingIn: WorkingIn,
-  updatedAt: Date,
-  judgeSubmissionId: string,
-  session: { cookies: Cookie[] }
+  id: string;
+  judge: Judge;
+  email: string;
+  username: string;
+  password: string;
+  submitId: string;
+  attempts: number;
+  workingIn: WorkingIn;
+  updatedAt: Date;
+  judgeSubmissionId: string;
+  session: { cookies: Cookie[] };
 }

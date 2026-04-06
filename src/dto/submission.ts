@@ -1,119 +1,111 @@
-import {
-  CodeLanguage,
-  ContestUser,
-  DataLog,
-  EntityState,
-  ProblemScoringMode,
-  ProblemType,
-  ProblemVerdict,
-  SubmissionRunStatus,
-} from '../types';
-import {
+import type { ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../prisma/enums';
+import type { CodeLanguage, ContestUser, DataLog, EntityState } from '../types';
+import type {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
 } from './problem';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import type { UserCompanyBasicInfoResponseDTO } from './user';
 
 export interface SubmissionProblemSummaryListResponseDTO {
-  isAdministrator: boolean,
-  isManager: boolean,
-  key: string,
-  name: string,
-  scoringMode: ProblemScoringMode,
-  type: ProblemType,
-  timeLimit: number,
-  memoryLimit: number,
-  company: EntityCompanySummaryListResponseDTO,
-  judge: ProblemJudgeSummaryListResponseDTO,
+  isAdministrator: boolean;
+  isManager: boolean;
+  key: string;
+  name: string;
+  scoringMode: ProblemScoringMode;
+  type: ProblemType;
+  timeLimit: number;
+  memoryLimit: number;
+  company: EntityCompanySummaryListResponseDTO;
+  judge: ProblemJudgeSummaryListResponseDTO;
 }
 
 export interface SubmissionContestSummaryListResponseDTO {
-  key: string, // foreign
-  name: string, // foreign
-  settingsStartTimestamp: number,
-  isManager: boolean,
-  problemIndex: string,
-  problemColor: string,
-  company: EntityCompanySummaryListResponseDTO,
-  isFrozen: boolean,
-  isQuiet: boolean,
-  isUpsolving: boolean,
+  key: string; // foreign
+  name: string; // foreign
+  settingsStartTimestamp: number;
+  isManager: boolean;
+  problemIndex: string;
+  problemColor: string;
+  company: EntityCompanySummaryListResponseDTO;
+  isFrozen: boolean;
+  isQuiet: boolean;
+  isUpsolving: boolean;
 }
 
 export interface SubmissionSummaryListResponseDTO {
-  submitId: string,
-  language: CodeLanguage,
-  timestamp: number,
-  memoryUsed: number,
-  timeUsed: number,
-  verdict: ProblemVerdict,
-  points: number, // default: 0
-  status: SubmissionRunStatus,
-  problem: SubmissionProblemSummaryListResponseDTO,
+  submitId: string;
+  language: CodeLanguage;
+  timestamp: number;
+  memoryUsed: number;
+  timeUsed: number;
+  verdict: ProblemVerdict;
+  points: number; // default: 0
+  status: SubmissionRunStatus;
+  problem: SubmissionProblemSummaryListResponseDTO;
   user: UserCompanyBasicInfoResponseDTO & {
-    canViewSourceCode: boolean, // foreign
+    canViewSourceCode: boolean; // foreign
     // canViewOutputDiff: boolean, // foreign
-  }, // foreign
+  }; // foreign
   // contest data or empty string
-  contest: SubmissionContestSummaryListResponseDTO | null,
-  hiddenSubmission: boolean,
-  hiddenVerdict: boolean,
+  contest: SubmissionContestSummaryListResponseDTO | null;
+  hiddenSubmission: boolean;
+  hiddenVerdict: boolean;
   processedCases: {
     samples: {
-      total: number,
-      processed: number
-    },
+      total: number;
+      processed: number;
+    };
     tests: {
-      total: number,
-      processed: number
-    }
-  },
-  company: EntityCompanySummaryListResponseDTO,
+      total: number;
+      processed: number;
+    };
+  };
+  company: EntityCompanySummaryListResponseDTO;
 }
 
 export interface SubmissionProblemSystemSummaryListResponseDTO extends SubmissionProblemSummaryListResponseDTO {
-  id: string,
+  id: string;
 }
 
 export interface SubmissionContestSystemSummaryListResponseDTO extends SubmissionContestSummaryListResponseDTO {
-  id: string,
-  user: ContestUser,
+  id: string;
+  user: ContestUser;
 }
 
 export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummaryListResponseDTO {
-  problem: SubmissionProblemSystemSummaryListResponseDTO,
-  contest: SubmissionContestSystemSummaryListResponseDTO | null,
-  company: EntityCompanySystemSummaryListResponseDTO,
-  creationTimestamp: number,
-  updateTimestamp: number,
-  state: EntityState,
+  problem: SubmissionProblemSystemSummaryListResponseDTO;
+  contest: SubmissionContestSystemSummaryListResponseDTO | null;
+  company: EntityCompanySystemSummaryListResponseDTO;
+  creationTimestamp: number;
+  updateTimestamp: number;
+  state: EntityState;
 }
 
 export type TestCaseResult = DataLog & {
-  err: string
-  verdict: ProblemVerdict,
-  diff: string,
-  croppedDiff: boolean,
-  group: number,
-  points: number, // Used by PARTIAL mode problems
-  testCaseKey: string,
-}
+  err: string;
+  verdict: ProblemVerdict;
+  diff: string;
+  croppedDiff: boolean;
+  group: number;
+  points: number; // Used by PARTIAL mode problems
+  testCaseKey: string;
+};
 
 export type VerdictByGroups = {
-  [key: number]: Omit<TestCaseResult, 'err' | 'diff' | 'croppedDiff'>
+  [key: number]: Omit<TestCaseResult, 'err' | 'diff' | 'croppedDiff'>;
 };
 
 export type CompilationResult = DataLog & {
-  err: string,
-  success: boolean,
+  err: string;
+  success: boolean;
 };
 
 export interface SubmissionDataResponseDTO extends SubmissionSummaryListResponseDTO {
-  judgmentTime: number,
-  sourceCode: string,
-  verdictByGroups: VerdictByGroups,
-  testCaseResults: TestCaseResult[],
-  compilationResult: CompilationResult,
-  runId: string,
+  judgmentTime: number;
+  sourceCode: string;
+  verdictByGroups: VerdictByGroups;
+  testCaseResults: TestCaseResult[];
+  compilationResult: CompilationResult;
+  runId: string;
 }
