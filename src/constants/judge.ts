@@ -1,8 +1,8 @@
-import { JudgeType, ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../prisma/enums';
-import { CodeLanguage, RunnerType } from '../types';
+import { JudgeType, ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
+import { CodeLanguage, RunnerType } from '../types/index.js';
 
 type Judge = {
-  [key in JudgeType]: {
+  [Key in JudgeType]: {
     value: JudgeType;
     label: string;
     logo: string;
@@ -177,7 +177,7 @@ export const RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES: CodeLanguage[] = [
 
 export const ACCEPTED_PROGRAMMING_LANGUAGES = [...RUNNER_ACCEPTED_PROGRAMMING_LANGUAGES];
 
-export const PROBLEM_VERDICT: { [key in ProblemVerdict]: { value: ProblemVerdict; label: string; color: string } } = {
+export const PROBLEM_VERDICT: { [Key in ProblemVerdict]: { value: ProblemVerdict; label: string; color: string } } = {
   [ProblemVerdict.NONE]: { value: ProblemVerdict.NONE, label: 'none', color: '#555555' },
   [ProblemVerdict.PENDING]: { value: ProblemVerdict.PENDING, label: 'pending', color: '#79B6FD' },
   [ProblemVerdict.HIDDEN]: { value: ProblemVerdict.HIDDEN, label: 'hidden', color: '#555555' },
@@ -204,7 +204,7 @@ export const PROBLEM_VERDICTS = [
   ProblemVerdict.WA,
 ];
 
-export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: SubmissionRunStatus; label: string } } = {
+export const SUBMISSION_RUN_STATUS: { [Key in SubmissionRunStatus]: { value: SubmissionRunStatus; label: string } } = {
   [SubmissionRunStatus.NONE]: { value: SubmissionRunStatus.NONE, label: 'none' }, // status
   [SubmissionRunStatus.RECEIVED]: { value: SubmissionRunStatus.RECEIVED, label: 'received' }, // state
   [SubmissionRunStatus.COMPILING]: { value: SubmissionRunStatus.COMPILING, label: 'compiling' }, // state
@@ -234,7 +234,7 @@ export const SUBMISSION_RUN_STATUS: { [key in SubmissionRunStatus]: { value: Sub
   [SubmissionRunStatus.COMPLETED]: { value: SubmissionRunStatus.COMPLETED, label: 'completed' }, // status
 };
 
-export const RUNNER_TYPE: { [key in RunnerType]: { value: RunnerType; label: string } } = {
+export const RUNNER_TYPE: { [Key in RunnerType]: { value: RunnerType; label: string } } = {
   [RunnerType.HIGH_PERFORMANCE]: { value: RunnerType.HIGH_PERFORMANCE, label: 'high performance' },
   [RunnerType.LOW_PERFORMANCE]: { value: RunnerType.LOW_PERFORMANCE, label: 'low performance' },
 };

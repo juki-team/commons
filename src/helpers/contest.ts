@@ -1,5 +1,5 @@
-import { MAX_DATE, MIN_DATE } from '../constants';
-import type { ContestSettings } from '../types';
+import { MAX_DATE, MIN_DATE } from '../constants/index.js';
+import type { ContestSettings } from '../types/index.js';
 
 export const isEndlessContest = (
   settings:

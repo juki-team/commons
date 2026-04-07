@@ -1,4 +1,4 @@
-import type { ContestEventAction } from '../prisma/enums';
+import type { ContestEventAction } from '../prisma/enums/index.js';
 import type {
   ContestBaseDocument,
   ContestClarification,
@@ -10,15 +10,15 @@ import type {
   ProblemSettings,
   ProblemStatement,
   TextLanguage,
-} from '../types';
-import type { EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity';
+} from '../types/index.js';
+import type { EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity.js';
 import type {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
   ProblemSummaryListResponseDTO,
-} from './problem';
-import type { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
+} from './problem.js';
+import type { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user.js';
 
 export type UpsertContestProblemPrerequisiteDTO = (Omit<ContestProblemPrerequisite, 'problemId'> & {
   problemIndex: string;
@@ -91,7 +91,7 @@ export enum ContestProblemBlockedByType {
 export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO &
   ContestContestProblemDataResponseDTO & {
     // calculated
-    blockedBy: { type: ContestProblemBlockedByType; details: Record<string, any> }[];
+    blockedBy: { type: ContestProblemBlockedByType; details: Record<string, unknown> }[];
     totalSuccess: number;
     totalAttempts: number;
     myAttempts: number;
@@ -105,7 +105,7 @@ export interface ContestEventResponseDTO {
   action: ContestEventAction;
   user: UserCompanyBasicInfoResponseDTO;
   timestamp: number;
-  details: Record<string, any>;
+  details: Record<string, unknown>;
 }
 
 export interface ContestDataResponseDTO

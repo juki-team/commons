@@ -1,5 +1,5 @@
-import type { BodyWorksheet } from '../types/sheet';
-import type { EntityMembers, EntityState } from './entity';
+import type { EntityMembers, EntityState } from './entity.js';
+import type { BodyWorksheet } from './sheet.js';
 
 export enum AssignmentClass {
   NONE = 'NONE',

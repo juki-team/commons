@@ -1,4 +1,4 @@
-import type { ClientId } from '../types';
+import type { ClientId } from '../types/index.js';
 
 export const CHANNEL_PUBLISH_SUBSCRIPTIONS = 'pub:subscriptions';
 

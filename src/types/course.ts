@@ -1,4 +1,4 @@
-import type { EntityMembers, EntityState } from './entity';
+import type { EntityMembers, EntityState } from './entity.js';
 
 export interface CourseBaseDocument {
   key: string;

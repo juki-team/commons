@@ -1,11 +1,11 @@
-import type { ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../prisma/enums';
-import type { CodeLanguage, ContestUser, DataLog, EntityState } from '../types';
+import type { ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
+import type { CodeLanguage, ContestUser, DataLog, EntityState } from '../types/index.js';
 import type {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
-} from './problem';
-import type { UserCompanyBasicInfoResponseDTO } from './user';
+} from './problem.js';
+import type { UserCompanyBasicInfoResponseDTO } from './user.js';
 
 export interface SubmissionProblemSummaryListResponseDTO {
   isAdministrator: boolean;

@@ -1,6 +1,6 @@
-import type { ProblemVerdict } from '../prisma/enums';
-import type { CodeLanguage } from './commons';
-import type { DataLog } from './submission';
+import type { ProblemVerdict } from '../prisma/enums/index.js';
+import type { CodeLanguage } from './commons.js';
+import type { DataLog } from './submission.js';
 
 export type JudgeLanguage = {
   value: string;

@@ -1,11 +1,11 @@
-import type { EntityMembersDTO, EntityMembersResponseDTO } from '../dto';
+import type { EntityMembersDTO, EntityMembersResponseDTO } from '../dto/index.js';
 import {
   EntityAccess,
   type EntityMembers,
   EntityMembersRank,
   type EntityTeamsMemberUserData,
   type EntityUsersMemberUserData,
-} from '../types';
+} from '../types/index.js';
 
 export const getDocumentAccess = (
   document:
@@ -17,49 +17,19 @@ export const getDocumentAccess = (
       }
     | undefined,
 ): EntityAccess => {
-  switch (true) {
-    case (document?.members?.rankAdministrators === EntityMembersRank.NONE ||
-      document?.members?.rankAdministrators === EntityMembersRank.CLOSE) &&
-      document?.members?.rankManagers === EntityMembersRank.OPEN &&
-      (document?.members?.rankGuests === EntityMembersRank.NONE ||
-        document?.members?.rankGuests === EntityMembersRank.CLOSE ||
-        document?.members?.rankGuests === EntityMembersRank.OPEN) &&
-      document?.members?.rankSpectators === EntityMembersRank.OPEN &&
-      (document?.members?.rankParticipants === EntityMembersRank.NONE ||
-        document?.members?.rankParticipants === EntityMembersRank.CLOSE ||
-        document?.members?.rankParticipants === EntityMembersRank.OPEN):
-      return EntityAccess.EXPOSED;
-    case (document?.members?.rankAdministrators === EntityMembersRank.NONE ||
-      document?.members?.rankAdministrators === EntityMembersRank.CLOSE) &&
-      document?.members?.rankManagers === EntityMembersRank.CLOSE &&
-      (document?.members?.rankGuests === EntityMembersRank.NONE ||
-        document?.members?.rankGuests === EntityMembersRank.CLOSE ||
-        document?.members?.rankGuests === EntityMembersRank.OPEN) &&
-      document?.members?.rankSpectators === EntityMembersRank.OPEN &&
-      (document?.members?.rankParticipants === EntityMembersRank.NONE ||
-        document?.members?.rankParticipants === EntityMembersRank.CLOSE ||
-        document?.members?.rankParticipants === EntityMembersRank.OPEN):
-      return EntityAccess.PUBLIC;
-    case (document?.members?.rankAdministrators === EntityMembersRank.NONE ||
-      document?.members?.rankAdministrators === EntityMembersRank.CLOSE) &&
-      document?.members?.rankManagers === EntityMembersRank.CLOSE &&
-      (document?.members?.rankGuests === EntityMembersRank.NONE ||
-        document?.members?.rankGuests === EntityMembersRank.CLOSE ||
-        document?.members?.rankGuests === EntityMembersRank.OPEN) &&
-      document?.members?.rankSpectators === EntityMembersRank.CLOSE &&
-      (document?.members?.rankParticipants === EntityMembersRank.NONE ||
-        document?.members?.rankParticipants === EntityMembersRank.CLOSE ||
-        document?.members?.rankParticipants === EntityMembersRank.OPEN):
-      return EntityAccess.RESTRICTED;
-    case document?.members?.rankAdministrators === EntityMembersRank.NONE &&
-      document?.members?.rankManagers === EntityMembersRank.NONE &&
-      document?.members?.rankGuests === EntityMembersRank.NONE &&
-      document?.members?.rankSpectators === EntityMembersRank.NONE &&
-      document?.members?.rankParticipants === EntityMembersRank.NONE:
-      return EntityAccess.PRIVATE;
-    default:
-      return EntityAccess.PRIVATE;
-  }
+  const members = document?.members;
+  const adminRank = members?.rankAdministrators;
+  const adminClosed = adminRank === EntityMembersRank.NONE || adminRank === EntityMembersRank.CLOSE;
+  if (!adminClosed) return EntityAccess.PRIVATE;
+
+  const spectatorsOpen = members?.rankSpectators === EntityMembersRank.OPEN;
+  const managersOpen = members?.rankManagers === EntityMembersRank.OPEN;
+  const managersClose = members?.rankManagers === EntityMembersRank.CLOSE;
+
+  if (spectatorsOpen && managersOpen) return EntityAccess.EXPOSED;
+  if (spectatorsOpen && managersClose) return EntityAccess.PUBLIC;
+  if (managersClose) return EntityAccess.RESTRICTED;
+  return EntityAccess.PRIVATE;
 };
 
 export const isUserMember = (member: { userId?: string; teamId?: string }): member is EntityUsersMemberUserData => {

@@ -1,35 +1,32 @@
-export function memorySizeOf(obj: any) {
-  let bytes = 0;
-
-  function sizeOf(obj: any) {
-    if (obj !== null && obj !== undefined) {
-      switch (typeof obj) {
-        case 'number':
-          bytes += 8;
-          break;
-        case 'string':
-          bytes += obj.length * 2;
-          break;
-        case 'boolean':
-          bytes += 4;
-          break;
-        case 'object': {
-          const objClass = Object.prototype.toString.call(obj).slice(8, -1);
-          if (objClass === 'Object' || objClass === 'Array') {
-            for (const key in obj) {
-              if (!Object.hasOwn(obj, key)) {
-                continue;
-              }
-              bytes += key.length * 2;
-              sizeOf(obj[key]);
-            }
-          } else bytes += obj.toString().length * 2;
-          break;
-        }
-      }
-    }
-    return bytes;
+function sizeOfObject(obj: object): number {
+  const objClass = Object.prototype.toString.call(obj).slice(8, -1);
+  if (objClass !== 'Object' && objClass !== 'Array') {
+    return obj.toString().length * 2;
   }
+  let bytes = 0;
+  for (const key in obj) {
+    if (!Object.hasOwn(obj, key)) continue;
+    bytes += key.length * 2 + sizeOf((obj as Record<string, unknown>)[key]);
+  }
+  return bytes;
+}
 
+function sizeOf(obj: unknown): number {
+  if (obj === null || obj === undefined) return 0;
+  switch (typeof obj) {
+    case 'number':
+      return 8;
+    case 'string':
+      return obj.length * 2;
+    case 'boolean':
+      return 4;
+    case 'object':
+      return sizeOfObject(obj);
+    default:
+      return 0;
+  }
+}
+
+export function memorySizeOf(obj: unknown): number {
   return sizeOf(obj);
 }

@@ -1,4 +1,4 @@
-import type { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums';
+import type { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
 import type {
   ClientId,
   Device,
@@ -6,14 +6,14 @@ import type {
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
-} from '../types';
+} from '../types/index.js';
 import type {
   Ec2Instance,
   EcsTaskDefinitionSystemSummaryListResponseDTO,
   EcsTaskSystemSummaryListResponseDTO,
   SsmSession,
-} from './system';
-import type { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
+} from './system.js';
+import type { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user.js';
 
 // EVENT MESSAGES
 interface WebsocketMessage {
@@ -213,7 +213,7 @@ export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse 
 
 export interface SendDataWebSocketResponseEventDTO extends WebSocketResponse {
   dataId: string;
-  content: any;
+  content: unknown;
 }
 
 export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
@@ -256,7 +256,7 @@ export interface SendDataClientTrackWebSocketResponseEventDTO extends SendDataWe
 
 export interface SendDataChatCompletionsWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
   event: WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS;
-  content: { choices: [{ index: number; message: { role: string; content: string } }]; rawData: any };
+  content: { choices: [{ index: number; message: { role: string; content: string } }]; rawData: unknown };
 }
 
 export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
@@ -293,7 +293,7 @@ export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse 
 
 export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION;
-  content: any;
+  content: unknown;
 }
 
 export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {

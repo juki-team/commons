@@ -9,11 +9,11 @@ declare global {
 }
 
 Number.prototype.padStart = function (maxLength, fillString = '0') {
-  return (this + '').padStart(maxLength, fillString);
+  return `${this}`.padStart(maxLength, fillString);
 };
 
 Number.prototype.padEnd = function (maxLength, fillString = '0') {
-  return (this + '').padEnd(maxLength, fillString);
+  return `${this}`.padEnd(maxLength, fillString);
 };
 
 export {};

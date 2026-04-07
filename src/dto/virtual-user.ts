@@ -1,5 +1,5 @@
-import type { WorkingIn } from '../prisma/enums';
-import type { Judge } from '../types';
+import type { WorkingIn } from '../prisma/enums/index.js';
+import type { Judge } from '../types/index.js';
 
 export type CookieSameSite = 'Strict' | 'Lax' | 'None';
 

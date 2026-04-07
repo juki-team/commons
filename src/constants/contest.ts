@@ -1,8 +1,8 @@
-import { type ContestRole, ContestStatus } from '../prisma/enums';
-import { Role } from '../types';
+import { type ContestRole, ContestStatus } from '../prisma/enums/index.js';
+import { Role } from '../types/index.js';
 
 export const CONTEST_STATUS: {
-  [key in ContestStatus]: {
+  [Key in ContestStatus]: {
     value: ContestStatus;
     label: string;
     description: string;
@@ -26,7 +26,7 @@ export const CONTEST_STATUS: {
   },
 };
 
-export const CONTEST_ROLE: { [key in ContestRole]: { value: ContestRole; label: string; level: number } } = {
+export const CONTEST_ROLE: { [Key in ContestRole]: { value: ContestRole; label: string; level: number } } = {
   [Role.RESTRICTED]: { value: Role.RESTRICTED, label: 'restricted', level: 7 },
   [Role.GUEST]: { value: Role.GUEST, label: 'guest', level: 6 },
   [Role.REGULAR]: { value: Role.REGULAR, label: 'regular', level: 5 },

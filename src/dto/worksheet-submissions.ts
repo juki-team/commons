@@ -7,9 +7,9 @@ import {
   type QuizTextSheet,
   type UserBasic,
   WorksheetType,
-} from '../types';
-import type { SubmissionSummaryListResponseDTO } from './submission';
-import type { UserCompanyBasicInfoResponseDTO } from './user';
+} from '../types/index.js';
+import type { SubmissionSummaryListResponseDTO } from './submission.js';
+import type { UserCompanyBasicInfoResponseDTO } from './user.js';
 
 export type WorksheetResponseBasicInfoProcessed = {
   submittedAt: number;

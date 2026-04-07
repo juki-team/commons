@@ -1,6 +1,5 @@
-import type { ContestRole, CourseRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums';
-import { ProfileSetting } from './account';
-import type { Language, Theme } from './prisma';
+import type { ContestRole, CourseRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums/index.js';
+import { ProfileSetting } from './account.js';
 
 export interface UserBasicInfo {
   nickname: string;
@@ -22,6 +21,16 @@ export interface UserProfile extends UserBasic {
 }
 
 export type UserHandles = { [key: string]: string };
+
+export enum Language {
+  ES = 'ES',
+  EN = 'EN',
+}
+
+export enum Theme {
+  LIGHT = 'LIGHT',
+  DARK = 'DARK',
+}
 
 export enum DataViewMode {
   CARDS = 'CARDS',

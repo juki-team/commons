@@ -1,11 +1,11 @@
-import { CodeLanguage, Language, Theme } from '../types';
+import { CodeLanguage, Language, Theme } from '../types/index.js';
 
-export const LANGUAGE: { [key in Language]: { value: Language; label: string } } = {
+export const LANGUAGE: { [Key in Language]: { value: Language; label: string } } = {
   [Language.EN]: { value: Language.EN, label: 'english' },
   [Language.ES]: { value: Language.ES, label: 'español' },
 };
 
-export const THEME: { [key in Theme]: { value: Theme; label: string } } = {
+export const THEME: { [Key in Theme]: { value: Theme; label: string } } = {
   [Theme.LIGHT]: { value: Theme.LIGHT, label: 'light' },
   [Theme.DARK]: { value: Theme.DARK, label: 'dark' },
 };
@@ -93,7 +93,7 @@ const PYTHON = {
   highlightJsKey: 'python',
 };
 
-export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
+export const CODE_LANGUAGE: { [Key in CodeLanguage]: CodeLanguageMeta } = {
   [CodeLanguage.C_11]: {
     value: CodeLanguage.C_11,
     label: 'C 11',
@@ -629,7 +629,7 @@ export const CODE_LANGUAGE: { [key in CodeLanguage]: CodeLanguageMeta } = {
 export const PAGE_SIZES = ['32', '64', '128', '256', '512'];
 
 export const PALLETE = {
-  VIVOS: [
+  vivos: [
     { color: '#FF0000', title: 'Rojo' },
     { color: '#FF5900', title: 'Rojo - Naranja' },
     { color: '#FF8600', title: 'Naranja' },
@@ -645,7 +645,7 @@ export const PALLETE = {
     { color: '#FF00FF', title: 'Magenta' },
     { color: '#FF0099', title: 'Fucsia' },
   ],
-  OSCUROS: [
+  oscuros: [
     { color: '#880000', title: 'Granate' },
     { color: '#882F00', title: 'Caoba o Rojo indio' },
     { color: '#884700', title: 'Marrón o Pardo' },
@@ -661,7 +661,7 @@ export const PALLETE = {
     { color: '#880088', title: 'Púrpura o Morado' },
     { color: '#880047', title: 'Vino' },
   ],
-  AGRISADOS: [
+  agrisados: [
     { color: '#BF4040', title: 'Lacre' },
     { color: '#BF6340', title: 'Cobre' },
     { color: '#BF8340', title: 'Cnalea o Ocre' },
@@ -677,7 +677,7 @@ export const PALLETE = {
     { color: '#B140BF', title: 'Púrpureo' },
     { color: '#B140BF', title: 'Fandango' },
   ],
-  CLAROS: [
+  claros: [
     { color: '#FF7777', title: 'Coral' },
     { color: '#FF9977', title: 'Salmón' },
     { color: '#FFB977', title: 'Melón o Durazno' },

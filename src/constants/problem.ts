@@ -1,12 +1,12 @@
-import { type ProblemRole, ProblemScoringMode, ProblemType } from '../prisma/enums';
-import { ProblemInput, ProblemOutput, Role } from '../types';
+import { type ProblemRole, ProblemScoringMode, ProblemType } from '../prisma/enums/index.js';
+import { ProblemInput, ProblemOutput, Role } from '../types/index.js';
 
-export const PROBLEM_INPUT: { [key in ProblemInput]: { value: ProblemInput; label: string } } = {
+export const PROBLEM_INPUT: { [Key in ProblemInput]: { value: ProblemInput; label: string } } = {
   [ProblemInput.STANDARD]: { value: ProblemInput.STANDARD, label: 'standard' },
   [ProblemInput.INTERACTIVE]: { value: ProblemInput.INTERACTIVE, label: 'interactive' },
 };
 
-export const PROBLEM_OUTPUT: { [key in ProblemOutput]: { value: ProblemOutput; label: string } } = {
+export const PROBLEM_OUTPUT: { [Key in ProblemOutput]: { value: ProblemOutput; label: string } } = {
   [ProblemOutput.STANDARD]: { value: ProblemOutput.STANDARD, label: 'standard' },
   [ProblemOutput.DYNAMIC]: { value: ProblemOutput.DYNAMIC, label: 'dynamic' },
   [ProblemOutput.INTERACTIVE]: { value: ProblemOutput.INTERACTIVE, label: 'interactive' },
@@ -15,7 +15,7 @@ export const PROBLEM_OUTPUT: { [key in ProblemOutput]: { value: ProblemOutput; l
 export const PROBLEM_MODES = [ProblemScoringMode.TOTAL, ProblemScoringMode.SUBTASK, ProblemScoringMode.PARTIAL];
 
 export const PROBLEM_MODE: {
-  [key in ProblemScoringMode]: {
+  [Key in ProblemScoringMode]: {
     value: ProblemScoringMode;
     label: string;
     description: string;
@@ -49,7 +49,7 @@ export const PROBLEM_MODE: {
 
 export const PROBLEM_TYPES = [ProblemType.STANDARD, ProblemType.DYNAMIC, ProblemType.INTERACTIVE];
 
-export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType; label: string; description: string } } = {
+export const PROBLEM_TYPE: { [Key in ProblemType]: { value: ProblemType; label: string; description: string } } = {
   [ProblemType.STANDARD]: {
     value: ProblemType.STANDARD,
     label: 'standard',
@@ -78,7 +78,7 @@ export const PROBLEM_TYPE: { [key in ProblemType]: { value: ProblemType; label: 
   },
 };
 
-export const PROBLEM_ROLE: { [key in ProblemRole]: { value: ProblemRole; label: string; level: number } } = {
+export const PROBLEM_ROLE: { [Key in ProblemRole]: { value: ProblemRole; label: string; level: number } } = {
   [Role.RESTRICTED]: { value: Role.RESTRICTED, label: 'restricted', level: 7 },
   [Role.GUEST]: { value: Role.GUEST, label: 'guest', level: 6 },
   [Role.REGULAR]: { value: Role.REGULAR, label: 'regular', level: 5 },

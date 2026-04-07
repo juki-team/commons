@@ -1,4 +1,4 @@
-import type { UserCompanyBasicInfoResponseDTO } from './user';
+import type { UserCompanyBasicInfoResponseDTO } from './user.js';
 
 export type GroupByTimestampKey = 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | number;
 

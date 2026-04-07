@@ -1,5 +1,5 @@
-import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants';
-import type { SplitTime } from '../types';
+import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants/index.js';
+import type { SplitTime } from '../types/index.js';
 
 export function splitTime(timeRemaining: number) {
   const remaining: Array<SplitTime> = [];

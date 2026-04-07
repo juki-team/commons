@@ -1,5 +1,5 @@
-import type { SubmissionRunStatus } from '../prisma/enums';
-import type { CodeLanguage } from './commons';
+import type { SubmissionRunStatus } from '../prisma/enums/index.js';
+import type { CodeLanguage } from './commons.js';
 
 export enum WorksheetType {
   JK_MD = 'JK_MD',

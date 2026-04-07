@@ -1,33 +1,33 @@
-import { SEPARATOR_TOKEN, UPPERCASE_LETTERS } from '../constants/commons';
-import type { Judge } from '../types';
+import { SEPARATOR_TOKEN, UPPERCASE_LETTERS } from '../constants/commons.js';
+import type { Judge } from '../types/index.js';
 
-export function isStringJson(str: any): str is string {
+export function isStringJson(str: unknown): str is string {
   try {
     if (typeof str === 'string') {
       JSON.parse(str);
       return true;
     }
-  } catch (e) {
+  } catch {
     return false;
   }
   return false;
 }
 
-export function safeJsonParse(str: any) {
+export function safeJsonParse(str: unknown): unknown {
   try {
     if (typeof str === 'string') {
       return JSON.parse(str);
     }
-  } catch (e) {
+  } catch {
     return null;
   }
   return null;
 }
 
-export function isObjectJson(obj: any): boolean {
+export function isObjectJson(obj: unknown): boolean {
   try {
     return typeof JSON.stringify(obj) === 'string';
-  } catch (e) {
+  } catch {
     return false;
   }
 }
@@ -57,18 +57,22 @@ export async function getPlainText(url: string): Promise<string> {
     });
 }
 
-export function objectUpdate(base: any, update: any): any {
+function mergeRecords(b: Record<string, unknown>, u: Record<string, unknown>): Record<string, unknown> {
+  const mergeKeys = new Set([...Object.keys(b), ...Object.keys(u)]);
+  for (const key of mergeKeys) {
+    if (u[key] !== null && u[key] !== undefined && b[key] !== u[key]) {
+      b[key] = objectUpdate(b[key], u[key]);
+    }
+  }
+  return b;
+}
+
+export function objectUpdate(base: unknown, update: unknown): unknown {
   if (JSON.stringify(base) === JSON.stringify(update)) {
     return base;
   }
   if (base !== null && update !== null && !Array.isArray(base) && typeof base === 'object' && typeof update === 'object') {
-    const mergeKeys = new Set([...Object.keys(base), ...Object.keys(update)]);
-    Array.from(mergeKeys).forEach((key) => {
-      if (update[key] !== null && update[key] !== undefined && base[key] !== update[key]) {
-        base[key] = objectUpdate(base[key], update[key]);
-      }
-    });
-    return base;
+    return mergeRecords(base as Record<string, unknown>, update as Record<string, unknown>);
   }
   if (update !== null && update !== undefined) {
     return update;
@@ -76,23 +80,23 @@ export function objectUpdate(base: any, update: any): any {
   return base;
 }
 
-export function objectsUpdate(base: any, ...objects: any[]): { [key: string]: any } {
+export function objectsUpdate(base: Record<string, unknown>, ...objects: Record<string, unknown>[]): Record<string, unknown> {
   let newObject = { ...base };
-  objects.forEach((update: any) => {
-    newObject = objectUpdate(newObject, update);
-  });
+  for (const update of objects) {
+    newObject = objectUpdate(newObject, update) as Record<string, unknown>;
+  }
   return newObject;
 }
 
-export function consoleWarn(...warn: any): void {
+export function consoleWarn(...warn: unknown[]): void {
   console.warn(new Date().toLocaleString(), ...warn);
 }
 
-export function consoleInfo(...info: any): void {
+export function consoleInfo(...info: unknown[]): void {
   console.info(new Date().toLocaleString(), ...info);
 }
 
-export function consoleError(...error: any): void {
+export function consoleError(...error: unknown[]): void {
   console.error(new Date().toLocaleString(), ...error);
 }
 
@@ -141,21 +145,22 @@ export function humanFileSize(bytes: number, si = false, dp = 1) {
   const thresh = si ? 1000 : 1024;
 
   if (Math.abs(bytes) < thresh) {
-    return bytes + ' B';
+    return `${bytes} B`;
   }
 
   const units = si
     ? ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
     : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
   let u = -1;
+  let value = bytes;
   const r = 10 ** dp;
 
   do {
-    bytes /= thresh;
+    value /= thresh;
     ++u;
-  } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
+  } while (Math.round(Math.abs(value) * r) / r >= thresh && u < units.length - 1);
 
-  return bytes.toFixed(dp) + ' ' + units[u];
+  return `${value.toFixed(dp)} ${units[u]}`;
 }
 
 export function stringToArrayBuffer(str: string) {

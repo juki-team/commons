@@ -1,6 +1,6 @@
-import type { ExcalidrawBaseDocument } from '../types';
-import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import type { UserCompanyBasicInfoResponseDTO } from './user';
+import type { ExcalidrawBaseDocument } from '../types/index.js';
+import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
+import type { UserCompanyBasicInfoResponseDTO } from './user.js';
 
 export interface ExcalidrawResponseDTO extends Omit<ExcalidrawBaseDocument, 'members'> {
   owner: UserCompanyBasicInfoResponseDTO;

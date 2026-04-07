@@ -1,5 +1,5 @@
-import type { EntityCompanySystemSummaryListResponseDTO } from './problem';
-import type { UserBasicResponseDTO } from './user';
+import type { EntityCompanySystemSummaryListResponseDTO } from './problem.js';
+import type { UserBasicResponseDTO } from './user.js';
 
 export interface SessionBasicResponseDTO {
   id: string;

@@ -1,4 +1,4 @@
-import type { ProblemScoringMode, ProblemType } from '../prisma/enums';
+import type { ProblemScoringMode, ProblemType } from '../prisma/enums/index.js';
 import type {
   EntityState,
   JudgeBaseDocument,
@@ -7,9 +7,9 @@ import type {
   ProblemStatement,
   ProblemUser,
   TextLanguage,
-} from '../types';
-import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import type { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
+} from '../types/index.js';
+import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
+import type { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user.js';
 
 export interface ProblemJudgeSummaryListResponseDTO
   extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {

@@ -1,4 +1,4 @@
-import type { UserSummaryListResponseDTO } from './user';
+import type { UserSummaryListResponseDTO } from './user.js';
 
 export type ScoreboardProblem = {
   attempts: number;

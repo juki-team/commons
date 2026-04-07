@@ -3,8 +3,8 @@ import type {
   ContestAssignmentSessionCycleClassDataResponseDTO,
   CourseAssignmentSessionCycleClassDataResponseDTO,
   WorksheetAssignmentSessionCycleClassDataResponseDTO,
-} from '../dto';
-import { AssignmentClass } from '../types';
+} from '../dto/index.js';
+import { AssignmentClass } from '../types/index.js';
 
 export const isWorksheetAssignment = (
   assignment: AssignmentSessionCycleClassDataResponseDTO,

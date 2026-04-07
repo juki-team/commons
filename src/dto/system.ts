@@ -51,26 +51,26 @@ export interface Ec2Instance {
   vpcId: string;
   subnet: { id: string; name: string };
   securityGroups: { groupId: string; groupName: string }[];
-  raw: any;
+  raw: unknown;
 }
 
 export type SqsProperties = {
-  QueueArn: string;
-  ApproximateNumberOfMessages: string;
-  ApproximateNumberOfMessagesNotVisible: string;
-  ApproximateNumberOfMessagesDelayed: string;
-  CreatedTimestamp: string;
-  LastModifiedTimestamp: string;
-  VisibilityTimeout: string;
-  MaximumMessageSize: string;
-  MessageRetentionPeriod: string;
-  DelaySeconds: string;
-  ReceiveMessageWaitTimeSeconds: string;
-  SqsManagedSseEnabled: string;
-  FifoQueue: string;
-  DeduplicationScope: string;
-  FifoThroughputLimit: string;
-  ContentBasedDeduplication: string;
+  queueArn: string;
+  approximateNumberOfMessages: string;
+  approximateNumberOfMessagesNotVisible: string;
+  approximateNumberOfMessagesDelayed: string;
+  createdTimestamp: string;
+  lastModifiedTimestamp: string;
+  visibilityTimeout: string;
+  maximumMessageSize: string;
+  messageRetentionPeriod: string;
+  delaySeconds: string;
+  receiveMessageWaitTimeSeconds: string;
+  sqsManagedSseEnabled: string;
+  fifoQueue: string;
+  deduplicationScope: string;
+  fifoThroughputLimit: string;
+  contentBasedDeduplication: string;
 };
 
 export interface SqsPropertiesResponseDTO {
@@ -91,5 +91,5 @@ export type SsmSession = {
   startTimestamps: number;
   owner: string;
   maxSessionDuration: number;
-  raw: any;
+  raw: unknown;
 };

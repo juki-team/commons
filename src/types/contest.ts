@@ -1,9 +1,9 @@
-import type { ContestDataResponseDTO, UpsertContestDTO, UserCompanyBasicInfoResponseDTO } from '../dto';
-import type { ContestEventAction, ContestProblemPrerequisiteType } from '../prisma/enums';
-import type { CodeLanguage } from './commons';
-import type { EntityMembers } from './entity';
-import type { Judge } from './judge';
-import type { UserBasicInfo } from './users';
+import type { ContestDataResponseDTO, UpsertContestDTO, UserCompanyBasicInfoResponseDTO } from '../dto/index.js';
+import type { ContestEventAction, ContestProblemPrerequisiteType } from '../prisma/enums/index.js';
+import type { CodeLanguage } from './commons.js';
+import type { EntityMembers } from './entity.js';
+import type { Judge } from './judge.js';
+import type { UserBasicInfo } from './users.js';
 
 export enum ContestTimeStatus {
   UPCOMING = 'upcoming',
@@ -109,7 +109,7 @@ export interface ContestEvent {
   action: ContestEventAction;
   userId: string;
   timestamp: number;
-  details: Record<string, any>;
+  details: Record<string, unknown>;
 }
 
 export interface ContestGroup {

@@ -1,4 +1,4 @@
-import type { UserCompanyBasicInfoResponseDTO } from '../dto';
+import type { UserCompanyBasicInfoResponseDTO } from '../dto/index.js';
 
 export enum EntityMembersRank {
   NONE = 'NONE',
@@ -59,8 +59,8 @@ export interface EntityLogChanges {
   key: string;
   path: string;
   valueType: string | null;
-  value?: any;
-  oldValue?: any;
+  value?: unknown;
+  oldValue?: unknown;
   type: LogOperation;
 }
 

@@ -1,4 +1,4 @@
-import type { JudgingFile } from '../types';
+import type { JudgingFile } from '../types/index.js';
 
 export interface CodeRunDTO {
   runId: string;

@@ -310,7 +310,7 @@ Date.prototype.isSameMillisecond = function (date) {
 };
 
 Date.prototype.isValidDate = function () {
-  return this instanceof Date && !isNaN(this.getTime());
+  return this instanceof Date && !Number.isNaN(this.getTime());
 };
 
 Date.prototype.isYearAfter = function (date) {

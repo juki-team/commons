@@ -1,10 +1,10 @@
-import type { EntityMembers } from './entity';
+import type { EntityMembers } from './entity.js';
 
 export interface ExcalidrawBaseDocument {
   key: string;
   name: string;
-  elements: any;
-  appState: any;
+  elements: unknown;
+  appState: unknown;
   members: EntityMembers;
   tags: string[];
 }

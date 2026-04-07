@@ -1,8 +1,8 @@
-import { ErrorCode } from '../types';
+import { ErrorCode } from '../types/index.js';
 
 export const getErrorMessage = (code: ErrorCode): string => code.toLowerCase().replace(/_/g, ' ');
 
-export const ERROR_HTTP_STATUS: { [key in ErrorCode]: 500 | 400 | 401 | 403 | 404 | 405 } = {
+export const ERROR_HTTP_STATUS: { [Key in ErrorCode]: 500 | 400 | 401 | 403 | 404 | 405 } = {
   // Http Errors
   [ErrorCode.INTERNAL_SERVER_ERROR]: 500,
   [ErrorCode.BAD_REQUEST]: 400,

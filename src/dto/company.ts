@@ -1,6 +1,6 @@
-import type { CompanyPlan, ResourceInstance, ResourceLogger, Theme } from '../types';
-import type { EmailDataResponseDTO } from './system';
-import type { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user';
+import type { CompanyPlan, ResourceInstance, ResourceLogger, Theme } from '../types/index.js';
+import type { EmailDataResponseDTO } from './system.js';
+import type { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user.js';
 
 export interface CompanyJudgeResponseDTO {
   key: string;

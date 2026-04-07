@@ -1,4 +1,4 @@
-import { NEW_PAGE_SHEET } from '../constants/worksheet';
+import { NEW_PAGE_SHEET } from '../constants/worksheet.js';
 import {
   type BasicWorksheet,
   type BodyWorksheet,
@@ -12,7 +12,7 @@ import {
   type SummaryWorksheetsInPages,
   type WorksheetsInPages,
   WorksheetType,
-} from '../types';
+} from '../types/index.js';
 
 export const getWorksheetsInPages = (initialSheets: BodyWorksheet[]) => {
   const sheets = [...initialSheets];
@@ -88,65 +88,76 @@ export const getTotalExercisesOfSummaryWorksheetsInPages = (content: SummaryWork
     0,
   );
 
-export const isBasicWorksheet = (value: any): value is BasicWorksheet & any => {
+export const isBasicWorksheet = (value: unknown): value is BasicWorksheet => {
+  if (typeof value !== 'object' || value === null) return false;
+  const v = value as Record<string, unknown>;
   return (
-    typeof value?.id == 'string' &&
-    value.id &&
-    Object.values(WorksheetType).includes(value?.type as WorksheetType) &&
-    typeof value?.title == 'string' &&
-    typeof value?.points == 'number'
+    typeof v.id === 'string' &&
+    !!v.id &&
+    Object.values(WorksheetType).includes(v.type as WorksheetType) &&
+    typeof v.title === 'string' &&
+    typeof v.points === 'number'
   );
 };
 
-export const isJkmdSheet = (value: any): value is JkmdSheet => {
-  return isBasicWorksheet(value) && value?.type === WorksheetType.JK_MD && typeof value?.content == 'string';
+export const isJkmdSheet = (value: unknown): value is JkmdSheet => {
+  if (!isBasicWorksheet(value)) return false;
+  const v = value as Record<string, unknown>;
+  return value.type === WorksheetType.JK_MD && typeof v.content === 'string';
 };
 
-export const isCodeEditorSheet = (value: any): value is CodeEditorSheet => {
+export const isCodeEditorSheet = (value: unknown): value is CodeEditorSheet => {
+  if (!isBasicWorksheet(value)) return false;
+  const v = value as Record<string, unknown>;
   return (
-    isBasicWorksheet(value) &&
-    value?.type === WorksheetType.CODE_EDITOR &&
-    typeof value?.sourceCode === 'object' &&
-    value?.sourceCode !== null &&
-    value?.testCases === 'object' &&
-    value?.testCases !== null &&
-    Array.isArray(value?.languages) &&
-    typeof value?.height == 'number'
+    value.type === WorksheetType.CODE_EDITOR &&
+    typeof v.sourceCode === 'object' &&
+    v.sourceCode !== null &&
+    typeof v.testCases === 'object' &&
+    v.testCases !== null &&
+    Array.isArray(v.languages) &&
+    typeof v.height === 'number'
   );
 };
 
-export const isQuizProblemSheet = (value: any): value is QuizProblemSheet => {
+export const isQuizProblemSheet = (value: unknown): value is QuizProblemSheet => {
+  if (typeof value !== 'object' || value === null) return false;
+  const v = value as Record<string, unknown>;
   return (
     (isBasicWorksheet(value) &&
-      value?.type === WorksheetType.QUIZ_PROBLEM &&
-      Object.values(Judge).includes(value?.problemJudge as Judge)) ||
-    (typeof value?.problemJudge === 'string' &&
-      typeof value?.problemKey == 'string' &&
-      Array.isArray(value?.languages) &&
-      typeof value?.height == 'number')
+      value.type === WorksheetType.QUIZ_PROBLEM &&
+      Object.values(Judge).includes(v.problemJudge as Judge)) ||
+    (typeof v.problemJudge === 'string' &&
+      typeof v.problemKey === 'string' &&
+      Array.isArray(v.languages) &&
+      typeof v.height === 'number')
   );
 };
 
-export const isQuizOptionsSheet = (value: any): value is QuizOptionsSheet => {
+export const isQuizOptionsSheet = (value: unknown): value is QuizOptionsSheet => {
+  if (!isBasicWorksheet(value)) return false;
+  const v = value as Record<string, unknown>;
   return (
-    isBasicWorksheet(value) &&
-    value?.type === WorksheetType.QUIZ_OPTIONS &&
-    typeof value?.description == 'string' &&
-    Array.isArray(value?.options) &&
-    value?.options.every(
-      (option: any) => typeof option?.label == 'string' && typeof option?.correct == 'boolean' && typeof option?.id == 'string',
-    ) &&
-    typeof value?.multiple == 'boolean' &&
-    (value?.scoringMode === 'TOTAL' || value?.scoringMode === 'PARTIAL')
+    value.type === WorksheetType.QUIZ_OPTIONS &&
+    typeof v.description === 'string' &&
+    Array.isArray(v.options) &&
+    v.options.every((option: unknown) => {
+      if (typeof option !== 'object' || option === null) return false;
+      const o = option as Record<string, unknown>;
+      return typeof o.label === 'string' && typeof o.correct === 'boolean' && typeof o.id === 'string';
+    }) &&
+    typeof v.multiple === 'boolean' &&
+    (v.scoringMode === 'TOTAL' || v.scoringMode === 'PARTIAL')
   );
 };
 
-export const isQuizTextSheet = (value: any): value is QuizTextSheet => {
+export const isQuizTextSheet = (value: unknown): value is QuizTextSheet => {
+  if (!isBasicWorksheet(value)) return false;
+  const v = value as Record<string, unknown>;
   return (
-    isBasicWorksheet(value) &&
-    value?.type === WorksheetType.QUIZ_TEXT &&
-    typeof value?.description == 'string' &&
-    typeof value?.answer == 'string' &&
-    ['text', 'number', 'textarea'].includes(value?.inputType)
+    value.type === WorksheetType.QUIZ_TEXT &&
+    typeof v.description === 'string' &&
+    typeof v.answer === 'string' &&
+    (v.inputType === 'text' || v.inputType === 'number' || v.inputType === 'textarea')
   );
 };

@@ -1,5 +1,4 @@
-import { FileType } from '../prisma/enums';
-import { CollectionKey } from './entity';
+import type { FileType } from '../prisma/enums/index.js';
 
 export enum FileMemberRole {
   VIEWER = 'VIEWER',
@@ -15,7 +14,7 @@ export type SummaryFileContent = FolderFileContent | Omit<FileFileContent, 'key'
 
 export enum FilesJukiPub {
   SHARED = 'shared', // files to share
-  SHARED_EXCALIDRAW = `shared/${CollectionKey.EXCALIDRAW}`,
+  SHARED_EXCALIDRAW = 'shared/E', // `shared/${CollectionKey.EXCALIDRAW}`,
   TEMP = 'temp', // temporal files
   PROBLEMS = 'problems',
   CONTESTS = 'contests',

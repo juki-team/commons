@@ -1,4 +1,4 @@
-import type { Language } from './prisma';
+import type { Language } from './users.js';
 
 export enum CodeLanguage {
   C_11 = 'c11',
@@ -69,7 +69,7 @@ export enum EntityAccess {
   EXPOSED = 'EXPOSED',
 }
 
-export type TextLanguage = { [key in Language]: string };
+export type TextLanguage = { [Key in Language]: string };
 
 export type SplitTime = {
   remaining: number;

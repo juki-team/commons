@@ -1,4 +1,4 @@
-import type { CodeLanguage } from './commons';
+import type { CodeLanguage } from './commons.js';
 
 export enum ErrorCode {
   // General errors
@@ -153,7 +153,7 @@ export type ContentsMeta = {
   size: number;
   totalElements: number;
   sort: { [key: string]: number }[];
-  filter: Record<any, any>;
+  filter: Record<string, unknown>;
 };
 
 export type ContentsResponse<T> = {

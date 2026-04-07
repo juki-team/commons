@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { AspectRatio, type NewPageSheet, WorksheetType } from '../types';
+import { AspectRatio, type NewPageSheet, WorksheetType } from '../types/index.js';
 
 export const NEW_PAGE_SHEET = (): NewPageSheet => ({
   id: v4(),
@@ -9,7 +9,7 @@ export const NEW_PAGE_SHEET = (): NewPageSheet => ({
 });
 
 export const ASPECT_RATIO: {
-  [key in AspectRatio]: {
+  [Key in AspectRatio]: {
     aspectRatio: AspectRatio;
     width: number;
     height: number;

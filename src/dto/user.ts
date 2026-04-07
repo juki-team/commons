@@ -1,7 +1,7 @@
-import type { ContestRole, CourseRole, FileRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums';
-import type { RecordId, UserBasicInfo, UserHandles, UserSettings, UserStatus } from '../types';
-import type { CompanyStyles } from './company';
-import type { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
+import type { ContestRole, CourseRole, FileRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums/index.js';
+import type { RecordId, UserBasicInfo, UserHandles, UserSettings } from '../types/index.js';
+import type { CompanyStyles } from './company.js';
+import type { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem.js';
 
 export interface EntityOwnerSystemSummaryListResponseDTO {
   id: string;
@@ -22,7 +22,6 @@ export interface UserSummaryListResponseDTO extends UserCompanyBasicInfoResponse
 
 export interface UserSystemSummaryListResponseDTO extends UserSummaryListResponseDTO {
   id: string;
-  status: UserStatus;
   city: string;
   country: string;
   institution: string;
@@ -36,8 +35,9 @@ export interface UserSystemSummaryListResponseDTO extends UserSummaryListRespons
   canResetPassword: boolean;
   owner: EntityOwnerSystemSummaryListResponseDTO;
   company: EntityCompanySystemSummaryListResponseDTO;
-  creationTimestamp: number;
-  updateTimestamp: number;
+  createdAt: number;
+  updatedAt: number;
+  archivedAt: number | null;
 }
 
 export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
@@ -111,7 +111,6 @@ export interface PingResponseDTO {
 export interface UserRankResponseDTO {
   imageUrl: string;
   nickname: string;
-  status: UserStatus;
   city: string;
   country: string;
   institution: string;

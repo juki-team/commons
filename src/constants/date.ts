@@ -1,4 +1,4 @@
-import { range } from '../helpers';
+import { range } from '../helpers/index.js';
 
 export const YEARS = range(1970, 2100);
 export const MONTH_NAMES = [

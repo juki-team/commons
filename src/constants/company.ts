@@ -1,8 +1,8 @@
-import { CompanyPlan } from '../types/company';
+import { CompanyPlan } from '../types/company.js';
 
 export const JUKI_APP_COMPANY_KEY = 'juki-app';
 
-export const COMPANY_PLAN: { [key in CompanyPlan]: { value: CompanyPlan; label: string; description: string } } = {
+export const COMPANY_PLAN: { [Key in CompanyPlan]: { value: CompanyPlan; label: string; description: string } } = {
   [CompanyPlan.FREE]: {
     value: CompanyPlan.FREE,
     label: 'free',

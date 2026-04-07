@@ -1,5 +1,5 @@
-import { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums';
-import type { CodeEditorTestCase, DataLog, SubmissionTestCase, TestCaseVerdict } from '../types';
+import { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
+import type { CodeEditorTestCase, DataLog, SubmissionTestCase, TestCaseVerdict } from '../types/index.js';
 
 export const getDataOfTestCase = (testCase: SubmissionTestCase, timeLimit: number, memoryLimit: number) => {
   const { timeUsed, memoryUsed, exitCode } = getDataLog(testCase?.log);
@@ -20,6 +20,29 @@ export const getDataOfTestCase = (testCase: SubmissionTestCase, timeLimit: numbe
   };
 };
 
+function classifyOutput(testCaseValue: CodeEditorTestCase): ProblemVerdict {
+  if (testCaseValue.out === testCaseValue.testOut) return ProblemVerdict.AC;
+  const normalize = (s: string) => s.replaceAll(' ', '').replaceAll('\n', '');
+  if (normalize(testCaseValue.out) === normalize(testCaseValue.testOut)) {
+    return testCaseValue.withPE ? ProblemVerdict.PE : ProblemVerdict.AC;
+  }
+  return ProblemVerdict.WA;
+}
+
+function determineVerdict(
+  testCaseValue: CodeEditorTestCase,
+  compilationError: boolean,
+  timeLimitExceeded: boolean,
+  memoryLimitExceeded: boolean,
+  runtimeError: boolean,
+): ProblemVerdict {
+  if (compilationError) return ProblemVerdict.CE;
+  if (timeLimitExceeded) return ProblemVerdict.TLE;
+  if (memoryLimitExceeded) return ProblemVerdict.MLE;
+  if (runtimeError) return ProblemVerdict.RE;
+  return classifyOutput(testCaseValue);
+}
+
 export const getVerdictFromTestCase = (
   testCaseValue: CodeEditorTestCase,
   timeLimit: number,
@@ -34,74 +57,27 @@ export const getVerdictFromTestCase = (
     getDataOfTestCase(testCaseValue, timeLimit, memoryLimit);
 
   return {
-    verdict: compilationError
-      ? ProblemVerdict.CE
-      : timeLimitExceeded
-        ? ProblemVerdict.TLE
-        : memoryLimitExceeded
-          ? ProblemVerdict.MLE
-          : runtimeError
-            ? ProblemVerdict.RE
-            : testCaseValue.out === testCaseValue.testOut
-              ? ProblemVerdict.AC
-              : testCaseValue.withPE &&
-                  testCaseValue.out.split(' ').join('').split('\n').join('') ===
-                    testCaseValue.testOut.split(' ').join('').split('\n').join('')
-                ? ProblemVerdict.PE
-                : !testCaseValue.withPE &&
-                    testCaseValue.out.split(' ').join('').split('\n').join('') ===
-                      testCaseValue.testOut.split(' ').join('').split('\n').join('')
-                  ? ProblemVerdict.AC
-                  : ProblemVerdict.WA,
+    verdict: determineVerdict(testCaseValue, compilationError, timeLimitExceeded, memoryLimitExceeded, runtimeError),
     timeUsed,
     memoryUsed,
     exitCode,
   };
 };
 
+const VERDICT_PRIORITY: ProblemVerdict[] = [
+  ProblemVerdict.RE,
+  ProblemVerdict.TLE,
+  ProblemVerdict.MLE,
+  ProblemVerdict.WA,
+  ProblemVerdict.PE,
+  ProblemVerdict.PA,
+  ProblemVerdict.AC,
+];
+
 export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) => {
-  let verdict = first.verdict;
-  if (second.verdict === ProblemVerdict.RE) {
-    verdict = ProblemVerdict.RE;
-  } else if (second.verdict === ProblemVerdict.TLE && verdict !== ProblemVerdict.RE) {
-    verdict = ProblemVerdict.TLE;
-  } else if (second.verdict === ProblemVerdict.MLE && verdict !== ProblemVerdict.TLE && verdict !== ProblemVerdict.RE) {
-    verdict = ProblemVerdict.MLE;
-  } else if (
-    second.verdict === ProblemVerdict.WA &&
-    verdict !== ProblemVerdict.MLE &&
-    verdict !== ProblemVerdict.TLE &&
-    verdict !== ProblemVerdict.RE
-  ) {
-    verdict = ProblemVerdict.WA;
-  } else if (
-    second.verdict === ProblemVerdict.PE &&
-    verdict !== ProblemVerdict.WA &&
-    verdict !== ProblemVerdict.MLE &&
-    verdict !== ProblemVerdict.TLE &&
-    verdict !== ProblemVerdict.RE
-  ) {
-    verdict = ProblemVerdict.PE;
-  } else if (
-    second.verdict === ProblemVerdict.PA &&
-    verdict !== ProblemVerdict.PE &&
-    verdict !== ProblemVerdict.WA &&
-    verdict !== ProblemVerdict.MLE &&
-    verdict !== ProblemVerdict.TLE &&
-    verdict !== ProblemVerdict.RE
-  ) {
-    verdict = ProblemVerdict.PA;
-  } else if (
-    second.verdict === ProblemVerdict.AC &&
-    verdict !== ProblemVerdict.PA &&
-    verdict !== ProblemVerdict.PE &&
-    verdict !== ProblemVerdict.WA &&
-    verdict !== ProblemVerdict.MLE &&
-    verdict !== ProblemVerdict.TLE &&
-    verdict !== ProblemVerdict.RE
-  ) {
-    verdict = ProblemVerdict.AC;
-  }
+  const firstRank = VERDICT_PRIORITY.indexOf(first.verdict);
+  const secondRank = VERDICT_PRIORITY.indexOf(second.verdict);
+  const verdict = secondRank !== -1 && (firstRank === -1 || secondRank < firstRank) ? second.verdict : first.verdict;
   return {
     timeUsed: Math.max(first.timeUsed, second.timeUsed),
     memoryUsed: Math.max(first.memoryUsed, second.memoryUsed),
@@ -110,35 +86,45 @@ export const mergeVerdicts = (first: TestCaseVerdict, second: TestCaseVerdict) =
   };
 };
 
-export const getDataLog = (log: any): DataLog => {
-  const lines = log?.split?.('\n') || [];
+function parseLineValue(line: string, prefix: string): number {
+  return parseInt(line.slice(prefix.length + 1), 10);
+}
+
+function parseStructuredLog(lines: string[]): DataLog {
   let timeUsed = 0;
   let memoryUsed = 0;
   let exitCode = -1;
-
-  if (lines.length > 4) {
-    for (const line of lines) {
-      if (line.startsWith('time:')) {
-        timeUsed = +line.split(':')[1];
-        if (Number.isNaN(timeUsed)) {
-          timeUsed = 0;
-        }
-        timeUsed *= 1000;
-      } else if (line.startsWith('max-rss:')) {
-        memoryUsed = parseInt(line.split(':')[1], 10); // en KB
-      } else if (line.startsWith('exitcode:')) {
-        exitCode = parseInt(line.split(':')[1], 10);
-      }
+  for (const line of lines) {
+    if (line.startsWith('time:')) {
+      timeUsed = (Number.isNaN(+line.split(':')[1]) ? 0 : +line.split(':')[1]) * 1000;
+    } else if (line.startsWith('max-rss:')) {
+      memoryUsed = parseLineValue(line, 'max-rss');
+    } else if (line.startsWith('exitcode:')) {
+      exitCode = parseLineValue(line, 'exitcode');
     }
-  } else if (lines.length >= 3) {
-    timeUsed = +lines[0];
-    memoryUsed = +lines[1];
-    exitCode = +lines[2];
   }
+  return { timeUsed, memoryUsed, exitCode };
+}
 
+function parseLegacyLog(lines: string[]): DataLog {
   return {
-    timeUsed: Number.isNaN(timeUsed) ? 0 : timeUsed,
-    memoryUsed: Number.isNaN(memoryUsed) ? 0 : memoryUsed,
-    exitCode: Number.isNaN(exitCode) ? -1 : exitCode,
+    timeUsed: +lines[0],
+    memoryUsed: +lines[1],
+    exitCode: +lines[2],
+  };
+}
+
+export const getDataLog = (log: unknown): DataLog => {
+  const lines = (log as '')?.split?.('\n') ?? [];
+  const raw =
+    lines.length > 4
+      ? parseStructuredLog(lines)
+      : lines.length >= 3
+        ? parseLegacyLog(lines)
+        : { timeUsed: 0, memoryUsed: 0, exitCode: -1 };
+  return {
+    timeUsed: Number.isNaN(raw.timeUsed) ? 0 : raw.timeUsed,
+    memoryUsed: Number.isNaN(raw.memoryUsed) ? 0 : raw.memoryUsed,
+    exitCode: Number.isNaN(raw.exitCode) ? -1 : raw.exitCode,
   };
 };

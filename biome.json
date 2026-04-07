@@ -1,26 +1,143 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.4.10/schema.json",
-  "assist": {
-    "enabled": true
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "files": {
+    "ignoreUnknown": false
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 128,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "expand": "auto",
+    "useEditorconfig": true
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUnusedFunctionParameters": "error",
+        "useExhaustiveDependencies": "error",
+        "noConstantCondition": "error",
+        "noVoidTypeReturn": "error",
+        "noUndeclaredVariables": "error",
+        "useImportExtensions": "off"
+      },
+      "suspicious": {
+        "noConsole": { "level": "error", "options": { "allow": ["error", "warn", "info"] } },
+        "noExplicitAny": "error",
+        "noDoubleEquals": "error",
+        "noEmptyBlockStatements": "error",
+        "noConfusingVoidType": "error",
+        "useAwait": "error",
+        "noAssignInExpressions": "error",
+        "noMisleadingInstantiator": "error"
+      },
+      "style": {
+        "noNonNullAssertion": "error",
+        "useConst": "error",
+        "useTemplate": "error",
+        "noParameterAssign": "error",
+        "useShorthandAssign": "error",
+        "noUselessElse": "error",
+        "useDefaultParameterLast": "error",
+        "noDefaultExport": "error",
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": false,
+            "conventions": [
+              {
+                "selector": { "kind": "enumMember" },
+                "formats": ["CONSTANT_CASE"]
+              }
+            ]
+          }
+        },
+        "useImportType": "error"
+      },
+      "performance": {
+        "noDelete": "error",
+        "noAccumulatingSpread": "error",
+        "noNamespaceImport": "error"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": { "level": "warn", "options": { "maxAllowedComplexity": 10 } },
+        "noForEach": "error",
+        "useSimplifiedLogicExpression": "error",
+        "useFlatMap": "error",
+        "noStaticOnlyClass": "error",
+        "noUselessSwitchCase": "error"
+      }
     }
-  },
-  "formatter": {
-    "enabled": true,
-    "lineWidth": 128,
-    "indentStyle": "space",
-    "indentWidth": 2
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single",
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
       "trailingCommas": "all",
       "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto",
       "bracketSpacing": true
     }
-  }
+  },
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": false,
+      "selfCloseVoidElements": "always"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": { "source": { "organizeImports": "on" } }
+  },
+  "overrides": [
+    {
+      "includes": ["src/prisma/enums/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": {
+              "level": "error",
+              "options": {
+                "strictCase": false,
+                "conventions": [
+                  {
+                    "selector": { "kind": "objectLiteralProperty" },
+                    "formats": ["CONSTANT_CASE"]
+                  },
+                  {
+                    "selector": { "kind": "enumMember" },
+                    "formats": ["CONSTANT_CASE"]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["*.config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
 }

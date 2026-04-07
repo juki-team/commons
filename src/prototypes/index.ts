@@ -1,3 +1,3 @@
-export * from './Date';
-export * from './Error';
-export * from './Number';
+export * from './Date.js';
+export * from './Error.js';
+export * from './Number.js';
