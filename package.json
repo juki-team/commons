@@ -1,17 +1,15 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
   "files": [
@@ -20,8 +18,8 @@
   "repository": "https://github.com/juki-team/commons.git",
   "scripts": {
     "docs": "typedoc src/index.ts",
-    "watch": "rollup -cw",
-    "build": "rm -rf docs && rm -rf dist && rollup -c && yarn docs",
+    "watch": "tsc --watch",
+    "build": "rm -rf docs && rm -rf dist && tsc && yarn docs",
     "git:commit-push": "f() { param=${1}; message=${param:-chore}; echo ${message}; git add .; echo $message | git commit -F -; yarn publish --patch --no-git-tag-version; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin main; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
     "git:push": "f() { yarn publish --patch --no-git-tag-version; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin main; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
     "push-commit": "f() { yarn build && yarn git-push \"${1}\"; }; f",
@@ -33,8 +31,6 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.10",
     "@types/uuid": "^11.0.0",
-    "rollup": "^4.60.1",
-    "rollup-plugin-typescript2": "^0.37.0",
     "typedoc": "^0.28.18",
     "typescript": "^6.0.2"
   }
