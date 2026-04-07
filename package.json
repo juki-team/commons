@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -13,7 +13,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "biome.shared.json"
   ],
   "repository": "https://github.com/juki-team/commons.git",
   "scripts": {
