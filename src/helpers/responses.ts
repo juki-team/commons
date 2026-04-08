@@ -22,9 +22,34 @@ export function toJkError(err: unknown): JkError {
   });
 }
 
-function makeErrorResponse(code: ErrorCode): ErrorResponse {
-  const message = getErrorMessage(code);
-  return { success: false, message, errors: [{ code, detail: '', message }] };
+export function errorsResponse(message: string, ...errors: JkError[]): ErrorResponse {
+  return {
+    success: false,
+    message: message,
+    errors: errors.map((error) => ({
+      code: error.code,
+      message: error.message,
+      detail: error.stack || new Error().stack || '',
+      data: error.data,
+    })),
+  };
+}
+
+export function contentResponse<T>(message: string, content: T): ContentResponse<T> {
+  return {
+    success: true,
+    message,
+    content,
+  };
+}
+
+export function contentsResponse<T>(message: string, contents: T[], meta: ContentsMeta): ContentsResponse<T> {
+  return {
+    success: true,
+    message,
+    contents,
+    meta,
+  };
 }
 
 function parseSuccessJson<T>(responseJson: Record<string, unknown>): T | null {
@@ -43,7 +68,7 @@ export const cleanRequest = <T extends ContentResponse<unknown> | ContentsRespon
   responseText: string,
 ): ErrorResponse | T => {
   if (!isStringJson(responseText)) {
-    const response = makeErrorResponse(ErrorCode.SERVICE_NOT_FOUND);
+    const response = errorsResponse(getErrorMessage(ErrorCode.SERVICE_NOT_FOUND), new JkError(ErrorCode.SERVICE_NOT_FOUND));
     consoleError({ message: 'response is not string json, success false on cleaning request', responseText, response });
     return response;
   }
@@ -57,7 +82,7 @@ export const cleanRequest = <T extends ContentResponse<unknown> | ContentsRespon
       return response;
     }
   }
-  const response = makeErrorResponse(ErrorCode.ERROR_ON_RESPONSE);
+  const response = errorsResponse(getErrorMessage(ErrorCode.ERROR_ON_RESPONSE), new JkError(ErrorCode.ERROR_ON_RESPONSE));
   consoleError({ message: 'success false on cleaning request', responseText, response });
   return response;
 };
