@@ -56,7 +56,7 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canResetPassword: boolean;
 }
 
-export type UserPermissions = {
+export type UserPermissionsResponseDTO = {
   users: {
     create: boolean;
     manage: boolean;
@@ -83,7 +83,7 @@ export type UserPermissions = {
 };
 
 export type UserPing = {
-  permissions: UserPermissions;
+  permissions: UserPermissionsResponseDTO;
   nickname: string;
   imageUrl: string;
   settings: UserSettings;

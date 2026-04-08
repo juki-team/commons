@@ -1,6 +1,6 @@
 import type { CompanyPlan, ResourceInstance, ResourceLogger, Theme } from '../types/index.js';
 import type { EmailDataResponseDTO } from './system.js';
-import type { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user.js';
+import type { UserCompanyBasicInfoResponseDTO, UserPermissionsResponseDTO } from './user.js';
 
 export interface CompanyJudgeResponseDTO {
   key: string;
@@ -28,7 +28,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
 }
 
 export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
-  userPermissions: UserPermissions;
+  userPermissions: UserPermissionsResponseDTO;
   contactEmail: string;
   contactCellPhoneNumber: string;
   contactTelegram: string;

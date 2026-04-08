@@ -1,4 +1,4 @@
-import type { UserPermissions } from '../dto/index.js';
+import type { UserPermissionsResponseDTO } from '../dto/index.js';
 import { UserRole } from '../prisma/enums/index.js';
 
 export const USER_ROLE: { [Key in UserRole]: { value: UserRole; label: string; level: number } } = {
@@ -11,7 +11,7 @@ export const USER_ROLE: { [Key in UserRole]: { value: UserRole; label: string; l
   [UserRole.SUPER_ADMIN]: { value: UserRole.SUPER_ADMIN, label: 'super admin', level: 0 },
 };
 
-export const EMPTY_USER_PERMISSIONS: UserPermissions = {
+export const EMPTY_USER_PERMISSIONS: UserPermissionsResponseDTO = {
   users: {
     create: false,
     manage: false,
