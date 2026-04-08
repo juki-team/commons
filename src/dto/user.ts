@@ -1,6 +1,6 @@
 import type { ContestRole, CourseRole, FileRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums/index.js';
 import type { RecordId, UserBasicInfo, UserHandles, UserSettings } from '../types/index.js';
-import type { CompanyStyles } from './company.js';
+import type { CompanyStylesResponseDTO } from './company.js';
 import type { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem.js';
 
 export interface EntityOwnerSystemSummaryListResponseDTO {
@@ -92,7 +92,7 @@ export type UserPing = {
   company: EntityCompanySummaryListResponseDTO;
 };
 
-export type CompanyPing = {
+export type CompanyPingResponseDTO = {
   key: string;
   contactEmail: string;
   contactCellPhoneNumber: string;
@@ -100,12 +100,12 @@ export type CompanyPing = {
   imageUrl: string;
   name: string;
   codeEditorRunEnabled: boolean;
-  styles: CompanyStyles;
+  styles: CompanyStylesResponseDTO;
 };
 
 export interface PingResponseDTO {
   user: UserPing;
-  company: CompanyPing;
+  company: CompanyPingResponseDTO;
 }
 
 export interface UserRankResponseDTO {

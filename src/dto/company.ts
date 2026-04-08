@@ -24,7 +24,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   startTimestamp: number;
   judges: CompanyJudgeResponseDTO[];
   trustedCompanies: CompanyTrustedCompanyResponseDTO[];
-  styles: CompanyStyles;
+  styles: CompanyStylesResponseDTO;
 }
 
 export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
@@ -54,8 +54,8 @@ export interface CompanyResourceSpecificationsResponseDTO {
   };
 }
 
-export type CompanyStyles = Record<
-  Theme,
+export type CompanyStylesResponseDTO = Record<
+  'light' | 'dark',
   {
     body: {
       backgroundColor: string;
