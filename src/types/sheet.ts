@@ -52,6 +52,7 @@ export type CodeEditorFile<T> = {
   hidden: boolean;
   readonly: boolean;
   protected: boolean;
+  active: boolean;
 };
 
 export type CodeEditorFiles<T> = { [key: string /*name*/]: CodeEditorFile<T> };

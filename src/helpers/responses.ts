@@ -22,36 +22,6 @@ export function toJkError(err: unknown): JkError {
   });
 }
 
-export function errorsResponse(message: string, ...errors: JkError[]): ErrorResponse {
-  return {
-    success: false,
-    message: message,
-    errors: errors.map((error) => ({
-      code: error.code,
-      message: error.message,
-      detail: error.stack || new Error().stack || '',
-      data: error.data,
-    })),
-  };
-}
-
-export function contentResponse<T>(message: string, content: T): ContentResponse<T> {
-  return {
-    success: true,
-    message,
-    content,
-  };
-}
-
-export function contentsResponse<T>(message: string, contents: T[], meta: ContentsMeta): ContentsResponse<T> {
-  return {
-    success: true,
-    message,
-    contents,
-    meta,
-  };
-}
-
 function makeErrorResponse(code: ErrorCode): ErrorResponse {
   const message = getErrorMessage(code);
   return { success: false, message, errors: [{ code, detail: '', message }] };
