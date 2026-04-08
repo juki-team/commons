@@ -79,6 +79,6 @@ export type SplitTime = {
   digits: number;
 };
 
-export type RecordId = `${string & { length: 24 }}`;
+export type RecordId = string | `${string & { length: 24 }}`;
 
 export type Device = { label: string; isMobile: boolean; isBrowser: boolean; type: string; osLabel: string };
