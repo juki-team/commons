@@ -63,5 +63,5 @@ export const cleanRequest = <T extends ContentResponse<unknown> | ContentsRespon
 };
 
 export const getDefaultMeta = (contents: unknown[], sort?: ContentsMeta['sort']): ContentsMeta => {
-  return { sort: sort ?? [], page: 1, size: contents.length, totalElements: contents.length, filter: {} };
+  return { sort: sort ?? [], page: 1, size: contents.length, total: contents.length, filter: {} };
 };

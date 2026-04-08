@@ -151,8 +151,8 @@ export type ContentResponse<T> = {
 export type ContentsMeta = {
   page: number;
   size: number;
-  totalElements: number;
-  sort: { [key: string]: number }[];
+  total: number;
+  sort: { field: string; order: 'asc' | 'desc' }[];
   filter: Record<string, unknown>;
 };
 
