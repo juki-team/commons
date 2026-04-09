@@ -1,4 +1,4 @@
-import { CompanyPlan } from '../types/company.js';
+import { CompanyPlan } from '../prisma/enums/index.js';
 
 export const JUKI_APP_COMPANY_KEY = 'juki-app';
 

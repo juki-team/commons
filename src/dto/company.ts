@@ -1,4 +1,5 @@
-import type { CompanyPlan, ResourceInstance, ResourceLogger, Theme } from '../types/index.js';
+import type { CompanyPlan } from '../prisma/enums/index.js';
+import type { ResourceInstance, ResourceLogger, Theme } from '../types/index.js';
 import type { EmailDataResponseDTO } from './system.js';
 import type { UserCompanyBasicInfoResponseDTO, UserPermissionsResponseDTO } from './user.js';
 
