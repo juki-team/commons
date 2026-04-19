@@ -1,5 +1,5 @@
 import type { EntityAccess, EntityMembersRank } from '../types/index.js';
-import type { UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface EntityMembersDTO {
   rankAdministrators: EntityMembersRank;
@@ -38,7 +38,7 @@ export enum MemberType {
   TEAM = 'TEAM',
 }
 
-export interface DocumentMemberResponseDTO extends UserCompanyBasicInfoResponseDTO {
+export interface DocumentMemberResponseDTO extends UserOrganizationBasicInfoResponseDTO {
   type: MemberType;
 }
 

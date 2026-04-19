@@ -1,4 +1,4 @@
-import type { ContestDataResponseDTO, UpsertContestDTO, UserCompanyBasicInfoResponseDTO } from '../dto/index.js';
+import type { ContestDataResponseDTO, UpsertContestDTO, UserOrganizationBasicInfoResponseDTO } from '../dto/index.js';
 import type { ContestEventAction, ContestProblemPrerequisiteType } from '../prisma/enums/index.js';
 import type { CodeLanguage } from './commons.js';
 import type { EntityMembers } from './entity.js';
@@ -52,11 +52,11 @@ export type ContestClarification = {
   key: string;
   problemJudgeKey: string;
   question: string;
-  questionUser: UserCompanyBasicInfoResponseDTO;
+  questionUser: UserOrganizationBasicInfoResponseDTO;
   questionTimestamp: number;
   answer: string;
   answerTimestamp: number;
-  answerUser: UserCompanyBasicInfoResponseDTO;
+  answerUser: UserOrganizationBasicInfoResponseDTO;
   public: boolean;
 };
 

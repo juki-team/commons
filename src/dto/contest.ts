@@ -18,7 +18,7 @@ import type {
   ProblemJudgeSummaryListResponseDTO,
   ProblemSummaryListResponseDTO,
 } from './problem.js';
-import type { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { EntityOwnerSystemSummaryListResponseDTO, UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export type UpsertContestProblemPrerequisiteDTO = (Omit<ContestProblemPrerequisite, 'problemId'> & {
   problemIndex: string;
@@ -37,7 +37,7 @@ export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'mem
 
 export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
   user: ContestUser;
-  owner: UserCompanyBasicInfoResponseDTO;
+  owner: UserOrganizationBasicInfoResponseDTO;
   company: EntityCompanySummaryListResponseDTO;
   settings: Pick<
     ContestSettings,
@@ -103,7 +103,7 @@ export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO &
 
 export interface ContestEventResponseDTO {
   action: ContestEventAction;
-  user: UserCompanyBasicInfoResponseDTO;
+  user: UserOrganizationBasicInfoResponseDTO;
   timestamp: number;
   details: Record<string, unknown>;
 }

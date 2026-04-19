@@ -1,6 +1,6 @@
 import type { BodyWorksheet, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types/index.js';
 import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
-import type { UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface WorksheetUserResponseDTO {
   isOwner: boolean;
@@ -12,7 +12,7 @@ export interface WorksheetSummaryListResponseDTO extends Pick<WorksheetBaseDocum
   updatedAt: Date;
   content: SummaryWorksheetsInPages;
   user: WorksheetUserResponseDTO;
-  owner: UserCompanyBasicInfoResponseDTO;
+  owner: UserOrganizationBasicInfoResponseDTO;
 }
 
 export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'content'> {

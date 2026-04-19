@@ -1,8 +1,8 @@
-import type { UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export type ReactionUserResponseData = {
   key: string;
-  user: UserCompanyBasicInfoResponseDTO;
+  user: UserOrganizationBasicInfoResponseDTO;
   createdTimestamp: number;
   updatedTimestamp: number;
 };
@@ -10,7 +10,7 @@ export type ReactionUserResponseData = {
 export interface CommentDataResponseDTO {
   id: string;
   content: string;
-  user: UserCompanyBasicInfoResponseDTO;
+  user: UserOrganizationBasicInfoResponseDTO;
   hidden: boolean;
   reactions: {
     [key: string /*emoji*/]: {

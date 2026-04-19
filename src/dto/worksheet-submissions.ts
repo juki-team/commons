@@ -9,7 +9,7 @@ import {
   WorksheetType,
 } from '../types/index.js';
 import type { SubmissionSummaryListResponseDTO } from './submission.js';
-import type { UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export type WorksheetResponseBasicInfoProcessed = {
   submittedAt: number;
@@ -76,7 +76,7 @@ export interface WorksheetSubmissionsResponseDTO {
 }
 
 export interface WorksheetSubmissionsUsersResponseDTO {
-  [key: string]: UserCompanyBasicInfoResponseDTO;
+  [key: string]: UserOrganizationBasicInfoResponseDTO;
 }
 
 export interface WorksheetUserSubmissionsResponseDTO {

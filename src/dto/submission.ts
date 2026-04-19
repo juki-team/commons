@@ -5,7 +5,7 @@ import type {
   EntityCompanySystemSummaryListResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
 } from './problem.js';
-import type { UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface SubmissionProblemSummaryListResponseDTO {
   isAdministrator: boolean;
@@ -43,7 +43,7 @@ export interface SubmissionSummaryListResponseDTO {
   points: number; // default: 0
   status: SubmissionRunStatus;
   problem: SubmissionProblemSummaryListResponseDTO;
-  user: UserCompanyBasicInfoResponseDTO & {
+  user: UserOrganizationBasicInfoResponseDTO & {
     canViewSourceCode: boolean; // foreign
     // canViewOutputDiff: boolean, // foreign
   }; // foreign

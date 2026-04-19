@@ -1,4 +1,4 @@
-import type { UserCompanyBasicInfoResponseDTO } from '../dto/index.js';
+import type { UserOrganizationBasicInfoResponseDTO } from '../dto/index.js';
 
 export enum EntityMembersRank {
   NONE = 'NONE',
@@ -132,5 +132,5 @@ export enum LogOperation {
 export interface LogDataResponseDTO {
   changes: EntityLogChanges[];
   timestamp: number;
-  customerUser: UserCompanyBasicInfoResponseDTO;
+  customerUser: UserOrganizationBasicInfoResponseDTO;
 }

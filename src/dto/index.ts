@@ -1,7 +1,6 @@
 export * from './class.js';
 export * from './code.js';
 export * from './comments.js';
-export * from './company.js';
 export * from './contest.js';
 export * from './course.js';
 export * from './entity.js';
@@ -11,6 +10,7 @@ export * from './image.js';
 export * from './judge.js';
 export * from './markdown.js';
 export * from './mermaid.js';
+export * from './organization.js';
 export * from './problem.js';
 export * from './scoreboard.js';
 export * from './session.js';

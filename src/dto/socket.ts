@@ -13,7 +13,7 @@ import type {
   EcsTaskSystemSummaryListResponseDTO,
   SsmSession,
 } from './system.js';
-import type { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { PingResponseDTO, UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 // EVENT MESSAGES
 interface WebsocketMessage {
@@ -201,7 +201,7 @@ export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketR
 
 export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_MESSAGE;
-  user: UserCompanyBasicInfoResponseDTO;
+  user: UserOrganizationBasicInfoResponseDTO;
   content: {
     type: 'SUBMISSION_VERDICT';
     contestName: string;

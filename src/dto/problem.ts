@@ -9,7 +9,7 @@ import type {
   TextLanguage,
 } from '../types/index.js';
 import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
-import type { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { EntityOwnerSystemSummaryListResponseDTO, UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface ProblemJudgeSummaryListResponseDTO
   extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
@@ -38,7 +38,7 @@ export interface ProblemBasicSummaryListResponseDTO {
 
 export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
   user: ProblemUser;
-  owner: UserCompanyBasicInfoResponseDTO;
+  owner: UserOrganizationBasicInfoResponseDTO;
 }
 
 export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {

@@ -1,4 +1,4 @@
-import type { UserCompanyBasicInfoResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export type GroupByTimestampKey = 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | number;
 
@@ -38,7 +38,7 @@ export type StatisticsUserTrackDataResponseDTO = {
 
 export interface StatisticsUserTrackResponseDTO {
   [key: string]: {
-    user: UserCompanyBasicInfoResponseDTO;
+    user: UserOrganizationBasicInfoResponseDTO;
     sessionId: string;
     data: StatisticsGrouped<StatisticsUserTrackDataResponseDTO>;
   };
