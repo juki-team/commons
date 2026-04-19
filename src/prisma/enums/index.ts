@@ -1,11 +1,15 @@
 export { AssignmentClassType } from './AssignmentClassType.js';
-export { CompanyPlan } from './CompanyPlan.js';
 export { ContestStatus } from './ContestStatus.js';
 export { ContestProblemPrerequisiteType } from './ContestProblemPrerequisiteType.js';
 export { ContestEventAction } from './ContestEventAction.js';
+export { EntityObjectType } from './EntityObjectType.js';
+export { EntitySubjectType } from './EntitySubjectType.js';
+export { EntityRole } from './EntityRole.js';
+export { ShareLinkVisibility } from './ShareLinkVisibility.js';
 export { FileType } from './FileType.js';
 export { GroupType } from './GroupType.js';
 export { JudgeType } from './JudgeType.js';
+export { OrganizationPlan } from './OrganizationPlan.js';
 export { ProblemType } from './ProblemType.js';
 export { ProblemScoringMode } from './ProblemScoringMode.js';
 export { ProblemVerdict } from './ProblemVerdict.js';

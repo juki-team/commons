@@ -1,25 +1,25 @@
-import { CompanyPlan } from '../prisma/enums/index.js';
+import { OrganizationPlan } from '../prisma/enums/index.js';
 
 export const JUKI_APP_COMPANY_KEY = 'juki-app';
 
-export const COMPANY_PLAN: { [Key in CompanyPlan]: { value: CompanyPlan; label: string; description: string } } = {
-  [CompanyPlan.FREE]: {
-    value: CompanyPlan.FREE,
+export const COMPANY_PLAN: { [Key in OrganizationPlan]: { value: OrganizationPlan; label: string; description: string } } = {
+  [OrganizationPlan.FREE]: {
+    value: OrganizationPlan.FREE,
     label: 'free',
     description: 'the resources, runners and compilers, are shared with the juki.app giving priority to juki.app',
   },
-  [CompanyPlan.STANDARD]: {
-    value: CompanyPlan.STANDARD,
+  [OrganizationPlan.STANDARD]: {
+    value: OrganizationPlan.STANDARD,
     label: 'standard',
     description: 'the resources are dedicated, 1 runner and 1 compiler',
   },
-  [CompanyPlan.PREMIUM]: {
-    value: CompanyPlan.PREMIUM,
+  [OrganizationPlan.PREMIUM]: {
+    value: OrganizationPlan.PREMIUM,
     label: 'premium',
     description: 'the resources are dedicated and on demand use with at least 1 runner and 1 compiler',
   },
-  [CompanyPlan.CUSTOM]: {
-    value: CompanyPlan.CUSTOM,
+  [OrganizationPlan.CUSTOM]: {
+    value: OrganizationPlan.CUSTOM,
     label: 'custom',
     description: 'the resources are dedicated and on demand use with at least 1 (settable) runner and 1 (settable) compiler',
   },

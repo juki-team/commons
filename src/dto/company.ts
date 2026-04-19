@@ -1,4 +1,4 @@
-import type { CompanyPlan } from '../prisma/enums/index.js';
+import type { OrganizationPlan } from '../prisma/enums/index.js';
 import type { ResourceInstance, ResourceLogger, Theme } from '../types/index.js';
 import type { EmailDataResponseDTO } from './system.js';
 import type { UserCompanyBasicInfoResponseDTO, UserPermissionsResponseDTO } from './user.js';
@@ -21,7 +21,7 @@ export interface CompanyResponseDTO extends EmailDataResponseDTO {
   imageUrl: string;
   managerUser: UserCompanyBasicInfoResponseDTO;
   systemAdminUser: UserCompanyBasicInfoResponseDTO;
-  plan: CompanyPlan;
+  plan: OrganizationPlan;
   startTimestamp: number;
   judges: CompanyJudgeResponseDTO[];
   trustedCompanies: CompanyTrustedCompanyResponseDTO[];
