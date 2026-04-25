@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -24,11 +24,9 @@
   "scripts": {
     "docs": "typedoc src/index.ts",
     "watch": "tsc --watch",
-    "build": "rm -rf docs && rm -rf dist && tsc && yarn docs",
-    "git:commit-push": "f() { param=${1}; message=${param:-chore}; git add .; git commit -m \"$message\"; npm version patch --no-git-tag-version; npm run build; npm publish; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
-    "git:push": "f() { npm version patch --no-git-tag-version; npm run build; npm publish; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
-    "push-commit": "f() { yarn build && yarn git-push \"${1}\"; }; f",
-    "push": "yarn build && yarn git:push",
+    "build": "rm -rf docs && rm -rf dist && tsc && npm run docs",
+    "commit-push": "f() { param=${1}; message=${param:-chore}; git add .; git commit -m \"$message\"; npm version patch --no-git-tag-version; npm run build; npm publish; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
+    "push": "f() { npm version patch --no-git-tag-version; npm run build; npm publish; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
     "lint": "biome check src/",
     "lint:fix": "biome check --write src/",
     "lint:format": "biome format --write src/"
