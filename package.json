@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -12,11 +12,12 @@
       "import": "./dist/index.js"
     }
   },
-  "files": [
-    "dist",
-    "biome.shared.json"
-  ],
+  "files": ["dist", "biome.shared.json"],
   "repository": "https://github.com/juki-team/commons.git",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "docs": "typedoc src/index.ts",
     "watch": "tsc --watch",
