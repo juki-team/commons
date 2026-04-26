@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -27,7 +27,9 @@
     "./types": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/types/index.js"
-    }
+    },
+    "./biome.shared.json": "./biome.shared.json",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
