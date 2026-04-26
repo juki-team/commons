@@ -1,4 +1,4 @@
-import type { ContestRole, CourseRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums/index.js';
+import type { ContestRole, CourseRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../enums/index.js';
 import { ProfileSetting } from './profile.js';
 
 export interface UserBasicInfo {

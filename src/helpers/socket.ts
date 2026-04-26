@@ -44,7 +44,7 @@ import type {
   WebSocketSubscribeEventDTO,
   WebSocketUnsubscribeEventDTO,
 } from '../dto/index.js';
-import { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
+import { ProblemVerdict, SubmissionRunStatus } from '../enums/index.js';
 import {
   type ClientId,
   WebSocketMessageEvent,

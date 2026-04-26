@@ -1,4 +1,4 @@
-import { JudgeType, ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
+import { JudgeType, ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../enums/index.js';
 import { CodeLanguage, RunnerType } from '../types/index.js';
 
 type Judge = {

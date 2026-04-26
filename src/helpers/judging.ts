@@ -1,4 +1,4 @@
-import { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
+import { ProblemVerdict, SubmissionRunStatus } from '../enums/index.js';
 import type { CodeEditorTestCase, DataLog, SubmissionTestCase, TestCaseVerdict } from '../types/index.js';
 
 export const getDataOfTestCase = (testCase: SubmissionTestCase, timeLimit: number, memoryLimit: number) => {

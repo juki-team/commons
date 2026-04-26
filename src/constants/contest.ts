@@ -1,4 +1,4 @@
-import { type ContestRole, ContestStatus } from '../prisma/enums/index.js';
+import { type ContestRole, ContestStatus } from '../enums/index.js';
 import { Role } from '../types/index.js';
 
 export const CONTEST_STATUS: {

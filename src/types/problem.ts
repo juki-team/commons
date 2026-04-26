@@ -1,4 +1,4 @@
-import type { ProblemScoringMode, ProblemType } from '../prisma/enums/index.js';
+import type { ProblemScoringMode, ProblemType } from '../enums/index.js';
 import type { CodeLanguage } from './code.js';
 import type { EntityMembers } from './entity.js';
 import type { ProblemTestCase } from './services.js';

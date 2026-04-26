@@ -1,4 +1,4 @@
-import type { SubmissionRunStatus } from '../prisma/enums/index.js';
+import type { SubmissionRunStatus } from '../enums/index.js';
 import type { CodeLanguage } from './code.js';
 import type { EntityMembers } from './entity.js';
 import type { Theme } from './user.js';

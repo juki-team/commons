@@ -1,4 +1,4 @@
-import type { GroupType } from '../prisma/enums/index.js';
+import type { GroupType } from '../enums/index.js';
 import type { EntityMembers, EntityState } from './entity.js';
 
 export interface GroupBaseDocument {

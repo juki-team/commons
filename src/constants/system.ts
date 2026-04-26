@@ -1,4 +1,4 @@
-import { SystemRole } from '../prisma/enums/index.js';
+import { SystemRole } from '../enums/index.js';
 
 export const SYSTEM_ROLE: { [Key in SystemRole]: { value: SystemRole; label: string; level: number } } = {
   [SystemRole.GUEST]: { value: SystemRole.GUEST, label: 'guest', level: 5 },

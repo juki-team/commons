@@ -1,4 +1,4 @@
-import type { ProblemVerdict, SubmissionRunStatus } from '../prisma/enums/index.js';
+import type { ProblemVerdict, SubmissionRunStatus } from '../enums/index.js';
 import type {
   ClientId,
   Device,

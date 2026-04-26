@@ -1,4 +1,4 @@
-import type { ContestEventAction } from '../prisma/enums/index.js';
+import type { ContestEventAction } from '../enums/index.js';
 import type {
   ContestBaseDocument,
   ContestClarification,

@@ -1,4 +1,4 @@
-import { TeamRole } from '../prisma/enums/index.js';
+import { TeamRole } from '../enums/index.js';
 import { MemberRole } from '../types/index.js';
 
 export const MEMBER_ROLE: { [Key in MemberRole]: { value: MemberRole; label: string } } = {

@@ -1,4 +1,4 @@
-import type { FileType } from '../prisma/enums/index.js';
+import type { FileType } from '../enums/index.js';
 
 export enum FileMemberRole {
   VIEWER = 'VIEWER',

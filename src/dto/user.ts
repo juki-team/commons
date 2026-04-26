@@ -1,4 +1,4 @@
-import type { ContestRole, CourseRole, FileRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums/index.js';
+import type { ContestRole, CourseRole, FileRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../enums/index.js';
 import type { RecordId, UserBasicInfo, UserHandles, UserSettings } from '../types/index.js';
 import type { OrganizationStylesResponseDTO } from './organization.js';
 import type { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem.js';

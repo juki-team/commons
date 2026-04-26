@@ -1,4 +1,4 @@
-import { type ProblemRole, ProblemScoringMode, ProblemType } from '../prisma/enums/index.js';
+import { type ProblemRole, ProblemScoringMode, ProblemType } from '../enums/index.js';
 import { ProblemInput, ProblemOutput, Role } from '../types/index.js';
 
 export const PROBLEM_INPUT: { [Key in ProblemInput]: { value: ProblemInput; label: string } } = {

@@ -20,19 +20,16 @@
       "types": "./dist/helpers/index.d.ts",
       "import": "./dist/helpers/index.js"
     },
-    "./prisma-enums": {
-      "types": "./dist/prisma/enums/index.d.ts",
-      "import": "./dist/prisma/enums/index.js"
+    "./enums": {
+      "types": "./dist/enums/index.d.ts",
+      "import": "./dist/enums/index.js"
     },
     "./types": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/types/index.js"
     }
   },
-  "files": [
-    "dist",
-    "biome.shared.json"
-  ],
+  "files": ["dist", "biome.shared.json"],
   "repository": "https://github.com/juki-team/commons.git",
   "publishConfig": {
     "access": "public",

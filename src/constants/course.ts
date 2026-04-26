@@ -1,4 +1,4 @@
-import { CourseRole } from '../prisma/enums/index.js';
+import { CourseRole } from '../enums/index.js';
 
 export const COURSE_ROLE: { [Key in CourseRole]: { value: CourseRole; label: string; level: number } } = {
   [CourseRole.RESTRICTED]: { value: CourseRole.RESTRICTED, label: 'restricted', level: 8 },

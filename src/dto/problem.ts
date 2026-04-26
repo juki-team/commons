@@ -1,4 +1,4 @@
-import type { ProblemScoringMode, ProblemType } from '../prisma/enums/index.js';
+import type { ProblemScoringMode, ProblemType } from '../enums/index.js';
 import type {
   EntityState,
   JudgeBaseDocument,

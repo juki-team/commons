@@ -1,5 +1,5 @@
 import type { ContestDataResponseDTO, UpsertContestDTO, UserOrganizationBasicInfoResponseDTO } from '../dto/index.js';
-import type { ContestEventAction, ContestProblemPrerequisiteType } from '../prisma/enums/index.js';
+import type { ContestEventAction, ContestProblemPrerequisiteType } from '../enums/index.js';
 import type { CodeLanguage } from './code.js';
 import type { EntityMembers } from './entity.js';
 import type { Judge } from './judge.js';

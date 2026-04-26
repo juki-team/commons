@@ -1,5 +1,5 @@
 import type { UserPermissionsResponseDTO } from '../dto/index.js';
-import { UserRole } from '../prisma/enums/index.js';
+import { UserRole } from '../enums/index.js';
 
 export const USER_ROLE: { [Key in UserRole]: { value: UserRole; label: string; level: number } } = {
   [UserRole.RESTRICTED]: { value: UserRole.RESTRICTED, label: 'restricted', level: 6 },
