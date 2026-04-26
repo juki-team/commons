@@ -20,5 +20,6 @@ export * from './submission.js';
 export * from './system.js';
 export * from './url.js';
 export * from './user.js';
+export * from './virtualUser.js';
 export * from './worksheet.js';
-export * from './worksheet-submissions.js';
+export * from './worksheetSubmission.js';

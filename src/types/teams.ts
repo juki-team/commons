@@ -1,4 +1,4 @@
-import type { UserBasic, UserProfile } from './users.js';
+import type { UserBasic, UserProfile } from './user.js';
 
 export enum TeamStatus {
   ACTIVE = 'ACTIVE',

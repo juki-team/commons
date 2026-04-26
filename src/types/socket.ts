@@ -1,4 +1,4 @@
-import type { RecordId } from './commons.js';
+import type { RecordId } from './id.js';
 
 export enum WebSocketMessageEvent {
   PING = 'PING',

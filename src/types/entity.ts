@@ -11,6 +11,20 @@ export enum EntityState {
   ARCHIVED = 'ARCHIVED',
 }
 
+export enum EntityStatus {
+  PUBLIC = 'PUBLIC',
+  RESERVED = 'RESERVED',
+  PRIVATE = 'PRIVATE',
+  ARCHIVED = 'ARCHIVED',
+}
+
+export enum EntityAccess {
+  PRIVATE = 'PRIVATE',
+  RESTRICTED = 'RESTRICTED',
+  PUBLIC = 'PUBLIC',
+  EXPOSED = 'EXPOSED',
+}
+
 export type EntityUsersMemberUserData = {
   userId: string;
   lastVisitTimestamp: number | null;

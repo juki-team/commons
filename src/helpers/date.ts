@@ -1,3 +1,5 @@
+import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants/index.js';
+
 export const changeYear = (date: Date, year: number): Date => {
   const newDate = new Date(date);
   newDate.setFullYear(year);
@@ -223,3 +225,31 @@ export const isWithinInterval = (
 ): boolean =>
   (cmp.charAt(0) === '[' ? isEqual(date, start) || isAfter(date, start) : isAfter(date, start)) &&
   (cmp.charAt(1) === ']' ? isEqual(date, end) || isBefore(date, end) : isBefore(date, end));
+
+export const normalizeToLocalStartOfDay = (timestamp: number | Date): Date => {
+  const d = new Date(timestamp);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+};
+
+export const normalizeToLocalStartOfHour = (timestamp: number | Date): Date => {
+  const d = new Date(timestamp);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours());
+};
+
+export const normalizeToLocalStartOfMinutes = (timestamp: number | Date): Date => {
+  const d = new Date(timestamp);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes());
+};
+
+export const normalizeToLocalStartOfSeconds = (timestamp: number | Date): Date => {
+  const d = new Date(timestamp);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds());
+};
+
+export const getYears = (d: Date): number => d.getFullYear();
+export const getMonths = (d: Date): number => d.getFullYear() * 12 + d.getMonth();
+export const getDays = (d: Date): number => Math.floor(normalizeToLocalStartOfDay(d).getTime() / ONE_DAY);
+export const getHours = (d: Date): number => Math.floor(normalizeToLocalStartOfHour(d).getTime() / ONE_HOUR);
+export const getMinutes = (d: Date): number => Math.floor(normalizeToLocalStartOfMinutes(d).getTime() / ONE_MINUTE);
+export const getSeconds = (d: Date): number => Math.floor(normalizeToLocalStartOfSeconds(d).getTime() / 1000);
+export const getMilliseconds = (d: Date): number => d.getTime();

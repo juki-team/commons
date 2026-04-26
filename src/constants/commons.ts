@@ -628,7 +628,7 @@ export const CODE_LANGUAGE: { [Key in CodeLanguage]: CodeLanguageMeta } = {
 
 export const PAGE_SIZES = ['32', '64', '128', '256', '512'];
 
-export const PALLETE = {
+export const PALETTE = {
   vivos: [
     { color: '#FF0000', title: 'Rojo' },
     { color: '#FF5900', title: 'Rojo - Naranja' },

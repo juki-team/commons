@@ -1,5 +1,5 @@
 import type { ProblemVerdict } from '../prisma/enums/index.js';
-import type { CodeLanguage } from './commons.js';
+import type { CodeLanguage } from './code.js';
 import type { DataLog } from './submission.js';
 
 export type JudgeLanguage = {

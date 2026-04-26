@@ -1,5 +1,5 @@
 import type { ContestRole, CourseRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../prisma/enums/index.js';
-import { ProfileSetting } from './account.js';
+import { ProfileSetting } from './profile.js';
 
 export interface UserBasicInfo {
   nickname: string;

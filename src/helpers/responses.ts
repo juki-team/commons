@@ -1,5 +1,4 @@
 import { getErrorMessage } from '../constants/index.js';
-import { JkError } from '../errors/index.js';
 import {
   type ContentResponse,
   type ContentsMeta,
@@ -7,7 +6,9 @@ import {
   ErrorCode,
   type ErrorResponse,
 } from '../types/index.js';
-import { consoleError, isStringJson } from './commons.js';
+import { consoleError } from './console.js';
+import { JkError } from './errors.js';
+import { isStringJson } from './json.js';
 
 export function toJkError(err: unknown): JkError {
   const error = new Error();

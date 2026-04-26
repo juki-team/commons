@@ -1,4 +1,4 @@
-import type { CodeLanguage } from './commons.js';
+import type { CodeLanguage } from './code.js';
 
 export enum ErrorCode {
   // General errors

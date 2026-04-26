@@ -30,3 +30,34 @@ function sizeOf(obj: unknown): number {
 export function memorySizeOf(obj: unknown): number {
   return sizeOf(obj);
 }
+
+function mergeRecords(b: Record<string, unknown>, u: Record<string, unknown>): Record<string, unknown> {
+  const mergeKeys = new Set([...Object.keys(b), ...Object.keys(u)]);
+  for (const key of mergeKeys) {
+    if (u[key] !== null && u[key] !== undefined && b[key] !== u[key]) {
+      b[key] = objectUpdate(b[key], u[key]);
+    }
+  }
+  return b;
+}
+
+export function objectUpdate(base: unknown, update: unknown): unknown {
+  if (JSON.stringify(base) === JSON.stringify(update)) {
+    return base;
+  }
+  if (base !== null && update !== null && !Array.isArray(base) && typeof base === 'object' && typeof update === 'object') {
+    return mergeRecords(base as Record<string, unknown>, update as Record<string, unknown>);
+  }
+  if (update !== null && update !== undefined) {
+    return update;
+  }
+  return base;
+}
+
+export function objectsUpdate(base: Record<string, unknown>, ...objects: Record<string, unknown>[]): Record<string, unknown> {
+  let newObject = { ...base };
+  for (const update of objects) {
+    newObject = objectUpdate(newObject, update) as Record<string, unknown>;
+  }
+  return newObject;
+}

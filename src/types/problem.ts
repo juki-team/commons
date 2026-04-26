@@ -1,7 +1,8 @@
 import type { ProblemScoringMode, ProblemType } from '../prisma/enums/index.js';
-import type { CodeLanguage, TextLanguage } from './commons.js';
+import type { CodeLanguage } from './code.js';
 import type { EntityMembers } from './entity.js';
 import type { ProblemTestCase } from './services.js';
+import type { TextLanguage } from './text.js';
 
 export interface TestCase {
   id: string;
