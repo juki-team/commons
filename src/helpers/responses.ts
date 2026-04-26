@@ -1,5 +1,5 @@
 import { getErrorMessage } from '../constants/index.js';
-import { JkError } from '../prototypes/index.js';
+import { JkError } from '../errors/index.js';
 import {
   type ContentResponse,
   type ContentsMeta,

@@ -6,16 +6,46 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./constants": {
+      "types": "./dist/constants/index.d.ts",
+      "import": "./dist/constants/index.js"
+    },
+    "./date": {
+      "types": "./dist/date/index.d.ts",
+      "import": "./dist/date/index.js"
+    },
+    "./dto": {
+      "types": "./dist/dto/index.d.ts",
+      "import": "./dist/dto/index.js"
+    },
+    "./errors": {
+      "types": "./dist/errors/index.d.ts",
+      "import": "./dist/errors/index.js"
+    },
+    "./helpers": {
+      "types": "./dist/helpers/index.d.ts",
+      "import": "./dist/helpers/index.js"
+    },
+    "./number": {
+      "types": "./dist/number/index.d.ts",
+      "import": "./dist/number/index.js"
+    },
+    "./prisma/enums": {
+      "types": "./dist/prisma/enums/index.d.ts",
+      "import": "./dist/prisma/enums/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js"
     }
   },
-  "files": [
-    "dist",
-    "biome.shared.json"
-  ],
+  "files": ["dist", "biome.shared.json"],
   "repository": "https://github.com/juki-team/commons.git",
   "publishConfig": {
     "access": "public",
