@@ -1,4 +1,4 @@
-import { CodeLanguage, Language, Theme } from '../types/index.js';
+import { CodeLanguage, Language, Theme } from '../enums/index.js';
 
 export const LANGUAGE: { [Key in Language]: { value: Language; label: string } } = {
   [Language.EN]: { value: Language.EN, label: 'english' },

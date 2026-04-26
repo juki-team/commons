@@ -1,4 +1,4 @@
-import type { ContestEventAction } from '../enums/index.js';
+import type { ContestEventAction, ContestProblemBlockedByType, EntityState } from '../enums/index.js';
 import type {
   ContestBaseDocument,
   ContestClarification,
@@ -6,7 +6,6 @@ import type {
   ContestProblemPrerequisite,
   ContestSettings,
   ContestUser,
-  EntityState,
   ProblemSettings,
   ProblemStatement,
   TextLanguage,
@@ -79,13 +78,6 @@ export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummar
   editorial: TextLanguage;
   settings: ProblemSettings;
   ownerNickname: string;
-}
-
-export enum ContestProblemBlockedByType {
-  UNMET_PREREQUISITES = 'UNMET_PREREQUISITES',
-  MAX_ACCEPTED_SUBMISSIONS_ACHIEVED = 'MAX_ACCEPTED_SUBMISSIONS_ACHIEVED',
-  START_TIME_IN_THE_FUTURE = 'START_TIME_IN_THE_FUTURE',
-  END_TIME_IN_THE_PAST = 'END_TIME_IN_THE_PAST',
 }
 
 export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO &

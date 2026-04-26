@@ -1,12 +1,5 @@
-import type { EntityState } from './entity.js';
+import type { AssignmentClass, EntityState } from '../enums/index.js';
 import type { BodyWorksheet } from './worksheet.js';
-
-export enum AssignmentClass {
-  NONE = 'NONE',
-  COURSE = 'COURSE',
-  WORKSHEET = 'WORKSHEET',
-  CONTEST = 'CONTEST',
-}
 
 export interface AssignmentBasicInfo {
   id: string;

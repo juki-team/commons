@@ -1,5 +1,5 @@
 import type { DocumentMembersResponseDTO, EntityMembersResponseDTO } from '../dto/index.js';
-import { EntityAccess, EntityMembersRank } from '../types/index.js';
+import { EntityAccess, EntityMembersRank } from '../enums/index.js';
 
 export const EMPTY_DOCUMENT_MEMBERS = (): DocumentMembersResponseDTO => ({
   access: EntityAccess.PRIVATE,

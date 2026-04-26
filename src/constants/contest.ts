@@ -1,5 +1,4 @@
-import { type ContestRole, ContestStatus } from '../enums/index.js';
-import { Role } from '../types/index.js';
+import { type ContestRole, ContestStatus, Role } from '../enums/index.js';
 
 export const CONTEST_STATUS: {
   [Key in ContestStatus]: {

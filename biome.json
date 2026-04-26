@@ -7,7 +7,7 @@
   },
   "overrides": [
     {
-      "includes": ["src/enums/prisma/**"],
+      "includes": ["src/enums/**"],
       "linter": {
         "rules": {
           "style": {

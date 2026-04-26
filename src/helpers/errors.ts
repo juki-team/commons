@@ -1,5 +1,5 @@
 import { getErrorMessage } from '../constants/services.js';
-import type { ErrorCode } from '../types/index.js';
+import type { ErrorCode } from '../enums/index.js';
 
 export class JkError extends Error {
   code: ErrorCode;

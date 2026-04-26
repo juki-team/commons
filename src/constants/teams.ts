@@ -1,5 +1,4 @@
-import { TeamRole } from '../enums/index.js';
-import { MemberRole } from '../types/index.js';
+import { MemberRole, TeamRole } from '../enums/index.js';
 
 export const MEMBER_ROLE: { [Key in MemberRole]: { value: MemberRole; label: string } } = {
   [MemberRole.COACH]: { value: MemberRole.COACH, label: 'coach' },

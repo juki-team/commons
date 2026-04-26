@@ -1,5 +1,4 @@
-import type { OrganizationPlan } from '../enums/index.js';
-import type { Theme } from '../types/index.js';
+import type { OrganizationPlan, Theme } from '../enums/index.js';
 import type { EmailDataResponseDTO } from './system.js';
 import type { UserOrganizationBasicInfoResponseDTO, UserPermissionsResponseDTO } from './user.js';
 

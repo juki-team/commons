@@ -3,4 +3,5 @@ export const ContestProblemPrerequisiteType = {
   CONTEST: 'CONTEST',
 } as const;
 
-export type ContestProblemPrerequisiteType = (typeof ContestProblemPrerequisiteType)[keyof typeof ContestProblemPrerequisiteType];
+export type ContestProblemPrerequisiteType =
+  (typeof ContestProblemPrerequisiteType)[keyof typeof ContestProblemPrerequisiteType];

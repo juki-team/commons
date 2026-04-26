@@ -1,5 +1,4 @@
-import { type FileRole, FileType } from '../enums/index.js';
-import { EntityAccess, EntityState, Role } from '../types/index.js';
+import { EntityAccess, EntityState, type FileRole, FileType, Role } from '../enums/index.js';
 
 export const FILE_TYPE: { [Key in FileType]: { value: FileType; label: string } } = {
   [FileType.FILE]: { value: FileType.FILE, label: 'file' },

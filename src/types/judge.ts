@@ -1,5 +1,4 @@
-import type { ProblemVerdict } from '../enums/index.js';
-import type { CodeLanguage } from './code.js';
+import type { CodeLanguage, Judge, ProblemVerdict } from '../enums/index.js';
 import type { DataLog } from './submission.js';
 
 export type JudgeLanguage = {
@@ -27,23 +26,6 @@ export interface JudgeBaseDocument {
   getProblemUrl: string;
   getUserSubmissionsUrl: string;
   submissionsWithHighPriority: boolean;
-}
-
-export enum Judge {
-  JUKI_JUDGE = 'JUKI_JUDGE',
-  CODEFORCES = 'CODEFORCES',
-  CODEFORCES_GYM = 'CODEFORCES_GYM',
-  JV_UMSA = 'JV_UMSA',
-  UVA_ONLINE_JUDGE = 'UVA_ONLINE_JUDGE',
-  AT_CODER = 'AT_CODER',
-  CODECHEF = 'CODECHEF',
-  TOPCODER = 'TOPCODER',
-  LEETCODE = 'LEETCODE',
-}
-
-export enum RunnerType {
-  HIGH_PERFORMANCE = 'HIGH_PERFORMANCE',
-  LOW_PERFORMANCE = 'LOW_PERFORMANCE',
 }
 
 export type TestCaseVerdict = DataLog & { verdict: ProblemVerdict };

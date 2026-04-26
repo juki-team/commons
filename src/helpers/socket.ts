@@ -44,14 +44,14 @@ import type {
   WebSocketSubscribeEventDTO,
   WebSocketUnsubscribeEventDTO,
 } from '../dto/index.js';
-import { ProblemVerdict, SubmissionRunStatus } from '../enums/index.js';
 import {
-  type ClientId,
+  ProblemVerdict,
+  SubmissionRunStatus,
   WebSocketMessageEvent,
   WebSocketResponseEvent,
-  type WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
-} from '../types/index.js';
+} from '../enums/index.js';
+import type { ClientId, WebSocketResponseEventKey } from '../types/index.js';
 
 export const isWebsocketSubscription = (
   event: unknown,
@@ -219,7 +219,7 @@ export const isCodeRunStatusMessageWebSocketResponseEventDTO = (
     event.event === WebSocketResponseEvent.CODE_RUN_STATUS &&
     typeof v.runId === 'string' &&
     !!v.runId &&
-    (v.status as string) in SubmissionRunStatus
+    Object.values(SubmissionRunStatus).includes(v.status as SubmissionRunStatus)
   );
 };
 
@@ -232,8 +232,8 @@ export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (
     event.event === WebSocketResponseEvent.SUBMISSION_RUN_STATUS &&
     typeof v.submitId === 'string' &&
     !!v.submitId &&
-    (v.status as string) in SubmissionRunStatus &&
-    (v.verdict as string) in ProblemVerdict &&
+    Object.values(SubmissionRunStatus).includes(v.status as SubmissionRunStatus) &&
+    Object.values(ProblemVerdict).includes(v.verdict as ProblemVerdict) &&
     typeof v.points === 'number'
   );
 };
@@ -259,15 +259,17 @@ export const isSendDataWebSocketResponseEventDTO = (event: unknown): event is Se
   if (typeof event !== 'object' || event === null) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
-    [
-      WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
-      WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
-      WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
-      WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
-      WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
-      WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK,
-      WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS,
-    ].includes(v.event as WebSocketResponseEvent) &&
+    (
+      [
+        WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
+        WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
+        WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
+        WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
+        WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
+        WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK,
+        WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS,
+      ] as WebSocketResponseEvent[]
+    ).includes(v.event as WebSocketResponseEvent) &&
     typeof v.dataId === 'string' &&
     !!v.dataId &&
     !!v.content
@@ -374,10 +376,12 @@ export const isUserNotificationWebSocketResponseEventDTO = (
   if (typeof event !== 'object' || event === null) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
-    [
-      WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
-      WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
-    ].includes(v.event as WebSocketResponseEvent) && !!v.content
+    (
+      [
+        WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
+        WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
+      ] as WebSocketResponseEvent[]
+    ).includes(v.event as WebSocketResponseEvent) && !!v.content
   );
 };
 

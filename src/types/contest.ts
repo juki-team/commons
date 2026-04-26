@@ -1,15 +1,7 @@
 import type { ContestDataResponseDTO, UpsertContestDTO, UserOrganizationBasicInfoResponseDTO } from '../dto/index.js';
-import type { ContestEventAction, ContestProblemPrerequisiteType } from '../enums/index.js';
-import type { CodeLanguage } from './code.js';
+import type { CodeLanguage, ContestEventAction, ContestProblemPrerequisiteType, Judge } from '../enums/index.js';
 import type { EntityMembers } from './entity.js';
-import type { Judge } from './judge.js';
 import type { UserBasicInfo } from './user.js';
-
-export enum ContestTimeStatus {
-  UPCOMING = 'upcoming',
-  LIVE = 'live',
-  PAST = 'past',
-}
 
 export type MetaProblemSearcher = {
   name: string;
@@ -124,6 +116,7 @@ export interface ContestBaseDocument {
   description: string;
   settings: ContestSettings;
   problems: Record<string, ContestProblem>;
+  problemsOrdered?: string[];
   members: EntityMembers;
   tags: string[];
   groups: Record<string, ContestGroup>;

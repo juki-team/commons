@@ -4,7 +4,7 @@ import type {
   CourseAssignmentSessionCycleClassDataResponseDTO,
   WorksheetAssignmentSessionCycleClassDataResponseDTO,
 } from '../dto/index.js';
-import { AssignmentClass } from '../types/index.js';
+import { AssignmentClass } from '../enums/index.js';
 
 export const isWorksheetAssignment = (
   assignment: AssignmentSessionCycleClassDataResponseDTO,

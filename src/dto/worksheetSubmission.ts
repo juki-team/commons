@@ -1,12 +1,11 @@
-import {
-  type CodeEditorSheet,
-  type CodeLanguage,
-  type JkmdSheet,
-  type QuizOptionsSheet,
-  type QuizProblemSheet,
-  type QuizTextSheet,
-  type UserBasic,
-  WorksheetType,
+import type { CodeLanguage, WorksheetType } from '../enums/index.js';
+import type {
+  CodeEditorSheet,
+  JkmdSheet,
+  QuizOptionsSheet,
+  QuizProblemSheet,
+  QuizTextSheet,
+  UserBasic,
 } from '../types/index.js';
 import type { SubmissionSummaryListResponseDTO } from './submission.js';
 import type { UserOrganizationBasicInfoResponseDTO } from './user.js';

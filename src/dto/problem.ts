@@ -1,6 +1,5 @@
-import type { ProblemScoringMode, ProblemType } from '../enums/index.js';
+import type { EntityState, ProblemScoringMode, ProblemType } from '../enums/index.js';
 import type {
-  EntityState,
   JudgeBaseDocument,
   ProblemBaseDocument,
   ProblemSettings,

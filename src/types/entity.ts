@@ -1,29 +1,5 @@
 import type { UserOrganizationBasicInfoResponseDTO } from '../dto/index.js';
-
-export enum EntityMembersRank {
-  NONE = 'NONE',
-  CLOSE = 'CLOSE',
-  OPEN = 'OPEN',
-}
-
-export enum EntityState {
-  RELEASED = 'RELEASED',
-  ARCHIVED = 'ARCHIVED',
-}
-
-export enum EntityStatus {
-  PUBLIC = 'PUBLIC',
-  RESERVED = 'RESERVED',
-  PRIVATE = 'PRIVATE',
-  ARCHIVED = 'ARCHIVED',
-}
-
-export enum EntityAccess {
-  PRIVATE = 'PRIVATE',
-  RESTRICTED = 'RESTRICTED',
-  PUBLIC = 'PUBLIC',
-  EXPOSED = 'EXPOSED',
-}
+import type { EntityMembersRank, EntityState, LogOperation } from '../enums/index.js';
 
 export type EntityUsersMemberUserData = {
   userId: string;
@@ -103,45 +79,6 @@ export type CreateEntityDocument<T> = Omit<
 export type UpdateEntityDocument<T> = Partial<
   Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs' | 'key'>
 >;
-
-export enum EntityCollection {
-  COMPANY = 'COMPANY',
-  PROBLEM = 'PROBLEM',
-  CONTEST = 'CONTEST',
-  JUDGE = 'JUDGE',
-  USER = 'USER',
-  SUBMISSION = 'SUBMISSION',
-}
-
-export enum CollectionKey {
-  COMPANY = 'C',
-  USER = 'U',
-  PROBLEM = 'P',
-  CLASS = 'K',
-  CLASS_ASSIGNMENT = 'KA',
-  CONTEST = 'T',
-  SCOREBOARD = 'B',
-  SCOREBOARD_EVENTS = 'BE',
-  COURSE = 'R',
-  FILE = 'F',
-  GROUP = 'G',
-  JUDGE = 'J',
-  WORKSHEET = 'W',
-  WORKSHEET_SUBMISSIONS = 'WS',
-  SUBMIT = 'S',
-  LOCALE = 'L',
-  COMMENT = 'M',
-  EXCALIDRAW = 'E',
-  MARKDOWN = 'MD',
-  DOCUMENT_TEMPLATE = 'DT',
-  MERMAID = 'MM',
-}
-
-export enum LogOperation {
-  REMOVE = 'REMOVE',
-  ADD = 'ADD',
-  UPDATE = 'UPDATE',
-}
 
 export interface LogDataResponseDTO {
   changes: EntityLogChanges[];

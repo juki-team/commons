@@ -1,4 +1,4 @@
-import type { EntityAccess, EntityMembersRank } from '../types/index.js';
+import type { EntityAccess, EntityMembersRank, MemberType } from '../enums/index.js';
 import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface EntityMembersDTO {
@@ -31,11 +31,6 @@ export interface DocumentUserResponseDTO {
   isOwner: boolean;
   isManager: boolean;
   isSpectator: boolean;
-}
-
-export enum MemberType {
-  USER = 'USER',
-  TEAM = 'TEAM',
 }
 
 export interface DocumentMemberResponseDTO extends UserOrganizationBasicInfoResponseDTO {

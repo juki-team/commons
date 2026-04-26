@@ -1,5 +1,12 @@
-import { JudgeType, ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../enums/index.js';
-import { CodeLanguage, RunnerType } from '../types/index.js';
+import {
+  CodeLanguage,
+  JudgeType,
+  ProblemScoringMode,
+  ProblemType,
+  ProblemVerdict,
+  RunnerType,
+  SubmissionRunStatus,
+} from '../enums/index.js';
 
 type Judge = {
   [Key in JudgeType]: {

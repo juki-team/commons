@@ -1,32 +1,5 @@
+import type { AssignmentType, MemberRole, TeamStatus, UserTeamStatus } from '../enums/index.js';
 import type { UserBasic, UserProfile } from './user.js';
-
-export enum TeamStatus {
-  ACTIVE = 'ACTIVE',
-  REPORTED = 'REPORTED',
-  ARCHIVED = 'ARCHIVED',
-}
-
-export enum UserTeamStatus {
-  PENDING = 'PENDING',
-  ACCEPTED = 'ACCEPTED',
-  REJECTED = 'REJECTED',
-}
-
-export enum AssignmentType {
-  READING_PDF = 'READING_PDF',
-  READING_WEB = 'READING_WEB',
-  SOLVE_JUKI_JUDGE_PROBLEM = 'SOLVE_JUKI_JUDGE_PROBLEM',
-  SOLVE_CODEFORCES_JUDGE_PROBLEM = 'SOLVE_CODEFORCES_JUDGE_PROBLEM',
-}
-
-export enum MemberRole {
-  COACH = 'COACH',
-  CO_COACH = 'CO_COACH',
-  CONTESTANT = 'CONTESTANT',
-  ATTENDEE = 'ATTENDEE',
-  RESERVE = 'RESERVE',
-  STAFF = 'STAFF',
-}
 
 export interface TeamMember {
   user: UserProfile;

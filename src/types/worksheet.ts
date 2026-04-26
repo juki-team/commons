@@ -1,18 +1,5 @@
-import type { SubmissionRunStatus } from '../enums/index.js';
-import type { CodeLanguage } from './code.js';
+import type { AspectRatio, CodeLanguage, QuizScoringMode, SubmissionRunStatus, Theme, WorksheetType } from '../enums/index.js';
 import type { EntityMembers } from './entity.js';
-import type { Theme } from './user.js';
-
-export enum WorksheetType {
-  JK_MD = 'JK_MD',
-  CODE_EDITOR = 'CODE_EDITOR',
-  LIST = 'LIST',
-  GRAPH = 'GRAPH',
-  QUIZ_PROBLEM = 'QUIZ_PROBLEM',
-  QUIZ_TEXT = 'QUIZ_TEXT',
-  QUIZ_OPTIONS = 'QUIZ_OPTIONS',
-  NEW_PAGE = 'NEW_PAGE',
-}
 
 export type BasicWorksheet = {
   id: string;
@@ -22,7 +9,7 @@ export type BasicWorksheet = {
 };
 
 export type JkmdSheet = BasicWorksheet & {
-  type: WorksheetType.JK_MD;
+  type: typeof WorksheetType.JK_MD;
   content: string;
 };
 
@@ -62,7 +49,7 @@ export type CodeEditorFiles<T> = { [key: string]: CodeEditorFile<T> };
 export type CodeEditorTestCases = { [key: string]: CodeEditorTestCase };
 
 export type CodeEditorSheet = BasicWorksheet & {
-  type: WorksheetType.CODE_EDITOR;
+  type: typeof WorksheetType.CODE_EDITOR;
   files: CodeEditorFiles<CodeLanguage>;
   testCases: CodeEditorTestCases;
   languages: CodeLanguage[];
@@ -70,31 +57,26 @@ export type CodeEditorSheet = BasicWorksheet & {
 };
 
 export type GraphSheet = BasicWorksheet & {
-  type: WorksheetType.GRAPH;
+  type: typeof WorksheetType.GRAPH;
   dots: string[];
 };
 
 export type QuizProblemSheet = BasicWorksheet & {
-  type: WorksheetType.QUIZ_PROBLEM;
+  type: typeof WorksheetType.QUIZ_PROBLEM;
   problemKey: string;
   languages: CodeLanguage[];
   height: number;
 };
 
 export type QuizTextSheet = BasicWorksheet & {
-  type: WorksheetType.QUIZ_TEXT;
+  type: typeof WorksheetType.QUIZ_TEXT;
   description: string;
   answer: string;
   inputType: 'text' | 'number' | 'textarea';
 };
 
-export enum QuizScoringMode {
-  TOTAL = 'TOTAL',
-  PARTIAL = 'PARTIAL',
-}
-
 export type QuizOptionsSheet = BasicWorksheet & {
-  type: WorksheetType.QUIZ_OPTIONS;
+  type: typeof WorksheetType.QUIZ_OPTIONS;
   description: string;
   options: { label: string; correct: boolean; id: string }[];
   multiple: boolean;
@@ -102,14 +84,14 @@ export type QuizOptionsSheet = BasicWorksheet & {
 };
 
 export type ListSheet = BasicWorksheet & {
-  type: WorksheetType.LIST;
+  type: typeof WorksheetType.LIST;
   header: string;
   content: (JkmdSheet | CodeEditorSheet | GraphSheet | QuizProblemSheet | QuizTextSheet | QuizOptionsSheet)[];
   children: ListSheet[];
 };
 
 export type NewPageSheet = BasicWorksheet & {
-  type: WorksheetType.NEW_PAGE;
+  type: typeof WorksheetType.NEW_PAGE;
 };
 
 export type BodyWorksheet =
@@ -121,17 +103,6 @@ export type BodyWorksheet =
   | QuizTextSheet
   | QuizOptionsSheet
   | NewPageSheet;
-
-export enum AspectRatio {
-  RATIO_21_9 = '21:9',
-  RATIO_20_9 = '20:9',
-  RATIO_16_9 = '16:9',
-  RATIO_16_10 = '16:10',
-  RATIO_3_2 = '3:2',
-  RATIO_4_3 = '4:3',
-  RATIO_5_4 = '5:4',
-  RATIO_1_1 = '1:1',
-}
 
 export interface WorksheetBaseDocument {
   key: string;

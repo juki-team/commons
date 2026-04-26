@@ -1,4 +1,5 @@
-import type { EntityState, FileContent, FileMemberRole, SummaryFileContent, UserBasic } from '../types/index.js';
+import type { EntityState, FileMemberRole } from '../enums/index.js';
+import type { FileContent, SummaryFileContent, UserBasic } from '../types/index.js';
 import type { DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity.js';
 
 export interface FileBasic {

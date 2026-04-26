@@ -1,4 +1,5 @@
-import type { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassCycleTag, EntityState } from '../types/index.js';
+import type { AssignmentClass, EntityState } from '../enums/index.js';
+import type { AssignmentBasicInfo, ClassBaseDocument, ClassCycleTag } from '../types/index.js';
 import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
 import type { UserOrganizationBasicInfoResponseDTO, UserSummaryListResponseDTO } from './user.js';
 
@@ -20,25 +21,25 @@ export interface ClassSummaryListResponseDTO {
 }
 
 export interface ContestAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.CONTEST;
+  type: typeof AssignmentClass.CONTEST;
   contestKey: string;
   numberProblems: number;
 }
 
 export interface CourseAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.COURSE;
+  type: typeof AssignmentClass.COURSE;
   courseKey: string;
   numberLessons: number;
 }
 
 export interface WorksheetAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.WORKSHEET;
+  type: typeof AssignmentClass.WORKSHEET;
   worksheetKey: string;
   numberPages: number;
 }
 
 export interface NoneAssignmentSessionCycleClassDataResponseDTO extends AssignmentBasicInfo {
-  type: AssignmentClass.NONE;
+  type: typeof AssignmentClass.NONE;
 }
 
 export type AssignmentSessionCycleClassDataResponseDTO =
@@ -94,17 +95,17 @@ export interface ClassCyclesDataResponseDTO extends ClassSummaryListResponseDTO 
 }
 
 export interface AssignmentContestUpsert extends AssignmentBasicInfo {
-  type: AssignmentClass.CONTEST;
+  type: typeof AssignmentClass.CONTEST;
   contestKey: string;
 }
 
 export interface AssignmentCourseUpsert extends AssignmentBasicInfo {
-  type: AssignmentClass.COURSE;
+  type: typeof AssignmentClass.COURSE;
   courseKey: string;
 }
 
 export interface AssignmentWorksheetUpsert extends AssignmentBasicInfo {
-  type: AssignmentClass.WORKSHEET;
+  type: typeof AssignmentClass.WORKSHEET;
   worksheetKey: string;
 }
 

@@ -1,5 +1,16 @@
-import type { ContestRole, CourseRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../enums/index.js';
-import { ProfileSetting } from './profile.js';
+import type {
+  ContestRole,
+  CourseRole,
+  DataViewMode,
+  Language,
+  MenuViewMode,
+  ProblemRole,
+  ProfileSetting,
+  SystemRole,
+  TeamRole,
+  Theme,
+  UserRole,
+} from '../enums/index.js';
 
 export interface UserBasicInfo {
   nickname: string;
@@ -22,26 +33,6 @@ export interface UserProfile extends UserBasic {
 
 export type UserHandles = { [key: string]: string };
 
-export enum Language {
-  ES = 'ES',
-  EN = 'EN',
-}
-
-export enum Theme {
-  LIGHT = 'LIGHT',
-  DARK = 'DARK',
-}
-
-export enum DataViewMode {
-  CARDS = 'CARDS',
-  ROWS = 'ROWS',
-}
-
-export enum MenuViewMode {
-  HORIZONTAL = 'HORIZONTAL',
-  VERTICAL = 'VERTICAL',
-}
-
 export type UserSettings = {
   [ProfileSetting.LANGUAGE]: Language;
   [ProfileSetting.THEME]: Theme;
@@ -51,18 +42,6 @@ export type UserSettings = {
   [ProfileSetting.TIME_ZONE]: string;
   [ProfileSetting.FONT_SIZE]: number;
 };
-
-export enum Role {
-  SUPER_ADMIN = 'SUPER_ADMIN',
-  ADMIN = 'ADMIN',
-  MASTER = 'MASTER',
-  MANAGER = 'MANAGER',
-  CREATOR = 'CREATOR',
-  REGULAR = 'REGULAR',
-  LIMITED = 'LIMITED',
-  GUEST = 'GUEST',
-  RESTRICTED = 'RESTRICTED',
-}
 
 export type UserRoles = {
   systemRole: SystemRole;

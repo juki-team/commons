@@ -1,5 +1,6 @@
+import type { EntityState } from '../enums/index.js';
 import type { ClassCycleSessionAssignments } from './assignment.js';
-import type { EntityMembers, EntityState } from './entity.js';
+import type { EntityMembers } from './entity.js';
 
 interface ClassCycleSession {
   id: string;

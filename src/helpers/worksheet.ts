@@ -1,17 +1,16 @@
 import { NEW_PAGE_SHEET } from '../constants/worksheet.js';
-import {
-  type BasicWorksheet,
-  type BodyWorksheet,
-  type CodeEditorSheet,
-  type JkmdSheet,
-  Judge,
-  type NewPageSheet,
-  type QuizOptionsSheet,
-  type QuizProblemSheet,
-  type QuizTextSheet,
-  type SummaryWorksheetsInPages,
-  type WorksheetsInPages,
-  WorksheetType,
+import { Judge, WorksheetType } from '../enums/index.js';
+import type {
+  BasicWorksheet,
+  BodyWorksheet,
+  CodeEditorSheet,
+  JkmdSheet,
+  NewPageSheet,
+  QuizOptionsSheet,
+  QuizProblemSheet,
+  QuizTextSheet,
+  SummaryWorksheetsInPages,
+  WorksheetsInPages,
 } from '../types/index.js';
 
 export const getWorksheetsInPages = (initialSheets: BodyWorksheet[]) => {

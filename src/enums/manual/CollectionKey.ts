@@ -1,0 +1,25 @@
+export const CollectionKey = {
+  COMPANY: 'C',
+  USER: 'U',
+  PROBLEM: 'P',
+  CLASS: 'K',
+  CLASS_ASSIGNMENT: 'KA',
+  CONTEST: 'T',
+  SCOREBOARD: 'B',
+  SCOREBOARD_EVENTS: 'BE',
+  COURSE: 'R',
+  FILE: 'F',
+  GROUP: 'G',
+  JUDGE: 'J',
+  WORKSHEET: 'W',
+  WORKSHEET_SUBMISSIONS: 'WS',
+  SUBMIT: 'S',
+  LOCALE: 'L',
+  COMMENT: 'M',
+  EXCALIDRAW: 'E',
+  MARKDOWN: 'MD',
+  DOCUMENT_TEMPLATE: 'DT',
+  MERMAID: 'MM',
+} as const;
+
+export type CollectionKey = (typeof CollectionKey)[keyof typeof CollectionKey];

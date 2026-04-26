@@ -1,5 +1,4 @@
-import type { WorkingIn } from '../enums/index.js';
-import type { Judge } from '../types/index.js';
+import type { Judge, WorkingIn } from '../enums/index.js';
 
 export type CookieSameSite = 'Strict' | 'Lax' | 'None';
 

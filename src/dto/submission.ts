@@ -1,5 +1,12 @@
-import type { ProblemScoringMode, ProblemType, ProblemVerdict, SubmissionRunStatus } from '../enums/index.js';
-import type { CodeLanguage, ContestUser, DataLog, EntityState } from '../types/index.js';
+import type {
+  CodeLanguage,
+  EntityState,
+  ProblemScoringMode,
+  ProblemType,
+  ProblemVerdict,
+  SubmissionRunStatus,
+} from '../enums/index.js';
+import type { ContestUser, DataLog } from '../types/index.js';
 import type {
   EntityCompanySummaryListResponseDTO,
   EntityCompanySystemSummaryListResponseDTO,

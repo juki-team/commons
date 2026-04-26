@@ -1,4 +1,4 @@
-import { ErrorCode } from '../types/index.js';
+import { ErrorCode } from '../enums/index.js';
 
 export const getErrorMessage = (code: ErrorCode): string => code.toLowerCase().replace(/_/g, ' ');
 

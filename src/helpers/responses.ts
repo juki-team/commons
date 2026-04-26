@@ -1,11 +1,6 @@
 import { getErrorMessage } from '../constants/index.js';
-import {
-  type ContentResponse,
-  type ContentsMeta,
-  type ContentsResponse,
-  ErrorCode,
-  type ErrorResponse,
-} from '../types/index.js';
+import { ErrorCode } from '../enums/index.js';
+import type { ContentResponse, ContentsMeta, ContentsResponse, ErrorResponse } from '../types/index.js';
 import { consoleError } from './console.js';
 import { JkError } from './errors.js';
 import { isStringJson } from './json.js';

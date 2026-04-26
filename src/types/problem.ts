@@ -1,5 +1,4 @@
-import type { ProblemScoringMode, ProblemType } from '../enums/index.js';
-import type { CodeLanguage } from './code.js';
+import type { CodeLanguage, ProblemScoringMode, ProblemType } from '../enums/index.js';
 import type { EntityMembers } from './entity.js';
 import type { ProblemTestCase } from './services.js';
 import type { TextLanguage } from './text.js';
@@ -9,22 +8,6 @@ export interface TestCase {
   group: number;
   input: boolean;
   output: boolean;
-}
-
-export enum TypeTestCase {
-  INPUT = 'INPUT',
-  OUTPUT = 'OUTPUT',
-}
-
-export enum ProblemInput {
-  STANDARD = 'STANDARD',
-  INTERACTIVE = 'INTERACTIVE',
-}
-
-export enum ProblemOutput {
-  STANDARD = 'STANDARD',
-  DYNAMIC = 'DYNAMIC',
-  INTERACTIVE = 'INTERACTIVE',
 }
 
 export type ProblemSettingsPointsByGroups = {

@@ -1,4 +1,5 @@
-import { EntityAccess, type EntityMembers, EntityMembersRank } from '../types/index.js';
+import { EntityAccess, EntityMembersRank } from '../enums/index.js';
+import type { EntityMembers } from '../types/index.js';
 
 export const getDocumentAccess = (
   document:

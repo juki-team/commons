@@ -1,5 +1,5 @@
-import type { GroupType } from '../enums/index.js';
-import type { EntityMembers, EntityState } from './entity.js';
+import type { EntityState, GroupType } from '../enums/index.js';
+import type { EntityMembers } from './entity.js';
 
 export interface GroupBaseDocument {
   name: string;
