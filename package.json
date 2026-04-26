@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -29,7 +29,10 @@
       "import": "./dist/types/index.js"
     }
   },
-  "files": ["dist", "biome.shared.json"],
+  "files": [
+    "dist",
+    "biome.shared.json"
+  ],
   "repository": "https://github.com/juki-team/commons.git",
   "publishConfig": {
     "access": "public",
