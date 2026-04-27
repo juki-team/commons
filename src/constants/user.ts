@@ -28,7 +28,7 @@ export const EMPTY_USER_PERMISSIONS: UserPermissionsResponseDTO = {
     create: false,
     manage: false,
   },
-  company: {
+  organization: {
     manage: false,
     administrate: false,
   },

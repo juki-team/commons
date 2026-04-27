@@ -16,12 +16,12 @@ export interface ProblemJudgeSummaryListResponseDTO
   isMain: boolean;
 }
 
-export interface EntityCompanySummaryListResponseDTO {
+export interface EntityOrganizationSummaryListResponseDTO {
   key: string;
 }
 
 export interface ProblemBasicSummaryListResponseDTO {
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
   judge: ProblemJudgeSummaryListResponseDTO;
   key: string;
   name: string;
@@ -54,7 +54,7 @@ export interface ProblemJudgeSystemSummaryListResponseDTO extends ProblemJudgeSu
   id: string;
 }
 
-export interface EntityCompanySystemSummaryListResponseDTO extends EntityCompanySummaryListResponseDTO {
+export interface EntityOrganizationSystemSummaryListResponseDTO extends EntityOrganizationSummaryListResponseDTO {
   name: string;
   id: string;
 }
@@ -64,7 +64,7 @@ export interface ProblemSystemSummaryListResponseDTO extends ProblemSummaryListR
   id: string;
   owner: EntityOwnerSystemSummaryListResponseDTO;
   judge: ProblemJudgeSystemSummaryListResponseDTO;
-  company: EntityCompanySystemSummaryListResponseDTO;
+  organization: EntityOrganizationSystemSummaryListResponseDTO;
   creationTimestamp: number;
   updateTimestamp: number;
 }

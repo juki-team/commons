@@ -18,9 +18,9 @@ export interface EcsTask {
 }
 
 export interface EcsTaskSystemSummaryListResponseDTO extends EcsTask {
-  // isLowRunnerCompanyKeys: string[],
-  isHighRunnerCompanyKeys: string[];
-  // isRunnerListenerCompanyKeys: string[],
+  // isLowRunnerOrganizationKeys: string[],
+  isHighRunnerOrganizationKeys: string[];
+  // isRunnerListenerOrganizationKeys: string[],
 }
 
 export interface EcsTaskDefinition {
@@ -33,9 +33,9 @@ export interface EcsTaskDefinition {
 }
 
 export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDefinition {
-  // isLowRunnerCompanyKeys: string[],
-  isHighRunnerCompanyKeys: string[];
-  // isRunnerListenerCompanyKeys: string[],
+  // isLowRunnerOrganizationKeys: string[],
+  isHighRunnerOrganizationKeys: string[];
+  // isRunnerListenerOrganizationKeys: string[],
 }
 
 export interface Ec2Instance {

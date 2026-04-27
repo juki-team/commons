@@ -1,8 +1,8 @@
 import { OrganizationPlan } from '../enums/index.js';
 
-export const JUKI_APP_COMPANY_KEY = 'juki-app';
+export const JUKI_APP_ORGANIZATION_KEY = 'juki-app';
 
-export const COMPANY_PLAN: { [Key in OrganizationPlan]: { value: OrganizationPlan; label: string; description: string } } = {
+export const ORGANIZATION_PLAN: { [Key in OrganizationPlan]: { value: OrganizationPlan; label: string; description: string } } = {
   [OrganizationPlan.FREE]: {
     value: OrganizationPlan.FREE,
     label: 'free',

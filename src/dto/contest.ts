@@ -12,8 +12,8 @@ import type {
 } from '../types/index.js';
 import type { EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity.js';
 import type {
-  EntityCompanySummaryListResponseDTO,
-  EntityCompanySystemSummaryListResponseDTO,
+  EntityOrganizationSummaryListResponseDTO,
+  EntityOrganizationSystemSummaryListResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
   ProblemSummaryListResponseDTO,
 } from './problem.js';
@@ -37,7 +37,7 @@ export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'mem
 export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
   user: ContestUser;
   owner: UserOrganizationBasicInfoResponseDTO;
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
   settings: Pick<
     ContestSettings,
     'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty' | 'upsolvingEnabled'
@@ -57,7 +57,7 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
   state: EntityState;
   id: string;
   owner: EntityOwnerSystemSummaryListResponseDTO;
-  company: EntityCompanySystemSummaryListResponseDTO;
+  organization: EntityOrganizationSystemSummaryListResponseDTO;
   creationTimestamp: number;
   updateTimestamp: number;
 }
@@ -68,7 +68,7 @@ export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblem,
   prerequisites: UpsertContestProblemPrerequisiteDTO;
   judge: ProblemJudgeSummaryListResponseDTO;
   tags: string[];
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
 }
 
 export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {

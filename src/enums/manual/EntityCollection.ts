@@ -1,5 +1,5 @@
 export const EntityCollection = {
-  COMPANY: 'COMPANY',
+  ORGANIZATION: 'ORGANIZATION',
   PROBLEM: 'PROBLEM',
   CONTEST: 'CONTEST',
   JUDGE: 'JUDGE',

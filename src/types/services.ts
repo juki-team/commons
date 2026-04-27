@@ -89,14 +89,14 @@ export type ProblemSampleCase = { input: string; output: string };
 //   userNickname: string,
 // }
 
-// export type JudgingCompanyDataType = {
-//   companyId: string,
-//   // companyHighPerformanceRunnerTaskDefinition: string,
-//   // companyHighPerformanceRunnerMinTasks: number,
-//   // companyHighPerformanceRunnerMaxTasks: number,
-//   // companyLowPerformanceRunnerTaskDefinition: string,
-//   // companyLowPerformanceRunnerMinTasks: number,
-//   // companyLowPerformanceRunnerMaxTasks: number,
+// export type JudgingOrganizationDataType = {
+//   organizationId: string,
+//   // organizationHighPerformanceRunnerTaskDefinition: string,
+//   // organizationHighPerformanceRunnerMinTasks: number,
+//   // organizationHighPerformanceRunnerMaxTasks: number,
+//   // organizationLowPerformanceRunnerTaskDefinition: string,
+//   // organizationLowPerformanceRunnerMinTasks: number,
+//   // organizationLowPerformanceRunnerMaxTasks: number,
 // }
 
 // export type JudgingContestDataType = {

@@ -6,8 +6,8 @@ export const getAssignmentUserCommentKey = (
   sessionKey: string,
   assignmentKey: string,
   userNickname: string,
-  userCompany: string,
+  userOrganization: string,
 ) =>
-  `class:${classKey}|cycle:${cycleKey}|session:${sessionKey}|assignment:${assignmentKey}|user_nickname:${userNickname}|user_company:${userCompany}`;
+  `class:${classKey}|cycle:${cycleKey}|session:${sessionKey}|assignment:${assignmentKey}|user_nickname:${userNickname}|user_organization:${userOrganization}`;
 export const getProblemCommentKey = (problemKey: string) => `problem:${problemKey}`;
 export const getContestCommentKey = (contestKey: string) => `contest:${contestKey}`;

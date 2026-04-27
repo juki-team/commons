@@ -1,5 +1,5 @@
 export const CollectionKey = {
-  COMPANY: 'C',
+  ORGANIZATION: 'C',
   USER: 'U',
   PROBLEM: 'P',
   CLASS: 'K',

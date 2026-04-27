@@ -32,8 +32,8 @@ export interface EntityOwnerDocument {
   ownerUserId: string;
 }
 
-export interface EntityCompanyDocument {
-  companyId: string;
+export interface EntityOrganizationDocument {
+  organizationId: string;
 }
 
 export interface EntityTimestampsDocument {
@@ -65,7 +65,7 @@ export interface EntityLogsDocument {
 }
 
 export type NewEntityDocument<T> = T &
-  EntityCompanyDocument &
+  EntityOrganizationDocument &
   EntityOwnerDocument &
   EntityTimestampsDocument &
   EntityStateDocument &
@@ -73,11 +73,11 @@ export type NewEntityDocument<T> = T &
 
 export type CreateEntityDocument<T> = Omit<
   T,
-  '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs'
+  '_id' | 'createdAt' | 'updatedAt' | 'organizationId' | 'ownerUserId' | 'state' | 'logs'
 >;
 
 export type UpdateEntityDocument<T> = Partial<
-  Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs' | 'key'>
+  Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'organizationId' | 'ownerUserId' | 'state' | 'logs' | 'key'>
 >;
 
 export interface LogDataResponseDTO {

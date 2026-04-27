@@ -8,7 +8,7 @@ export interface OrganizationJudgeResponseDTO {
   keyPrefix: string;
 }
 
-export interface OrganizationTrustedCompanyResponseDTO {
+export interface OrganizationTrustedOrganizationResponseDTO {
   key: string;
   name: string;
 }
@@ -23,7 +23,7 @@ export interface OrganizationResponseDTO extends EmailDataResponseDTO {
   plan: OrganizationPlan;
   startTimestamp: number;
   judges: OrganizationJudgeResponseDTO[];
-  trustedCompanies: OrganizationTrustedCompanyResponseDTO[];
+  trustedOrganizations: OrganizationTrustedOrganizationResponseDTO[];
   styles: OrganizationStylesResponseDTO;
 }
 

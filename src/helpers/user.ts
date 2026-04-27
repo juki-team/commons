@@ -1,12 +1,12 @@
 import type { ClientId, RecordId } from '../types/index.js';
 
-export const getUserKey = (userNickname: string, userCompanyKey: string) => {
-  return `${userNickname}|${userCompanyKey}`;
+export const getUserKey = (userNickname: string, userOrganizationKey: string) => {
+  return `${userNickname}|${userOrganizationKey}`;
 };
 
 export const getParamsOfUserKey = (userKey: string) => {
-  const [userNickname, userCompanyKey] = userKey.split('|');
-  return { userNickname, userCompanyKey };
+  const [userNickname, userOrganizationKey] = userKey.split('|');
+  return { userNickname, userOrganizationKey };
 };
 
 export const getClientId = (sessionId: RecordId, uiId: string): ClientId => {

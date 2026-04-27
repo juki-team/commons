@@ -4,7 +4,7 @@ export const TelemetryType = {
   EC2: 'EC2',
   ECS_TASK: 'ECS_TASK',
   INSTANCES: 'INSTANCES',
-  USER_SESSION: 'USER_SESSION', // company-id/user-id: { timestamp: number, href: string, uiId: string
+  USER_SESSION: 'USER_SESSION', // organization-id/user-id: { timestamp: number, href: string, uiId: string
 } as const;
 
 export type TelemetryType = (typeof TelemetryType)[keyof typeof TelemetryType];

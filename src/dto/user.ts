@@ -1,17 +1,17 @@
 import type { ContestRole, CourseRole, FileRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../enums/index.js';
 import type { RecordId, UserBasicInfo, UserHandles, UserSettings } from '../types/index.js';
 import type { OrganizationStylesResponseDTO } from './organization.js';
-import type { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem.js';
+import type { EntityOrganizationSummaryListResponseDTO, EntityOrganizationSystemSummaryListResponseDTO } from './problem.js';
 
 export interface EntityOwnerSystemSummaryListResponseDTO {
   id: string;
   nickname: string;
   imageUrl: string;
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
 }
 
 export interface UserOrganizationBasicInfoResponseDTO extends UserBasicInfo {
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
 }
 
 export interface UserSummaryListResponseDTO extends UserOrganizationBasicInfoResponseDTO {
@@ -34,7 +34,7 @@ export interface UserSystemSummaryListResponseDTO extends UserSummaryListRespons
   courseRole: CourseRole;
   canResetPassword: boolean;
   owner: EntityOwnerSystemSummaryListResponseDTO;
-  company: EntityCompanySystemSummaryListResponseDTO;
+  organization: EntityOrganizationSystemSummaryListResponseDTO;
   createdAt: number;
   updatedAt: number;
   archivedAt: number | null;
@@ -73,7 +73,7 @@ export type UserPermissionsResponseDTO = {
     create: boolean;
     manage: boolean;
   };
-  company: {
+  organization: {
     manage: boolean;
     administrate: boolean;
   };
@@ -89,10 +89,10 @@ export type UserPing = {
   settings: UserSettings;
   isLogged: boolean;
   sessionId: RecordId;
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
 };
 
-export type CompanyPingResponseDTO = {
+export type OrganizationPingResponseDTO = {
   key: string;
   contactEmail: string;
   contactCellPhoneNumber: string;
@@ -105,7 +105,7 @@ export type CompanyPingResponseDTO = {
 
 export interface PingResponseDTO {
   user: UserPing;
-  company: CompanyPingResponseDTO;
+  organization: OrganizationPingResponseDTO;
 }
 
 export interface UserRankResponseDTO {
@@ -116,5 +116,5 @@ export interface UserRankResponseDTO {
   institution: string;
   problemPoints: number;
   competitionPoints: number;
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
 }

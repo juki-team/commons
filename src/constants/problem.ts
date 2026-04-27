@@ -72,7 +72,7 @@ export const PROBLEM_TYPE: { [Key in ProblemType]: { value: ProblemType; label: 
       "The resulting user's executable does I/O standard input and output. " +
       "The output produced by the contestant's program is saved. " +
       'The problem editor save a single source code in C++ 17. ' +
-      "The editor's source code can read judge input filepath argv[1], judge output filepath argv[2], user's output filepath argv[3], user's error filepath argv[4], user's log filepath argv[5], user's source filepath argv[6] and submission information filepath argv[7] (companyId, submitId, runId, userId, contestId, problemId, language, userNickname, timestamp). " +
+      "The editor's source code can read judge input filepath argv[1], judge output filepath argv[2], user's output filepath argv[3], user's error filepath argv[4], user's log filepath argv[5], user's source filepath argv[6] and submission information filepath argv[7] (organizationId, submitId, runId, userId, contestId, problemId, language, userNickname, timestamp). " +
       'The resulting editor\'s executable should be "AC" or a number between 1 and 100 for partial accepted',
   },
 };

@@ -4,7 +4,7 @@ export type GroupByTimestampKey = 'year' | 'month' | 'day' | 'hour' | 'minute' |
 
 export type StatisticsGrouped<T> = Partial<Record<GroupByTimestampKey, Record<number, T>>>;
 
-export interface StatisticsCompanyResponseDTO {
+export interface StatisticsOrganizationResponseDTO {
   codeEditorRuns: StatisticsGrouped<number>;
   judgingRuns: StatisticsGrouped<number>;
   reJudgingRuns: StatisticsGrouped<number>;

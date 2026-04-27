@@ -8,8 +8,8 @@ import type {
 } from '../enums/index.js';
 import type { ContestUser, DataLog } from '../types/index.js';
 import type {
-  EntityCompanySummaryListResponseDTO,
-  EntityCompanySystemSummaryListResponseDTO,
+  EntityOrganizationSummaryListResponseDTO,
+  EntityOrganizationSystemSummaryListResponseDTO,
   ProblemJudgeSummaryListResponseDTO,
 } from './problem.js';
 import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
@@ -23,7 +23,7 @@ export interface SubmissionProblemSummaryListResponseDTO {
   type: ProblemType;
   timeLimit: number;
   memoryLimit: number;
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
   judge: ProblemJudgeSummaryListResponseDTO;
 }
 
@@ -34,7 +34,7 @@ export interface SubmissionContestSummaryListResponseDTO {
   isManager: boolean;
   problemIndex: string;
   problemColor: string;
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
   isFrozen: boolean;
   isQuiet: boolean;
   isUpsolving: boolean;
@@ -68,7 +68,7 @@ export interface SubmissionSummaryListResponseDTO {
       processed: number;
     };
   };
-  company: EntityCompanySummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDTO;
 }
 
 export interface SubmissionProblemSystemSummaryListResponseDTO extends SubmissionProblemSummaryListResponseDTO {
@@ -83,7 +83,7 @@ export interface SubmissionContestSystemSummaryListResponseDTO extends Submissio
 export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummaryListResponseDTO {
   problem: SubmissionProblemSystemSummaryListResponseDTO;
   contest: SubmissionContestSystemSummaryListResponseDTO | null;
-  company: EntityCompanySystemSummaryListResponseDTO;
+  organization: EntityOrganizationSystemSummaryListResponseDTO;
   creationTimestamp: number;
   updateTimestamp: number;
   state: EntityState;

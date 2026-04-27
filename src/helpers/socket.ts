@@ -242,15 +242,15 @@ export const isUserMessageWebSocketResponseEventDTO = (event: unknown): event is
   if (!isWebSocketResponseEventDTO(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   const user = v.user as Record<string, unknown> | undefined;
-  const company = user?.company as Record<string, unknown> | undefined;
+  const organization = user?.organization as Record<string, unknown> | undefined;
   return (
     event.event === WebSocketResponseEvent.USER_MESSAGE &&
     typeof user?.nickname === 'string' &&
     !!user.nickname &&
     typeof user?.imageUrl === 'string' &&
     !!user.imageUrl &&
-    typeof company?.key === 'string' &&
-    !!company.key &&
+    typeof organization?.key === 'string' &&
+    !!organization.key &&
     !!v.content
   );
 };

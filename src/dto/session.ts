@@ -1,4 +1,4 @@
-import type { EntityCompanySystemSummaryListResponseDTO } from './problem.js';
+import type { EntityOrganizationSystemSummaryListResponseDTO } from './problem.js';
 import type { UserBasicResponseDTO } from './user.js';
 
 export interface SessionBasicResponseDTO {
@@ -13,5 +13,5 @@ export interface SessionBasicResponseDTO {
 export interface UserSessionSystemSummaryListResponseDTO extends SessionBasicResponseDTO {
   userId: string;
   user: UserBasicResponseDTO;
-  company: EntityCompanySystemSummaryListResponseDTO;
+  organization: EntityOrganizationSystemSummaryListResponseDTO;
 }

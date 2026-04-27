@@ -1,5 +1,4 @@
 export * from './commons.js';
-export * from './company.js';
 export * from './contest.js';
 export * from './course.js';
 export * from './date.js';
@@ -8,6 +7,7 @@ export * from './email.js';
 export * from './entity.js';
 export * from './file.js';
 export * from './judge.js';
+export * from './organization.js';
 export * from './problem.js';
 export * from './routing.js';
 export * from './services.js';
