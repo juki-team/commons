@@ -1,4 +1,4 @@
-import type { CodeLanguage, ProblemScoringMode, ProblemType } from '../enums/index.js';
+import type { CodeLanguage, EntityAccess, ProblemScoringMode, ProblemType } from '../enums/index.js';
 import type { EntityMembers } from './entity.js';
 import type { ProblemTestCase } from './services.js';
 import type { TextLanguage } from './text.js';
@@ -41,11 +41,8 @@ export type ProblemSettings = {
   pointsByGroups: ProblemSettingsPointsByGroups;
 };
 
-export type ProblemUser = {
-  isOwner: boolean;
-  isAdministrator: boolean;
-  isManager: boolean;
-  isSpectator: boolean;
+export type ProblemUserDTO = {
+  role: EntityAccess;
   solved: boolean;
   tried: boolean;
 };

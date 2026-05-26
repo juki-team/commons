@@ -1,4 +1,4 @@
-import type { EntityAccess, EntityMembersRank, MemberType } from '../enums/index.js';
+import type { EntityAccess, EntityMembersRank, EntityRole, MemberType, ShareLinkVisibility } from '../enums/index.js';
 import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface EntityMembersDTO {
@@ -70,4 +70,55 @@ export interface MetadataResponseDTO {
   title: string;
   description: string;
   cover: string;
+}
+
+/**
+ * Subject of a ReBAC tuple — discriminated union by subject type.
+ * Mirrors the EntitySubjectType enum in the database.
+ *
+ * - USER:   a specific user (subjectType=USER, subjectId=userId)
+ * - PUBLIC: wildcard — represents "everyone" (subjectType=PUBLIC, subjectId=0)
+ * - GROUP can be added later when group subjects are surfaced.
+ */
+export type EntityGrantSubjectDTO =
+  | { type: 'USER'; id: string; user: UserOrganizationBasicInfoResponseDTO }
+  | { type: 'PUBLIC' };
+
+/**
+ * One ReBAC tuple: (relation, subject) for a single resource.
+ * Pure tuple representation — modal renders user lists by filtering on subject.type.
+ */
+export interface EntityGrantDTO {
+  role: EntityRole;
+  subject: EntityGrantSubjectDTO;
+  joinedAt: number;
+  sourceLinkId?: string; // set when this grant was created via a share link
+}
+
+/**
+ * Summary of a share link, for display in the share modal.
+ * Create / revoke / list links use their own endpoints.
+ */
+export interface EntityShareLinkSummaryDTO {
+  id: string;
+  token: string;
+  role: EntityRole;
+  visibility: ShareLinkVisibility;
+  allowedUserIds: string[];
+  expiresAt: number | null;
+  maxUses: number | null;
+  useCount: number;
+  isActive: boolean;
+  createdBy: string;
+  createdAt: number;
+}
+
+/**
+ * Full ReBAC view of a resource — consumed by the share/edit modal.
+ * `grants` includes PUBLIC subjects too; the parent `access` field already
+ * encodes the same fact as one of PRIVATE/RESTRICTED/PUBLIC/EXPOSED.
+ */
+export interface EntitySharingResponseDTO {
+  grants: EntityGrantDTO[];
+  links: EntityShareLinkSummaryDTO[];
 }

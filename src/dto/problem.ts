@@ -4,10 +4,10 @@ import type {
   ProblemBaseDocument,
   ProblemSettings,
   ProblemStatement,
-  ProblemUser,
+  ProblemUserDTO,
   TextLanguage,
 } from '../types/index.js';
-import type { EntityMembersDTO } from './entity.js';
+import type { EntityMembersDTO, EntitySharingResponseDTO } from './entity.js';
 import type { EntityOwnerSystemSummaryListResponseDTO, UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface ProblemJudgeSummaryListResponseDTO
@@ -33,8 +33,9 @@ export interface ProblemBasicSummaryListResponseDTO {
 }
 
 export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
-  user: ProblemUser;
+  user: ProblemUserDTO;
   owner: UserOrganizationBasicInfoResponseDTO;
+  sharing: EntitySharingResponseDTO;
 }
 
 export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
