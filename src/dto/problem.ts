@@ -7,7 +7,7 @@ import type {
   ProblemUser,
   TextLanguage,
 } from '../types/index.js';
-import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
+import type { EntityMembersDTO } from './entity.js';
 import type { EntityOwnerSystemSummaryListResponseDTO, UserOrganizationBasicInfoResponseDTO } from './user.js';
 
 export interface ProblemJudgeSummaryListResponseDTO
@@ -21,7 +21,6 @@ export interface EntityOrganizationSummaryListResponseDTO {
 }
 
 export interface ProblemBasicSummaryListResponseDTO {
-  organization: EntityOrganizationSummaryListResponseDTO;
   judge: ProblemJudgeSummaryListResponseDTO;
   key: string;
   name: string;
@@ -63,7 +62,6 @@ export interface ProblemSystemSummaryListResponseDTO extends ProblemSummaryListR
   id: string;
   owner: EntityOwnerSystemSummaryListResponseDTO;
   judge: ProblemJudgeSystemSummaryListResponseDTO;
-  organization: EntityOrganizationSystemSummaryListResponseDTO;
   creationTimestamp: number;
   updateTimestamp: number;
 }
