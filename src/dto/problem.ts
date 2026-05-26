@@ -31,7 +31,6 @@ export interface ProblemBasicSummaryListResponseDTO {
     scoringMode: ProblemScoringMode;
     type: ProblemType;
   };
-  members: EntityMembersResponseDTO;
   externalUrl: string;
 }
 
