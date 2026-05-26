@@ -12,7 +12,6 @@ import type { EntityOwnerSystemSummaryListResponseDTO, UserOrganizationBasicInfo
 
 export interface ProblemJudgeSummaryListResponseDTO
   extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
-  isCustom: boolean;
   isMain: boolean;
 }
 
