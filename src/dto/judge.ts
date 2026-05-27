@@ -11,8 +11,8 @@ export interface JudgeSummaryListResponseDTO
 
 export interface JudgeSystemSummaryListResponseDTO extends JudgeSummaryListResponseDTO {
   id: string;
-  creationTimestamp: number;
-  updateTimestamp: number;
+  createdAt: number;
+  updatedAt: number;
   getLoginUrl: string;
   getProfileUrl: string;
   getSubmitUrl: string;

@@ -199,8 +199,8 @@ export const isWebSocketResponseEventDTO = (event: unknown): event is WebSocketR
     Object.values(WebSocketResponseEvent).includes(v.event as WebSocketResponseEvent) &&
     typeof v.key === 'string' &&
     typeof v.connectionId === 'string' &&
-    typeof v.messageTimestamp === 'number' &&
-    !!v.messageTimestamp
+    typeof v.createdAt === 'number' &&
+    !!v.createdAt
   );
 };
 

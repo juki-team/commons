@@ -30,7 +30,7 @@ export interface SubmissionProblemSummaryListResponseDTO {
 export interface SubmissionContestSummaryListResponseDTO {
   key: string; // foreign
   name: string; // foreign
-  settingsStartTimestamp: number;
+  settingsStartsAt: number;
   isManager: boolean;
   problemIndex: string;
   problemColor: string;
@@ -84,8 +84,8 @@ export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummar
   problem: SubmissionProblemSystemSummaryListResponseDTO;
   contest: SubmissionContestSystemSummaryListResponseDTO | null;
   organization: EntityOrganizationSystemSummaryListResponseDTO;
-  creationTimestamp: number;
-  updateTimestamp: number;
+  createdAt: number;
+  updatedAt: number;
   state: EntityState;
 }
 

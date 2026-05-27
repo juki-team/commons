@@ -28,7 +28,7 @@ export interface CodeEditorTestCase extends SubmissionTestCase {
   sample: boolean;
   hidden: boolean;
   index: number;
-  messageTimestamp: number;
+  createdAt: number;
 }
 
 export type CodeEditorFile<T> = {

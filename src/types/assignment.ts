@@ -6,8 +6,8 @@ export interface AssignmentBasicInfo {
   index: number;
   type: AssignmentClass;
   points: number;
-  startTimestamp: number;
-  endTimestamp: number;
+  startsAt: number;
+  endsAt: number;
   title: string;
   content: BodyWorksheet[];
   tags: string[];

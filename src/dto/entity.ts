@@ -39,8 +39,8 @@ export interface DocumentMemberResponseDTO extends UserOrganizationBasicInfoResp
 
 export interface DocumentMemberWithTimestampsResponseDTO extends DocumentMemberResponseDTO {
   type: MemberType;
-  lastVisitTimestamp: number;
-  joinedAtTimestamp: number;
+  lastVisitedAt: number;
+  joinedAt: number;
 }
 
 export interface EntityMembersWithTimestampsResponseDTO {

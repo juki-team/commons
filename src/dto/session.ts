@@ -5,9 +5,9 @@ export interface SessionBasicResponseDTO {
   id: string;
   deviceName: string;
   osName: string;
-  validUntilTimestamp: number;
-  creationTimestamp: number;
-  updateTimestamp: number;
+  expiresAt: number;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export interface UserSessionSystemSummaryListResponseDTO extends SessionBasicResponseDTO {

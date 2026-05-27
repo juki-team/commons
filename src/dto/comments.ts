@@ -3,8 +3,8 @@ import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
 export type ReactionUserResponseData = {
   key: string;
   user: UserOrganizationBasicInfoResponseDTO;
-  createdTimestamp: number;
-  updatedTimestamp: number;
+  createdAt: number;
+  updatedAt: number;
 };
 
 export interface CommentDataResponseDTO {
@@ -18,6 +18,6 @@ export interface CommentDataResponseDTO {
     };
   };
   replies: CommentDataResponseDTO[];
-  createdTimestamp: number;
-  updatedTimestamp: number;
+  createdAt: number;
+  updatedAt: number;
 }

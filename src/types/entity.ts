@@ -3,14 +3,14 @@ import type { EntityMembersRank, EntityState, LogOperation } from '../enums/inde
 
 export type EntityUsersMemberUserData = {
   userId: string;
-  lastVisitTimestamp: number | null;
-  joinedAtTimestamp: number;
+  lastVisitedAt: number | null;
+  joinedAt: number;
 };
 
 export type EntityTeamsMemberUserData = {
   teamId: string;
-  lastVisitTimestamp: number | null;
-  joinedAtTimestamp: number;
+  lastVisitedAt: number | null;
+  joinedAt: number;
 };
 
 export type EntityMembersUserData = EntityUsersMemberUserData | EntityTeamsMemberUserData;
@@ -37,8 +37,8 @@ export interface EntityOrganizationDocument {
 }
 
 export interface EntityTimestampsDocument {
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export interface EntityStateDocument {

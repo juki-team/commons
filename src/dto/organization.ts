@@ -21,7 +21,7 @@ export interface OrganizationResponseDTO extends EmailDataResponseDTO {
   managerUser: UserOrganizationBasicInfoResponseDTO;
   systemAdminUser: UserOrganizationBasicInfoResponseDTO;
   plan: OrganizationPlan;
-  startTimestamp: number;
+  startsAt: number;
   judges: OrganizationJudgeResponseDTO[];
   trustedOrganizations: OrganizationTrustedOrganizationResponseDTO[];
   styles: OrganizationStylesResponseDTO;

@@ -36,7 +36,7 @@ export interface VirtualUserResponseDTO {
   submitId: string;
   attempts: number;
   workingIn: WorkingIn;
-  updatedAt: Date;
+  updatedAt: number;
   judgeSubmissionId: string;
   session: { cookies: Cookie[] };
 }

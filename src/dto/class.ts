@@ -55,8 +55,8 @@ export interface SessionCycleClassDataResponseDTO {
   assignments: {
     [key: string]: AssignmentSessionCycleClassDataResponseDTO;
   };
-  startTimestamp: number;
-  endTimestamp: number;
+  startsAt: number;
+  endsAt: number;
   state: EntityState;
 }
 
@@ -68,8 +68,8 @@ export interface CycleClassDataResponseDTO {
     [key: string]: SessionCycleClassDataResponseDTO;
   };
   tags: ClassCycleTag[];
-  startTimestamp: number;
-  endTimestamp: number;
+  startsAt: number;
+  endsAt: number;
   state: EntityState;
 }
 

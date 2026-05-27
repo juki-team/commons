@@ -58,7 +58,7 @@ export interface ProblemBaseDocument {
   judgeId: string;
   key: string;
   testCases: ProblemTestCase[];
-  testCasesUpdatedAtTimestamp: number;
+  testCasesUpdatedAt: number;
   members: EntityMembers;
   costs: {
     unlockEditorial: number;

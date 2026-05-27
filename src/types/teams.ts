@@ -9,8 +9,8 @@ export interface TeamMember {
 
 export interface Assignment {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number;
+  updatedAt: number;
   users: [];
   // data
   name: string;
@@ -20,16 +20,16 @@ export interface Assignment {
 
 export interface Comment {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number;
+  updatedAt: number;
   // data
   comment: string;
 }
 
 export interface Task {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number;
+  updatedAt: number;
   comments: Comment[];
   assigned: UserBasic[];
   subtasks: [];
@@ -50,7 +50,7 @@ export interface Training {
 
 export interface Team {
   id: number;
-  createdAt: Date;
+  createdAt: number;
   // data
   name: string;
   aboutTeam: string;
@@ -74,7 +74,7 @@ export interface TrainingBasic {
 
 export interface TeamBasic {
   id: number;
-  createdAt: Date;
+  createdAt: number;
   // data
   name: string;
   aboutTeam: string;

@@ -10,8 +10,8 @@ export interface EcsTask {
   cpu: string;
   memory: string;
   launchType: string;
-  createdAt: Date;
-  startedAt: Date;
+  createdAt: number;
+  startedAt: number;
   desiredStatus: string;
   lastStatus: string;
   containers?: TaskResponseDTOContainer[];
@@ -29,7 +29,7 @@ export interface EcsTaskDefinition {
   revision: number;
   cpu: string;
   memory: string;
-  registeredAt: Date;
+  registeredAt: number;
 }
 
 export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDefinition {
@@ -59,8 +59,8 @@ export type SqsProperties = {
   approximateNumberOfMessages: string;
   approximateNumberOfMessagesNotVisible: string;
   approximateNumberOfMessagesDelayed: string;
-  createdTimestamp: string;
-  lastModifiedTimestamp: string;
+  createdAt: number;
+  updatedAt: number;
   visibilityTimeout: string;
   maximumMessageSize: string;
   messageRetentionPeriod: string;
@@ -88,7 +88,7 @@ export type SsmSession = {
   sessionId: string;
   target: string;
   status: 'Connected' | 'Connecting' | 'Disconnected' | 'Failed' | 'Terminating' | 'Terminated' | undefined;
-  startTimestamps: number;
+  startsAt: number;
   owner: string;
   maxSessionDuration: number;
   raw: unknown;

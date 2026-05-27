@@ -165,7 +165,7 @@ export interface WebSocketResponse {
   event: WebSocketResponseEvent;
   key: WebSocketResponseEventKey;
   connectionId: string;
-  messageTimestamp: number;
+  createdAt: number;
 }
 
 export interface PongWebSocketResponseEventDTO extends WebSocketResponse {

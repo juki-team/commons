@@ -45,9 +45,9 @@ export type ContestClarification = {
   problemJudgeKey: string;
   question: string;
   questionUser: UserOrganizationBasicInfoResponseDTO;
-  questionTimestamp: number;
+  askedAt: number;
   answer: string;
-  answerTimestamp: number;
+  answeredAt: number;
   answerUser: UserOrganizationBasicInfoResponseDTO;
   public: boolean;
 };
@@ -63,8 +63,8 @@ export type ContestProblem = {
   index: string;
   points: number;
   color: string;
-  startTimestamp: number;
-  endTimestamp: number;
+  startsAt: number;
+  endsAt: number;
   prerequisites: ContestProblemPrerequisite[];
   maxAcceptedUsers: number;
   group: string;
@@ -76,18 +76,18 @@ export type ContestSettings = {
   languages: CodeLanguage[];
   penalty: number;
   timeToSolve: number;
-  startTimestamp: number;
-  frozenTimestamp: number;
-  quietTimestamp: number;
-  endTimestamp: number;
+  startsAt: number;
+  frozenAt: number;
+  silencedAt: number;
+  endsAt: number;
   scoreboardLocked: boolean;
   upsolvingEnabled: boolean;
 };
 
 export type MemberUserData = {
   userId: string;
-  lastVisitTimestamp: number | null;
-  joinedAtTimestamp: number;
+  lastVisitedAt: number | null;
+  joinedAt: number;
 };
 
 export type ContestMembersBasic = {
@@ -137,6 +137,6 @@ export type ContestTimeData = Pick<
 > & {
   settings: Pick<
     UpsertContestDTO['settings'],
-    'penalty' | 'startTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'endTimestamp' | 'upsolvingEnabled'
+    'penalty' | 'startsAt' | 'frozenAt' | 'silencedAt' | 'endsAt' | 'upsolvingEnabled'
   >;
 };

@@ -38,10 +38,7 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
   user: ContestUser;
   owner: UserOrganizationBasicInfoResponseDTO;
   organization: EntityOrganizationSummaryListResponseDTO;
-  settings: Pick<
-    ContestSettings,
-    'startTimestamp' | 'endTimestamp' | 'frozenTimestamp' | 'quietTimestamp' | 'penalty' | 'upsolvingEnabled'
-  >;
+  settings: Pick<ContestSettings, 'startsAt' | 'endsAt' | 'frozenAt' | 'silencedAt' | 'penalty' | 'upsolvingEnabled'>;
   // Data Calculated
   totalContestants: number;
   isLive: boolean;
@@ -58,8 +55,8 @@ export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListR
   id: string;
   owner: EntityOwnerSystemSummaryListResponseDTO;
   organization: EntityOrganizationSystemSummaryListResponseDTO;
-  creationTimestamp: number;
-  updateTimestamp: number;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblem, 'id' | 'prerequisites'> {

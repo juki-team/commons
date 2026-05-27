@@ -1,4 +1,4 @@
-import type { EntityState, ProblemScoringMode, ProblemType } from '../enums/index.js';
+import type { EntityAccess, EntityState, ProblemScoringMode, ProblemType } from '../enums/index.js';
 import type {
   JudgeBaseDocument,
   ProblemBaseDocument,
@@ -33,9 +33,9 @@ export interface ProblemBasicSummaryListResponseDTO {
 }
 
 export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
-  user: ProblemUserDTO;
   owner: UserOrganizationBasicInfoResponseDTO;
-  sharing: EntitySharingResponseDTO;
+  access: EntityAccess;
+  user: ProblemUserDTO;
 }
 
 export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
@@ -45,6 +45,7 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   settings: ProblemSettings;
   ownerNickname: string;
   state: EntityState;
+  sharing: EntitySharingResponseDTO;
 }
 
 export interface ProblemJudgeSystemSummaryListResponseDTO extends ProblemJudgeSummaryListResponseDTO {
@@ -62,8 +63,8 @@ export interface ProblemSystemSummaryListResponseDTO extends ProblemSummaryListR
   id: string;
   owner: EntityOwnerSystemSummaryListResponseDTO;
   judge: ProblemJudgeSystemSummaryListResponseDTO;
-  creationTimestamp: number;
-  updateTimestamp: number;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export interface ProblemTestCaseResponse {
@@ -78,6 +79,6 @@ export interface ProblemTestCaseResponse {
 export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {}
 
 export interface UpsertProblemDTO
-  extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'key' | 'members' | 'judgeId'> {
+  extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAt' | 'key' | 'members' | 'judgeId'> {
   members: EntityMembersDTO;
 }

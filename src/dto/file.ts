@@ -16,7 +16,7 @@ export interface CreateFileDTO extends FileBasic {
 
 export interface FileSummaryListResponseDTO extends FileBasic {
   key: string;
-  updatedAt: Date;
+  updatedAt: number;
   content: SummaryFileContent;
   user: DocumentUserResponseDTO;
   owner: UserBasic;

@@ -9,7 +9,7 @@ export interface WorksheetUserResponseDTO {
 }
 
 export interface WorksheetSummaryListResponseDTO extends Pick<WorksheetBaseDocument, 'key' | 'name' | 'description'> {
-  updatedAt: Date;
+  updatedAt: number;
   content: SummaryWorksheetsInPages;
   user: WorksheetUserResponseDTO;
   owner: UserOrganizationBasicInfoResponseDTO;
