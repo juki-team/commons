@@ -1,4 +1,4 @@
-import type { CodeLanguage, EntityAccess, ProblemScoringMode, ProblemType } from '../enums/index.js';
+import type { CodeLanguage, EntityRole, ProblemScoringMode, ProblemType } from '../enums/index.js';
 import type { EntityMembers } from './entity.js';
 import type { ProblemTestCase } from './services.js';
 import type { TextLanguage } from './text.js';
@@ -42,7 +42,7 @@ export type ProblemSettings = {
 };
 
 export type ProblemUserDTO = {
-  role: EntityAccess;
+  role: EntityRole;
   solved: boolean;
   tried: boolean;
 };
