@@ -71,3 +71,5 @@ export interface ProblemBaseDocument {
     forSolvingInAnExtraLanguage: number;
   };
 }
+
+export type KeyFileType = 'input' | 'output';
