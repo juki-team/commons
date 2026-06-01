@@ -1,4 +1,4 @@
-export type TaskResponseDTOContainer = {
+export type TaskResponseDtoContainer = {
   runtimeId?: string;
 };
 
@@ -14,10 +14,10 @@ export interface EcsTask {
   startedAt: number;
   desiredStatus: string;
   lastStatus: string;
-  containers?: TaskResponseDTOContainer[];
+  containers?: TaskResponseDtoContainer[];
 }
 
-export interface EcsTaskSystemSummaryListResponseDTO extends EcsTask {
+export interface EcsTaskSystemSummaryListResponseDto extends EcsTask {
   // isLowRunnerOrganizationKeys: string[],
   isHighRunnerOrganizationKeys: string[];
   // isRunnerListenerOrganizationKeys: string[],
@@ -32,7 +32,7 @@ export interface EcsTaskDefinition {
   registeredAt: number;
 }
 
-export interface EcsTaskDefinitionSystemSummaryListResponseDTO extends EcsTaskDefinition {
+export interface EcsTaskDefinitionSystemSummaryListResponseDto extends EcsTaskDefinition {
   // isLowRunnerOrganizationKeys: string[],
   isHighRunnerOrganizationKeys: string[];
   // isRunnerListenerOrganizationKeys: string[],
@@ -73,15 +73,9 @@ export type SqsProperties = {
   contentBasedDeduplication: string;
 };
 
-export interface SqsPropertiesResponseDTO {
+export interface SqsPropertiesResponseDto {
   sqsJukiHighRunnerFifo: SqsProperties;
   sqsJukiLowRunnerFifo: SqsProperties;
-}
-
-export interface EmailDataResponseDTO {
-  emailTemplate: string;
-  contactEmails: string[];
-  mainEmail: string;
 }
 
 export type SsmSession = {

@@ -1,48 +1,48 @@
 import type {
-  ChatCompletionsWebSocketEventDTO,
-  ClientTrackDeviceWebSocketEventDTO,
-  ClientTrackLocationWebSocketEventDTO,
-  ClientTrackScreenshotWebSocketEventDTO,
-  ClientTrackWebSocketResponseEventDTO,
-  CodeRunStatusWebSocketResponseEventDTO,
-  ContestChangesWebSocketResponseEventDTO,
-  PingWebSocketEventDTO,
-  PongWebSocketResponseEventDTO,
-  ProblemCrawledWebSocketResponseEventDTO,
-  SendDataChatCompletionsWebSocketResponseEventDTO,
-  SendDataClientTrackWebSocketResponseEventDTO,
-  SendDataEc2InstancesListWebSocketResponseEventDTO,
-  SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
-  SendDataEcsTasksListWebSocketResponseEventDTO,
-  SendDataRunCommandWebSocketResponseEventDTO,
-  SendDataSsmSessionsListWebSocketResponseEventDTO,
-  SendDataWebSocketResponseEventDTO,
-  SubmissionRunStatusWebSocketResponseEventDTO,
-  SubmissionsCrawlWebSocketResponseEventDTO,
-  SubscribeClientTrackWebSocketEventDTO,
-  SubscribeCodeRunStatusWebSocketEventDTO,
-  SubscribeContestChangesWebSocketEventDTO,
-  SubscribeGetDataWebSocketEventDTO,
-  SubscribeProblemCrawledWebSocketEventDTO,
-  SubscribeSubmissionRunStatusWebSocketEventDTO,
-  SubscribeSubmissionsCrawlWebSocketEventDTO,
-  SubscribeUserNotificationWebsocketEventDTO,
-  UnsubscribeClientTrackWebSocketEventDTO,
-  UnsubscribeCodeRunStatusWebSocketEventDTO,
-  UnsubscribeContestChangesWebSocketEventDTO,
-  UnsubscribeGetDataWebSocketEventDTO,
-  UnsubscribeProblemCrawledWebSocketEventDTO,
-  UnsubscribeSubmissionRunStatusWebSocketEventDTO,
-  UnsubscribeSubmissionsCrawlWebSocketEventDTO,
-  UnsubscribeUserNotificationWebSocketEventDTO,
-  UserMessageWebSocketResponseEventDTO,
-  UserNotificationContestClarificationWebSocketResponseEventDTO,
-  UserNotificationSubmissionWebSocketResponseEventDTO,
-  UserNotificationWebSocketResponseEventDTO,
-  WebSocketMessageEventDTO,
-  WebSocketResponseEventDTO,
-  WebSocketSubscribeEventDTO,
-  WebSocketUnsubscribeEventDTO,
+  ChatCompletionsWebSocketEventDto,
+  ClientTrackDeviceWebSocketEventDto,
+  ClientTrackLocationWebSocketEventDto,
+  ClientTrackScreenshotWebSocketEventDto,
+  ClientTrackWebSocketResponseEventDto,
+  CodeRunStatusWebSocketResponseEventDto,
+  ContestChangesWebSocketResponseEventDto,
+  PingWebSocketEventDto,
+  PongWebSocketResponseEventDto,
+  ProblemCrawledWebSocketResponseEventDto,
+  SendDataChatCompletionsWebSocketResponseEventDto,
+  SendDataClientTrackWebSocketResponseEventDto,
+  SendDataEc2InstancesListWebSocketResponseEventDto,
+  SendDataEcsTaskDefinitionListWebSocketResponseEventDto,
+  SendDataEcsTasksListWebSocketResponseEventDto,
+  SendDataRunCommandWebSocketResponseEventDto,
+  SendDataSsmSessionsListWebSocketResponseEventDto,
+  SendDataWebSocketResponseEventDto,
+  SubmissionRunStatusWebSocketResponseEventDto,
+  SubmissionsCrawlWebSocketResponseEventDto,
+  SubscribeClientTrackWebSocketEventDto,
+  SubscribeCodeRunStatusWebSocketEventDto,
+  SubscribeContestChangesWebSocketEventDto,
+  SubscribeGetDataWebSocketEventDto,
+  SubscribeProblemCrawledWebSocketEventDto,
+  SubscribeSubmissionRunStatusWebSocketEventDto,
+  SubscribeSubmissionsCrawlWebSocketEventDto,
+  SubscribeUserNotificationWebSocketEventDto,
+  UnsubscribeClientTrackWebSocketEventDto,
+  UnsubscribeCodeRunStatusWebSocketEventDto,
+  UnsubscribeContestChangesWebSocketEventDto,
+  UnsubscribeGetDataWebSocketEventDto,
+  UnsubscribeProblemCrawledWebSocketEventDto,
+  UnsubscribeSubmissionRunStatusWebSocketEventDto,
+  UnsubscribeSubmissionsCrawlWebSocketEventDto,
+  UnsubscribeUserNotificationWebSocketEventDto,
+  UserMessageWebSocketResponseEventDto,
+  UserNotificationContestClarificationWebSocketResponseEventDto,
+  UserNotificationSubmissionWebSocketResponseEventDto,
+  UserNotificationWebSocketResponseEventDto,
+  WebSocketMessageEventDto,
+  WebSocketResponseEventDto,
+  WebSocketSubscribeEventDto,
+  WebSocketUnsubscribeEventDto,
 } from '../dto/index.js';
 import {
   ProblemVerdict,
@@ -53,9 +53,9 @@ import {
 } from '../enums/index.js';
 import type { ClientId, WebSocketResponseEventKey } from '../types/index.js';
 
-export const isWebsocketSubscription = (
+export const isWebSocketSubscription = (
   event: unknown,
-): event is WebSocketSubscribeEventDTO | WebSocketUnsubscribeEventDTO | WebSocketMessageEventDTO => {
+): event is WebSocketSubscribeEventDto | WebSocketUnsubscribeEventDto | WebSocketMessageEventDto => {
   if (typeof event !== 'object' || event === null) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
@@ -68,56 +68,56 @@ export const isWebsocketSubscription = (
 
 // Custom CHANNEL_PUBLISH_MESSAGES
 
-export const isPingWebSocketEventDTO = (event: unknown): event is PingWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketMessageEvent.PING;
+export const isPingWebSocketEventDto = (event: unknown): event is PingWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketMessageEvent.PING;
 };
 
-export const isClientTrackLocationWebSocketEventDTO = (event: unknown): event is ClientTrackLocationWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketMessageEvent.CLIENT_TRACK_LOCATION;
+export const isClientTrackLocationWebSocketEventDto = (event: unknown): event is ClientTrackLocationWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketMessageEvent.CLIENT_TRACK_LOCATION;
 };
 
-export const isClientTrackScreenshotWebSocketEventDTO = (event: unknown): event is ClientTrackScreenshotWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketMessageEvent.CLIENT_TRACK_SCREENSHOT;
+export const isClientTrackScreenshotWebSocketEventDto = (event: unknown): event is ClientTrackScreenshotWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketMessageEvent.CLIENT_TRACK_SCREENSHOT;
 };
 
-export const isClientTrackDeviceWebSocketEventDTO = (event: unknown): event is ClientTrackDeviceWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketMessageEvent.CLIENT_TRACK_DEVICE;
+export const isClientTrackDeviceWebSocketEventDto = (event: unknown): event is ClientTrackDeviceWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketMessageEvent.CLIENT_TRACK_DEVICE;
 };
 
-export const isChatCompletionsWebSocketEventDTO = (event: unknown): event is ChatCompletionsWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketMessageEvent.CHAT_COMPLETIONS;
+export const isChatCompletionsWebSocketEventDto = (event: unknown): event is ChatCompletionsWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketMessageEvent.CHAT_COMPLETIONS;
 };
 
 // CHANNEL_PUBLISH_SUBSCRIPTIONS
 
-export const isSubscribeCodeRunStatusWebSocketEventDTO = (event: unknown): event is SubscribeCodeRunStatusWebSocketEventDTO => {
-  if (!isWebsocketSubscription(event)) return false;
+export const isSubscribeCodeRunStatusWebSocketEventDto = (event: unknown): event is SubscribeCodeRunStatusWebSocketEventDto => {
+  if (!isWebSocketSubscription(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return event.event === WebSocketSubscriptionEvent.SUBSCRIBE_CODE_RUN_STATUS && typeof v.runId === 'string' && !!v.runId;
 };
 
-export const isUnsubscribeCodeRunStatusWebSocketEventDTO = (
+export const isUnsubscribeCodeRunStatusWebSocketEventDto = (
   event: unknown,
-): event is UnsubscribeCodeRunStatusWebSocketEventDTO => {
-  if (!isWebsocketSubscription(event)) return false;
+): event is UnsubscribeCodeRunStatusWebSocketEventDto => {
+  if (!isWebSocketSubscription(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CODE_RUN_STATUS && typeof v.runId === 'string' && !!v.runId;
 };
 
-export const isSubscribeSubmissionRunStatusWebSocketEventDTO = (
+export const isSubscribeSubmissionRunStatusWebSocketEventDto = (
   event: unknown,
-): event is SubscribeSubmissionRunStatusWebSocketEventDTO => {
-  if (!isWebsocketSubscription(event)) return false;
+): event is SubscribeSubmissionRunStatusWebSocketEventDto => {
+  if (!isWebSocketSubscription(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
     event.event === WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS && typeof v.submitId === 'string' && !!v.submitId
   );
 };
 
-export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (
+export const isUnsubscribeSubmissionRunStatusWebSocketEventDto = (
   event: unknown,
-): event is UnsubscribeSubmissionRunStatusWebSocketEventDTO => {
-  if (!isWebsocketSubscription(event)) return false;
+): event is UnsubscribeSubmissionRunStatusWebSocketEventDto => {
+  if (!isWebSocketSubscription(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
     event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS &&
@@ -126,73 +126,73 @@ export const isUnsubscribeSubmissionRunStatusWebSocketEventDTO = (
   );
 };
 
-export const isSubscribeGetDataWebSocketEventDTO = (event: unknown): event is SubscribeGetDataWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_GET_DATA;
+export const isSubscribeGetDataWebSocketEventDto = (event: unknown): event is SubscribeGetDataWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_GET_DATA;
 };
 
-export const isUnsubscribeGetDataWebSocketEventDTO = (event: unknown): event is UnsubscribeGetDataWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_GET_DATA;
+export const isUnsubscribeGetDataWebSocketEventDto = (event: unknown): event is UnsubscribeGetDataWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_GET_DATA;
 };
 
-export const isSubscribeProblemCrawledWebSocketEventDTO = (
+export const isSubscribeProblemCrawledWebSocketEventDto = (
   event: unknown,
-): event is SubscribeProblemCrawledWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_PROBLEM_CRAWLED;
+): event is SubscribeProblemCrawledWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_PROBLEM_CRAWLED;
 };
 
-export const isUnsubscribeProblemCrawledWebSocketEventDTO = (
+export const isUnsubscribeProblemCrawledWebSocketEventDto = (
   event: unknown,
-): event is UnsubscribeProblemCrawledWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED;
+): event is UnsubscribeProblemCrawledWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED;
 };
 
-export const isSubscribeSubmissionsCrawlWebSocketEventDTO = (
+export const isSubscribeSubmissionsCrawlWebSocketEventDto = (
   event: unknown,
-): event is SubscribeSubmissionsCrawlWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL;
+): event is SubscribeSubmissionsCrawlWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL;
 };
 
-export const isUnsubscribeSubmissionsCrawlWebSocketEventDTO = (
+export const isUnsubscribeSubmissionsCrawlWebSocketEventDto = (
   event: unknown,
-): event is UnsubscribeSubmissionsCrawlWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL;
+): event is UnsubscribeSubmissionsCrawlWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL;
 };
 
-export const isSubscribeContestChangesWebSocketEventDTO = (
+export const isSubscribeContestChangesWebSocketEventDto = (
   event: unknown,
-): event is SubscribeContestChangesWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_CONTEST_CHANGES;
+): event is SubscribeContestChangesWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_CONTEST_CHANGES;
 };
 
-export const isUnsubscribeContestChangesWebSocketEventDTO = (
+export const isUnsubscribeContestChangesWebSocketEventDto = (
   event: unknown,
-): event is UnsubscribeContestChangesWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
+): event is UnsubscribeContestChangesWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
 };
 
-export const isSubscribeClientTrackWebSocketEventDTO = (event: unknown): event is SubscribeClientTrackWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK;
+export const isSubscribeClientTrackWebSocketEventDto = (event: unknown): event is SubscribeClientTrackWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK;
 };
 
-export const isUnsubscribeClientTrackWebSocketEventDTO = (event: unknown): event is UnsubscribeClientTrackWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK;
+export const isUnsubscribeClientTrackWebSocketEventDto = (event: unknown): event is UnsubscribeClientTrackWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK;
 };
 
-export const isSubscribeUserNotificationWebSocketEventDTO = (
+export const isSubscribeUserNotificationWebSocketEventDto = (
   event: unknown,
-): event is SubscribeUserNotificationWebsocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION;
+): event is SubscribeUserNotificationWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION;
 };
 
-export const isUnsubscribeUserNotificationWebSocketEventDTO = (
+export const isUnsubscribeUserNotificationWebSocketEventDto = (
   event: unknown,
-): event is UnsubscribeUserNotificationWebSocketEventDTO => {
-  return isWebsocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION;
+): event is UnsubscribeUserNotificationWebSocketEventDto => {
+  return isWebSocketSubscription(event) && event.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION;
 };
 
-// is WebSocketResponseEventDTO, CHANNEL_SUBSCRIBE_CLIENT
+// is WebSocketResponseEventDto, CHANNEL_SUBSCRIBE_CLIENT
 
-export const isWebSocketResponseEventDTO = (event: unknown): event is WebSocketResponseEventDTO => {
+export const isWebSocketResponseEventDto = (event: unknown): event is WebSocketResponseEventDto => {
   if (typeof event !== 'object' || event === null) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
@@ -204,16 +204,16 @@ export const isWebSocketResponseEventDTO = (event: unknown): event is WebSocketR
   );
 };
 
-export const isPongWebSocketResponseEventDTO = (event: unknown): event is PongWebSocketResponseEventDTO => {
-  if (!isWebSocketResponseEventDTO(event)) return false;
+export const isPongWebSocketResponseEventDto = (event: unknown): event is PongWebSocketResponseEventDto => {
+  if (!isWebSocketResponseEventDto(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return event.event === WebSocketResponseEvent.PONG && !!v.data;
 };
 
-export const isCodeRunStatusMessageWebSocketResponseEventDTO = (
+export const isCodeRunStatusMessageWebSocketResponseEventDto = (
   event: unknown,
-): event is CodeRunStatusWebSocketResponseEventDTO => {
-  if (!isWebSocketResponseEventDTO(event)) return false;
+): event is CodeRunStatusWebSocketResponseEventDto => {
+  if (!isWebSocketResponseEventDto(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
     event.event === WebSocketResponseEvent.CODE_RUN_STATUS &&
@@ -223,10 +223,10 @@ export const isCodeRunStatusMessageWebSocketResponseEventDTO = (
   );
 };
 
-export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (
+export const isSubmissionRunStatusMessageWebSocketResponseEventDto = (
   event: unknown,
-): event is SubmissionRunStatusWebSocketResponseEventDTO => {
-  if (!isWebSocketResponseEventDTO(event)) return false;
+): event is SubmissionRunStatusWebSocketResponseEventDto => {
+  if (!isWebSocketResponseEventDto(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
     event.event === WebSocketResponseEvent.SUBMISSION_RUN_STATUS &&
@@ -238,8 +238,8 @@ export const isSubmissionRunStatusMessageWebSocketResponseEventDTO = (
   );
 };
 
-export const isUserMessageWebSocketResponseEventDTO = (event: unknown): event is UserMessageWebSocketResponseEventDTO => {
-  if (!isWebSocketResponseEventDTO(event)) return false;
+export const isUserMessageWebSocketResponseEventDto = (event: unknown): event is UserMessageWebSocketResponseEventDto => {
+  if (!isWebSocketResponseEventDto(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   const user = v.user as Record<string, unknown> | undefined;
   const organization = user?.organization as Record<string, unknown> | undefined;
@@ -255,7 +255,7 @@ export const isUserMessageWebSocketResponseEventDTO = (event: unknown): event is
   );
 };
 
-export const isSendDataWebSocketResponseEventDTO = (event: unknown): event is SendDataWebSocketResponseEventDTO => {
+export const isSendDataWebSocketResponseEventDto = (event: unknown): event is SendDataWebSocketResponseEventDto => {
   if (typeof event !== 'object' || event === null) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
@@ -276,103 +276,103 @@ export const isSendDataWebSocketResponseEventDTO = (event: unknown): event is Se
   );
 };
 
-export const isSendDataEcsTaskDefinitionListWebSocketResponseEventDTO = (
+export const isSendDataEcsTaskDefinitionListWebSocketResponseEventDto = (
   event: unknown,
-): event is SendDataEcsTaskDefinitionListWebSocketResponseEventDTO => {
+): event is SendDataEcsTaskDefinitionListWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isSendDataWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isSendDataWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST
   );
 };
 
-export const isSendDataEc2InstancesListWebSocketResponseEventDTO = (
+export const isSendDataEc2InstancesListWebSocketResponseEventDto = (
   event: unknown,
-): event is SendDataEc2InstancesListWebSocketResponseEventDTO => {
+): event is SendDataEc2InstancesListWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isSendDataWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isSendDataWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST
   );
 };
 
-export const isSendDataEcsTasksListWebSocketResponseEventDTO = (
+export const isSendDataEcsTasksListWebSocketResponseEventDto = (
   event: unknown,
-): event is SendDataEcsTasksListWebSocketResponseEventDTO => {
+): event is SendDataEcsTasksListWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isSendDataWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isSendDataWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST
   );
 };
 
-export const isSendDataSsmSessionsListWebSocketResponseEventDTO = (
+export const isSendDataSsmSessionsListWebSocketResponseEventDto = (
   event: unknown,
-): event is SendDataSsmSessionsListWebSocketResponseEventDTO => {
+): event is SendDataSsmSessionsListWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isSendDataWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isSendDataWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST
   );
 };
 
-export const isSendDataRunCommandWebSocketResponseEventDTO = (
+export const isSendDataRunCommandWebSocketResponseEventDto = (
   event: unknown,
-): event is SendDataRunCommandWebSocketResponseEventDTO => {
+): event is SendDataRunCommandWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isSendDataWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isSendDataWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.SEND_DATA_RUN_COMMAND
   );
 };
 
-export const isSendDataClientTrackWebSocketResponseEventDTO = (
+export const isSendDataClientTrackWebSocketResponseEventDto = (
   event: unknown,
-): event is SendDataClientTrackWebSocketResponseEventDTO => {
+): event is SendDataClientTrackWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isSendDataWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isSendDataWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK
   );
 };
 
-export const isSenDataChatCompletionsWebSocketResponseEventDTO = (
+export const isSenDataChatCompletionsWebSocketResponseEventDto = (
   event: unknown,
-): event is SendDataChatCompletionsWebSocketResponseEventDTO => {
+): event is SendDataChatCompletionsWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isSendDataWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isSendDataWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS
   );
 };
 
-export const isProblemCrawledWebSocketResponseEventDTO = (event: unknown): event is ProblemCrawledWebSocketResponseEventDTO => {
-  if (!isWebSocketResponseEventDTO(event)) return false;
+export const isProblemCrawledWebSocketResponseEventDto = (event: unknown): event is ProblemCrawledWebSocketResponseEventDto => {
+  if (!isWebSocketResponseEventDto(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return event.event === WebSocketResponseEvent.PROBLEM_CRAWLED && !!v.content;
 };
 
-export const isSubmissionsCrawlWebSocketResponseEventDTO = (
+export const isSubmissionsCrawlWebSocketResponseEventDto = (
   event: unknown,
-): event is SubmissionsCrawlWebSocketResponseEventDTO => {
-  if (!isWebSocketResponseEventDTO(event)) return false;
+): event is SubmissionsCrawlWebSocketResponseEventDto => {
+  if (!isWebSocketResponseEventDto(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return event.event === WebSocketResponseEvent.SUBMISSIONS_CRAWL && !!v.content;
 };
 
-export const isContestChangesWebSocketResponseEventDTO = (event: unknown): event is ContestChangesWebSocketResponseEventDTO => {
-  if (!isWebSocketResponseEventDTO(event)) return false;
+export const isContestChangesWebSocketResponseEventDto = (event: unknown): event is ContestChangesWebSocketResponseEventDto => {
+  if (!isWebSocketResponseEventDto(event)) return false;
   const v = event as unknown as Record<string, unknown>;
   return event.event === WebSocketResponseEvent.CONTEST_CHANGES && !!v.content;
 };
 
-export const isClientTrackWebSocketResponseEventDTO = (event: unknown): event is ClientTrackWebSocketResponseEventDTO => {
-  return isWebSocketResponseEventDTO(event) && event.event === WebSocketResponseEvent.CLIENT_TRACK;
+export const isClientTrackWebSocketResponseEventDto = (event: unknown): event is ClientTrackWebSocketResponseEventDto => {
+  return isWebSocketResponseEventDto(event) && event.event === WebSocketResponseEvent.CLIENT_TRACK;
 };
 
-export const isUserNotificationWebSocketResponseEventDTO = (
+export const isUserNotificationWebSocketResponseEventDto = (
   event: unknown,
-): event is UserNotificationWebSocketResponseEventDTO => {
+): event is UserNotificationWebSocketResponseEventDto => {
   if (typeof event !== 'object' || event === null) return false;
   const v = event as unknown as Record<string, unknown>;
   return (
@@ -385,22 +385,22 @@ export const isUserNotificationWebSocketResponseEventDTO = (
   );
 };
 
-export const isUserNotificationSubmissionWebSocketResponseEventDTO = (
+export const isUserNotificationSubmissionWebSocketResponseEventDto = (
   event: unknown,
-): event is UserNotificationSubmissionWebSocketResponseEventDTO => {
+): event is UserNotificationSubmissionWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isUserNotificationWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isUserNotificationWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION
   );
 };
 
-export const isUserNotificationContestClarificationWebSocketResponseEventDTO = (
+export const isUserNotificationContestClarificationWebSocketResponseEventDto = (
   event: unknown,
-): event is UserNotificationContestClarificationWebSocketResponseEventDTO => {
+): event is UserNotificationContestClarificationWebSocketResponseEventDto => {
   return (
-    isWebSocketResponseEventDTO(event) &&
-    isUserNotificationWebSocketResponseEventDTO(event) &&
+    isWebSocketResponseEventDto(event) &&
+    isUserNotificationWebSocketResponseEventDto(event) &&
     event.event === WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION
   );
 };

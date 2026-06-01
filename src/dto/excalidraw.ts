@@ -1,14 +1,14 @@
 import type { ExcalidrawBaseDocument } from '../types/index.js';
-import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
-import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
+import type { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import type { UserOrganizationBasicInfoResponseDto } from './user.js';
 
-export interface ExcalidrawResponseDTO extends Omit<ExcalidrawBaseDocument, 'members'> {
-  owner: UserOrganizationBasicInfoResponseDTO;
-  members: EntityMembersResponseDTO;
+export interface ExcalidrawResponseDto extends Omit<ExcalidrawBaseDocument, 'members'> {
+  owner: UserOrganizationBasicInfoResponseDto;
+  members: EntityMembersResponseDto;
   updatedAt: number;
   createdAt: number;
 }
 
-export interface UpsertExcalidrawDTO extends Omit<ExcalidrawBaseDocument, 'key' | 'members'> {
-  members: EntityMembersDTO;
+export interface UpsertExcalidrawDto extends Omit<ExcalidrawBaseDocument, 'key' | 'members'> {
+  members: EntityMembersDto;
 }

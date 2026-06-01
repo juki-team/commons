@@ -1,15 +1,15 @@
 import type { JudgeBaseDocument } from '../types/index.js';
 
-export interface JudgeDataResponseDTO
+export interface JudgeDataResponseDto
   extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getLoginUrl' | 'getSubmitUrl'> {}
 
-export interface JudgeSummaryListResponseDTO
+export interface JudgeSummaryListResponseDto
   extends Omit<
     JudgeBaseDocument,
     'getProblemUrl' | 'getUserSubmissionsUrl' | 'getSubmissionUrl' | 'getLoginUrl' | 'getProfileUrl' | 'getSubmitUrl'
   > {}
 
-export interface JudgeSystemSummaryListResponseDTO extends JudgeSummaryListResponseDTO {
+export interface JudgeSystemSummaryListResponseDto extends JudgeSummaryListResponseDto {
   id: string;
   createdAt: number;
   updatedAt: number;

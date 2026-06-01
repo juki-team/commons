@@ -1,4 +1,4 @@
-import type { UserPermissionsResponseDTO } from '../dto/index.js';
+import type { UserPermissionsResponseDto } from '../dto/index.js';
 import { UserRole } from '../enums/index.js';
 
 export const USER_ROLE: { [Key in UserRole]: { value: UserRole; label: string; level: number } } = {
@@ -11,7 +11,7 @@ export const USER_ROLE: { [Key in UserRole]: { value: UserRole; label: string; l
   [UserRole.SUPER_ADMIN]: { value: UserRole.SUPER_ADMIN, label: 'super admin', level: 0 },
 };
 
-export const EMPTY_USER_PERMISSIONS: UserPermissionsResponseDTO = {
+export const EMPTY_USER_PERMISSIONS: UserPermissionsResponseDto = {
   users: {
     create: false,
     manage: false,

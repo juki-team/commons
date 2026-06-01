@@ -1,7 +1,7 @@
-import type { EntityOrganizationSystemSummaryListResponseDTO } from './problem.js';
-import type { UserBasicResponseDTO } from './user.js';
+import type { EntityOrganizationSystemSummaryListResponseDto } from './entity.js';
+import type { UserBasicResponseDto } from './user.js';
 
-export interface SessionBasicResponseDTO {
+export interface SessionBasicResponseDto {
   id: string;
   deviceName: string;
   osName: string;
@@ -10,8 +10,8 @@ export interface SessionBasicResponseDTO {
   updatedAt: number;
 }
 
-export interface UserSessionSystemSummaryListResponseDTO extends SessionBasicResponseDTO {
+export interface UserSessionSystemSummaryListResponseDto extends SessionBasicResponseDto {
   userId: string;
-  user: UserBasicResponseDTO;
-  organization: EntityOrganizationSystemSummaryListResponseDTO;
+  user: UserBasicResponseDto;
+  organization: EntityOrganizationSystemSummaryListResponseDto;
 }

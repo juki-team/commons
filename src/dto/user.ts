@@ -1,26 +1,23 @@
 import type { ContestRole, CourseRole, FileRole, ProblemRole, SystemRole, TeamRole, UserRole } from '../enums/index.js';
 import type { RecordId, UserBasicInfo, UserHandles, UserSettings } from '../types/index.js';
-import type { OrganizationStylesResponseDTO } from './organization.js';
-import type { EntityOrganizationSummaryListResponseDTO, EntityOrganizationSystemSummaryListResponseDTO } from './problem.js';
+import type {
+  EntityOrganizationSummaryListResponseDto,
+  EntityOrganizationSystemSummaryListResponseDto,
+  EntityOwnerSystemSummaryListResponseDto,
+} from './entity.js';
+import type { OrganizationStylesResponseDto } from './organization.js';
 
-export interface EntityOwnerSystemSummaryListResponseDTO {
-  id: string;
-  nickname: string;
-  imageUrl: string;
-  organization: EntityOrganizationSummaryListResponseDTO;
+export interface UserOrganizationBasicInfoResponseDto extends UserBasicInfo {
+  organization: EntityOrganizationSummaryListResponseDto;
 }
 
-export interface UserOrganizationBasicInfoResponseDTO extends UserBasicInfo {
-  organization: EntityOrganizationSummaryListResponseDTO;
-}
-
-export interface UserSummaryListResponseDTO extends UserOrganizationBasicInfoResponseDTO {
+export interface UserSummaryListResponseDto extends UserOrganizationBasicInfoResponseDto {
   email: string;
   familyName: string;
   givenName: string;
 }
 
-export interface UserSystemSummaryListResponseDTO extends UserSummaryListResponseDTO {
+export interface UserSystemSummaryListResponseDto extends UserSummaryListResponseDto {
   id: string;
   city: string;
   country: string;
@@ -33,14 +30,14 @@ export interface UserSystemSummaryListResponseDTO extends UserSummaryListRespons
   teamRole: TeamRole;
   courseRole: CourseRole;
   canResetPassword: boolean;
-  owner: EntityOwnerSystemSummaryListResponseDTO;
-  organization: EntityOrganizationSystemSummaryListResponseDTO;
+  owner: EntityOwnerSystemSummaryListResponseDto;
+  organization: EntityOrganizationSystemSummaryListResponseDto;
   createdAt: number;
   updatedAt: number;
   archivedAt: number | null;
 }
 
-export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
+export interface UserBasicResponseDto extends UserSummaryListResponseDto {
   aboutMe: string;
   city: string;
   country: string;
@@ -48,7 +45,7 @@ export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
   handles: UserHandles;
 }
 
-export interface UserProfileResponseDTO extends UserBasicResponseDTO {
+export interface UserProfileResponseDto extends UserBasicResponseDto {
   canEditProfileData: boolean;
   canEditSettingsData: boolean;
   canEditPermissionsData: boolean;
@@ -56,7 +53,7 @@ export interface UserProfileResponseDTO extends UserBasicResponseDTO {
   canResetPassword: boolean;
 }
 
-export type UserPermissionsResponseDTO = {
+export type UserPermissionsResponseDto = {
   users: {
     create: boolean;
     manage: boolean;
@@ -83,16 +80,16 @@ export type UserPermissionsResponseDTO = {
 };
 
 export type UserPing = {
-  permissions: UserPermissionsResponseDTO;
+  permissions: UserPermissionsResponseDto;
   nickname: string;
   imageUrl: string;
   settings: UserSettings;
   isLogged: boolean;
   sessionId: RecordId;
-  organization: EntityOrganizationSummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDto;
 };
 
-export type OrganizationPingResponseDTO = {
+export type OrganizationPingResponseDto = {
   key: string;
   contactEmail: string;
   contactCellPhoneNumber: string;
@@ -100,15 +97,15 @@ export type OrganizationPingResponseDTO = {
   imageUrl: string;
   name: string;
   codeEditorRunEnabled: boolean;
-  styles: OrganizationStylesResponseDTO;
+  styles: OrganizationStylesResponseDto;
 };
 
-export interface PingResponseDTO {
+export interface PingResponseDto {
   user: UserPing;
-  organization: OrganizationPingResponseDTO;
+  organization: OrganizationPingResponseDto;
 }
 
-export interface UserRankResponseDTO {
+export interface UserRankResponseDto {
   imageUrl: string;
   nickname: string;
   city: string;
@@ -116,5 +113,5 @@ export interface UserRankResponseDTO {
   institution: string;
   problemPoints: number;
   competitionPoints: number;
-  organization: EntityOrganizationSummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDto;
 }

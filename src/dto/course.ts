@@ -1,9 +1,9 @@
 import type { CourseBaseDocument } from '../types/index.js';
-import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
-import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
-import type { WorksheetSummaryListResponseDTO } from './worksheet.js';
+import type { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import type { UserOrganizationBasicInfoResponseDto } from './user.js';
+import type { WorksheetSummaryListResponseDto } from './worksheet.js';
 
-export type CourseUserResponseDTO = {
+export type CourseUserResponseDto = {
   isOwner: boolean;
   isManager: boolean;
   isSpectator: boolean;
@@ -11,29 +11,29 @@ export type CourseUserResponseDTO = {
   isGuest: boolean;
 };
 
-export interface CourseSummaryListResponseDTO {
+export interface CourseSummaryListResponseDto {
   key: string;
   title: string;
   abstract: string;
   description: string;
   coverImageUrl: string;
-  owner: UserOrganizationBasicInfoResponseDTO;
-  user: CourseUserResponseDTO;
+  owner: UserOrganizationBasicInfoResponseDto;
+  user: CourseUserResponseDto;
 }
 
-export interface CourseLessonsWorksheetDataResponseDTO
-  extends Pick<WorksheetSummaryListResponseDTO, 'key' | 'name' | 'content'> {}
+export interface CourseLessonsWorksheetDataResponseDto
+  extends Pick<WorksheetSummaryListResponseDto, 'key' | 'name' | 'content'> {}
 
-export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
+export interface CourseDataResponseDto extends CourseSummaryListResponseDto {
   lessons: {
-    worksheet: CourseLessonsWorksheetDataResponseDTO;
+    worksheet: CourseLessonsWorksheetDataResponseDto;
   }[];
-  members: EntityMembersResponseDTO;
+  members: EntityMembersResponseDto;
 }
 
-export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons' | 'state'> {
+export interface UpsertCourseDto extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons' | 'state'> {
   lessons: {
     worksheetKey: string;
   }[];
-  members: EntityMembersDTO;
+  members: EntityMembersDto;
 }

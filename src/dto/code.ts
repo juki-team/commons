@@ -1,6 +1,6 @@
 import type { JudgingFile } from '../types/index.js';
 
-export interface CodeRunDTO {
+export interface CodeRunDto {
   runId: string;
   timeLimit: number;
   memoryLimit: number;

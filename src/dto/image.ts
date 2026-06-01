@@ -1,4 +1,4 @@
-export interface ImageSummaryResponseDTO {
+export interface ImageSummaryResponseDto {
   imageUrl: string;
   imageThumbnailUrl: string;
   updatedAt: number;

@@ -27,7 +27,7 @@ export interface Cookie {
   partitionKeyOpaque?: boolean;
 }
 
-export interface VirtualUserResponseDTO {
+export interface VirtualUserResponseDto {
   id: string;
   judge: Judge;
   email: string;

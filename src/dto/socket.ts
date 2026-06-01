@@ -8,156 +8,156 @@ import type {
 import type { ClientId, Device, WebSocketResponseEventKey } from '../types/index.js';
 import type {
   Ec2Instance,
-  EcsTaskDefinitionSystemSummaryListResponseDTO,
-  EcsTaskSystemSummaryListResponseDTO,
+  EcsTaskDefinitionSystemSummaryListResponseDto,
+  EcsTaskSystemSummaryListResponseDto,
   SsmSession,
 } from './system.js';
-import type { PingResponseDTO, UserOrganizationBasicInfoResponseDTO } from './user.js';
+import type { PingResponseDto, UserOrganizationBasicInfoResponseDto } from './user.js';
 
 // EVENT MESSAGES
-interface WebsocketMessage {
+interface WebSocketMessage {
   event: WebSocketMessageEvent;
   clientId: ClientId;
 }
 
-export interface PingWebSocketEventDTO extends WebsocketMessage {
+export interface PingWebSocketEventDto extends WebSocketMessage {
   event: typeof WebSocketMessageEvent.PING;
 }
 
-export interface ClientTrackLocationWebSocketEventDTO extends WebsocketMessage {
+export interface ClientTrackLocationWebSocketEventDto extends WebSocketMessage {
   event: typeof WebSocketMessageEvent.CLIENT_TRACK_LOCATION;
   href: string;
 }
 
-export interface ClientTrackScreenshotWebSocketEventDTO extends WebsocketMessage {
+export interface ClientTrackScreenshotWebSocketEventDto extends WebSocketMessage {
   event: typeof WebSocketMessageEvent.CLIENT_TRACK_SCREENSHOT;
   screenshot: string;
 }
 
-export interface ClientTrackDeviceWebSocketEventDTO extends WebsocketMessage {
+export interface ClientTrackDeviceWebSocketEventDto extends WebSocketMessage {
   event: typeof WebSocketMessageEvent.CLIENT_TRACK_DEVICE;
   device: Device;
 }
 
-export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
+export interface ChatCompletionsWebSocketEventDto extends WebSocketMessage {
   event: typeof WebSocketMessageEvent.CHAT_COMPLETIONS;
   chatAiId: string;
   content: string;
 }
 
-export type WebSocketMessageEventDTO =
-  | PingWebSocketEventDTO
-  | ClientTrackLocationWebSocketEventDTO
-  | ClientTrackScreenshotWebSocketEventDTO
-  | ClientTrackDeviceWebSocketEventDTO
-  | ChatCompletionsWebSocketEventDTO;
+export type WebSocketMessageEventDto =
+  | PingWebSocketEventDto
+  | ClientTrackLocationWebSocketEventDto
+  | ClientTrackScreenshotWebSocketEventDto
+  | ClientTrackDeviceWebSocketEventDto
+  | ChatCompletionsWebSocketEventDto;
 
 // EVENT SUBSCRIPTIONS
 
-export interface WebsocketSubscription {
+export interface WebSocketSubscription {
   event: WebSocketSubscriptionEvent;
   clientId: ClientId;
 }
 
-export interface SubscribeCodeRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeCodeRunStatusWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_CODE_RUN_STATUS;
   runId: string;
 }
 
-export interface UnsubscribeCodeRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeCodeRunStatusWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_CODE_RUN_STATUS;
   runId: string;
 }
 
-export interface SubscribeSubmissionRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSubmissionRunStatusWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS;
   submitId: string;
 }
 
-export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSubmissionRunStatusWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS;
   submitId: string;
 }
 
-export interface SubscribeGetDataWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeGetDataWebSocketEventDto extends WebSocketSubscription {
   dataId: string;
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_GET_DATA;
 }
 
-export interface UnsubscribeGetDataWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeGetDataWebSocketEventDto extends WebSocketSubscription {
   dataId: string;
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_GET_DATA;
 }
 
-export interface SubscribeProblemCrawledWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeProblemCrawledWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_PROBLEM_CRAWLED;
   problemKey: string;
 }
 
-export interface UnsubscribeProblemCrawledWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeProblemCrawledWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED;
   problemKey: string;
 }
 
-export interface SubscribeSubmissionsCrawlWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSubmissionsCrawlWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL;
   contestKey: string;
   problemKeys: string;
 }
 
-export interface UnsubscribeSubmissionsCrawlWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSubmissionsCrawlWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL;
   contestKey: string;
   problemKeys: string;
 }
 
-export interface SubscribeContestChangesWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeContestChangesWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_CONTEST_CHANGES;
   contestKey: string;
 }
 
-export interface UnsubscribeContestChangesWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeContestChangesWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
   contestKey: string;
 }
 
-export interface SubscribeClientTrackWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeClientTrackWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK;
 }
 
-export interface UnsubscribeClientTrackWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeClientTrackWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK;
 }
 
-export interface SubscribeUserNotificationWebsocketEventDTO extends WebsocketSubscription {
+export interface SubscribeUserNotificationWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION;
   userKey: string;
 }
 
-export interface UnsubscribeUserNotificationWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeUserNotificationWebSocketEventDto extends WebSocketSubscription {
   event: typeof WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION;
   userKey: string;
 }
 
-export type WebSocketSubscribeEventDTO =
-  | SubscribeCodeRunStatusWebSocketEventDTO
-  | SubscribeSubmissionRunStatusWebSocketEventDTO
-  | SubscribeGetDataWebSocketEventDTO
-  | SubscribeProblemCrawledWebSocketEventDTO
-  | SubscribeSubmissionsCrawlWebSocketEventDTO
-  | SubscribeContestChangesWebSocketEventDTO
-  | SubscribeClientTrackWebSocketEventDTO
-  | SubscribeUserNotificationWebsocketEventDTO;
+export type WebSocketSubscribeEventDto =
+  | SubscribeCodeRunStatusWebSocketEventDto
+  | SubscribeSubmissionRunStatusWebSocketEventDto
+  | SubscribeGetDataWebSocketEventDto
+  | SubscribeProblemCrawledWebSocketEventDto
+  | SubscribeSubmissionsCrawlWebSocketEventDto
+  | SubscribeContestChangesWebSocketEventDto
+  | SubscribeClientTrackWebSocketEventDto
+  | SubscribeUserNotificationWebSocketEventDto;
 
-export type WebSocketUnsubscribeEventDTO =
-  | UnsubscribeCodeRunStatusWebSocketEventDTO
-  | UnsubscribeSubmissionRunStatusWebSocketEventDTO
-  | UnsubscribeGetDataWebSocketEventDTO
-  | UnsubscribeProblemCrawledWebSocketEventDTO
-  | UnsubscribeSubmissionsCrawlWebSocketEventDTO
-  | UnsubscribeContestChangesWebSocketEventDTO
-  | UnsubscribeClientTrackWebSocketEventDTO
-  | UnsubscribeUserNotificationWebSocketEventDTO;
+export type WebSocketUnsubscribeEventDto =
+  | UnsubscribeCodeRunStatusWebSocketEventDto
+  | UnsubscribeSubmissionRunStatusWebSocketEventDto
+  | UnsubscribeGetDataWebSocketEventDto
+  | UnsubscribeProblemCrawledWebSocketEventDto
+  | UnsubscribeSubmissionsCrawlWebSocketEventDto
+  | UnsubscribeContestChangesWebSocketEventDto
+  | UnsubscribeClientTrackWebSocketEventDto
+  | UnsubscribeUserNotificationWebSocketEventDto;
 
 // RESPONSE EVENTS
 
@@ -168,14 +168,14 @@ export interface WebSocketResponse {
   createdAt: number;
 }
 
-export interface PongWebSocketResponseEventDTO extends WebSocketResponse {
+export interface PongWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.PONG;
-  data: PingResponseDTO;
+  data: PingResponseDto;
 }
 
 export type InfoLogCaseStatus = { inputKey: string; out: string; err: string; log: string };
 
-export interface CodeRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
+export interface CodeRunStatusWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.CODE_RUN_STATUS;
   runId: string;
   status: SubmissionRunStatus;
@@ -188,7 +188,7 @@ export type TestInfo = {
   caseResultsTotal: number;
 };
 
-export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SubmissionRunStatusWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.SUBMISSION_RUN_STATUS;
   submitId: string;
   status: SubmissionRunStatus;
@@ -198,9 +198,9 @@ export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketR
   shouldValidateContest: boolean;
 }
 
-export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse {
+export interface UserMessageWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.USER_MESSAGE;
-  user: UserOrganizationBasicInfoResponseDTO;
+  user: UserOrganizationBasicInfoResponseDto;
   content: {
     type: 'SUBMISSION_VERDICT';
     contestName: string;
@@ -210,32 +210,32 @@ export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse 
   };
 }
 
-export interface SendDataWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SendDataWebSocketResponseEventDto extends WebSocketResponse {
   dataId: string;
   content: unknown;
 }
 
-export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST;
-  content: EcsTaskDefinitionSystemSummaryListResponseDTO[];
+  content: EcsTaskDefinitionSystemSummaryListResponseDto[];
 }
 
-export interface SendDataEcsTasksListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataEcsTasksListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST;
-  content: EcsTaskSystemSummaryListResponseDTO[];
+  content: EcsTaskSystemSummaryListResponseDto[];
 }
 
-export interface SendDataEc2InstancesListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataEc2InstancesListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST;
   content: Ec2Instance[];
 }
 
-export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataSsmSessionsListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST;
   content: SsmSession[];
 }
 
-export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataRunCommandWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.SEND_DATA_RUN_COMMAND;
   content: {
     testCaseOutContent: string;
@@ -244,7 +244,7 @@ export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWeb
   };
 }
 
-export interface SendDataClientTrackWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataClientTrackWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK;
   content: {
     location?: string;
@@ -253,17 +253,17 @@ export interface SendDataClientTrackWebSocketResponseEventDTO extends SendDataWe
   };
 }
 
-export interface SendDataChatCompletionsWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataChatCompletionsWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS;
   content: { choices: [{ index: number; message: { role: string; content: string } }]; rawData: unknown };
 }
 
-export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
+export interface ProblemCrawledWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.PROBLEM_CRAWLED;
   content: { problemKey: string };
 }
 
-export interface SubmissionsCrawlWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SubmissionsCrawlWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.SUBMISSIONS_CRAWL;
   content: {
     contestKey: string;
@@ -276,28 +276,28 @@ export interface SubmissionsCrawlWebSocketResponseEventDTO extends WebSocketResp
   };
 }
 
-export interface ContestChangesWebSocketResponseEventDTO extends WebSocketResponse {
+export interface ContestChangesWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.CONTEST_CHANGES;
   content: {
     contestKey: string;
   };
 }
 
-export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse {
+export interface ClientTrackWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.CLIENT_TRACK;
   location: boolean;
   screenshot: boolean;
   device: boolean;
 }
 
-export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
+export interface UserNotificationWebSocketResponseEventDto extends WebSocketResponse {
   event:
     | typeof WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION
     | typeof WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION;
   content: unknown;
 }
 
-export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
+export interface UserNotificationSubmissionWebSocketResponseEventDto extends UserNotificationWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION;
   content: {
     contest: {
@@ -315,29 +315,29 @@ export interface UserNotificationSubmissionWebSocketResponseEventDTO extends Use
   };
 }
 
-export interface UserNotificationContestClarificationWebSocketResponseEventDTO
-  extends UserNotificationWebSocketResponseEventDTO {
+export interface UserNotificationContestClarificationWebSocketResponseEventDto
+  extends UserNotificationWebSocketResponseEventDto {
   event: typeof WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION;
   content: {
     contestKey: string;
   };
 }
 
-export type WebSocketResponseEventDTO =
-  | PongWebSocketResponseEventDTO
-  | CodeRunStatusWebSocketResponseEventDTO
-  | SubmissionRunStatusWebSocketResponseEventDTO
-  | UserMessageWebSocketResponseEventDTO
-  | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
-  | SendDataEcsTasksListWebSocketResponseEventDTO
-  | SendDataEc2InstancesListWebSocketResponseEventDTO
-  | SendDataSsmSessionsListWebSocketResponseEventDTO
-  | ProblemCrawledWebSocketResponseEventDTO
-  | SendDataChatCompletionsWebSocketResponseEventDTO
-  | SubmissionsCrawlWebSocketResponseEventDTO
-  | ContestChangesWebSocketResponseEventDTO
-  | SendDataRunCommandWebSocketResponseEventDTO
-  | SendDataClientTrackWebSocketResponseEventDTO
-  | ClientTrackWebSocketResponseEventDTO
-  | UserNotificationSubmissionWebSocketResponseEventDTO
-  | UserNotificationContestClarificationWebSocketResponseEventDTO;
+export type WebSocketResponseEventDto =
+  | PongWebSocketResponseEventDto
+  | CodeRunStatusWebSocketResponseEventDto
+  | SubmissionRunStatusWebSocketResponseEventDto
+  | UserMessageWebSocketResponseEventDto
+  | SendDataEcsTaskDefinitionListWebSocketResponseEventDto
+  | SendDataEcsTasksListWebSocketResponseEventDto
+  | SendDataEc2InstancesListWebSocketResponseEventDto
+  | SendDataSsmSessionsListWebSocketResponseEventDto
+  | ProblemCrawledWebSocketResponseEventDto
+  | SendDataChatCompletionsWebSocketResponseEventDto
+  | SubmissionsCrawlWebSocketResponseEventDto
+  | ContestChangesWebSocketResponseEventDto
+  | SendDataRunCommandWebSocketResponseEventDto
+  | SendDataClientTrackWebSocketResponseEventDto
+  | ClientTrackWebSocketResponseEventDto
+  | UserNotificationSubmissionWebSocketResponseEventDto
+  | UserNotificationContestClarificationWebSocketResponseEventDto;

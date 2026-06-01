@@ -10,34 +10,35 @@ import type {
   ProblemStatement,
   TextLanguage,
 } from '../types/index.js';
-import type { EntityMembersDTO, EntityMembersWithTimestampsResponseDTO } from './entity.js';
 import type {
-  EntityOrganizationSummaryListResponseDTO,
-  EntityOrganizationSystemSummaryListResponseDTO,
-  ProblemJudgeSummaryListResponseDTO,
-  ProblemSummaryListResponseDTO,
-} from './problem.js';
-import type { EntityOwnerSystemSummaryListResponseDTO, UserOrganizationBasicInfoResponseDTO } from './user.js';
+  EntityMembersDto,
+  EntityMembersWithTimestampsResponseDto,
+  EntityOrganizationSummaryListResponseDto,
+  EntityOrganizationSystemSummaryListResponseDto,
+  EntityOwnerSystemSummaryListResponseDto,
+} from './entity.js';
+import type { ProblemJudgeSummaryListResponseDto, ProblemSummaryListResponseDto } from './problem.js';
+import type { UserOrganizationBasicInfoResponseDto } from './user.js';
 
-export type UpsertContestProblemPrerequisiteDTO = (Omit<ContestProblemPrerequisite, 'problemId'> & {
+export type UpsertContestProblemPrerequisiteDto = (Omit<ContestProblemPrerequisite, 'problemId'> & {
   problemIndex: string;
 })[];
 
-export interface UpsertContestProblemDTO extends Omit<ContestProblem, 'id' | 'prerequisites'> {
+export interface UpsertContestProblemDto extends Omit<ContestProblem, 'id' | 'prerequisites'> {
   key: string;
-  prerequisites: UpsertContestProblemPrerequisiteDTO;
+  prerequisites: UpsertContestProblemPrerequisiteDto;
 }
 
-export interface UpsertContestDTO extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings' | 'events'> {
-  members: EntityMembersDTO;
-  problems: { [key: string]: UpsertContestProblemDTO };
+export interface UpsertContestDto extends Omit<ContestBaseDocument, 'key' | 'members' | 'problems' | 'settings' | 'events'> {
+  members: EntityMembersDto;
+  problems: { [key: string]: UpsertContestProblemDto };
   settings: Omit<ContestSettings, 'locked'>;
 }
 
-export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
+export interface ContestSummaryListResponseDto extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
   user: ContestUser;
-  owner: UserOrganizationBasicInfoResponseDTO;
-  organization: EntityOrganizationSummaryListResponseDTO;
+  owner: UserOrganizationBasicInfoResponseDto;
+  organization: EntityOrganizationSummaryListResponseDto;
   settings: Pick<ContestSettings, 'startsAt' | 'endsAt' | 'frozenAt' | 'silencedAt' | 'penalty' | 'upsolvingEnabled'>;
   // Data Calculated
   totalContestants: number;
@@ -50,25 +51,25 @@ export interface ContestSummaryListResponseDTO extends Pick<ContestBaseDocument,
   isQuietTime: boolean;
 }
 
-export interface ContestSystemSummaryListResponseDTO extends ContestSummaryListResponseDTO {
+export interface ContestSystemSummaryListResponseDto extends ContestSummaryListResponseDto {
   state: EntityState;
   id: string;
-  owner: EntityOwnerSystemSummaryListResponseDTO;
-  organization: EntityOrganizationSystemSummaryListResponseDTO;
+  owner: EntityOwnerSystemSummaryListResponseDto;
+  organization: EntityOrganizationSystemSummaryListResponseDto;
   createdAt: number;
   updatedAt: number;
 }
 
-export interface ContestProblemBasicDataResponseDTO extends Omit<ContestProblem, 'id' | 'prerequisites'> {
+export interface ContestProblemBasicDataResponseDto extends Omit<ContestProblem, 'id' | 'prerequisites'> {
   name: string;
   key: string;
-  prerequisites: UpsertContestProblemPrerequisiteDTO;
-  judge: ProblemJudgeSummaryListResponseDTO;
+  prerequisites: UpsertContestProblemPrerequisiteDto;
+  judge: ProblemJudgeSummaryListResponseDto;
   tags: string[];
-  organization: EntityOrganizationSummaryListResponseDTO;
+  organization: EntityOrganizationSummaryListResponseDto;
 }
 
-export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummaryListResponseDTO, 'user'> {
+export interface ContestContestProblemDataResponseDto extends Omit<ProblemSummaryListResponseDto, 'user'> {
   author: string;
   shortname: string;
   statement: ProblemStatement;
@@ -77,8 +78,8 @@ export interface ContestContestProblemDataResponseDTO extends Omit<ProblemSummar
   ownerNickname: string;
 }
 
-export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO &
-  ContestContestProblemDataResponseDTO & {
+export type ContestProblemDataResponseDto = ContestProblemBasicDataResponseDto &
+  ContestContestProblemDataResponseDto & {
     // calculated
     blockedBy: { type: ContestProblemBlockedByType; details: Record<string, unknown> }[];
     totalSuccess: number;
@@ -90,28 +91,28 @@ export type ContestProblemDataResponseDTO = ContestProblemBasicDataResponseDTO &
     myIndexAccepted: number;
   };
 
-export interface ContestEventResponseDTO {
+export interface ContestEventResponseDto {
   action: ContestEventAction;
-  user: UserOrganizationBasicInfoResponseDTO;
+  user: UserOrganizationBasicInfoResponseDto;
   timestamp: number;
   details: Record<string, unknown>;
 }
 
-export interface ContestDataResponseDTO
-  extends Omit<ContestSummaryListResponseDTO, 'settings'>,
+export interface ContestDataResponseDto
+  extends Omit<ContestSummaryListResponseDto, 'settings'>,
     Pick<ContestBaseDocument, 'settings' | 'description' | 'groups'> {
-  problems: Record<string, ContestProblemDataResponseDTO>;
+  problems: Record<string, ContestProblemDataResponseDto>;
   state: EntityState;
 }
 
-export interface ContestMembersResponseDTO {
-  members: EntityMembersWithTimestampsResponseDTO;
+export interface ContestMembersResponseDto {
+  members: EntityMembersWithTimestampsResponseDto;
 }
 
-export interface ContestClarificationsResponseDTO {
+export interface ContestClarificationsResponseDto {
   clarifications: ContestClarification[];
 }
 
-export interface ContestEventsResponseDTO {
-  events: ContestEventResponseDTO[];
+export interface ContestEventsResponseDto {
+  events: ContestEventResponseDto[];
 }

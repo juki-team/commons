@@ -1,4 +1,4 @@
-import type { EntityMembersDTO, EntityMembersResponseDTO } from '../dto/index.js';
+import type { EntityMembersDto, EntityMembersResponseDto } from '../dto/index.js';
 import type { EntityTeamsMemberUserData, EntityUsersMemberUserData } from '../types/index.js';
 
 export const isUserMember = (member: { userId?: string; teamId?: string }): member is EntityUsersMemberUserData => {
@@ -9,7 +9,7 @@ export const isTeamMember = (member: { userId?: string; teamId?: string }): memb
   return typeof member.teamId === 'string';
 };
 
-export const toEntityMembersDTO = (members: EntityMembersResponseDTO): EntityMembersDTO => {
+export const toEntityMembersDto = (members: EntityMembersResponseDto): EntityMembersDto => {
   return {
     rankAdministrators: members.rankAdministrators,
     administrators: Object.keys(members.administrators),

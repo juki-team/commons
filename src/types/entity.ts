@@ -1,4 +1,4 @@
-import type { UserOrganizationBasicInfoResponseDTO } from '../dto/index.js';
+import type { UserOrganizationBasicInfoResponseDto } from '../dto/index.js';
 import type { EntityMembersRank, EntityState, LogOperation } from '../enums/index.js';
 
 export type EntityUsersMemberUserData = {
@@ -80,8 +80,8 @@ export type UpdateEntityDocument<T> = Partial<
   Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'organizationId' | 'ownerUserId' | 'state' | 'logs' | 'key'>
 >;
 
-export interface LogDataResponseDTO {
+export interface LogDataResponseDto {
   changes: EntityLogChanges[];
   timestamp: number;
-  customerUser: UserOrganizationBasicInfoResponseDTO;
+  customerUser: UserOrganizationBasicInfoResponseDto;
 }

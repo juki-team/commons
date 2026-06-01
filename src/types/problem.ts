@@ -41,7 +41,7 @@ export type ProblemSettings = {
   pointsByGroups: ProblemSettingsPointsByGroups;
 };
 
-export type ProblemUserDTO = {
+export type ProblemUserDto = {
   role: EntityRole;
   solved: boolean;
   tried: boolean;

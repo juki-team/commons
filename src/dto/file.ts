@@ -1,6 +1,6 @@
 import type { EntityState, FileMemberRole } from '../enums/index.js';
 import type { FileContent, SummaryFileContent, UserBasic } from '../types/index.js';
-import type { DocumentMembersResponseDTO, DocumentUserResponseDTO } from './entity.js';
+import type { EntityAccessMembersResponseDto, EntityUserResponseDto } from './entity.js';
 
 export interface FileBasic {
   name: string;
@@ -8,23 +8,23 @@ export interface FileBasic {
   state: EntityState;
 }
 
-export interface CreateFileDTO extends FileBasic {
+export interface CreateFileDto extends FileBasic {
   folderId: string;
   content: FileContent;
-  members: FileMembersDTO;
+  members: FileMembersDto;
 }
 
-export interface FileSummaryListResponseDTO extends FileBasic {
+export interface FileSummaryListResponseDto extends FileBasic {
   key: string;
   updatedAt: number;
   content: SummaryFileContent;
-  user: DocumentUserResponseDTO;
+  user: EntityUserResponseDto;
   owner: UserBasic;
 }
 
-export interface FileDataResponseDTO extends FileSummaryListResponseDTO {
+export interface FileDataResponseDto extends FileSummaryListResponseDto {
   content: FileContent;
-  members: DocumentMembersResponseDTO;
+  members: EntityAccessMembersResponseDto;
   parentFolders: {
     name: string;
     key: string;
@@ -35,6 +35,6 @@ export interface FileDataResponseDTO extends FileSummaryListResponseDTO {
   }[];
 }
 
-export interface FileMembersDTO {
+export interface FileMembersDto {
   [key: string]: FileMemberRole;
 }

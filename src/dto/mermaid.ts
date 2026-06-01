@@ -1,14 +1,14 @@
 import type { MermaidBaseDocument } from '../types/index.js';
-import type { EntityMembersDTO, EntityMembersResponseDTO } from './entity.js';
-import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
+import type { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import type { UserOrganizationBasicInfoResponseDto } from './user.js';
 
-export interface MermaidResponseDTO extends Omit<MermaidBaseDocument, 'members'> {
-  owner: UserOrganizationBasicInfoResponseDTO;
-  members: EntityMembersResponseDTO;
+export interface MermaidResponseDto extends Omit<MermaidBaseDocument, 'members'> {
+  owner: UserOrganizationBasicInfoResponseDto;
+  members: EntityMembersResponseDto;
   updatedAt: number;
   createdAt: number;
 }
 
-export interface UpsertMermaidDTO extends Omit<MermaidBaseDocument, 'key' | 'members'> {
-  members: EntityMembersDTO;
+export interface UpsertMermaidDto extends Omit<MermaidBaseDocument, 'key' | 'members'> {
+  members: EntityMembersDto;
 }

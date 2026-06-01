@@ -1,34 +1,39 @@
 import type { OrganizationPlan, Theme } from '../enums/index.js';
-import type { EmailDataResponseDTO } from './system.js';
-import type { UserOrganizationBasicInfoResponseDTO, UserPermissionsResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDto, UserPermissionsResponseDto } from './user.js';
 
-export interface OrganizationJudgeResponseDTO {
+export interface EmailDataResponseDto {
+  emailTemplate: string;
+  contactEmails: string[];
+  mainEmail: string;
+}
+
+export interface OrganizationJudgeResponseDto {
   key: string;
   name: string;
   keyPrefix: string;
 }
 
-export interface OrganizationTrustedOrganizationResponseDTO {
+export interface OrganizationTrustedOrganizationResponseDto {
   key: string;
   name: string;
 }
 
-export interface OrganizationResponseDTO extends EmailDataResponseDTO {
+export interface OrganizationResponseDto extends EmailDataResponseDto {
   name: string;
   key: string;
   hosts: string[];
   imageUrl: string;
-  managerUser: UserOrganizationBasicInfoResponseDTO;
-  systemAdminUser: UserOrganizationBasicInfoResponseDTO;
+  managerUser: UserOrganizationBasicInfoResponseDto;
+  systemAdminUser: UserOrganizationBasicInfoResponseDto;
   plan: OrganizationPlan;
   startsAt: number;
-  judges: OrganizationJudgeResponseDTO[];
-  trustedOrganizations: OrganizationTrustedOrganizationResponseDTO[];
-  styles: OrganizationStylesResponseDTO;
+  judges: OrganizationJudgeResponseDto[];
+  trustedOrganizations: OrganizationTrustedOrganizationResponseDto[];
+  styles: OrganizationStylesResponseDto;
 }
 
-export interface OrganizationUserPermissionsResponseDTO extends OrganizationResponseDTO {
-  userPermissions: UserPermissionsResponseDTO;
+export interface OrganizationUserPermissionsResponseDto extends OrganizationResponseDto {
+  userPermissions: UserPermissionsResponseDto;
   contactEmail: string;
   contactCellPhoneNumber: string;
   contactTelegram: string;
@@ -53,7 +58,7 @@ export interface OrganizationResourcesTelegramChannel {
   messageThreadId: string;
 }
 
-export interface OrganizationResourcesResponseDTO {
+export interface OrganizationResourcesResponseDto {
   ecs: {
     listener: OrganizationResourcesEcsSpec;
     highPerformanceRunner: OrganizationResourcesEcsSpec;
@@ -83,7 +88,7 @@ export interface OrganizationResourcesResponseDTO {
   };
 }
 
-export type OrganizationStylesResponseDTO = Record<
+export type OrganizationStylesResponseDto = Record<
   'light' | 'dark',
   {
     body: {

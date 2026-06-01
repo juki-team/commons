@@ -1,13 +1,13 @@
-import type { DocumentMembersResponseDTO, EntityMembersResponseDTO } from '../dto/index.js';
+import type { EntityAccessMembersResponseDto, EntityMembersResponseDto } from '../dto/index.js';
 import { EntityAccess, EntityMembersRank } from '../enums/index.js';
 
-export const EMPTY_DOCUMENT_MEMBERS = (): DocumentMembersResponseDTO => ({
+export const EMPTY_DOCUMENT_MEMBERS = (): EntityAccessMembersResponseDto => ({
   access: EntityAccess.PRIVATE,
   managers: {},
   spectators: {},
 });
 
-export const EMPTY_ENTITY_MEMBERS = (): EntityMembersResponseDTO => ({
+export const EMPTY_ENTITY_MEMBERS = (): EntityMembersResponseDto => ({
   rankAdministrators: EntityMembersRank.CLOSE,
   administrators: {},
   rankManagers: EntityMembersRank.CLOSE,

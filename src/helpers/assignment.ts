@@ -1,25 +1,25 @@
 import type {
-  AssignmentSessionCycleClassDataResponseDTO,
-  ContestAssignmentSessionCycleClassDataResponseDTO,
-  CourseAssignmentSessionCycleClassDataResponseDTO,
-  WorksheetAssignmentSessionCycleClassDataResponseDTO,
+  AssignmentSessionCycleClassDataResponseDto,
+  ContestAssignmentSessionCycleClassDataResponseDto,
+  CourseAssignmentSessionCycleClassDataResponseDto,
+  WorksheetAssignmentSessionCycleClassDataResponseDto,
 } from '../dto/index.js';
 import { AssignmentClass } from '../enums/index.js';
 
 export const isWorksheetAssignment = (
-  assignment: AssignmentSessionCycleClassDataResponseDTO,
-): assignment is WorksheetAssignmentSessionCycleClassDataResponseDTO => {
+  assignment: AssignmentSessionCycleClassDataResponseDto,
+): assignment is WorksheetAssignmentSessionCycleClassDataResponseDto => {
   return assignment.type === AssignmentClass.WORKSHEET;
 };
 
 export const isCourseAssignment = (
-  assignment: AssignmentSessionCycleClassDataResponseDTO,
-): assignment is CourseAssignmentSessionCycleClassDataResponseDTO => {
+  assignment: AssignmentSessionCycleClassDataResponseDto,
+): assignment is CourseAssignmentSessionCycleClassDataResponseDto => {
   return assignment.type === AssignmentClass.COURSE;
 };
 
 export const isContestAssignment = (
-  assignment: AssignmentSessionCycleClassDataResponseDTO,
-): assignment is ContestAssignmentSessionCycleClassDataResponseDTO => {
+  assignment: AssignmentSessionCycleClassDataResponseDto,
+): assignment is ContestAssignmentSessionCycleClassDataResponseDto => {
   return assignment.type === AssignmentClass.CONTEST;
 };

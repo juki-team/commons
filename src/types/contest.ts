@@ -1,4 +1,4 @@
-import type { ContestDataResponseDTO, UpsertContestDTO, UserOrganizationBasicInfoResponseDTO } from '../dto/index.js';
+import type { ContestDataResponseDto, UpsertContestDto, UserOrganizationBasicInfoResponseDto } from '../dto/index.js';
 import type { CodeLanguage, ContestEventAction, ContestProblemPrerequisiteType, Judge } from '../enums/index.js';
 import type { EntityMembers } from './entity.js';
 import type { UserBasicInfo } from './user.js';
@@ -44,11 +44,11 @@ export type ContestClarification = {
   key: string;
   problemJudgeKey: string;
   question: string;
-  questionUser: UserOrganizationBasicInfoResponseDTO;
+  questionUser: UserOrganizationBasicInfoResponseDto;
   askedAt: number;
   answer: string;
   answeredAt: number;
-  answerUser: UserOrganizationBasicInfoResponseDTO;
+  answerUser: UserOrganizationBasicInfoResponseDto;
   public: boolean;
 };
 
@@ -132,11 +132,11 @@ export type ContestMembersResponse = {
 };
 
 export type ContestTimeData = Pick<
-  ContestDataResponseDTO,
+  ContestDataResponseDto,
   'isLive' | 'isFrozenTime' | 'isQuietTime' | 'isEndless' | 'isPast' | 'isFuture' | 'isGlobal'
 > & {
   settings: Pick<
-    UpsertContestDTO['settings'],
+    UpsertContestDto['settings'],
     'penalty' | 'startsAt' | 'frozenAt' | 'silencedAt' | 'endsAt' | 'upsolvingEnabled'
   >;
 };

@@ -1,10 +1,10 @@
-import type { UserOrganizationBasicInfoResponseDTO } from './user.js';
+import type { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export type GroupByTimestampKey = 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second' | number;
 
 export type StatisticsGrouped<T> = Partial<Record<GroupByTimestampKey, Record<number, T>>>;
 
-export interface StatisticsOrganizationResponseDTO {
+export interface StatisticsOrganizationResponseDto {
   codeEditorRuns: StatisticsGrouped<number>;
   judgingRuns: StatisticsGrouped<number>;
   reJudgingRuns: StatisticsGrouped<number>;
@@ -13,7 +13,7 @@ export interface StatisticsOrganizationResponseDTO {
   contests: number;
 }
 
-export interface StatisticsProblemResponseDTO {
+export interface StatisticsProblemResponseDto {
   verdict: {
     [key: string]: {
       key: string;
@@ -31,15 +31,15 @@ export interface StatisticsProblemResponseDTO {
   date: StatisticsGrouped<number>;
 }
 
-export type StatisticsUserTrackDataResponseDTO = {
+export type StatisticsUserTrackDataResponseDto = {
   timestamp: number;
   history: { href: string; uiId: string; timestamp: number }[];
 };
 
-export interface StatisticsUserTrackResponseDTO {
+export interface StatisticsUserTrackResponseDto {
   [key: string]: {
-    user: UserOrganizationBasicInfoResponseDTO;
+    user: UserOrganizationBasicInfoResponseDto;
     sessionId: string;
-    data: StatisticsGrouped<StatisticsUserTrackDataResponseDTO>;
+    data: StatisticsGrouped<StatisticsUserTrackDataResponseDto>;
   };
 }
