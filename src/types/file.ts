@@ -1,4 +1,10 @@
-import type { FileType } from '../enums/index.js';
+import type { EntityState, FileType } from '../enums/index.js';
+
+export interface FileBasic {
+  name: string;
+  description: string;
+  state: EntityState;
+}
 
 export type FolderFileContent = { type: typeof FileType.FOLDER };
 export type FileFileContent = { type: typeof FileType.FILE; mime: string; key: string };

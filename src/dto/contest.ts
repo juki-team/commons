@@ -1,10 +1,10 @@
 import type { ContestEventAction, ContestProblemBlockedByType, EntityState } from '../enums/index.js';
 import type {
   ContestBaseDocument,
-  ContestClarification,
   ContestProblem,
   ContestProblemPrerequisite,
   ContestSettings,
+  ContestTimeFlags,
   ContestUser,
   ProblemSettings,
   ProblemStatement,
@@ -35,20 +35,13 @@ export interface UpsertContestDto extends Omit<ContestBaseDocument, 'key' | 'mem
   settings: Omit<ContestSettings, 'locked'>;
 }
 
-export interface ContestSummaryListResponseDto extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'> {
+export interface ContestSummaryListResponseDto extends Pick<ContestBaseDocument, 'key' | 'name' | 'tags'>, ContestTimeFlags {
   user: ContestUser;
   owner: UserOrganizationBasicInfoResponseDto;
   organization: EntityOrganizationSummaryListResponseDto;
   settings: Pick<ContestSettings, 'startsAt' | 'endsAt' | 'frozenAt' | 'silencedAt' | 'penalty' | 'upsolvingEnabled'>;
   // Data Calculated
   totalContestants: number;
-  isLive: boolean;
-  isPast: boolean;
-  isFuture: boolean;
-  isEndless: boolean;
-  isGlobal: boolean;
-  isFrozenTime: boolean;
-  isQuietTime: boolean;
 }
 
 export interface ContestSystemSummaryListResponseDto extends ContestSummaryListResponseDto {
@@ -109,8 +102,20 @@ export interface ContestMembersResponseDto {
   members: EntityMembersWithTimestampsResponseDto;
 }
 
+export interface ContestClarificationResponseDto {
+  key: string;
+  problemJudgeKey: string;
+  question: string;
+  questionUser: UserOrganizationBasicInfoResponseDto;
+  askedAt: number;
+  answer: string;
+  answeredAt: number;
+  answerUser: UserOrganizationBasicInfoResponseDto;
+  public: boolean;
+}
+
 export interface ContestClarificationsResponseDto {
-  clarifications: ContestClarification[];
+  clarifications: ContestClarificationResponseDto[];
 }
 
 export interface ContestEventsResponseDto {

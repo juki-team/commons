@@ -336,7 +336,7 @@ export const isSendDataClientTrackWebSocketResponseEventDto = (
   );
 };
 
-export const isSenDataChatCompletionsWebSocketResponseEventDto = (
+export const isSendDataChatCompletionsWebSocketResponseEventDto = (
   event: unknown,
 ): event is SendDataChatCompletionsWebSocketResponseEventDto => {
   return (

@@ -5,13 +5,16 @@ import type {
   WebSocketResponseEvent,
   WebSocketSubscriptionEvent,
 } from '../enums/index.js';
-import type { ClientId, Device, WebSocketResponseEventKey } from '../types/index.js';
 import type {
+  ClientId,
+  Device,
   Ec2Instance,
-  EcsTaskDefinitionSystemSummaryListResponseDto,
-  EcsTaskSystemSummaryListResponseDto,
+  InfoLogCaseStatus,
   SsmSession,
-} from './system.js';
+  TestInfo,
+  WebSocketResponseEventKey,
+} from '../types/index.js';
+import type { EcsTaskDefinitionSystemSummaryListResponseDto, EcsTaskSystemSummaryListResponseDto } from './system.js';
 import type { PingResponseDto, UserOrganizationBasicInfoResponseDto } from './user.js';
 
 // EVENT MESSAGES
@@ -173,20 +176,12 @@ export interface PongWebSocketResponseEventDto extends WebSocketResponse {
   data: PingResponseDto;
 }
 
-export type InfoLogCaseStatus = { inputKey: string; out: string; err: string; log: string };
-
 export interface CodeRunStatusWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.CODE_RUN_STATUS;
   runId: string;
   status: SubmissionRunStatus;
   log: InfoLogCaseStatus;
 }
-
-export type TestInfo = {
-  sampleCase: boolean;
-  caseResultsExecuted: number;
-  caseResultsTotal: number;
-};
 
 export interface SubmissionRunStatusWebSocketResponseEventDto extends WebSocketResponse {
   event: typeof WebSocketResponseEvent.SUBMISSION_RUN_STATUS;

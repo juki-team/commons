@@ -1,35 +1,9 @@
-export type TaskResponseDtoContainer = {
-  runtimeId?: string;
-};
-
-export interface EcsTask {
-  taskArn: string;
-  taskDefinitionArn: string;
-  group: string;
-  version: number;
-  cpu: string;
-  memory: string;
-  launchType: string;
-  createdAt: number;
-  startedAt: number;
-  desiredStatus: string;
-  lastStatus: string;
-  containers?: TaskResponseDtoContainer[];
-}
+import type { EcsTask, EcsTaskDefinition, SqsProperties } from '../types/index.js';
 
 export interface EcsTaskSystemSummaryListResponseDto extends EcsTask {
   // isLowRunnerOrganizationKeys: string[],
   isHighRunnerOrganizationKeys: string[];
   // isRunnerListenerOrganizationKeys: string[],
-}
-
-export interface EcsTaskDefinition {
-  family: string;
-  taskDefinitionArn: string;
-  revision: number;
-  cpu: string;
-  memory: string;
-  registeredAt: number;
 }
 
 export interface EcsTaskDefinitionSystemSummaryListResponseDto extends EcsTaskDefinition {
@@ -38,52 +12,7 @@ export interface EcsTaskDefinitionSystemSummaryListResponseDto extends EcsTaskDe
   // isRunnerListenerOrganizationKeys: string[],
 }
 
-export interface Ec2Instance {
-  instanceId: string;
-  state: 'pending' | 'running' | 'shutting-down' | 'stopped' | 'stopping' | 'terminated' | undefined;
-  instanceType: string;
-  privateIpAddress: string;
-  publicIpAddress: string;
-  tags: { key: string; value: string }[];
-  launchTime: Date | undefined;
-  instanceLifecycle: 'capacity-block' | 'scheduled' | 'spot' | 'interruptible-capacity-reservation' | undefined;
-  imageId: string;
-  vpcId: string;
-  subnet: { id: string; name: string };
-  securityGroups: { groupId: string; groupName: string }[];
-  raw: unknown;
-}
-
-export type SqsProperties = {
-  queueArn: string;
-  approximateNumberOfMessages: string;
-  approximateNumberOfMessagesNotVisible: string;
-  approximateNumberOfMessagesDelayed: string;
-  createdAt: number;
-  updatedAt: number;
-  visibilityTimeout: string;
-  maximumMessageSize: string;
-  messageRetentionPeriod: string;
-  delaySeconds: string;
-  receiveMessageWaitTimeSeconds: string;
-  sqsManagedSseEnabled: string;
-  fifoQueue: string;
-  deduplicationScope: string;
-  fifoThroughputLimit: string;
-  contentBasedDeduplication: string;
-};
-
 export interface SqsPropertiesResponseDto {
   sqsJukiHighRunnerFifo: SqsProperties;
   sqsJukiLowRunnerFifo: SqsProperties;
 }
-
-export type SsmSession = {
-  sessionId: string;
-  target: string;
-  status: 'Connected' | 'Connecting' | 'Disconnected' | 'Failed' | 'Terminating' | 'Terminated' | undefined;
-  startsAt: number;
-  owner: string;
-  maxSessionDuration: number;
-  raw: unknown;
-};

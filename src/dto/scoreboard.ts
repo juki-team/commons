@@ -1,17 +1,5 @@
+import type { ScoreboardProblems } from '../types/index.js';
 import type { UserSummaryListResponseDto } from './user.js';
-
-export type ScoreboardProblem = {
-  attempts: number;
-  points: number;
-  success: boolean;
-  penalty: number;
-  isFirstAccepted: boolean;
-  indexAccepted: number;
-};
-
-export type ScoreboardProblems = {
-  [key: string]: ScoreboardProblem;
-};
 
 export interface ScoreboardResponseDto {
   user: UserSummaryListResponseDto;

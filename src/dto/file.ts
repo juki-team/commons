@@ -1,12 +1,6 @@
-import type { EntityState, FileMemberRole } from '../enums/index.js';
-import type { FileContent, SummaryFileContent, UserBasic } from '../types/index.js';
+import type { FileMemberRole } from '../enums/index.js';
+import type { FileBasic, FileContent, SummaryFileContent, UserBasic } from '../types/index.js';
 import type { EntityAccessMembersResponseDto, EntityUserResponseDto } from './entity.js';
-
-export interface FileBasic {
-  name: string;
-  description: string;
-  state: EntityState;
-}
 
 export interface CreateFileDto extends FileBasic {
   folderId: string;

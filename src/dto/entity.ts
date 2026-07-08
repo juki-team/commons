@@ -1,4 +1,5 @@
 import type { EntityAccess, EntityMembersRank, EntityRole, MemberType, ShareLinkVisibility } from '../enums/index.js';
+import type { EntityLogChanges } from '../types/index.js';
 import type { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export interface EntityMembersDto {
@@ -137,4 +138,10 @@ export interface EntityShareLinkSummaryDto {
 export interface EntitySharingResponseDto {
   grants: EntityGrantDto[];
   links: EntityShareLinkSummaryDto[];
+}
+
+export interface LogDataResponseDto {
+  changes: EntityLogChanges[];
+  timestamp: number;
+  customerUser: UserOrganizationBasicInfoResponseDto;
 }

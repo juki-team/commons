@@ -1,4 +1,3 @@
-import type { ContestDataResponseDto, UpsertContestDto, UserOrganizationBasicInfoResponseDto } from '../dto/index.js';
 import type { CodeLanguage, ContestEventAction, ContestProblemPrerequisiteType, Judge } from '../enums/index.js';
 import type { EntityMembers } from './entity.js';
 import type { UserBasicInfo } from './user.js';
@@ -38,18 +37,6 @@ export type ContestUser = {
   isParticipant: boolean;
   isGuest: boolean;
   isSpectator: boolean;
-};
-
-export type ContestClarification = {
-  key: string;
-  problemJudgeKey: string;
-  question: string;
-  questionUser: UserOrganizationBasicInfoResponseDto;
-  askedAt: number;
-  answer: string;
-  answeredAt: number;
-  answerUser: UserOrganizationBasicInfoResponseDto;
-  public: boolean;
 };
 
 export type ContestProblemPrerequisite = {
@@ -131,12 +118,18 @@ export type ContestMembersResponse = {
   contestants: { [key: string]: UserBasicInfo };
 };
 
-export type ContestTimeData = Pick<
-  ContestDataResponseDto,
-  'isLive' | 'isFrozenTime' | 'isQuietTime' | 'isEndless' | 'isPast' | 'isFuture' | 'isGlobal'
-> & {
-  settings: Pick<
-    UpsertContestDto['settings'],
-    'penalty' | 'startsAt' | 'frozenAt' | 'silencedAt' | 'endsAt' | 'upsolvingEnabled'
-  >;
-};
+// Calculated time/state flags of a contest (computed at response time).
+// Source of truth for `ContestSummaryListResponseDto` (which `extends` this) and `ContestTimeData`.
+export interface ContestTimeFlags {
+  isLive: boolean;
+  isFrozenTime: boolean;
+  isQuietTime: boolean;
+  isEndless: boolean;
+  isPast: boolean;
+  isFuture: boolean;
+  isGlobal: boolean;
+}
+
+export interface ContestTimeData extends ContestTimeFlags {
+  settings: Pick<ContestSettings, 'penalty' | 'startsAt' | 'frozenAt' | 'silencedAt' | 'endsAt' | 'upsolvingEnabled'>;
+}
