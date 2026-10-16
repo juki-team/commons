@@ -18,12 +18,16 @@
     "dist"
   ],
   "repository": "https://github.com/juki-team/commons.git",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "docs": "typedoc src/index.ts",
     "watch": "rollup -cw",
     "build": "rm -rf docs && rm -rf dist && rollup -c && yarn docs",
-    "git:commit-push": "f() { param=${1}; message=${param:-chore}; echo ${message}; git add .; echo $message | git commit -F -; yarn publish --patch --no-git-tag-version; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin main; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
-    "git:push": "f() { yarn publish --patch --no-git-tag-version; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin main; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
+    "git:commit-push": "f() { param=${1}; message=${param:-chore}; echo ${message}; git add .; echo $message | git commit -F -; yarn publish --patch --no-git-tag-version --tag release-0.1; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin v0.1.x; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
+    "git:push": "f() { yarn publish --patch --no-git-tag-version --tag release-0.1; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; echo $version | git commit -F -; git push origin v0.1.x; echo $version | git tag -a $(echo $version) -F -; git push origin --tags; }; f",
     "push-commit": "f() { yarn build && yarn git-push \"${1}\"; }; f",
     "push": "yarn build && yarn git:push"
   },
