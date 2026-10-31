@@ -26,7 +26,7 @@
   "scripts": {
     "docs": "typedoc src/index.ts",
     "watch": "rollup -cw",
-    "build": "rm -rf docs && rm -rf dist && rollup -c && pnpm docs",
+    "build": "rm -rf docs && rm -rf dist && rollup -c && pnpm run docs",
     "push-commit": "f() { git add -A && git commit -m \"${1:-chore}\" && pnpm push; }; f",
     "push": "f() { npm version patch --no-git-tag-version && pnpm build && pnpm publish --tag release-0.1 --no-git-checks && version=\"v$(node -p \"require('./package.json').version\")\" && git add -A && git commit -m $version && git tag -a $version -m $version && git push origin v0.1.x --follow-tags; }; f"
   },
