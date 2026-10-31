@@ -1,6 +1,7 @@
 {
   "name": "@juki-team/commons",
   "version": "0.1.40",
+  "packageManager": "pnpm@11.15.0",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -25,16 +26,18 @@
   "scripts": {
     "docs": "typedoc src/index.ts",
     "watch": "rollup -cw",
-    "build": "rm -rf docs && rm -rf dist && rollup -c && npm run docs",
-    "push-commit": "f() { git add -A && git commit -m \"${1:-chore}\" && npm run push; }; f",
-    "push": "f() { npm version patch --no-git-tag-version && npm run build && npm publish --tag release-0.1 && version=\"v$(node -p \"require('./package.json').version\")\" && git add -A && git commit -m $version && git tag -a $version -m $version && git push origin v0.1.x --follow-tags; }; f"
+    "build": "rm -rf docs && rm -rf dist && rollup -c && pnpm docs",
+    "push-commit": "f() { git add -A && git commit -m \"${1:-chore}\" && pnpm push; }; f",
+    "push": "f() { npm version patch --no-git-tag-version && pnpm build && pnpm publish --tag release-0.1 --no-git-checks && version=\"v$(node -p \"require('./package.json').version\")\" && git add -A && git commit -m $version && git tag -a $version -m $version && git push origin v0.1.x --follow-tags; }; f"
   },
   "devDependencies": {
-    "@types/uuid": "^11.0.0",
     "prettier": "^3.8.1",
     "rollup": "^4.57.1",
     "rollup-plugin-typescript2": "^0.36.0",
     "typedoc": "^0.28.16",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "uuid": "^13.0.0"
   }
 }
