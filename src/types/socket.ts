@@ -32,6 +32,10 @@ export enum WebSocketSubscriptionEvent {
 
   SUBSCRIBE_USER_NOTIFICATION = 'SUBSCRIBE_USER_NOTIFICATION',
   UNSUBSCRIBE_USER_NOTIFICATION = 'UNSUBSCRIBE_USER_NOTIFICATION',
+
+  // an administrator watching the data (screenshots, location, device) sent by another client
+  SUBSCRIBE_CLIENT_TRACK_DATA = 'SUBSCRIBE_CLIENT_TRACK_DATA',
+  UNSUBSCRIBE_CLIENT_TRACK_DATA = 'UNSUBSCRIBE_CLIENT_TRACK_DATA',
 }
 
 export enum WebSocketResponseEvent {
@@ -59,3 +63,17 @@ export enum WebSocketResponseEvent {
 export type ClientId = `${RecordId}|${string}`;
 
 export type WebSocketResponseEventKey = `${WebSocketResponseEvent}-${ClientId}-${string}`;
+
+/**
+ * Roles of a contest, with the same names as the contest members in the DB.
+ * Each role has its own Ably channel: `contest:{contestKey}:{role}` (see `CHANNEL_CONTEST`).
+ * The inclusions follow `getContestAccessPermissions`:
+ *   spectators ⊇ managers ⊇ administrators, spectators ⊇ participants, spectators ⊇ guests
+ */
+export enum ContestChannelRole {
+  ADMINISTRATORS = 'administrators',
+  MANAGERS = 'managers',
+  PARTICIPANTS = 'participants',
+  GUESTS = 'guests',
+  SPECTATORS = 'spectators',
+}

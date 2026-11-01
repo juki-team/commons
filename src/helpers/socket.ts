@@ -19,6 +19,7 @@ import {
   SendDataWebSocketResponseEventDTO,
   SubmissionRunStatusWebSocketResponseEventDTO,
   SubmissionsCrawlWebSocketResponseEventDTO,
+  SubscribeClientTrackDataWebSocketEventDTO,
   SubscribeClientTrackWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeContestChangesWebSocketEventDTO,
@@ -27,6 +28,7 @@ import {
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
   SubscribeUserNotificationWebsocketEventDTO,
+  UnsubscribeClientTrackDataWebSocketEventDTO,
   UnsubscribeClientTrackWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeContestChangesWebSocketEventDTO,
@@ -39,13 +41,21 @@ import {
   UserNotificationContestClarificationWebSocketResponseEventDTO,
   UserNotificationSubmissionWebSocketResponseEventDTO,
   UserNotificationWebSocketResponseEventDTO,
+  WebSocketChannelsMessageDTO,
   WebSocketMessageEventDTO,
   WebSocketResponseEventDTO,
   WebSocketSubscribeEventDTO,
   WebSocketUnsubscribeEventDTO,
 } from '../dto';
 import {
+  CHANNEL_CLIENT_TRACK,
+  CHANNEL_CONTEST,
+  CHANNEL_PROBLEM,
+  CHANNEL_SUBMISSION,
+} from '../constants/websocket';
+import {
   ClientId,
+  ContestChannelRole,
   ProblemVerdict,
   SubmissionRunStatus,
   WebSocketMessageEvent,
@@ -53,6 +63,7 @@ import {
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
 } from '../types';
+import { join } from './commons';
 
 export const isWebsocketSubscription = (event: any): event is WebSocketSubscribeEventDTO | WebSocketUnsubscribeEventDTO | WebSocketMessageEventDTO => {
   return (Object.values(WebSocketSubscriptionEvent).includes(event?.event) || Object.values(WebSocketMessageEvent).includes(event?.event))
@@ -170,6 +181,18 @@ export const isSubscribeUserNotificationWebSocketEventDTO = (event: any): event 
 export const isUnsubscribeUserNotificationWebSocketEventDTO = (event: any): event is UnsubscribeUserNotificationWebSocketEventDTO => {
   return isWebsocketSubscription(event)
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION;
+};
+
+export const isSubscribeClientTrackDataWebSocketEventDTO = (event: any): event is SubscribeClientTrackDataWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK_DATA
+    && typeof event?.trackedClientId === 'string' && !!event.trackedClientId;
+};
+
+export const isUnsubscribeClientTrackDataWebSocketEventDTO = (event: any): event is UnsubscribeClientTrackDataWebSocketEventDTO => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK_DATA
+    && typeof event?.trackedClientId === 'string' && !!event.trackedClientId;
 };
 
 // is WebSocketResponseEventDTO, CHANNEL_SUBSCRIBE_CLIENT
@@ -306,4 +329,79 @@ export const isUserNotificationContestClarificationWebSocketResponseEventDTO = (
 
 export const getWebSocketResponseEventKey = (event: WebSocketResponseEvent, clientId: ClientId, id: string): WebSocketResponseEventKey => {
   return `${event}-${clientId}-${id}`;
+};
+
+export const isWebSocketChannelsMessageDTO = (message: any): message is WebSocketChannelsMessageDTO => {
+  return Array.isArray(message?.channels)
+    && message.channels.every((channel: unknown) => typeof channel === 'string' && !!channel)
+    && Object.values(WebSocketResponseEvent).includes(message?.event?.event);
+};
+
+/**
+ * Key used by the client to dispatch a response received on a TOPIC channel to its subscribers.
+ * It is the same key that `getKeyWebSocketEventDTO` (base-ui) computes for the subscription.
+ * Returns null when the response is not addressed to this client.
+ */
+export const getWebSocketResponseEventKeyOfResponse = (response: WebSocketResponseEventDTO, clientId: ClientId): WebSocketResponseEventKey | null => {
+  if (isCodeRunStatusMessageWebSocketResponseEventDTO(response)) {
+    return getWebSocketResponseEventKey(WebSocketResponseEvent.CODE_RUN_STATUS, clientId, response.runId);
+  }
+  if (isSubmissionRunStatusMessageWebSocketResponseEventDTO(response)) {
+    return getWebSocketResponseEventKey(WebSocketResponseEvent.SUBMISSION_RUN_STATUS, clientId, response.submitId);
+  }
+  if (isSendDataWebSocketResponseEventDTO(response)) {
+    return getWebSocketResponseEventKey(WebSocketResponseEvent.SEND_DATA_, clientId, response.dataId);
+  }
+  if (isContestChangesWebSocketResponseEventDTO(response)) {
+    return getWebSocketResponseEventKey(WebSocketResponseEvent.CONTEST_CHANGES, clientId, response.content.contestKey);
+  }
+  if (isProblemCrawledWebSocketResponseEventDTO(response)) {
+    return getWebSocketResponseEventKey(WebSocketResponseEvent.PROBLEM_CRAWLED, clientId, response.content.problemKey);
+  }
+  if (isSubmissionsCrawlWebSocketResponseEventDTO(response)) {
+    return getWebSocketResponseEventKey(
+      WebSocketResponseEvent.SUBMISSIONS_CRAWL,
+      clientId,
+      join([response.content.contestKey, response.content.problemKeys]),
+    );
+  }
+  if (isClientTrackWebSocketResponseEventDTO(response)) {
+    // the command is sent to the session channel, `key` holds the targeted client
+    return response.key === clientId ? getWebSocketResponseEventKey(WebSocketResponseEvent.CLIENT_TRACK, clientId, '*') : null;
+  }
+  if (isUserNotificationWebSocketResponseEventDTO(response)) {
+    return getWebSocketResponseEventKey(WebSocketResponseEvent.USER_NOTIFICATION_, clientId, '*');
+  }
+  return null;
+};
+
+/**
+ * TOPIC channel that the client has to attach to receive the events of a subscription,
+ * or null when the events arrive by the private channels (session / user) the client is always attached to.
+ * Ably rejects the attach if the token has no capability for the channel.
+ */
+export const getChannelOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEventDTO): string | null => {
+  if (isSubscribeSubmissionRunStatusWebSocketEventDTO(event)) {
+    return CHANNEL_SUBMISSION(event.submitId);
+  }
+  if (isSubscribeProblemCrawledWebSocketEventDTO(event)) {
+    return CHANNEL_PROBLEM(event.problemKey);
+  }
+  if (isSubscribeContestChangesWebSocketEventDTO(event) || isSubscribeSubmissionsCrawlWebSocketEventDTO(event)) {
+    return CHANNEL_CONTEST(event.contestKey, ContestChannelRole.SPECTATORS);
+  }
+  if (isSubscribeClientTrackDataWebSocketEventDTO(event)) {
+    return CHANNEL_CLIENT_TRACK(event.trackedClientId);
+  }
+  return null;
+};
+
+/**
+ * Contest whose role channels the client needs (the API grants them when the token is requested with this contest).
+ */
+export const getContestKeyOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEventDTO): string | null => {
+  if (isSubscribeContestChangesWebSocketEventDTO(event) || isSubscribeSubmissionsCrawlWebSocketEventDTO(event)) {
+    return event.contestKey;
+  }
+  return null;
 };

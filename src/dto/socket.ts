@@ -141,6 +141,16 @@ export interface UnsubscribeUserNotificationWebSocketEventDTO extends WebsocketS
   userKey: string,
 }
 
+export interface SubscribeClientTrackDataWebSocketEventDTO extends WebsocketSubscription {
+  event: WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK_DATA,
+  trackedClientId: ClientId,
+}
+
+export interface UnsubscribeClientTrackDataWebSocketEventDTO extends WebsocketSubscription {
+  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK_DATA,
+  trackedClientId: ClientId,
+}
+
 export type WebSocketSubscribeEventDTO =
   SubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
@@ -149,7 +159,8 @@ export type WebSocketSubscribeEventDTO =
   | SubscribeSubmissionsCrawlWebSocketEventDTO
   | SubscribeContestChangesWebSocketEventDTO
   | SubscribeClientTrackWebSocketEventDTO
-  | SubscribeUserNotificationWebsocketEventDTO;
+  | SubscribeUserNotificationWebsocketEventDTO
+  | SubscribeClientTrackDataWebSocketEventDTO;
 
 export type WebSocketUnsubscribeEventDTO =
   UnsubscribeCodeRunStatusWebSocketEventDTO
@@ -159,7 +170,8 @@ export type WebSocketUnsubscribeEventDTO =
   | UnsubscribeSubmissionsCrawlWebSocketEventDTO
   | UnsubscribeContestChangesWebSocketEventDTO
   | UnsubscribeClientTrackWebSocketEventDTO
-  | UnsubscribeUserNotificationWebSocketEventDTO;
+  | UnsubscribeUserNotificationWebSocketEventDTO
+  | UnsubscribeClientTrackDataWebSocketEventDTO;
 
 // RESPONSE EVENTS
 
@@ -340,3 +352,12 @@ export type WebSocketResponseEventDTO =
   | ClientTrackWebSocketResponseEventDTO
   | UserNotificationSubmissionWebSocketResponseEventDTO
   | UserNotificationContestClarificationWebSocketResponseEventDTO;
+
+/**
+ * Message sent by the backend producers to the websocket SQS queue:
+ * the producer (trusted, with access to the DB) decides the Ably channels where the event is published.
+ */
+export interface WebSocketChannelsMessageDTO {
+  channels: string[],
+  event: WebSocketResponseEventDTO,
+}
