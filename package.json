@@ -1,6 +1,7 @@
 {
   "name": "@juki-team/commons",
   "version": "0.2.19",
+  "packageManager": "pnpm@12.16.1",
   "author": "juki-team",
   "license": "MIT",
   "type": "module",
@@ -43,9 +44,9 @@
   "scripts": {
     "docs": "typedoc src/index.ts",
     "watch": "tsc --watch",
-    "build": "rm -rf docs && rm -rf dist && tsc && npm run docs",
-    "commit-push": "f() { param=${1}; message=${param:-chore}; git add .; git commit -m \"$message\"; npm version patch --no-git-tag-version; npm run build; npm publish; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
-    "push": "f() { npm login; npm version patch --no-git-tag-version; npm run build; npm publish; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
+    "build": "rm -rf docs && rm -rf dist && tsc && pnpm run docs",
+    "commit-push": "f() { param=${1}; message=${param:-chore}; git add .; git commit -m \"$message\"; pnpm version patch --no-git-tag-version --no-git-checks; pnpm run build; pnpm publish --no-git-checks; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
+    "push": "f() { pnpm login; pnpm version patch --no-git-tag-version --no-git-checks; pnpm run build; pnpm publish --no-git-checks; version=\"v$(node -p \"require('./package.json').version\")\"; git add .; git commit -m $version; git push origin main; git tag -a $version -m $version; git push origin --tags; }; f",
     "lint": "biome check src/",
     "lint:fix": "biome check --write src/",
     "lint:format": "biome format --write src/"
@@ -55,5 +56,8 @@
     "@types/uuid": "^11.0.0",
     "typedoc": "^0.28.19",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "uuid": "^13.0.0 || ^14.0.0"
   }
 }
