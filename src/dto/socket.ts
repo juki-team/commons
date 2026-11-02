@@ -92,6 +92,20 @@ export interface UnsubscribeUserNotificationWebSocketEventDto extends WebsocketS
   userKey: string,
 }
 
+/**
+ * Scope of a submissions table: the judging start/end of the submissions of one problem, one contest or one user.
+ * Exactly one of the keys is set.
+ */
+export type SubmissionsJudgingScope = { problemKey: string } | { contestKey: string } | { userId: string };
+
+export type SubscribeSubmissionsJudgingWebSocketEventDto = WebsocketSubscription & {
+  event: WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_JUDGING,
+} & SubmissionsJudgingScope;
+
+export type UnsubscribeSubmissionsJudgingWebSocketEventDto = WebsocketSubscription & {
+  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSIONS_JUDGING,
+} & SubmissionsJudgingScope;
+
 export type WebSocketSubscribeEventDto =
   SubscribeCodeRunStatusWebSocketEventDto
   | SubscribeSubmissionRunStatusWebSocketEventDto
@@ -99,7 +113,8 @@ export type WebSocketSubscribeEventDto =
   | SubscribeProblemCrawledWebSocketEventDto
   | SubscribeSubmissionsCrawlWebSocketEventDto
   | SubscribeContestChangesWebSocketEventDto
-  | SubscribeUserNotificationWebsocketEventDto;
+  | SubscribeUserNotificationWebsocketEventDto
+  | SubscribeSubmissionsJudgingWebSocketEventDto;
 
 export type WebSocketUnsubscribeEventDto =
   UnsubscribeCodeRunStatusWebSocketEventDto
@@ -108,7 +123,8 @@ export type WebSocketUnsubscribeEventDto =
   | UnsubscribeProblemCrawledWebSocketEventDto
   | UnsubscribeSubmissionsCrawlWebSocketEventDto
   | UnsubscribeContestChangesWebSocketEventDto
-  | UnsubscribeUserNotificationWebSocketEventDto;
+  | UnsubscribeUserNotificationWebSocketEventDto
+  | UnsubscribeSubmissionsJudgingWebSocketEventDto;
 
 // RESPONSE EVENTS
 
@@ -134,6 +150,24 @@ export interface SubmissionRunStatusWebSocketResponseEventDto extends WebSocketR
   points: number,
   testInfo?: TestInfo,
   shouldValidateContest: boolean,
+}
+
+/**
+ * Start (`judging: true`, status RECEIVED) and end (`judging: false`, status COMPLETED / FAILED) of the judging of a
+ * submission, also on rejudges. Published on the channels of the tables that list it (problem / contest / user), so a
+ * table listens to one channel and only attaches `CHANNEL_SUBMISSION` (the case by case progress) of the submissions
+ * on screen that are being judged. The case by case events keep arriving as `SubmissionRunStatusWebSocketResponseEventDto`.
+ */
+export interface SubmissionJudgingWebSocketResponseEventDto extends WebSocketResponse {
+  event: WebSocketResponseEvent.SUBMISSION_JUDGING,
+  submitId: string,
+  problemKey: string,
+  contestKey: string | null,
+  userId: string,
+  judging: boolean,
+  status: SubmissionRunStatus,
+  verdict: ProblemVerdict,
+  points: number,
 }
 
 export interface UserMessageWebSocketResponseEventDto extends WebSocketResponse {
@@ -250,7 +284,8 @@ export type WebSocketResponseEventDto =
   | ContestChangesWebSocketResponseEventDto
   | SendDataRunCommandWebSocketResponseEventDto
   | UserNotificationSubmissionWebSocketResponseEventDto
-  | UserNotificationContestClarificationWebSocketResponseEventDto;
+  | UserNotificationContestClarificationWebSocketResponseEventDto
+  | SubmissionJudgingWebSocketResponseEventDto;
 
 /**
  * Message sent by the backend producers to the websocket SQS queue:

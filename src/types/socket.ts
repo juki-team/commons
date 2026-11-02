@@ -25,6 +25,9 @@ export enum WebSocketSubscriptionEvent {
 
   SUBSCRIBE_USER_NOTIFICATION = 'SUBSCRIBE_USER_NOTIFICATION',
   UNSUBSCRIBE_USER_NOTIFICATION = 'UNSUBSCRIBE_USER_NOTIFICATION',
+
+  SUBSCRIBE_SUBMISSIONS_JUDGING = 'SUBSCRIBE_SUBMISSIONS_JUDGING',
+  UNSUBSCRIBE_SUBMISSIONS_JUDGING = 'UNSUBSCRIBE_SUBMISSIONS_JUDGING',
 }
 
 export enum WebSocketResponseEvent {
@@ -43,6 +46,7 @@ export enum WebSocketResponseEvent {
   USER_NOTIFICATION_ = 'USER_NOTIFICATION_',
   USER_NOTIFICATION_SUBMISSION = 'USER_NOTIFICATION_SUBMISSION',
   USER_NOTIFICATION_CONTEST_CLARIFICATION = 'USER_NOTIFICATION_CONTEST_CLARIFICATION',
+  SUBMISSION_JUDGING = 'SUBMISSION_JUDGING',
 }
 
 export type ClientId = `${RecordId}|${string}`;
@@ -60,6 +64,25 @@ export enum ContestChannelRole {
   MANAGERS = 'managers',
   PARTICIPANTS = 'participants',
   GUESTS = 'guests',
+  SPECTATORS = 'spectators',
+}
+
+/**
+ * Roles of a problem, the ones computed by `getProblemAccessPermissions` (backend).
+ * Each role has its own Ably channel: `problem:{problemKey}:{role}` (see `CHANNEL_PROBLEM`).
+ */
+export enum ProblemChannelRole {
+  ADMINISTRATORS = 'administrators',
+  MANAGERS = 'managers',
+  SPECTATORS = 'spectators',
+}
+
+/**
+ * Roles of the public channels of a user: `user:{userId}:{role}` (see `CHANNEL_USER_ROLE`).
+ * There are no per-user permissions: `spectators` is everyone who can list the submissions of the user.
+ * The private channel of the user is `user:{userId}` (see `CHANNEL_USER`).
+ */
+export enum UserChannelRole {
   SPECTATORS = 'spectators',
 }
 

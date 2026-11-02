@@ -1,4 +1,4 @@
-import { ContestChannelRole } from '../types';
+import { ContestChannelRole, ProblemChannelRole, UserChannelRole } from '../types';
 
 // TOPIC channels
 // The backend publishes each event once on the channel of its topic and Ably does the fan-out.
@@ -10,14 +10,17 @@ const segment = (value: string) => encodeURIComponent(value);
 /** private: events of one session (code runs, requested data) */
 export const CHANNEL_SESSION = (sessionId: string) => `session:${segment(sessionId)}`;
 
-/** private: events of one user (own submissions while the contest is frozen, notifications) */
+/** private: events of one user (own submissions while the contest is frozen, notifications, own problem crawls) */
 export const CHANNEL_USER = (userId: string) => `user:${segment(userId)}`;
+
+/** per role: public events of one user (judging of its submissions visible to everyone, see `UserChannelRole`) */
+export const CHANNEL_USER_ROLE = (userId: string, role: UserChannelRole) => `user:${segment(userId)}:${role}`;
 
 /** public: status of a submission when it is visible to everyone */
 export const CHANNEL_SUBMISSION = (submitId: string) => `submission:${segment(submitId)}`;
 
-/** public: changes of a problem */
-export const CHANNEL_PROBLEM = (problemKey: string) => `problem:${segment(problemKey)}`;
+/** per role: events of a problem for one role (judging of its submissions, see `ProblemChannelRole`) */
+export const CHANNEL_PROBLEM = (problemKey: string, role: ProblemChannelRole) => `problem:${segment(problemKey)}:${role}`;
 
 /** per role: events of a contest for one role (and the roles above it, see `ContestChannelRole`) */
 export const CHANNEL_CONTEST = (contestKey: string, role: ContestChannelRole) => `contest:${segment(contestKey)}:${role}`;
@@ -31,9 +34,12 @@ export const CHANNEL_CONTEST = (contestKey: string, role: ContestChannelRole) =>
  */
 export const CHANNEL_ORGANIZATION_PRESENCE = (organizationKey: string) => `presence:organization:${segment(organizationKey)}`;
 
-// capability resources (wildcards) of the public channels
+// capability resources (wildcards) of the public channels.
+// Ably: a trailing `*` replaces one or more segments, any other `*` exactly one segment. So `user:*:spectators`
+// matches every `user:{userId}:spectators` but never the private `user:{userId}`.
+// There is no public `problem:*`: it would also match the role channels `problem:{problemKey}:{role}`.
 export const CHANNEL_SUBMISSION_ALL = 'submission:*';
-export const CHANNEL_PROBLEM_ALL = 'problem:*';
+export const CHANNEL_USER_SPECTATORS_ALL = `user:*:${UserChannelRole.SPECTATORS}`;
 
 /**
  * Returns the contest and role of a `CHANNEL_CONTEST` channel name, or null if it is not one.
@@ -44,4 +50,15 @@ export const getContestChannelParams = (channel: string): { contestKey: string; 
     return null;
   }
   return { contestKey: decodeURIComponent(contestKey), role: role as ContestChannelRole };
+};
+
+/**
+ * Returns the problem and role of a `CHANNEL_PROBLEM` channel name, or null if it is not one.
+ */
+export const getProblemChannelParams = (channel: string): { problemKey: string; role: ProblemChannelRole } | null => {
+  const [namespace, problemKey, role, ...rest] = channel.split(':');
+  if (namespace !== 'problem' || !problemKey || rest.length || !Object.values(ProblemChannelRole).includes(role as ProblemChannelRole)) {
+    return null;
+  }
+  return { problemKey: decodeURIComponent(problemKey), role: role as ProblemChannelRole };
 };

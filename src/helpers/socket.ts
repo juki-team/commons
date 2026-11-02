@@ -8,14 +8,17 @@ import {
   SendDataRunCommandWebSocketResponseEventDto,
   SendDataSsmSessionsListWebSocketResponseEventDto,
   SendDataWebSocketResponseEventDto,
+  SubmissionJudgingWebSocketResponseEventDto,
   SubmissionRunStatusWebSocketResponseEventDto,
   SubmissionsCrawlWebSocketResponseEventDto,
+  SubmissionsJudgingScope,
   SubscribeCodeRunStatusWebSocketEventDto,
   SubscribeContestChangesWebSocketEventDto,
   SubscribeGetDataWebSocketEventDto,
   SubscribeProblemCrawledWebSocketEventDto,
   SubscribeSubmissionRunStatusWebSocketEventDto,
   SubscribeSubmissionsCrawlWebSocketEventDto,
+  SubscribeSubmissionsJudgingWebSocketEventDto,
   SubscribeUserNotificationWebsocketEventDto,
   UnsubscribeCodeRunStatusWebSocketEventDto,
   UnsubscribeContestChangesWebSocketEventDto,
@@ -23,6 +26,7 @@ import {
   UnsubscribeProblemCrawledWebSocketEventDto,
   UnsubscribeSubmissionRunStatusWebSocketEventDto,
   UnsubscribeSubmissionsCrawlWebSocketEventDto,
+  UnsubscribeSubmissionsJudgingWebSocketEventDto,
   UnsubscribeUserNotificationWebSocketEventDto,
   UserMessageWebSocketResponseEventDto,
   UserNotificationContestClarificationWebSocketResponseEventDto,
@@ -37,12 +41,15 @@ import {
   CHANNEL_CONTEST,
   CHANNEL_PROBLEM,
   CHANNEL_SUBMISSION,
+  CHANNEL_USER_ROLE,
 } from '../constants/websocket';
 import {
   ClientId,
   ContestChannelRole,
+  ProblemChannelRole,
   ProblemVerdict,
   SubmissionRunStatus,
+  UserChannelRole,
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
@@ -130,6 +137,27 @@ export const isUnsubscribeUserNotificationWebSocketEventDto = (event: any): even
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION;
 };
 
+const isNonEmptyString = (value: unknown): value is string => typeof value === 'string' && !!value;
+
+/**
+ * Exactly one of `problemKey` / `contestKey` / `userId` is set.
+ */
+export const isSubmissionsJudgingScope = (scope: any): scope is SubmissionsJudgingScope => {
+  return [scope?.problemKey, scope?.contestKey, scope?.userId].filter(isNonEmptyString).length === 1;
+};
+
+export const isSubscribeSubmissionsJudgingWebSocketEventDto = (event: any): event is SubscribeSubmissionsJudgingWebSocketEventDto => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_JUDGING
+    && isSubmissionsJudgingScope(event);
+};
+
+export const isUnsubscribeSubmissionsJudgingWebSocketEventDto = (event: any): event is UnsubscribeSubmissionsJudgingWebSocketEventDto => {
+  return isWebsocketSubscription(event)
+    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSIONS_JUDGING
+    && isSubmissionsJudgingScope(event);
+};
+
 // is WebSocketResponseEventDto, CHANNEL_SUBSCRIBE_CLIENT
 
 export const isWebSocketResponseEventDto = (event: any): event is WebSocketResponseEventDto => {
@@ -150,6 +178,19 @@ export const isSubmissionRunStatusMessageWebSocketResponseEventDto = (event: any
   return isWebSocketResponseEventDto(event)
     && event?.event === WebSocketResponseEvent.SUBMISSION_RUN_STATUS
     && typeof event?.submitId === 'string' && !!event.submitId
+    && event?.status in SubmissionRunStatus
+    && event?.verdict in ProblemVerdict
+    && typeof event?.points === 'number';
+};
+
+export const isSubmissionJudgingWebSocketResponseEventDto = (event: any): event is SubmissionJudgingWebSocketResponseEventDto => {
+  return isWebSocketResponseEventDto(event)
+    && event?.event === WebSocketResponseEvent.SUBMISSION_JUDGING
+    && isNonEmptyString(event?.submitId)
+    && isNonEmptyString(event?.problemKey)
+    && (event?.contestKey === null || isNonEmptyString(event?.contestKey))
+    && isNonEmptyString(event?.userId)
+    && typeof event?.judging === 'boolean'
     && event?.status in SubmissionRunStatus
     && event?.verdict in ProblemVerdict
     && typeof event?.points === 'number';
@@ -280,6 +321,11 @@ export const getWebSocketResponseEventKeyOfResponse = (response: WebSocketRespon
   if (isUserNotificationWebSocketResponseEventDto(response)) {
     return getWebSocketResponseEventKey(WebSocketResponseEvent.USER_NOTIFICATION_, clientId, '*');
   }
+  if (isSubmissionJudgingWebSocketResponseEventDto(response)) {
+    // one key for every table: the same event is published on several channels (problem / contest / user) and the
+    // client deduplicates it, so it is dispatched once; each table filters by the submissions it lists
+    return getWebSocketResponseEventKey(WebSocketResponseEvent.SUBMISSION_JUDGING, clientId, '*');
+  }
   return null;
 };
 
@@ -292,11 +338,22 @@ export const getChannelOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEve
   if (isSubscribeSubmissionRunStatusWebSocketEventDto(event)) {
     return CHANNEL_SUBMISSION(event.submitId);
   }
-  if (isSubscribeProblemCrawledWebSocketEventDto(event)) {
-    return CHANNEL_PROBLEM(event.problemKey);
-  }
+  // SUBSCRIBE_PROBLEM_CRAWLED: the event arrives by the private user channel of who requested the crawl
   if (isSubscribeContestChangesWebSocketEventDto(event) || isSubscribeSubmissionsCrawlWebSocketEventDto(event)) {
     return CHANNEL_CONTEST(event.contestKey, ContestChannelRole.SPECTATORS);
+  }
+  if (isSubscribeSubmissionsJudgingWebSocketEventDto(event)) {
+    // the judging start/end is published on the spectators channel when it is visible to everyone; the hidden ones
+    // (frozen / quiet contests) arrive by the role channels of the contest (managers) and the private user channel
+    if ('problemKey' in event && event.problemKey) {
+      return CHANNEL_PROBLEM(event.problemKey, ProblemChannelRole.SPECTATORS);
+    }
+    if ('contestKey' in event && event.contestKey) {
+      return CHANNEL_CONTEST(event.contestKey, ContestChannelRole.SPECTATORS);
+    }
+    if ('userId' in event && event.userId) {
+      return CHANNEL_USER_ROLE(event.userId, UserChannelRole.SPECTATORS);
+    }
   }
   return null;
 };
@@ -307,6 +364,19 @@ export const getChannelOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEve
 export const getContestKeyOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEventDto): string | null => {
   if (isSubscribeContestChangesWebSocketEventDto(event) || isSubscribeSubmissionsCrawlWebSocketEventDto(event)) {
     return event.contestKey;
+  }
+  if (isSubscribeSubmissionsJudgingWebSocketEventDto(event) && 'contestKey' in event && event.contestKey) {
+    return event.contestKey;
+  }
+  return null;
+};
+
+/**
+ * Problem whose role channels the client needs (the API grants them when the token is requested with this problem).
+ */
+export const getProblemKeyOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEventDto): string | null => {
+  if (isSubscribeSubmissionsJudgingWebSocketEventDto(event) && 'problemKey' in event && event.problemKey) {
+    return event.problemKey;
   }
   return null;
 };
