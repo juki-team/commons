@@ -9,21 +9,21 @@ import {
   ProblemUser,
   TextLanguage,
 } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { EntityOwnerSystemSummaryListResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity';
+import { EntityOwnerSystemSummaryListResponseDto, UserOrganizationBasicInfoResponseDto } from './user';
 
-export interface ProblemJudgeSummaryListResponseDTO extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
+export interface ProblemJudgeSummaryListResponseDto extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
   isCustom: boolean,
   isMain: boolean,
 }
 
-export interface EntityCompanySummaryListResponseDTO {
+export interface EntityOrganizationSummaryListResponseDto {
   key: string,
 }
 
-export interface ProblemBasicSummaryListResponseDTO {
-  company: EntityCompanySummaryListResponseDTO,
-  judge: ProblemJudgeSummaryListResponseDTO,
+export interface ProblemBasicSummaryListResponseDto {
+  organization: EntityOrganizationSummaryListResponseDto,
+  judge: ProblemJudgeSummaryListResponseDto,
   key: string,
   name: string,
   shortname: string,
@@ -32,16 +32,16 @@ export interface ProblemBasicSummaryListResponseDTO {
     scoringMode: ProblemScoringMode,
     type: ProblemType,
   },
-  members: EntityMembersResponseDTO,
+  members: EntityMembersResponseDto,
   externalUrl: string,
 }
 
-export interface ProblemSummaryListResponseDTO extends ProblemBasicSummaryListResponseDTO {
+export interface ProblemSummaryListResponseDto extends ProblemBasicSummaryListResponseDto {
   user: ProblemUser,
-  owner: UserCompanyBasicInfoResponseDTO,
+  owner: UserOrganizationBasicInfoResponseDto,
 }
 
-export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
+export interface ProblemDataResponseDto extends ProblemSummaryListResponseDto {
   author: string,
   statement: ProblemStatement,
   editorial: TextLanguage,
@@ -50,24 +50,24 @@ export interface ProblemDataResponseDTO extends ProblemSummaryListResponseDTO {
   state: EntityState,
 }
 
-export interface ProblemJudgeSystemSummaryListResponseDTO extends ProblemJudgeSummaryListResponseDTO {
+export interface ProblemJudgeSystemSummaryListResponseDto extends ProblemJudgeSummaryListResponseDto {
   name: string,
   id: string,
 }
 
-export interface EntityCompanySystemSummaryListResponseDTO extends EntityCompanySummaryListResponseDTO {
+export interface EntityOrganizationSystemSummaryListResponseDto extends EntityOrganizationSummaryListResponseDto {
   name: string,
   id: string,
 }
 
-export interface ProblemSystemSummaryListResponseDTO extends ProblemSummaryListResponseDTO {
+export interface ProblemSystemSummaryListResponseDto extends ProblemSummaryListResponseDto {
   state: EntityState,
   id: string,
-  owner: EntityOwnerSystemSummaryListResponseDTO,
-  judge: ProblemJudgeSystemSummaryListResponseDTO,
-  company: EntityCompanySystemSummaryListResponseDTO,
-  creationTimestamp: number,
-  updateTimestamp: number,
+  owner: EntityOwnerSystemSummaryListResponseDto,
+  judge: ProblemJudgeSystemSummaryListResponseDto,
+  organization: EntityOrganizationSystemSummaryListResponseDto,
+  createdAt: number,
+  updatedAt: number,
 }
 
 export interface ProblemTestCaseResponse {
@@ -79,9 +79,9 @@ export interface ProblemTestCaseResponse {
   outputFileLastModified: Date,
 }
 
-export interface ProblemTestCasesResponseDTO extends Array<ProblemTestCaseResponse> {
+export interface ProblemTestCasesResponseDto extends Array<ProblemTestCaseResponse> {
 }
 
-export interface UpsertProblemDTO extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAtTimestamp' | 'key' | 'members' | 'judgeId'> {
-  members: EntityMembersDTO,
+export interface UpsertProblemDto extends Omit<ProblemBaseDocument, 'testCases' | 'testCasesUpdatedAt' | 'key' | 'members' | 'judgeId'> {
+  members: EntityMembersDto,
 }

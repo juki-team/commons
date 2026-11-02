@@ -13,8 +13,8 @@ export interface AssignmentBasicInfo {
   index: number,
   type: AssignmentClass,
   points: number,
-  startTimestamp: number,
-  endTimestamp: number,
+  startsAt: number,
+  endsAt: number,
   title: string,
   content: BodyWorksheet[],
   tags: string[],
@@ -36,8 +36,8 @@ interface ClassCycleSession {
   index: number,
   name: string,
   assignments: ClassCycleSessionAssignments,
-  startTimestamp: number,
-  endTimestamp: number,
+  startsAt: number,
+  endsAt: number,
   state: EntityState,
 }
 
@@ -58,8 +58,8 @@ export type ClassCycle = {
   name: string,
   sessions: ClassCycleSessions,
   tags: ClassCycleTag[],
-  startTimestamp: number,
-  endTimestamp: number,
+  startsAt: number,
+  endsAt: number,
   state: EntityState,
 }
 

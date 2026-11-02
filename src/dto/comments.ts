@@ -1,23 +1,23 @@
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
 export type ReactionUserResponseData = {
   key: string,
-  user: UserCompanyBasicInfoResponseDTO
-  createdTimestamp: number;
-  updatedTimestamp: number;
+  user: UserOrganizationBasicInfoResponseDto
+  createdAt: number;
+  updatedAt: number;
 }
 
-export interface CommentDataResponseDTO {
+export interface CommentDataResponseDto {
   id: string,
   content: string,
-  user: UserCompanyBasicInfoResponseDTO,
+  user: UserOrganizationBasicInfoResponseDto,
   hidden: boolean,
   reactions: {
     [key: string /*emoji*/]: {
       [key: string /*userId*/]: ReactionUserResponseData
     },
   }
-  replies: CommentDataResponseDTO[];
-  createdTimestamp: number;
-  updatedTimestamp: number;
+  replies: CommentDataResponseDto[];
+  createdAt: number;
+  updatedAt: number;
 }

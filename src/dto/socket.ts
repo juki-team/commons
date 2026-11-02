@@ -1,18 +1,17 @@
 import {
   ClientId,
+  Ec2Instance,
+  InfoLogCaseStatus,
   ProblemVerdict,
+  SsmSession,
   SubmissionRunStatus,
+  TestInfo,
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
 } from '../types';
-import {
-  Ec2Instance,
-  EcsTaskDefinitionSystemSummaryListResponseDTO,
-  EcsTaskSystemSummaryListResponseDTO,
-  SsmSession,
-} from './system';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { EcsTaskDefinitionSystemSummaryListResponseDto, EcsTaskSystemSummaryListResponseDto } from './system';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
 // EVENT SUBSCRIPTIONS
 
@@ -21,95 +20,95 @@ export interface WebsocketSubscription {
   clientId: ClientId,
 }
 
-export interface SubscribeCodeRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeCodeRunStatusWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_CODE_RUN_STATUS,
   runId: string,
 }
 
-export interface UnsubscribeCodeRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeCodeRunStatusWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_CODE_RUN_STATUS,
   runId: string,
 }
 
-export interface SubscribeSubmissionRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSubmissionRunStatusWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSION_RUN_STATUS,
   submitId: string,
 }
 
-export interface UnsubscribeSubmissionRunStatusWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSubmissionRunStatusWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSION_RUN_STATUS,
   submitId: string,
 }
 
-export interface SubscribeGetDataWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeGetDataWebSocketEventDto extends WebsocketSubscription {
   dataId: string,
   event: WebSocketSubscriptionEvent.SUBSCRIBE_GET_DATA,
 }
 
-export interface UnsubscribeGetDataWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeGetDataWebSocketEventDto extends WebsocketSubscription {
   dataId: string,
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_GET_DATA,
 }
 
-export interface SubscribeProblemCrawledWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeProblemCrawledWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_PROBLEM_CRAWLED,
   problemKey: string,
 }
 
-export interface UnsubscribeProblemCrawledWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeProblemCrawledWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_PROBLEM_CRAWLED,
   problemKey: string,
 }
 
-export interface SubscribeSubmissionsCrawlWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeSubmissionsCrawlWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_CRAWL,
   contestKey: string,
   problemKeys: string,
 }
 
-export interface UnsubscribeSubmissionsCrawlWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeSubmissionsCrawlWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_SUBMISSIONS_CRAWL,
   contestKey: string,
   problemKeys: string,
 }
 
-export interface SubscribeContestChangesWebSocketEventDTO extends WebsocketSubscription {
+export interface SubscribeContestChangesWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_CONTEST_CHANGES,
   contestKey: string,
 }
 
-export interface UnsubscribeContestChangesWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeContestChangesWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES,
   contestKey: string,
 }
 
-export interface SubscribeUserNotificationWebsocketEventDTO extends WebsocketSubscription {
+export interface SubscribeUserNotificationWebsocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION,
   userKey: string,
 }
 
-export interface UnsubscribeUserNotificationWebSocketEventDTO extends WebsocketSubscription {
+export interface UnsubscribeUserNotificationWebSocketEventDto extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION,
   userKey: string,
 }
 
-export type WebSocketSubscribeEventDTO =
-  SubscribeCodeRunStatusWebSocketEventDTO
-  | SubscribeSubmissionRunStatusWebSocketEventDTO
-  | SubscribeGetDataWebSocketEventDTO
-  | SubscribeProblemCrawledWebSocketEventDTO
-  | SubscribeSubmissionsCrawlWebSocketEventDTO
-  | SubscribeContestChangesWebSocketEventDTO
-  | SubscribeUserNotificationWebsocketEventDTO;
+export type WebSocketSubscribeEventDto =
+  SubscribeCodeRunStatusWebSocketEventDto
+  | SubscribeSubmissionRunStatusWebSocketEventDto
+  | SubscribeGetDataWebSocketEventDto
+  | SubscribeProblemCrawledWebSocketEventDto
+  | SubscribeSubmissionsCrawlWebSocketEventDto
+  | SubscribeContestChangesWebSocketEventDto
+  | SubscribeUserNotificationWebsocketEventDto;
 
-export type WebSocketUnsubscribeEventDTO =
-  UnsubscribeCodeRunStatusWebSocketEventDTO
-  | UnsubscribeSubmissionRunStatusWebSocketEventDTO
-  | UnsubscribeGetDataWebSocketEventDTO
-  | UnsubscribeProblemCrawledWebSocketEventDTO
-  | UnsubscribeSubmissionsCrawlWebSocketEventDTO
-  | UnsubscribeContestChangesWebSocketEventDTO
-  | UnsubscribeUserNotificationWebSocketEventDTO;
+export type WebSocketUnsubscribeEventDto =
+  UnsubscribeCodeRunStatusWebSocketEventDto
+  | UnsubscribeSubmissionRunStatusWebSocketEventDto
+  | UnsubscribeGetDataWebSocketEventDto
+  | UnsubscribeProblemCrawledWebSocketEventDto
+  | UnsubscribeSubmissionsCrawlWebSocketEventDto
+  | UnsubscribeContestChangesWebSocketEventDto
+  | UnsubscribeUserNotificationWebSocketEventDto;
 
 // RESPONSE EVENTS
 
@@ -117,25 +116,17 @@ export interface WebSocketResponse {
   event: WebSocketResponseEvent,
   key: WebSocketResponseEventKey,
   connectionId: string,
-  messageTimestamp: number,
+  createdAt: number,
 }
 
-export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
-
-export interface CodeRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
+export interface CodeRunStatusWebSocketResponseEventDto extends WebSocketResponse {
   event: WebSocketResponseEvent.CODE_RUN_STATUS,
   runId: string,
   status: SubmissionRunStatus,
   log: InfoLogCaseStatus
 }
 
-export type TestInfo = {
-  sampleCase: boolean,
-  caseResultsExecuted: number,
-  caseResultsTotal: number,
-}
-
-export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SubmissionRunStatusWebSocketResponseEventDto extends WebSocketResponse {
   event: WebSocketResponseEvent.SUBMISSION_RUN_STATUS,
   submitId: string,
   status: SubmissionRunStatus,
@@ -145,9 +136,9 @@ export interface SubmissionRunStatusWebSocketResponseEventDTO extends WebSocketR
   shouldValidateContest: boolean,
 }
 
-export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse {
+export interface UserMessageWebSocketResponseEventDto extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_MESSAGE,
-  user: UserCompanyBasicInfoResponseDTO,
+  user: UserOrganizationBasicInfoResponseDto,
   content: {
     type: 'SUBMISSION_VERDICT'
     contestName: string,
@@ -157,32 +148,32 @@ export interface UserMessageWebSocketResponseEventDTO extends WebSocketResponse 
   }
 }
 
-export interface SendDataWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SendDataWebSocketResponseEventDto extends WebSocketResponse {
   dataId: string,
   content: any,
 }
 
-export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
-  content: EcsTaskDefinitionSystemSummaryListResponseDTO[],
+  content: EcsTaskDefinitionSystemSummaryListResponseDto[],
 }
 
-export interface SendDataEcsTasksListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataEcsTasksListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
-  content: EcsTaskSystemSummaryListResponseDTO[],
+  content: EcsTaskSystemSummaryListResponseDto[],
 }
 
-export interface SendDataEc2InstancesListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataEc2InstancesListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
   content: Ec2Instance[],
 }
 
-export interface SendDataSsmSessionsListWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataSsmSessionsListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
   content: SsmSession[],
 }
 
-export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
+export interface SendDataRunCommandWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
   content: {
     testCaseOutContent: string,
@@ -191,12 +182,12 @@ export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWeb
   },
 }
 
-export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
+export interface ProblemCrawledWebSocketResponseEventDto extends WebSocketResponse {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
   content: { problemKey: string },
 }
 
-export interface SubmissionsCrawlWebSocketResponseEventDTO extends WebSocketResponse {
+export interface SubmissionsCrawlWebSocketResponseEventDto extends WebSocketResponse {
   event: WebSocketResponseEvent.SUBMISSIONS_CRAWL,
   content: {
     contestKey: string,
@@ -209,19 +200,19 @@ export interface SubmissionsCrawlWebSocketResponseEventDTO extends WebSocketResp
   },
 }
 
-export interface ContestChangesWebSocketResponseEventDTO extends WebSocketResponse {
+export interface ContestChangesWebSocketResponseEventDto extends WebSocketResponse {
   event: WebSocketResponseEvent.CONTEST_CHANGES,
   content: {
     contestKey: string,
   },
 }
 
-export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
+export interface UserNotificationWebSocketResponseEventDto extends WebSocketResponse {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION | WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
   content: any,
 }
 
-export interface UserNotificationSubmissionWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
+export interface UserNotificationSubmissionWebSocketResponseEventDto extends UserNotificationWebSocketResponseEventDto {
   event: WebSocketResponseEvent.USER_NOTIFICATION_SUBMISSION,
   content: {
     contest: {
@@ -239,39 +230,39 @@ export interface UserNotificationSubmissionWebSocketResponseEventDTO extends Use
   }
 }
 
-export interface UserNotificationContestClarificationWebSocketResponseEventDTO extends UserNotificationWebSocketResponseEventDTO {
+export interface UserNotificationContestClarificationWebSocketResponseEventDto extends UserNotificationWebSocketResponseEventDto {
   event: WebSocketResponseEvent.USER_NOTIFICATION_CONTEST_CLARIFICATION,
   content: {
     contestKey: string,
   }
 }
 
-export type WebSocketResponseEventDTO =
-  CodeRunStatusWebSocketResponseEventDTO
-  | SubmissionRunStatusWebSocketResponseEventDTO
-  | UserMessageWebSocketResponseEventDTO
-  | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
-  | SendDataEcsTasksListWebSocketResponseEventDTO
-  | SendDataEc2InstancesListWebSocketResponseEventDTO
-  | SendDataSsmSessionsListWebSocketResponseEventDTO
-  | ProblemCrawledWebSocketResponseEventDTO
-  | SubmissionsCrawlWebSocketResponseEventDTO
-  | ContestChangesWebSocketResponseEventDTO
-  | SendDataRunCommandWebSocketResponseEventDTO
-  | UserNotificationSubmissionWebSocketResponseEventDTO
-  | UserNotificationContestClarificationWebSocketResponseEventDTO;
+export type WebSocketResponseEventDto =
+  CodeRunStatusWebSocketResponseEventDto
+  | SubmissionRunStatusWebSocketResponseEventDto
+  | UserMessageWebSocketResponseEventDto
+  | SendDataEcsTaskDefinitionListWebSocketResponseEventDto
+  | SendDataEcsTasksListWebSocketResponseEventDto
+  | SendDataEc2InstancesListWebSocketResponseEventDto
+  | SendDataSsmSessionsListWebSocketResponseEventDto
+  | ProblemCrawledWebSocketResponseEventDto
+  | SubmissionsCrawlWebSocketResponseEventDto
+  | ContestChangesWebSocketResponseEventDto
+  | SendDataRunCommandWebSocketResponseEventDto
+  | UserNotificationSubmissionWebSocketResponseEventDto
+  | UserNotificationContestClarificationWebSocketResponseEventDto;
 
 /**
  * Message sent by the backend producers to the websocket SQS queue:
  * the producer (trusted, with access to the DB) decides the Ably channels where the event is published.
  */
-export interface WebSocketChannelsMessageDTO {
+export interface WebSocketChannelsMessageDto {
   channels: string[],
-  event: WebSocketResponseEventDTO,
+  event: WebSocketResponseEventDto,
 }
 
 /**
- * Data of a client (tab) in its company presence channel (`CHANNEL_COMPANY_PRESENCE`).
+ * Data of a client (tab) in its organization presence channel (`CHANNEL_ORGANIZATION_PRESENCE`).
  * Sent by the client: informative only, the identity is the presence member `clientId`.
  */
 export interface UserPresenceData {

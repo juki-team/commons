@@ -1,33 +1,33 @@
 import { BodyWorksheet, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
-export interface WorksheetUserResponseDTO {
+export interface WorksheetUserResponseDto {
   isOwner: boolean,
   isManager: boolean,
   isSpectator: boolean,
 }
 
-export interface WorksheetSummaryListResponseDTO extends Pick<WorksheetBaseDocument, 'key' | 'name' | 'description'> {
-  updatedAt: Date,
+export interface WorksheetSummaryListResponseDto extends Pick<WorksheetBaseDocument, 'key' | 'name' | 'description'> {
+  updatedAt: number,
   content: SummaryWorksheetsInPages,
-  user: WorksheetUserResponseDTO,
-  owner: UserCompanyBasicInfoResponseDTO,
+  user: WorksheetUserResponseDto,
+  owner: UserOrganizationBasicInfoResponseDto,
 }
 
-export interface WorksheetDataResponseDTO extends Omit<WorksheetSummaryListResponseDTO, 'content'> {
+export interface WorksheetDataResponseDto extends Omit<WorksheetSummaryListResponseDto, 'content'> {
   folderId: string,
   content: BodyWorksheet[],
-  members: EntityMembersResponseDTO,
+  members: EntityMembersResponseDto,
   quiz: WorksheetBaseDocument['quiz'],
   slides: WorksheetBaseDocument['slides'],
 }
 
-export interface UpsertWorksheetDTO extends Omit<WorksheetBaseDocument, 'members' | 'key' | 'state'> {
-  members: EntityMembersDTO,
+export interface UpsertWorksheetDto extends Omit<WorksheetBaseDocument, 'members' | 'key' | 'state'> {
+  members: EntityMembersDto,
 }
 
-export interface WorksheetsProgressByUsersResponseDTO {
+export interface WorksheetsProgressByUsersResponseDto {
   [key: string]: {
     [key: string]: {
       pages: { totalPoints: number, points: number, percent: number, worksheetPercent: number }[],

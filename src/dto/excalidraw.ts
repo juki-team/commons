@@ -1,14 +1,14 @@
 import { ExcalidrawBaseDocument } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
-export interface ExcalidrawResponseDTO extends Omit<ExcalidrawBaseDocument, 'members'> {
-  owner: UserCompanyBasicInfoResponseDTO,
-  members: EntityMembersResponseDTO,
+export interface ExcalidrawResponseDto extends Omit<ExcalidrawBaseDocument, 'members'> {
+  owner: UserOrganizationBasicInfoResponseDto,
+  members: EntityMembersResponseDto,
   updatedAt: number,
   createdAt: number,
 }
 
-export interface UpsertExcalidrawDTO extends Omit<ExcalidrawBaseDocument, 'key' | 'members'> {
-  members: EntityMembersDTO,
+export interface UpsertExcalidrawDto extends Omit<ExcalidrawBaseDocument, 'key' | 'members'> {
+  members: EntityMembersDto,
 }

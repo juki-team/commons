@@ -1,17 +1,17 @@
-import { EntityCompanySystemSummaryListResponseDTO } from './problem';
-import { UserBasicResponseDTO } from './user';
+import { EntityOrganizationSystemSummaryListResponseDto } from './problem';
+import { UserBasicResponseDto } from './user';
 
-export interface SessionBasicResponseDTO {
+export interface SessionBasicResponseDto {
   id: string,
   deviceName: string,
   osName: string,
-  validUntilTimestamp: number,
-  creationTimestamp: number,
-  updateTimestamp: number,
+  expiresAt: number,
+  createdAt: number,
+  updatedAt: number,
 }
 
-export interface UserSessionSystemSummaryListResponseDTO extends SessionBasicResponseDTO {
+export interface UserSessionSystemSummaryListResponseDto extends SessionBasicResponseDto {
   userId: string,
-  user: UserBasicResponseDTO,
-  company: EntityCompanySystemSummaryListResponseDTO,
+  user: UserBasicResponseDto,
+  organization: EntityOrganizationSystemSummaryListResponseDto,
 }

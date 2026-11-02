@@ -126,7 +126,7 @@ export enum ErrorCode {
   ERR0818 = 'ERR0818',
   ERR0819 = 'ERR0819',
   ERR0820 = 'ERR0820',
-  // Company Errors ERR99XXX',
+  // Organization Errors ERR99XXX',
   ERR9900 = 'ERR9900',
   ERR9910 = 'ERR9910',
   ERR9911 = 'ERR9911',
@@ -244,14 +244,14 @@ export type ProblemSampleCase = { input: string, output: string };
 //   userNickname: string,
 // }
 
-// export type JudgingCompanyDataType = {
-//   companyId: string,
-//   // companyHighPerformanceRunnerTaskDefinition: string,
-//   // companyHighPerformanceRunnerMinTasks: number,
-//   // companyHighPerformanceRunnerMaxTasks: number,
-//   // companyLowPerformanceRunnerTaskDefinition: string,
-//   // companyLowPerformanceRunnerMinTasks: number,
-//   // companyLowPerformanceRunnerMaxTasks: number,
+// export type JudgingOrganizationDataType = {
+//   organizationId: string,
+//   // organizationHighPerformanceRunnerTaskDefinition: string,
+//   // organizationHighPerformanceRunnerMinTasks: number,
+//   // organizationHighPerformanceRunnerMaxTasks: number,
+//   // organizationLowPerformanceRunnerTaskDefinition: string,
+//   // organizationLowPerformanceRunnerMinTasks: number,
+//   // organizationLowPerformanceRunnerMaxTasks: number,
 // }
 
 // export type JudgingContestDataType = {

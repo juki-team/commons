@@ -1,4 +1,4 @@
-export interface ShorterListResponseDTO {
+export interface ShorterListResponseDto {
   slug: string,
   url: string,
   createdAt: number,

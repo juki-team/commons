@@ -34,7 +34,7 @@ export const EMPTY_USER_PERMISSIONS: UserPermissions = {
     create: false,
     manage: false,
   },
-  company: {
+  organization: {
     manage: false,
     administrate: false,
   },

@@ -1,13 +1,13 @@
-import { DocumentMembersResponseDTO, EntityMembersResponseDTO } from '../dto';
+import { DocumentMembersResponseDto, EntityMembersResponseDto } from '../dto';
 import { EntityAccess, EntityMembersRank } from '../types';
 
-export const EMPTY_DOCUMENT_MEMBERS = (): DocumentMembersResponseDTO => ({
+export const EMPTY_DOCUMENT_MEMBERS = (): DocumentMembersResponseDto => ({
   access: EntityAccess.PRIVATE,
   managers: {},
   spectators: {},
 });
 
-export const EMPTY_ENTITY_MEMBERS = (): EntityMembersResponseDTO => ({
+export const EMPTY_ENTITY_MEMBERS = (): EntityMembersResponseDto => ({
   rankAdministrators: EntityMembersRank.CLOSE,
   administrators: {},
   rankManagers: EntityMembersRank.CLOSE,

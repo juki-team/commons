@@ -1,14 +1,14 @@
 import { MarkdownBaseDocument } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
-export interface MarkdownResponseDTO extends Omit<MarkdownBaseDocument, 'members'> {
-  owner: UserCompanyBasicInfoResponseDTO;
-  members: EntityMembersResponseDTO;
+export interface MarkdownResponseDto extends Omit<MarkdownBaseDocument, 'members'> {
+  owner: UserOrganizationBasicInfoResponseDto;
+  members: EntityMembersResponseDto;
   updatedAt: number;
   createdAt: number;
 }
 
-export interface UpsertMarkdownDTO extends Omit<MarkdownBaseDocument, 'key' | 'members'> {
-  members: EntityMembersDTO;
+export interface UpsertMarkdownDto extends Omit<MarkdownBaseDocument, 'key' | 'members'> {
+  members: EntityMembersDto;
 }

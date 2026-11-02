@@ -1,4 +1,4 @@
-import { EntityMembersDTO, EntityMembersResponseDTO } from '../dto';
+import { EntityMembersDto, EntityMembersResponseDto } from '../dto';
 import {
   EntityAccess,
   EntityMembers,
@@ -49,7 +49,7 @@ export const isTeamMember = (member: { userId?: string, teamId?: string }): memb
   return typeof member.teamId === 'string';
 };
 
-export const toEntityMembersDTO = (members: EntityMembersResponseDTO): EntityMembersDTO => {
+export const toEntityMembersDto = (members: EntityMembersResponseDto): EntityMembersDto => {
   return {
     rankAdministrators: members.rankAdministrators,
     administrators: Object.keys(members.administrators),

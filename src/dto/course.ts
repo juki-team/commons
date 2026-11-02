@@ -1,9 +1,9 @@
 import { CourseBaseDocument } from '../types';
-import { EntityMembersDTO, EntityMembersResponseDTO } from './entity';
-import { UserCompanyBasicInfoResponseDTO } from './user';
-import { WorksheetSummaryListResponseDTO } from './worksheet';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity';
+import { UserOrganizationBasicInfoResponseDto } from './user';
+import { WorksheetSummaryListResponseDto } from './worksheet';
 
-export type CourseUserResponseDTO = {
+export type CourseUserResponseDto = {
   isOwner: boolean,
   isManager: boolean,
   isSpectator: boolean,
@@ -11,29 +11,29 @@ export type CourseUserResponseDTO = {
   isGuest: boolean,
 };
 
-export interface CourseSummaryListResponseDTO {
+export interface CourseSummaryListResponseDto {
   key: string,
   title: string,
   abstract: string,
   description: string,
   coverImageUrl: string,
-  owner: UserCompanyBasicInfoResponseDTO,
-  user: CourseUserResponseDTO,
+  owner: UserOrganizationBasicInfoResponseDto,
+  user: CourseUserResponseDto,
 }
 
-export interface CourseLessonsWorksheetDataResponseDTO extends Pick<WorksheetSummaryListResponseDTO, 'key' | 'name' | 'content'> {
+export interface CourseLessonsWorksheetDataResponseDto extends Pick<WorksheetSummaryListResponseDto, 'key' | 'name' | 'content'> {
 }
 
-export interface CourseDataResponseDTO extends CourseSummaryListResponseDTO {
+export interface CourseDataResponseDto extends CourseSummaryListResponseDto {
   lessons: {
-    worksheet: CourseLessonsWorksheetDataResponseDTO,
+    worksheet: CourseLessonsWorksheetDataResponseDto,
   }[],
-  members: EntityMembersResponseDTO,
+  members: EntityMembersResponseDto,
 }
 
-export interface UpsertCourseDTO extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons' | 'state'> {
+export interface UpsertCourseDto extends Omit<CourseBaseDocument, 'members' | 'key' | 'lessons' | 'state'> {
   lessons: {
     worksheetKey: string,
   }[],
-  members: EntityMembersDTO,
+  members: EntityMembersDto,
 }

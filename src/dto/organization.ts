@@ -1,40 +1,40 @@
-import { CompanyPlan, ResourceInstance, ResourceLogger, Theme } from '../types';
-import { EmailDataResponseDTO } from './system';
-import { UserCompanyBasicInfoResponseDTO, UserPermissions } from './user';
+import { OrganizationPlan, ResourceInstance, ResourceLogger, Theme } from '../types';
+import { EmailDataResponseDto } from './system';
+import { UserOrganizationBasicInfoResponseDto, UserPermissions } from './user';
 
-export interface CompanyJudgeResponseDTO {
+export interface OrganizationJudgeResponseDto {
   key: string,
   name: string,
   keyPrefix: string,
 }
 
-export interface CompanyTrustedCompanyResponseDTO {
+export interface OrganizationTrustedOrganizationResponseDto {
   key: string,
   name: string,
 }
 
-export interface CompanyResponseDTO extends EmailDataResponseDTO {
+export interface OrganizationResponseDto extends EmailDataResponseDto {
   name: string,
   key: string
   hosts: string[],
   imageUrl: string,
-  managerUser: UserCompanyBasicInfoResponseDTO,
-  systemAdminUser: UserCompanyBasicInfoResponseDTO,
-  plan: CompanyPlan,
-  startTimestamp: number,
-  judges: CompanyJudgeResponseDTO[],
-  trustedCompanies: CompanyTrustedCompanyResponseDTO[],
-  styles: CompanyStyles,
+  managerUser: UserOrganizationBasicInfoResponseDto,
+  systemAdminUser: UserOrganizationBasicInfoResponseDto,
+  plan: OrganizationPlan,
+  startsAt: number,
+  judges: OrganizationJudgeResponseDto[],
+  trustedOrganizations: OrganizationTrustedOrganizationResponseDto[],
+  styles: OrganizationStyles,
 }
 
-export interface CompanyUserPermissionsResponseDTO extends CompanyResponseDTO {
+export interface OrganizationUserPermissionsResponseDto extends OrganizationResponseDto {
   userPermissions: UserPermissions,
   contactEmail: string,
   contactCellPhoneNumber: string,
   contactTelegram: string,
 }
 
-export interface CompanyResourceSpecificationsResponseDTO {
+export interface OrganizationResourceSpecificationsResponseDto {
   logger: ResourceLogger,
   runnerInstance: ResourceInstance,
   runnerListener: {
@@ -54,7 +54,7 @@ export interface CompanyResourceSpecificationsResponseDTO {
   },
 }
 
-export type  CompanyStyles = Record<Theme, {
+export type  OrganizationStyles = Record<Theme, {
   body: {
     backgroundColor: string,
     backgroundColorHighlight: string,

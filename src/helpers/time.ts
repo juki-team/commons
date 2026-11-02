@@ -1,4 +1,3 @@
-import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants';
 import { SplitTime } from '../types';
 
 export function splitTime(timeRemaining: number) {
@@ -81,39 +80,3 @@ export function splitTime(timeRemaining: number) {
   
   return remaining as [ SplitTime, SplitTime, SplitTime, SplitTime, SplitTime, SplitTime ];
 }
-
-export function normalizeToLocalStartOfDay(timestamp: number | Date) {
-  const date = new Date(timestamp);
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-}
-
-export function normalizeToLocalStartOfHour(timestamp: number | Date) {
-  const date = new Date(timestamp);
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours());
-}
-
-export function normalizeToLocalStartOfMinutes(timestamp: number | Date) {
-  const date = new Date(timestamp);
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes());
-}
-
-export function normalizeToLocalStartOfSeconds(timestamp: number | Date) {
-  const date = new Date(timestamp);
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes());
-}
-
-export const getYears = (d: Date) => d.getFullYear();
-export const getMonths = (d: Date) => d.getFullYear() * 12 + d.getMonth();
-export const getDays = (d: Date) => {
-  return Math.floor(normalizeToLocalStartOfDay(d).getTime() / ONE_DAY);
-};
-export const getHours = (d: Date) => {
-  return Math.floor(normalizeToLocalStartOfHour(d).getTime() / ONE_HOUR);
-};
-export const getMinutes = (d: Date) => {
-  return Math.floor(normalizeToLocalStartOfMinutes(d).getTime() / ONE_MINUTE);
-};
-export const getSeconds = (d: Date) => {
-  return Math.floor(normalizeToLocalStartOfSeconds(d).getTime() / 1000);
-};
-export const getMilliseconds = (d: Date) => d.getTime();

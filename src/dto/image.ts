@@ -1,6 +1,6 @@
-export interface ImageSummaryResponseDTO {
+export interface ImageSummaryResponseDto {
   imageUrl: string,
   imageThumbnailUrl: string
-  lastModifiedTimestamp: number,
+  updatedAt: number,
   size: number,
 }

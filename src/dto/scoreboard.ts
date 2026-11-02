@@ -1,27 +1,15 @@
-import { UserSummaryListResponseDTO } from './user';
+import { ScoreboardProblems } from '../types';
+import { UserSummaryListResponseDto } from './user';
 
-export type ScoreboardProblem = {
-  attempts: number,
-  points: number,
-  success: boolean,
-  penalty: number,
-  isFirstAccepted: boolean,
-  indexAccepted: number,
-}
-
-export type ScoreboardProblems = {
-  [key: string]: ScoreboardProblem
-}
-
-export interface ScoreboardResponseDTO {
-  user: UserSummaryListResponseDTO,
+export interface ScoreboardResponseDto {
+  user: UserSummaryListResponseDto,
   totalPenalty: number,
   totalPoints: number,
   position: number,
   problems: ScoreboardProblems,
 }
 
-export type ScoreboardTimelineEventResponseDTO = {
+export type ScoreboardTimelineEventResponseDto = {
   timestamp: number,
   userKey: string,
   problemKey: string,
@@ -32,9 +20,9 @@ export type ScoreboardTimelineEventResponseDTO = {
   penalty: number,
 }
 
-export interface ScoreboardHistoryResponseDTO {
+export interface ScoreboardHistoryResponseDto {
   contestKey: string,
   userProblemTimelineRefs: Record<string, number[]>,
-  timelineEvents: ScoreboardTimelineEventResponseDTO[],
-  participants: Record<string, UserSummaryListResponseDTO>,
+  timelineEvents: ScoreboardTimelineEventResponseDto[],
+  participants: Record<string, UserSummaryListResponseDto>,
 }

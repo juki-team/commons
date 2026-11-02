@@ -1,5 +1,5 @@
 import { ERROR } from '../constants';
-import { JkError } from '../prototypes';
+import { JkError } from './errors';
 import { ContentResponse, ContentsMeta, ContentsResponse, ErrorCode, ErrorResponse } from '../types';
 import { consoleError, isStringJson } from './commons';
 

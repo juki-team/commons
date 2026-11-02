@@ -1,7 +1,7 @@
-import { EntityAccess, EntityMembersRank } from '../types';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { EntityAccess, EntityLogChanges, EntityMembersRank } from '../types';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
-export interface EntityMembersDTO {
+export interface EntityMembersDto {
   rankAdministrators: EntityMembersRank,
   administrators: string[],
   rankManagers: EntityMembersRank,
@@ -14,20 +14,20 @@ export interface EntityMembersDTO {
   participants: string[],
 }
 
-export interface EntityMembersResponseDTO {
+export interface EntityMembersResponseDto {
   rankAdministrators: EntityMembersRank,
-  administrators: { [key: string]: DocumentMemberResponseDTO },
+  administrators: { [key: string]: DocumentMemberResponseDto },
   rankManagers: EntityMembersRank,
-  managers: { [key: string]: DocumentMemberResponseDTO },
+  managers: { [key: string]: DocumentMemberResponseDto },
   rankGuests: EntityMembersRank,
-  guests: { [key: string]: DocumentMemberResponseDTO },
+  guests: { [key: string]: DocumentMemberResponseDto },
   rankSpectators: EntityMembersRank,
-  spectators: { [key: string]: DocumentMemberResponseDTO },
+  spectators: { [key: string]: DocumentMemberResponseDto },
   rankParticipants: EntityMembersRank,
-  participants: { [key: string]: DocumentMemberResponseDTO },
+  participants: { [key: string]: DocumentMemberResponseDto },
 }
 
-export interface DocumentUserResponseDTO {
+export interface DocumentUserResponseDto {
   isOwner: boolean,
   isManager: boolean,
   isSpectator: boolean,
@@ -38,41 +38,47 @@ export enum MemberType {
   TEAM = 'TEAM',
 }
 
-export interface DocumentMemberResponseDTO extends UserCompanyBasicInfoResponseDTO {
+export interface DocumentMemberResponseDto extends UserOrganizationBasicInfoResponseDto {
   type: MemberType;
 }
 
-export interface DocumentMemberWithTimestampsResponseDTO extends DocumentMemberResponseDTO {
+export interface DocumentMemberWithTimestampsResponseDto extends DocumentMemberResponseDto {
   type: MemberType,
-  lastVisitTimestamp: number,
-  joinedAtTimestamp: number,
+  lastVisitedAt: number,
+  joinedAt: number,
 }
 
-export interface EntityMembersWithTimestampsResponseDTO {
+export interface EntityMembersWithTimestampsResponseDto {
   rankAdministrators: EntityMembersRank,
-  administrators: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  administrators: { [key: string]: DocumentMemberWithTimestampsResponseDto },
   rankManagers: EntityMembersRank,
-  managers: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  managers: { [key: string]: DocumentMemberWithTimestampsResponseDto },
   rankGuests: EntityMembersRank,
-  guests: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  guests: { [key: string]: DocumentMemberWithTimestampsResponseDto },
   rankSpectators: EntityMembersRank,
-  spectators: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  spectators: { [key: string]: DocumentMemberWithTimestampsResponseDto },
   rankParticipants: EntityMembersRank,
-  participants: { [key: string]: DocumentMemberWithTimestampsResponseDTO },
+  participants: { [key: string]: DocumentMemberWithTimestampsResponseDto },
 }
 
-export interface DocumentMembersResponseDTO {
+export interface DocumentMembersResponseDto {
   access: EntityAccess,
-  managers: { [key: string]: DocumentMemberResponseDTO },
-  spectators: { [key: string]: DocumentMemberResponseDTO },
+  managers: { [key: string]: DocumentMemberResponseDto },
+  spectators: { [key: string]: DocumentMemberResponseDto },
 }
 
-export interface DocumentCreateResponseDTO {
+export interface DocumentCreateResponseDto {
   key: string,
 }
 
-export interface MetadataResponseDTO {
+export interface MetadataResponseDto {
   title: string,
   description: string,
   cover: string,
+}
+
+export interface LogDataResponseDto {
+  changes: EntityLogChanges[];
+  timestamp: number;
+  customerUser: UserOrganizationBasicInfoResponseDto;
 }

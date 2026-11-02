@@ -1,4 +1,4 @@
-import { CollectionKey } from './entity';
+import { CollectionKey, EntityState } from './entity';
 import { Role } from './users';
 
 export type FileRole =
@@ -36,4 +36,10 @@ export enum FilesJukiPub {
   TEMP = 'temp', // temporal files
   PROBLEMS = 'problems',
   CONTESTS = 'contests',
+}
+
+export interface FileBasic {
+  name: string,
+  description: string,
+  state: EntityState,
 }

@@ -1,4 +1,3 @@
-import { UserCompanyBasicInfoResponseDTO } from '../dto';
 
 export enum EntityMembersRank {
   NONE = 'NONE',
@@ -13,14 +12,14 @@ export enum EntityState {
 
 export type EntityUsersMemberUserData = {
   userId: string;
-  lastVisitTimestamp: number | null;
-  joinedAtTimestamp: number;
+  lastVisitedAt: number | null;
+  joinedAt: number;
 };
 
 export type EntityTeamsMemberUserData = {
   teamId: string;
-  lastVisitTimestamp: number | null;
-  joinedAtTimestamp: number;
+  lastVisitedAt: number | null;
+  joinedAt: number;
 };
 
 export type EntityMembersUserData = EntityUsersMemberUserData | EntityTeamsMemberUserData;
@@ -42,13 +41,13 @@ export interface EntityOwnerDocument {
   ownerUserId: string;
 }
 
-export interface EntityCompanyDocument {
-  companyId: string;
+export interface EntityOrganizationDocument {
+  organizationId: string;
 }
 
 export interface EntityTimestampsDocument {
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export interface EntityStateDocument {
@@ -74,14 +73,14 @@ export interface EntityLogsDocument {
   logs: EntityLog[];
 }
 
-export type NewEntityDocument<T> = T & EntityCompanyDocument & EntityOwnerDocument & EntityTimestampsDocument & EntityStateDocument & EntityLogsDocument;
+export type NewEntityDocument<T> = T & EntityOrganizationDocument & EntityOwnerDocument & EntityTimestampsDocument & EntityStateDocument & EntityLogsDocument;
 
-export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs'>;
+export type CreateEntityDocument<T> = Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'organizationId' | 'ownerUserId' | 'state' | 'logs'>;
 
-export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'companyId' | 'ownerUserId' | 'state' | 'logs' | 'key'>>;
+export type UpdateEntityDocument<T> = Partial<Omit<T, '_id' | 'createdAt' | 'updatedAt' | 'organizationId' | 'ownerUserId' | 'state' | 'logs' | 'key'>>;
 
 export enum EntityCollection {
-  COMPANY = 'COMPANY',
+  ORGANIZATION = 'ORGANIZATION',
   PROBLEM = 'PROBLEM',
   CONTEST = 'CONTEST',
   JUDGE = 'JUDGE',
@@ -90,7 +89,7 @@ export enum EntityCollection {
 }
 
 export enum CollectionKey {
-  COMPANY = 'C',
+  ORGANIZATION = 'C',
   USER = 'U',
   PROBLEM = 'P',
   CLASS = 'K',
@@ -119,8 +118,3 @@ export enum LogOperation {
   UPDATE = 'UPDATE',
 }
 
-export interface LogDataResponseDTO {
-  changes: EntityLogChanges[];
-  timestamp: number;
-  customerUser: UserCompanyBasicInfoResponseDTO;
-}

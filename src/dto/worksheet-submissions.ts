@@ -8,8 +8,8 @@ import {
   UserBasic,
   WorksheetType,
 } from '../types';
-import { SubmissionSummaryListResponseDTO } from './submission';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { SubmissionSummaryListResponseDto } from './submission';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
 export type WorksheetResponseBasicInfoProcessed = {
   submittedAt: number,
@@ -17,72 +17,72 @@ export type WorksheetResponseBasicInfoProcessed = {
   isCompleted: boolean,
 }
 
-export interface QuizProblemSubmissionDTO extends Pick<QuizProblemSheet, 'id' | 'type'> {
+export interface QuizProblemSubmissionDto extends Pick<QuizProblemSheet, 'id' | 'type'> {
   language: CodeLanguage,
   source: string,
 }
 
-export interface QuizProblemSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, Omit<QuizProblemSubmissionDTO, 'source' | 'language'> {
-  submissionResult: SubmissionSummaryListResponseDTO,
+export interface QuizProblemSubmissionResponseDto extends WorksheetResponseBasicInfoProcessed, Omit<QuizProblemSubmissionDto, 'source' | 'language'> {
+  submissionResult: SubmissionSummaryListResponseDto,
 }
 
-export interface JkmdSubmissionDTO extends Pick<JkmdSheet, 'id' | 'type'> {
+export interface JkmdSubmissionDto extends Pick<JkmdSheet, 'id' | 'type'> {
   read: boolean;
 }
 
-export interface JkmdSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, JkmdSubmissionDTO {
+export interface JkmdSubmissionResponseDto extends WorksheetResponseBasicInfoProcessed, JkmdSubmissionDto {
 }
 
-export interface CodeEditorSubmissionDTO extends Pick<CodeEditorSheet, 'id' | 'type' | 'files' | 'testCases'> {
+export interface CodeEditorSubmissionDto extends Pick<CodeEditorSheet, 'id' | 'type' | 'files' | 'testCases'> {
 }
 
-export interface CodeEditorSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, CodeEditorSubmissionDTO {
+export interface CodeEditorSubmissionResponseDto extends WorksheetResponseBasicInfoProcessed, CodeEditorSubmissionDto {
 }
 
-export interface QuizOptionsSubmissionDTO extends Pick<QuizOptionsSheet, 'id' | 'type'> {
+export interface QuizOptionsSubmissionDto extends Pick<QuizOptionsSheet, 'id' | 'type'> {
   checkedOptions: string[],
 }
 
-export interface QuizOptionsSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, QuizOptionsSubmissionDTO {
+export interface QuizOptionsSubmissionResponseDto extends WorksheetResponseBasicInfoProcessed, QuizOptionsSubmissionDto {
 }
 
-export interface QuizTextSubmissionDTO extends Pick<QuizTextSheet, 'id' | 'type'> {
+export interface QuizTextSubmissionDto extends Pick<QuizTextSheet, 'id' | 'type'> {
   response: string,
 }
 
-export interface QuizTextSubmissionResponseDTO extends WorksheetResponseBasicInfoProcessed, QuizTextSubmissionDTO {
+export interface QuizTextSubmissionResponseDto extends WorksheetResponseBasicInfoProcessed, QuizTextSubmissionDto {
 }
 
 export type WorkSheetSubmissions = {
   [WorksheetType.JK_MD]: {
-    [key: string]: JkmdSubmissionResponseDTO[],
+    [key: string]: JkmdSubmissionResponseDto[],
   },
   [WorksheetType.CODE_EDITOR]: {
-    [key: string]: CodeEditorSubmissionResponseDTO[],
+    [key: string]: CodeEditorSubmissionResponseDto[],
   },
   [WorksheetType.QUIZ_PROBLEM]: {
-    [key: string]: QuizProblemSubmissionResponseDTO[],
+    [key: string]: QuizProblemSubmissionResponseDto[],
   },
   [WorksheetType.QUIZ_OPTIONS]: {
-    [key: string]: QuizOptionsSubmissionResponseDTO[],
+    [key: string]: QuizOptionsSubmissionResponseDto[],
   }
   [WorksheetType.QUIZ_TEXT]: {
-    [key: string]: QuizTextSubmissionResponseDTO[],
+    [key: string]: QuizTextSubmissionResponseDto[],
   }
 }
 
-export interface WorksheetSubmissionsResponseDTO {
+export interface WorksheetSubmissionsResponseDto {
   [key: string]: {
     submissions: WorkSheetSubmissions,
     user: UserBasic,
   };
 }
 
-export interface WorksheetSubmissionsUsersResponseDTO {
-  [key: string]: UserCompanyBasicInfoResponseDTO,
+export interface WorksheetSubmissionsUsersResponseDto {
+  [key: string]: UserOrganizationBasicInfoResponseDto,
 }
 
-export interface WorksheetUserSubmissionsResponseDTO {
+export interface WorksheetUserSubmissionsResponseDto {
   submissions: WorkSheetSubmissions,
   user: UserBasic,
 }

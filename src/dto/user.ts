@@ -12,27 +12,27 @@ import {
   UserSettings,
   UserStatus,
 } from '../types';
-import { CompanyStyles } from './company';
-import { EntityCompanySummaryListResponseDTO, EntityCompanySystemSummaryListResponseDTO } from './problem';
+import { OrganizationStyles } from './organization';
+import { EntityOrganizationSummaryListResponseDto, EntityOrganizationSystemSummaryListResponseDto } from './problem';
 
-export interface EntityOwnerSystemSummaryListResponseDTO {
+export interface EntityOwnerSystemSummaryListResponseDto {
   id: string,
   nickname: string,
   imageUrl: string,
-  company: EntityCompanySummaryListResponseDTO,
+  organization: EntityOrganizationSummaryListResponseDto,
 }
 
-export interface UserCompanyBasicInfoResponseDTO extends UserBasicInfo {
-  company: EntityCompanySummaryListResponseDTO,
+export interface UserOrganizationBasicInfoResponseDto extends UserBasicInfo {
+  organization: EntityOrganizationSummaryListResponseDto,
 }
 
-export interface UserSummaryListResponseDTO extends UserCompanyBasicInfoResponseDTO {
+export interface UserSummaryListResponseDto extends UserOrganizationBasicInfoResponseDto {
   email: string,
   familyName: string,
   givenName: string,
 }
 
-export interface UserSystemSummaryListResponseDTO extends UserSummaryListResponseDTO {
+export interface UserSystemSummaryListResponseDto extends UserSummaryListResponseDto {
   id: string,
   status: UserStatus,
   city: string,
@@ -46,13 +46,13 @@ export interface UserSystemSummaryListResponseDTO extends UserSummaryListRespons
   teamRole: TeamRole,
   courseRole: CourseRole,
   canResetPassword: boolean,
-  owner: EntityOwnerSystemSummaryListResponseDTO,
-  company: EntityCompanySystemSummaryListResponseDTO,
-  creationTimestamp: number,
-  updateTimestamp: number,
+  owner: EntityOwnerSystemSummaryListResponseDto,
+  organization: EntityOrganizationSystemSummaryListResponseDto,
+  createdAt: number,
+  updatedAt: number,
 }
 
-export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
+export interface UserBasicResponseDto extends UserSummaryListResponseDto {
   aboutMe: string,
   city: string,
   country: string,
@@ -60,7 +60,7 @@ export interface UserBasicResponseDTO extends UserSummaryListResponseDTO {
   handles: UserHandles,
 }
 
-export interface UserProfileResponseDTO extends UserBasicResponseDTO {
+export interface UserProfileResponseDto extends UserBasicResponseDto {
   canEditProfileData: boolean,
   canEditSettingsData: boolean,
   canEditPermissionsData: boolean,
@@ -85,7 +85,7 @@ export type UserPermissions = {
     create: boolean,
     manage: boolean,
   },
-  company: {
+  organization: {
     manage: boolean,
     administrate: boolean,
   },
@@ -101,10 +101,10 @@ export type UserPing = {
   settings: UserSettings,
   isLogged: boolean,
   sessionId: RecordId,
-  company: EntityCompanySummaryListResponseDTO,
+  organization: EntityOrganizationSummaryListResponseDto,
 }
 
-export type CompanyPing = {
+export type OrganizationPing = {
   key: string,
   contactEmail: string,
   contactCellPhoneNumber: string,
@@ -112,15 +112,15 @@ export type CompanyPing = {
   imageUrl: string,
   name: string,
   codeEditorRunEnabled: boolean,
-  styles: CompanyStyles,
+  styles: OrganizationStyles,
 }
 
-export interface PingResponseDTO {
+export interface PingResponseDto {
   user: UserPing,
-  company: CompanyPing,
+  organization: OrganizationPing,
 }
 
-export interface UserRankResponseDTO {
+export interface UserRankResponseDto {
   imageUrl: string,
   nickname: string,
   status: UserStatus,
@@ -129,5 +129,5 @@ export interface UserRankResponseDTO {
   institution: string,
   problemPoints: number,
   competitionPoints: number,
-  company: EntityCompanySummaryListResponseDTO,
+  organization: EntityOrganizationSummaryListResponseDto,
 }

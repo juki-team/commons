@@ -9,13 +9,13 @@ import {
   SubmissionRunStatus,
 } from '../types';
 import {
-  EntityCompanySummaryListResponseDTO,
-  EntityCompanySystemSummaryListResponseDTO,
-  ProblemJudgeSummaryListResponseDTO,
+  EntityOrganizationSummaryListResponseDto,
+  EntityOrganizationSystemSummaryListResponseDto,
+  ProblemJudgeSummaryListResponseDto,
 } from './problem';
-import { UserCompanyBasicInfoResponseDTO } from './user';
+import { UserOrganizationBasicInfoResponseDto } from './user';
 
-export interface SubmissionProblemSummaryListResponseDTO {
+export interface SubmissionProblemSummaryListResponseDto {
   isAdministrator: boolean,
   isManager: boolean,
   key: string,
@@ -24,24 +24,24 @@ export interface SubmissionProblemSummaryListResponseDTO {
   type: ProblemType,
   timeLimit: number,
   memoryLimit: number,
-  company: EntityCompanySummaryListResponseDTO,
-  judge: ProblemJudgeSummaryListResponseDTO,
+  organization: EntityOrganizationSummaryListResponseDto,
+  judge: ProblemJudgeSummaryListResponseDto,
 }
 
-export interface SubmissionContestSummaryListResponseDTO {
+export interface SubmissionContestSummaryListResponseDto {
   key: string, // foreign
   name: string, // foreign
-  settingsStartTimestamp: number,
+  settingsStartsAt: number,
   isManager: boolean,
   problemIndex: string,
   problemColor: string,
-  company: EntityCompanySummaryListResponseDTO,
+  organization: EntityOrganizationSummaryListResponseDto,
   isFrozen: boolean,
   isQuiet: boolean,
   isUpsolving: boolean,
 }
 
-export interface SubmissionSummaryListResponseDTO {
+export interface SubmissionSummaryListResponseDto {
   submitId: string,
   language: CodeLanguage,
   timestamp: number,
@@ -50,13 +50,13 @@ export interface SubmissionSummaryListResponseDTO {
   verdict: ProblemVerdict,
   points: number, // default: 0
   status: SubmissionRunStatus,
-  problem: SubmissionProblemSummaryListResponseDTO,
-  user: UserCompanyBasicInfoResponseDTO & {
+  problem: SubmissionProblemSummaryListResponseDto,
+  user: UserOrganizationBasicInfoResponseDto & {
     canViewSourceCode: boolean, // foreign
     // canViewOutputDiff: boolean, // foreign
   }, // foreign
   // contest data or empty string
-  contest: SubmissionContestSummaryListResponseDTO | null,
+  contest: SubmissionContestSummaryListResponseDto | null,
   hiddenSubmission: boolean,
   hiddenVerdict: boolean,
   processedCases: {
@@ -69,24 +69,24 @@ export interface SubmissionSummaryListResponseDTO {
       processed: number
     }
   },
-  company: EntityCompanySummaryListResponseDTO,
+  organization: EntityOrganizationSummaryListResponseDto,
 }
 
-export interface SubmissionProblemSystemSummaryListResponseDTO extends SubmissionProblemSummaryListResponseDTO {
+export interface SubmissionProblemSystemSummaryListResponseDto extends SubmissionProblemSummaryListResponseDto {
   id: string,
 }
 
-export interface SubmissionContestSystemSummaryListResponseDTO extends SubmissionContestSummaryListResponseDTO {
+export interface SubmissionContestSystemSummaryListResponseDto extends SubmissionContestSummaryListResponseDto {
   id: string,
   user: ContestUser,
 }
 
-export interface SubmissionSystemSummaryListResponseDTO extends SubmissionSummaryListResponseDTO {
-  problem: SubmissionProblemSystemSummaryListResponseDTO,
-  contest: SubmissionContestSystemSummaryListResponseDTO | null,
-  company: EntityCompanySystemSummaryListResponseDTO,
-  creationTimestamp: number,
-  updateTimestamp: number,
+export interface SubmissionSystemSummaryListResponseDto extends SubmissionSummaryListResponseDto {
+  problem: SubmissionProblemSystemSummaryListResponseDto,
+  contest: SubmissionContestSystemSummaryListResponseDto | null,
+  organization: EntityOrganizationSystemSummaryListResponseDto,
+  createdAt: number,
+  updatedAt: number,
   state: EntityState,
 }
 
@@ -109,7 +109,7 @@ export type CompilationResult = DataLog & {
   success: boolean,
 };
 
-export interface SubmissionDataResponseDTO extends SubmissionSummaryListResponseDTO {
+export interface SubmissionDataResponseDto extends SubmissionSummaryListResponseDto {
   judgmentTime: number,
   sourceCode: string,
   verdictByGroups: VerdictByGroups,

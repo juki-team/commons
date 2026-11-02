@@ -20,18 +20,18 @@ export const ERROR: {
   [ErrorCode.ERR9998]: { value: ErrorCode.ERR9998, message: 'error on response', status: 400 },
   [ErrorCode.ERR9999]: { value: ErrorCode.ERR9999, message: 'service no found', status: 400 },
 
-  // COMPANY ERRORS ERR99XX
-  [ErrorCode.ERR9900]: { value: ErrorCode.ERR9900, message: 'internal server error on company service', status: 500 },
-  // Company server errors
-  [ErrorCode.ERR9910]: { value: ErrorCode.ERR9910, message: 'company not created', status: 500 },
-  [ErrorCode.ERR9911]: { value: ErrorCode.ERR9911, message: 'company not found', status: 500 },
-  [ErrorCode.ERR9912]: { value: ErrorCode.ERR9912, message: 'company not updated', status: 500 },
-  [ErrorCode.ERR9913]: { value: ErrorCode.ERR9913, message: 'company not deleted', status: 500 },
-  // Company user permission error
-  [ErrorCode.ERR9914]: { value: ErrorCode.ERR9914, message: 'not allowed to create the company', status: 400 },
-  [ErrorCode.ERR9915]: { value: ErrorCode.ERR9915, message: 'not allowed to view the company', status: 400 },
-  [ErrorCode.ERR9916]: { value: ErrorCode.ERR9916, message: 'not allowed to updated the company', status: 400 },
-  [ErrorCode.ERR9917]: { value: ErrorCode.ERR9917, message: 'not allowed to deleted the company', status: 400 },
+  // ORGANIZATION ERRORS ERR99XX
+  [ErrorCode.ERR9900]: { value: ErrorCode.ERR9900, message: 'internal server error on organization service', status: 500 },
+  // Organization server errors
+  [ErrorCode.ERR9910]: { value: ErrorCode.ERR9910, message: 'organization not created', status: 500 },
+  [ErrorCode.ERR9911]: { value: ErrorCode.ERR9911, message: 'organization not found', status: 500 },
+  [ErrorCode.ERR9912]: { value: ErrorCode.ERR9912, message: 'organization not updated', status: 500 },
+  [ErrorCode.ERR9913]: { value: ErrorCode.ERR9913, message: 'organization not deleted', status: 500 },
+  // Organization user permission error
+  [ErrorCode.ERR9914]: { value: ErrorCode.ERR9914, message: 'not allowed to create the organization', status: 400 },
+  [ErrorCode.ERR9915]: { value: ErrorCode.ERR9915, message: 'not allowed to view the organization', status: 400 },
+  [ErrorCode.ERR9916]: { value: ErrorCode.ERR9916, message: 'not allowed to updated the organization', status: 400 },
+  [ErrorCode.ERR9917]: { value: ErrorCode.ERR9917, message: 'not allowed to deleted the organization', status: 400 },
 
   // USER ERRORS ERR00XX
   [ErrorCode.ERR0000]: { value: ErrorCode.ERR0000, message: 'internal server error on users service', status: 500 },

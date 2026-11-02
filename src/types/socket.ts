@@ -62,3 +62,11 @@ export enum ContestChannelRole {
   GUESTS = 'guests',
   SPECTATORS = 'spectators',
 }
+
+export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
+
+export type TestInfo = {
+  sampleCase: boolean,
+  caseResultsExecuted: number,
+  caseResultsTotal: number,
+}

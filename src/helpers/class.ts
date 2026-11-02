@@ -1,19 +1,19 @@
 import {
-  AssignmentSessionCycleClassDataResponseDTO,
-  ContestAssignmentSessionCycleClassDataResponseDTO,
-  CourseAssignmentSessionCycleClassDataResponseDTO,
-  WorksheetAssignmentSessionCycleClassDataResponseDTO,
+  AssignmentSessionCycleClassDataResponseDto,
+  ContestAssignmentSessionCycleClassDataResponseDto,
+  CourseAssignmentSessionCycleClassDataResponseDto,
+  WorksheetAssignmentSessionCycleClassDataResponseDto,
 } from '../dto';
 import { AssignmentClass } from '../types';
 
-export const isWorksheetAssignment = (assignment: AssignmentSessionCycleClassDataResponseDTO): assignment is WorksheetAssignmentSessionCycleClassDataResponseDTO => {
+export const isWorksheetAssignment = (assignment: AssignmentSessionCycleClassDataResponseDto): assignment is WorksheetAssignmentSessionCycleClassDataResponseDto => {
   return assignment.type === AssignmentClass.WORKSHEET;
 };
 
-export const isCourseAssignment = (assignment: AssignmentSessionCycleClassDataResponseDTO): assignment is CourseAssignmentSessionCycleClassDataResponseDTO => {
+export const isCourseAssignment = (assignment: AssignmentSessionCycleClassDataResponseDto): assignment is CourseAssignmentSessionCycleClassDataResponseDto => {
   return assignment.type === AssignmentClass.COURSE;
 };
 
-export const isContestAssignment = (assignment: AssignmentSessionCycleClassDataResponseDTO): assignment is ContestAssignmentSessionCycleClassDataResponseDTO => {
+export const isContestAssignment = (assignment: AssignmentSessionCycleClassDataResponseDto): assignment is ContestAssignmentSessionCycleClassDataResponseDto => {
   return assignment.type === AssignmentClass.CONTEST;
 };

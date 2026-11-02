@@ -163,9 +163,9 @@ export type User = {
   emailSubscription: EmailSubscription
   emailValidationState: EmailValidationState
   emailValidationToken: string
-  emailValidationTimestamp: Date
+  emailValidatedAt: Date
   passwordResetToken: string | null
-  passwordResetTimestamp: Date | null
+  passwordResetAt: Date | null
   status: UserStatus
   userRole: UserRole
   teamRole: TeamRole
