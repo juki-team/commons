@@ -1,9 +1,7 @@
 import {
   ClientId,
-  Device,
   ProblemVerdict,
   SubmissionRunStatus,
-  WebSocketMessageEvent,
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
@@ -14,46 +12,7 @@ import {
   EcsTaskSystemSummaryListResponseDTO,
   SsmSession,
 } from './system';
-import { PingResponseDTO, UserCompanyBasicInfoResponseDTO } from './user';
-
-// EVENT MESSAGES
-interface WebsocketMessage {
-  event: WebSocketMessageEvent,
-  clientId: ClientId,
-}
-
-export interface PingWebSocketEventDTO extends WebsocketMessage {
-  event: WebSocketMessageEvent.PING,
-}
-
-/** @deprecated the location is the `href` of the company presence (`UserPresenceData`) */
-export interface ClientTrackLocationWebSocketEventDTO extends WebsocketMessage {
-  event: WebSocketMessageEvent.CLIENT_TRACK_LOCATION,
-  href: string,
-}
-
-export interface ClientTrackScreenshotWebSocketEventDTO extends WebsocketMessage {
-  event: WebSocketMessageEvent.CLIENT_TRACK_SCREENSHOT,
-  screenshot: string,
-}
-
-export interface ClientTrackDeviceWebSocketEventDTO extends WebsocketMessage {
-  event: WebSocketMessageEvent.CLIENT_TRACK_DEVICE,
-  device: Device,
-}
-
-export interface ChatCompletionsWebSocketEventDTO extends WebsocketMessage {
-  event: WebSocketMessageEvent.CHAT_COMPLETIONS,
-  chatAiId: string,
-  content: string,
-}
-
-export type WebSocketMessageEventDTO =
-  PingWebSocketEventDTO
-  | ClientTrackLocationWebSocketEventDTO
-  | ClientTrackScreenshotWebSocketEventDTO
-  | ClientTrackDeviceWebSocketEventDTO
-  | ChatCompletionsWebSocketEventDTO;
+import { UserCompanyBasicInfoResponseDTO } from './user';
 
 // EVENT SUBSCRIPTIONS
 
@@ -124,14 +83,6 @@ export interface UnsubscribeContestChangesWebSocketEventDTO extends WebsocketSub
   contestKey: string,
 }
 
-export interface SubscribeClientTrackWebSocketEventDTO extends WebsocketSubscription {
-  event: WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK,
-}
-
-export interface UnsubscribeClientTrackWebSocketEventDTO extends WebsocketSubscription {
-  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK,
-}
-
 export interface SubscribeUserNotificationWebsocketEventDTO extends WebsocketSubscription {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION,
   userKey: string,
@@ -142,16 +93,6 @@ export interface UnsubscribeUserNotificationWebSocketEventDTO extends WebsocketS
   userKey: string,
 }
 
-export interface SubscribeClientTrackDataWebSocketEventDTO extends WebsocketSubscription {
-  event: WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK_DATA,
-  trackedClientId: ClientId,
-}
-
-export interface UnsubscribeClientTrackDataWebSocketEventDTO extends WebsocketSubscription {
-  event: WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK_DATA,
-  trackedClientId: ClientId,
-}
-
 export type WebSocketSubscribeEventDTO =
   SubscribeCodeRunStatusWebSocketEventDTO
   | SubscribeSubmissionRunStatusWebSocketEventDTO
@@ -159,9 +100,7 @@ export type WebSocketSubscribeEventDTO =
   | SubscribeProblemCrawledWebSocketEventDTO
   | SubscribeSubmissionsCrawlWebSocketEventDTO
   | SubscribeContestChangesWebSocketEventDTO
-  | SubscribeClientTrackWebSocketEventDTO
-  | SubscribeUserNotificationWebsocketEventDTO
-  | SubscribeClientTrackDataWebSocketEventDTO;
+  | SubscribeUserNotificationWebsocketEventDTO;
 
 export type WebSocketUnsubscribeEventDTO =
   UnsubscribeCodeRunStatusWebSocketEventDTO
@@ -170,9 +109,7 @@ export type WebSocketUnsubscribeEventDTO =
   | UnsubscribeProblemCrawledWebSocketEventDTO
   | UnsubscribeSubmissionsCrawlWebSocketEventDTO
   | UnsubscribeContestChangesWebSocketEventDTO
-  | UnsubscribeClientTrackWebSocketEventDTO
-  | UnsubscribeUserNotificationWebSocketEventDTO
-  | UnsubscribeClientTrackDataWebSocketEventDTO;
+  | UnsubscribeUserNotificationWebSocketEventDTO;
 
 // RESPONSE EVENTS
 
@@ -181,11 +118,6 @@ export interface WebSocketResponse {
   key: WebSocketResponseEventKey,
   connectionId: string,
   messageTimestamp: number,
-}
-
-export interface PongWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.PONG,
-  data: PingResponseDTO,
 }
 
 export type InfoLogCaseStatus = { inputKey: string, out: string, err: string, log: string };
@@ -259,20 +191,6 @@ export interface SendDataRunCommandWebSocketResponseEventDTO extends SendDataWeb
   },
 }
 
-export interface SendDataClientTrackWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
-  event: WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK,
-  content: {
-    location?: string,
-    screenshot?: string,
-    device?: Device,
-  },
-}
-
-export interface SendDataChatCompletionsWebSocketResponseEventDTO extends SendDataWebSocketResponseEventDTO {
-  event: WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS,
-  content: { choices: [ { index: number, message: { role: string, content: string } } ], rawData: any },
-}
-
 export interface ProblemCrawledWebSocketResponseEventDTO extends WebSocketResponse {
   event: WebSocketResponseEvent.PROBLEM_CRAWLED,
   content: { problemKey: string },
@@ -296,13 +214,6 @@ export interface ContestChangesWebSocketResponseEventDTO extends WebSocketRespon
   content: {
     contestKey: string,
   },
-}
-
-export interface ClientTrackWebSocketResponseEventDTO extends WebSocketResponse {
-  event: WebSocketResponseEvent.CLIENT_TRACK,
-  location: boolean,
-  screenshot: boolean,
-  device: boolean,
 }
 
 export interface UserNotificationWebSocketResponseEventDTO extends WebSocketResponse {
@@ -336,8 +247,7 @@ export interface UserNotificationContestClarificationWebSocketResponseEventDTO e
 }
 
 export type WebSocketResponseEventDTO =
-  PongWebSocketResponseEventDTO
-  | CodeRunStatusWebSocketResponseEventDTO
+  CodeRunStatusWebSocketResponseEventDTO
   | SubmissionRunStatusWebSocketResponseEventDTO
   | UserMessageWebSocketResponseEventDTO
   | SendDataEcsTaskDefinitionListWebSocketResponseEventDTO
@@ -345,12 +255,9 @@ export type WebSocketResponseEventDTO =
   | SendDataEc2InstancesListWebSocketResponseEventDTO
   | SendDataSsmSessionsListWebSocketResponseEventDTO
   | ProblemCrawledWebSocketResponseEventDTO
-  | SendDataChatCompletionsWebSocketResponseEventDTO
   | SubmissionsCrawlWebSocketResponseEventDTO
   | ContestChangesWebSocketResponseEventDTO
   | SendDataRunCommandWebSocketResponseEventDTO
-  | SendDataClientTrackWebSocketResponseEventDTO
-  | ClientTrackWebSocketResponseEventDTO
   | UserNotificationSubmissionWebSocketResponseEventDTO
   | UserNotificationContestClarificationWebSocketResponseEventDTO;
 

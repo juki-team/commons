@@ -1,16 +1,7 @@
 import {
-  ChatCompletionsWebSocketEventDTO,
-  ClientTrackDeviceWebSocketEventDTO,
-  ClientTrackLocationWebSocketEventDTO,
-  ClientTrackScreenshotWebSocketEventDTO,
-  ClientTrackWebSocketResponseEventDTO,
   CodeRunStatusWebSocketResponseEventDTO,
   ContestChangesWebSocketResponseEventDTO,
-  PingWebSocketEventDTO,
-  PongWebSocketResponseEventDTO,
   ProblemCrawledWebSocketResponseEventDTO,
-  SendDataChatCompletionsWebSocketResponseEventDTO,
-  SendDataClientTrackWebSocketResponseEventDTO,
   SendDataEc2InstancesListWebSocketResponseEventDTO,
   SendDataEcsTaskDefinitionListWebSocketResponseEventDTO,
   SendDataEcsTasksListWebSocketResponseEventDTO,
@@ -19,8 +10,6 @@ import {
   SendDataWebSocketResponseEventDTO,
   SubmissionRunStatusWebSocketResponseEventDTO,
   SubmissionsCrawlWebSocketResponseEventDTO,
-  SubscribeClientTrackDataWebSocketEventDTO,
-  SubscribeClientTrackWebSocketEventDTO,
   SubscribeCodeRunStatusWebSocketEventDTO,
   SubscribeContestChangesWebSocketEventDTO,
   SubscribeGetDataWebSocketEventDTO,
@@ -28,8 +17,6 @@ import {
   SubscribeSubmissionRunStatusWebSocketEventDTO,
   SubscribeSubmissionsCrawlWebSocketEventDTO,
   SubscribeUserNotificationWebsocketEventDTO,
-  UnsubscribeClientTrackDataWebSocketEventDTO,
-  UnsubscribeClientTrackWebSocketEventDTO,
   UnsubscribeCodeRunStatusWebSocketEventDTO,
   UnsubscribeContestChangesWebSocketEventDTO,
   UnsubscribeGetDataWebSocketEventDTO,
@@ -42,13 +29,11 @@ import {
   UserNotificationSubmissionWebSocketResponseEventDTO,
   UserNotificationWebSocketResponseEventDTO,
   WebSocketChannelsMessageDTO,
-  WebSocketMessageEventDTO,
   WebSocketResponseEventDTO,
   WebSocketSubscribeEventDTO,
   WebSocketUnsubscribeEventDTO,
 } from '../dto';
 import {
-  CHANNEL_CLIENT_TRACK,
   CHANNEL_CONTEST,
   CHANNEL_PROBLEM,
   CHANNEL_SUBMISSION,
@@ -58,43 +43,15 @@ import {
   ContestChannelRole,
   ProblemVerdict,
   SubmissionRunStatus,
-  WebSocketMessageEvent,
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
 } from '../types';
 import { join } from './commons';
 
-export const isWebsocketSubscription = (event: any): event is WebSocketSubscribeEventDTO | WebSocketUnsubscribeEventDTO | WebSocketMessageEventDTO => {
-  return (Object.values(WebSocketSubscriptionEvent).includes(event?.event) || Object.values(WebSocketMessageEvent).includes(event?.event))
+export const isWebsocketSubscription = (event: any): event is WebSocketSubscribeEventDTO | WebSocketUnsubscribeEventDTO => {
+  return Object.values(WebSocketSubscriptionEvent).includes(event?.event)
     && typeof event?.clientId === 'string' && !!event.clientId;
-};
-
-// Custom CHANNEL_PUBLISH_MESSAGES
-
-export const isPingWebSocketEventDTO = (event: any): event is PingWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketMessageEvent.PING;
-};
-
-export const isClientTrackLocationWebSocketEventDTO = (event: any): event is ClientTrackLocationWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketMessageEvent.CLIENT_TRACK_LOCATION;
-};
-
-export const isClientTrackScreenshotWebSocketEventDTO = (event: any): event is ClientTrackScreenshotWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketMessageEvent.CLIENT_TRACK_SCREENSHOT;
-};
-
-export const isClientTrackDeviceWebSocketEventDTO = (event: any): event is ClientTrackDeviceWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketMessageEvent.CLIENT_TRACK_DEVICE;
-};
-
-export const isChatCompletionsWebSocketEventDTO = (event: any): event is ChatCompletionsWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketMessageEvent.CHAT_COMPLETIONS;
 };
 
 // CHANNEL_PUBLISH_SUBSCRIPTIONS
@@ -163,16 +120,6 @@ export const isUnsubscribeContestChangesWebSocketEventDTO = (event: any): event 
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CONTEST_CHANGES;
 };
 
-export const isSubscribeClientTrackWebSocketEventDTO = (event: any): event is SubscribeClientTrackWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK;
-};
-
-export const isUnsubscribeClientTrackWebSocketEventDTO = (event: any): event is UnsubscribeClientTrackWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK;
-};
-
 export const isSubscribeUserNotificationWebSocketEventDTO = (event: any): event is SubscribeUserNotificationWebsocketEventDTO => {
   return isWebsocketSubscription(event)
     && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_USER_NOTIFICATION;
@@ -183,18 +130,6 @@ export const isUnsubscribeUserNotificationWebSocketEventDTO = (event: any): even
     && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_USER_NOTIFICATION;
 };
 
-export const isSubscribeClientTrackDataWebSocketEventDTO = (event: any): event is SubscribeClientTrackDataWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.SUBSCRIBE_CLIENT_TRACK_DATA
-    && typeof event?.trackedClientId === 'string' && !!event.trackedClientId;
-};
-
-export const isUnsubscribeClientTrackDataWebSocketEventDTO = (event: any): event is UnsubscribeClientTrackDataWebSocketEventDTO => {
-  return isWebsocketSubscription(event)
-    && event?.event === WebSocketSubscriptionEvent.UNSUBSCRIBE_CLIENT_TRACK_DATA
-    && typeof event?.trackedClientId === 'string' && !!event.trackedClientId;
-};
-
 // is WebSocketResponseEventDTO, CHANNEL_SUBSCRIBE_CLIENT
 
 export const isWebSocketResponseEventDTO = (event: any): event is WebSocketResponseEventDTO => {
@@ -202,12 +137,6 @@ export const isWebSocketResponseEventDTO = (event: any): event is WebSocketRespo
     && typeof event?.key === 'string'
     && typeof event?.connectionId === 'string'
     && typeof event?.messageTimestamp === 'number' && !!event.messageTimestamp;
-};
-
-export const isPongWebSocketResponseEventDTO = (event: any): event is PongWebSocketResponseEventDTO => {
-  return isWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.PONG
-    && !!event?.data;
 };
 
 export const isCodeRunStatusMessageWebSocketResponseEventDTO = (event: any): event is CodeRunStatusWebSocketResponseEventDTO => {
@@ -242,8 +171,6 @@ export const isSendDataWebSocketResponseEventDTO = (event: any): event is SendDa
       WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
       WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
       WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
-      WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK,
-      WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS,
     ].includes(event?.event)
     && typeof event?.dataId === 'string' && !!event.dataId
     && !!event?.content;
@@ -274,16 +201,6 @@ export const isSendDataRunCommandWebSocketResponseEventDTO = (event: any): event
     && event?.event === WebSocketResponseEvent.SEND_DATA_RUN_COMMAND;
 };
 
-export const isSendDataClientTrackWebSocketResponseEventDTO = (event: any): event is SendDataClientTrackWebSocketResponseEventDTO => {
-  return isWebSocketResponseEventDTO(event) && isSendDataWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.SEND_DATA_CLIENT_TRACK;
-};
-
-export const isSenDataChatCompletionsWebSocketResponseEventDTO = (event: any): event is SendDataChatCompletionsWebSocketResponseEventDTO => {
-  return isWebSocketResponseEventDTO(event) && isSendDataWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.SEND_DATA_CHAT_COMPLETIONS;
-};
-
 export const isProblemCrawledWebSocketResponseEventDTO = (event: any): event is ProblemCrawledWebSocketResponseEventDTO => {
   return isWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.PROBLEM_CRAWLED
@@ -300,11 +217,6 @@ export const isContestChangesWebSocketResponseEventDTO = (event: any): event is 
   return isWebSocketResponseEventDTO(event)
     && event?.event === WebSocketResponseEvent.CONTEST_CHANGES
     && !!event?.content;
-};
-
-export const isClientTrackWebSocketResponseEventDTO = (event: any): event is ClientTrackWebSocketResponseEventDTO => {
-  return isWebSocketResponseEventDTO(event)
-    && event?.event === WebSocketResponseEvent.CLIENT_TRACK;
 };
 
 export const isUserNotificationWebSocketResponseEventDTO = (event: any): event is UserNotificationWebSocketResponseEventDTO => {
@@ -365,10 +277,6 @@ export const getWebSocketResponseEventKeyOfResponse = (response: WebSocketRespon
       join([response.content.contestKey, response.content.problemKeys]),
     );
   }
-  if (isClientTrackWebSocketResponseEventDTO(response)) {
-    // the command is sent to the session channel, `key` holds the targeted client
-    return response.key === clientId ? getWebSocketResponseEventKey(WebSocketResponseEvent.CLIENT_TRACK, clientId, '*') : null;
-  }
   if (isUserNotificationWebSocketResponseEventDTO(response)) {
     return getWebSocketResponseEventKey(WebSocketResponseEvent.USER_NOTIFICATION_, clientId, '*');
   }
@@ -389,9 +297,6 @@ export const getChannelOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEve
   }
   if (isSubscribeContestChangesWebSocketEventDTO(event) || isSubscribeSubmissionsCrawlWebSocketEventDTO(event)) {
     return CHANNEL_CONTEST(event.contestKey, ContestChannelRole.SPECTATORS);
-  }
-  if (isSubscribeClientTrackDataWebSocketEventDTO(event)) {
-    return CHANNEL_CLIENT_TRACK(event.trackedClientId);
   }
   return null;
 };
