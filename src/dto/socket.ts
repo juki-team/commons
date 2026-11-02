@@ -26,6 +26,7 @@ export interface PingWebSocketEventDTO extends WebsocketMessage {
   event: WebSocketMessageEvent.PING,
 }
 
+/** @deprecated the location is the `href` of the company presence (`UserPresenceData`) */
 export interface ClientTrackLocationWebSocketEventDTO extends WebsocketMessage {
   event: WebSocketMessageEvent.CLIENT_TRACK_LOCATION,
   href: string,
@@ -360,4 +361,13 @@ export type WebSocketResponseEventDTO =
 export interface WebSocketChannelsMessageDTO {
   channels: string[],
   event: WebSocketResponseEventDTO,
+}
+
+/**
+ * Data of a client (tab) in its company presence channel (`CHANNEL_COMPANY_PRESENCE`).
+ * Sent by the client: informative only, the identity is the presence member `clientId`.
+ */
+export interface UserPresenceData {
+  href: string,
+  uiId: string,
 }

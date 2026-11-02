@@ -2,14 +2,19 @@ import { ClientId, ContestChannelRole } from '../types';
 
 // LEGACY channels (fan-out per client through the subscriptions registry in Redis)
 
+/** @deprecated the subscriptions registry was replaced by the TOPIC channels granted in the Ably token */
 export const CHANNEL_PUBLISH_SUBSCRIPTIONS = 'pub:subscriptions';
 
+/** @deprecated not used, the events arrive by the TOPIC channels */
 export const CHANNEL_SUBSCRIBE_NOTIFICATIONS = 'sub:notifications';
 
+/** @deprecated the events arrive by the TOPIC channels */
 export const CHANNEL_SUBSCRIBE_CLIENT = (clientId: ClientId) => `sub:client:${clientId}`;
 
+/** messages from the clients to the backend (chat completions, client track screenshots) */
 export const CHANNEL_PUBLISH_MESSAGES = 'pub:messages';
 
+/** @deprecated global presence channel (limited to 200 members by Ably), replaced by CHANNEL_COMPANY_PRESENCE */
 export const CHANNEL_PRESENCE_CLIENT = 'pre:client';
 
 // TOPIC channels
@@ -36,6 +41,15 @@ export const CHANNEL_CONTEST = (contestKey: string, role: ContestChannelRole) =>
 
 /** system administrators only: data sent by a tracked client (screenshots, location, device) */
 export const CHANNEL_CLIENT_TRACK = (trackedClientId: ClientId) => `client-track:${segment(trackedClientId)}`;
+
+/**
+ * presence of the clients (tabs) of the logged users of a company, data: `UserPresenceData`.
+ * The clients only enter (capability `presence`), only the administrators of the company receive it
+ * (capability `presence-subscribe`). Ably limits the presence members per channel (200 by default,
+ * more with server-side batching enabled on the `presence` namespace).
+ * The identity of a member is its `clientId` (`sessionId|uiId`, verified by Ably), never its data.
+ */
+export const CHANNEL_COMPANY_PRESENCE = (companyId: string) => `presence:company:${segment(companyId)}`;
 
 // capability resources (wildcards) of the public channels
 export const CHANNEL_SUBMISSION_ALL = 'submission:*';

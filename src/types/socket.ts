@@ -8,6 +8,10 @@ export enum WebSocketMessageEvent {
   CHAT_COMPLETIONS = 'CHAT_COMPLETIONS'
 }
 
+/**
+ * Subscriptions of the client. With the TOPIC channels they are not sent to the server anymore:
+ * they only say which channel the client attaches (`getChannelOfWebSocketSubscribeEvent`) and the dispatch key.
+ */
 export enum WebSocketSubscriptionEvent {
   SUBSCRIBE_CODE_RUN_STATUS = 'SUBSCRIBE_CODE_RUN_STATUS',
   UNSUBSCRIBE_CODE_RUN_STATUS = 'UNSUBSCRIBE_CODE_RUN_STATUS',
