@@ -43,13 +43,13 @@ export const CHANNEL_CONTEST = (contestKey: string, role: ContestChannelRole) =>
 export const CHANNEL_CLIENT_TRACK = (trackedClientId: ClientId) => `client-track:${segment(trackedClientId)}`;
 
 /**
- * presence of the clients (tabs) of the logged users of a company, data: `UserPresenceData`.
+ * presence of the clients (tabs) of the logged users of a company (by its key), data: `UserPresenceData`.
  * The clients only enter (capability `presence`), only the administrators of the company receive it
  * (capability `presence-subscribe`). Ably limits the presence members per channel (200 by default,
  * more with server-side batching enabled on the `presence` namespace).
  * The identity of a member is its `clientId` (`sessionId|uiId`, verified by Ably), never its data.
  */
-export const CHANNEL_COMPANY_PRESENCE = (companyId: string) => `presence:company:${segment(companyId)}`;
+export const CHANNEL_COMPANY_PRESENCE = (companyKey: string) => `presence:company:${segment(companyKey)}`;
 
 // capability resources (wildcards) of the public channels
 export const CHANNEL_SUBMISSION_ALL = 'submission:*';
