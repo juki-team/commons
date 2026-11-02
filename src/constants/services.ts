@@ -1,4 +1,4 @@
-import { ErrorCode } from '../types';
+import { ErrorCode } from '../types/index.js';
 
 export const ERROR: {
   [key in ErrorCode]: {

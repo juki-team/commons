@@ -6,7 +6,7 @@ import {
   ProblemVerdict,
   RunnerType,
   SubmissionRunStatus,
-} from '../types';
+} from '../types/index.js';
 
 export type JudgeType = {
   [key in Judge]: {

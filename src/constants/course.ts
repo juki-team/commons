@@ -1,4 +1,4 @@
-import { CourseRole } from '../types';
+import { CourseRole } from '../types/index.js';
 
 export const COURSE_ROLE: { [key in CourseRole]: { value: CourseRole, label: string, level: number } } = {
   [CourseRole.RESTRICTED]: { value: CourseRole.RESTRICTED, label: 'restricted', level: 8 },

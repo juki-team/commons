@@ -1,4 +1,4 @@
-import { SystemRole } from '../types';
+import { SystemRole } from '../types/index.js';
 
 export const SYSTEM_ROLE: { [key in SystemRole]: { value: SystemRole, label: string, level: number } } = {
   [SystemRole.GUEST]: { value: SystemRole.GUEST, label: 'guest', level: 5 },

@@ -7,13 +7,13 @@ import {
   ProblemType,
   ProblemVerdict,
   SubmissionRunStatus,
-} from '../types';
+} from '../types/index.js';
 import {
   EntityOrganizationSummaryListResponseDto,
   EntityOrganizationSystemSummaryListResponseDto,
   ProblemJudgeSummaryListResponseDto,
-} from './problem';
-import { UserOrganizationBasicInfoResponseDto } from './user';
+} from './problem.js';
+import { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export interface SubmissionProblemSummaryListResponseDto {
   isAdministrator: boolean,

@@ -1,6 +1,6 @@
-import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassCycleTag, EntityState } from '../types';
-import { EntityMembersDto, EntityMembersResponseDto } from './entity';
-import { UserOrganizationBasicInfoResponseDto, UserSummaryListResponseDto } from './user';
+import { AssignmentBasicInfo, AssignmentClass, ClassBaseDocument, ClassCycleTag, EntityState } from '../types/index.js';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import { UserOrganizationBasicInfoResponseDto, UserSummaryListResponseDto } from './user.js';
 
 interface ClassUserResponseDto {
   isOwner: boolean,

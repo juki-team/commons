@@ -1,4 +1,4 @@
-import { NEW_PAGE_SHEET } from '../constants/worksheet';
+import { NEW_PAGE_SHEET } from '../constants/worksheet.js';
 import {
   BasicWorksheet,
   BodyWorksheet,
@@ -12,7 +12,7 @@ import {
   SummaryWorksheetsInPages,
   WorksheetsInPages,
   WorksheetType,
-} from '../types';
+} from '../types/index.js';
 
 export const getWorksheetsInPages = (initialSheets: BodyWorksheet[]) => {
   const sheets = [ ...initialSheets ];

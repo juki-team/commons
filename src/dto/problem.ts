@@ -8,9 +8,9 @@ import {
   ProblemType,
   ProblemUser,
   TextLanguage,
-} from '../types';
-import { EntityMembersDto, EntityMembersResponseDto } from './entity';
-import { EntityOwnerSystemSummaryListResponseDto, UserOrganizationBasicInfoResponseDto } from './user';
+} from '../types/index.js';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import { EntityOwnerSystemSummaryListResponseDto, UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export interface ProblemJudgeSummaryListResponseDto extends Pick<JudgeBaseDocument, 'isExternal' | 'isSubmitSupported' | 'name' | 'key'> {
   isCustom: boolean,

@@ -1,4 +1,4 @@
-import { RecordId } from './commons';
+import { RecordId } from './commons.js';
 
 /**
  * Subscriptions of the client. With the TOPIC channels they are not sent to the server anymore:

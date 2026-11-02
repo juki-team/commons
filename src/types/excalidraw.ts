@@ -1,4 +1,4 @@
-import { EntityMembers } from './entity';
+import { EntityMembers } from './entity.js';
 
 export interface ExcalidrawBaseDocument {
   key: string,

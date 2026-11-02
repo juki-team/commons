@@ -1,4 +1,4 @@
-import { SplitTime } from '../types';
+import { SplitTime } from '../types/index.js';
 
 export function splitTime(timeRemaining: number) {
   const remaining: Array<SplitTime> = [];

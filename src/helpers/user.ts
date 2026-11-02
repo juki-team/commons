@@ -1,4 +1,4 @@
-import { ClientId, RecordId } from '../types';
+import { ClientId, RecordId } from '../types/index.js';
 
 export const getUserKey = (userNickname: string, userOrganizationKey: string) => {
   return userNickname + '|' + userOrganizationKey;

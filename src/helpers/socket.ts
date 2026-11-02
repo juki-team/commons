@@ -36,13 +36,13 @@ import {
   WebSocketResponseEventDto,
   WebSocketSubscribeEventDto,
   WebSocketUnsubscribeEventDto,
-} from '../dto';
+} from '../dto/index.js';
 import {
   CHANNEL_CONTEST,
   CHANNEL_PROBLEM,
   CHANNEL_SUBMISSION,
   CHANNEL_USER_ROLE,
-} from '../constants/websocket';
+} from '../constants/websocket.js';
 import {
   ClientId,
   ContestChannelRole,
@@ -53,8 +53,8 @@ import {
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
-} from '../types';
-import { join } from './commons';
+} from '../types/index.js';
+import { join } from './commons.js';
 
 export const isWebsocketSubscription = (event: any): event is WebSocketSubscribeEventDto | WebSocketUnsubscribeEventDto => {
   return Object.values(WebSocketSubscriptionEvent).includes(event?.event)

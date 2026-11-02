@@ -10,15 +10,15 @@ import {
   ProblemSettings,
   ProblemStatement,
   TextLanguage,
-} from '../types';
-import { EntityMembersDto, EntityMembersWithTimestampsResponseDto } from './entity';
+} from '../types/index.js';
+import { EntityMembersDto, EntityMembersWithTimestampsResponseDto } from './entity.js';
 import {
   EntityOrganizationSummaryListResponseDto,
   EntityOrganizationSystemSummaryListResponseDto,
   ProblemJudgeSummaryListResponseDto,
   ProblemSummaryListResponseDto,
-} from './problem';
-import { EntityOwnerSystemSummaryListResponseDto, UserOrganizationBasicInfoResponseDto } from './user';
+} from './problem.js';
+import { EntityOwnerSystemSummaryListResponseDto, UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export type UpsertContestProblemPrerequisiteDto = (Omit<ContestProblemPrerequisite, 'problemId'> & {
   problemIndex: string

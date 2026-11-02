@@ -1,4 +1,4 @@
-import { EntityAccess, EntityState, FileRole, FileType, Role } from '../types';
+import { EntityAccess, EntityState, FileRole, FileType, Role } from '../types/index.js';
 
 export const FILE_TYPE: { [key in FileType]: { value: FileType, label: string } } = {
   [FileType.FILE]: { value: FileType.FILE, label: 'file' },

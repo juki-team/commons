@@ -1,5 +1,5 @@
-import { MAX_DATE, MIN_DATE } from '../constants';
-import { ContestSettings } from '../types';
+import { MAX_DATE, MIN_DATE } from '../constants/index.js';
+import { ContestSettings } from '../types/index.js';
 
 export const isEndlessContest = (settings: Pick<ContestSettings, 'startsAt' | 'frozenAt' | 'silencedAt' | 'endsAt' | 'penalty'> | undefined) => {
   return settings?.startsAt === MIN_DATE.getTime()

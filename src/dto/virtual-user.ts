@@ -1,4 +1,4 @@
-import { Cookie, Judge, WorkingIn } from '../types';
+import { Cookie, Judge, WorkingIn } from '../types/index.js';
 
 export interface VirtualUserResponseDto {
   id: string,

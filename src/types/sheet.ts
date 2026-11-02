@@ -1,5 +1,5 @@
-import { CodeLanguage } from './commons';
-import { SubmissionRunStatus } from './judge';
+import { CodeLanguage } from './commons.js';
+import { SubmissionRunStatus } from './judge.js';
 
 export enum WorksheetType {
   JK_MD = 'JK_MD',

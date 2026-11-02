@@ -1,5 +1,5 @@
-import { EntityState, FileBasic, FileContent, FileMemberRole, SummaryFileContent, UserBasic } from '../types';
-import { DocumentMembersResponseDto, DocumentUserResponseDto } from './entity';
+import { EntityState, FileBasic, FileContent, FileMemberRole, SummaryFileContent, UserBasic } from '../types/index.js';
+import { DocumentMembersResponseDto, DocumentUserResponseDto } from './entity.js';
 
 export interface CreateFileDto extends FileBasic {
   folderId: string,

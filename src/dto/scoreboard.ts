@@ -1,5 +1,5 @@
-import { ScoreboardProblems } from '../types';
-import { UserSummaryListResponseDto } from './user';
+import { ScoreboardProblems } from '../types/index.js';
+import { UserSummaryListResponseDto } from './user.js';
 
 export interface ScoreboardResponseDto {
   user: UserSummaryListResponseDto,

@@ -1,4 +1,4 @@
-import { UserOrganizationBasicInfoResponseDto } from './user';
+import { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export type ReactionUserResponseData = {
   key: string,

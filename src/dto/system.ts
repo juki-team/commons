@@ -1,4 +1,4 @@
-import { EcsTask, EcsTaskDefinition, SqsProperties } from '../types';
+import { EcsTask, EcsTaskDefinition, SqsProperties } from '../types/index.js';
 
 export interface EcsTaskSystemSummaryListResponseDto extends EcsTask {
   // isLowRunnerOrganizationKeys: string[],

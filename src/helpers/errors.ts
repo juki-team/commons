@@ -1,5 +1,5 @@
-import { ERROR } from '../constants/services';
-import { ErrorCode } from '../types';
+import { ERROR } from '../constants/services.js';
+import { ErrorCode } from '../types/index.js';
 
 export class JkError extends Error {
   code: ErrorCode;

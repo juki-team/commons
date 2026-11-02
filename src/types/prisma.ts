@@ -1,4 +1,4 @@
-import { ProfileSetting } from './account';
+import { ProfileSetting } from './account.js';
 
 /**
  * Model Course

@@ -1,5 +1,5 @@
-import { EntityOrganizationSystemSummaryListResponseDto } from './problem';
-import { UserBasicResponseDto } from './user';
+import { EntityOrganizationSystemSummaryListResponseDto } from './problem.js';
+import { UserBasicResponseDto } from './user.js';
 
 export interface SessionBasicResponseDto {
   id: string,

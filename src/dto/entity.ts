@@ -1,5 +1,5 @@
-import { EntityAccess, EntityLogChanges, EntityMembersRank } from '../types';
-import { UserOrganizationBasicInfoResponseDto } from './user';
+import { EntityAccess, EntityLogChanges, EntityMembersRank } from '../types/index.js';
+import { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export interface EntityMembersDto {
   rankAdministrators: EntityMembersRank,

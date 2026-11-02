@@ -1,6 +1,6 @@
-import { EntityMembers } from './entity';
-import { Theme } from './prisma';
-import { BasicWorksheet, BodyWorksheet, NewPageSheet } from './sheet';
+import { EntityMembers } from './entity.js';
+import { Theme } from './prisma.js';
+import { BasicWorksheet, BodyWorksheet, NewPageSheet } from './sheet.js';
 
 export enum AspectRatio {
   RATIO_21_9 = '21:9',

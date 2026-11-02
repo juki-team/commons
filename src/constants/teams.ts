@@ -1,4 +1,4 @@
-import { MemberRole, TeamRole } from '../types';
+import { MemberRole, TeamRole } from '../types/index.js';
 
 export const MEMBER_ROLE: { [key in MemberRole]: { value: MemberRole, label: string } } = {
   [MemberRole.COACH]: { value: MemberRole.COACH, label: 'coach' },

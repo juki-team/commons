@@ -1,4 +1,4 @@
-import { JudgeBaseDocument } from '../types';
+import { JudgeBaseDocument } from '../types/index.js';
 
 export interface JudgeDataResponseDto extends Omit<JudgeBaseDocument, 'getProblemUrl' | 'getUserSubmissionsUrl' | 'getLoginUrl' | 'getSubmitUrl'> {
 }

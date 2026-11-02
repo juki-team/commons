@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import { AspectRatio, NewPageSheet, WorksheetType } from '../types';
+import { AspectRatio, NewPageSheet, WorksheetType } from '../types/index.js';
 
 export const NEW_PAGE_SHEET = (): NewPageSheet => ({
   id: v4(),

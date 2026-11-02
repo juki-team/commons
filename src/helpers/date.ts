@@ -1,4 +1,4 @@
-import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants';
+import { ONE_DAY, ONE_HOUR, ONE_MINUTE } from '../constants/index.js';
 
 export const changeYear = (date: Date, year: number): Date => {
   const newDate = new Date(date);

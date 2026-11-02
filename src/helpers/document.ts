@@ -1,11 +1,11 @@
-import { EntityMembersDto, EntityMembersResponseDto } from '../dto';
+import { EntityMembersDto, EntityMembersResponseDto } from '../dto/index.js';
 import {
   EntityAccess,
   EntityMembers,
   EntityMembersRank,
   EntityTeamsMemberUserData,
   EntityUsersMemberUserData,
-} from '../types';
+} from '../types/index.js';
 
 export const getDocumentAccess = (document: {
   members: Pick<EntityMembers, 'rankAdministrators' | 'rankManagers' | 'rankGuests' | 'rankSpectators' | 'rankParticipants'>

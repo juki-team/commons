@@ -1,5 +1,5 @@
-import { MemberRole, AssignmentType, TeamStatus, UserTeamStatus } from './prisma';
-import { UserBasic, UserProfile } from './users';
+import { MemberRole, AssignmentType, TeamStatus, UserTeamStatus } from './prisma.js';
+import { UserBasic, UserProfile } from './users.js';
 
 export interface TeamMember {
   user: UserProfile,

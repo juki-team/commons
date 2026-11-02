@@ -1,7 +1,7 @@
-import { CourseBaseDocument } from '../types';
-import { EntityMembersDto, EntityMembersResponseDto } from './entity';
-import { UserOrganizationBasicInfoResponseDto } from './user';
-import { WorksheetSummaryListResponseDto } from './worksheet';
+import { CourseBaseDocument } from '../types/index.js';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import { UserOrganizationBasicInfoResponseDto } from './user.js';
+import { WorksheetSummaryListResponseDto } from './worksheet.js';
 
 export type CourseUserResponseDto = {
   isOwner: boolean,

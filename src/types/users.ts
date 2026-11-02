@@ -1,5 +1,5 @@
-import { ProfileSetting } from './account';
-import { CourseRole, Language, SystemRole, TeamRole, Theme, UserRole } from './prisma';
+import { ProfileSetting } from './account.js';
+import { CourseRole, Language, SystemRole, TeamRole, Theme, UserRole } from './prisma.js';
 
 export interface UserBasicInfo {
   nickname: string,

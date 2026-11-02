@@ -1,5 +1,5 @@
-import { UserPermissions } from '../dto';
-import { UserRole, UserStatus } from '../types';
+import { UserPermissions } from '../dto/index.js';
+import { UserRole, UserStatus } from '../types/index.js';
 
 export const USER_STATUS: { [key in UserStatus]: { value: UserStatus, label: string } } = {
   [UserStatus.ACTIVE]: { value: UserStatus.ACTIVE, label: 'active' },

@@ -1,6 +1,6 @@
-import { MarkdownBaseDocument } from '../types';
-import { EntityMembersDto, EntityMembersResponseDto } from './entity';
-import { UserOrganizationBasicInfoResponseDto } from './user';
+import { MarkdownBaseDocument } from '../types/index.js';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export interface MarkdownResponseDto extends Omit<MarkdownBaseDocument, 'members'> {
   owner: UserOrganizationBasicInfoResponseDto;

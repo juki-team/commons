@@ -1,4 +1,4 @@
-import { CodeLanguage, Language, Theme } from '../types';
+import { CodeLanguage, Language, Theme } from '../types/index.js';
 
 export const LANGUAGE: { [key in Language]: { value: Language; label: string } } = {
   [Language.EN]: { value: Language.EN, label: 'english' },

@@ -1,5 +1,5 @@
-import { CodeLanguage } from './commons';
-import { DataLog } from './submission';
+import { CodeLanguage } from './commons.js';
+import { DataLog } from './submission.js';
 
 export type JudgeLanguage = {
   value: string,

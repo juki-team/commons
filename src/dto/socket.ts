@@ -9,9 +9,9 @@ import {
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
-} from '../types';
-import { EcsTaskDefinitionSystemSummaryListResponseDto, EcsTaskSystemSummaryListResponseDto } from './system';
-import { UserOrganizationBasicInfoResponseDto } from './user';
+} from '../types/index.js';
+import { EcsTaskDefinitionSystemSummaryListResponseDto, EcsTaskSystemSummaryListResponseDto } from './system.js';
+import { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 // EVENT SUBSCRIPTIONS
 

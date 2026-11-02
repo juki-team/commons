@@ -1,6 +1,6 @@
-import { CodeLanguage, TextLanguage } from './commons';
-import { EntityMembers } from './entity';
-import { ProblemTestCase } from './services';
+import { CodeLanguage, TextLanguage } from './commons.js';
+import { EntityMembers } from './entity.js';
+import { ProblemTestCase } from './services.js';
 
 export interface TestCase {
   id: string,

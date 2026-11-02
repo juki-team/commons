@@ -1,7 +1,7 @@
-import { CodeLanguage, EntityStatus } from './commons';
-import { EntityMembers } from './entity';
-import { Judge } from './judge';
-import { UserBasicInfo } from './users';
+import { CodeLanguage, EntityStatus } from './commons.js';
+import { EntityMembers } from './entity.js';
+import { Judge } from './judge.js';
+import { UserBasicInfo } from './users.js';
 
 export enum ContestStatus {
   PUBLIC = EntityStatus.PUBLIC,

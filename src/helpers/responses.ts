@@ -1,7 +1,7 @@
-import { ERROR } from '../constants';
-import { JkError } from './errors';
-import { ContentResponse, ContentsMeta, ContentsResponse, ErrorCode, ErrorResponse } from '../types';
-import { consoleError, isStringJson } from './commons';
+import { ERROR } from '../constants/index.js';
+import { JkError } from './errors.js';
+import { ContentResponse, ContentsMeta, ContentsResponse, ErrorCode, ErrorResponse } from '../types/index.js';
+import { consoleError, isStringJson } from './commons.js';
 
 export function toJkError(err: any): JkError {
   const error = new Error();

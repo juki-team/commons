@@ -1,6 +1,6 @@
-import { OrganizationPlan, ResourceInstance, ResourceLogger, Theme } from '../types';
-import { EmailDataResponseDto } from './system';
-import { UserOrganizationBasicInfoResponseDto, UserPermissions } from './user';
+import { OrganizationPlan, ResourceInstance, ResourceLogger, Theme } from '../types/index.js';
+import { EmailDataResponseDto } from './system.js';
+import { UserOrganizationBasicInfoResponseDto, UserPermissions } from './user.js';
 
 export interface OrganizationJudgeResponseDto {
   key: string,

@@ -11,9 +11,9 @@ import {
   UserRole,
   UserSettings,
   UserStatus,
-} from '../types';
-import { OrganizationStyles } from './organization';
-import { EntityOrganizationSummaryListResponseDto, EntityOrganizationSystemSummaryListResponseDto } from './problem';
+} from '../types/index.js';
+import { OrganizationStyles } from './organization.js';
+import { EntityOrganizationSummaryListResponseDto, EntityOrganizationSystemSummaryListResponseDto } from './problem.js';
 
 export interface EntityOwnerSystemSummaryListResponseDto {
   id: string,

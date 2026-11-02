@@ -1,4 +1,4 @@
-import { EntityMembers, EntityState } from './entity';
+import { EntityMembers, EntityState } from './entity.js';
 
 export enum GroupType {
   CLASS = 'CLASS',

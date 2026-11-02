@@ -1,4 +1,4 @@
-import { CodeEditorFiles, CodeLanguage, EntityMembers } from '../types';
+import { CodeEditorFiles, CodeLanguage, EntityMembers } from '../types/index.js';
 
 export interface MarkdownBaseDocument {
   key: string;

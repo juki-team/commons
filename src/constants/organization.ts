@@ -1,4 +1,4 @@
-import { OrganizationPlan } from '../types/organization';
+import { OrganizationPlan } from '../types/organization.js';
 
 export const JUKI_APP_ORGANIZATION_KEY = 'juki-app';
 

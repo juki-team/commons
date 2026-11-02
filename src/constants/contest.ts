@@ -1,4 +1,4 @@
-import { ContestRole, ContestStatus, Role } from '../types';
+import { ContestRole, ContestStatus, Role } from '../types/index.js';
 
 export const CONTEST_STATUS: {
   [key in ContestStatus]: {

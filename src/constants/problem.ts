@@ -1,4 +1,4 @@
-import { ProblemInput, ProblemOutput, ProblemRole, ProblemScoringMode, ProblemType, Role } from '../types';
+import { ProblemInput, ProblemOutput, ProblemRole, ProblemScoringMode, ProblemType, Role } from '../types/index.js';
 
 export const PROBLEM_INPUT: { [key in ProblemInput]: { value: ProblemInput, label: string } } = {
   [ProblemInput.STANDARD]: { value: ProblemInput.STANDARD, label: 'standard' },

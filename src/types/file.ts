@@ -1,5 +1,5 @@
-import { CollectionKey, EntityState } from './entity';
-import { Role } from './users';
+import { CollectionKey, EntityState } from './entity.js';
+import { Role } from './users.js';
 
 export type FileRole =
   Role.RESTRICTED

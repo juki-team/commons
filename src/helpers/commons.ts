@@ -1,5 +1,5 @@
-import { SEPARATOR_TOKEN, UPPERCASE_LETTERS } from '../constants/commons';
-import { Judge } from '../types';
+import { SEPARATOR_TOKEN, UPPERCASE_LETTERS } from '../constants/commons.js';
+import { Judge } from '../types/index.js';
 
 export function isStringJson(str: any): str is string {
   try {

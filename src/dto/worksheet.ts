@@ -1,6 +1,6 @@
-import { BodyWorksheet, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types';
-import { EntityMembersDto, EntityMembersResponseDto } from './entity';
-import { UserOrganizationBasicInfoResponseDto } from './user';
+import { BodyWorksheet, SummaryWorksheetsInPages, WorksheetBaseDocument } from '../types/index.js';
+import { EntityMembersDto, EntityMembersResponseDto } from './entity.js';
+import { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 export interface WorksheetUserResponseDto {
   isOwner: boolean,

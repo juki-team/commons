@@ -5,7 +5,7 @@ import {
   SubmissionRunStatus,
   SubmissionTestCase,
   TestCaseVerdict,
-} from '../types';
+} from '../types/index.js';
 
 export const getDataOfTestCase = (testCase: SubmissionTestCase, timeLimit: number, memoryLimit: number) => {
   

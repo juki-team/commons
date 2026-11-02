@@ -1,4 +1,4 @@
-import { ContestChannelRole, ProblemChannelRole, UserChannelRole } from '../types';
+import { ContestChannelRole, ProblemChannelRole, UserChannelRole } from '../types/index.js';
 
 // TOPIC channels
 // The backend publishes each event once on the channel of its topic and Ably does the fan-out.
