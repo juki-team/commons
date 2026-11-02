@@ -193,7 +193,7 @@ importers:
     dependencies:
       uuid:
         specifier: ^13.0.0 || ^14.0.0
-        version: 13.0.0
+        version: 14.0.3
     devDependencies:
       prettier:
         specifier: ^3.8.1
@@ -285,8 +285,8 @@ packages:
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
 
-  uuid@13.0.0:
-    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
+  uuid@14.0.3:
+    resolution: {integrity: sha512-Sc5u1VVln93y1Xnz4R+CunOZc7R9LUcTmhj7Rc7Eg3HVcf7rVn2FOoa812fe0W8p3jD7xeoGSYbfqCGGH2B6xw==}
     hasBin: true
 
   yaml@2.8.2:
@@ -378,6 +378,6 @@ snapshots:
 
   uc.micro@2.1.0: {}
 
-  uuid@13.0.0: {}
+  uuid@14.0.3: {}
 
   yaml@2.8.2: {}
