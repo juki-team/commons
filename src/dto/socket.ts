@@ -96,7 +96,7 @@ export interface UnsubscribeUserNotificationWebSocketEventDto extends WebsocketS
  * Scope of a submissions table: the judging start/end of the submissions of one problem, one contest or one user.
  * Exactly one of the keys is set.
  */
-export type SubmissionsJudgingScope = { problemKey: string } | { contestKey: string } | { userId: string };
+export type SubmissionsJudgingScope = { problemKey: string } | { contestKey: string } | { userKey: string };
 
 export type SubscribeSubmissionsJudgingWebSocketEventDto = WebsocketSubscription & {
   event: WebSocketSubscriptionEvent.SUBSCRIBE_SUBMISSIONS_JUDGING,
@@ -163,7 +163,7 @@ export interface SubmissionJudgingWebSocketResponseEventDto extends WebSocketRes
   submitId: string,
   problemKey: string,
   contestKey: string | null,
-  userId: string,
+  userKey: string,
   judging: boolean,
   status: SubmissionRunStatus,
   verdict: ProblemVerdict,

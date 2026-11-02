@@ -140,10 +140,10 @@ export const isUnsubscribeUserNotificationWebSocketEventDto = (event: any): even
 const isNonEmptyString = (value: unknown): value is string => typeof value === 'string' && !!value;
 
 /**
- * Exactly one of `problemKey` / `contestKey` / `userId` is set.
+ * Exactly one of `problemKey` / `contestKey` / `userKey` is set.
  */
 export const isSubmissionsJudgingScope = (scope: any): scope is SubmissionsJudgingScope => {
-  return [scope?.problemKey, scope?.contestKey, scope?.userId].filter(isNonEmptyString).length === 1;
+  return [scope?.problemKey, scope?.contestKey, scope?.userKey].filter(isNonEmptyString).length === 1;
 };
 
 export const isSubscribeSubmissionsJudgingWebSocketEventDto = (event: any): event is SubscribeSubmissionsJudgingWebSocketEventDto => {
@@ -189,7 +189,7 @@ export const isSubmissionJudgingWebSocketResponseEventDto = (event: any): event 
     && isNonEmptyString(event?.submitId)
     && isNonEmptyString(event?.problemKey)
     && (event?.contestKey === null || isNonEmptyString(event?.contestKey))
-    && isNonEmptyString(event?.userId)
+    && isNonEmptyString(event?.userKey)
     && typeof event?.judging === 'boolean'
     && event?.status in SubmissionRunStatus
     && event?.verdict in ProblemVerdict
@@ -351,8 +351,8 @@ export const getChannelOfWebSocketSubscribeEvent = (event: WebSocketSubscribeEve
     if ('contestKey' in event && event.contestKey) {
       return CHANNEL_CONTEST(event.contestKey, ContestChannelRole.SPECTATORS);
     }
-    if ('userId' in event && event.userId) {
-      return CHANNEL_USER_ROLE(event.userId, UserChannelRole.SPECTATORS);
+    if ('userKey' in event && event.userKey) {
+      return CHANNEL_USER_ROLE(event.userKey, UserChannelRole.SPECTATORS);
     }
   }
   return null;

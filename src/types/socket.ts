@@ -78,7 +78,8 @@ export enum ProblemChannelRole {
 }
 
 /**
- * Roles of the public channels of a user: `user:{userId}:{role}` (see `CHANNEL_USER_ROLE`).
+ * Roles of the public channels of a user: `user:{userKey}:{role}` (see `CHANNEL_USER_ROLE`), by its public key
+ * (`getUserKey(nickname, organizationKey)`) like problems and contests.
  * There are no per-user permissions: `spectators` is everyone who can list the submissions of the user.
  * The private channel of the user is `user:{userId}` (see `CHANNEL_USER`).
  */

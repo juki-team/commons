@@ -13,8 +13,12 @@ export const CHANNEL_SESSION = (sessionId: string) => `session:${segment(session
 /** private: events of one user (own submissions while the contest is frozen, notifications, own problem crawls) */
 export const CHANNEL_USER = (userId: string) => `user:${segment(userId)}`;
 
-/** per role: public events of one user (judging of its submissions visible to everyone, see `UserChannelRole`) */
-export const CHANNEL_USER_ROLE = (userId: string, role: UserChannelRole) => `user:${segment(userId)}:${role}`;
+/**
+ * per role: public events of one user (judging of its submissions visible to everyone, see `UserChannelRole`).
+ * By its public key (`getUserKey(nickname, organizationKey)`), the one the clients know; the private channel
+ * (`CHANNEL_USER`) is by id. They never collide: the role channel has one more segment.
+ */
+export const CHANNEL_USER_ROLE = (userKey: string, role: UserChannelRole) => `user:${segment(userKey)}:${role}`;
 
 /** public: status of a submission when it is visible to everyone */
 export const CHANNEL_SUBMISSION = (submitId: string) => `submission:${segment(submitId)}`;
@@ -36,7 +40,7 @@ export const CHANNEL_ORGANIZATION_PRESENCE = (organizationKey: string) => `prese
 
 // capability resources (wildcards) of the public channels.
 // Ably: a trailing `*` replaces one or more segments, any other `*` exactly one segment. So `user:*:spectators`
-// matches every `user:{userId}:spectators` but never the private `user:{userId}`.
+// matches every `user:{userKey}:spectators` but never the private `user:{userId}`.
 // There is no public `problem:*`: it would also match the role channels `problem:{problemKey}:{role}`.
 export const CHANNEL_SUBMISSION_ALL = 'submission:*';
 export const CHANNEL_USER_SPECTATORS_ALL = `user:*:${UserChannelRole.SPECTATORS}`;
