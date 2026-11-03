@@ -1,6 +1,6 @@
 {
   "name": "@juki-team/commons",
-  "version": "0.1.49",
+  "version": "0.1.50",
   "packageManager": "pnpm@12.16.1",
   "author": "juki-team",
   "license": "MIT",
