@@ -2,11 +2,7 @@ import {
   CodeRunStatusWebSocketResponseEventDto,
   ContestChangesWebSocketResponseEventDto,
   ProblemCrawledWebSocketResponseEventDto,
-  SendDataEc2InstancesListWebSocketResponseEventDto,
-  SendDataEcsTaskDefinitionListWebSocketResponseEventDto,
-  SendDataEcsTasksListWebSocketResponseEventDto,
   SendDataRunCommandWebSocketResponseEventDto,
-  SendDataSsmSessionsListWebSocketResponseEventDto,
   SendDataWebSocketResponseEventDto,
   SubmissionJudgingWebSocketResponseEventDto,
   SubmissionRunStatusWebSocketResponseEventDto,
@@ -207,34 +203,10 @@ export const isUserMessageWebSocketResponseEventDto = (event: any): event is Use
 
 export const isSendDataWebSocketResponseEventDto = (event: any): event is SendDataWebSocketResponseEventDto => {
   return [
-      WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
-      WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
-      WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
-      WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
       WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
     ].includes(event?.event)
     && typeof event?.dataId === 'string' && !!event.dataId
     && !!event?.content;
-};
-
-export const isSendDataEcsTaskDefinitionListWebSocketResponseEventDto = (event: any): event is SendDataEcsTaskDefinitionListWebSocketResponseEventDto => {
-  return isWebSocketResponseEventDto(event) && isSendDataWebSocketResponseEventDto(event)
-    && event?.event === WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST;
-};
-
-export const isSendDataEc2InstancesListWebSocketResponseEventDto = (event: any): event is SendDataEc2InstancesListWebSocketResponseEventDto => {
-  return isWebSocketResponseEventDto(event) && isSendDataWebSocketResponseEventDto(event)
-    && event?.event === WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST;
-};
-
-export const isSendDataEcsTasksListWebSocketResponseEventDto = (event: any): event is SendDataEcsTasksListWebSocketResponseEventDto => {
-  return isWebSocketResponseEventDto(event) && isSendDataWebSocketResponseEventDto(event)
-    && event?.event === WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST;
-};
-
-export const isSendDataSsmSessionsListWebSocketResponseEventDto = (event: any): event is SendDataSsmSessionsListWebSocketResponseEventDto => {
-  return isWebSocketResponseEventDto(event) && isSendDataWebSocketResponseEventDto(event)
-    && event?.event === WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST;
 };
 
 export const isSendDataRunCommandWebSocketResponseEventDto = (event: any): event is SendDataRunCommandWebSocketResponseEventDto => {

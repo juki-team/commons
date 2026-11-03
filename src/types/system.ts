@@ -60,13 +60,3 @@ export type SqsProperties = {
   FifoThroughputLimit: string,
   ContentBasedDeduplication: string,
 }
-
-export type SsmSession = {
-  sessionId: string,
-  target: string,
-  status: 'Connected' | 'Connecting' | 'Disconnected' | 'Failed' | 'Terminating' | 'Terminated' | undefined,
-  startsAt: number,
-  owner: string,
-  maxSessionDuration: number,
-  raw: any,
-}

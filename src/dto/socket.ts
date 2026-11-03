@@ -1,16 +1,13 @@
 import {
   ClientId,
-  Ec2Instance,
   InfoLogCaseStatus,
   ProblemVerdict,
-  SsmSession,
   SubmissionRunStatus,
   TestInfo,
   WebSocketResponseEvent,
   WebSocketResponseEventKey,
   WebSocketSubscriptionEvent,
 } from '../types/index.js';
-import { EcsTaskDefinitionSystemSummaryListResponseDto, EcsTaskSystemSummaryListResponseDto } from './system.js';
 import { UserOrganizationBasicInfoResponseDto } from './user.js';
 
 // EVENT SUBSCRIPTIONS
@@ -187,26 +184,6 @@ export interface SendDataWebSocketResponseEventDto extends WebSocketResponse {
   content: any,
 }
 
-export interface SendDataEcsTaskDefinitionListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
-  event: WebSocketResponseEvent.SEND_DATA_ECS_TASK_DEFINITIONS_LIST,
-  content: EcsTaskDefinitionSystemSummaryListResponseDto[],
-}
-
-export interface SendDataEcsTasksListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
-  event: WebSocketResponseEvent.SEND_DATA_ECS_TASKS_LIST,
-  content: EcsTaskSystemSummaryListResponseDto[],
-}
-
-export interface SendDataEc2InstancesListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
-  event: WebSocketResponseEvent.SEND_DATA_EC2_INSTANCES_LIST,
-  content: Ec2Instance[],
-}
-
-export interface SendDataSsmSessionsListWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
-  event: WebSocketResponseEvent.SEND_DATA_SSM_SESSIONS_LIST,
-  content: SsmSession[],
-}
-
 export interface SendDataRunCommandWebSocketResponseEventDto extends SendDataWebSocketResponseEventDto {
   event: WebSocketResponseEvent.SEND_DATA_RUN_COMMAND,
   content: {
@@ -275,10 +252,6 @@ export type WebSocketResponseEventDto =
   CodeRunStatusWebSocketResponseEventDto
   | SubmissionRunStatusWebSocketResponseEventDto
   | UserMessageWebSocketResponseEventDto
-  | SendDataEcsTaskDefinitionListWebSocketResponseEventDto
-  | SendDataEcsTasksListWebSocketResponseEventDto
-  | SendDataEc2InstancesListWebSocketResponseEventDto
-  | SendDataSsmSessionsListWebSocketResponseEventDto
   | ProblemCrawledWebSocketResponseEventDto
   | SubmissionsCrawlWebSocketResponseEventDto
   | ContestChangesWebSocketResponseEventDto
